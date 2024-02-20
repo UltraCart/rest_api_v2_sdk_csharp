@@ -37,14 +37,22 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="conversationParticipantName">conversationParticipantName.</param>
         /// <param name="jwt">jwt.</param>
         /// <param name="merchantId">merchantId.</param>
+        /// <param name="pbxJwt">pbxJwt.</param>
+        /// <param name="pbxVoiceIdentity">pbxVoiceIdentity.</param>
+        /// <param name="pbxVoiceToken">pbxVoiceToken.</param>
+        /// <param name="pbxWorkerToken">pbxWorkerToken.</param>
         /// <param name="twilioAccounts">twilioAccounts.</param>
         /// <param name="websocketUrl">websocketUrl.</param>
-        public ConversationAgentAuth(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string jwt = default(string), string merchantId = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), string websocketUrl = default(string))
+        public ConversationAgentAuth(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string jwt = default(string), string merchantId = default(string), string pbxJwt = default(string), string pbxVoiceIdentity = default(string), string pbxVoiceToken = default(string), string pbxWorkerToken = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), string websocketUrl = default(string))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
             this.Jwt = jwt;
             this.MerchantId = merchantId;
+            this.PbxJwt = pbxJwt;
+            this.PbxVoiceIdentity = pbxVoiceIdentity;
+            this.PbxVoiceToken = pbxVoiceToken;
+            this.PbxWorkerToken = pbxWorkerToken;
             this.TwilioAccounts = twilioAccounts;
             this.WebsocketUrl = websocketUrl;
         }
@@ -74,6 +82,30 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantId { get; set; }
 
         /// <summary>
+        /// Gets or Sets PbxJwt
+        /// </summary>
+        [DataMember(Name="pbx_jwt", EmitDefaultValue=false)]
+        public string PbxJwt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PbxVoiceIdentity
+        /// </summary>
+        [DataMember(Name="pbx_voice_identity", EmitDefaultValue=false)]
+        public string PbxVoiceIdentity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PbxVoiceToken
+        /// </summary>
+        [DataMember(Name="pbx_voice_token", EmitDefaultValue=false)]
+        public string PbxVoiceToken { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PbxWorkerToken
+        /// </summary>
+        [DataMember(Name="pbx_worker_token", EmitDefaultValue=false)]
+        public string PbxWorkerToken { get; set; }
+
+        /// <summary>
         /// Gets or Sets TwilioAccounts
         /// </summary>
         [DataMember(Name="twilio_accounts", EmitDefaultValue=false)]
@@ -97,6 +129,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ConversationParticipantName: ").Append(ConversationParticipantName).Append("\n");
             sb.Append("  Jwt: ").Append(Jwt).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  PbxJwt: ").Append(PbxJwt).Append("\n");
+            sb.Append("  PbxVoiceIdentity: ").Append(PbxVoiceIdentity).Append("\n");
+            sb.Append("  PbxVoiceToken: ").Append(PbxVoiceToken).Append("\n");
+            sb.Append("  PbxWorkerToken: ").Append(PbxWorkerToken).Append("\n");
             sb.Append("  TwilioAccounts: ").Append(TwilioAccounts).Append("\n");
             sb.Append("  WebsocketUrl: ").Append(WebsocketUrl).Append("\n");
             sb.Append("}\n");
@@ -154,6 +190,26 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
+                    this.PbxJwt == input.PbxJwt ||
+                    (this.PbxJwt != null &&
+                    this.PbxJwt.Equals(input.PbxJwt))
+                ) && 
+                (
+                    this.PbxVoiceIdentity == input.PbxVoiceIdentity ||
+                    (this.PbxVoiceIdentity != null &&
+                    this.PbxVoiceIdentity.Equals(input.PbxVoiceIdentity))
+                ) && 
+                (
+                    this.PbxVoiceToken == input.PbxVoiceToken ||
+                    (this.PbxVoiceToken != null &&
+                    this.PbxVoiceToken.Equals(input.PbxVoiceToken))
+                ) && 
+                (
+                    this.PbxWorkerToken == input.PbxWorkerToken ||
+                    (this.PbxWorkerToken != null &&
+                    this.PbxWorkerToken.Equals(input.PbxWorkerToken))
+                ) && 
+                (
                     this.TwilioAccounts == input.TwilioAccounts ||
                     this.TwilioAccounts != null &&
                     this.TwilioAccounts.SequenceEqual(input.TwilioAccounts)
@@ -182,6 +238,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Jwt.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.PbxJwt != null)
+                    hashCode = hashCode * 59 + this.PbxJwt.GetHashCode();
+                if (this.PbxVoiceIdentity != null)
+                    hashCode = hashCode * 59 + this.PbxVoiceIdentity.GetHashCode();
+                if (this.PbxVoiceToken != null)
+                    hashCode = hashCode * 59 + this.PbxVoiceToken.GetHashCode();
+                if (this.PbxWorkerToken != null)
+                    hashCode = hashCode * 59 + this.PbxWorkerToken.GetHashCode();
                 if (this.TwilioAccounts != null)
                     hashCode = hashCode * 59 + this.TwilioAccounts.GetHashCode();
                 if (this.WebsocketUrl != null)

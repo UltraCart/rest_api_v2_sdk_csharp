@@ -35,12 +35,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
         /// <param name="discountAmount">The amount of shipping discount.</param>
+        /// <param name="itemTags">An optional list of item tags which will receive a discount..</param>
         /// <param name="items">A list of items which are eligible for the discount amount..</param>
         /// <param name="limit">The limit of items which are eligible for the discount amount..</param>
-        public CouponAmountOffItems(string currencyCode = default(string), decimal? discountAmount = default(decimal?), List<string> items = default(List<string>), int? limit = default(int?))
+        public CouponAmountOffItems(string currencyCode = default(string), decimal? discountAmount = default(decimal?), List<string> itemTags = default(List<string>), List<string> items = default(List<string>), int? limit = default(int?))
         {
             this.CurrencyCode = currencyCode;
             this.DiscountAmount = discountAmount;
+            this.ItemTags = itemTags;
             this.Items = items;
             this.Limit = limit;
         }
@@ -58,6 +60,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The amount of shipping discount</value>
         [DataMember(Name="discount_amount", EmitDefaultValue=false)]
         public decimal? DiscountAmount { get; set; }
+
+        /// <summary>
+        /// An optional list of item tags which will receive a discount.
+        /// </summary>
+        /// <value>An optional list of item tags which will receive a discount.</value>
+        [DataMember(Name="item_tags", EmitDefaultValue=false)]
+        public List<string> ItemTags { get; set; }
 
         /// <summary>
         /// A list of items which are eligible for the discount amount.
@@ -83,6 +92,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class CouponAmountOffItems {\n");
             sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
             sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
+            sb.Append("  ItemTags: ").Append(ItemTags).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("}\n");
@@ -130,6 +140,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DiscountAmount.Equals(input.DiscountAmount))
                 ) && 
                 (
+                    this.ItemTags == input.ItemTags ||
+                    this.ItemTags != null &&
+                    this.ItemTags.SequenceEqual(input.ItemTags)
+                ) && 
+                (
                     this.Items == input.Items ||
                     this.Items != null &&
                     this.Items.SequenceEqual(input.Items)
@@ -154,6 +169,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CurrencyCode.GetHashCode();
                 if (this.DiscountAmount != null)
                     hashCode = hashCode * 59 + this.DiscountAmount.GetHashCode();
+                if (this.ItemTags != null)
+                    hashCode = hashCode * 59 + this.ItemTags.GetHashCode();
                 if (this.Items != null)
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.Limit != null)

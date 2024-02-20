@@ -33,13 +33,22 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponBuyOneGetOneLimit" /> class.
         /// </summary>
+        /// <param name="itemTags">An optional list of item tags which will receive a discount..</param>
         /// <param name="items">An optional list of items of which one must be purchased to receive free quantity of the same item..</param>
         /// <param name="limit">The limit of free items that may be received when purchasing multiple items.</param>
-        public CouponBuyOneGetOneLimit(List<string> items = default(List<string>), int limit = default(int))
+        public CouponBuyOneGetOneLimit(List<string> itemTags = default(List<string>), List<string> items = default(List<string>), int limit = default(int))
         {
+            this.ItemTags = itemTags;
             this.Items = items;
             this.Limit = limit;
         }
+
+        /// <summary>
+        /// An optional list of item tags which will receive a discount.
+        /// </summary>
+        /// <value>An optional list of item tags which will receive a discount.</value>
+        [DataMember(Name="item_tags", EmitDefaultValue=false)]
+        public List<string> ItemTags { get; set; }
 
         /// <summary>
         /// An optional list of items of which one must be purchased to receive free quantity of the same item.
@@ -63,6 +72,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CouponBuyOneGetOneLimit {\n");
+            sb.Append("  ItemTags: ").Append(ItemTags).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("}\n");
@@ -100,6 +110,12 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.ItemTags == input.ItemTags ||
+                    this.ItemTags != null &&
+                    input.ItemTags != null &&
+                    this.ItemTags.SequenceEqual(input.ItemTags)
+                ) && 
+                (
                     this.Items == input.Items ||
                     this.Items != null &&
                     input.Items != null &&
@@ -121,6 +137,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ItemTags != null)
+                    hashCode = hashCode * 59 + this.ItemTags.GetHashCode();
                 if (this.Items != null)
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.Limit != null)

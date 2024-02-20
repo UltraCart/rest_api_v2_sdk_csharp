@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ItemTags** | **List&lt;string&gt;** | An optional list of item tags which will receive a discount. | [optional] 
 **Items** | **List&lt;string&gt;** | An optional list of items of which one must be purchased to receive free quantity of the same item. | [optional] 
 **Limit** | **int** | The limit of free items that may be received when purchasing multiple items | [optional] 
 

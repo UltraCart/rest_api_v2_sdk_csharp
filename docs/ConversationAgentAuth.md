@@ -9,6 +9,10 @@ Name | Type | Description | Notes
 **ConversationParticipantName** | **string** |  | [optional] 
 **Jwt** | **string** |  | [optional] 
 **MerchantId** | **string** |  | [optional] 
+**PbxJwt** | **string** |  | [optional] 
+**PbxVoiceIdentity** | **string** |  | [optional] 
+**PbxVoiceToken** | **string** |  | [optional] 
+**PbxWorkerToken** | **string** |  | [optional] 
 **TwilioAccounts** | [**List&lt;ConversationTwilioAccount&gt;**](ConversationTwilioAccount.md) |  | [optional] 
 **WebsocketUrl** | **string** |  | [optional] 
 

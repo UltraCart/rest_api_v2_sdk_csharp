@@ -35,16 +35,20 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
         /// <param name="discountItem">The item that will be sold at the discount_price when required_purchase_item is purchased..</param>
+        /// <param name="discountItemTags">An optional list of item tags which will receive a discount of one of the required purchased items is purchased..</param>
         /// <param name="discountPrice">The price (unit cost) of the discounted item.</param>
         /// <param name="limit">The (optional) maximum quantity of discounted items..</param>
         /// <param name="requiredPurchaseItem">The item that must be purchased for the discount to be applied to the discount item..</param>
-        public CouponDiscountItemWithItemPurchase(string currencyCode = default(string), string discountItem = default(string), decimal discountPrice = default(decimal), int limit = default(int), string requiredPurchaseItem = default(string))
+        /// <param name="requiredPurchaseItemsTags">An optional list of item tags which are required to be purchased..</param>
+        public CouponDiscountItemWithItemPurchase(string currencyCode = default(string), string discountItem = default(string), List<string> discountItemTags = default(List<string>), decimal discountPrice = default(decimal), int limit = default(int), string requiredPurchaseItem = default(string), List<string> requiredPurchaseItemsTags = default(List<string>))
         {
             this.CurrencyCode = currencyCode;
             this.DiscountItem = discountItem;
+            this.DiscountItemTags = discountItemTags;
             this.DiscountPrice = discountPrice;
             this.Limit = limit;
             this.RequiredPurchaseItem = requiredPurchaseItem;
+            this.RequiredPurchaseItemsTags = requiredPurchaseItemsTags;
         }
 
         /// <summary>
@@ -60,6 +64,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The item that will be sold at the discount_price when required_purchase_item is purchased.</value>
         [DataMember(Name="discount_item", EmitDefaultValue=false)]
         public string DiscountItem { get; set; }
+
+        /// <summary>
+        /// An optional list of item tags which will receive a discount of one of the required purchased items is purchased.
+        /// </summary>
+        /// <value>An optional list of item tags which will receive a discount of one of the required purchased items is purchased.</value>
+        [DataMember(Name="discount_item_tags", EmitDefaultValue=false)]
+        public List<string> DiscountItemTags { get; set; }
 
         /// <summary>
         /// The price (unit cost) of the discounted item
@@ -83,6 +94,13 @@ namespace com.ultracart.admin.v2.Model
         public string RequiredPurchaseItem { get; set; }
 
         /// <summary>
+        /// An optional list of item tags which are required to be purchased.
+        /// </summary>
+        /// <value>An optional list of item tags which are required to be purchased.</value>
+        [DataMember(Name="required_purchase_items_tags", EmitDefaultValue=false)]
+        public List<string> RequiredPurchaseItemsTags { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,9 +110,11 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class CouponDiscountItemWithItemPurchase {\n");
             sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
             sb.Append("  DiscountItem: ").Append(DiscountItem).Append("\n");
+            sb.Append("  DiscountItemTags: ").Append(DiscountItemTags).Append("\n");
             sb.Append("  DiscountPrice: ").Append(DiscountPrice).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  RequiredPurchaseItem: ").Append(RequiredPurchaseItem).Append("\n");
+            sb.Append("  RequiredPurchaseItemsTags: ").Append(RequiredPurchaseItemsTags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +160,12 @@ namespace com.ultracart.admin.v2.Model
                     this.DiscountItem.Equals(input.DiscountItem))
                 ) && 
                 (
+                    this.DiscountItemTags == input.DiscountItemTags ||
+                    this.DiscountItemTags != null &&
+                    input.DiscountItemTags != null &&
+                    this.DiscountItemTags.SequenceEqual(input.DiscountItemTags)
+                ) && 
+                (
                     this.DiscountPrice == input.DiscountPrice ||
                     (this.DiscountPrice != null &&
                     this.DiscountPrice.Equals(input.DiscountPrice))
@@ -153,6 +179,12 @@ namespace com.ultracart.admin.v2.Model
                     this.RequiredPurchaseItem == input.RequiredPurchaseItem ||
                     (this.RequiredPurchaseItem != null &&
                     this.RequiredPurchaseItem.Equals(input.RequiredPurchaseItem))
+                ) && 
+                (
+                    this.RequiredPurchaseItemsTags == input.RequiredPurchaseItemsTags ||
+                    this.RequiredPurchaseItemsTags != null &&
+                    input.RequiredPurchaseItemsTags != null &&
+                    this.RequiredPurchaseItemsTags.SequenceEqual(input.RequiredPurchaseItemsTags)
                 );
         }
 
@@ -169,12 +201,16 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CurrencyCode.GetHashCode();
                 if (this.DiscountItem != null)
                     hashCode = hashCode * 59 + this.DiscountItem.GetHashCode();
+                if (this.DiscountItemTags != null)
+                    hashCode = hashCode * 59 + this.DiscountItemTags.GetHashCode();
                 if (this.DiscountPrice != null)
                     hashCode = hashCode * 59 + this.DiscountPrice.GetHashCode();
                 if (this.Limit != null)
                     hashCode = hashCode * 59 + this.Limit.GetHashCode();
                 if (this.RequiredPurchaseItem != null)
                     hashCode = hashCode * 59 + this.RequiredPurchaseItem.GetHashCode();
+                if (this.RequiredPurchaseItemsTags != null)
+                    hashCode = hashCode * 59 + this.RequiredPurchaseItemsTags.GetHashCode();
                 return hashCode;
             }
         }

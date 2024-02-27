@@ -1002,6 +1002,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailPostcardTrackingResponse</returns>
         ApiResponse<EmailPostcardTrackingResponse> GetEmailCommseqPostcardTrackingWithHttpInfo (int? storefrontOid, string commseqPostcardUuid);
         /// <summary>
+        /// Get email communication sequence sms stats
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="statsRequest">StatsRequest</param>
+        /// <returns>EmailStatSmsSummaryResponse</returns>
+        EmailStatSmsSummaryResponse GetEmailCommseqSmsStats (int? storefrontOid, string commseqUuid, EmailStatSmsSummaryRequest statsRequest);
+
+        /// <summary>
+        /// Get email communication sequence sms stats
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="statsRequest">StatsRequest</param>
+        /// <returns>ApiResponse of EmailStatSmsSummaryResponse</returns>
+        ApiResponse<EmailStatSmsSummaryResponse> GetEmailCommseqSmsStatsWithHttpInfo (int? storefrontOid, string commseqUuid, EmailStatSmsSummaryRequest statsRequest);
+        /// <summary>
         /// Get communication sequence stats overall
         /// </summary>
         /// <remarks>
@@ -1946,6 +1971,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <returns>ApiResponse of EmailSettingsResponse</returns>
         ApiResponse<EmailSettingsResponse> GetEmailSettingsWithHttpInfo (int? storefrontOid);
+        /// <summary>
+        /// Get email sms orders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="days"> (optional)</param>
+        /// <returns>EmailSmsOrdersResponse</returns>
+        EmailSmsOrdersResponse GetEmailSmsOrders (int? storefrontOid, string commseqUuid, string commseqStepUuid, int? days = null);
+
+        /// <summary>
+        /// Get email sms orders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="days"> (optional)</param>
+        /// <returns>ApiResponse of EmailSmsOrdersResponse</returns>
+        ApiResponse<EmailSmsOrdersResponse> GetEmailSmsOrdersWithHttpInfo (int? storefrontOid, string commseqUuid, string commseqStepUuid, int? days = null);
         /// <summary>
         /// Get email template
         /// </summary>
@@ -5012,6 +5064,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (EmailPostcardTrackingResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailPostcardTrackingResponse>> GetEmailCommseqPostcardTrackingAsyncWithHttpInfo (int? storefrontOid, string commseqPostcardUuid);
         /// <summary>
+        /// Get email communication sequence sms stats
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="statsRequest">StatsRequest</param>
+        /// <returns>Task of EmailStatSmsSummaryResponse</returns>
+        System.Threading.Tasks.Task<EmailStatSmsSummaryResponse> GetEmailCommseqSmsStatsAsync (int? storefrontOid, string commseqUuid, EmailStatSmsSummaryRequest statsRequest);
+
+        /// <summary>
+        /// Get email communication sequence sms stats
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="statsRequest">StatsRequest</param>
+        /// <returns>Task of ApiResponse (EmailStatSmsSummaryResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailStatSmsSummaryResponse>> GetEmailCommseqSmsStatsAsyncWithHttpInfo (int? storefrontOid, string commseqUuid, EmailStatSmsSummaryRequest statsRequest);
+        /// <summary>
         /// Get communication sequence stats overall
         /// </summary>
         /// <remarks>
@@ -5956,6 +6033,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <returns>Task of ApiResponse (EmailSettingsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailSettingsResponse>> GetEmailSettingsAsyncWithHttpInfo (int? storefrontOid);
+        /// <summary>
+        /// Get email sms orders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="days"> (optional)</param>
+        /// <returns>Task of EmailSmsOrdersResponse</returns>
+        System.Threading.Tasks.Task<EmailSmsOrdersResponse> GetEmailSmsOrdersAsync (int? storefrontOid, string commseqUuid, string commseqStepUuid, int? days = null);
+
+        /// <summary>
+        /// Get email sms orders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="days"> (optional)</param>
+        /// <returns>Task of ApiResponse (EmailSmsOrdersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailSmsOrdersResponse>> GetEmailSmsOrdersAsyncWithHttpInfo (int? storefrontOid, string commseqUuid, string commseqStepUuid, int? days = null);
         /// <summary>
         /// Get email template
         /// </summary>
@@ -15831,6 +15935,211 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get email communication sequence sms stats 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="statsRequest">StatsRequest</param>
+        /// <returns>EmailStatSmsSummaryResponse</returns>
+        public EmailStatSmsSummaryResponse GetEmailCommseqSmsStats (int? storefrontOid, string commseqUuid, EmailStatSmsSummaryRequest statsRequest)
+        {
+             ApiResponse<EmailStatSmsSummaryResponse> localVarResponse = GetEmailCommseqSmsStatsWithHttpInfo(storefrontOid, commseqUuid, statsRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email communication sequence sms stats 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="statsRequest">StatsRequest</param>
+        /// <returns>ApiResponse of EmailStatSmsSummaryResponse</returns>
+        public ApiResponse< EmailStatSmsSummaryResponse > GetEmailCommseqSmsStatsWithHttpInfo (int? storefrontOid, string commseqUuid, EmailStatSmsSummaryRequest statsRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCommseqSmsStats");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->GetEmailCommseqSmsStats");
+            // verify the required parameter 'statsRequest' is set
+            if (statsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'statsRequest' when calling StorefrontApi->GetEmailCommseqSmsStats");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/smsStats";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (statsRequest != null && statsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(statsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = statsRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCommseqSmsStats", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailStatSmsSummaryResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailStatSmsSummaryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailStatSmsSummaryResponse)));
+        }
+
+        /// <summary>
+        /// Get email communication sequence sms stats 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="statsRequest">StatsRequest</param>
+        /// <returns>Task of EmailStatSmsSummaryResponse</returns>
+        public async System.Threading.Tasks.Task<EmailStatSmsSummaryResponse> GetEmailCommseqSmsStatsAsync (int? storefrontOid, string commseqUuid, EmailStatSmsSummaryRequest statsRequest)
+        {
+             ApiResponse<EmailStatSmsSummaryResponse> localVarResponse = await GetEmailCommseqSmsStatsAsyncWithHttpInfo(storefrontOid, commseqUuid, statsRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email communication sequence sms stats 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="statsRequest">StatsRequest</param>
+        /// <returns>Task of ApiResponse (EmailStatSmsSummaryResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailStatSmsSummaryResponse>> GetEmailCommseqSmsStatsAsyncWithHttpInfo (int? storefrontOid, string commseqUuid, EmailStatSmsSummaryRequest statsRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCommseqSmsStats");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->GetEmailCommseqSmsStats");
+            // verify the required parameter 'statsRequest' is set
+            if (statsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'statsRequest' when calling StorefrontApi->GetEmailCommseqSmsStats");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/smsStats";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (statsRequest != null && statsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(statsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = statsRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCommseqSmsStats", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailStatSmsSummaryResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailStatSmsSummaryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailStatSmsSummaryResponse)));
+        }
+
+        /// <summary>
         /// Get communication sequence stats overall 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -23169,6 +23478,203 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailSettingsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Get email sms orders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="days"> (optional)</param>
+        /// <returns>EmailSmsOrdersResponse</returns>
+        public EmailSmsOrdersResponse GetEmailSmsOrders (int? storefrontOid, string commseqUuid, string commseqStepUuid, int? days = null)
+        {
+             ApiResponse<EmailSmsOrdersResponse> localVarResponse = GetEmailSmsOrdersWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, days);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email sms orders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="days"> (optional)</param>
+        /// <returns>ApiResponse of EmailSmsOrdersResponse</returns>
+        public ApiResponse< EmailSmsOrdersResponse > GetEmailSmsOrdersWithHttpInfo (int? storefrontOid, string commseqUuid, string commseqStepUuid, int? days = null)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailSmsOrders");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->GetEmailSmsOrders");
+            // verify the required parameter 'commseqStepUuid' is set
+            if (commseqStepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqStepUuid' when calling StorefrontApi->GetEmailSmsOrders");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/sms/orders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (commseqStepUuid != null) localVarPathParams.Add("commseq_step_uuid", this.Configuration.ApiClient.ParameterToString(commseqStepUuid)); // path parameter
+            if (days != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "days", days)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailSmsOrders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailSmsOrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailSmsOrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSmsOrdersResponse)));
+        }
+
+        /// <summary>
+        /// Get email sms orders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="days"> (optional)</param>
+        /// <returns>Task of EmailSmsOrdersResponse</returns>
+        public async System.Threading.Tasks.Task<EmailSmsOrdersResponse> GetEmailSmsOrdersAsync (int? storefrontOid, string commseqUuid, string commseqStepUuid, int? days = null)
+        {
+             ApiResponse<EmailSmsOrdersResponse> localVarResponse = await GetEmailSmsOrdersAsyncWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, days);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email sms orders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="days"> (optional)</param>
+        /// <returns>Task of ApiResponse (EmailSmsOrdersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailSmsOrdersResponse>> GetEmailSmsOrdersAsyncWithHttpInfo (int? storefrontOid, string commseqUuid, string commseqStepUuid, int? days = null)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailSmsOrders");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->GetEmailSmsOrders");
+            // verify the required parameter 'commseqStepUuid' is set
+            if (commseqStepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqStepUuid' when calling StorefrontApi->GetEmailSmsOrders");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/sms/orders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (commseqStepUuid != null) localVarPathParams.Add("commseq_step_uuid", this.Configuration.ApiClient.ParameterToString(commseqStepUuid)); // path parameter
+            if (days != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "days", days)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailSmsOrders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailSmsOrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailSmsOrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSmsOrdersResponse)));
         }
 
         /// <summary>

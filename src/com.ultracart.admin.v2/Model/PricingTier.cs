@@ -40,6 +40,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="approvalNotification">approvalNotification.</param>
         /// <param name="autoApproveCod">Auto approve COD.</param>
         /// <param name="autoApprovePurchaseOrder">Auto approve purchase order.</param>
+        /// <param name="currencyCode">Any currency code specified on this pricing tier will force a shopping cart into that currency.</param>
         /// <param name="defaultOnWholesaleSignup">Default on wholesale signup.</param>
         /// <param name="defaultPercentageDiscount">Default percentage discount.</param>
         /// <param name="defaultShippingMethodOid">Default shipping method oid.</param>
@@ -66,7 +67,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="suppressMailingList">Suppress mailing list.</param>
         /// <param name="taxExempt">Tax Exempt.</param>
         /// <param name="trackSeparately">Track separately.</param>
-        public PricingTier(bool allow3rdPartyBilling = default(bool), bool allowCod = default(bool), bool allowPurchaseOrder = default(bool), bool allowQuoteRequest = default(bool), PricingTierNotification approvalNotification = default(PricingTierNotification), bool autoApproveCod = default(bool), bool autoApprovePurchaseOrder = default(bool), bool defaultOnWholesaleSignup = default(bool), decimal defaultPercentageDiscount = default(decimal), int defaultShippingMethodOid = default(int), bool defaultTier = default(bool), bool displayOnWholesaleSignup = default(bool), bool excludeFromFreePromotion = default(bool), bool exemptLoyaltyRewards = default(bool), bool exemptShippingHandlingCharge = default(bool), bool freeShipping = default(bool), decimal freeShippingMinimum = default(decimal), int maximumItemCount = default(int), int minimumItemCount = default(int), decimal minimumSubtotal = default(decimal), string name = default(string), bool noCoupons = default(bool), bool noFreeShipping = default(bool), bool noRealtimeCharge = default(bool), bool notValidWhenCouponPresent = default(bool), int pricingTierOid = default(int), decimal realtimePercentageDiscount = default(decimal), int restrictToDistributionCenterOid = default(int), PricingTierNotification signupNotification = default(PricingTierNotification), bool suppressBuysafe = default(bool), bool suppressMailingList = default(bool), bool taxExempt = default(bool), bool trackSeparately = default(bool))
+        public PricingTier(bool allow3rdPartyBilling = default(bool), bool allowCod = default(bool), bool allowPurchaseOrder = default(bool), bool allowQuoteRequest = default(bool), PricingTierNotification approvalNotification = default(PricingTierNotification), bool autoApproveCod = default(bool), bool autoApprovePurchaseOrder = default(bool), string currencyCode = default(string), bool defaultOnWholesaleSignup = default(bool), decimal defaultPercentageDiscount = default(decimal), int defaultShippingMethodOid = default(int), bool defaultTier = default(bool), bool displayOnWholesaleSignup = default(bool), bool excludeFromFreePromotion = default(bool), bool exemptLoyaltyRewards = default(bool), bool exemptShippingHandlingCharge = default(bool), bool freeShipping = default(bool), decimal freeShippingMinimum = default(decimal), int maximumItemCount = default(int), int minimumItemCount = default(int), decimal minimumSubtotal = default(decimal), string name = default(string), bool noCoupons = default(bool), bool noFreeShipping = default(bool), bool noRealtimeCharge = default(bool), bool notValidWhenCouponPresent = default(bool), int pricingTierOid = default(int), decimal realtimePercentageDiscount = default(decimal), int restrictToDistributionCenterOid = default(int), PricingTierNotification signupNotification = default(PricingTierNotification), bool suppressBuysafe = default(bool), bool suppressMailingList = default(bool), bool taxExempt = default(bool), bool trackSeparately = default(bool))
         {
             this.Allow3rdPartyBilling = allow3rdPartyBilling;
             this.AllowCod = allowCod;
@@ -75,6 +76,7 @@ namespace com.ultracart.admin.v2.Model
             this.ApprovalNotification = approvalNotification;
             this.AutoApproveCod = autoApproveCod;
             this.AutoApprovePurchaseOrder = autoApprovePurchaseOrder;
+            this.CurrencyCode = currencyCode;
             this.DefaultOnWholesaleSignup = defaultOnWholesaleSignup;
             this.DefaultPercentageDiscount = defaultPercentageDiscount;
             this.DefaultShippingMethodOid = defaultShippingMethodOid;
@@ -150,6 +152,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Auto approve purchase order</value>
         [DataMember(Name="auto_approve_purchase_order", EmitDefaultValue=false)]
         public bool AutoApprovePurchaseOrder { get; set; }
+
+        /// <summary>
+        /// Any currency code specified on this pricing tier will force a shopping cart into that currency
+        /// </summary>
+        /// <value>Any currency code specified on this pricing tier will force a shopping cart into that currency</value>
+        [DataMember(Name="currency_code", EmitDefaultValue=false)]
+        public string CurrencyCode { get; set; }
 
         /// <summary>
         /// Default on wholesale signup
@@ -347,6 +356,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ApprovalNotification: ").Append(ApprovalNotification).Append("\n");
             sb.Append("  AutoApproveCod: ").Append(AutoApproveCod).Append("\n");
             sb.Append("  AutoApprovePurchaseOrder: ").Append(AutoApprovePurchaseOrder).Append("\n");
+            sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
             sb.Append("  DefaultOnWholesaleSignup: ").Append(DefaultOnWholesaleSignup).Append("\n");
             sb.Append("  DefaultPercentageDiscount: ").Append(DefaultPercentageDiscount).Append("\n");
             sb.Append("  DefaultShippingMethodOid: ").Append(DefaultShippingMethodOid).Append("\n");
@@ -441,6 +451,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AutoApprovePurchaseOrder == input.AutoApprovePurchaseOrder ||
                     (this.AutoApprovePurchaseOrder != null &&
                     this.AutoApprovePurchaseOrder.Equals(input.AutoApprovePurchaseOrder))
+                ) && 
+                (
+                    this.CurrencyCode == input.CurrencyCode ||
+                    (this.CurrencyCode != null &&
+                    this.CurrencyCode.Equals(input.CurrencyCode))
                 ) && 
                 (
                     this.DefaultOnWholesaleSignup == input.DefaultOnWholesaleSignup ||
@@ -597,6 +612,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AutoApproveCod.GetHashCode();
                 if (this.AutoApprovePurchaseOrder != null)
                     hashCode = hashCode * 59 + this.AutoApprovePurchaseOrder.GetHashCode();
+                if (this.CurrencyCode != null)
+                    hashCode = hashCode * 59 + this.CurrencyCode.GetHashCode();
                 if (this.DefaultOnWholesaleSignup != null)
                     hashCode = hashCode * 59 + this.DefaultOnWholesaleSignup.GetHashCode();
                 if (this.DefaultPercentageDiscount != null)

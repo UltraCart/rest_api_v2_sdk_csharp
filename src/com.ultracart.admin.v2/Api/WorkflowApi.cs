@@ -155,6 +155,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of WorkflowTasksResponse</returns>
         ApiResponse<WorkflowTasksResponse> GetWorkflowTaskByObjectTypeWithHttpInfo (string objectType, string objectId);
         /// <summary>
+        /// Get a list of existing workflow task tags
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a unique list of all the existing workflow task tags. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>WorkflowTaskTagsResponse</returns>
+        WorkflowTaskTagsResponse GetWorkflowTaskTags ();
+
+        /// <summary>
+        /// Get a list of existing workflow task tags
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a unique list of all the existing workflow task tags. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of WorkflowTaskTagsResponse</returns>
+        ApiResponse<WorkflowTaskTagsResponse> GetWorkflowTaskTagsWithHttpInfo ();
+        /// <summary>
         /// Search workflow tasks
         /// </summary>
         /// <remarks>
@@ -357,6 +376,25 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="objectId"></param>
         /// <returns>Task of ApiResponse (WorkflowTasksResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<WorkflowTasksResponse>> GetWorkflowTaskByObjectTypeAsyncWithHttpInfo (string objectType, string objectId);
+        /// <summary>
+        /// Get a list of existing workflow task tags
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a unique list of all the existing workflow task tags. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of WorkflowTaskTagsResponse</returns>
+        System.Threading.Tasks.Task<WorkflowTaskTagsResponse> GetWorkflowTaskTagsAsync ();
+
+        /// <summary>
+        /// Get a list of existing workflow task tags
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a unique list of all the existing workflow task tags. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (WorkflowTaskTagsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WorkflowTaskTagsResponse>> GetWorkflowTaskTagsAsyncWithHttpInfo ();
         /// <summary>
         /// Search workflow tasks
         /// </summary>
@@ -1475,6 +1513,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<WorkflowTasksResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (WorkflowTasksResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkflowTasksResponse)));
+        }
+
+        /// <summary>
+        /// Get a list of existing workflow task tags Retrieves a unique list of all the existing workflow task tags. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>WorkflowTaskTagsResponse</returns>
+        public WorkflowTaskTagsResponse GetWorkflowTaskTags ()
+        {
+             ApiResponse<WorkflowTaskTagsResponse> localVarResponse = GetWorkflowTaskTagsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a list of existing workflow task tags Retrieves a unique list of all the existing workflow task tags. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of WorkflowTaskTagsResponse</returns>
+        public ApiResponse< WorkflowTaskTagsResponse > GetWorkflowTaskTagsWithHttpInfo ()
+        {
+
+            var localVarPath = "/workflow/tasks/tags";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWorkflowTaskTags", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WorkflowTaskTagsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WorkflowTaskTagsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkflowTaskTagsResponse)));
+        }
+
+        /// <summary>
+        /// Get a list of existing workflow task tags Retrieves a unique list of all the existing workflow task tags. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of WorkflowTaskTagsResponse</returns>
+        public async System.Threading.Tasks.Task<WorkflowTaskTagsResponse> GetWorkflowTaskTagsAsync ()
+        {
+             ApiResponse<WorkflowTaskTagsResponse> localVarResponse = await GetWorkflowTaskTagsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a list of existing workflow task tags Retrieves a unique list of all the existing workflow task tags. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (WorkflowTaskTagsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<WorkflowTaskTagsResponse>> GetWorkflowTaskTagsAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/workflow/tasks/tags";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWorkflowTaskTags", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WorkflowTaskTagsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WorkflowTaskTagsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkflowTaskTagsResponse)));
         }
 
         /// <summary>

@@ -51,7 +51,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="twilioTaskrouterWorkflowSid">Twilio taskrouter workflow sid.</param>
         /// <param name="twilioWorkspaceQueueSid">Twilio workspace queue sid.</param>
         /// <param name="voicemail">If true, this queue has a voicemail associated with it.</param>
-        public ConversationPbxQueue(bool? announceQueuePosition = default(bool?), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int? maxHoldSeconds = default(int?), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), string noAgentAvailableSayVoice = default(string), string playAudioUuid = default(string), bool? recordCall = default(bool?), string say = default(string), string sayVoice = default(string), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool? voicemail = default(bool?))
+        /// <param name="waitCriticalSeconds">Wait time in seconds before critical.</param>
+        /// <param name="waitWarningSeconds">Wait time in seconds before warning.</param>
+        public ConversationPbxQueue(bool? announceQueuePosition = default(bool?), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int? maxHoldSeconds = default(int?), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), string noAgentAvailableSayVoice = default(string), string playAudioUuid = default(string), bool? recordCall = default(bool?), string say = default(string), string sayVoice = default(string), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool? voicemail = default(bool?), int? waitCriticalSeconds = default(int?), int? waitWarningSeconds = default(int?))
         {
             this.AnnounceQueuePosition = announceQueuePosition;
             this.ConversationPbxQueueUuid = conversationPbxQueueUuid;
@@ -71,6 +73,8 @@ namespace com.ultracart.admin.v2.Model
             this.TwilioTaskrouterWorkflowSid = twilioTaskrouterWorkflowSid;
             this.TwilioWorkspaceQueueSid = twilioWorkspaceQueueSid;
             this.Voicemail = voicemail;
+            this.WaitCriticalSeconds = waitCriticalSeconds;
+            this.WaitWarningSeconds = waitWarningSeconds;
         }
         
         /// <summary>
@@ -199,6 +203,20 @@ namespace com.ultracart.admin.v2.Model
         public bool? Voicemail { get; set; }
 
         /// <summary>
+        /// Wait time in seconds before critical
+        /// </summary>
+        /// <value>Wait time in seconds before critical</value>
+        [DataMember(Name="wait_critical_seconds", EmitDefaultValue=false)]
+        public int? WaitCriticalSeconds { get; set; }
+
+        /// <summary>
+        /// Wait time in seconds before warning
+        /// </summary>
+        /// <value>Wait time in seconds before warning</value>
+        [DataMember(Name="wait_warning_seconds", EmitDefaultValue=false)]
+        public int? WaitWarningSeconds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -224,6 +242,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  TwilioTaskrouterWorkflowSid: ").Append(TwilioTaskrouterWorkflowSid).Append("\n");
             sb.Append("  TwilioWorkspaceQueueSid: ").Append(TwilioWorkspaceQueueSid).Append("\n");
             sb.Append("  Voicemail: ").Append(Voicemail).Append("\n");
+            sb.Append("  WaitCriticalSeconds: ").Append(WaitCriticalSeconds).Append("\n");
+            sb.Append("  WaitWarningSeconds: ").Append(WaitWarningSeconds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -347,6 +367,16 @@ namespace com.ultracart.admin.v2.Model
                     this.Voicemail == input.Voicemail ||
                     (this.Voicemail != null &&
                     this.Voicemail.Equals(input.Voicemail))
+                ) && 
+                (
+                    this.WaitCriticalSeconds == input.WaitCriticalSeconds ||
+                    (this.WaitCriticalSeconds != null &&
+                    this.WaitCriticalSeconds.Equals(input.WaitCriticalSeconds))
+                ) && 
+                (
+                    this.WaitWarningSeconds == input.WaitWarningSeconds ||
+                    (this.WaitWarningSeconds != null &&
+                    this.WaitWarningSeconds.Equals(input.WaitWarningSeconds))
                 );
         }
 
@@ -395,6 +425,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.TwilioWorkspaceQueueSid.GetHashCode();
                 if (this.Voicemail != null)
                     hashCode = hashCode * 59 + this.Voicemail.GetHashCode();
+                if (this.WaitCriticalSeconds != null)
+                    hashCode = hashCode * 59 + this.WaitCriticalSeconds.GetHashCode();
+                if (this.WaitWarningSeconds != null)
+                    hashCode = hashCode * 59 + this.WaitWarningSeconds.GetHashCode();
                 return hashCode;
             }
         }

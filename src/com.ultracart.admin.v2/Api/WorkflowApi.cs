@@ -25,6 +25,25 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Get agent websocket authorization
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a JWT to authorize an agent to make a websocket connection. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>WorkflowAgentAuthResponse</returns>
+        WorkflowAgentAuthResponse GetWorkflowAgentWebsocketAuthorization ();
+
+        /// <summary>
+        /// Get agent websocket authorization
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a JWT to authorize an agent to make a websocket connection. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of WorkflowAgentAuthResponse</returns>
+        ApiResponse<WorkflowAgentAuthResponse> GetWorkflowAgentWebsocketAuthorizationWithHttpInfo ();
+        /// <summary>
         /// Retrieve a list of groups that workflow tasks can be assigned to
         /// </summary>
         /// <remarks>
@@ -246,6 +265,25 @@ namespace com.ultracart.admin.v2.Api
         ApiResponse<WorkflowTaskResponse> UpdateWorkflowTaskWithHttpInfo (string taskUuid, WorkflowTask workflowTask);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Get agent websocket authorization
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a JWT to authorize an agent to make a websocket connection. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of WorkflowAgentAuthResponse</returns>
+        System.Threading.Tasks.Task<WorkflowAgentAuthResponse> GetWorkflowAgentWebsocketAuthorizationAsync ();
+
+        /// <summary>
+        /// Get agent websocket authorization
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a JWT to authorize an agent to make a websocket connection. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (WorkflowAgentAuthResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WorkflowAgentAuthResponse>> GetWorkflowAgentWebsocketAuthorizationAsyncWithHttpInfo ();
         /// <summary>
         /// Retrieve a list of groups that workflow tasks can be assigned to
         /// </summary>
@@ -571,6 +609,151 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Get agent websocket authorization Retrieve a JWT to authorize an agent to make a websocket connection. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>WorkflowAgentAuthResponse</returns>
+        public WorkflowAgentAuthResponse GetWorkflowAgentWebsocketAuthorization ()
+        {
+             ApiResponse<WorkflowAgentAuthResponse> localVarResponse = GetWorkflowAgentWebsocketAuthorizationWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get agent websocket authorization Retrieve a JWT to authorize an agent to make a websocket connection. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of WorkflowAgentAuthResponse</returns>
+        public ApiResponse< WorkflowAgentAuthResponse > GetWorkflowAgentWebsocketAuthorizationWithHttpInfo ()
+        {
+
+            var localVarPath = "/workflow/agent/auth";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWorkflowAgentWebsocketAuthorization", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WorkflowAgentAuthResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WorkflowAgentAuthResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkflowAgentAuthResponse)));
+        }
+
+        /// <summary>
+        /// Get agent websocket authorization Retrieve a JWT to authorize an agent to make a websocket connection. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of WorkflowAgentAuthResponse</returns>
+        public async System.Threading.Tasks.Task<WorkflowAgentAuthResponse> GetWorkflowAgentWebsocketAuthorizationAsync ()
+        {
+             ApiResponse<WorkflowAgentAuthResponse> localVarResponse = await GetWorkflowAgentWebsocketAuthorizationAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get agent websocket authorization Retrieve a JWT to authorize an agent to make a websocket connection. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (WorkflowAgentAuthResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<WorkflowAgentAuthResponse>> GetWorkflowAgentWebsocketAuthorizationAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/workflow/agent/auth";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWorkflowAgentWebsocketAuthorization", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WorkflowAgentAuthResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WorkflowAgentAuthResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkflowAgentAuthResponse)));
         }
 
         /// <summary>

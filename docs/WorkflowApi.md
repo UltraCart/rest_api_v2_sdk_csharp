@@ -4,6 +4,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**GetWorkflowAgentWebsocketAuthorization**](WorkflowApi.md#getworkflowagentwebsocketauthorization) | **PUT** /workflow/agent/auth | Get agent websocket authorization
 [**GetWorkflowAssignmentGroups**](WorkflowApi.md#getworkflowassignmentgroups) | **GET** /workflow/assignment_groups | Retrieve a list of groups that workflow tasks can be assigned to
 [**GetWorkflowAssignmentUsers**](WorkflowApi.md#getworkflowassignmentusers) | **GET** /workflow/assignment_users | Retrieve a list of users that workflow tasks can be assigned to
 [**GetWorkflowMe**](WorkflowApi.md#getworkflowme) | **GET** /workflow/me | Retrieve a user object for myself
@@ -15,6 +16,68 @@ Method | HTTP request | Description
 [**InsertWorkflowTask**](WorkflowApi.md#insertworkflowtask) | **POST** /workflow/tasks | Insert a workflow task
 [**UpdateWorkflowTask**](WorkflowApi.md#updateworkflowtask) | **PUT** /workflow/tasks/{task_uuid} | Update a workflow task
 
+
+<a name="getworkflowagentwebsocketauthorization"></a>
+# **GetWorkflowAgentWebsocketAuthorization**
+> WorkflowAgentAuthResponse GetWorkflowAgentWebsocketAuthorization ()
+
+Get agent websocket authorization
+
+Retrieve a JWT to authorize an agent to make a websocket connection. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetWorkflowAgentWebsocketAuthorizationExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new WorkflowApi(simpleKey);
+
+
+            try
+            {
+                // Get agent websocket authorization
+                WorkflowAgentAuthResponse result = apiInstance.GetWorkflowAgentWebsocketAuthorization();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkflowApi.GetWorkflowAgentWebsocketAuthorization: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**WorkflowAgentAuthResponse**](WorkflowAgentAuthResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getworkflowassignmentgroups"></a>
 # **GetWorkflowAssignmentGroups**

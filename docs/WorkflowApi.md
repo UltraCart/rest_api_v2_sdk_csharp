@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**GetWorkflowTask**](WorkflowApi.md#getworkflowtask) | **GET** /workflow/tasks/{task_uuid} | Retrieve a workflow task
 [**GetWorkflowTaskAttachmentUploadUrl**](WorkflowApi.md#getworkflowtaskattachmentuploadurl) | **GET** /workflow/tasks/attachments/{extension} | Get a presigned workflow task attachment upload URL
 [**GetWorkflowTaskByObjectType**](WorkflowApi.md#getworkflowtaskbyobjecttype) | **GET** /workflow/tasks/by/{object_type}/{object_id} | Retrieve a workflow task by object type and id
+[**GetWorkflowTaskOpenCount**](WorkflowApi.md#getworkflowtaskopencount) | **GET** /workflow/tasks/open_count | Retrieve workflow task open count
 [**GetWorkflowTaskTags**](WorkflowApi.md#getworkflowtasktags) | **GET** /workflow/tasks/tags | Get a list of existing workflow task tags
 [**GetWorkflowTasks**](WorkflowApi.md#getworkflowtasks) | **POST** /workflow/tasks/search | Search workflow tasks
 [**InsertWorkflowTask**](WorkflowApi.md#insertworkflowtask) | **POST** /workflow/tasks | Insert a workflow task
@@ -465,6 +466,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WorkflowTasksResponse**](WorkflowTasksResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getworkflowtaskopencount"></a>
+# **GetWorkflowTaskOpenCount**
+> WorkflowTaskOpenCountResponse GetWorkflowTaskOpenCount ()
+
+Retrieve workflow task open count
+
+Retrieve workflow task open count 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetWorkflowTaskOpenCountExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new WorkflowApi(simpleKey);
+
+
+            try
+            {
+                // Retrieve workflow task open count
+                WorkflowTaskOpenCountResponse result = apiInstance.GetWorkflowTaskOpenCount();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WorkflowApi.GetWorkflowTaskOpenCount: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**WorkflowTaskOpenCountResponse**](WorkflowTaskOpenCountResponse.md)
 
 ### Authorization
 

@@ -1,13 +1,12 @@
-# com.ultracart.admin.v2.Model.WorkflowUsersResponse
+# com.ultracart.admin.v2.Model.WorkflowTaskOpenCountResponse
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Error** | [**Error**](Error.md) |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
-**MyUserId** | **int?** | User ID of myself | [optional] 
+**OpenCount** | **int?** | Open Task Count | [optional] 
 **Success** | **bool?** | Indicates if API call was successful | [optional] 
-**Users** | [**List&lt;WorkflowUser&gt;**](WorkflowUser.md) | users | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 
 
 

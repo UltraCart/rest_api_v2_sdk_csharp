@@ -174,6 +174,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of WorkflowTasksResponse</returns>
         ApiResponse<WorkflowTasksResponse> GetWorkflowTaskByObjectTypeWithHttpInfo (string objectType, string objectId);
         /// <summary>
+        /// Retrieve workflow task open count
+        /// </summary>
+        /// <remarks>
+        /// Retrieve workflow task open count 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>WorkflowTaskOpenCountResponse</returns>
+        WorkflowTaskOpenCountResponse GetWorkflowTaskOpenCount ();
+
+        /// <summary>
+        /// Retrieve workflow task open count
+        /// </summary>
+        /// <remarks>
+        /// Retrieve workflow task open count 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of WorkflowTaskOpenCountResponse</returns>
+        ApiResponse<WorkflowTaskOpenCountResponse> GetWorkflowTaskOpenCountWithHttpInfo ();
+        /// <summary>
         /// Get a list of existing workflow task tags
         /// </summary>
         /// <remarks>
@@ -414,6 +433,25 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="objectId"></param>
         /// <returns>Task of ApiResponse (WorkflowTasksResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<WorkflowTasksResponse>> GetWorkflowTaskByObjectTypeAsyncWithHttpInfo (string objectType, string objectId);
+        /// <summary>
+        /// Retrieve workflow task open count
+        /// </summary>
+        /// <remarks>
+        /// Retrieve workflow task open count 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of WorkflowTaskOpenCountResponse</returns>
+        System.Threading.Tasks.Task<WorkflowTaskOpenCountResponse> GetWorkflowTaskOpenCountAsync ();
+
+        /// <summary>
+        /// Retrieve workflow task open count
+        /// </summary>
+        /// <remarks>
+        /// Retrieve workflow task open count 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (WorkflowTaskOpenCountResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WorkflowTaskOpenCountResponse>> GetWorkflowTaskOpenCountAsyncWithHttpInfo ();
         /// <summary>
         /// Get a list of existing workflow task tags
         /// </summary>
@@ -1696,6 +1734,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<WorkflowTasksResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (WorkflowTasksResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkflowTasksResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve workflow task open count Retrieve workflow task open count 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>WorkflowTaskOpenCountResponse</returns>
+        public WorkflowTaskOpenCountResponse GetWorkflowTaskOpenCount ()
+        {
+             ApiResponse<WorkflowTaskOpenCountResponse> localVarResponse = GetWorkflowTaskOpenCountWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve workflow task open count Retrieve workflow task open count 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of WorkflowTaskOpenCountResponse</returns>
+        public ApiResponse< WorkflowTaskOpenCountResponse > GetWorkflowTaskOpenCountWithHttpInfo ()
+        {
+
+            var localVarPath = "/workflow/tasks/open_count";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWorkflowTaskOpenCount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WorkflowTaskOpenCountResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WorkflowTaskOpenCountResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkflowTaskOpenCountResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve workflow task open count Retrieve workflow task open count 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of WorkflowTaskOpenCountResponse</returns>
+        public async System.Threading.Tasks.Task<WorkflowTaskOpenCountResponse> GetWorkflowTaskOpenCountAsync ()
+        {
+             ApiResponse<WorkflowTaskOpenCountResponse> localVarResponse = await GetWorkflowTaskOpenCountAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve workflow task open count Retrieve workflow task open count 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (WorkflowTaskOpenCountResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<WorkflowTaskOpenCountResponse>> GetWorkflowTaskOpenCountAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/workflow/tasks/open_count";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWorkflowTaskOpenCount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WorkflowTaskOpenCountResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WorkflowTaskOpenCountResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkflowTaskOpenCountResponse)));
         }
 
         /// <summary>

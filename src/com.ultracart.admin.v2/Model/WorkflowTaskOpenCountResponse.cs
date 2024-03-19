@@ -25,27 +25,25 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// WorkflowUsersResponse
+    /// WorkflowTaskOpenCountResponse
     /// </summary>
     [DataContract]
-    public partial class WorkflowUsersResponse :  IEquatable<WorkflowUsersResponse>, IValidatableObject
+    public partial class WorkflowTaskOpenCountResponse :  IEquatable<WorkflowTaskOpenCountResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="WorkflowUsersResponse" /> class.
+        /// Initializes a new instance of the <see cref="WorkflowTaskOpenCountResponse" /> class.
         /// </summary>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
-        /// <param name="myUserId">User ID of myself.</param>
+        /// <param name="openCount">Open Task Count.</param>
         /// <param name="success">Indicates if API call was successful.</param>
-        /// <param name="users">users.</param>
         /// <param name="warning">warning.</param>
-        public WorkflowUsersResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), int? myUserId = default(int?), bool? success = default(bool?), List<WorkflowUser> users = default(List<WorkflowUser>), Warning warning = default(Warning))
+        public WorkflowTaskOpenCountResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), int? openCount = default(int?), bool? success = default(bool?), Warning warning = default(Warning))
         {
             this.Error = error;
             this.Metadata = metadata;
-            this.MyUserId = myUserId;
+            this.OpenCount = openCount;
             this.Success = success;
-            this.Users = users;
             this.Warning = warning;
         }
         
@@ -62,11 +60,11 @@ namespace com.ultracart.admin.v2.Model
         public ResponseMetadata Metadata { get; set; }
 
         /// <summary>
-        /// User ID of myself
+        /// Open Task Count
         /// </summary>
-        /// <value>User ID of myself</value>
-        [DataMember(Name="my_user_id", EmitDefaultValue=false)]
-        public int? MyUserId { get; set; }
+        /// <value>Open Task Count</value>
+        [DataMember(Name="open_count", EmitDefaultValue=false)]
+        public int? OpenCount { get; set; }
 
         /// <summary>
         /// Indicates if API call was successful
@@ -74,13 +72,6 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Indicates if API call was successful</value>
         [DataMember(Name="success", EmitDefaultValue=false)]
         public bool? Success { get; set; }
-
-        /// <summary>
-        /// users
-        /// </summary>
-        /// <value>users</value>
-        [DataMember(Name="users", EmitDefaultValue=false)]
-        public List<WorkflowUser> Users { get; set; }
 
         /// <summary>
         /// Gets or Sets Warning
@@ -95,12 +86,11 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class WorkflowUsersResponse {\n");
+            sb.Append("class WorkflowTaskOpenCountResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  MyUserId: ").Append(MyUserId).Append("\n");
+            sb.Append("  OpenCount: ").Append(OpenCount).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
-            sb.Append("  Users: ").Append(Users).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -122,15 +112,15 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as WorkflowUsersResponse);
+            return this.Equals(input as WorkflowTaskOpenCountResponse);
         }
 
         /// <summary>
-        /// Returns true if WorkflowUsersResponse instances are equal
+        /// Returns true if WorkflowTaskOpenCountResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of WorkflowUsersResponse to be compared</param>
+        /// <param name="input">Instance of WorkflowTaskOpenCountResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(WorkflowUsersResponse input)
+        public bool Equals(WorkflowTaskOpenCountResponse input)
         {
             if (input == null)
                 return false;
@@ -147,19 +137,14 @@ namespace com.ultracart.admin.v2.Model
                     this.Metadata.Equals(input.Metadata))
                 ) && 
                 (
-                    this.MyUserId == input.MyUserId ||
-                    (this.MyUserId != null &&
-                    this.MyUserId.Equals(input.MyUserId))
+                    this.OpenCount == input.OpenCount ||
+                    (this.OpenCount != null &&
+                    this.OpenCount.Equals(input.OpenCount))
                 ) && 
                 (
                     this.Success == input.Success ||
                     (this.Success != null &&
                     this.Success.Equals(input.Success))
-                ) && 
-                (
-                    this.Users == input.Users ||
-                    this.Users != null &&
-                    this.Users.SequenceEqual(input.Users)
                 ) && 
                 (
                     this.Warning == input.Warning ||
@@ -181,12 +166,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
-                if (this.MyUserId != null)
-                    hashCode = hashCode * 59 + this.MyUserId.GetHashCode();
+                if (this.OpenCount != null)
+                    hashCode = hashCode * 59 + this.OpenCount.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
-                if (this.Users != null)
-                    hashCode = hashCode * 59 + this.Users.GetHashCode();
                 if (this.Warning != null)
                     hashCode = hashCode * 59 + this.Warning.GetHashCode();
                 return hashCode;

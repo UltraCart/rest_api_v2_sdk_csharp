@@ -857,6 +857,7 @@ docs/WorkflowGroupsResponse.md
 docs/WorkflowNote.md
 docs/WorkflowTask.md
 docs/WorkflowTaskHistory.md
+docs/WorkflowTaskOpenCountResponse.md
 docs/WorkflowTaskResponse.md
 docs/WorkflowTaskTagsResponse.md
 docs/WorkflowTasksRequest.md
@@ -1727,6 +1728,7 @@ src/com.ultracart.admin.v2/Model/WorkflowGroupsResponse.cs
 src/com.ultracart.admin.v2/Model/WorkflowNote.cs
 src/com.ultracart.admin.v2/Model/WorkflowTask.cs
 src/com.ultracart.admin.v2/Model/WorkflowTaskHistory.cs
+src/com.ultracart.admin.v2/Model/WorkflowTaskOpenCountResponse.cs
 src/com.ultracart.admin.v2/Model/WorkflowTaskResponse.cs
 src/com.ultracart.admin.v2/Model/WorkflowTaskTagsResponse.cs
 src/com.ultracart.admin.v2/Model/WorkflowTasksRequest.cs

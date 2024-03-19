@@ -143,7 +143,25 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Awaitingcustomerfeedback for value: awaiting customer feedback
             /// </summary>
             [EnumMember(Value = "awaiting customer feedback")]
-            Awaitingcustomerfeedback = 4
+            Awaitingcustomerfeedback = 4,
+
+            /// <summary>
+            /// Enum Closedsystem for value: closed - system
+            /// </summary>
+            [EnumMember(Value = "closed - system")]
+            Closedsystem = 5,
+
+            /// <summary>
+            /// Enum Closedcustomer for value: closed - customer
+            /// </summary>
+            [EnumMember(Value = "closed - customer")]
+            Closedcustomer = 6,
+
+            /// <summary>
+            /// Enum Closedexpiration for value: closed - expiration
+            /// </summary>
+            [EnumMember(Value = "closed - expiration")]
+            Closedexpiration = 7
 
         }
 
@@ -153,6 +171,57 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Status of the workflow task</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
+        /// <summary>
+        /// Constant for the type of system generated task
+        /// </summary>
+        /// <value>Constant for the type of system generated task</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SystemTaskTypeEnum
+        {
+            /// <summary>
+            /// Enum Orderaccountsreceivable for value: order_accounts_receivable
+            /// </summary>
+            [EnumMember(Value = "order_accounts_receivable")]
+            Orderaccountsreceivable = 1,
+
+            /// <summary>
+            /// Enum Orderfraudreview for value: order_fraud_review
+            /// </summary>
+            [EnumMember(Value = "order_fraud_review")]
+            Orderfraudreview = 2,
+
+            /// <summary>
+            /// Enum Autoordercardupdateissue for value: auto_order_card_update_issue
+            /// </summary>
+            [EnumMember(Value = "auto_order_card_update_issue")]
+            Autoordercardupdateissue = 3,
+
+            /// <summary>
+            /// Enum Autoordercanceledpayment for value: auto_order_canceled_payment
+            /// </summary>
+            [EnumMember(Value = "auto_order_canceled_payment")]
+            Autoordercanceledpayment = 4,
+
+            /// <summary>
+            /// Enum Itemlowstock for value: item_low_stock
+            /// </summary>
+            [EnumMember(Value = "item_low_stock")]
+            Itemlowstock = 5,
+
+            /// <summary>
+            /// Enum Itemoutofstock for value: item_out_of_stock
+            /// </summary>
+            [EnumMember(Value = "item_out_of_stock")]
+            Itemoutofstock = 6
+
+        }
+
+        /// <summary>
+        /// Constant for the type of system generated task
+        /// </summary>
+        /// <value>Constant for the type of system generated task</value>
+        [DataMember(Name="system_task_type", EmitDefaultValue=false)]
+        public SystemTaskTypeEnum? SystemTaskType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkflowTask" /> class.
         /// </summary>
@@ -166,6 +235,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="delayUntilDts">Date/time that the workflow task should delay until.</param>
         /// <param name="dependantWorkflowTaskUuid">Dependant Workflow Task UUID (must be completed before this task can be completed).</param>
         /// <param name="dueDts">Date/time that the workflow task is due.</param>
+        /// <param name="expirationDts">Date/time that the workflow task will expire and be closed.  This is set by system generated tasks..</param>
         /// <param name="histories">Array of history records for the task.</param>
         /// <param name="lastUpdateDts">Date/time that the workflow task was last updated.</param>
         /// <param name="merchantId">Merchant ID.</param>
@@ -178,12 +248,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="properties">Properties.</param>
         /// <param name="relatedWorkflowTaskUuid">Related Workflow Task UUID.</param>
         /// <param name="status">Status of the workflow task.</param>
+        /// <param name="systemTaskType">Constant for the type of system generated task.</param>
         /// <param name="tags">Tags.</param>
         /// <param name="taskContext">User friendly string of the task context.</param>
         /// <param name="taskDetails">Task Details.</param>
         /// <param name="taskName">Task Name.</param>
         /// <param name="workflowTaskUuid">Workflow Task UUID.</param>
-        public WorkflowTask(string assignedToGroup = default(string), int assignedToGroupId = default(int), string assignedToUser = default(string), int assignedToUserId = default(int), List<WorkflowAttachment> attachments = default(List<WorkflowAttachment>), WorkflowUser createdBy = default(WorkflowUser), string createdDts = default(string), string delayUntilDts = default(string), string dependantWorkflowTaskUuid = default(string), string dueDts = default(string), List<WorkflowTaskHistory> histories = default(List<WorkflowTaskHistory>), string lastUpdateDts = default(string), string merchantId = default(string), List<WorkflowNote> notes = default(List<WorkflowNote>), string objectEmail = default(string), string objectId = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), string objectUrl = default(string), PriorityEnum? priority = default(PriorityEnum?), List<Property> properties = default(List<Property>), string relatedWorkflowTaskUuid = default(string), StatusEnum? status = default(StatusEnum?), List<string> tags = default(List<string>), string taskContext = default(string), string taskDetails = default(string), string taskName = default(string), string workflowTaskUuid = default(string))
+        public WorkflowTask(string assignedToGroup = default(string), int assignedToGroupId = default(int), string assignedToUser = default(string), int assignedToUserId = default(int), List<WorkflowAttachment> attachments = default(List<WorkflowAttachment>), WorkflowUser createdBy = default(WorkflowUser), string createdDts = default(string), string delayUntilDts = default(string), string dependantWorkflowTaskUuid = default(string), string dueDts = default(string), string expirationDts = default(string), List<WorkflowTaskHistory> histories = default(List<WorkflowTaskHistory>), string lastUpdateDts = default(string), string merchantId = default(string), List<WorkflowNote> notes = default(List<WorkflowNote>), string objectEmail = default(string), string objectId = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), string objectUrl = default(string), PriorityEnum? priority = default(PriorityEnum?), List<Property> properties = default(List<Property>), string relatedWorkflowTaskUuid = default(string), StatusEnum? status = default(StatusEnum?), SystemTaskTypeEnum? systemTaskType = default(SystemTaskTypeEnum?), List<string> tags = default(List<string>), string taskContext = default(string), string taskDetails = default(string), string taskName = default(string), string workflowTaskUuid = default(string))
         {
             this.AssignedToGroup = assignedToGroup;
             this.AssignedToGroupId = assignedToGroupId;
@@ -195,6 +266,7 @@ namespace com.ultracart.admin.v2.Model
             this.DelayUntilDts = delayUntilDts;
             this.DependantWorkflowTaskUuid = dependantWorkflowTaskUuid;
             this.DueDts = dueDts;
+            this.ExpirationDts = expirationDts;
             this.Histories = histories;
             this.LastUpdateDts = lastUpdateDts;
             this.MerchantId = merchantId;
@@ -207,6 +279,7 @@ namespace com.ultracart.admin.v2.Model
             this.Properties = properties;
             this.RelatedWorkflowTaskUuid = relatedWorkflowTaskUuid;
             this.Status = status;
+            this.SystemTaskType = systemTaskType;
             this.Tags = tags;
             this.TaskContext = taskContext;
             this.TaskDetails = taskDetails;
@@ -284,6 +357,13 @@ namespace com.ultracart.admin.v2.Model
         public string DueDts { get; set; }
 
         /// <summary>
+        /// Date/time that the workflow task will expire and be closed.  This is set by system generated tasks.
+        /// </summary>
+        /// <value>Date/time that the workflow task will expire and be closed.  This is set by system generated tasks.</value>
+        [DataMember(Name="expiration_dts", EmitDefaultValue=false)]
+        public string ExpirationDts { get; set; }
+
+        /// <summary>
         /// Array of history records for the task
         /// </summary>
         /// <value>Array of history records for the task</value>
@@ -349,6 +429,7 @@ namespace com.ultracart.admin.v2.Model
         public string RelatedWorkflowTaskUuid { get; set; }
 
 
+
         /// <summary>
         /// Tags
         /// </summary>
@@ -402,6 +483,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  DelayUntilDts: ").Append(DelayUntilDts).Append("\n");
             sb.Append("  DependantWorkflowTaskUuid: ").Append(DependantWorkflowTaskUuid).Append("\n");
             sb.Append("  DueDts: ").Append(DueDts).Append("\n");
+            sb.Append("  ExpirationDts: ").Append(ExpirationDts).Append("\n");
             sb.Append("  Histories: ").Append(Histories).Append("\n");
             sb.Append("  LastUpdateDts: ").Append(LastUpdateDts).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
@@ -414,6 +496,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  RelatedWorkflowTaskUuid: ").Append(RelatedWorkflowTaskUuid).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  SystemTaskType: ").Append(SystemTaskType).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  TaskContext: ").Append(TaskContext).Append("\n");
             sb.Append("  TaskDetails: ").Append(TaskDetails).Append("\n");
@@ -505,6 +588,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DueDts.Equals(input.DueDts))
                 ) && 
                 (
+                    this.ExpirationDts == input.ExpirationDts ||
+                    (this.ExpirationDts != null &&
+                    this.ExpirationDts.Equals(input.ExpirationDts))
+                ) && 
+                (
                     this.Histories == input.Histories ||
                     this.Histories != null &&
                     input.Histories != null &&
@@ -568,6 +656,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
+                    this.SystemTaskType == input.SystemTaskType ||
+                    (this.SystemTaskType != null &&
+                    this.SystemTaskType.Equals(input.SystemTaskType))
+                ) && 
+                (
                     this.Tags == input.Tags ||
                     this.Tags != null &&
                     input.Tags != null &&
@@ -624,6 +717,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DependantWorkflowTaskUuid.GetHashCode();
                 if (this.DueDts != null)
                     hashCode = hashCode * 59 + this.DueDts.GetHashCode();
+                if (this.ExpirationDts != null)
+                    hashCode = hashCode * 59 + this.ExpirationDts.GetHashCode();
                 if (this.Histories != null)
                     hashCode = hashCode * 59 + this.Histories.GetHashCode();
                 if (this.LastUpdateDts != null)
@@ -648,6 +743,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RelatedWorkflowTaskUuid.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.SystemTaskType != null)
+                    hashCode = hashCode * 59 + this.SystemTaskType.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.TaskContext != null)

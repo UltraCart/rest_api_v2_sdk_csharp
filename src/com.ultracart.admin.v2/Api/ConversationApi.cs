@@ -1284,6 +1284,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> MarkReadConversationWithHttpInfo (string conversationUuid);
         /// <summary>
+        /// reset statistics within the queue
+        /// </summary>
+        /// <remarks>
+        /// reset statistics within the queue 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueUuid"></param>
+        /// <returns></returns>
+        void ResetConversationPbxQueueStatistics (string queueUuid);
+
+        /// <summary>
+        /// reset statistics within the queue
+        /// </summary>
+        /// <remarks>
+        /// reset statistics within the queue 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ResetConversationPbxQueueStatisticsWithHttpInfo (string queueUuid);
+        /// <summary>
         /// Search for canned messages by short_code
         /// </summary>
         /// <remarks>
@@ -2904,6 +2925,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="conversationUuid"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> MarkReadConversationAsyncWithHttpInfo (string conversationUuid);
+        /// <summary>
+        /// reset statistics within the queue
+        /// </summary>
+        /// <remarks>
+        /// reset statistics within the queue 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueUuid"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task ResetConversationPbxQueueStatisticsAsync (string queueUuid);
+
+        /// <summary>
+        /// reset statistics within the queue
+        /// </summary>
+        /// <remarks>
+        /// reset statistics within the queue 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResetConversationPbxQueueStatisticsAsyncWithHttpInfo (string queueUuid);
         /// <summary>
         /// Search for canned messages by short_code
         /// </summary>
@@ -12962,6 +13004,161 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("MarkReadConversation", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// reset statistics within the queue reset statistics within the queue 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueUuid"></param>
+        /// <returns></returns>
+        public void ResetConversationPbxQueueStatistics (string queueUuid)
+        {
+             ResetConversationPbxQueueStatisticsWithHttpInfo(queueUuid);
+        }
+
+        /// <summary>
+        /// reset statistics within the queue reset statistics within the queue 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> ResetConversationPbxQueueStatisticsWithHttpInfo (string queueUuid)
+        {
+            // verify the required parameter 'queueUuid' is set
+            if (queueUuid == null)
+                throw new ApiException(400, "Missing required parameter 'queueUuid' when calling ConversationApi->ResetConversationPbxQueueStatistics");
+
+            var localVarPath = "/conversation/pbx/queues/{queue_uuid}/reset_statistics";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (queueUuid != null) localVarPathParams.Add("queue_uuid", this.Configuration.ApiClient.ParameterToString(queueUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResetConversationPbxQueueStatistics", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// reset statistics within the queue reset statistics within the queue 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueUuid"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task ResetConversationPbxQueueStatisticsAsync (string queueUuid)
+        {
+             await ResetConversationPbxQueueStatisticsAsyncWithHttpInfo(queueUuid);
+
+        }
+
+        /// <summary>
+        /// reset statistics within the queue reset statistics within the queue 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ResetConversationPbxQueueStatisticsAsyncWithHttpInfo (string queueUuid)
+        {
+            // verify the required parameter 'queueUuid' is set
+            if (queueUuid == null)
+                throw new ApiException(400, "Missing required parameter 'queueUuid' when calling ConversationApi->ResetConversationPbxQueueStatistics");
+
+            var localVarPath = "/conversation/pbx/queues/{queue_uuid}/reset_statistics";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (queueUuid != null) localVarPathParams.Add("queue_uuid", this.Configuration.ApiClient.ParameterToString(queueUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResetConversationPbxQueueStatistics", localVarResponse);
                 if (exception != null) throw exception;
             }
 

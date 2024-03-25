@@ -236,12 +236,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="dependantWorkflowTaskUuid">Dependant Workflow Task UUID (must be completed before this task can be completed).</param>
         /// <param name="dueDts">Date/time that the workflow task is due.</param>
         /// <param name="expirationDts">Date/time that the workflow task will expire and be closed.  This is set by system generated tasks..</param>
+        /// <param name="globalTaskNumber">Global task numer.</param>
         /// <param name="histories">Array of history records for the task.</param>
         /// <param name="lastUpdateDts">Date/time that the workflow task was last updated.</param>
         /// <param name="merchantId">Merchant ID.</param>
         /// <param name="notes">Notes on the Workflow Task.</param>
         /// <param name="objectEmail">Object is associated with customer email.</param>
         /// <param name="objectId">Object ID.</param>
+        /// <param name="objectTaskNumber">Object specific task numer.</param>
         /// <param name="objectType">Object Type.</param>
         /// <param name="objectUrl">Object URL.</param>
         /// <param name="priority">Priority.</param>
@@ -254,7 +256,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="taskDetails">Task Details.</param>
         /// <param name="taskName">Task Name.</param>
         /// <param name="workflowTaskUuid">Workflow Task UUID.</param>
-        public WorkflowTask(string assignedToGroup = default(string), int? assignedToGroupId = default(int?), string assignedToUser = default(string), int? assignedToUserId = default(int?), List<WorkflowAttachment> attachments = default(List<WorkflowAttachment>), WorkflowUser createdBy = default(WorkflowUser), string createdDts = default(string), string delayUntilDts = default(string), string dependantWorkflowTaskUuid = default(string), string dueDts = default(string), string expirationDts = default(string), List<WorkflowTaskHistory> histories = default(List<WorkflowTaskHistory>), string lastUpdateDts = default(string), string merchantId = default(string), List<WorkflowNote> notes = default(List<WorkflowNote>), string objectEmail = default(string), string objectId = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), string objectUrl = default(string), PriorityEnum? priority = default(PriorityEnum?), List<Property> properties = default(List<Property>), string relatedWorkflowTaskUuid = default(string), StatusEnum? status = default(StatusEnum?), SystemTaskTypeEnum? systemTaskType = default(SystemTaskTypeEnum?), List<string> tags = default(List<string>), string taskContext = default(string), string taskDetails = default(string), string taskName = default(string), string workflowTaskUuid = default(string))
+        public WorkflowTask(string assignedToGroup = default(string), int? assignedToGroupId = default(int?), string assignedToUser = default(string), int? assignedToUserId = default(int?), List<WorkflowAttachment> attachments = default(List<WorkflowAttachment>), WorkflowUser createdBy = default(WorkflowUser), string createdDts = default(string), string delayUntilDts = default(string), string dependantWorkflowTaskUuid = default(string), string dueDts = default(string), string expirationDts = default(string), int? globalTaskNumber = default(int?), List<WorkflowTaskHistory> histories = default(List<WorkflowTaskHistory>), string lastUpdateDts = default(string), string merchantId = default(string), List<WorkflowNote> notes = default(List<WorkflowNote>), string objectEmail = default(string), string objectId = default(string), int? objectTaskNumber = default(int?), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), string objectUrl = default(string), PriorityEnum? priority = default(PriorityEnum?), List<Property> properties = default(List<Property>), string relatedWorkflowTaskUuid = default(string), StatusEnum? status = default(StatusEnum?), SystemTaskTypeEnum? systemTaskType = default(SystemTaskTypeEnum?), List<string> tags = default(List<string>), string taskContext = default(string), string taskDetails = default(string), string taskName = default(string), string workflowTaskUuid = default(string))
         {
             this.AssignedToGroup = assignedToGroup;
             this.AssignedToGroupId = assignedToGroupId;
@@ -267,12 +269,14 @@ namespace com.ultracart.admin.v2.Model
             this.DependantWorkflowTaskUuid = dependantWorkflowTaskUuid;
             this.DueDts = dueDts;
             this.ExpirationDts = expirationDts;
+            this.GlobalTaskNumber = globalTaskNumber;
             this.Histories = histories;
             this.LastUpdateDts = lastUpdateDts;
             this.MerchantId = merchantId;
             this.Notes = notes;
             this.ObjectEmail = objectEmail;
             this.ObjectId = objectId;
+            this.ObjectTaskNumber = objectTaskNumber;
             this.ObjectType = objectType;
             this.ObjectUrl = objectUrl;
             this.Priority = priority;
@@ -364,6 +368,13 @@ namespace com.ultracart.admin.v2.Model
         public string ExpirationDts { get; set; }
 
         /// <summary>
+        /// Global task numer
+        /// </summary>
+        /// <value>Global task numer</value>
+        [DataMember(Name="global_task_number", EmitDefaultValue=false)]
+        public int? GlobalTaskNumber { get; set; }
+
+        /// <summary>
         /// Array of history records for the task
         /// </summary>
         /// <value>Array of history records for the task</value>
@@ -404,6 +415,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Object ID</value>
         [DataMember(Name="object_id", EmitDefaultValue=false)]
         public string ObjectId { get; set; }
+
+        /// <summary>
+        /// Object specific task numer
+        /// </summary>
+        /// <value>Object specific task numer</value>
+        [DataMember(Name="object_task_number", EmitDefaultValue=false)]
+        public int? ObjectTaskNumber { get; set; }
 
 
         /// <summary>
@@ -484,12 +502,14 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  DependantWorkflowTaskUuid: ").Append(DependantWorkflowTaskUuid).Append("\n");
             sb.Append("  DueDts: ").Append(DueDts).Append("\n");
             sb.Append("  ExpirationDts: ").Append(ExpirationDts).Append("\n");
+            sb.Append("  GlobalTaskNumber: ").Append(GlobalTaskNumber).Append("\n");
             sb.Append("  Histories: ").Append(Histories).Append("\n");
             sb.Append("  LastUpdateDts: ").Append(LastUpdateDts).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("  ObjectEmail: ").Append(ObjectEmail).Append("\n");
             sb.Append("  ObjectId: ").Append(ObjectId).Append("\n");
+            sb.Append("  ObjectTaskNumber: ").Append(ObjectTaskNumber).Append("\n");
             sb.Append("  ObjectType: ").Append(ObjectType).Append("\n");
             sb.Append("  ObjectUrl: ").Append(ObjectUrl).Append("\n");
             sb.Append("  Priority: ").Append(Priority).Append("\n");
@@ -592,6 +612,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ExpirationDts.Equals(input.ExpirationDts))
                 ) && 
                 (
+                    this.GlobalTaskNumber == input.GlobalTaskNumber ||
+                    (this.GlobalTaskNumber != null &&
+                    this.GlobalTaskNumber.Equals(input.GlobalTaskNumber))
+                ) && 
+                (
                     this.Histories == input.Histories ||
                     this.Histories != null &&
                     this.Histories.SequenceEqual(input.Histories)
@@ -620,6 +645,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ObjectId == input.ObjectId ||
                     (this.ObjectId != null &&
                     this.ObjectId.Equals(input.ObjectId))
+                ) && 
+                (
+                    this.ObjectTaskNumber == input.ObjectTaskNumber ||
+                    (this.ObjectTaskNumber != null &&
+                    this.ObjectTaskNumber.Equals(input.ObjectTaskNumber))
                 ) && 
                 (
                     this.ObjectType == input.ObjectType ||
@@ -714,6 +744,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DueDts.GetHashCode();
                 if (this.ExpirationDts != null)
                     hashCode = hashCode * 59 + this.ExpirationDts.GetHashCode();
+                if (this.GlobalTaskNumber != null)
+                    hashCode = hashCode * 59 + this.GlobalTaskNumber.GetHashCode();
                 if (this.Histories != null)
                     hashCode = hashCode * 59 + this.Histories.GetHashCode();
                 if (this.LastUpdateDts != null)
@@ -726,6 +758,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ObjectEmail.GetHashCode();
                 if (this.ObjectId != null)
                     hashCode = hashCode * 59 + this.ObjectId.GetHashCode();
+                if (this.ObjectTaskNumber != null)
+                    hashCode = hashCode * 59 + this.ObjectTaskNumber.GetHashCode();
                 if (this.ObjectType != null)
                     hashCode = hashCode * 59 + this.ObjectType.GetHashCode();
                 if (this.ObjectUrl != null)

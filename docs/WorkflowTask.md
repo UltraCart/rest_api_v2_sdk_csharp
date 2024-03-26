@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AssignedToGroupId** | **int?** | Assigned to group ID | [optional] 
 **AssignedToUser** | **string** | Assigned to user | [optional] 
 **AssignedToUserId** | **int?** | Assigned to user ID | [optional] 
+**AssignedToUserOrGroup** | **string** | Assigned to user or group (used for sorting) | [optional] 
 **Attachments** | [**List&lt;WorkflowAttachment&gt;**](WorkflowAttachment.md) | Attachments to the Workflow Task | [optional] 
 **CreatedBy** | [**WorkflowUser**](WorkflowUser.md) |  | [optional] 
 **CreatedDts** | **string** | Date/time that the workflow task was created | [optional] 

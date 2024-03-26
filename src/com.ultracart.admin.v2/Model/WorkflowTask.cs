@@ -229,6 +229,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="assignedToGroupId">Assigned to group ID.</param>
         /// <param name="assignedToUser">Assigned to user.</param>
         /// <param name="assignedToUserId">Assigned to user ID.</param>
+        /// <param name="assignedToUserOrGroup">Assigned to user or group (used for sorting).</param>
         /// <param name="attachments">Attachments to the Workflow Task.</param>
         /// <param name="createdBy">createdBy.</param>
         /// <param name="createdDts">Date/time that the workflow task was created.</param>
@@ -256,12 +257,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="taskDetails">Task Details.</param>
         /// <param name="taskName">Task Name.</param>
         /// <param name="workflowTaskUuid">Workflow Task UUID.</param>
-        public WorkflowTask(string assignedToGroup = default(string), int assignedToGroupId = default(int), string assignedToUser = default(string), int assignedToUserId = default(int), List<WorkflowAttachment> attachments = default(List<WorkflowAttachment>), WorkflowUser createdBy = default(WorkflowUser), string createdDts = default(string), string delayUntilDts = default(string), string dependantWorkflowTaskUuid = default(string), string dueDts = default(string), string expirationDts = default(string), int globalTaskNumber = default(int), List<WorkflowTaskHistory> histories = default(List<WorkflowTaskHistory>), string lastUpdateDts = default(string), string merchantId = default(string), List<WorkflowNote> notes = default(List<WorkflowNote>), string objectEmail = default(string), string objectId = default(string), int objectTaskNumber = default(int), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), string objectUrl = default(string), PriorityEnum? priority = default(PriorityEnum?), List<Property> properties = default(List<Property>), string relatedWorkflowTaskUuid = default(string), StatusEnum? status = default(StatusEnum?), SystemTaskTypeEnum? systemTaskType = default(SystemTaskTypeEnum?), List<string> tags = default(List<string>), string taskContext = default(string), string taskDetails = default(string), string taskName = default(string), string workflowTaskUuid = default(string))
+        public WorkflowTask(string assignedToGroup = default(string), int assignedToGroupId = default(int), string assignedToUser = default(string), int assignedToUserId = default(int), string assignedToUserOrGroup = default(string), List<WorkflowAttachment> attachments = default(List<WorkflowAttachment>), WorkflowUser createdBy = default(WorkflowUser), string createdDts = default(string), string delayUntilDts = default(string), string dependantWorkflowTaskUuid = default(string), string dueDts = default(string), string expirationDts = default(string), int globalTaskNumber = default(int), List<WorkflowTaskHistory> histories = default(List<WorkflowTaskHistory>), string lastUpdateDts = default(string), string merchantId = default(string), List<WorkflowNote> notes = default(List<WorkflowNote>), string objectEmail = default(string), string objectId = default(string), int objectTaskNumber = default(int), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), string objectUrl = default(string), PriorityEnum? priority = default(PriorityEnum?), List<Property> properties = default(List<Property>), string relatedWorkflowTaskUuid = default(string), StatusEnum? status = default(StatusEnum?), SystemTaskTypeEnum? systemTaskType = default(SystemTaskTypeEnum?), List<string> tags = default(List<string>), string taskContext = default(string), string taskDetails = default(string), string taskName = default(string), string workflowTaskUuid = default(string))
         {
             this.AssignedToGroup = assignedToGroup;
             this.AssignedToGroupId = assignedToGroupId;
             this.AssignedToUser = assignedToUser;
             this.AssignedToUserId = assignedToUserId;
+            this.AssignedToUserOrGroup = assignedToUserOrGroup;
             this.Attachments = attachments;
             this.CreatedBy = createdBy;
             this.CreatedDts = createdDts;
@@ -318,6 +320,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Assigned to user ID</value>
         [DataMember(Name="assigned_to_user_id", EmitDefaultValue=false)]
         public int AssignedToUserId { get; set; }
+
+        /// <summary>
+        /// Assigned to user or group (used for sorting)
+        /// </summary>
+        /// <value>Assigned to user or group (used for sorting)</value>
+        [DataMember(Name="assigned_to_user_or_group", EmitDefaultValue=false)]
+        public string AssignedToUserOrGroup { get; set; }
 
         /// <summary>
         /// Attachments to the Workflow Task
@@ -495,6 +504,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AssignedToGroupId: ").Append(AssignedToGroupId).Append("\n");
             sb.Append("  AssignedToUser: ").Append(AssignedToUser).Append("\n");
             sb.Append("  AssignedToUserId: ").Append(AssignedToUserId).Append("\n");
+            sb.Append("  AssignedToUserOrGroup: ").Append(AssignedToUserOrGroup).Append("\n");
             sb.Append("  Attachments: ").Append(Attachments).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
@@ -575,6 +585,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AssignedToUserId == input.AssignedToUserId ||
                     (this.AssignedToUserId != null &&
                     this.AssignedToUserId.Equals(input.AssignedToUserId))
+                ) && 
+                (
+                    this.AssignedToUserOrGroup == input.AssignedToUserOrGroup ||
+                    (this.AssignedToUserOrGroup != null &&
+                    this.AssignedToUserOrGroup.Equals(input.AssignedToUserOrGroup))
                 ) && 
                 (
                     this.Attachments == input.Attachments ||
@@ -735,6 +750,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AssignedToUser.GetHashCode();
                 if (this.AssignedToUserId != null)
                     hashCode = hashCode * 59 + this.AssignedToUserId.GetHashCode();
+                if (this.AssignedToUserOrGroup != null)
+                    hashCode = hashCode * 59 + this.AssignedToUserOrGroup.GetHashCode();
                 if (this.Attachments != null)
                     hashCode = hashCode * 59 + this.Attachments.GetHashCode();
                 if (this.CreatedBy != null)

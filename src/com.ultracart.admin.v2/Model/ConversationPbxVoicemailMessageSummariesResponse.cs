@@ -25,25 +25,25 @@ using OpenAPIDateConverter = com.ultracart.admin.v2.Client.OpenAPIDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ConversationPbxTimeBasedsResponse
+    /// ConversationPbxVoicemailMessageSummariesResponse
     /// </summary>
     [DataContract]
-    public partial class ConversationPbxTimeBasedsResponse :  IEquatable<ConversationPbxTimeBasedsResponse>, IValidatableObject
+    public partial class ConversationPbxVoicemailMessageSummariesResponse :  IEquatable<ConversationPbxVoicemailMessageSummariesResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationPbxTimeBasedsResponse" /> class.
+        /// Initializes a new instance of the <see cref="ConversationPbxVoicemailMessageSummariesResponse" /> class.
         /// </summary>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
-        /// <param name="timeBaseds">timeBaseds.</param>
+        /// <param name="voicemailMessageSummaries">voicemailMessageSummaries.</param>
         /// <param name="warning">warning.</param>
-        public ConversationPbxTimeBasedsResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), List<ConversationPbxTimeBased> timeBaseds = default(List<ConversationPbxTimeBased>), Warning warning = default(Warning))
+        public ConversationPbxVoicemailMessageSummariesResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), List<ConversationPbxVoicemailMessageSummary> voicemailMessageSummaries = default(List<ConversationPbxVoicemailMessageSummary>), Warning warning = default(Warning))
         {
             this.Error = error;
             this.Metadata = metadata;
             this.Success = success;
-            this.TimeBaseds = timeBaseds;
+            this.VoicemailMessageSummaries = voicemailMessageSummaries;
             this.Warning = warning;
         }
 
@@ -67,10 +67,10 @@ namespace com.ultracart.admin.v2.Model
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeBaseds
+        /// Gets or Sets VoicemailMessageSummaries
         /// </summary>
-        [DataMember(Name="time_baseds", EmitDefaultValue=false)]
-        public List<ConversationPbxTimeBased> TimeBaseds { get; set; }
+        [DataMember(Name="voicemail_message_summaries", EmitDefaultValue=false)]
+        public List<ConversationPbxVoicemailMessageSummary> VoicemailMessageSummaries { get; set; }
 
         /// <summary>
         /// Gets or Sets Warning
@@ -85,11 +85,11 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConversationPbxTimeBasedsResponse {\n");
+            sb.Append("class ConversationPbxVoicemailMessageSummariesResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
-            sb.Append("  TimeBaseds: ").Append(TimeBaseds).Append("\n");
+            sb.Append("  VoicemailMessageSummaries: ").Append(VoicemailMessageSummaries).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -111,15 +111,15 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ConversationPbxTimeBasedsResponse);
+            return this.Equals(input as ConversationPbxVoicemailMessageSummariesResponse);
         }
 
         /// <summary>
-        /// Returns true if ConversationPbxTimeBasedsResponse instances are equal
+        /// Returns true if ConversationPbxVoicemailMessageSummariesResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConversationPbxTimeBasedsResponse to be compared</param>
+        /// <param name="input">Instance of ConversationPbxVoicemailMessageSummariesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConversationPbxTimeBasedsResponse input)
+        public bool Equals(ConversationPbxVoicemailMessageSummariesResponse input)
         {
             if (input == null)
                 return false;
@@ -141,10 +141,10 @@ namespace com.ultracart.admin.v2.Model
                     this.Success.Equals(input.Success))
                 ) && 
                 (
-                    this.TimeBaseds == input.TimeBaseds ||
-                    this.TimeBaseds != null &&
-                    input.TimeBaseds != null &&
-                    this.TimeBaseds.SequenceEqual(input.TimeBaseds)
+                    this.VoicemailMessageSummaries == input.VoicemailMessageSummaries ||
+                    this.VoicemailMessageSummaries != null &&
+                    input.VoicemailMessageSummaries != null &&
+                    this.VoicemailMessageSummaries.SequenceEqual(input.VoicemailMessageSummaries)
                 ) && 
                 (
                     this.Warning == input.Warning ||
@@ -168,8 +168,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
-                if (this.TimeBaseds != null)
-                    hashCode = hashCode * 59 + this.TimeBaseds.GetHashCode();
+                if (this.VoicemailMessageSummaries != null)
+                    hashCode = hashCode * 59 + this.VoicemailMessageSummaries.GetHashCode();
                 if (this.Warning != null)
                     hashCode = hashCode * 59 + this.Warning.GetHashCode();
                 return hashCode;

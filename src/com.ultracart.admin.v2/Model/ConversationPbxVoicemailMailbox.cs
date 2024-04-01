@@ -31,6 +31,33 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationPbxVoicemailMailbox :  IEquatable<ConversationPbxVoicemailMailbox>, IValidatableObject
     {
         /// <summary>
+        /// Voicemail mailbox type
+        /// </summary>
+        /// <value>Voicemail mailbox type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum VoicemailMailboxTypeEnum
+        {
+            /// <summary>
+            /// Enum Agent for value: agent
+            /// </summary>
+            [EnumMember(Value = "agent")]
+            Agent = 1,
+
+            /// <summary>
+            /// Enum Shared for value: shared
+            /// </summary>
+            [EnumMember(Value = "shared")]
+            Shared = 2
+
+        }
+
+        /// <summary>
+        /// Voicemail mailbox type
+        /// </summary>
+        /// <value>Voicemail mailbox type</value>
+        [DataMember(Name="voicemail_mailbox_type", EmitDefaultValue=false)]
+        public VoicemailMailboxTypeEnum? VoicemailMailboxType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxVoicemailMailbox" /> class.
         /// </summary>
         /// <param name="conversationPbxVoicemailMailboxUuid">Conversation Pbx Voicemail Mailbox UUID.</param>
@@ -44,7 +71,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="voicemailPromptPlayAudioUuid">Voicemail prompt play audio UUID.</param>
         /// <param name="voicemailPromptSay">Voicemail prompt say.</param>
         /// <param name="voicemailSayVoice">Voicemail say voice.</param>
-        public ConversationPbxVoicemailMailbox(string conversationPbxVoicemailMailboxUuid = default(string), string merchantId = default(string), string sendNoticesToEmail = default(string), int userId = default(int), string voicemailFollowPlayAudioUuid = default(string), string voicemailFollowupSay = default(string), string voicemailMailboxId = default(string), string voicemailMailboxType = default(string), string voicemailPromptPlayAudioUuid = default(string), string voicemailPromptSay = default(string), string voicemailSayVoice = default(string))
+        public ConversationPbxVoicemailMailbox(string conversationPbxVoicemailMailboxUuid = default(string), string merchantId = default(string), string sendNoticesToEmail = default(string), int userId = default(int), string voicemailFollowPlayAudioUuid = default(string), string voicemailFollowupSay = default(string), string voicemailMailboxId = default(string), VoicemailMailboxTypeEnum? voicemailMailboxType = default(VoicemailMailboxTypeEnum?), string voicemailPromptPlayAudioUuid = default(string), string voicemailPromptSay = default(string), string voicemailSayVoice = default(string))
         {
             this.ConversationPbxVoicemailMailboxUuid = conversationPbxVoicemailMailboxUuid;
             this.MerchantId = merchantId;
@@ -108,12 +135,6 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="voicemail_mailbox_id", EmitDefaultValue=false)]
         public string VoicemailMailboxId { get; set; }
 
-        /// <summary>
-        /// Voicemail mailbox type
-        /// </summary>
-        /// <value>Voicemail mailbox type</value>
-        [DataMember(Name="voicemail_mailbox_type", EmitDefaultValue=false)]
-        public string VoicemailMailboxType { get; set; }
 
         /// <summary>
         /// Voicemail prompt play audio UUID
@@ -324,7 +345,7 @@ namespace com.ultracart.admin.v2.Model
 
 
             // VoicemailMailboxType (string) maxLength
-            if(this.VoicemailMailboxType != null && this.VoicemailMailboxType.Length > 50)
+            if(this.VoicemailMailboxType != null && this.VoicemailMailboxType.ToString().Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VoicemailMailboxType, length must be less than 50.", new [] { "VoicemailMailboxType" });
             }

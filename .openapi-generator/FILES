@@ -209,6 +209,10 @@ docs/ConversationPbxTimeRangesResponse.md
 docs/ConversationPbxVoicemailMailbox.md
 docs/ConversationPbxVoicemailMailboxResponse.md
 docs/ConversationPbxVoicemailMailboxesResponse.md
+docs/ConversationPbxVoicemailMessage.md
+docs/ConversationPbxVoicemailMessageResponse.md
+docs/ConversationPbxVoicemailMessageSummariesResponse.md
+docs/ConversationPbxVoicemailMessageSummary.md
 docs/ConversationPermissions.md
 docs/ConversationPermissionsResponse.md
 docs/ConversationResponse.md
@@ -1095,6 +1099,10 @@ src/com.ultracart.admin.v2/Model/ConversationPbxTimeRangesResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxVoicemailMailbox.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxVoicemailMailboxResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxVoicemailMailboxesResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxVoicemailMessage.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxVoicemailMessageResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxVoicemailMessageSummariesResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxVoicemailMessageSummary.cs
 src/com.ultracart.admin.v2/Model/ConversationPermissions.cs
 src/com.ultracart.admin.v2/Model/ConversationPermissionsResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationResponse.cs

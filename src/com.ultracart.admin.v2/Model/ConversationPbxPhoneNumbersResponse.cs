@@ -62,7 +62,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Gets or Sets PhoneNumbers
         /// </summary>
-        [DataMember(Name="phoneNumbers", EmitDefaultValue=false)]
+        [DataMember(Name="phone_numbers", EmitDefaultValue=false)]
         public List<ConversationPbxPhoneNumber> PhoneNumbers { get; set; }
 
         /// <summary>

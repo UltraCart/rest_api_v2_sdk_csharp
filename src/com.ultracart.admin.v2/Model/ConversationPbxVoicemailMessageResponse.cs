@@ -25,25 +25,25 @@ using OpenAPIDateConverter = com.ultracart.admin.v2.Client.OpenAPIDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ConversationPbxTimeBasedsResponse
+    /// ConversationPbxVoicemailMessageResponse
     /// </summary>
     [DataContract]
-    public partial class ConversationPbxTimeBasedsResponse :  IEquatable<ConversationPbxTimeBasedsResponse>, IValidatableObject
+    public partial class ConversationPbxVoicemailMessageResponse :  IEquatable<ConversationPbxVoicemailMessageResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationPbxTimeBasedsResponse" /> class.
+        /// Initializes a new instance of the <see cref="ConversationPbxVoicemailMessageResponse" /> class.
         /// </summary>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
-        /// <param name="timeBaseds">timeBaseds.</param>
+        /// <param name="voicemailMessage">voicemailMessage.</param>
         /// <param name="warning">warning.</param>
-        public ConversationPbxTimeBasedsResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), List<ConversationPbxTimeBased> timeBaseds = default(List<ConversationPbxTimeBased>), Warning warning = default(Warning))
+        public ConversationPbxVoicemailMessageResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), ConversationPbxVoicemailMessage voicemailMessage = default(ConversationPbxVoicemailMessage), Warning warning = default(Warning))
         {
             this.Error = error;
             this.Metadata = metadata;
             this.Success = success;
-            this.TimeBaseds = timeBaseds;
+            this.VoicemailMessage = voicemailMessage;
             this.Warning = warning;
         }
 
@@ -67,10 +67,10 @@ namespace com.ultracart.admin.v2.Model
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeBaseds
+        /// Gets or Sets VoicemailMessage
         /// </summary>
-        [DataMember(Name="time_baseds", EmitDefaultValue=false)]
-        public List<ConversationPbxTimeBased> TimeBaseds { get; set; }
+        [DataMember(Name="voicemail_message", EmitDefaultValue=false)]
+        public ConversationPbxVoicemailMessage VoicemailMessage { get; set; }
 
         /// <summary>
         /// Gets or Sets Warning
@@ -85,11 +85,11 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConversationPbxTimeBasedsResponse {\n");
+            sb.Append("class ConversationPbxVoicemailMessageResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
-            sb.Append("  TimeBaseds: ").Append(TimeBaseds).Append("\n");
+            sb.Append("  VoicemailMessage: ").Append(VoicemailMessage).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -111,15 +111,15 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ConversationPbxTimeBasedsResponse);
+            return this.Equals(input as ConversationPbxVoicemailMessageResponse);
         }
 
         /// <summary>
-        /// Returns true if ConversationPbxTimeBasedsResponse instances are equal
+        /// Returns true if ConversationPbxVoicemailMessageResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConversationPbxTimeBasedsResponse to be compared</param>
+        /// <param name="input">Instance of ConversationPbxVoicemailMessageResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConversationPbxTimeBasedsResponse input)
+        public bool Equals(ConversationPbxVoicemailMessageResponse input)
         {
             if (input == null)
                 return false;
@@ -141,10 +141,9 @@ namespace com.ultracart.admin.v2.Model
                     this.Success.Equals(input.Success))
                 ) && 
                 (
-                    this.TimeBaseds == input.TimeBaseds ||
-                    this.TimeBaseds != null &&
-                    input.TimeBaseds != null &&
-                    this.TimeBaseds.SequenceEqual(input.TimeBaseds)
+                    this.VoicemailMessage == input.VoicemailMessage ||
+                    (this.VoicemailMessage != null &&
+                    this.VoicemailMessage.Equals(input.VoicemailMessage))
                 ) && 
                 (
                     this.Warning == input.Warning ||
@@ -168,8 +167,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
-                if (this.TimeBaseds != null)
-                    hashCode = hashCode * 59 + this.TimeBaseds.GetHashCode();
+                if (this.VoicemailMessage != null)
+                    hashCode = hashCode * 59 + this.VoicemailMessage.GetHashCode();
                 if (this.Warning != null)
                     hashCode = hashCode * 59 + this.Warning.GetHashCode();
                 return hashCode;

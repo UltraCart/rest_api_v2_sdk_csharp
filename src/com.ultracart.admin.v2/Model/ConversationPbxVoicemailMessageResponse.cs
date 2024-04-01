@@ -25,25 +25,25 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ConversationPbxPhoneNumbersResponse
+    /// ConversationPbxVoicemailMessageResponse
     /// </summary>
     [DataContract]
-    public partial class ConversationPbxPhoneNumbersResponse :  IEquatable<ConversationPbxPhoneNumbersResponse>, IValidatableObject
+    public partial class ConversationPbxVoicemailMessageResponse :  IEquatable<ConversationPbxVoicemailMessageResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationPbxPhoneNumbersResponse" /> class.
+        /// Initializes a new instance of the <see cref="ConversationPbxVoicemailMessageResponse" /> class.
         /// </summary>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
-        /// <param name="phoneNumbers">phoneNumbers.</param>
         /// <param name="success">Indicates if API call was successful.</param>
+        /// <param name="voicemailMessage">voicemailMessage.</param>
         /// <param name="warning">warning.</param>
-        public ConversationPbxPhoneNumbersResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), List<ConversationPbxPhoneNumber> phoneNumbers = default(List<ConversationPbxPhoneNumber>), bool? success = default(bool?), Warning warning = default(Warning))
+        public ConversationPbxVoicemailMessageResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), ConversationPbxVoicemailMessage voicemailMessage = default(ConversationPbxVoicemailMessage), Warning warning = default(Warning))
         {
             this.Error = error;
             this.Metadata = metadata;
-            this.PhoneNumbers = phoneNumbers;
             this.Success = success;
+            this.VoicemailMessage = voicemailMessage;
             this.Warning = warning;
         }
         
@@ -60,17 +60,17 @@ namespace com.ultracart.admin.v2.Model
         public ResponseMetadata Metadata { get; set; }
 
         /// <summary>
-        /// Gets or Sets PhoneNumbers
-        /// </summary>
-        [DataMember(Name="phone_numbers", EmitDefaultValue=false)]
-        public List<ConversationPbxPhoneNumber> PhoneNumbers { get; set; }
-
-        /// <summary>
         /// Indicates if API call was successful
         /// </summary>
         /// <value>Indicates if API call was successful</value>
         [DataMember(Name="success", EmitDefaultValue=false)]
         public bool? Success { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VoicemailMessage
+        /// </summary>
+        [DataMember(Name="voicemail_message", EmitDefaultValue=false)]
+        public ConversationPbxVoicemailMessage VoicemailMessage { get; set; }
 
         /// <summary>
         /// Gets or Sets Warning
@@ -85,11 +85,11 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConversationPbxPhoneNumbersResponse {\n");
+            sb.Append("class ConversationPbxVoicemailMessageResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  PhoneNumbers: ").Append(PhoneNumbers).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
+            sb.Append("  VoicemailMessage: ").Append(VoicemailMessage).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -111,15 +111,15 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ConversationPbxPhoneNumbersResponse);
+            return this.Equals(input as ConversationPbxVoicemailMessageResponse);
         }
 
         /// <summary>
-        /// Returns true if ConversationPbxPhoneNumbersResponse instances are equal
+        /// Returns true if ConversationPbxVoicemailMessageResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConversationPbxPhoneNumbersResponse to be compared</param>
+        /// <param name="input">Instance of ConversationPbxVoicemailMessageResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConversationPbxPhoneNumbersResponse input)
+        public bool Equals(ConversationPbxVoicemailMessageResponse input)
         {
             if (input == null)
                 return false;
@@ -136,14 +136,14 @@ namespace com.ultracart.admin.v2.Model
                     this.Metadata.Equals(input.Metadata))
                 ) && 
                 (
-                    this.PhoneNumbers == input.PhoneNumbers ||
-                    this.PhoneNumbers != null &&
-                    this.PhoneNumbers.SequenceEqual(input.PhoneNumbers)
-                ) && 
-                (
                     this.Success == input.Success ||
                     (this.Success != null &&
                     this.Success.Equals(input.Success))
+                ) && 
+                (
+                    this.VoicemailMessage == input.VoicemailMessage ||
+                    (this.VoicemailMessage != null &&
+                    this.VoicemailMessage.Equals(input.VoicemailMessage))
                 ) && 
                 (
                     this.Warning == input.Warning ||
@@ -165,10 +165,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
-                if (this.PhoneNumbers != null)
-                    hashCode = hashCode * 59 + this.PhoneNumbers.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
+                if (this.VoicemailMessage != null)
+                    hashCode = hashCode * 59 + this.VoicemailMessage.GetHashCode();
                 if (this.Warning != null)
                     hashCode = hashCode * 59 + this.Warning.GetHashCode();
                 return hashCode;

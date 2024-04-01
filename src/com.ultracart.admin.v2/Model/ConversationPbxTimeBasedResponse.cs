@@ -69,7 +69,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Gets or Sets TimeBased
         /// </summary>
-        [DataMember(Name="timeBased", EmitDefaultValue=false)]
+        [DataMember(Name="time_based", EmitDefaultValue=false)]
         public ConversationPbxTimeBased TimeBased { get; set; }
 
         /// <summary>

@@ -69,7 +69,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Gets or Sets VoicemailMailboxes
         /// </summary>
-        [DataMember(Name="voicemailMailboxes", EmitDefaultValue=false)]
+        [DataMember(Name="voicemail_mailboxes", EmitDefaultValue=false)]
         public List<ConversationPbxVoicemailMailbox> VoicemailMailboxes { get; set; }
 
         /// <summary>

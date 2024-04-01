@@ -69,7 +69,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Gets or Sets TimeRange
         /// </summary>
-        [DataMember(Name="timeRange", EmitDefaultValue=false)]
+        [DataMember(Name="time_range", EmitDefaultValue=false)]
         public ConversationPbxTimeRange TimeRange { get; set; }
 
         /// <summary>

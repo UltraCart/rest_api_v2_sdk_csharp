@@ -156,6 +156,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="futureSchedules">The future rebill schedule for this item up to the next ten rebills.</param>
         /// <param name="lastOrderDts">Date/time of the last order of this item.</param>
         /// <param name="lifeTimeValue">The life time value of this item including the original purchase.</param>
+        /// <param name="nextItemId">Calculated next item id.</param>
         /// <param name="nextPreshipmentNoticeDts">The date/time of when the next pre-shipment notice should be sent.</param>
         /// <param name="nextShipmentDts">Date/time that this item is scheduled to rebill.</param>
         /// <param name="noOrderAfterDts">Date/time after which no additional rebills of this item should occur.</param>
@@ -170,7 +171,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rebillValue">The value of the rebills of this item.</param>
         /// <param name="remainingRepeatCount">The number of rebills remaining before this item is complete.</param>
         /// <param name="simpleSchedule">simpleSchedule.</param>
-        public AutoOrderItem(string arbitraryItemId = default(string), decimal? arbitraryPercentageDiscount = default(decimal?), decimal? arbitraryQuantity = default(decimal?), int? arbitraryScheduleDays = default(int?), decimal? arbitraryUnitCost = default(decimal?), int? arbitraryUnitCostRemainingOrders = default(int?), int? autoOrderItemOid = default(int?), string firstOrderDts = default(string), FrequencyEnum? frequency = default(FrequencyEnum?), List<AutoOrderItemFutureSchedule> futureSchedules = default(List<AutoOrderItemFutureSchedule>), string lastOrderDts = default(string), decimal? lifeTimeValue = default(decimal?), string nextPreshipmentNoticeDts = default(string), string nextShipmentDts = default(string), string noOrderAfterDts = default(string), int? numberOfRebills = default(int?), List<AutoOrderItemOption> options = default(List<AutoOrderItemOption>), string originalItemId = default(string), decimal? originalQuantity = default(decimal?), bool? paused = default(bool?), string paypalPayerId = default(string), string paypalRecurringPaymentProfileId = default(string), bool? preshipmentNoticeSent = default(bool?), decimal? rebillValue = default(decimal?), int? remainingRepeatCount = default(int?), AutoOrderItemSimpleSchedule simpleSchedule = default(AutoOrderItemSimpleSchedule))
+        public AutoOrderItem(string arbitraryItemId = default(string), decimal? arbitraryPercentageDiscount = default(decimal?), decimal? arbitraryQuantity = default(decimal?), int? arbitraryScheduleDays = default(int?), decimal? arbitraryUnitCost = default(decimal?), int? arbitraryUnitCostRemainingOrders = default(int?), int? autoOrderItemOid = default(int?), string firstOrderDts = default(string), FrequencyEnum? frequency = default(FrequencyEnum?), List<AutoOrderItemFutureSchedule> futureSchedules = default(List<AutoOrderItemFutureSchedule>), string lastOrderDts = default(string), decimal? lifeTimeValue = default(decimal?), string nextItemId = default(string), string nextPreshipmentNoticeDts = default(string), string nextShipmentDts = default(string), string noOrderAfterDts = default(string), int? numberOfRebills = default(int?), List<AutoOrderItemOption> options = default(List<AutoOrderItemOption>), string originalItemId = default(string), decimal? originalQuantity = default(decimal?), bool? paused = default(bool?), string paypalPayerId = default(string), string paypalRecurringPaymentProfileId = default(string), bool? preshipmentNoticeSent = default(bool?), decimal? rebillValue = default(decimal?), int? remainingRepeatCount = default(int?), AutoOrderItemSimpleSchedule simpleSchedule = default(AutoOrderItemSimpleSchedule))
         {
             this.ArbitraryItemId = arbitraryItemId;
             this.ArbitraryPercentageDiscount = arbitraryPercentageDiscount;
@@ -184,6 +185,7 @@ namespace com.ultracart.admin.v2.Model
             this.FutureSchedules = futureSchedules;
             this.LastOrderDts = lastOrderDts;
             this.LifeTimeValue = lifeTimeValue;
+            this.NextItemId = nextItemId;
             this.NextPreshipmentNoticeDts = nextPreshipmentNoticeDts;
             this.NextShipmentDts = nextShipmentDts;
             this.NoOrderAfterDts = noOrderAfterDts;
@@ -277,6 +279,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The life time value of this item including the original purchase</value>
         [DataMember(Name="life_time_value", EmitDefaultValue=false)]
         public decimal? LifeTimeValue { get; set; }
+
+        /// <summary>
+        /// Calculated next item id
+        /// </summary>
+        /// <value>Calculated next item id</value>
+        [DataMember(Name="next_item_id", EmitDefaultValue=false)]
+        public string NextItemId { get; set; }
 
         /// <summary>
         /// The date/time of when the next pre-shipment notice should be sent
@@ -395,6 +404,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  FutureSchedules: ").Append(FutureSchedules).Append("\n");
             sb.Append("  LastOrderDts: ").Append(LastOrderDts).Append("\n");
             sb.Append("  LifeTimeValue: ").Append(LifeTimeValue).Append("\n");
+            sb.Append("  NextItemId: ").Append(NextItemId).Append("\n");
             sb.Append("  NextPreshipmentNoticeDts: ").Append(NextPreshipmentNoticeDts).Append("\n");
             sb.Append("  NextShipmentDts: ").Append(NextShipmentDts).Append("\n");
             sb.Append("  NoOrderAfterDts: ").Append(NoOrderAfterDts).Append("\n");
@@ -504,6 +514,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LifeTimeValue.Equals(input.LifeTimeValue))
                 ) && 
                 (
+                    this.NextItemId == input.NextItemId ||
+                    (this.NextItemId != null &&
+                    this.NextItemId.Equals(input.NextItemId))
+                ) && 
+                (
                     this.NextPreshipmentNoticeDts == input.NextPreshipmentNoticeDts ||
                     (this.NextPreshipmentNoticeDts != null &&
                     this.NextPreshipmentNoticeDts.Equals(input.NextPreshipmentNoticeDts))
@@ -608,6 +623,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LastOrderDts.GetHashCode();
                 if (this.LifeTimeValue != null)
                     hashCode = hashCode * 59 + this.LifeTimeValue.GetHashCode();
+                if (this.NextItemId != null)
+                    hashCode = hashCode * 59 + this.NextItemId.GetHashCode();
                 if (this.NextPreshipmentNoticeDts != null)
                     hashCode = hashCode * 59 + this.NextPreshipmentNoticeDts.GetHashCode();
                 if (this.NextShipmentDts != null)

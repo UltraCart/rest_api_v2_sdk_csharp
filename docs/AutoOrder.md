@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **Items** | [**List&lt;AutoOrderItem&gt;**](AutoOrderItem.md) | The items that are setup to rebill | [optional] 
 **Logs** | [**List&lt;AutoOrderLog&gt;**](AutoOrderLog.md) | Logs associated with this auto order | [optional] 
 **Management** | [**AutoOrderManagement**](AutoOrderManagement.md) |  | [optional] 
+**MerchantId** | **string** | UltraCart merchant ID owning this order | [optional] 
 **NextAttempt** | **string** | The next time that the auto order will be attempted for processing | [optional] 
 **OriginalOrder** | [**Order**](Order.md) |  | [optional] 
 **OriginalOrderId** | **string** | The original order id that this auto order is associated with. | [optional] 

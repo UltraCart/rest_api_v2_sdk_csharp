@@ -237,14 +237,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="dependantWorkflowTaskUuid">Dependant Workflow Task UUID (must be completed before this task can be completed).</param>
         /// <param name="dueDts">Date/time that the workflow task is due.</param>
         /// <param name="expirationDts">Date/time that the workflow task will expire and be closed.  This is set by system generated tasks..</param>
-        /// <param name="globalTaskNumber">Global task numer.</param>
+        /// <param name="globalTaskNumber">Global task number.</param>
         /// <param name="histories">Array of history records for the task.</param>
         /// <param name="lastUpdateDts">Date/time that the workflow task was last updated.</param>
         /// <param name="merchantId">Merchant ID.</param>
         /// <param name="notes">Notes on the Workflow Task.</param>
         /// <param name="objectEmail">Object is associated with customer email.</param>
         /// <param name="objectId">Object ID.</param>
-        /// <param name="objectTaskNumber">Object specific task numer.</param>
+        /// <param name="objectTaskNumber">Object specific task number.</param>
         /// <param name="objectType">Object Type.</param>
         /// <param name="objectUrl">Object URL.</param>
         /// <param name="priority">Priority.</param>
@@ -377,9 +377,9 @@ namespace com.ultracart.admin.v2.Model
         public string ExpirationDts { get; set; }
 
         /// <summary>
-        /// Global task numer
+        /// Global task number
         /// </summary>
-        /// <value>Global task numer</value>
+        /// <value>Global task number</value>
         [DataMember(Name="global_task_number", EmitDefaultValue=false)]
         public int GlobalTaskNumber { get; set; }
 
@@ -426,9 +426,9 @@ namespace com.ultracart.admin.v2.Model
         public string ObjectId { get; set; }
 
         /// <summary>
-        /// Object specific task numer
+        /// Object specific task number
         /// </summary>
-        /// <value>Object specific task numer</value>
+        /// <value>Object specific task number</value>
         [DataMember(Name="object_task_number", EmitDefaultValue=false)]
         public int ObjectTaskNumber { get; set; }
 

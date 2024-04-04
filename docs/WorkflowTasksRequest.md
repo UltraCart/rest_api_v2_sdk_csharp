@@ -5,8 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AssignedToGroup** | **string** | Assigned to group | [optional] 
 **AssignedToGroupId** | **int** | Assigned to group ID | [optional] 
 **AssignedToMe** | **bool** | Tasks are assigned to me either by direct user id or a group that the user is a member of | [optional] 
+**AssignedToUser** | **string** | Assigned to user | [optional] 
 **AssignedToUserId** | **int** | Assigned to user ID | [optional] 
 **CreatedBy** | [**WorkflowUser**](WorkflowUser.md) |  | [optional] 
 **CreatedDtsBegin** | **string** | Date/time that the workflow task was created | [optional] 

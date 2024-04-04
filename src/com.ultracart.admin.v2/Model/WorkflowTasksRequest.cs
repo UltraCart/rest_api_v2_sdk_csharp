@@ -150,8 +150,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkflowTasksRequest" /> class.
         /// </summary>
+        /// <param name="assignedToGroup">Assigned to group.</param>
         /// <param name="assignedToGroupId">Assigned to group ID.</param>
         /// <param name="assignedToMe">Tasks are assigned to me either by direct user id or a group that the user is a member of.</param>
+        /// <param name="assignedToUser">Assigned to user.</param>
         /// <param name="assignedToUserId">Assigned to user ID.</param>
         /// <param name="createdBy">createdBy.</param>
         /// <param name="createdDtsBegin">Date/time that the workflow task was created.</param>
@@ -168,10 +170,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="status">Status of the workflow task.</param>
         /// <param name="tags">Tasks that are tagged with the specified tags.</param>
         /// <param name="unassigned">Tasks that are unassigned to a user or group.</param>
-        public WorkflowTasksRequest(int assignedToGroupId = default(int), bool assignedToMe = default(bool), int assignedToUserId = default(int), WorkflowUser createdBy = default(WorkflowUser), string createdDtsBegin = default(string), string createdDtsEnd = default(string), string delayUntilDtsBegin = default(string), string delayUntilDtsEnd = default(string), string dueDtsBegin = default(string), string dueDtsEnd = default(string), string lastUpdateDtsBegin = default(string), string lastUpdateDtsEnd = default(string), string objectEmail = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), PriorityEnum? priority = default(PriorityEnum?), StatusEnum? status = default(StatusEnum?), List<string> tags = default(List<string>), bool unassigned = default(bool))
+        public WorkflowTasksRequest(string assignedToGroup = default(string), int assignedToGroupId = default(int), bool assignedToMe = default(bool), string assignedToUser = default(string), int assignedToUserId = default(int), WorkflowUser createdBy = default(WorkflowUser), string createdDtsBegin = default(string), string createdDtsEnd = default(string), string delayUntilDtsBegin = default(string), string delayUntilDtsEnd = default(string), string dueDtsBegin = default(string), string dueDtsEnd = default(string), string lastUpdateDtsBegin = default(string), string lastUpdateDtsEnd = default(string), string objectEmail = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), PriorityEnum? priority = default(PriorityEnum?), StatusEnum? status = default(StatusEnum?), List<string> tags = default(List<string>), bool unassigned = default(bool))
         {
+            this.AssignedToGroup = assignedToGroup;
             this.AssignedToGroupId = assignedToGroupId;
             this.AssignedToMe = assignedToMe;
+            this.AssignedToUser = assignedToUser;
             this.AssignedToUserId = assignedToUserId;
             this.CreatedBy = createdBy;
             this.CreatedDtsBegin = createdDtsBegin;
@@ -191,6 +195,13 @@ namespace com.ultracart.admin.v2.Model
         }
 
         /// <summary>
+        /// Assigned to group
+        /// </summary>
+        /// <value>Assigned to group</value>
+        [DataMember(Name="assigned_to_group", EmitDefaultValue=false)]
+        public string AssignedToGroup { get; set; }
+
+        /// <summary>
         /// Assigned to group ID
         /// </summary>
         /// <value>Assigned to group ID</value>
@@ -203,6 +214,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Tasks are assigned to me either by direct user id or a group that the user is a member of</value>
         [DataMember(Name="assigned_to_me", EmitDefaultValue=false)]
         public bool AssignedToMe { get; set; }
+
+        /// <summary>
+        /// Assigned to user
+        /// </summary>
+        /// <value>Assigned to user</value>
+        [DataMember(Name="assigned_to_user", EmitDefaultValue=false)]
+        public string AssignedToUser { get; set; }
 
         /// <summary>
         /// Assigned to user ID
@@ -305,8 +323,10 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class WorkflowTasksRequest {\n");
+            sb.Append("  AssignedToGroup: ").Append(AssignedToGroup).Append("\n");
             sb.Append("  AssignedToGroupId: ").Append(AssignedToGroupId).Append("\n");
             sb.Append("  AssignedToMe: ").Append(AssignedToMe).Append("\n");
+            sb.Append("  AssignedToUser: ").Append(AssignedToUser).Append("\n");
             sb.Append("  AssignedToUserId: ").Append(AssignedToUserId).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  CreatedDtsBegin: ").Append(CreatedDtsBegin).Append("\n");
@@ -358,6 +378,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AssignedToGroup == input.AssignedToGroup ||
+                    (this.AssignedToGroup != null &&
+                    this.AssignedToGroup.Equals(input.AssignedToGroup))
+                ) && 
+                (
                     this.AssignedToGroupId == input.AssignedToGroupId ||
                     (this.AssignedToGroupId != null &&
                     this.AssignedToGroupId.Equals(input.AssignedToGroupId))
@@ -366,6 +391,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AssignedToMe == input.AssignedToMe ||
                     (this.AssignedToMe != null &&
                     this.AssignedToMe.Equals(input.AssignedToMe))
+                ) && 
+                (
+                    this.AssignedToUser == input.AssignedToUser ||
+                    (this.AssignedToUser != null &&
+                    this.AssignedToUser.Equals(input.AssignedToUser))
                 ) && 
                 (
                     this.AssignedToUserId == input.AssignedToUserId ||
@@ -459,10 +489,14 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AssignedToGroup != null)
+                    hashCode = hashCode * 59 + this.AssignedToGroup.GetHashCode();
                 if (this.AssignedToGroupId != null)
                     hashCode = hashCode * 59 + this.AssignedToGroupId.GetHashCode();
                 if (this.AssignedToMe != null)
                     hashCode = hashCode * 59 + this.AssignedToMe.GetHashCode();
+                if (this.AssignedToUser != null)
+                    hashCode = hashCode * 59 + this.AssignedToUser.GetHashCode();
                 if (this.AssignedToUserId != null)
                     hashCode = hashCode * 59 + this.AssignedToUserId.GetHashCode();
                 if (this.CreatedBy != null)

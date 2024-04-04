@@ -414,6 +414,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ItemReviewResponse</returns>
         ApiResponse<ItemReviewResponse> InsertReviewWithHttpInfo (int merchantItemOid, ItemReview review);
         /// <summary>
+        /// Upsert an item content attribute
+        /// </summary>
+        /// <remarks>
+        /// Update an item content attribute, creating it new if it does not yet exist. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid to modify.</param>
+        /// <param name="itemAttribute">Item content attribute to upsert</param>
+        /// <returns></returns>
+        void InsertUpdateItemContentAttribute (int merchantItemOid, ItemContentAttribute itemAttribute);
+
+        /// <summary>
+        /// Upsert an item content attribute
+        /// </summary>
+        /// <remarks>
+        /// Update an item content attribute, creating it new if it does not yet exist. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid to modify.</param>
+        /// <param name="itemAttribute">Item content attribute to upsert</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> InsertUpdateItemContentAttributeWithHttpInfo (int merchantItemOid, ItemContentAttribute itemAttribute);
+        /// <summary>
         /// Updates a file within the digital library
         /// </summary>
         /// <remarks>
@@ -958,6 +981,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ItemReviewResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemReviewResponse>> InsertReviewWithHttpInfoAsync (int merchantItemOid, ItemReview review, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Upsert an item content attribute
+        /// </summary>
+        /// <remarks>
+        /// Update an item content attribute, creating it new if it does not yet exist. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid to modify.</param>
+        /// <param name="itemAttribute">Item content attribute to upsert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task InsertUpdateItemContentAttributeAsync (int merchantItemOid, ItemContentAttribute itemAttribute, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Upsert an item content attribute
+        /// </summary>
+        /// <remarks>
+        /// Update an item content attribute, creating it new if it does not yet exist. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid to modify.</param>
+        /// <param name="itemAttribute">Item content attribute to upsert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> InsertUpdateItemContentAttributeWithHttpInfoAsync (int merchantItemOid, ItemContentAttribute itemAttribute, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates a file within the digital library
         /// </summary>
@@ -3922,6 +3970,189 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ItemReviewResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ItemReviewResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemReviewResponse)));
+        }
+
+        /// <summary>
+        /// Upsert an item content attribute Update an item content attribute, creating it new if it does not yet exist. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid to modify.</param>
+        /// <param name="itemAttribute">Item content attribute to upsert</param>
+        /// <returns></returns>
+        public void InsertUpdateItemContentAttribute (int merchantItemOid, ItemContentAttribute itemAttribute)
+        {
+             InsertUpdateItemContentAttributeWithHttpInfo(merchantItemOid, itemAttribute);
+        }
+
+        /// <summary>
+        /// Upsert an item content attribute Update an item content attribute, creating it new if it does not yet exist. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid to modify.</param>
+        /// <param name="itemAttribute">Item content attribute to upsert</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> InsertUpdateItemContentAttributeWithHttpInfo (int merchantItemOid, ItemContentAttribute itemAttribute)
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->InsertUpdateItemContentAttribute");
+            // verify the required parameter 'itemAttribute' is set
+            if (itemAttribute == null)
+                throw new ApiException(400, "Missing required parameter 'itemAttribute' when calling ItemApi->InsertUpdateItemContentAttribute");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/content/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (itemAttribute != null && itemAttribute.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemAttribute); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemAttribute; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertUpdateItemContentAttribute", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Upsert an item content attribute Update an item content attribute, creating it new if it does not yet exist. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid to modify.</param>
+        /// <param name="itemAttribute">Item content attribute to upsert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task InsertUpdateItemContentAttributeAsync (int merchantItemOid, ItemContentAttribute itemAttribute, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await InsertUpdateItemContentAttributeWithHttpInfoAsync(merchantItemOid, itemAttribute, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Upsert an item content attribute Update an item content attribute, creating it new if it does not yet exist. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid to modify.</param>
+        /// <param name="itemAttribute">Item content attribute to upsert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> InsertUpdateItemContentAttributeWithHttpInfoAsync (int merchantItemOid, ItemContentAttribute itemAttribute, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->InsertUpdateItemContentAttribute");
+            // verify the required parameter 'itemAttribute' is set
+            if (itemAttribute == null)
+                throw new ApiException(400, "Missing required parameter 'itemAttribute' when calling ItemApi->InsertUpdateItemContentAttribute");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/content/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (itemAttribute != null && itemAttribute.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemAttribute); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemAttribute; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertUpdateItemContentAttribute", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>

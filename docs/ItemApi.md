@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**InsertDigitalItem**](ItemApi.md#insertdigitalitem) | **POST** /item/digital_library | Create a file within the digital library
 [**InsertItem**](ItemApi.md#insertitem) | **POST** /item/items | Create an item
 [**InsertReview**](ItemApi.md#insertreview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
+[**InsertUpdateItemContentAttribute**](ItemApi.md#insertupdateitemcontentattribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 [**UpdateDigitalItem**](ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**UpdateItem**](ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**UpdateItems**](ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
@@ -1120,6 +1121,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemReviewResponse**](ItemReviewResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="insertupdateitemcontentattribute"></a>
+# **InsertUpdateItemContentAttribute**
+> void InsertUpdateItemContentAttribute (ItemContentAttribute itemAttribute, int? merchantItemOid)
+
+Upsert an item content attribute
+
+Update an item content attribute, creating it new if it does not yet exist. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class InsertUpdateItemContentAttributeExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var itemAttribute = new ItemContentAttribute(); // ItemContentAttribute | Item content attribute to upsert
+            var merchantItemOid = 56;  // int? | The item oid to modify.
+
+            try
+            {
+                // Upsert an item content attribute
+                apiInstance.InsertUpdateItemContentAttribute(itemAttribute, merchantItemOid);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.InsertUpdateItemContentAttribute: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemAttribute** | [**ItemContentAttribute**](ItemContentAttribute.md)| Item content attribute to upsert | 
+ **merchantItemOid** | **int?**| The item oid to modify. | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

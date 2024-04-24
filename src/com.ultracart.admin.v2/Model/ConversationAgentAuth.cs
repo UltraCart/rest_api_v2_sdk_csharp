@@ -37,19 +37,25 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="conversationParticipantName">conversationParticipantName.</param>
         /// <param name="jwt">jwt.</param>
         /// <param name="merchantId">merchantId.</param>
+        /// <param name="pbxAdmin">pbxAdmin.</param>
         /// <param name="pbxJwt">pbxJwt.</param>
+        /// <param name="pbxSupervisor">pbxSupervisor.</param>
+        /// <param name="pbxUser">pbxUser.</param>
         /// <param name="pbxVoiceIdentity">pbxVoiceIdentity.</param>
         /// <param name="pbxVoiceToken">pbxVoiceToken.</param>
         /// <param name="pbxWorkerToken">pbxWorkerToken.</param>
         /// <param name="twilioAccounts">twilioAccounts.</param>
         /// <param name="websocketUrl">websocketUrl.</param>
-        public ConversationAgentAuth(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string jwt = default(string), string merchantId = default(string), string pbxJwt = default(string), string pbxVoiceIdentity = default(string), string pbxVoiceToken = default(string), string pbxWorkerToken = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), string websocketUrl = default(string))
+        public ConversationAgentAuth(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string jwt = default(string), string merchantId = default(string), bool? pbxAdmin = default(bool?), string pbxJwt = default(string), bool? pbxSupervisor = default(bool?), bool? pbxUser = default(bool?), string pbxVoiceIdentity = default(string), string pbxVoiceToken = default(string), string pbxWorkerToken = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), string websocketUrl = default(string))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
             this.Jwt = jwt;
             this.MerchantId = merchantId;
+            this.PbxAdmin = pbxAdmin;
             this.PbxJwt = pbxJwt;
+            this.PbxSupervisor = pbxSupervisor;
+            this.PbxUser = pbxUser;
             this.PbxVoiceIdentity = pbxVoiceIdentity;
             this.PbxVoiceToken = pbxVoiceToken;
             this.PbxWorkerToken = pbxWorkerToken;
@@ -82,10 +88,28 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantId { get; set; }
 
         /// <summary>
+        /// Gets or Sets PbxAdmin
+        /// </summary>
+        [DataMember(Name="pbx_admin", EmitDefaultValue=false)]
+        public bool? PbxAdmin { get; set; }
+
+        /// <summary>
         /// Gets or Sets PbxJwt
         /// </summary>
         [DataMember(Name="pbx_jwt", EmitDefaultValue=false)]
         public string PbxJwt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PbxSupervisor
+        /// </summary>
+        [DataMember(Name="pbx_supervisor", EmitDefaultValue=false)]
+        public bool? PbxSupervisor { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PbxUser
+        /// </summary>
+        [DataMember(Name="pbx_user", EmitDefaultValue=false)]
+        public bool? PbxUser { get; set; }
 
         /// <summary>
         /// Gets or Sets PbxVoiceIdentity
@@ -129,7 +153,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ConversationParticipantName: ").Append(ConversationParticipantName).Append("\n");
             sb.Append("  Jwt: ").Append(Jwt).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  PbxAdmin: ").Append(PbxAdmin).Append("\n");
             sb.Append("  PbxJwt: ").Append(PbxJwt).Append("\n");
+            sb.Append("  PbxSupervisor: ").Append(PbxSupervisor).Append("\n");
+            sb.Append("  PbxUser: ").Append(PbxUser).Append("\n");
             sb.Append("  PbxVoiceIdentity: ").Append(PbxVoiceIdentity).Append("\n");
             sb.Append("  PbxVoiceToken: ").Append(PbxVoiceToken).Append("\n");
             sb.Append("  PbxWorkerToken: ").Append(PbxWorkerToken).Append("\n");
@@ -190,9 +217,24 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
+                    this.PbxAdmin == input.PbxAdmin ||
+                    (this.PbxAdmin != null &&
+                    this.PbxAdmin.Equals(input.PbxAdmin))
+                ) && 
+                (
                     this.PbxJwt == input.PbxJwt ||
                     (this.PbxJwt != null &&
                     this.PbxJwt.Equals(input.PbxJwt))
+                ) && 
+                (
+                    this.PbxSupervisor == input.PbxSupervisor ||
+                    (this.PbxSupervisor != null &&
+                    this.PbxSupervisor.Equals(input.PbxSupervisor))
+                ) && 
+                (
+                    this.PbxUser == input.PbxUser ||
+                    (this.PbxUser != null &&
+                    this.PbxUser.Equals(input.PbxUser))
                 ) && 
                 (
                     this.PbxVoiceIdentity == input.PbxVoiceIdentity ||
@@ -238,8 +280,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Jwt.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.PbxAdmin != null)
+                    hashCode = hashCode * 59 + this.PbxAdmin.GetHashCode();
                 if (this.PbxJwt != null)
                     hashCode = hashCode * 59 + this.PbxJwt.GetHashCode();
+                if (this.PbxSupervisor != null)
+                    hashCode = hashCode * 59 + this.PbxSupervisor.GetHashCode();
+                if (this.PbxUser != null)
+                    hashCode = hashCode * 59 + this.PbxUser.GetHashCode();
                 if (this.PbxVoiceIdentity != null)
                     hashCode = hashCode * 59 + this.PbxVoiceIdentity.GetHashCode();
                 if (this.PbxVoiceToken != null)

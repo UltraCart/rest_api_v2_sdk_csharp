@@ -14334,7 +14334,7 @@ namespace com.ultracart.admin.v2.Api
             if (recordingSid == null)
                 throw new ApiException(400, "Missing required parameter 'recordingSid' when calling ConversationApi->ListenedPbxQueueVoicemail");
 
-            var localVarPath = "/conversation/pbx/{queue_uuid}/voicemails/voicemails/{recording_sid}/listened";
+            var localVarPath = "/conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid}/listened";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -14418,7 +14418,7 @@ namespace com.ultracart.admin.v2.Api
             if (recordingSid == null)
                 throw new ApiException(400, "Missing required parameter 'recordingSid' when calling ConversationApi->ListenedPbxQueueVoicemail");
 
-            var localVarPath = "/conversation/pbx/{queue_uuid}/voicemails/voicemails/{recording_sid}/listened";
+            var localVarPath = "/conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid}/listened";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);

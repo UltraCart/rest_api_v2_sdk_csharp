@@ -53,7 +53,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="voicemail">If true, this queue has a voicemail associated with it.</param>
         /// <param name="waitCriticalSeconds">Wait time in seconds before critical.</param>
         /// <param name="waitWarningSeconds">Wait time in seconds before warning.</param>
-        public ConversationPbxQueue(bool? announceQueuePosition = default(bool?), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int? maxHoldSeconds = default(int?), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), string noAgentAvailableSayVoice = default(string), string playAudioUuid = default(string), bool? recordCall = default(bool?), string say = default(string), string sayVoice = default(string), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool? voicemail = default(bool?), int? waitCriticalSeconds = default(int?), int? waitWarningSeconds = default(int?))
+        /// <param name="wrapUpSeconds">Wrap up time in seconds.</param>
+        public ConversationPbxQueue(bool? announceQueuePosition = default(bool?), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int? maxHoldSeconds = default(int?), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), string noAgentAvailableSayVoice = default(string), string playAudioUuid = default(string), bool? recordCall = default(bool?), string say = default(string), string sayVoice = default(string), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool? voicemail = default(bool?), int? waitCriticalSeconds = default(int?), int? waitWarningSeconds = default(int?), int? wrapUpSeconds = default(int?))
         {
             this.AnnounceQueuePosition = announceQueuePosition;
             this.ConversationPbxQueueUuid = conversationPbxQueueUuid;
@@ -75,6 +76,7 @@ namespace com.ultracart.admin.v2.Model
             this.Voicemail = voicemail;
             this.WaitCriticalSeconds = waitCriticalSeconds;
             this.WaitWarningSeconds = waitWarningSeconds;
+            this.WrapUpSeconds = wrapUpSeconds;
         }
         
         /// <summary>
@@ -217,6 +219,13 @@ namespace com.ultracart.admin.v2.Model
         public int? WaitWarningSeconds { get; set; }
 
         /// <summary>
+        /// Wrap up time in seconds
+        /// </summary>
+        /// <value>Wrap up time in seconds</value>
+        [DataMember(Name="wrap_up_seconds", EmitDefaultValue=false)]
+        public int? WrapUpSeconds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -244,6 +253,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Voicemail: ").Append(Voicemail).Append("\n");
             sb.Append("  WaitCriticalSeconds: ").Append(WaitCriticalSeconds).Append("\n");
             sb.Append("  WaitWarningSeconds: ").Append(WaitWarningSeconds).Append("\n");
+            sb.Append("  WrapUpSeconds: ").Append(WrapUpSeconds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -377,6 +387,11 @@ namespace com.ultracart.admin.v2.Model
                     this.WaitWarningSeconds == input.WaitWarningSeconds ||
                     (this.WaitWarningSeconds != null &&
                     this.WaitWarningSeconds.Equals(input.WaitWarningSeconds))
+                ) && 
+                (
+                    this.WrapUpSeconds == input.WrapUpSeconds ||
+                    (this.WrapUpSeconds != null &&
+                    this.WrapUpSeconds.Equals(input.WrapUpSeconds))
                 );
         }
 
@@ -429,6 +444,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.WaitCriticalSeconds.GetHashCode();
                 if (this.WaitWarningSeconds != null)
                     hashCode = hashCode * 59 + this.WaitWarningSeconds.GetHashCode();
+                if (this.WrapUpSeconds != null)
+                    hashCode = hashCode * 59 + this.WrapUpSeconds.GetHashCode();
                 return hashCode;
             }
         }

@@ -40,6 +40,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="emailContainerCjson">Email container cjson.</param>
         /// <param name="emailContainerCjsonLastModifiedDts">Timestamp the last time the container was modified..</param>
         /// <param name="emailTemplateVmPath">Email template virtual path.</param>
+        /// <param name="externalGeneration">externalGeneration.</param>
+        /// <param name="externalGenerationAuthentication">externalGenerationAuthentication.</param>
+        /// <param name="externalGenerationBasicPassword">externalGenerationBasicPassword.</param>
+        /// <param name="externalGenerationBasicUsername">externalGenerationBasicUsername.</param>
+        /// <param name="externalGenerationHeaderName">externalGenerationHeaderName.</param>
+        /// <param name="externalGenerationHeaderValue">externalGenerationHeaderValue.</param>
+        /// <param name="externalGenerationId">externalGenerationId.</param>
+        /// <param name="externalGenerationUrl">externalGenerationUrl.</param>
         /// <param name="filterProfileEquationJson">Filter profile equation json.</param>
         /// <param name="individuallyRender">Individually render.</param>
         /// <param name="libraryItemOid">If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated..</param>
@@ -59,7 +67,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="suspendedForSpam">True if the email was suspended for too high of a spam rate..</param>
         /// <param name="transactionalEmail">Transactional email.</param>
         /// <param name="version">Version.</param>
-        public EmailCommseqEmail(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), string filterProfileEquationJson = default(string), bool? individuallyRender = default(bool?), int? libraryItemOid = default(int?), bool? magicLink = default(bool?), string merchantId = default(string), bool? pendingReview = default(bool?), string previewText = default(string), bool? rejected = default(bool?), bool? requiresReview = default(bool?), string screenshotLargeFullUrl = default(string), string screenshotLargeViewportUrl = default(string), string screenshotSmallFullUrl = default(string), string screenshotSmallViewportUrl = default(string), bool? smartSending = default(bool?), int? storefrontOid = default(int?), string subject = default(string), bool? suspendedForSpam = default(bool?), bool? transactionalEmail = default(bool?), int? version = default(int?))
+        public EmailCommseqEmail(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), bool? externalGeneration = default(bool?), string externalGenerationAuthentication = default(string), string externalGenerationBasicPassword = default(string), string externalGenerationBasicUsername = default(string), string externalGenerationHeaderName = default(string), string externalGenerationHeaderValue = default(string), string externalGenerationId = default(string), string externalGenerationUrl = default(string), string filterProfileEquationJson = default(string), bool? individuallyRender = default(bool?), int? libraryItemOid = default(int?), bool? magicLink = default(bool?), string merchantId = default(string), bool? pendingReview = default(bool?), string previewText = default(string), bool? rejected = default(bool?), bool? requiresReview = default(bool?), string screenshotLargeFullUrl = default(string), string screenshotLargeViewportUrl = default(string), string screenshotSmallFullUrl = default(string), string screenshotSmallViewportUrl = default(string), bool? smartSending = default(bool?), int? storefrontOid = default(int?), string subject = default(string), bool? suspendedForSpam = default(bool?), bool? transactionalEmail = default(bool?), int? version = default(int?))
         {
             this.Deleted = deleted;
             this.EditedByUser = editedByUser;
@@ -68,6 +76,14 @@ namespace com.ultracart.admin.v2.Model
             this.EmailContainerCjson = emailContainerCjson;
             this.EmailContainerCjsonLastModifiedDts = emailContainerCjsonLastModifiedDts;
             this.EmailTemplateVmPath = emailTemplateVmPath;
+            this.ExternalGeneration = externalGeneration;
+            this.ExternalGenerationAuthentication = externalGenerationAuthentication;
+            this.ExternalGenerationBasicPassword = externalGenerationBasicPassword;
+            this.ExternalGenerationBasicUsername = externalGenerationBasicUsername;
+            this.ExternalGenerationHeaderName = externalGenerationHeaderName;
+            this.ExternalGenerationHeaderValue = externalGenerationHeaderValue;
+            this.ExternalGenerationId = externalGenerationId;
+            this.ExternalGenerationUrl = externalGenerationUrl;
             this.FilterProfileEquationJson = filterProfileEquationJson;
             this.IndividuallyRender = individuallyRender;
             this.LibraryItemOid = libraryItemOid;
@@ -137,6 +153,54 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Email template virtual path</value>
         [DataMember(Name="email_template_vm_path", EmitDefaultValue=false)]
         public string EmailTemplateVmPath { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExternalGeneration
+        /// </summary>
+        [DataMember(Name="external_generation", EmitDefaultValue=false)]
+        public bool? ExternalGeneration { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExternalGenerationAuthentication
+        /// </summary>
+        [DataMember(Name="external_generation_authentication", EmitDefaultValue=false)]
+        public string ExternalGenerationAuthentication { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExternalGenerationBasicPassword
+        /// </summary>
+        [DataMember(Name="external_generation_basic_password", EmitDefaultValue=false)]
+        public string ExternalGenerationBasicPassword { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExternalGenerationBasicUsername
+        /// </summary>
+        [DataMember(Name="external_generation_basic_username", EmitDefaultValue=false)]
+        public string ExternalGenerationBasicUsername { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExternalGenerationHeaderName
+        /// </summary>
+        [DataMember(Name="external_generation_header_name", EmitDefaultValue=false)]
+        public string ExternalGenerationHeaderName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExternalGenerationHeaderValue
+        /// </summary>
+        [DataMember(Name="external_generation_header_value", EmitDefaultValue=false)]
+        public string ExternalGenerationHeaderValue { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExternalGenerationId
+        /// </summary>
+        [DataMember(Name="external_generation_id", EmitDefaultValue=false)]
+        public string ExternalGenerationId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExternalGenerationUrl
+        /// </summary>
+        [DataMember(Name="external_generation_url", EmitDefaultValue=false)]
+        public string ExternalGenerationUrl { get; set; }
 
         /// <summary>
         /// Filter profile equation json
@@ -286,6 +350,14 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EmailContainerCjson: ").Append(EmailContainerCjson).Append("\n");
             sb.Append("  EmailContainerCjsonLastModifiedDts: ").Append(EmailContainerCjsonLastModifiedDts).Append("\n");
             sb.Append("  EmailTemplateVmPath: ").Append(EmailTemplateVmPath).Append("\n");
+            sb.Append("  ExternalGeneration: ").Append(ExternalGeneration).Append("\n");
+            sb.Append("  ExternalGenerationAuthentication: ").Append(ExternalGenerationAuthentication).Append("\n");
+            sb.Append("  ExternalGenerationBasicPassword: ").Append(ExternalGenerationBasicPassword).Append("\n");
+            sb.Append("  ExternalGenerationBasicUsername: ").Append(ExternalGenerationBasicUsername).Append("\n");
+            sb.Append("  ExternalGenerationHeaderName: ").Append(ExternalGenerationHeaderName).Append("\n");
+            sb.Append("  ExternalGenerationHeaderValue: ").Append(ExternalGenerationHeaderValue).Append("\n");
+            sb.Append("  ExternalGenerationId: ").Append(ExternalGenerationId).Append("\n");
+            sb.Append("  ExternalGenerationUrl: ").Append(ExternalGenerationUrl).Append("\n");
             sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
             sb.Append("  IndividuallyRender: ").Append(IndividuallyRender).Append("\n");
             sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
@@ -373,6 +445,46 @@ namespace com.ultracart.admin.v2.Model
                     this.EmailTemplateVmPath == input.EmailTemplateVmPath ||
                     (this.EmailTemplateVmPath != null &&
                     this.EmailTemplateVmPath.Equals(input.EmailTemplateVmPath))
+                ) && 
+                (
+                    this.ExternalGeneration == input.ExternalGeneration ||
+                    (this.ExternalGeneration != null &&
+                    this.ExternalGeneration.Equals(input.ExternalGeneration))
+                ) && 
+                (
+                    this.ExternalGenerationAuthentication == input.ExternalGenerationAuthentication ||
+                    (this.ExternalGenerationAuthentication != null &&
+                    this.ExternalGenerationAuthentication.Equals(input.ExternalGenerationAuthentication))
+                ) && 
+                (
+                    this.ExternalGenerationBasicPassword == input.ExternalGenerationBasicPassword ||
+                    (this.ExternalGenerationBasicPassword != null &&
+                    this.ExternalGenerationBasicPassword.Equals(input.ExternalGenerationBasicPassword))
+                ) && 
+                (
+                    this.ExternalGenerationBasicUsername == input.ExternalGenerationBasicUsername ||
+                    (this.ExternalGenerationBasicUsername != null &&
+                    this.ExternalGenerationBasicUsername.Equals(input.ExternalGenerationBasicUsername))
+                ) && 
+                (
+                    this.ExternalGenerationHeaderName == input.ExternalGenerationHeaderName ||
+                    (this.ExternalGenerationHeaderName != null &&
+                    this.ExternalGenerationHeaderName.Equals(input.ExternalGenerationHeaderName))
+                ) && 
+                (
+                    this.ExternalGenerationHeaderValue == input.ExternalGenerationHeaderValue ||
+                    (this.ExternalGenerationHeaderValue != null &&
+                    this.ExternalGenerationHeaderValue.Equals(input.ExternalGenerationHeaderValue))
+                ) && 
+                (
+                    this.ExternalGenerationId == input.ExternalGenerationId ||
+                    (this.ExternalGenerationId != null &&
+                    this.ExternalGenerationId.Equals(input.ExternalGenerationId))
+                ) && 
+                (
+                    this.ExternalGenerationUrl == input.ExternalGenerationUrl ||
+                    (this.ExternalGenerationUrl != null &&
+                    this.ExternalGenerationUrl.Equals(input.ExternalGenerationUrl))
                 ) && 
                 (
                     this.FilterProfileEquationJson == input.FilterProfileEquationJson ||
@@ -494,6 +606,22 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EmailContainerCjsonLastModifiedDts.GetHashCode();
                 if (this.EmailTemplateVmPath != null)
                     hashCode = hashCode * 59 + this.EmailTemplateVmPath.GetHashCode();
+                if (this.ExternalGeneration != null)
+                    hashCode = hashCode * 59 + this.ExternalGeneration.GetHashCode();
+                if (this.ExternalGenerationAuthentication != null)
+                    hashCode = hashCode * 59 + this.ExternalGenerationAuthentication.GetHashCode();
+                if (this.ExternalGenerationBasicPassword != null)
+                    hashCode = hashCode * 59 + this.ExternalGenerationBasicPassword.GetHashCode();
+                if (this.ExternalGenerationBasicUsername != null)
+                    hashCode = hashCode * 59 + this.ExternalGenerationBasicUsername.GetHashCode();
+                if (this.ExternalGenerationHeaderName != null)
+                    hashCode = hashCode * 59 + this.ExternalGenerationHeaderName.GetHashCode();
+                if (this.ExternalGenerationHeaderValue != null)
+                    hashCode = hashCode * 59 + this.ExternalGenerationHeaderValue.GetHashCode();
+                if (this.ExternalGenerationId != null)
+                    hashCode = hashCode * 59 + this.ExternalGenerationId.GetHashCode();
+                if (this.ExternalGenerationUrl != null)
+                    hashCode = hashCode * 59 + this.ExternalGenerationUrl.GetHashCode();
                 if (this.FilterProfileEquationJson != null)
                     hashCode = hashCode * 59 + this.FilterProfileEquationJson.GetHashCode();
                 if (this.IndividuallyRender != null)

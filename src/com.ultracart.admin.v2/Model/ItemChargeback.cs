@@ -33,8 +33,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemChargeback" /> class.
         /// </summary>
-        /// <param name="addendums">Addendums.</param>
-        /// <param name="adjustmentRequests">Adjustment requests.</param>
+        /// <param name="addendums">Addendums (deprecated).</param>
+        /// <param name="adjustmentRequests">Adjustment requests (deprecated).</param>
         public ItemChargeback(List<ItemChargebackAddendum> addendums = default(List<ItemChargebackAddendum>), List<ItemChargebackAdjustmentRequest> adjustmentRequests = default(List<ItemChargebackAdjustmentRequest>))
         {
             this.Addendums = addendums;
@@ -42,16 +42,16 @@ namespace com.ultracart.admin.v2.Model
         }
 
         /// <summary>
-        /// Addendums
+        /// Addendums (deprecated)
         /// </summary>
-        /// <value>Addendums</value>
+        /// <value>Addendums (deprecated)</value>
         [DataMember(Name="addendums", EmitDefaultValue=false)]
         public List<ItemChargebackAddendum> Addendums { get; set; }
 
         /// <summary>
-        /// Adjustment requests
+        /// Adjustment requests (deprecated)
         /// </summary>
-        /// <value>Adjustment requests</value>
+        /// <value>Adjustment requests (deprecated)</value>
         [DataMember(Name="adjustment_requests", EmitDefaultValue=false)]
         public List<ItemChargebackAdjustmentRequest> AdjustmentRequests { get; set; }
 

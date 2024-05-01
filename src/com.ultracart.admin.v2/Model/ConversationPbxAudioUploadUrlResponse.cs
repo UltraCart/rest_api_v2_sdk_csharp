@@ -25,43 +25,33 @@ using OpenAPIDateConverter = com.ultracart.admin.v2.Client.OpenAPIDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ConversationPbxCustomerSnapshotResponse
+    /// ConversationPbxAudioUploadUrlResponse
     /// </summary>
     [DataContract]
-    public partial class ConversationPbxCustomerSnapshotResponse :  IEquatable<ConversationPbxCustomerSnapshotResponse>, IValidatableObject
+    public partial class ConversationPbxAudioUploadUrlResponse :  IEquatable<ConversationPbxAudioUploadUrlResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationPbxCustomerSnapshotResponse" /> class.
+        /// Initializes a new instance of the <see cref="ConversationPbxAudioUploadUrlResponse" /> class.
         /// </summary>
-        /// <param name="autoOrders">autoOrders.</param>
-        /// <param name="customers">customers.</param>
+        /// <param name="conversationPbxAudioUploadUrl">conversationPbxAudioUploadUrl.</param>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
-        /// <param name="orders">orders.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ConversationPbxCustomerSnapshotResponse(List<AutoOrder> autoOrders = default(List<AutoOrder>), List<Customer> customers = default(List<Customer>), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), List<Order> orders = default(List<Order>), bool success = default(bool), Warning warning = default(Warning))
+        public ConversationPbxAudioUploadUrlResponse(ConversationPbxAudioUploadUrl conversationPbxAudioUploadUrl = default(ConversationPbxAudioUploadUrl), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), Warning warning = default(Warning))
         {
-            this.AutoOrders = autoOrders;
-            this.Customers = customers;
+            this.ConversationPbxAudioUploadUrl = conversationPbxAudioUploadUrl;
             this.Error = error;
             this.Metadata = metadata;
-            this.Orders = orders;
             this.Success = success;
             this.Warning = warning;
         }
 
         /// <summary>
-        /// Gets or Sets AutoOrders
+        /// Gets or Sets ConversationPbxAudioUploadUrl
         /// </summary>
-        [DataMember(Name="auto_orders", EmitDefaultValue=false)]
-        public List<AutoOrder> AutoOrders { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Customers
-        /// </summary>
-        [DataMember(Name="customers", EmitDefaultValue=false)]
-        public List<Customer> Customers { get; set; }
+        [DataMember(Name="conversation_pbx_audio_upload_url", EmitDefaultValue=false)]
+        public ConversationPbxAudioUploadUrl ConversationPbxAudioUploadUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Error
@@ -74,12 +64,6 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public ResponseMetadata Metadata { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Orders
-        /// </summary>
-        [DataMember(Name="orders", EmitDefaultValue=false)]
-        public List<Order> Orders { get; set; }
 
         /// <summary>
         /// Indicates if API call was successful
@@ -101,12 +85,10 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConversationPbxCustomerSnapshotResponse {\n");
-            sb.Append("  AutoOrders: ").Append(AutoOrders).Append("\n");
-            sb.Append("  Customers: ").Append(Customers).Append("\n");
+            sb.Append("class ConversationPbxAudioUploadUrlResponse {\n");
+            sb.Append("  ConversationPbxAudioUploadUrl: ").Append(ConversationPbxAudioUploadUrl).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  Orders: ").Append(Orders).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
@@ -129,31 +111,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ConversationPbxCustomerSnapshotResponse);
+            return this.Equals(input as ConversationPbxAudioUploadUrlResponse);
         }
 
         /// <summary>
-        /// Returns true if ConversationPbxCustomerSnapshotResponse instances are equal
+        /// Returns true if ConversationPbxAudioUploadUrlResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConversationPbxCustomerSnapshotResponse to be compared</param>
+        /// <param name="input">Instance of ConversationPbxAudioUploadUrlResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConversationPbxCustomerSnapshotResponse input)
+        public bool Equals(ConversationPbxAudioUploadUrlResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.AutoOrders == input.AutoOrders ||
-                    this.AutoOrders != null &&
-                    input.AutoOrders != null &&
-                    this.AutoOrders.SequenceEqual(input.AutoOrders)
-                ) && 
-                (
-                    this.Customers == input.Customers ||
-                    this.Customers != null &&
-                    input.Customers != null &&
-                    this.Customers.SequenceEqual(input.Customers)
+                    this.ConversationPbxAudioUploadUrl == input.ConversationPbxAudioUploadUrl ||
+                    (this.ConversationPbxAudioUploadUrl != null &&
+                    this.ConversationPbxAudioUploadUrl.Equals(input.ConversationPbxAudioUploadUrl))
                 ) && 
                 (
                     this.Error == input.Error ||
@@ -164,12 +139,6 @@ namespace com.ultracart.admin.v2.Model
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
-                ) && 
-                (
-                    this.Orders == input.Orders ||
-                    this.Orders != null &&
-                    input.Orders != null &&
-                    this.Orders.SequenceEqual(input.Orders)
                 ) && 
                 (
                     this.Success == input.Success ||
@@ -192,16 +161,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AutoOrders != null)
-                    hashCode = hashCode * 59 + this.AutoOrders.GetHashCode();
-                if (this.Customers != null)
-                    hashCode = hashCode * 59 + this.Customers.GetHashCode();
+                if (this.ConversationPbxAudioUploadUrl != null)
+                    hashCode = hashCode * 59 + this.ConversationPbxAudioUploadUrl.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
-                if (this.Orders != null)
-                    hashCode = hashCode * 59 + this.Orders.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Warning != null)

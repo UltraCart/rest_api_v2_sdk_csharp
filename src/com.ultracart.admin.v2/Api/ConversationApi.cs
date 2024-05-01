@@ -551,8 +551,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>ConversationMultimediaUploadUrlResponse</returns>
-        ConversationMultimediaUploadUrlResponse GetConversationPbxAudioUploadUrl (string extension);
+        /// <returns>ConversationPbxAudioUploadUrlResponse</returns>
+        ConversationPbxAudioUploadUrlResponse GetConversationPbxAudioUploadUrl (string extension);
 
         /// <summary>
         /// Get a pre-signed conversation multimedia upload URL
@@ -562,8 +562,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>ApiResponse of ConversationMultimediaUploadUrlResponse</returns>
-        ApiResponse<ConversationMultimediaUploadUrlResponse> GetConversationPbxAudioUploadUrlWithHttpInfo (string extension);
+        /// <returns>ApiResponse of ConversationPbxAudioUploadUrlResponse</returns>
+        ApiResponse<ConversationPbxAudioUploadUrlResponse> GetConversationPbxAudioUploadUrlWithHttpInfo (string extension);
         /// <summary>
         /// Get orders and customer information for a phone number
         /// </summary>
@@ -2365,8 +2365,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>Task of ConversationMultimediaUploadUrlResponse</returns>
-        System.Threading.Tasks.Task<ConversationMultimediaUploadUrlResponse> GetConversationPbxAudioUploadUrlAsync (string extension);
+        /// <returns>Task of ConversationPbxAudioUploadUrlResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxAudioUploadUrlResponse> GetConversationPbxAudioUploadUrlAsync (string extension);
 
         /// <summary>
         /// Get a pre-signed conversation multimedia upload URL
@@ -2376,8 +2376,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>Task of ApiResponse (ConversationMultimediaUploadUrlResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationMultimediaUploadUrlResponse>> GetConversationPbxAudioUploadUrlAsyncWithHttpInfo (string extension);
+        /// <returns>Task of ApiResponse (ConversationPbxAudioUploadUrlResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxAudioUploadUrlResponse>> GetConversationPbxAudioUploadUrlAsyncWithHttpInfo (string extension);
         /// <summary>
         /// Get orders and customer information for a phone number
         /// </summary>
@@ -7627,10 +7627,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>ConversationMultimediaUploadUrlResponse</returns>
-        public ConversationMultimediaUploadUrlResponse GetConversationPbxAudioUploadUrl (string extension)
+        /// <returns>ConversationPbxAudioUploadUrlResponse</returns>
+        public ConversationPbxAudioUploadUrlResponse GetConversationPbxAudioUploadUrl (string extension)
         {
-             ApiResponse<ConversationMultimediaUploadUrlResponse> localVarResponse = GetConversationPbxAudioUploadUrlWithHttpInfo(extension);
+             ApiResponse<ConversationPbxAudioUploadUrlResponse> localVarResponse = GetConversationPbxAudioUploadUrlWithHttpInfo(extension);
              return localVarResponse.Data;
         }
 
@@ -7639,8 +7639,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>ApiResponse of ConversationMultimediaUploadUrlResponse</returns>
-        public ApiResponse< ConversationMultimediaUploadUrlResponse > GetConversationPbxAudioUploadUrlWithHttpInfo (string extension)
+        /// <returns>ApiResponse of ConversationPbxAudioUploadUrlResponse</returns>
+        public ApiResponse< ConversationPbxAudioUploadUrlResponse > GetConversationPbxAudioUploadUrlWithHttpInfo (string extension)
         {
             // verify the required parameter 'extension' is set
             if (extension == null)
@@ -7695,9 +7695,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ConversationMultimediaUploadUrlResponse>(localVarStatusCode,
+            return new ApiResponse<ConversationPbxAudioUploadUrlResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ConversationMultimediaUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationMultimediaUploadUrlResponse)));
+                (ConversationPbxAudioUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAudioUploadUrlResponse)));
         }
 
         /// <summary>
@@ -7705,10 +7705,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>Task of ConversationMultimediaUploadUrlResponse</returns>
-        public async System.Threading.Tasks.Task<ConversationMultimediaUploadUrlResponse> GetConversationPbxAudioUploadUrlAsync (string extension)
+        /// <returns>Task of ConversationPbxAudioUploadUrlResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxAudioUploadUrlResponse> GetConversationPbxAudioUploadUrlAsync (string extension)
         {
-             ApiResponse<ConversationMultimediaUploadUrlResponse> localVarResponse = await GetConversationPbxAudioUploadUrlAsyncWithHttpInfo(extension);
+             ApiResponse<ConversationPbxAudioUploadUrlResponse> localVarResponse = await GetConversationPbxAudioUploadUrlAsyncWithHttpInfo(extension);
              return localVarResponse.Data;
 
         }
@@ -7718,8 +7718,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>Task of ApiResponse (ConversationMultimediaUploadUrlResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationMultimediaUploadUrlResponse>> GetConversationPbxAudioUploadUrlAsyncWithHttpInfo (string extension)
+        /// <returns>Task of ApiResponse (ConversationPbxAudioUploadUrlResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxAudioUploadUrlResponse>> GetConversationPbxAudioUploadUrlAsyncWithHttpInfo (string extension)
         {
             // verify the required parameter 'extension' is set
             if (extension == null)
@@ -7774,9 +7774,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ConversationMultimediaUploadUrlResponse>(localVarStatusCode,
+            return new ApiResponse<ConversationPbxAudioUploadUrlResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ConversationMultimediaUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationMultimediaUploadUrlResponse)));
+                (ConversationPbxAudioUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAudioUploadUrlResponse)));
         }
 
         /// <summary>

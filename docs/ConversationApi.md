@@ -1718,7 +1718,7 @@ Name | Type | Description  | Notes
 
 <a name="getconversationpbxaudiouploadurl"></a>
 # **GetConversationPbxAudioUploadUrl**
-> ConversationMultimediaUploadUrlResponse GetConversationPbxAudioUploadUrl (string extension)
+> ConversationPbxAudioUploadUrlResponse GetConversationPbxAudioUploadUrl (string extension)
 
 Get a pre-signed conversation multimedia upload URL
 
@@ -1748,7 +1748,7 @@ namespace Example
             try
             {
                 // Get a pre-signed conversation multimedia upload URL
-                ConversationMultimediaUploadUrlResponse result = apiInstance.GetConversationPbxAudioUploadUrl(extension);
+                ConversationPbxAudioUploadUrlResponse result = apiInstance.GetConversationPbxAudioUploadUrl(extension);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1769,7 +1769,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConversationMultimediaUploadUrlResponse**](ConversationMultimediaUploadUrlResponse.md)
+[**ConversationPbxAudioUploadUrlResponse**](ConversationPbxAudioUploadUrlResponse.md)
 
 ### Authorization
 

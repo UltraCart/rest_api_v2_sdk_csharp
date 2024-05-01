@@ -25,6 +25,31 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Consolidates multiple auto orders
+        /// </summary>
+        /// <remarks>
+        /// Consolidates mutliple auto orders on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderConsolidate">Auto orders to consolidate</param>
+        /// <param name="autoOrderOid">The auto order oid to consolidate into.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderResponse</returns>
+        AutoOrderResponse ConsolidateAutoOrders (AutoOrderConsolidate autoOrderConsolidate, int? autoOrderOid, string expand = null);
+
+        /// <summary>
+        /// Consolidates multiple auto orders
+        /// </summary>
+        /// <remarks>
+        /// Consolidates mutliple auto orders on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderConsolidate">Auto orders to consolidate</param>
+        /// <param name="autoOrderOid">The auto order oid to consolidate into.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderResponse</returns>
+        ApiResponse<AutoOrderResponse> ConsolidateAutoOrdersWithHttpInfo (AutoOrderConsolidate autoOrderConsolidate, int? autoOrderOid, string expand = null);
+        /// <summary>
         /// Establish an auto order by referencing a regular order id
         /// </summary>
         /// <remarks>
@@ -289,6 +314,31 @@ namespace com.ultracart.admin.v2.Api
         ApiResponse<AutoOrdersResponse> UpdateAutoOrdersBatchWithHttpInfo (AutoOrdersRequest autoOrdersRequest, string expand = null, bool? placeholders = null, bool? async = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Consolidates multiple auto orders
+        /// </summary>
+        /// <remarks>
+        /// Consolidates mutliple auto orders on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderConsolidate">Auto orders to consolidate</param>
+        /// <param name="autoOrderOid">The auto order oid to consolidate into.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of AutoOrderResponse</returns>
+        System.Threading.Tasks.Task<AutoOrderResponse> ConsolidateAutoOrdersAsync (AutoOrderConsolidate autoOrderConsolidate, int? autoOrderOid, string expand = null);
+
+        /// <summary>
+        /// Consolidates multiple auto orders
+        /// </summary>
+        /// <remarks>
+        /// Consolidates mutliple auto orders on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderConsolidate">Auto orders to consolidate</param>
+        /// <param name="autoOrderOid">The auto order oid to consolidate into.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> ConsolidateAutoOrdersAsyncWithHttpInfo (AutoOrderConsolidate autoOrderConsolidate, int? autoOrderOid, string expand = null);
         /// <summary>
         /// Establish an auto order by referencing a regular order id
         /// </summary>
@@ -657,6 +707,195 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Consolidates multiple auto orders Consolidates mutliple auto orders on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderConsolidate">Auto orders to consolidate</param>
+        /// <param name="autoOrderOid">The auto order oid to consolidate into.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderResponse</returns>
+        public AutoOrderResponse ConsolidateAutoOrders (AutoOrderConsolidate autoOrderConsolidate, int? autoOrderOid, string expand = null)
+        {
+             ApiResponse<AutoOrderResponse> localVarResponse = ConsolidateAutoOrdersWithHttpInfo(autoOrderConsolidate, autoOrderOid, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Consolidates multiple auto orders Consolidates mutliple auto orders on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderConsolidate">Auto orders to consolidate</param>
+        /// <param name="autoOrderOid">The auto order oid to consolidate into.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderResponse</returns>
+        public ApiResponse< AutoOrderResponse > ConsolidateAutoOrdersWithHttpInfo (AutoOrderConsolidate autoOrderConsolidate, int? autoOrderOid, string expand = null)
+        {
+            // verify the required parameter 'autoOrderConsolidate' is set
+            if (autoOrderConsolidate == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderConsolidate' when calling AutoOrderApi->ConsolidateAutoOrders");
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->ConsolidateAutoOrders");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/consolidate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderConsolidate != null && autoOrderConsolidate.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autoOrderConsolidate); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderConsolidate; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConsolidateAutoOrders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
+        }
+
+        /// <summary>
+        /// Consolidates multiple auto orders Consolidates mutliple auto orders on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderConsolidate">Auto orders to consolidate</param>
+        /// <param name="autoOrderOid">The auto order oid to consolidate into.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of AutoOrderResponse</returns>
+        public async System.Threading.Tasks.Task<AutoOrderResponse> ConsolidateAutoOrdersAsync (AutoOrderConsolidate autoOrderConsolidate, int? autoOrderOid, string expand = null)
+        {
+             ApiResponse<AutoOrderResponse> localVarResponse = await ConsolidateAutoOrdersAsyncWithHttpInfo(autoOrderConsolidate, autoOrderOid, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Consolidates multiple auto orders Consolidates mutliple auto orders on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderConsolidate">Auto orders to consolidate</param>
+        /// <param name="autoOrderOid">The auto order oid to consolidate into.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> ConsolidateAutoOrdersAsyncWithHttpInfo (AutoOrderConsolidate autoOrderConsolidate, int? autoOrderOid, string expand = null)
+        {
+            // verify the required parameter 'autoOrderConsolidate' is set
+            if (autoOrderConsolidate == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderConsolidate' when calling AutoOrderApi->ConsolidateAutoOrders");
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->ConsolidateAutoOrders");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/consolidate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderConsolidate != null && autoOrderConsolidate.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autoOrderConsolidate); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderConsolidate; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConsolidateAutoOrders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
         }
 
         /// <summary>

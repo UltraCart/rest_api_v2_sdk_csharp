@@ -186,6 +186,7 @@ docs/ConversationPbxAudio.md
 docs/ConversationPbxAudioResponse.md
 docs/ConversationPbxAudioUploadUrl.md
 docs/ConversationPbxAudioUploadUrlResponse.md
+docs/ConversationPbxAudioUsageResponse.md
 docs/ConversationPbxAudiosResponse.md
 docs/ConversationPbxCustomerSnapshotRequest.md
 docs/ConversationPbxCustomerSnapshotResponse.md
@@ -1079,6 +1080,7 @@ src/com.ultracart.admin.v2/Model/ConversationPbxAudio.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxAudioResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxAudioUploadUrl.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxAudioUploadUrlResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxAudioUsageResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxAudiosResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCustomerSnapshotRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCustomerSnapshotResponse.cs

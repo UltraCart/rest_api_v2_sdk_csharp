@@ -54,7 +54,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Disabled for value: disabled
             /// </summary>
             [EnumMember(Value = "disabled")]
-            Disabled = 3
+            Disabled = 3,
+            
+            /// <summary>
+            /// Enum Merged for value: merged
+            /// </summary>
+            [EnumMember(Value = "merged")]
+            Merged = 4
         }
 
         /// <summary>
@@ -84,6 +90,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="logs">Logs associated with this auto order.</param>
         /// <param name="management">management.</param>
         /// <param name="merchantId">UltraCart merchant ID owning this order.</param>
+        /// <param name="mergedDts">The date/time the auto order was merged into another auto order.</param>
+        /// <param name="mergedIntoAutoOrderOid">The auto order that this auto order was merged into.</param>
         /// <param name="nextAttempt">The next time that the auto order will be attempted for processing.</param>
         /// <param name="originalOrder">originalOrder.</param>
         /// <param name="originalOrderId">The original order id that this auto order is associated with..</param>
@@ -91,7 +99,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rebillOrders">Rebill orders that have taken place on this auto order.</param>
         /// <param name="rotatingTransactionGatewayCode">The RTG code associated with this order for future rebills.</param>
         /// <param name="status">The status of the auto order.</param>
-        public AutoOrder(List<AutoOrderAddonItem> addOns = default(List<AutoOrderAddonItem>), string autoOrderCode = default(string), int? autoOrderOid = default(int?), int? cancelAfterNextXOrders = default(int?), bool? cancelDowngrade = default(bool?), string cancelReason = default(string), bool? cancelUpgrade = default(bool?), string canceledByUser = default(string), string canceledDts = default(string), bool? completed = default(bool?), int? creditCardAttempt = default(int?), string disabledDts = default(string), bool? enabled = default(bool?), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), List<AutoOrderLog> logs = default(List<AutoOrderLog>), AutoOrderManagement management = default(AutoOrderManagement), string merchantId = default(string), string nextAttempt = default(string), Order originalOrder = default(Order), string originalOrderId = default(string), int? overrideAffiliateId = default(int?), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
+        public AutoOrder(List<AutoOrderAddonItem> addOns = default(List<AutoOrderAddonItem>), string autoOrderCode = default(string), int? autoOrderOid = default(int?), int? cancelAfterNextXOrders = default(int?), bool? cancelDowngrade = default(bool?), string cancelReason = default(string), bool? cancelUpgrade = default(bool?), string canceledByUser = default(string), string canceledDts = default(string), bool? completed = default(bool?), int? creditCardAttempt = default(int?), string disabledDts = default(string), bool? enabled = default(bool?), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), List<AutoOrderLog> logs = default(List<AutoOrderLog>), AutoOrderManagement management = default(AutoOrderManagement), string merchantId = default(string), string mergedDts = default(string), int? mergedIntoAutoOrderOid = default(int?), string nextAttempt = default(string), Order originalOrder = default(Order), string originalOrderId = default(string), int? overrideAffiliateId = default(int?), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
         {
             this.AddOns = addOns;
             this.AutoOrderCode = autoOrderCode;
@@ -111,6 +119,8 @@ namespace com.ultracart.admin.v2.Model
             this.Logs = logs;
             this.Management = management;
             this.MerchantId = merchantId;
+            this.MergedDts = mergedDts;
+            this.MergedIntoAutoOrderOid = mergedIntoAutoOrderOid;
             this.NextAttempt = nextAttempt;
             this.OriginalOrder = originalOrder;
             this.OriginalOrderId = originalOrderId;
@@ -246,6 +256,20 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantId { get; set; }
 
         /// <summary>
+        /// The date/time the auto order was merged into another auto order
+        /// </summary>
+        /// <value>The date/time the auto order was merged into another auto order</value>
+        [DataMember(Name="merged_dts", EmitDefaultValue=false)]
+        public string MergedDts { get; set; }
+
+        /// <summary>
+        /// The auto order that this auto order was merged into
+        /// </summary>
+        /// <value>The auto order that this auto order was merged into</value>
+        [DataMember(Name="merged_into_auto_order_oid", EmitDefaultValue=false)]
+        public int? MergedIntoAutoOrderOid { get; set; }
+
+        /// <summary>
         /// The next time that the auto order will be attempted for processing
         /// </summary>
         /// <value>The next time that the auto order will be attempted for processing</value>
@@ -313,6 +337,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Logs: ").Append(Logs).Append("\n");
             sb.Append("  Management: ").Append(Management).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  MergedDts: ").Append(MergedDts).Append("\n");
+            sb.Append("  MergedIntoAutoOrderOid: ").Append(MergedIntoAutoOrderOid).Append("\n");
             sb.Append("  NextAttempt: ").Append(NextAttempt).Append("\n");
             sb.Append("  OriginalOrder: ").Append(OriginalOrder).Append("\n");
             sb.Append("  OriginalOrderId: ").Append(OriginalOrderId).Append("\n");
@@ -445,6 +471,16 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
+                    this.MergedDts == input.MergedDts ||
+                    (this.MergedDts != null &&
+                    this.MergedDts.Equals(input.MergedDts))
+                ) && 
+                (
+                    this.MergedIntoAutoOrderOid == input.MergedIntoAutoOrderOid ||
+                    (this.MergedIntoAutoOrderOid != null &&
+                    this.MergedIntoAutoOrderOid.Equals(input.MergedIntoAutoOrderOid))
+                ) && 
+                (
                     this.NextAttempt == input.NextAttempt ||
                     (this.NextAttempt != null &&
                     this.NextAttempt.Equals(input.NextAttempt))
@@ -526,6 +562,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Management.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.MergedDts != null)
+                    hashCode = hashCode * 59 + this.MergedDts.GetHashCode();
+                if (this.MergedIntoAutoOrderOid != null)
+                    hashCode = hashCode * 59 + this.MergedIntoAutoOrderOid.GetHashCode();
                 if (this.NextAttempt != null)
                     hashCode = hashCode * 59 + this.NextAttempt.GetHashCode();
                 if (this.OriginalOrder != null)

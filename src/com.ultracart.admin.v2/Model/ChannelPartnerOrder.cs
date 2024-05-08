@@ -31,6 +31,60 @@ namespace com.ultracart.admin.v2.Model
     public partial class ChannelPartnerOrder :  IEquatable<ChannelPartnerOrder>, IValidatableObject
     {
         /// <summary>
+        /// eCheck bank account type
+        /// </summary>
+        /// <value>eCheck bank account type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EcheckBankAccountTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Checking for value: Checking
+            /// </summary>
+            [EnumMember(Value = "Checking")]
+            Checking = 1,
+            
+            /// <summary>
+            /// Enum Savings for value: Savings
+            /// </summary>
+            [EnumMember(Value = "Savings")]
+            Savings = 2
+        }
+
+        /// <summary>
+        /// eCheck bank account type
+        /// </summary>
+        /// <value>eCheck bank account type</value>
+        [DataMember(Name="echeck_bank_account_type", EmitDefaultValue=false)]
+        public EcheckBankAccountTypeEnum? EcheckBankAccountType { get; set; }
+        /// <summary>
+        /// eCheck bank owner type
+        /// </summary>
+        /// <value>eCheck bank owner type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EcheckBankOwnerTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Business for value: Business
+            /// </summary>
+            [EnumMember(Value = "Business")]
+            Business = 1,
+            
+            /// <summary>
+            /// Enum Personal for value: Personal
+            /// </summary>
+            [EnumMember(Value = "Personal")]
+            Personal = 2
+        }
+
+        /// <summary>
+        /// eCheck bank owner type
+        /// </summary>
+        /// <value>eCheck bank owner type</value>
+        [DataMember(Name="echeck_bank_owner_type", EmitDefaultValue=false)]
+        public EcheckBankOwnerTypeEnum? EcheckBankOwnerType { get; set; }
+        /// <summary>
         /// Payment method
         /// </summary>
         /// <value>Payment method</value>
@@ -69,40 +123,46 @@ namespace com.ultracart.admin.v2.Model
             CreditCard = 5,
             
             /// <summary>
+            /// Enum ECheck for value: eCheck
+            /// </summary>
+            [EnumMember(Value = "eCheck")]
+            ECheck = 6,
+            
+            /// <summary>
             /// Enum LoanHero for value: LoanHero
             /// </summary>
             [EnumMember(Value = "LoanHero")]
-            LoanHero = 6,
+            LoanHero = 7,
             
             /// <summary>
             /// Enum MoneyOrder for value: Money Order
             /// </summary>
             [EnumMember(Value = "Money Order")]
-            MoneyOrder = 7,
+            MoneyOrder = 8,
             
             /// <summary>
             /// Enum PayPal for value: PayPal
             /// </summary>
             [EnumMember(Value = "PayPal")]
-            PayPal = 8,
+            PayPal = 9,
             
             /// <summary>
             /// Enum PurchaseOrder for value: Purchase Order
             /// </summary>
             [EnumMember(Value = "Purchase Order")]
-            PurchaseOrder = 9,
+            PurchaseOrder = 10,
             
             /// <summary>
             /// Enum QuoteRequest for value: Quote Request
             /// </summary>
             [EnumMember(Value = "Quote Request")]
-            QuoteRequest = 10,
+            QuoteRequest = 11,
             
             /// <summary>
             /// Enum WireTransfer for value: Wire Transfer
             /// </summary>
             [EnumMember(Value = "Wire Transfer")]
-            WireTransfer = 11
+            WireTransfer = 12
         }
 
         /// <summary>
@@ -153,6 +213,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="customField6">Custom field 6.</param>
         /// <param name="customField7">Custom field 7.</param>
         /// <param name="deliveryDate">Date the customer is requesting delivery on. Typically used for perishable product delivery..</param>
+        /// <param name="echeckBankAbaCode">eCheck bank ABA code.</param>
+        /// <param name="echeckBankAccountName">eCheck bank account name.</param>
+        /// <param name="echeckBankAccountNumber">eCheck bank account number.</param>
+        /// <param name="echeckBankAccountType">eCheck bank account type.</param>
+        /// <param name="echeckBankName">eCheck bank name.</param>
+        /// <param name="echeckBankOwnerType">eCheck bank owner type.</param>
+        /// <param name="echeckCustomerTaxId">eCheck customer tax id.</param>
+        /// <param name="echeckDriversLicenseDob">eCheck drivers license dob.</param>
+        /// <param name="echeckDriversLicenseNumber">eCheck drivers license number.</param>
+        /// <param name="echeckDriversLicenseState">eCheck drivers license state.</param>
         /// <param name="email">Email.</param>
         /// <param name="gift">True if this order is a gift.</param>
         /// <param name="giftEmail">Email address of the gift recipient.</param>
@@ -195,7 +265,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="taxExempt">If true this order is marked as being tax exempt.</param>
         /// <param name="transaction">transaction.</param>
         /// <param name="treatWarningsAsErrors">If true all warnings are considered errors, this is true by default.</param>
-        public ChannelPartnerOrder(string advertisingSource = default(string), string affiliateId = default(string), string affiliateSubId = default(string), decimal? arbitraryShippingHandlingTotal = default(decimal?), decimal? arbitraryTax = default(decimal?), decimal? arbitraryTaxRate = default(decimal?), decimal? arbitraryTaxableSubtotal = default(decimal?), bool? associateWithCustomerProfileIfPresent = default(bool?), bool? autoApprovePurchaseOrder = default(bool?), string billtoAddress1 = default(string), string billtoAddress2 = default(string), string billtoCity = default(string), string billtoCompany = default(string), string billtoCountryCode = default(string), string billtoDayPhone = default(string), string billtoEveningPhone = default(string), string billtoFirstName = default(string), string billtoLastName = default(string), string billtoPostalCode = default(string), string billtoStateRegion = default(string), string billtoTitle = default(string), string ccEmail = default(string), string channelPartnerOrderId = default(string), bool? considerRecurring = default(bool?), List<string> coupons = default(List<string>), decimal? creditCardAuthorizationAmount = default(decimal?), string creditCardAuthorizationDts = default(string), string creditCardAuthorizationNumber = default(string), int? creditCardExpirationMonth = default(int?), int? creditCardExpirationYear = default(int?), string creditCardType = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string deliveryDate = default(string), string email = default(string), bool? gift = default(bool?), string giftEmail = default(string), string giftMessage = default(string), string hostedFieldsCardToken = default(string), string hostedFieldsCvvToken = default(string), string insuranceApplicationId = default(string), string insuranceClaimId = default(string), string ipAddress = default(string), List<ChannelPartnerOrderItem> items = default(List<ChannelPartnerOrderItem>), bool? leastCostRoute = default(bool?), List<string> leastCostRouteShippingMethods = default(List<string>), bool? mailingListOptIn = default(bool?), bool? noRealtimePaymentProcessing = default(bool?), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string purchaseOrderNumber = default(string), string rotatingTransactionGatewayCode = default(string), string salesRepCode = default(string), string screenBrandingThemeCode = default(string), string shipOnDate = default(string), bool? shipToResidential = default(bool?), string shippingMethod = default(string), string shiptoAddress1 = default(string), string shiptoAddress2 = default(string), string shiptoCity = default(string), string shiptoCompany = default(string), string shiptoCountryCode = default(string), string shiptoDayPhone = default(string), string shiptoEveningPhone = default(string), string shiptoFirstName = default(string), string shiptoLastName = default(string), string shiptoPostalCode = default(string), string shiptoStateRegion = default(string), string shiptoTitle = default(string), bool? skipPaymentProcessing = default(bool?), string specialInstructions = default(string), bool? storeCompleted = default(bool?), bool? storeIfPaymentDeclines = default(bool?), string taxCounty = default(string), bool? taxExempt = default(bool?), ChannelPartnerOrderTransaction transaction = default(ChannelPartnerOrderTransaction), bool? treatWarningsAsErrors = default(bool?))
+        public ChannelPartnerOrder(string advertisingSource = default(string), string affiliateId = default(string), string affiliateSubId = default(string), decimal? arbitraryShippingHandlingTotal = default(decimal?), decimal? arbitraryTax = default(decimal?), decimal? arbitraryTaxRate = default(decimal?), decimal? arbitraryTaxableSubtotal = default(decimal?), bool? associateWithCustomerProfileIfPresent = default(bool?), bool? autoApprovePurchaseOrder = default(bool?), string billtoAddress1 = default(string), string billtoAddress2 = default(string), string billtoCity = default(string), string billtoCompany = default(string), string billtoCountryCode = default(string), string billtoDayPhone = default(string), string billtoEveningPhone = default(string), string billtoFirstName = default(string), string billtoLastName = default(string), string billtoPostalCode = default(string), string billtoStateRegion = default(string), string billtoTitle = default(string), string ccEmail = default(string), string channelPartnerOrderId = default(string), bool? considerRecurring = default(bool?), List<string> coupons = default(List<string>), decimal? creditCardAuthorizationAmount = default(decimal?), string creditCardAuthorizationDts = default(string), string creditCardAuthorizationNumber = default(string), int? creditCardExpirationMonth = default(int?), int? creditCardExpirationYear = default(int?), string creditCardType = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string deliveryDate = default(string), string echeckBankAbaCode = default(string), string echeckBankAccountName = default(string), string echeckBankAccountNumber = default(string), EcheckBankAccountTypeEnum? echeckBankAccountType = default(EcheckBankAccountTypeEnum?), string echeckBankName = default(string), EcheckBankOwnerTypeEnum? echeckBankOwnerType = default(EcheckBankOwnerTypeEnum?), string echeckCustomerTaxId = default(string), string echeckDriversLicenseDob = default(string), string echeckDriversLicenseNumber = default(string), string echeckDriversLicenseState = default(string), string email = default(string), bool? gift = default(bool?), string giftEmail = default(string), string giftMessage = default(string), string hostedFieldsCardToken = default(string), string hostedFieldsCvvToken = default(string), string insuranceApplicationId = default(string), string insuranceClaimId = default(string), string ipAddress = default(string), List<ChannelPartnerOrderItem> items = default(List<ChannelPartnerOrderItem>), bool? leastCostRoute = default(bool?), List<string> leastCostRouteShippingMethods = default(List<string>), bool? mailingListOptIn = default(bool?), bool? noRealtimePaymentProcessing = default(bool?), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string purchaseOrderNumber = default(string), string rotatingTransactionGatewayCode = default(string), string salesRepCode = default(string), string screenBrandingThemeCode = default(string), string shipOnDate = default(string), bool? shipToResidential = default(bool?), string shippingMethod = default(string), string shiptoAddress1 = default(string), string shiptoAddress2 = default(string), string shiptoCity = default(string), string shiptoCompany = default(string), string shiptoCountryCode = default(string), string shiptoDayPhone = default(string), string shiptoEveningPhone = default(string), string shiptoFirstName = default(string), string shiptoLastName = default(string), string shiptoPostalCode = default(string), string shiptoStateRegion = default(string), string shiptoTitle = default(string), bool? skipPaymentProcessing = default(bool?), string specialInstructions = default(string), bool? storeCompleted = default(bool?), bool? storeIfPaymentDeclines = default(bool?), string taxCounty = default(string), bool? taxExempt = default(bool?), ChannelPartnerOrderTransaction transaction = default(ChannelPartnerOrderTransaction), bool? treatWarningsAsErrors = default(bool?))
         {
             this.AdvertisingSource = advertisingSource;
             this.AffiliateId = affiliateId;
@@ -236,6 +306,16 @@ namespace com.ultracart.admin.v2.Model
             this.CustomField6 = customField6;
             this.CustomField7 = customField7;
             this.DeliveryDate = deliveryDate;
+            this.EcheckBankAbaCode = echeckBankAbaCode;
+            this.EcheckBankAccountName = echeckBankAccountName;
+            this.EcheckBankAccountNumber = echeckBankAccountNumber;
+            this.EcheckBankAccountType = echeckBankAccountType;
+            this.EcheckBankName = echeckBankName;
+            this.EcheckBankOwnerType = echeckBankOwnerType;
+            this.EcheckCustomerTaxId = echeckCustomerTaxId;
+            this.EcheckDriversLicenseDob = echeckDriversLicenseDob;
+            this.EcheckDriversLicenseNumber = echeckDriversLicenseNumber;
+            this.EcheckDriversLicenseState = echeckDriversLicenseState;
             this.Email = email;
             this.Gift = gift;
             this.GiftEmail = giftEmail;
@@ -552,6 +632,64 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Date the customer is requesting delivery on. Typically used for perishable product delivery.</value>
         [DataMember(Name="delivery_date", EmitDefaultValue=false)]
         public string DeliveryDate { get; set; }
+
+        /// <summary>
+        /// eCheck bank ABA code
+        /// </summary>
+        /// <value>eCheck bank ABA code</value>
+        [DataMember(Name="echeck_bank_aba_code", EmitDefaultValue=false)]
+        public string EcheckBankAbaCode { get; set; }
+
+        /// <summary>
+        /// eCheck bank account name
+        /// </summary>
+        /// <value>eCheck bank account name</value>
+        [DataMember(Name="echeck_bank_account_name", EmitDefaultValue=false)]
+        public string EcheckBankAccountName { get; set; }
+
+        /// <summary>
+        /// eCheck bank account number
+        /// </summary>
+        /// <value>eCheck bank account number</value>
+        [DataMember(Name="echeck_bank_account_number", EmitDefaultValue=false)]
+        public string EcheckBankAccountNumber { get; set; }
+
+
+        /// <summary>
+        /// eCheck bank name
+        /// </summary>
+        /// <value>eCheck bank name</value>
+        [DataMember(Name="echeck_bank_name", EmitDefaultValue=false)]
+        public string EcheckBankName { get; set; }
+
+
+        /// <summary>
+        /// eCheck customer tax id
+        /// </summary>
+        /// <value>eCheck customer tax id</value>
+        [DataMember(Name="echeck_customer_tax_id", EmitDefaultValue=false)]
+        public string EcheckCustomerTaxId { get; set; }
+
+        /// <summary>
+        /// eCheck drivers license dob
+        /// </summary>
+        /// <value>eCheck drivers license dob</value>
+        [DataMember(Name="echeck_drivers_license_dob", EmitDefaultValue=false)]
+        public string EcheckDriversLicenseDob { get; set; }
+
+        /// <summary>
+        /// eCheck drivers license number
+        /// </summary>
+        /// <value>eCheck drivers license number</value>
+        [DataMember(Name="echeck_drivers_license_number", EmitDefaultValue=false)]
+        public string EcheckDriversLicenseNumber { get; set; }
+
+        /// <summary>
+        /// eCheck drivers license state
+        /// </summary>
+        /// <value>eCheck drivers license state</value>
+        [DataMember(Name="echeck_drivers_license_state", EmitDefaultValue=false)]
+        public string EcheckDriversLicenseState { get; set; }
 
         /// <summary>
         /// Email
@@ -887,6 +1025,16 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CustomField6: ").Append(CustomField6).Append("\n");
             sb.Append("  CustomField7: ").Append(CustomField7).Append("\n");
             sb.Append("  DeliveryDate: ").Append(DeliveryDate).Append("\n");
+            sb.Append("  EcheckBankAbaCode: ").Append(EcheckBankAbaCode).Append("\n");
+            sb.Append("  EcheckBankAccountName: ").Append(EcheckBankAccountName).Append("\n");
+            sb.Append("  EcheckBankAccountNumber: ").Append(EcheckBankAccountNumber).Append("\n");
+            sb.Append("  EcheckBankAccountType: ").Append(EcheckBankAccountType).Append("\n");
+            sb.Append("  EcheckBankName: ").Append(EcheckBankName).Append("\n");
+            sb.Append("  EcheckBankOwnerType: ").Append(EcheckBankOwnerType).Append("\n");
+            sb.Append("  EcheckCustomerTaxId: ").Append(EcheckCustomerTaxId).Append("\n");
+            sb.Append("  EcheckDriversLicenseDob: ").Append(EcheckDriversLicenseDob).Append("\n");
+            sb.Append("  EcheckDriversLicenseNumber: ").Append(EcheckDriversLicenseNumber).Append("\n");
+            sb.Append("  EcheckDriversLicenseState: ").Append(EcheckDriversLicenseState).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Gift: ").Append(Gift).Append("\n");
             sb.Append("  GiftEmail: ").Append(GiftEmail).Append("\n");
@@ -1157,6 +1305,56 @@ namespace com.ultracart.admin.v2.Model
                     this.DeliveryDate == input.DeliveryDate ||
                     (this.DeliveryDate != null &&
                     this.DeliveryDate.Equals(input.DeliveryDate))
+                ) && 
+                (
+                    this.EcheckBankAbaCode == input.EcheckBankAbaCode ||
+                    (this.EcheckBankAbaCode != null &&
+                    this.EcheckBankAbaCode.Equals(input.EcheckBankAbaCode))
+                ) && 
+                (
+                    this.EcheckBankAccountName == input.EcheckBankAccountName ||
+                    (this.EcheckBankAccountName != null &&
+                    this.EcheckBankAccountName.Equals(input.EcheckBankAccountName))
+                ) && 
+                (
+                    this.EcheckBankAccountNumber == input.EcheckBankAccountNumber ||
+                    (this.EcheckBankAccountNumber != null &&
+                    this.EcheckBankAccountNumber.Equals(input.EcheckBankAccountNumber))
+                ) && 
+                (
+                    this.EcheckBankAccountType == input.EcheckBankAccountType ||
+                    (this.EcheckBankAccountType != null &&
+                    this.EcheckBankAccountType.Equals(input.EcheckBankAccountType))
+                ) && 
+                (
+                    this.EcheckBankName == input.EcheckBankName ||
+                    (this.EcheckBankName != null &&
+                    this.EcheckBankName.Equals(input.EcheckBankName))
+                ) && 
+                (
+                    this.EcheckBankOwnerType == input.EcheckBankOwnerType ||
+                    (this.EcheckBankOwnerType != null &&
+                    this.EcheckBankOwnerType.Equals(input.EcheckBankOwnerType))
+                ) && 
+                (
+                    this.EcheckCustomerTaxId == input.EcheckCustomerTaxId ||
+                    (this.EcheckCustomerTaxId != null &&
+                    this.EcheckCustomerTaxId.Equals(input.EcheckCustomerTaxId))
+                ) && 
+                (
+                    this.EcheckDriversLicenseDob == input.EcheckDriversLicenseDob ||
+                    (this.EcheckDriversLicenseDob != null &&
+                    this.EcheckDriversLicenseDob.Equals(input.EcheckDriversLicenseDob))
+                ) && 
+                (
+                    this.EcheckDriversLicenseNumber == input.EcheckDriversLicenseNumber ||
+                    (this.EcheckDriversLicenseNumber != null &&
+                    this.EcheckDriversLicenseNumber.Equals(input.EcheckDriversLicenseNumber))
+                ) && 
+                (
+                    this.EcheckDriversLicenseState == input.EcheckDriversLicenseState ||
+                    (this.EcheckDriversLicenseState != null &&
+                    this.EcheckDriversLicenseState.Equals(input.EcheckDriversLicenseState))
                 ) && 
                 (
                     this.Email == input.Email ||
@@ -1457,6 +1655,26 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CustomField7.GetHashCode();
                 if (this.DeliveryDate != null)
                     hashCode = hashCode * 59 + this.DeliveryDate.GetHashCode();
+                if (this.EcheckBankAbaCode != null)
+                    hashCode = hashCode * 59 + this.EcheckBankAbaCode.GetHashCode();
+                if (this.EcheckBankAccountName != null)
+                    hashCode = hashCode * 59 + this.EcheckBankAccountName.GetHashCode();
+                if (this.EcheckBankAccountNumber != null)
+                    hashCode = hashCode * 59 + this.EcheckBankAccountNumber.GetHashCode();
+                if (this.EcheckBankAccountType != null)
+                    hashCode = hashCode * 59 + this.EcheckBankAccountType.GetHashCode();
+                if (this.EcheckBankName != null)
+                    hashCode = hashCode * 59 + this.EcheckBankName.GetHashCode();
+                if (this.EcheckBankOwnerType != null)
+                    hashCode = hashCode * 59 + this.EcheckBankOwnerType.GetHashCode();
+                if (this.EcheckCustomerTaxId != null)
+                    hashCode = hashCode * 59 + this.EcheckCustomerTaxId.GetHashCode();
+                if (this.EcheckDriversLicenseDob != null)
+                    hashCode = hashCode * 59 + this.EcheckDriversLicenseDob.GetHashCode();
+                if (this.EcheckDriversLicenseNumber != null)
+                    hashCode = hashCode * 59 + this.EcheckDriversLicenseNumber.GetHashCode();
+                if (this.EcheckDriversLicenseState != null)
+                    hashCode = hashCode * 59 + this.EcheckDriversLicenseState.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.Gift != null)

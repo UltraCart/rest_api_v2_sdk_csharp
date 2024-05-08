@@ -40,9 +40,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="filename">Filename.</param>
         /// <param name="merchantId">Merchant Id.</param>
         /// <param name="mimeType">Mime Type.</param>
+        /// <param name="url">URL.</param>
         /// <param name="userId">User Id.</param>
         /// <param name="version">Version.</param>
-        public ConversationPbxAudio(string audioS3ListingKey = default(string), string conversationPbxAudioUuid = default(string), bool? defaultHoldMusic = default(bool?), string description = default(string), string filename = default(string), string merchantId = default(string), string mimeType = default(string), int? userId = default(int?), int? version = default(int?))
+        public ConversationPbxAudio(string audioS3ListingKey = default(string), string conversationPbxAudioUuid = default(string), bool? defaultHoldMusic = default(bool?), string description = default(string), string filename = default(string), string merchantId = default(string), string mimeType = default(string), string url = default(string), int? userId = default(int?), int? version = default(int?))
         {
             this.AudioS3ListingKey = audioS3ListingKey;
             this.ConversationPbxAudioUuid = conversationPbxAudioUuid;
@@ -51,6 +52,7 @@ namespace com.ultracart.admin.v2.Model
             this.Filename = filename;
             this.MerchantId = merchantId;
             this.MimeType = mimeType;
+            this.Url = url;
             this.UserId = userId;
             this.Version = version;
         }
@@ -105,6 +107,13 @@ namespace com.ultracart.admin.v2.Model
         public string MimeType { get; set; }
 
         /// <summary>
+        /// URL
+        /// </summary>
+        /// <value>URL</value>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; set; }
+
+        /// <summary>
         /// User Id
         /// </summary>
         /// <value>User Id</value>
@@ -133,6 +142,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Filename: ").Append(Filename).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  MimeType: ").Append(MimeType).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
             sb.Append("}\n");
@@ -205,6 +215,11 @@ namespace com.ultracart.admin.v2.Model
                     this.MimeType.Equals(input.MimeType))
                 ) && 
                 (
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
+                ) && 
+                (
                     this.UserId == input.UserId ||
                     (this.UserId != null &&
                     this.UserId.Equals(input.UserId))
@@ -239,6 +254,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.MimeType != null)
                     hashCode = hashCode * 59 + this.MimeType.GetHashCode();
+                if (this.Url != null)
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 if (this.UserId != null)
                     hashCode = hashCode * 59 + this.UserId.GetHashCode();
                 if (this.Version != null)

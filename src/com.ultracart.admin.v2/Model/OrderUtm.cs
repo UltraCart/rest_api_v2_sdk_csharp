@@ -46,6 +46,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="fbclid">fbclid.</param>
         /// <param name="gbraid">gbraid.</param>
         /// <param name="glcid">glcid.</param>
+        /// <param name="itmCampaign">itmCampaign.</param>
+        /// <param name="itmContent">itmContent.</param>
+        /// <param name="itmId">itmId.</param>
+        /// <param name="itmMedium">itmMedium.</param>
+        /// <param name="itmSource">itmSource.</param>
+        /// <param name="itmTerm">itmTerm.</param>
         /// <param name="msclkid">msclkid.</param>
         /// <param name="ttclid">ttclid.</param>
         /// <param name="ucMessageId">ucMessageId.</param>
@@ -57,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="utmTerm">utmTerm.</param>
         /// <param name="vmcid">vmcid.</param>
         /// <param name="wbraid">wbraid.</param>
-        public OrderUtm(decimal attributionFirstClickSubtotal = default(decimal), decimal attributionFirstClickTotal = default(decimal), decimal attributionLastClickSubtotal = default(decimal), decimal attributionLastClickTotal = default(decimal), decimal attributionLinearSubtotal = default(decimal), decimal attributionLinearTotal = default(decimal), decimal attributionPositionBasedSubtotal = default(decimal), decimal attributionPositionBasedTotal = default(decimal), string clickDts = default(string), string facebookAdId = default(string), string fbclid = default(string), string gbraid = default(string), string glcid = default(string), string msclkid = default(string), string ttclid = default(string), string ucMessageId = default(string), string utmCampaign = default(string), string utmContent = default(string), string utmId = default(string), string utmMedium = default(string), string utmSource = default(string), string utmTerm = default(string), string vmcid = default(string), string wbraid = default(string))
+        public OrderUtm(decimal attributionFirstClickSubtotal = default(decimal), decimal attributionFirstClickTotal = default(decimal), decimal attributionLastClickSubtotal = default(decimal), decimal attributionLastClickTotal = default(decimal), decimal attributionLinearSubtotal = default(decimal), decimal attributionLinearTotal = default(decimal), decimal attributionPositionBasedSubtotal = default(decimal), decimal attributionPositionBasedTotal = default(decimal), string clickDts = default(string), string facebookAdId = default(string), string fbclid = default(string), string gbraid = default(string), string glcid = default(string), string itmCampaign = default(string), string itmContent = default(string), string itmId = default(string), string itmMedium = default(string), string itmSource = default(string), string itmTerm = default(string), string msclkid = default(string), string ttclid = default(string), string ucMessageId = default(string), string utmCampaign = default(string), string utmContent = default(string), string utmId = default(string), string utmMedium = default(string), string utmSource = default(string), string utmTerm = default(string), string vmcid = default(string), string wbraid = default(string))
         {
             this.AttributionFirstClickSubtotal = attributionFirstClickSubtotal;
             this.AttributionFirstClickTotal = attributionFirstClickTotal;
@@ -72,6 +78,12 @@ namespace com.ultracart.admin.v2.Model
             this.Fbclid = fbclid;
             this.Gbraid = gbraid;
             this.Glcid = glcid;
+            this.ItmCampaign = itmCampaign;
+            this.ItmContent = itmContent;
+            this.ItmId = itmId;
+            this.ItmMedium = itmMedium;
+            this.ItmSource = itmSource;
+            this.ItmTerm = itmTerm;
             this.Msclkid = msclkid;
             this.Ttclid = ttclid;
             this.UcMessageId = ucMessageId;
@@ -165,6 +177,42 @@ namespace com.ultracart.admin.v2.Model
         public string Glcid { get; set; }
 
         /// <summary>
+        /// Gets or Sets ItmCampaign
+        /// </summary>
+        [DataMember(Name="itm_campaign", EmitDefaultValue=false)]
+        public string ItmCampaign { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItmContent
+        /// </summary>
+        [DataMember(Name="itm_content", EmitDefaultValue=false)]
+        public string ItmContent { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItmId
+        /// </summary>
+        [DataMember(Name="itm_id", EmitDefaultValue=false)]
+        public string ItmId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItmMedium
+        /// </summary>
+        [DataMember(Name="itm_medium", EmitDefaultValue=false)]
+        public string ItmMedium { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItmSource
+        /// </summary>
+        [DataMember(Name="itm_source", EmitDefaultValue=false)]
+        public string ItmSource { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItmTerm
+        /// </summary>
+        [DataMember(Name="itm_term", EmitDefaultValue=false)]
+        public string ItmTerm { get; set; }
+
+        /// <summary>
         /// Gets or Sets Msclkid
         /// </summary>
         [DataMember(Name="msclkid", EmitDefaultValue=false)]
@@ -251,6 +299,12 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Fbclid: ").Append(Fbclid).Append("\n");
             sb.Append("  Gbraid: ").Append(Gbraid).Append("\n");
             sb.Append("  Glcid: ").Append(Glcid).Append("\n");
+            sb.Append("  ItmCampaign: ").Append(ItmCampaign).Append("\n");
+            sb.Append("  ItmContent: ").Append(ItmContent).Append("\n");
+            sb.Append("  ItmId: ").Append(ItmId).Append("\n");
+            sb.Append("  ItmMedium: ").Append(ItmMedium).Append("\n");
+            sb.Append("  ItmSource: ").Append(ItmSource).Append("\n");
+            sb.Append("  ItmTerm: ").Append(ItmTerm).Append("\n");
             sb.Append("  Msclkid: ").Append(Msclkid).Append("\n");
             sb.Append("  Ttclid: ").Append(Ttclid).Append("\n");
             sb.Append("  UcMessageId: ").Append(UcMessageId).Append("\n");
@@ -362,6 +416,36 @@ namespace com.ultracart.admin.v2.Model
                     this.Glcid.Equals(input.Glcid))
                 ) && 
                 (
+                    this.ItmCampaign == input.ItmCampaign ||
+                    (this.ItmCampaign != null &&
+                    this.ItmCampaign.Equals(input.ItmCampaign))
+                ) && 
+                (
+                    this.ItmContent == input.ItmContent ||
+                    (this.ItmContent != null &&
+                    this.ItmContent.Equals(input.ItmContent))
+                ) && 
+                (
+                    this.ItmId == input.ItmId ||
+                    (this.ItmId != null &&
+                    this.ItmId.Equals(input.ItmId))
+                ) && 
+                (
+                    this.ItmMedium == input.ItmMedium ||
+                    (this.ItmMedium != null &&
+                    this.ItmMedium.Equals(input.ItmMedium))
+                ) && 
+                (
+                    this.ItmSource == input.ItmSource ||
+                    (this.ItmSource != null &&
+                    this.ItmSource.Equals(input.ItmSource))
+                ) && 
+                (
+                    this.ItmTerm == input.ItmTerm ||
+                    (this.ItmTerm != null &&
+                    this.ItmTerm.Equals(input.ItmTerm))
+                ) && 
+                (
                     this.Msclkid == input.Msclkid ||
                     (this.Msclkid != null &&
                     this.Msclkid.Equals(input.Msclkid))
@@ -453,6 +537,18 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Gbraid.GetHashCode();
                 if (this.Glcid != null)
                     hashCode = hashCode * 59 + this.Glcid.GetHashCode();
+                if (this.ItmCampaign != null)
+                    hashCode = hashCode * 59 + this.ItmCampaign.GetHashCode();
+                if (this.ItmContent != null)
+                    hashCode = hashCode * 59 + this.ItmContent.GetHashCode();
+                if (this.ItmId != null)
+                    hashCode = hashCode * 59 + this.ItmId.GetHashCode();
+                if (this.ItmMedium != null)
+                    hashCode = hashCode * 59 + this.ItmMedium.GetHashCode();
+                if (this.ItmSource != null)
+                    hashCode = hashCode * 59 + this.ItmSource.GetHashCode();
+                if (this.ItmTerm != null)
+                    hashCode = hashCode * 59 + this.ItmTerm.GetHashCode();
                 if (this.Msclkid != null)
                     hashCode = hashCode * 59 + this.Msclkid.GetHashCode();
                 if (this.Ttclid != null)

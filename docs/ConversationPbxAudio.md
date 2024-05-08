@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Filename** | **string** | Filename | [optional] 
 **MerchantId** | **string** | Merchant Id | [optional] 
 **MimeType** | **string** | Mime Type | [optional] 
+**Url** | **string** | URL | [optional] 
 **UserId** | **int** | User Id | [optional] 
 **_Version** | **int** | Version | [optional] 
 

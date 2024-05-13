@@ -34,6 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="CartCheckout" /> class.
         /// </summary>
         /// <param name="comments">Comments from the customer.  Rarely used on the single page checkout..</param>
+        /// <param name="currentStep">Current step of the checkout (read only).</param>
         /// <param name="customField1">Custom field 1.</param>
         /// <param name="customField10">Custom field 10.</param>
         /// <param name="customField2">Custom field 2.</param>
@@ -50,9 +51,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="screenBrandingThemeCode">Screen branding theme code.</param>
         /// <param name="storefrontHostName">StoreFront Host Name.</param>
         /// <param name="userAgent">User agent of the browser.</param>
-        public CartCheckout(string comments = default(string), string customField1 = default(string), string customField10 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customField8 = default(string), string customField9 = default(string), string ipAddress = default(string), string returnCode = default(string), string returnUrl = default(string), string screenBrandingThemeCode = default(string), string storefrontHostName = default(string), string userAgent = default(string))
+        public CartCheckout(string comments = default(string), string currentStep = default(string), string customField1 = default(string), string customField10 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customField8 = default(string), string customField9 = default(string), string ipAddress = default(string), string returnCode = default(string), string returnUrl = default(string), string screenBrandingThemeCode = default(string), string storefrontHostName = default(string), string userAgent = default(string))
         {
             this.Comments = comments;
+            this.CurrentStep = currentStep;
             this.CustomField1 = customField1;
             this.CustomField10 = customField10;
             this.CustomField2 = customField2;
@@ -77,6 +79,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Comments from the customer.  Rarely used on the single page checkout.</value>
         [DataMember(Name="comments", EmitDefaultValue=false)]
         public string Comments { get; set; }
+
+        /// <summary>
+        /// Current step of the checkout (read only)
+        /// </summary>
+        /// <value>Current step of the checkout (read only)</value>
+        [DataMember(Name="current_step", EmitDefaultValue=false)]
+        public string CurrentStep { get; set; }
 
         /// <summary>
         /// Custom field 1
@@ -199,6 +208,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class CartCheckout {\n");
             sb.Append("  Comments: ").Append(Comments).Append("\n");
+            sb.Append("  CurrentStep: ").Append(CurrentStep).Append("\n");
             sb.Append("  CustomField1: ").Append(CustomField1).Append("\n");
             sb.Append("  CustomField10: ").Append(CustomField10).Append("\n");
             sb.Append("  CustomField2: ").Append(CustomField2).Append("\n");
@@ -253,6 +263,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Comments == input.Comments ||
                     (this.Comments != null &&
                     this.Comments.Equals(input.Comments))
+                ) && 
+                (
+                    this.CurrentStep == input.CurrentStep ||
+                    (this.CurrentStep != null &&
+                    this.CurrentStep.Equals(input.CurrentStep))
                 ) && 
                 (
                     this.CustomField1 == input.CustomField1 ||
@@ -347,6 +362,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Comments != null)
                     hashCode = hashCode * 59 + this.Comments.GetHashCode();
+                if (this.CurrentStep != null)
+                    hashCode = hashCode * 59 + this.CurrentStep.GetHashCode();
                 if (this.CustomField1 != null)
                     hashCode = hashCode * 59 + this.CustomField1.GetHashCode();
                 if (this.CustomField10 != null)

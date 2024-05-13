@@ -48,25 +48,25 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Gets or Sets ConversationPbxTimeBasedUuid
         /// </summary>
-        [DataMember(Name="conversationPbxTimeBasedUuid", EmitDefaultValue=false)]
+        [DataMember(Name="conversation_pbx_time_based_uuid", EmitDefaultValue=false)]
         public string ConversationPbxTimeBasedUuid { get; set; }
 
         /// <summary>
         /// Gets or Sets MappingConfig
         /// </summary>
-        [DataMember(Name="mappingConfig", EmitDefaultValue=false)]
+        [DataMember(Name="mapping_config", EmitDefaultValue=false)]
         public ConversationPbxTimeBasedMappingConfig MappingConfig { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantId
         /// </summary>
-        [DataMember(Name="merchantId", EmitDefaultValue=false)]
+        [DataMember(Name="merchant_id", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
 
         /// <summary>
         /// Gets or Sets TimeBasedName
         /// </summary>
-        [DataMember(Name="timeBasedName", EmitDefaultValue=false)]
+        [DataMember(Name="time_based_name", EmitDefaultValue=false)]
         public string TimeBasedName { get; set; }
 
         /// <summary>

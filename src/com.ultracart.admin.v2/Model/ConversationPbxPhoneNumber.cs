@@ -31,14 +31,59 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationPbxPhoneNumber :  IEquatable<ConversationPbxPhoneNumber>, IValidatableObject
     {
         /// <summary>
+        /// Action
+        /// </summary>
+        /// <value>Action</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ActionEnum
+        {
+            
+            /// <summary>
+            /// Enum Timebased for value: time based
+            /// </summary>
+            [EnumMember(Value = "time based")]
+            Timebased = 1,
+            
+            /// <summary>
+            /// Enum Menu for value: menu
+            /// </summary>
+            [EnumMember(Value = "menu")]
+            Menu = 2,
+            
+            /// <summary>
+            /// Enum Queue for value: queue
+            /// </summary>
+            [EnumMember(Value = "queue")]
+            Queue = 3,
+            
+            /// <summary>
+            /// Enum Voicemail for value: voicemail
+            /// </summary>
+            [EnumMember(Value = "voicemail")]
+            Voicemail = 4,
+            
+            /// <summary>
+            /// Enum Agent for value: agent
+            /// </summary>
+            [EnumMember(Value = "agent")]
+            Agent = 5
+        }
+
+        /// <summary>
+        /// Action
+        /// </summary>
+        /// <value>Action</value>
+        [DataMember(Name="action", EmitDefaultValue=false)]
+        public ActionEnum? Action { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxPhoneNumber" /> class.
         /// </summary>
         /// <param name="action">Action.</param>
-        /// <param name="actionTarget">Action target.</param>
+        /// <param name="actionTarget">Action target.  This is the UUID associated with the configuration object of that particular type..</param>
         /// <param name="conversationPbxTimeRangeUuid">Conversation Pbx Phone Number UUID.</param>
         /// <param name="merchantId">Merchant Id.</param>
         /// <param name="phoneNumber">Phone number.</param>
-        public ConversationPbxPhoneNumber(string action = default(string), string actionTarget = default(string), string conversationPbxTimeRangeUuid = default(string), string merchantId = default(string), string phoneNumber = default(string))
+        public ConversationPbxPhoneNumber(ActionEnum? action = default(ActionEnum?), string actionTarget = default(string), string conversationPbxTimeRangeUuid = default(string), string merchantId = default(string), string phoneNumber = default(string))
         {
             this.Action = action;
             this.ActionTarget = actionTarget;
@@ -47,17 +92,11 @@ namespace com.ultracart.admin.v2.Model
             this.PhoneNumber = phoneNumber;
         }
         
-        /// <summary>
-        /// Action
-        /// </summary>
-        /// <value>Action</value>
-        [DataMember(Name="action", EmitDefaultValue=false)]
-        public string Action { get; set; }
 
         /// <summary>
-        /// Action target
+        /// Action target.  This is the UUID associated with the configuration object of that particular type.
         /// </summary>
-        /// <value>Action target</value>
+        /// <value>Action target.  This is the UUID associated with the configuration object of that particular type.</value>
         [DataMember(Name="action_target", EmitDefaultValue=false)]
         public string ActionTarget { get; set; }
 

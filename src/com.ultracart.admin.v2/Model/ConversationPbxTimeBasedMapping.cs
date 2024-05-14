@@ -31,13 +31,58 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationPbxTimeBasedMapping :  IEquatable<ConversationPbxTimeBasedMapping>, IValidatableObject
     {
         /// <summary>
+        /// Action
+        /// </summary>
+        /// <value>Action</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ActionEnum
+        {
+            
+            /// <summary>
+            /// Enum Timebased for value: time based
+            /// </summary>
+            [EnumMember(Value = "time based")]
+            Timebased = 1,
+            
+            /// <summary>
+            /// Enum Menu for value: menu
+            /// </summary>
+            [EnumMember(Value = "menu")]
+            Menu = 2,
+            
+            /// <summary>
+            /// Enum Queue for value: queue
+            /// </summary>
+            [EnumMember(Value = "queue")]
+            Queue = 3,
+            
+            /// <summary>
+            /// Enum Voicemail for value: voicemail
+            /// </summary>
+            [EnumMember(Value = "voicemail")]
+            Voicemail = 4,
+            
+            /// <summary>
+            /// Enum Agent for value: agent
+            /// </summary>
+            [EnumMember(Value = "agent")]
+            Agent = 5
+        }
+
+        /// <summary>
+        /// Action
+        /// </summary>
+        /// <value>Action</value>
+        [DataMember(Name="action", EmitDefaultValue=false)]
+        public ActionEnum? Action { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxTimeBasedMapping" /> class.
         /// </summary>
         /// <param name="action">Action.</param>
-        /// <param name="actionTarget">Action target.</param>
+        /// <param name="actionTarget">Action target.  This is the UUID associated with the configuration object of that particular type..</param>
         /// <param name="name">Name.</param>
         /// <param name="timeRangeUuid">Time range UUID.</param>
-        public ConversationPbxTimeBasedMapping(string action = default(string), string actionTarget = default(string), string name = default(string), string timeRangeUuid = default(string))
+        public ConversationPbxTimeBasedMapping(ActionEnum? action = default(ActionEnum?), string actionTarget = default(string), string name = default(string), string timeRangeUuid = default(string))
         {
             this.Action = action;
             this.ActionTarget = actionTarget;
@@ -45,17 +90,11 @@ namespace com.ultracart.admin.v2.Model
             this.TimeRangeUuid = timeRangeUuid;
         }
         
-        /// <summary>
-        /// Action
-        /// </summary>
-        /// <value>Action</value>
-        [DataMember(Name="action", EmitDefaultValue=false)]
-        public string Action { get; set; }
 
         /// <summary>
-        /// Action target
+        /// Action target.  This is the UUID associated with the configuration object of that particular type.
         /// </summary>
-        /// <value>Action target</value>
+        /// <value>Action target.  This is the UUID associated with the configuration object of that particular type.</value>
         [DataMember(Name="action_target", EmitDefaultValue=false)]
         public string ActionTarget { get; set; }
 

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | **string** | Action | [optional] 
-**ActionTarget** | **string** | Action target | [optional] 
+**ActionTarget** | **string** | Action target.  This is the UUID associated with the configuration object of that particular type. | [optional] 
 **ConversationPbxTimeRangeUuid** | **string** | Conversation Pbx Phone Number UUID | [optional] 
 **MerchantId** | **string** | Merchant Id | [optional] 
 **PhoneNumber** | **string** | Phone number | [optional] 

@@ -31,18 +31,42 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationPbxTimeBasedMapping :  IEquatable<ConversationPbxTimeBasedMapping>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationPbxTimeBasedMapping" /> class.
+        /// Action
         /// </summary>
-        /// <param name="action">Action.</param>
-        /// <param name="actionTarget">Action target.</param>
-        /// <param name="name">Name.</param>
-        /// <param name="timeRangeUuid">Time range UUID.</param>
-        public ConversationPbxTimeBasedMapping(string action = default(string), string actionTarget = default(string), string name = default(string), string timeRangeUuid = default(string))
+        /// <value>Action</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ActionEnum
         {
-            this.Action = action;
-            this.ActionTarget = actionTarget;
-            this.Name = name;
-            this.TimeRangeUuid = timeRangeUuid;
+            /// <summary>
+            /// Enum Timebased for value: time based
+            /// </summary>
+            [EnumMember(Value = "time based")]
+            Timebased = 1,
+
+            /// <summary>
+            /// Enum Menu for value: menu
+            /// </summary>
+            [EnumMember(Value = "menu")]
+            Menu = 2,
+
+            /// <summary>
+            /// Enum Queue for value: queue
+            /// </summary>
+            [EnumMember(Value = "queue")]
+            Queue = 3,
+
+            /// <summary>
+            /// Enum Voicemail for value: voicemail
+            /// </summary>
+            [EnumMember(Value = "voicemail")]
+            Voicemail = 4,
+
+            /// <summary>
+            /// Enum Agent for value: agent
+            /// </summary>
+            [EnumMember(Value = "agent")]
+            Agent = 5
+
         }
 
         /// <summary>
@@ -50,12 +74,27 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Action</value>
         [DataMember(Name="action", EmitDefaultValue=false)]
-        public string Action { get; set; }
+        public ActionEnum? Action { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConversationPbxTimeBasedMapping" /> class.
+        /// </summary>
+        /// <param name="action">Action.</param>
+        /// <param name="actionTarget">Action target.  This is the UUID associated with the configuration object of that particular type..</param>
+        /// <param name="name">Name.</param>
+        /// <param name="timeRangeUuid">Time range UUID.</param>
+        public ConversationPbxTimeBasedMapping(ActionEnum? action = default(ActionEnum?), string actionTarget = default(string), string name = default(string), string timeRangeUuid = default(string))
+        {
+            this.Action = action;
+            this.ActionTarget = actionTarget;
+            this.Name = name;
+            this.TimeRangeUuid = timeRangeUuid;
+        }
+
 
         /// <summary>
-        /// Action target
+        /// Action target.  This is the UUID associated with the configuration object of that particular type.
         /// </summary>
-        /// <value>Action target</value>
+        /// <value>Action target.  This is the UUID associated with the configuration object of that particular type.</value>
         [DataMember(Name="action_target", EmitDefaultValue=false)]
         public string ActionTarget { get; set; }
 
@@ -170,7 +209,7 @@ namespace com.ultracart.admin.v2.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Action (string) maxLength
-            if(this.Action != null && this.Action.Length > 30)
+            if(this.Action != null && this.Action.ToString().Length > 30)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Action, length must be less than 30.", new [] { "Action" });
             }

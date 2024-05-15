@@ -7,11 +7,9 @@ Method | HTTP request | Description
 [**DeleteConversationCannedMessage**](ConversationApi.md#deleteconversationcannedmessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 [**DeleteDepartment**](ConversationApi.md#deletedepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 [**DeleteEngagement**](ConversationApi.md#deleteengagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
-[**DeletePbxAgent**](ConversationApi.md#deletepbxagent) | **DELETE** /conversation/pbx/agent/{conversationPbxAgentUuid} | Delete pbx agent
 [**DeletePbxAgentVoicemail**](ConversationApi.md#deletepbxagentvoicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
 [**DeletePbxAudio**](ConversationApi.md#deletepbxaudio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
 [**DeletePbxMenu**](ConversationApi.md#deletepbxmenu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
-[**DeletePbxPhoneNumber**](ConversationApi.md#deletepbxphonenumber) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
 [**DeletePbxQueue**](ConversationApi.md#deletepbxqueue) | **DELETE** /conversation/pbx/queue/{conversationPbxQueueUuid} | Delete pbx queue
 [**DeletePbxQueueVoicemail**](ConversationApi.md#deletepbxqueuevoicemail) | **DELETE** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid} | Delete Queue Voicemail
 [**DeletePbxTimeBased**](ConversationApi.md#deletepbxtimebased) | **DELETE** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Delete pbx timeBased
@@ -61,10 +59,8 @@ Method | HTTP request | Description
 [**InsertConversationCannedMessage**](ConversationApi.md#insertconversationcannedmessage) | **POST** /conversation/canned_messages | Insert a canned message
 [**InsertConversationDepartment**](ConversationApi.md#insertconversationdepartment) | **POST** /conversation/departments | Insert a department
 [**InsertConversationEngagement**](ConversationApi.md#insertconversationengagement) | **POST** /conversation/engagements | Insert a engagement
-[**InsertPbxAgent**](ConversationApi.md#insertpbxagent) | **POST** /conversation/pbx/agent | Insert pbx agent
 [**InsertPbxAudio**](ConversationApi.md#insertpbxaudio) | **POST** /conversation/pbx/audio | Insert pbx audio
 [**InsertPbxMenu**](ConversationApi.md#insertpbxmenu) | **POST** /conversation/pbx/menu | Insert pbx menu
-[**InsertPbxPhoneNumber**](ConversationApi.md#insertpbxphonenumber) | **POST** /conversation/pbx/phone_number | Insert pbx phoneNumber
 [**InsertPbxQueue**](ConversationApi.md#insertpbxqueue) | **POST** /conversation/pbx/queue | Insert pbx queue
 [**InsertPbxTimeBased**](ConversationApi.md#insertpbxtimebased) | **POST** /conversation/pbx/time_based | Insert pbx timeBased
 [**InsertPbxTimeRange**](ConversationApi.md#insertpbxtimerange) | **POST** /conversation/pbx/time_range | Insert pbx timeRange
@@ -288,72 +284,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletepbxagent"></a>
-# **DeletePbxAgent**
-> ConversationPbxAgentResponse DeletePbxAgent (string conversationPbxAgentUuid)
-
-Delete pbx agent
-
-Delete a pbx agent 
-### Example
-```csharp
-
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeletePbxAgentExample
-    {
-        public void main()
-        {
-
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new ConversationApi(simpleKey);
-
-            var conversationPbxAgentUuid = conversationPbxAgentUuid_example;  // string | 
-
-            try
-            {
-                // Delete pbx agent
-                ConversationPbxAgentResponse result = apiInstance.DeletePbxAgent(conversationPbxAgentUuid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeletePbxAgent: " + e.Message );
-            }
-        }
-    }
-}
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **conversationPbxAgentUuid** | **string**|  | 
-
-### Return type
-
-[**ConversationPbxAgentResponse**](ConversationPbxAgentResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="deletepbxagentvoicemail"></a>
 # **DeletePbxAgentVoicemail**
 > void DeletePbxAgentVoicemail (string recordingSid)
@@ -539,72 +469,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxMenuResponse**](ConversationPbxMenuResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="deletepbxphonenumber"></a>
-# **DeletePbxPhoneNumber**
-> ConversationPbxPhoneNumberResponse DeletePbxPhoneNumber (string conversationPbxPhoneNumberUuid)
-
-Delete pbx phoneNumber
-
-Delete a pbx phoneNumber 
-### Example
-```csharp
-
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeletePbxPhoneNumberExample
-    {
-        public void main()
-        {
-
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new ConversationApi(simpleKey);
-
-            var conversationPbxPhoneNumberUuid = conversationPbxPhoneNumberUuid_example;  // string | 
-
-            try
-            {
-                // Delete pbx phoneNumber
-                ConversationPbxPhoneNumberResponse result = apiInstance.DeletePbxPhoneNumber(conversationPbxPhoneNumberUuid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeletePbxPhoneNumber: " + e.Message );
-            }
-        }
-    }
-}
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **conversationPbxPhoneNumberUuid** | **string**|  | 
-
-### Return type
-
-[**ConversationPbxPhoneNumberResponse**](ConversationPbxPhoneNumberResponse.md)
 
 ### Authorization
 
@@ -3789,72 +3653,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="insertpbxagent"></a>
-# **InsertPbxAgent**
-> ConversationPbxAgentResponse InsertPbxAgent (ConversationPbxAgent pbxAgent)
-
-Insert pbx agent
-
-Insert a pbx agent 
-### Example
-```csharp
-
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertPbxAgentExample
-    {
-        public void main()
-        {
-
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new ConversationApi(simpleKey);
-
-            var pbxAgent = new ConversationPbxAgent(); // ConversationPbxAgent | Pbx Agent
-
-            try
-            {
-                // Insert pbx agent
-                ConversationPbxAgentResponse result = apiInstance.InsertPbxAgent(pbxAgent);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ConversationApi.InsertPbxAgent: " + e.Message );
-            }
-        }
-    }
-}
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbxAgent** | [**ConversationPbxAgent**](ConversationPbxAgent.md)| Pbx Agent | 
-
-### Return type
-
-[**ConversationPbxAgentResponse**](ConversationPbxAgentResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="insertpbxaudio"></a>
 # **InsertPbxAudio**
 > ConversationPbxAudioResponse InsertPbxAudio (ConversationPbxAudio pbxAudio)
@@ -3975,72 +3773,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxMenuResponse**](ConversationPbxMenuResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="insertpbxphonenumber"></a>
-# **InsertPbxPhoneNumber**
-> ConversationPbxPhoneNumberResponse InsertPbxPhoneNumber (ConversationPbxPhoneNumber pbxPhoneNumber)
-
-Insert pbx phoneNumber
-
-Insert a pbx phoneNumber 
-### Example
-```csharp
-
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertPbxPhoneNumberExample
-    {
-        public void main()
-        {
-
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new ConversationApi(simpleKey);
-
-            var pbxPhoneNumber = new ConversationPbxPhoneNumber(); // ConversationPbxPhoneNumber | Pbx PhoneNumber
-
-            try
-            {
-                // Insert pbx phoneNumber
-                ConversationPbxPhoneNumberResponse result = apiInstance.InsertPbxPhoneNumber(pbxPhoneNumber);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ConversationApi.InsertPbxPhoneNumber: " + e.Message );
-            }
-        }
-    }
-}
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbxPhoneNumber** | [**ConversationPbxPhoneNumber**](ConversationPbxPhoneNumber.md)| Pbx PhoneNumber | 
-
-### Return type
-
-[**ConversationPbxPhoneNumberResponse**](ConversationPbxPhoneNumberResponse.md)
 
 ### Authorization
 

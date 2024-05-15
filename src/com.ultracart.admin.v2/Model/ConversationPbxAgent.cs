@@ -36,21 +36,33 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="cellphone">Cellphone number of agent in E.164 format.</param>
         /// <param name="conversationPbxAgentUuid">Conversation Pbx Agent unique identifier.</param>
         /// <param name="conversationPbxVoicemailMailboxUuid">Conversation Pbx Voicemail Mailbox UUID.</param>
+        /// <param name="extension">Extension.</param>
         /// <param name="forwardCallsToCellphone">True if calls to this agent should be forwarded to their cellphone.</param>
+        /// <param name="fullName">Full name.</param>
+        /// <param name="login">Agent login.</param>
         /// <param name="merchantId">Merchant Id.</param>
         /// <param name="recordOutgoingAutomatically">True if outgoing calls should be automatically recorded.</param>
         /// <param name="twilioTaskrouterWorkerId">Twilio taskrouter worker Id.</param>
+        /// <param name="unavailablePlayAudioUuid">Unavailable play audio UUID.</param>
+        /// <param name="unavailableSay">Unavailable say.</param>
+        /// <param name="unavailableSayVoice">Unavailable say voice.</param>
         /// <param name="userId">User Id.</param>
         /// <param name="voicemail">True if this agent has voicemail configured.</param>
-        public ConversationPbxAgent(string cellphone = default(string), string conversationPbxAgentUuid = default(string), string conversationPbxVoicemailMailboxUuid = default(string), bool forwardCallsToCellphone = default(bool), string merchantId = default(string), bool recordOutgoingAutomatically = default(bool), string twilioTaskrouterWorkerId = default(string), int userId = default(int), bool voicemail = default(bool))
+        public ConversationPbxAgent(string cellphone = default(string), string conversationPbxAgentUuid = default(string), string conversationPbxVoicemailMailboxUuid = default(string), int extension = default(int), bool forwardCallsToCellphone = default(bool), string fullName = default(string), string login = default(string), string merchantId = default(string), bool recordOutgoingAutomatically = default(bool), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), string unavailableSayVoice = default(string), int userId = default(int), bool voicemail = default(bool))
         {
             this.Cellphone = cellphone;
             this.ConversationPbxAgentUuid = conversationPbxAgentUuid;
             this.ConversationPbxVoicemailMailboxUuid = conversationPbxVoicemailMailboxUuid;
+            this.Extension = extension;
             this.ForwardCallsToCellphone = forwardCallsToCellphone;
+            this.FullName = fullName;
+            this.Login = login;
             this.MerchantId = merchantId;
             this.RecordOutgoingAutomatically = recordOutgoingAutomatically;
             this.TwilioTaskrouterWorkerId = twilioTaskrouterWorkerId;
+            this.UnavailablePlayAudioUuid = unavailablePlayAudioUuid;
+            this.UnavailableSay = unavailableSay;
+            this.UnavailableSayVoice = unavailableSayVoice;
             this.UserId = userId;
             this.Voicemail = voicemail;
         }
@@ -77,11 +89,32 @@ namespace com.ultracart.admin.v2.Model
         public string ConversationPbxVoicemailMailboxUuid { get; set; }
 
         /// <summary>
+        /// Extension
+        /// </summary>
+        /// <value>Extension</value>
+        [DataMember(Name="extension", EmitDefaultValue=false)]
+        public int Extension { get; set; }
+
+        /// <summary>
         /// True if calls to this agent should be forwarded to their cellphone
         /// </summary>
         /// <value>True if calls to this agent should be forwarded to their cellphone</value>
         [DataMember(Name="forward_calls_to_cellphone", EmitDefaultValue=false)]
         public bool ForwardCallsToCellphone { get; set; }
+
+        /// <summary>
+        /// Full name
+        /// </summary>
+        /// <value>Full name</value>
+        [DataMember(Name="full_name", EmitDefaultValue=false)]
+        public string FullName { get; set; }
+
+        /// <summary>
+        /// Agent login
+        /// </summary>
+        /// <value>Agent login</value>
+        [DataMember(Name="login", EmitDefaultValue=false)]
+        public string Login { get; set; }
 
         /// <summary>
         /// Merchant Id
@@ -103,6 +136,27 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Twilio taskrouter worker Id</value>
         [DataMember(Name="twilio_taskrouter_worker_id", EmitDefaultValue=false)]
         public string TwilioTaskrouterWorkerId { get; set; }
+
+        /// <summary>
+        /// Unavailable play audio UUID
+        /// </summary>
+        /// <value>Unavailable play audio UUID</value>
+        [DataMember(Name="unavailable_play_audio_uuid", EmitDefaultValue=false)]
+        public string UnavailablePlayAudioUuid { get; set; }
+
+        /// <summary>
+        /// Unavailable say
+        /// </summary>
+        /// <value>Unavailable say</value>
+        [DataMember(Name="unavailable_say", EmitDefaultValue=false)]
+        public string UnavailableSay { get; set; }
+
+        /// <summary>
+        /// Unavailable say voice
+        /// </summary>
+        /// <value>Unavailable say voice</value>
+        [DataMember(Name="unavailable_say_voice", EmitDefaultValue=false)]
+        public string UnavailableSayVoice { get; set; }
 
         /// <summary>
         /// User Id
@@ -129,10 +183,16 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Cellphone: ").Append(Cellphone).Append("\n");
             sb.Append("  ConversationPbxAgentUuid: ").Append(ConversationPbxAgentUuid).Append("\n");
             sb.Append("  ConversationPbxVoicemailMailboxUuid: ").Append(ConversationPbxVoicemailMailboxUuid).Append("\n");
+            sb.Append("  Extension: ").Append(Extension).Append("\n");
             sb.Append("  ForwardCallsToCellphone: ").Append(ForwardCallsToCellphone).Append("\n");
+            sb.Append("  FullName: ").Append(FullName).Append("\n");
+            sb.Append("  Login: ").Append(Login).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  RecordOutgoingAutomatically: ").Append(RecordOutgoingAutomatically).Append("\n");
             sb.Append("  TwilioTaskrouterWorkerId: ").Append(TwilioTaskrouterWorkerId).Append("\n");
+            sb.Append("  UnavailablePlayAudioUuid: ").Append(UnavailablePlayAudioUuid).Append("\n");
+            sb.Append("  UnavailableSay: ").Append(UnavailableSay).Append("\n");
+            sb.Append("  UnavailableSayVoice: ").Append(UnavailableSayVoice).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  Voicemail: ").Append(Voicemail).Append("\n");
             sb.Append("}\n");
@@ -185,9 +245,24 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationPbxVoicemailMailboxUuid.Equals(input.ConversationPbxVoicemailMailboxUuid))
                 ) && 
                 (
+                    this.Extension == input.Extension ||
+                    (this.Extension != null &&
+                    this.Extension.Equals(input.Extension))
+                ) && 
+                (
                     this.ForwardCallsToCellphone == input.ForwardCallsToCellphone ||
                     (this.ForwardCallsToCellphone != null &&
                     this.ForwardCallsToCellphone.Equals(input.ForwardCallsToCellphone))
+                ) && 
+                (
+                    this.FullName == input.FullName ||
+                    (this.FullName != null &&
+                    this.FullName.Equals(input.FullName))
+                ) && 
+                (
+                    this.Login == input.Login ||
+                    (this.Login != null &&
+                    this.Login.Equals(input.Login))
                 ) && 
                 (
                     this.MerchantId == input.MerchantId ||
@@ -203,6 +278,21 @@ namespace com.ultracart.admin.v2.Model
                     this.TwilioTaskrouterWorkerId == input.TwilioTaskrouterWorkerId ||
                     (this.TwilioTaskrouterWorkerId != null &&
                     this.TwilioTaskrouterWorkerId.Equals(input.TwilioTaskrouterWorkerId))
+                ) && 
+                (
+                    this.UnavailablePlayAudioUuid == input.UnavailablePlayAudioUuid ||
+                    (this.UnavailablePlayAudioUuid != null &&
+                    this.UnavailablePlayAudioUuid.Equals(input.UnavailablePlayAudioUuid))
+                ) && 
+                (
+                    this.UnavailableSay == input.UnavailableSay ||
+                    (this.UnavailableSay != null &&
+                    this.UnavailableSay.Equals(input.UnavailableSay))
+                ) && 
+                (
+                    this.UnavailableSayVoice == input.UnavailableSayVoice ||
+                    (this.UnavailableSayVoice != null &&
+                    this.UnavailableSayVoice.Equals(input.UnavailableSayVoice))
                 ) && 
                 (
                     this.UserId == input.UserId ||
@@ -231,14 +321,26 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationPbxAgentUuid.GetHashCode();
                 if (this.ConversationPbxVoicemailMailboxUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxVoicemailMailboxUuid.GetHashCode();
+                if (this.Extension != null)
+                    hashCode = hashCode * 59 + this.Extension.GetHashCode();
                 if (this.ForwardCallsToCellphone != null)
                     hashCode = hashCode * 59 + this.ForwardCallsToCellphone.GetHashCode();
+                if (this.FullName != null)
+                    hashCode = hashCode * 59 + this.FullName.GetHashCode();
+                if (this.Login != null)
+                    hashCode = hashCode * 59 + this.Login.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.RecordOutgoingAutomatically != null)
                     hashCode = hashCode * 59 + this.RecordOutgoingAutomatically.GetHashCode();
                 if (this.TwilioTaskrouterWorkerId != null)
                     hashCode = hashCode * 59 + this.TwilioTaskrouterWorkerId.GetHashCode();
+                if (this.UnavailablePlayAudioUuid != null)
+                    hashCode = hashCode * 59 + this.UnavailablePlayAudioUuid.GetHashCode();
+                if (this.UnavailableSay != null)
+                    hashCode = hashCode * 59 + this.UnavailableSay.GetHashCode();
+                if (this.UnavailableSayVoice != null)
+                    hashCode = hashCode * 59 + this.UnavailableSayVoice.GetHashCode();
                 if (this.UserId != null)
                     hashCode = hashCode * 59 + this.UserId.GetHashCode();
                 if (this.Voicemail != null)
@@ -279,6 +381,20 @@ namespace com.ultracart.admin.v2.Model
             if(this.TwilioTaskrouterWorkerId != null && this.TwilioTaskrouterWorkerId.Length > 100)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TwilioTaskrouterWorkerId, length must be less than 100.", new [] { "TwilioTaskrouterWorkerId" });
+            }
+
+
+            // UnavailablePlayAudioUuid (string) maxLength
+            if(this.UnavailablePlayAudioUuid != null && this.UnavailablePlayAudioUuid.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnavailablePlayAudioUuid, length must be less than 50.", new [] { "UnavailablePlayAudioUuid" });
+            }
+
+
+            // UnavailableSayVoice (string) maxLength
+            if(this.UnavailableSayVoice != null && this.UnavailableSayVoice.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnavailableSayVoice, length must be less than 50.", new [] { "UnavailableSayVoice" });
             }
 
 

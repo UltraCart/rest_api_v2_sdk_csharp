@@ -64,26 +64,28 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantId">Merchant Id.</param>
         /// <param name="sendNoticesToEmail">Send notices to email.</param>
         /// <param name="userId">User Id.</param>
-        /// <param name="voicemailFollowPlayAudioUuid">Voicemail follow play audio UUID.</param>
+        /// <param name="voicemailFollowupPlayAudioUuid">Voicemail follow play audio UUID.</param>
         /// <param name="voicemailFollowupSay">Voicemail followup say.</param>
+        /// <param name="voicemailFollowupSayVoice">Voicemail followup say voice.</param>
         /// <param name="voicemailMailboxId">Voicemail mailbox id.</param>
         /// <param name="voicemailMailboxType">Voicemail mailbox type.</param>
         /// <param name="voicemailPromptPlayAudioUuid">Voicemail prompt play audio UUID.</param>
         /// <param name="voicemailPromptSay">Voicemail prompt say.</param>
-        /// <param name="voicemailSayVoice">Voicemail say voice.</param>
-        public ConversationPbxVoicemailMailbox(string conversationPbxVoicemailMailboxUuid = default(string), string merchantId = default(string), string sendNoticesToEmail = default(string), int userId = default(int), string voicemailFollowPlayAudioUuid = default(string), string voicemailFollowupSay = default(string), string voicemailMailboxId = default(string), VoicemailMailboxTypeEnum? voicemailMailboxType = default(VoicemailMailboxTypeEnum?), string voicemailPromptPlayAudioUuid = default(string), string voicemailPromptSay = default(string), string voicemailSayVoice = default(string))
+        /// <param name="voicemailPromptSayVoice">Voicemail prompt say voice.</param>
+        public ConversationPbxVoicemailMailbox(string conversationPbxVoicemailMailboxUuid = default(string), string merchantId = default(string), string sendNoticesToEmail = default(string), int userId = default(int), string voicemailFollowupPlayAudioUuid = default(string), string voicemailFollowupSay = default(string), string voicemailFollowupSayVoice = default(string), string voicemailMailboxId = default(string), VoicemailMailboxTypeEnum? voicemailMailboxType = default(VoicemailMailboxTypeEnum?), string voicemailPromptPlayAudioUuid = default(string), string voicemailPromptSay = default(string), string voicemailPromptSayVoice = default(string))
         {
             this.ConversationPbxVoicemailMailboxUuid = conversationPbxVoicemailMailboxUuid;
             this.MerchantId = merchantId;
             this.SendNoticesToEmail = sendNoticesToEmail;
             this.UserId = userId;
-            this.VoicemailFollowPlayAudioUuid = voicemailFollowPlayAudioUuid;
+            this.VoicemailFollowupPlayAudioUuid = voicemailFollowupPlayAudioUuid;
             this.VoicemailFollowupSay = voicemailFollowupSay;
+            this.VoicemailFollowupSayVoice = voicemailFollowupSayVoice;
             this.VoicemailMailboxId = voicemailMailboxId;
             this.VoicemailMailboxType = voicemailMailboxType;
             this.VoicemailPromptPlayAudioUuid = voicemailPromptPlayAudioUuid;
             this.VoicemailPromptSay = voicemailPromptSay;
-            this.VoicemailSayVoice = voicemailSayVoice;
+            this.VoicemailPromptSayVoice = voicemailPromptSayVoice;
         }
 
         /// <summary>
@@ -118,8 +120,8 @@ namespace com.ultracart.admin.v2.Model
         /// Voicemail follow play audio UUID
         /// </summary>
         /// <value>Voicemail follow play audio UUID</value>
-        [DataMember(Name="voicemail_follow_play_audio_uuid", EmitDefaultValue=false)]
-        public string VoicemailFollowPlayAudioUuid { get; set; }
+        [DataMember(Name="voicemail_followup_play_audio_uuid", EmitDefaultValue=false)]
+        public string VoicemailFollowupPlayAudioUuid { get; set; }
 
         /// <summary>
         /// Voicemail followup say
@@ -127,6 +129,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Voicemail followup say</value>
         [DataMember(Name="voicemail_followup_say", EmitDefaultValue=false)]
         public string VoicemailFollowupSay { get; set; }
+
+        /// <summary>
+        /// Voicemail followup say voice
+        /// </summary>
+        /// <value>Voicemail followup say voice</value>
+        [DataMember(Name="voicemail_followup_say_voice", EmitDefaultValue=false)]
+        public string VoicemailFollowupSayVoice { get; set; }
 
         /// <summary>
         /// Voicemail mailbox id
@@ -151,11 +160,11 @@ namespace com.ultracart.admin.v2.Model
         public string VoicemailPromptSay { get; set; }
 
         /// <summary>
-        /// Voicemail say voice
+        /// Voicemail prompt say voice
         /// </summary>
-        /// <value>Voicemail say voice</value>
-        [DataMember(Name="voicemail_say_voice", EmitDefaultValue=false)]
-        public string VoicemailSayVoice { get; set; }
+        /// <value>Voicemail prompt say voice</value>
+        [DataMember(Name="voicemail_prompt_say_voice", EmitDefaultValue=false)]
+        public string VoicemailPromptSayVoice { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -169,13 +178,14 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  SendNoticesToEmail: ").Append(SendNoticesToEmail).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
-            sb.Append("  VoicemailFollowPlayAudioUuid: ").Append(VoicemailFollowPlayAudioUuid).Append("\n");
+            sb.Append("  VoicemailFollowupPlayAudioUuid: ").Append(VoicemailFollowupPlayAudioUuid).Append("\n");
             sb.Append("  VoicemailFollowupSay: ").Append(VoicemailFollowupSay).Append("\n");
+            sb.Append("  VoicemailFollowupSayVoice: ").Append(VoicemailFollowupSayVoice).Append("\n");
             sb.Append("  VoicemailMailboxId: ").Append(VoicemailMailboxId).Append("\n");
             sb.Append("  VoicemailMailboxType: ").Append(VoicemailMailboxType).Append("\n");
             sb.Append("  VoicemailPromptPlayAudioUuid: ").Append(VoicemailPromptPlayAudioUuid).Append("\n");
             sb.Append("  VoicemailPromptSay: ").Append(VoicemailPromptSay).Append("\n");
-            sb.Append("  VoicemailSayVoice: ").Append(VoicemailSayVoice).Append("\n");
+            sb.Append("  VoicemailPromptSayVoice: ").Append(VoicemailPromptSayVoice).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -231,14 +241,19 @@ namespace com.ultracart.admin.v2.Model
                     this.UserId.Equals(input.UserId))
                 ) && 
                 (
-                    this.VoicemailFollowPlayAudioUuid == input.VoicemailFollowPlayAudioUuid ||
-                    (this.VoicemailFollowPlayAudioUuid != null &&
-                    this.VoicemailFollowPlayAudioUuid.Equals(input.VoicemailFollowPlayAudioUuid))
+                    this.VoicemailFollowupPlayAudioUuid == input.VoicemailFollowupPlayAudioUuid ||
+                    (this.VoicemailFollowupPlayAudioUuid != null &&
+                    this.VoicemailFollowupPlayAudioUuid.Equals(input.VoicemailFollowupPlayAudioUuid))
                 ) && 
                 (
                     this.VoicemailFollowupSay == input.VoicemailFollowupSay ||
                     (this.VoicemailFollowupSay != null &&
                     this.VoicemailFollowupSay.Equals(input.VoicemailFollowupSay))
+                ) && 
+                (
+                    this.VoicemailFollowupSayVoice == input.VoicemailFollowupSayVoice ||
+                    (this.VoicemailFollowupSayVoice != null &&
+                    this.VoicemailFollowupSayVoice.Equals(input.VoicemailFollowupSayVoice))
                 ) && 
                 (
                     this.VoicemailMailboxId == input.VoicemailMailboxId ||
@@ -261,9 +276,9 @@ namespace com.ultracart.admin.v2.Model
                     this.VoicemailPromptSay.Equals(input.VoicemailPromptSay))
                 ) && 
                 (
-                    this.VoicemailSayVoice == input.VoicemailSayVoice ||
-                    (this.VoicemailSayVoice != null &&
-                    this.VoicemailSayVoice.Equals(input.VoicemailSayVoice))
+                    this.VoicemailPromptSayVoice == input.VoicemailPromptSayVoice ||
+                    (this.VoicemailPromptSayVoice != null &&
+                    this.VoicemailPromptSayVoice.Equals(input.VoicemailPromptSayVoice))
                 );
         }
 
@@ -284,10 +299,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SendNoticesToEmail.GetHashCode();
                 if (this.UserId != null)
                     hashCode = hashCode * 59 + this.UserId.GetHashCode();
-                if (this.VoicemailFollowPlayAudioUuid != null)
-                    hashCode = hashCode * 59 + this.VoicemailFollowPlayAudioUuid.GetHashCode();
+                if (this.VoicemailFollowupPlayAudioUuid != null)
+                    hashCode = hashCode * 59 + this.VoicemailFollowupPlayAudioUuid.GetHashCode();
                 if (this.VoicemailFollowupSay != null)
                     hashCode = hashCode * 59 + this.VoicemailFollowupSay.GetHashCode();
+                if (this.VoicemailFollowupSayVoice != null)
+                    hashCode = hashCode * 59 + this.VoicemailFollowupSayVoice.GetHashCode();
                 if (this.VoicemailMailboxId != null)
                     hashCode = hashCode * 59 + this.VoicemailMailboxId.GetHashCode();
                 if (this.VoicemailMailboxType != null)
@@ -296,8 +313,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.VoicemailPromptPlayAudioUuid.GetHashCode();
                 if (this.VoicemailPromptSay != null)
                     hashCode = hashCode * 59 + this.VoicemailPromptSay.GetHashCode();
-                if (this.VoicemailSayVoice != null)
-                    hashCode = hashCode * 59 + this.VoicemailSayVoice.GetHashCode();
+                if (this.VoicemailPromptSayVoice != null)
+                    hashCode = hashCode * 59 + this.VoicemailPromptSayVoice.GetHashCode();
                 return hashCode;
             }
         }
@@ -330,10 +347,17 @@ namespace com.ultracart.admin.v2.Model
             }
 
 
-            // VoicemailFollowPlayAudioUuid (string) maxLength
-            if(this.VoicemailFollowPlayAudioUuid != null && this.VoicemailFollowPlayAudioUuid.Length > 50)
+            // VoicemailFollowupPlayAudioUuid (string) maxLength
+            if(this.VoicemailFollowupPlayAudioUuid != null && this.VoicemailFollowupPlayAudioUuid.Length > 50)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VoicemailFollowPlayAudioUuid, length must be less than 50.", new [] { "VoicemailFollowPlayAudioUuid" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VoicemailFollowupPlayAudioUuid, length must be less than 50.", new [] { "VoicemailFollowupPlayAudioUuid" });
+            }
+
+
+            // VoicemailFollowupSayVoice (string) maxLength
+            if(this.VoicemailFollowupSayVoice != null && this.VoicemailFollowupSayVoice.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VoicemailFollowupSayVoice, length must be less than 50.", new [] { "VoicemailFollowupSayVoice" });
             }
 
 
@@ -358,10 +382,10 @@ namespace com.ultracart.admin.v2.Model
             }
 
 
-            // VoicemailSayVoice (string) maxLength
-            if(this.VoicemailSayVoice != null && this.VoicemailSayVoice.Length > 50)
+            // VoicemailPromptSayVoice (string) maxLength
+            if(this.VoicemailPromptSayVoice != null && this.VoicemailPromptSayVoice.Length > 50)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VoicemailSayVoice, length must be less than 50.", new [] { "VoicemailSayVoice" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VoicemailPromptSayVoice, length must be less than 50.", new [] { "VoicemailPromptSayVoice" });
             }
 
 

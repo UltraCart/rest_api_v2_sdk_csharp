@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Default** | [**ConversationPbxTimeBasedMapping**](ConversationPbxTimeBasedMapping.md) |  | [optional] 
+**DefaultMapping** | [**ConversationPbxTimeBasedMapping**](ConversationPbxTimeBasedMapping.md) |  | [optional] 
 **Mappings** | [**List&lt;ConversationPbxTimeBasedMapping&gt;**](ConversationPbxTimeBasedMapping.md) | Mappings | [optional] 
 
 

@@ -33,19 +33,19 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxTimeBasedMappingConfig" /> class.
         /// </summary>
-        /// <param name="_default">_default.</param>
+        /// <param name="defaultMapping">defaultMapping.</param>
         /// <param name="mappings">Mappings.</param>
-        public ConversationPbxTimeBasedMappingConfig(ConversationPbxTimeBasedMapping _default = default(ConversationPbxTimeBasedMapping), List<ConversationPbxTimeBasedMapping> mappings = default(List<ConversationPbxTimeBasedMapping>))
+        public ConversationPbxTimeBasedMappingConfig(ConversationPbxTimeBasedMapping defaultMapping = default(ConversationPbxTimeBasedMapping), List<ConversationPbxTimeBasedMapping> mappings = default(List<ConversationPbxTimeBasedMapping>))
         {
-            this.Default = _default;
+            this.DefaultMapping = defaultMapping;
             this.Mappings = mappings;
         }
 
         /// <summary>
-        /// Gets or Sets Default
+        /// Gets or Sets DefaultMapping
         /// </summary>
-        [DataMember(Name="default", EmitDefaultValue=false)]
-        public ConversationPbxTimeBasedMapping Default { get; set; }
+        [DataMember(Name="default_mapping", EmitDefaultValue=false)]
+        public ConversationPbxTimeBasedMapping DefaultMapping { get; set; }
 
         /// <summary>
         /// Mappings
@@ -62,7 +62,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationPbxTimeBasedMappingConfig {\n");
-            sb.Append("  Default: ").Append(Default).Append("\n");
+            sb.Append("  DefaultMapping: ").Append(DefaultMapping).Append("\n");
             sb.Append("  Mappings: ").Append(Mappings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -99,9 +99,9 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.Default == input.Default ||
-                    (this.Default != null &&
-                    this.Default.Equals(input.Default))
+                    this.DefaultMapping == input.DefaultMapping ||
+                    (this.DefaultMapping != null &&
+                    this.DefaultMapping.Equals(input.DefaultMapping))
                 ) && 
                 (
                     this.Mappings == input.Mappings ||
@@ -120,8 +120,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Default != null)
-                    hashCode = hashCode * 59 + this.Default.GetHashCode();
+                if (this.DefaultMapping != null)
+                    hashCode = hashCode * 59 + this.DefaultMapping.GetHashCode();
                 if (this.Mappings != null)
                     hashCode = hashCode * 59 + this.Mappings.GetHashCode();
                 return hashCode;

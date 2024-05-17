@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Default** | [**ConversationPbxTimeBasedMapping**](ConversationPbxTimeBasedMapping.md) |  | [optional] 
+**DefaultMapping** | [**ConversationPbxTimeBasedMapping**](ConversationPbxTimeBasedMapping.md) |  | [optional] 
 **Mappings** | [**List&lt;ConversationPbxTimeBasedMapping&gt;**](ConversationPbxTimeBasedMapping.md) | Mappings | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **Phone** | **string** | Phone | [optional] 
 **PostalCode** | **string** | Postal code | [optional] 
 **PurchaseOrderNumber** | **string** | Purchase order number | [optional] 
+**QueryTarget** | **string** | Query Target | [optional] 
 **RefundDateBegin** | **string** | Date/time that the order was refunded | [optional] 
 **RefundDateEnd** | **string** | Date/time that the order was refunded | [optional] 
 **Rma** | **string** | RMA number | [optional] 

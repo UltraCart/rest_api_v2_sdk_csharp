@@ -229,6 +229,33 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="payment_method", EmitDefaultValue=false)]
         public PaymentMethodEnum? PaymentMethod { get; set; }
         /// <summary>
+        /// Query Target
+        /// </summary>
+        /// <value>Query Target</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum QueryTargetEnum
+        {
+            
+            /// <summary>
+            /// Enum Origin for value: origin
+            /// </summary>
+            [EnumMember(Value = "origin")]
+            Origin = 1,
+            
+            /// <summary>
+            /// Enum Cache for value: cache
+            /// </summary>
+            [EnumMember(Value = "cache")]
+            Cache = 2
+        }
+
+        /// <summary>
+        /// Query Target
+        /// </summary>
+        /// <value>Query Target</value>
+        [DataMember(Name="query_target", EmitDefaultValue=false)]
+        public QueryTargetEnum? QueryTarget { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="OrderQuery" /> class.
         /// </summary>
         /// <param name="ccEmail">CC Email.</param>
@@ -262,6 +289,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="phone">Phone.</param>
         /// <param name="postalCode">Postal code.</param>
         /// <param name="purchaseOrderNumber">Purchase order number.</param>
+        /// <param name="queryTarget">Query Target.</param>
         /// <param name="refundDateBegin">Date/time that the order was refunded.</param>
         /// <param name="refundDateEnd">Date/time that the order was refunded.</param>
         /// <param name="rma">RMA number.</param>
@@ -273,7 +301,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="stateRegion">State for United States otherwise region or province for other countries.</param>
         /// <param name="storefrontHostName">StoreFront host name associated with the order.</param>
         /// <param name="total">Total.</param>
-        public OrderQuery(string ccEmail = default(string), string channelPartnerCode = default(string), string channelPartnerOrderId = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string creationDateBegin = default(string), string creationDateEnd = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), string customField1 = default(string), string customField10 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customField8 = default(string), string customField9 = default(string), int? customerProfileOid = default(int?), string email = default(string), string firstName = default(string), string itemId = default(string), string lastName = default(string), string orderId = default(string), string paymentDateBegin = default(string), string paymentDateEnd = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string phone = default(string), string postalCode = default(string), string purchaseOrderNumber = default(string), string refundDateBegin = default(string), string refundDateEnd = default(string), string rma = default(string), string screenBrandingThemeCode = default(string), string shipmentDateBegin = default(string), string shipmentDateEnd = default(string), string shippedOnDateBegin = default(string), string shippedOnDateEnd = default(string), string stateRegion = default(string), string storefrontHostName = default(string), decimal? total = default(decimal?))
+        public OrderQuery(string ccEmail = default(string), string channelPartnerCode = default(string), string channelPartnerOrderId = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string creationDateBegin = default(string), string creationDateEnd = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), string customField1 = default(string), string customField10 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customField8 = default(string), string customField9 = default(string), int? customerProfileOid = default(int?), string email = default(string), string firstName = default(string), string itemId = default(string), string lastName = default(string), string orderId = default(string), string paymentDateBegin = default(string), string paymentDateEnd = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string phone = default(string), string postalCode = default(string), string purchaseOrderNumber = default(string), QueryTargetEnum? queryTarget = default(QueryTargetEnum?), string refundDateBegin = default(string), string refundDateEnd = default(string), string rma = default(string), string screenBrandingThemeCode = default(string), string shipmentDateBegin = default(string), string shipmentDateEnd = default(string), string shippedOnDateBegin = default(string), string shippedOnDateEnd = default(string), string stateRegion = default(string), string storefrontHostName = default(string), decimal? total = default(decimal?))
         {
             this.CcEmail = ccEmail;
             this.ChannelPartnerCode = channelPartnerCode;
@@ -306,6 +334,7 @@ namespace com.ultracart.admin.v2.Model
             this.Phone = phone;
             this.PostalCode = postalCode;
             this.PurchaseOrderNumber = purchaseOrderNumber;
+            this.QueryTarget = queryTarget;
             this.RefundDateBegin = refundDateBegin;
             this.RefundDateEnd = refundDateEnd;
             this.Rma = rma;
@@ -524,6 +553,7 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="purchase_order_number", EmitDefaultValue=false)]
         public string PurchaseOrderNumber { get; set; }
 
+
         /// <summary>
         /// Date/time that the order was refunded
         /// </summary>
@@ -640,6 +670,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  PurchaseOrderNumber: ").Append(PurchaseOrderNumber).Append("\n");
+            sb.Append("  QueryTarget: ").Append(QueryTarget).Append("\n");
             sb.Append("  RefundDateBegin: ").Append(RefundDateBegin).Append("\n");
             sb.Append("  RefundDateEnd: ").Append(RefundDateEnd).Append("\n");
             sb.Append("  Rma: ").Append(Rma).Append("\n");
@@ -841,6 +872,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PurchaseOrderNumber.Equals(input.PurchaseOrderNumber))
                 ) && 
                 (
+                    this.QueryTarget == input.QueryTarget ||
+                    (this.QueryTarget != null &&
+                    this.QueryTarget.Equals(input.QueryTarget))
+                ) && 
+                (
                     this.RefundDateBegin == input.RefundDateBegin ||
                     (this.RefundDateBegin != null &&
                     this.RefundDateBegin.Equals(input.RefundDateBegin))
@@ -968,6 +1004,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.PurchaseOrderNumber != null)
                     hashCode = hashCode * 59 + this.PurchaseOrderNumber.GetHashCode();
+                if (this.QueryTarget != null)
+                    hashCode = hashCode * 59 + this.QueryTarget.GetHashCode();
                 if (this.RefundDateBegin != null)
                     hashCode = hashCode * 59 + this.RefundDateBegin.GetHashCode();
                 if (this.RefundDateEnd != null)

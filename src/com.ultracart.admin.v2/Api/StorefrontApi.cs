@@ -1002,6 +1002,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailPostcardTrackingResponse</returns>
         ApiResponse<EmailPostcardTrackingResponse> GetEmailCommseqPostcardTrackingWithHttpInfo (int? storefrontOid, string commseqPostcardUuid);
         /// <summary>
+        /// Get email commseq rate limiters
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>EmailRateLimitersResponse</returns>
+        EmailRateLimitersResponse GetEmailCommseqRateLimiters (int? storefrontOid, string commseqUuid);
+
+        /// <summary>
+        /// Get email commseq rate limiters
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>ApiResponse of EmailRateLimitersResponse</returns>
+        ApiResponse<EmailRateLimitersResponse> GetEmailCommseqRateLimitersWithHttpInfo (int? storefrontOid, string commseqUuid);
+        /// <summary>
         /// Get email communication sequence sms stats
         /// </summary>
         /// <remarks>
@@ -3053,6 +3076,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ReleaseEmailCommseqStepWaitingWithHttpInfo (int? storefrontOid, string commseqUuid, string commseqStepUuid);
         /// <summary>
+        /// Reset email commseq rate limiters (only callable by UltraCart Support)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns></returns>
+        void ResetEmailCommseqRateLimiters (int? storefrontOid, string commseqUuid);
+
+        /// <summary>
+        /// Reset email commseq rate limiters (only callable by UltraCart Support)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ResetEmailCommseqRateLimitersWithHttpInfo (int? storefrontOid, string commseqUuid);
+        /// <summary>
         /// Request a review of an email
         /// </summary>
         /// <remarks>
@@ -5063,6 +5109,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="commseqPostcardUuid"></param>
         /// <returns>Task of ApiResponse (EmailPostcardTrackingResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailPostcardTrackingResponse>> GetEmailCommseqPostcardTrackingAsyncWithHttpInfo (int? storefrontOid, string commseqPostcardUuid);
+        /// <summary>
+        /// Get email commseq rate limiters
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>Task of EmailRateLimitersResponse</returns>
+        System.Threading.Tasks.Task<EmailRateLimitersResponse> GetEmailCommseqRateLimitersAsync (int? storefrontOid, string commseqUuid);
+
+        /// <summary>
+        /// Get email commseq rate limiters
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>Task of ApiResponse (EmailRateLimitersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailRateLimitersResponse>> GetEmailCommseqRateLimitersAsyncWithHttpInfo (int? storefrontOid, string commseqUuid);
         /// <summary>
         /// Get email communication sequence sms stats
         /// </summary>
@@ -7114,6 +7183,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="commseqStepUuid"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ReleaseEmailCommseqStepWaitingAsyncWithHttpInfo (int? storefrontOid, string commseqUuid, string commseqStepUuid);
+        /// <summary>
+        /// Reset email commseq rate limiters (only callable by UltraCart Support)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task ResetEmailCommseqRateLimitersAsync (int? storefrontOid, string commseqUuid);
+
+        /// <summary>
+        /// Reset email commseq rate limiters (only callable by UltraCart Support)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResetEmailCommseqRateLimitersAsyncWithHttpInfo (int? storefrontOid, string commseqUuid);
         /// <summary>
         /// Request a review of an email
         /// </summary>
@@ -15932,6 +16024,185 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailPostcardTrackingResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailPostcardTrackingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailPostcardTrackingResponse)));
+        }
+
+        /// <summary>
+        /// Get email commseq rate limiters 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>EmailRateLimitersResponse</returns>
+        public EmailRateLimitersResponse GetEmailCommseqRateLimiters (int? storefrontOid, string commseqUuid)
+        {
+             ApiResponse<EmailRateLimitersResponse> localVarResponse = GetEmailCommseqRateLimitersWithHttpInfo(storefrontOid, commseqUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email commseq rate limiters 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>ApiResponse of EmailRateLimitersResponse</returns>
+        public ApiResponse< EmailRateLimitersResponse > GetEmailCommseqRateLimitersWithHttpInfo (int? storefrontOid, string commseqUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCommseqRateLimiters");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->GetEmailCommseqRateLimiters");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/rate_limiters";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCommseqRateLimiters", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailRateLimitersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailRateLimitersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailRateLimitersResponse)));
+        }
+
+        /// <summary>
+        /// Get email commseq rate limiters 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>Task of EmailRateLimitersResponse</returns>
+        public async System.Threading.Tasks.Task<EmailRateLimitersResponse> GetEmailCommseqRateLimitersAsync (int? storefrontOid, string commseqUuid)
+        {
+             ApiResponse<EmailRateLimitersResponse> localVarResponse = await GetEmailCommseqRateLimitersAsyncWithHttpInfo(storefrontOid, commseqUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email commseq rate limiters 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>Task of ApiResponse (EmailRateLimitersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailRateLimitersResponse>> GetEmailCommseqRateLimitersAsyncWithHttpInfo (int? storefrontOid, string commseqUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCommseqRateLimiters");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->GetEmailCommseqRateLimiters");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/rate_limiters";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCommseqRateLimiters", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailRateLimitersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailRateLimitersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailRateLimitersResponse)));
         }
 
         /// <summary>
@@ -31933,6 +32204,183 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("ReleaseEmailCommseqStepWaiting", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Reset email commseq rate limiters (only callable by UltraCart Support) 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns></returns>
+        public void ResetEmailCommseqRateLimiters (int? storefrontOid, string commseqUuid)
+        {
+             ResetEmailCommseqRateLimitersWithHttpInfo(storefrontOid, commseqUuid);
+        }
+
+        /// <summary>
+        /// Reset email commseq rate limiters (only callable by UltraCart Support) 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> ResetEmailCommseqRateLimitersWithHttpInfo (int? storefrontOid, string commseqUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->ResetEmailCommseqRateLimiters");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->ResetEmailCommseqRateLimiters");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/rate_limiters";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResetEmailCommseqRateLimiters", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Reset email commseq rate limiters (only callable by UltraCart Support) 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task ResetEmailCommseqRateLimitersAsync (int? storefrontOid, string commseqUuid)
+        {
+             await ResetEmailCommseqRateLimitersAsyncWithHttpInfo(storefrontOid, commseqUuid);
+
+        }
+
+        /// <summary>
+        /// Reset email commseq rate limiters (only callable by UltraCart Support) 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ResetEmailCommseqRateLimitersAsyncWithHttpInfo (int? storefrontOid, string commseqUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->ResetEmailCommseqRateLimiters");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->ResetEmailCommseqRateLimiters");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/rate_limiters";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResetEmailCommseqRateLimiters", localVarResponse);
                 if (exception != null) throw exception;
             }
 

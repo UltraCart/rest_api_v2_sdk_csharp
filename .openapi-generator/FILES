@@ -431,6 +431,8 @@ docs/EmailPlanResponse.md
 docs/EmailPostcardStat.md
 docs/EmailPostcardTracking.md
 docs/EmailPostcardTrackingResponse.md
+docs/EmailRateLimiter.md
+docs/EmailRateLimitersResponse.md
 docs/EmailSegment.md
 docs/EmailSegmentArchiveResponse.md
 docs/EmailSegmentCustomer.md
@@ -1322,6 +1324,8 @@ src/com.ultracart.admin.v2/Model/EmailPlanResponse.cs
 src/com.ultracart.admin.v2/Model/EmailPostcardStat.cs
 src/com.ultracart.admin.v2/Model/EmailPostcardTracking.cs
 src/com.ultracart.admin.v2/Model/EmailPostcardTrackingResponse.cs
+src/com.ultracart.admin.v2/Model/EmailRateLimiter.cs
+src/com.ultracart.admin.v2/Model/EmailRateLimitersResponse.cs
 src/com.ultracart.admin.v2/Model/EmailSegment.cs
 src/com.ultracart.admin.v2/Model/EmailSegmentArchiveResponse.cs
 src/com.ultracart.admin.v2/Model/EmailSegmentCustomer.cs

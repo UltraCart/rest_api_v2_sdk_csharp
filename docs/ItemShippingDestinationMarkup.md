@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AdultSignatureRequired** | **bool** | Adult Signature Required (only updated if not-null value provided) | [optional] 
 **CountryCode** | **string** | Country code (ISO-3166 two letter) | [optional] 
 **FlatFee** | **decimal** | Flat fee | [optional] 
 **PerItem** | **decimal** | Per item | [optional] 

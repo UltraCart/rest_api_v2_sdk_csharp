@@ -33,14 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingDestinationMarkup" /> class.
         /// </summary>
+        /// <param name="adultSignatureRequired">Adult Signature Required (only updated if not-null value provided).</param>
         /// <param name="countryCode">Country code (ISO-3166 two letter).</param>
         /// <param name="flatFee">Flat fee.</param>
         /// <param name="perItem">Per item.</param>
         /// <param name="postalCode">Postal code.</param>
         /// <param name="shippingMethod">Shipping method.</param>
         /// <param name="state">State.</param>
-        public ItemShippingDestinationMarkup(string countryCode = default(string), decimal flatFee = default(decimal), decimal perItem = default(decimal), string postalCode = default(string), string shippingMethod = default(string), string state = default(string))
+        public ItemShippingDestinationMarkup(bool adultSignatureRequired = default(bool), string countryCode = default(string), decimal flatFee = default(decimal), decimal perItem = default(decimal), string postalCode = default(string), string shippingMethod = default(string), string state = default(string))
         {
+            this.AdultSignatureRequired = adultSignatureRequired;
             this.CountryCode = countryCode;
             this.FlatFee = flatFee;
             this.PerItem = perItem;
@@ -48,6 +50,13 @@ namespace com.ultracart.admin.v2.Model
             this.ShippingMethod = shippingMethod;
             this.State = state;
         }
+
+        /// <summary>
+        /// Adult Signature Required (only updated if not-null value provided)
+        /// </summary>
+        /// <value>Adult Signature Required (only updated if not-null value provided)</value>
+        [DataMember(Name="adult_signature_required", EmitDefaultValue=false)]
+        public bool AdultSignatureRequired { get; set; }
 
         /// <summary>
         /// Country code (ISO-3166 two letter)
@@ -99,6 +108,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ItemShippingDestinationMarkup {\n");
+            sb.Append("  AdultSignatureRequired: ").Append(AdultSignatureRequired).Append("\n");
             sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
             sb.Append("  FlatFee: ").Append(FlatFee).Append("\n");
             sb.Append("  PerItem: ").Append(PerItem).Append("\n");
@@ -140,6 +150,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AdultSignatureRequired == input.AdultSignatureRequired ||
+                    (this.AdultSignatureRequired != null &&
+                    this.AdultSignatureRequired.Equals(input.AdultSignatureRequired))
+                ) && 
+                (
                     this.CountryCode == input.CountryCode ||
                     (this.CountryCode != null &&
                     this.CountryCode.Equals(input.CountryCode))
@@ -180,6 +195,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AdultSignatureRequired != null)
+                    hashCode = hashCode * 59 + this.AdultSignatureRequired.GetHashCode();
                 if (this.CountryCode != null)
                     hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
                 if (this.FlatFee != null)

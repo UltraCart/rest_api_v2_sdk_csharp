@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**InsertItem**](ItemApi.md#insertitem) | **POST** /item/items | Create an item
 [**InsertReview**](ItemApi.md#insertreview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**InsertUpdateItemContentAttribute**](ItemApi.md#insertupdateitemcontentattribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
+[**RestItemInventorySnapshotResponse**](ItemApi.md#restiteminventorysnapshotresponse) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories
 [**UpdateDigitalItem**](ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**UpdateItem**](ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**UpdateItems**](ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
@@ -1196,6 +1197,68 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="restiteminventorysnapshotresponse"></a>
+# **RestItemInventorySnapshotResponse**
+> ItemInventorySnapshotResponse RestItemInventorySnapshotResponse ()
+
+Retrieve a list of item inventories
+
+Retrieves a list of item inventories. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class RestItemInventorySnapshotResponseExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+
+            try
+            {
+                // Retrieve a list of item inventories
+                ItemInventorySnapshotResponse result = apiInstance.RestItemInventorySnapshotResponse();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.RestItemInventorySnapshotResponse: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ItemInventorySnapshotResponse**](ItemInventorySnapshotResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

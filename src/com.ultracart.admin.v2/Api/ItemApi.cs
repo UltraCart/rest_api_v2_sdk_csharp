@@ -436,6 +436,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> InsertUpdateItemContentAttributeWithHttpInfo (ItemContentAttribute itemAttribute, int? merchantItemOid);
         /// <summary>
+        /// Retrieve a list of item inventories
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a list of item inventories. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ItemInventorySnapshotResponse</returns>
+        ItemInventorySnapshotResponse RestItemInventorySnapshotResponse ();
+
+        /// <summary>
+        /// Retrieve a list of item inventories
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a list of item inventories. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ItemInventorySnapshotResponse</returns>
+        ApiResponse<ItemInventorySnapshotResponse> RestItemInventorySnapshotResponseWithHttpInfo ();
+        /// <summary>
         /// Updates a file within the digital library
         /// </summary>
         /// <remarks>
@@ -971,6 +990,25 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="merchantItemOid">The item oid to modify.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> InsertUpdateItemContentAttributeAsyncWithHttpInfo (ItemContentAttribute itemAttribute, int? merchantItemOid);
+        /// <summary>
+        /// Retrieve a list of item inventories
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a list of item inventories. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ItemInventorySnapshotResponse</returns>
+        System.Threading.Tasks.Task<ItemInventorySnapshotResponse> RestItemInventorySnapshotResponseAsync ();
+
+        /// <summary>
+        /// Retrieve a list of item inventories
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a list of item inventories. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ItemInventorySnapshotResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemInventorySnapshotResponse>> RestItemInventorySnapshotResponseAsyncWithHttpInfo ();
         /// <summary>
         /// Updates a file within the digital library
         /// </summary>
@@ -4078,6 +4116,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+
+        /// <summary>
+        /// Retrieve a list of item inventories Retrieves a list of item inventories. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ItemInventorySnapshotResponse</returns>
+        public ItemInventorySnapshotResponse RestItemInventorySnapshotResponse ()
+        {
+             ApiResponse<ItemInventorySnapshotResponse> localVarResponse = RestItemInventorySnapshotResponseWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve a list of item inventories Retrieves a list of item inventories. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ItemInventorySnapshotResponse</returns>
+        public ApiResponse< ItemInventorySnapshotResponse > RestItemInventorySnapshotResponseWithHttpInfo ()
+        {
+
+            var localVarPath = "/item/items/inventory_snapshot";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RestItemInventorySnapshotResponse", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemInventorySnapshotResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemInventorySnapshotResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemInventorySnapshotResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a list of item inventories Retrieves a list of item inventories. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ItemInventorySnapshotResponse</returns>
+        public async System.Threading.Tasks.Task<ItemInventorySnapshotResponse> RestItemInventorySnapshotResponseAsync ()
+        {
+             ApiResponse<ItemInventorySnapshotResponse> localVarResponse = await RestItemInventorySnapshotResponseAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve a list of item inventories Retrieves a list of item inventories. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ItemInventorySnapshotResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemInventorySnapshotResponse>> RestItemInventorySnapshotResponseAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/item/items/inventory_snapshot";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RestItemInventorySnapshotResponse", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemInventorySnapshotResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemInventorySnapshotResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemInventorySnapshotResponse)));
         }
 
         /// <summary>

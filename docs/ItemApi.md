@@ -21,7 +21,7 @@ Method | HTTP request | Description
 [**InsertItem**](ItemApi.md#insertitem) | **POST** /item/items | Create an item
 [**InsertReview**](ItemApi.md#insertreview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**InsertUpdateItemContentAttribute**](ItemApi.md#insertupdateitemcontentattribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
-[**RestItemInventorySnapshotResponse**](ItemApi.md#restiteminventorysnapshotresponse) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories
+[**RestItemInventorySnapshotResponse**](ItemApi.md#restiteminventorysnapshotresponse) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**UpdateDigitalItem**](ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**UpdateItem**](ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**UpdateItems**](ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
@@ -1544,9 +1544,9 @@ void (empty response body)
 
 > ItemInventorySnapshotResponse RestItemInventorySnapshotResponse ()
 
-Retrieve a list of item inventories
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 
-Retrieves a list of item inventories. 
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
 
 ### Example
 
@@ -1573,7 +1573,7 @@ namespace Example
 
             try
             {
-                // Retrieve a list of item inventories
+                // Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
                 ItemInventorySnapshotResponse result = apiInstance.RestItemInventorySnapshotResponse();
                 Debug.WriteLine(result);
             }

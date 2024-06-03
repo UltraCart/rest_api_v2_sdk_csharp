@@ -80,14 +80,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="action">Action.</param>
         /// <param name="actionTarget">Action target.  This is the UUID associated with the configuration object of that particular type..</param>
-        /// <param name="conversationPbxTimeRangeUuid">Conversation Pbx Phone Number UUID.</param>
+        /// <param name="conversationPbxPhoneNumberUuid">Conversation Pbx Phone Number UUID.</param>
         /// <param name="merchantId">Merchant Id.</param>
         /// <param name="phoneNumber">Phone number.</param>
-        public ConversationPbxPhoneNumber(ActionEnum? action = default(ActionEnum?), string actionTarget = default(string), string conversationPbxTimeRangeUuid = default(string), string merchantId = default(string), string phoneNumber = default(string))
+        public ConversationPbxPhoneNumber(ActionEnum? action = default(ActionEnum?), string actionTarget = default(string), string conversationPbxPhoneNumberUuid = default(string), string merchantId = default(string), string phoneNumber = default(string))
         {
             this.Action = action;
             this.ActionTarget = actionTarget;
-            this.ConversationPbxTimeRangeUuid = conversationPbxTimeRangeUuid;
+            this.ConversationPbxPhoneNumberUuid = conversationPbxPhoneNumberUuid;
             this.MerchantId = merchantId;
             this.PhoneNumber = phoneNumber;
         }
@@ -104,8 +104,8 @@ namespace com.ultracart.admin.v2.Model
         /// Conversation Pbx Phone Number UUID
         /// </summary>
         /// <value>Conversation Pbx Phone Number UUID</value>
-        [DataMember(Name="conversation_pbx_time_range_uuid", EmitDefaultValue=false)]
-        public string ConversationPbxTimeRangeUuid { get; set; }
+        [DataMember(Name="conversation_pbx_phone_number_uuid", EmitDefaultValue=false)]
+        public string ConversationPbxPhoneNumberUuid { get; set; }
 
         /// <summary>
         /// Merchant Id
@@ -131,7 +131,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ConversationPbxPhoneNumber {\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
             sb.Append("  ActionTarget: ").Append(ActionTarget).Append("\n");
-            sb.Append("  ConversationPbxTimeRangeUuid: ").Append(ConversationPbxTimeRangeUuid).Append("\n");
+            sb.Append("  ConversationPbxPhoneNumberUuid: ").Append(ConversationPbxPhoneNumberUuid).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("}\n");
@@ -179,9 +179,9 @@ namespace com.ultracart.admin.v2.Model
                     this.ActionTarget.Equals(input.ActionTarget))
                 ) && 
                 (
-                    this.ConversationPbxTimeRangeUuid == input.ConversationPbxTimeRangeUuid ||
-                    (this.ConversationPbxTimeRangeUuid != null &&
-                    this.ConversationPbxTimeRangeUuid.Equals(input.ConversationPbxTimeRangeUuid))
+                    this.ConversationPbxPhoneNumberUuid == input.ConversationPbxPhoneNumberUuid ||
+                    (this.ConversationPbxPhoneNumberUuid != null &&
+                    this.ConversationPbxPhoneNumberUuid.Equals(input.ConversationPbxPhoneNumberUuid))
                 ) && 
                 (
                     this.MerchantId == input.MerchantId ||
@@ -208,8 +208,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Action.GetHashCode();
                 if (this.ActionTarget != null)
                     hashCode = hashCode * 59 + this.ActionTarget.GetHashCode();
-                if (this.ConversationPbxTimeRangeUuid != null)
-                    hashCode = hashCode * 59 + this.ConversationPbxTimeRangeUuid.GetHashCode();
+                if (this.ConversationPbxPhoneNumberUuid != null)
+                    hashCode = hashCode * 59 + this.ConversationPbxPhoneNumberUuid.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.PhoneNumber != null)
@@ -239,10 +239,10 @@ namespace com.ultracart.admin.v2.Model
             }
 
 
-            // ConversationPbxTimeRangeUuid (string) maxLength
-            if(this.ConversationPbxTimeRangeUuid != null && this.ConversationPbxTimeRangeUuid.Length > 50)
+            // ConversationPbxPhoneNumberUuid (string) maxLength
+            if(this.ConversationPbxPhoneNumberUuid != null && this.ConversationPbxPhoneNumberUuid.Length > 50)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ConversationPbxTimeRangeUuid, length must be less than 50.", new [] { "ConversationPbxTimeRangeUuid" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ConversationPbxPhoneNumberUuid, length must be less than 50.", new [] { "ConversationPbxPhoneNumberUuid" });
             }
 
 

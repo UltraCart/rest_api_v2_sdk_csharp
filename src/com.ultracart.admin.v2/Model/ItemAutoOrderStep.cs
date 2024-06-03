@@ -92,8 +92,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="recurringMerchantItemOid">Item object identifier to rebill.</param>
         /// <param name="repeatCount">Number of times to rebill.  Last step can be null for infinite.</param>
         /// <param name="schedule">Frequency of the rebill.</param>
-        /// <param name="subscribeEmailListName">Email list name to subscribe the customer to when the rebill occurs.</param>
-        /// <param name="subscribeEmailListOid">Email list identifier to subscribe the customer to when this rebill occurs.</param>
+        /// <param name="subscribeEmailListName">Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine).</param>
+        /// <param name="subscribeEmailListOid">Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine).</param>
         /// <param name="type">Type of step (item, kit only, loop or pause).</param>
         public ItemAutoOrderStep(int arbitraryScheduleDays = default(int), decimal arbitraryUnitCost = default(decimal), List<ItemAutoOrderStepArbitraryUnitCostSchedule> arbitraryUnitCostSchedules = default(List<ItemAutoOrderStepArbitraryUnitCostSchedule>), List<ItemAutoOrderStepGrandfatherPricing> grandfatherPricing = default(List<ItemAutoOrderStepGrandfatherPricing>), string managedBy = default(string), int pauseDays = default(int), string pauseUntilDate = default(string), int pauseUntilDayOfMonth = default(int), int pauseUntilMinimumDelayDays = default(int), int preshipmentNoticeDays = default(int), string recurringMerchantItemId = default(string), int recurringMerchantItemOid = default(int), int repeatCount = default(int), string schedule = default(string), string subscribeEmailListName = default(string), int subscribeEmailListOid = default(int), TypeEnum? type = default(TypeEnum?))
         {
@@ -215,16 +215,16 @@ namespace com.ultracart.admin.v2.Model
         public string Schedule { get; set; }
 
         /// <summary>
-        /// Email list name to subscribe the customer to when the rebill occurs
+        /// Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine)
         /// </summary>
-        /// <value>Email list name to subscribe the customer to when the rebill occurs</value>
+        /// <value>Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine)</value>
         [DataMember(Name="subscribe_email_list_name", EmitDefaultValue=false)]
         public string SubscribeEmailListName { get; set; }
 
         /// <summary>
-        /// Email list identifier to subscribe the customer to when this rebill occurs
+        /// Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine)
         /// </summary>
-        /// <value>Email list identifier to subscribe the customer to when this rebill occurs</value>
+        /// <value>Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine)</value>
         [DataMember(Name="subscribe_email_list_oid", EmitDefaultValue=false)]
         public int SubscribeEmailListOid { get; set; }
 

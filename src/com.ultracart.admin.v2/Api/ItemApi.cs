@@ -437,20 +437,20 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> InsertUpdateItemContentAttributeWithHttpInfo (int merchantItemOid, ItemContentAttribute itemAttribute);
         /// <summary>
-        /// Retrieve a list of item inventories
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ItemInventorySnapshotResponse</returns>
         ItemInventorySnapshotResponse RestItemInventorySnapshotResponse ();
 
         /// <summary>
-        /// Retrieve a list of item inventories
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ItemInventorySnapshotResponse</returns>
@@ -1026,10 +1026,10 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> InsertUpdateItemContentAttributeWithHttpInfoAsync (int merchantItemOid, ItemContentAttribute itemAttribute, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Retrieve a list of item inventories
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -1037,10 +1037,10 @@ namespace com.ultracart.admin.v2.Api
         System.Threading.Tasks.Task<ItemInventorySnapshotResponse> RestItemInventorySnapshotResponseAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Retrieve a list of item inventories
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -4196,7 +4196,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve a list of item inventories Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ItemInventorySnapshotResponse</returns>
@@ -4207,7 +4207,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve a list of item inventories Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ItemInventorySnapshotResponse</returns>
@@ -4267,7 +4267,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve a list of item inventories Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -4280,7 +4280,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve a list of item inventories Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>

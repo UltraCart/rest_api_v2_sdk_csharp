@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 **RecurringMerchantItemOid** | **int?** | Item object identifier to rebill | [optional] 
 **RepeatCount** | **int?** | Number of times to rebill.  Last step can be null for infinite | [optional] 
 **Schedule** | **string** | Frequency of the rebill | [optional] 
-**SubscribeEmailListName** | **string** | Email list name to subscribe the customer to when the rebill occurs | [optional] 
-**SubscribeEmailListOid** | **int?** | Email list identifier to subscribe the customer to when this rebill occurs | [optional] 
+**SubscribeEmailListName** | **string** | Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine) | [optional] 
+**SubscribeEmailListOid** | **int?** | Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine) | [optional] 
 **Type** | **string** | Type of step (item, kit only, loop or pause) | [optional] 
 
 

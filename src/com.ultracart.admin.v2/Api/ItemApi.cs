@@ -436,20 +436,20 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> InsertUpdateItemContentAttributeWithHttpInfo (ItemContentAttribute itemAttribute, int? merchantItemOid);
         /// <summary>
-        /// Retrieve a list of item inventories
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ItemInventorySnapshotResponse</returns>
         ItemInventorySnapshotResponse RestItemInventorySnapshotResponse ();
 
         /// <summary>
-        /// Retrieve a list of item inventories
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ItemInventorySnapshotResponse</returns>
@@ -991,20 +991,20 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> InsertUpdateItemContentAttributeAsyncWithHttpInfo (ItemContentAttribute itemAttribute, int? merchantItemOid);
         /// <summary>
-        /// Retrieve a list of item inventories
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ItemInventorySnapshotResponse</returns>
         System.Threading.Tasks.Task<ItemInventorySnapshotResponse> RestItemInventorySnapshotResponseAsync ();
 
         /// <summary>
-        /// Retrieve a list of item inventories
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ItemInventorySnapshotResponse)</returns>
@@ -4119,7 +4119,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve a list of item inventories Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ItemInventorySnapshotResponse</returns>
@@ -4130,7 +4130,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve a list of item inventories Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ItemInventorySnapshotResponse</returns>
@@ -4191,7 +4191,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve a list of item inventories Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ItemInventorySnapshotResponse</returns>
@@ -4203,7 +4203,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve a list of item inventories Retrieves a list of item inventories. 
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ItemInventorySnapshotResponse)</returns>

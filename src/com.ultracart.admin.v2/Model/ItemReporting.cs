@@ -34,7 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ItemReporting" /> class.
         /// </summary>
         /// <param name="reportAsUpsell">Report as an upsell.</param>
-        /// <param name="reportPickableQuantities">Report pickable quantities.</param>
+        /// <param name="reportPickableQuantities">Report pickable quantities (deprecated).</param>
         public ItemReporting(bool? reportAsUpsell = default(bool?), List<int?> reportPickableQuantities = default(List<int?>))
         {
             this.ReportAsUpsell = reportAsUpsell;
@@ -49,9 +49,9 @@ namespace com.ultracart.admin.v2.Model
         public bool? ReportAsUpsell { get; set; }
 
         /// <summary>
-        /// Report pickable quantities
+        /// Report pickable quantities (deprecated)
         /// </summary>
-        /// <value>Report pickable quantities</value>
+        /// <value>Report pickable quantities (deprecated)</value>
         [DataMember(Name="report_pickable_quantities", EmitDefaultValue=false)]
         public List<int?> ReportPickableQuantities { get; set; }
 

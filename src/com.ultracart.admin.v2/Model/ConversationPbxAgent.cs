@@ -35,30 +35,32 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="cellphone">Cellphone number of agent in E.164 format.</param>
         /// <param name="conversationPbxAgentUuid">Conversation Pbx Agent unique identifier.</param>
-        /// <param name="conversationPbxVoicemailMailboxUuid">Conversation Pbx Voicemail Mailbox UUID.</param>
         /// <param name="extension">Extension.</param>
         /// <param name="forwardCallsToCellphone">True if calls to this agent should be forwarded to their cellphone.</param>
         /// <param name="fullName">Full name.</param>
         /// <param name="login">Agent login.</param>
         /// <param name="merchantId">Merchant Id.</param>
+        /// <param name="personalConversationPbxVoicemailMailboxUuid">Personal Conversation Pbx Voicemail Mailbox UUID.</param>
         /// <param name="recordOutgoingAutomatically">True if outgoing calls should be automatically recorded.</param>
+        /// <param name="sharedConversationPbxVoicemailMailboxUuid">Shared Conversation Pbx Voicemail Mailbox UUID.</param>
         /// <param name="twilioTaskrouterWorkerId">Twilio taskrouter worker Id.</param>
         /// <param name="unavailablePlayAudioUuid">Unavailable play audio UUID.</param>
         /// <param name="unavailableSay">Unavailable say.</param>
         /// <param name="unavailableSayVoice">Unavailable say voice.</param>
         /// <param name="userId">User Id.</param>
         /// <param name="voicemail">True if this agent has voicemail configured.</param>
-        public ConversationPbxAgent(string cellphone = default(string), string conversationPbxAgentUuid = default(string), string conversationPbxVoicemailMailboxUuid = default(string), int? extension = default(int?), bool? forwardCallsToCellphone = default(bool?), string fullName = default(string), string login = default(string), string merchantId = default(string), bool? recordOutgoingAutomatically = default(bool?), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), string unavailableSayVoice = default(string), int? userId = default(int?), bool? voicemail = default(bool?))
+        public ConversationPbxAgent(string cellphone = default(string), string conversationPbxAgentUuid = default(string), int? extension = default(int?), bool? forwardCallsToCellphone = default(bool?), string fullName = default(string), string login = default(string), string merchantId = default(string), string personalConversationPbxVoicemailMailboxUuid = default(string), bool? recordOutgoingAutomatically = default(bool?), string sharedConversationPbxVoicemailMailboxUuid = default(string), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), string unavailableSayVoice = default(string), int? userId = default(int?), bool? voicemail = default(bool?))
         {
             this.Cellphone = cellphone;
             this.ConversationPbxAgentUuid = conversationPbxAgentUuid;
-            this.ConversationPbxVoicemailMailboxUuid = conversationPbxVoicemailMailboxUuid;
             this.Extension = extension;
             this.ForwardCallsToCellphone = forwardCallsToCellphone;
             this.FullName = fullName;
             this.Login = login;
             this.MerchantId = merchantId;
+            this.PersonalConversationPbxVoicemailMailboxUuid = personalConversationPbxVoicemailMailboxUuid;
             this.RecordOutgoingAutomatically = recordOutgoingAutomatically;
+            this.SharedConversationPbxVoicemailMailboxUuid = sharedConversationPbxVoicemailMailboxUuid;
             this.TwilioTaskrouterWorkerId = twilioTaskrouterWorkerId;
             this.UnavailablePlayAudioUuid = unavailablePlayAudioUuid;
             this.UnavailableSay = unavailableSay;
@@ -80,13 +82,6 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Conversation Pbx Agent unique identifier</value>
         [DataMember(Name="conversation_pbx_agent_uuid", EmitDefaultValue=false)]
         public string ConversationPbxAgentUuid { get; set; }
-
-        /// <summary>
-        /// Conversation Pbx Voicemail Mailbox UUID
-        /// </summary>
-        /// <value>Conversation Pbx Voicemail Mailbox UUID</value>
-        [DataMember(Name="conversation_pbx_voicemail_mailbox_uuid", EmitDefaultValue=false)]
-        public string ConversationPbxVoicemailMailboxUuid { get; set; }
 
         /// <summary>
         /// Extension
@@ -124,11 +119,25 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantId { get; set; }
 
         /// <summary>
+        /// Personal Conversation Pbx Voicemail Mailbox UUID
+        /// </summary>
+        /// <value>Personal Conversation Pbx Voicemail Mailbox UUID</value>
+        [DataMember(Name="personal_conversation_pbx_voicemail_mailbox_uuid", EmitDefaultValue=false)]
+        public string PersonalConversationPbxVoicemailMailboxUuid { get; set; }
+
+        /// <summary>
         /// True if outgoing calls should be automatically recorded
         /// </summary>
         /// <value>True if outgoing calls should be automatically recorded</value>
         [DataMember(Name="record_outgoing_automatically", EmitDefaultValue=false)]
         public bool? RecordOutgoingAutomatically { get; set; }
+
+        /// <summary>
+        /// Shared Conversation Pbx Voicemail Mailbox UUID
+        /// </summary>
+        /// <value>Shared Conversation Pbx Voicemail Mailbox UUID</value>
+        [DataMember(Name="shared_conversation_pbx_voicemail_mailbox_uuid", EmitDefaultValue=false)]
+        public string SharedConversationPbxVoicemailMailboxUuid { get; set; }
 
         /// <summary>
         /// Twilio taskrouter worker Id
@@ -182,13 +191,14 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ConversationPbxAgent {\n");
             sb.Append("  Cellphone: ").Append(Cellphone).Append("\n");
             sb.Append("  ConversationPbxAgentUuid: ").Append(ConversationPbxAgentUuid).Append("\n");
-            sb.Append("  ConversationPbxVoicemailMailboxUuid: ").Append(ConversationPbxVoicemailMailboxUuid).Append("\n");
             sb.Append("  Extension: ").Append(Extension).Append("\n");
             sb.Append("  ForwardCallsToCellphone: ").Append(ForwardCallsToCellphone).Append("\n");
             sb.Append("  FullName: ").Append(FullName).Append("\n");
             sb.Append("  Login: ").Append(Login).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  PersonalConversationPbxVoicemailMailboxUuid: ").Append(PersonalConversationPbxVoicemailMailboxUuid).Append("\n");
             sb.Append("  RecordOutgoingAutomatically: ").Append(RecordOutgoingAutomatically).Append("\n");
+            sb.Append("  SharedConversationPbxVoicemailMailboxUuid: ").Append(SharedConversationPbxVoicemailMailboxUuid).Append("\n");
             sb.Append("  TwilioTaskrouterWorkerId: ").Append(TwilioTaskrouterWorkerId).Append("\n");
             sb.Append("  UnavailablePlayAudioUuid: ").Append(UnavailablePlayAudioUuid).Append("\n");
             sb.Append("  UnavailableSay: ").Append(UnavailableSay).Append("\n");
@@ -240,11 +250,6 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationPbxAgentUuid.Equals(input.ConversationPbxAgentUuid))
                 ) && 
                 (
-                    this.ConversationPbxVoicemailMailboxUuid == input.ConversationPbxVoicemailMailboxUuid ||
-                    (this.ConversationPbxVoicemailMailboxUuid != null &&
-                    this.ConversationPbxVoicemailMailboxUuid.Equals(input.ConversationPbxVoicemailMailboxUuid))
-                ) && 
-                (
                     this.Extension == input.Extension ||
                     (this.Extension != null &&
                     this.Extension.Equals(input.Extension))
@@ -270,9 +275,19 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
+                    this.PersonalConversationPbxVoicemailMailboxUuid == input.PersonalConversationPbxVoicemailMailboxUuid ||
+                    (this.PersonalConversationPbxVoicemailMailboxUuid != null &&
+                    this.PersonalConversationPbxVoicemailMailboxUuid.Equals(input.PersonalConversationPbxVoicemailMailboxUuid))
+                ) && 
+                (
                     this.RecordOutgoingAutomatically == input.RecordOutgoingAutomatically ||
                     (this.RecordOutgoingAutomatically != null &&
                     this.RecordOutgoingAutomatically.Equals(input.RecordOutgoingAutomatically))
+                ) && 
+                (
+                    this.SharedConversationPbxVoicemailMailboxUuid == input.SharedConversationPbxVoicemailMailboxUuid ||
+                    (this.SharedConversationPbxVoicemailMailboxUuid != null &&
+                    this.SharedConversationPbxVoicemailMailboxUuid.Equals(input.SharedConversationPbxVoicemailMailboxUuid))
                 ) && 
                 (
                     this.TwilioTaskrouterWorkerId == input.TwilioTaskrouterWorkerId ||
@@ -319,8 +334,6 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Cellphone.GetHashCode();
                 if (this.ConversationPbxAgentUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxAgentUuid.GetHashCode();
-                if (this.ConversationPbxVoicemailMailboxUuid != null)
-                    hashCode = hashCode * 59 + this.ConversationPbxVoicemailMailboxUuid.GetHashCode();
                 if (this.Extension != null)
                     hashCode = hashCode * 59 + this.Extension.GetHashCode();
                 if (this.ForwardCallsToCellphone != null)
@@ -331,8 +344,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Login.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.PersonalConversationPbxVoicemailMailboxUuid != null)
+                    hashCode = hashCode * 59 + this.PersonalConversationPbxVoicemailMailboxUuid.GetHashCode();
                 if (this.RecordOutgoingAutomatically != null)
                     hashCode = hashCode * 59 + this.RecordOutgoingAutomatically.GetHashCode();
+                if (this.SharedConversationPbxVoicemailMailboxUuid != null)
+                    hashCode = hashCode * 59 + this.SharedConversationPbxVoicemailMailboxUuid.GetHashCode();
                 if (this.TwilioTaskrouterWorkerId != null)
                     hashCode = hashCode * 59 + this.TwilioTaskrouterWorkerId.GetHashCode();
                 if (this.UnavailablePlayAudioUuid != null)
@@ -362,16 +379,22 @@ namespace com.ultracart.admin.v2.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Cellphone, length must be less than 50.", new [] { "Cellphone" });
             }
 
-            // ConversationPbxVoicemailMailboxUuid (string) maxLength
-            if(this.ConversationPbxVoicemailMailboxUuid != null && this.ConversationPbxVoicemailMailboxUuid.Length > 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ConversationPbxVoicemailMailboxUuid, length must be less than 50.", new [] { "ConversationPbxVoicemailMailboxUuid" });
-            }
-
             // MerchantId (string) maxLength
             if(this.MerchantId != null && this.MerchantId.Length > 5)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantId, length must be less than 5.", new [] { "MerchantId" });
+            }
+
+            // PersonalConversationPbxVoicemailMailboxUuid (string) maxLength
+            if(this.PersonalConversationPbxVoicemailMailboxUuid != null && this.PersonalConversationPbxVoicemailMailboxUuid.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PersonalConversationPbxVoicemailMailboxUuid, length must be less than 50.", new [] { "PersonalConversationPbxVoicemailMailboxUuid" });
+            }
+
+            // SharedConversationPbxVoicemailMailboxUuid (string) maxLength
+            if(this.SharedConversationPbxVoicemailMailboxUuid != null && this.SharedConversationPbxVoicemailMailboxUuid.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SharedConversationPbxVoicemailMailboxUuid, length must be less than 50.", new [] { "SharedConversationPbxVoicemailMailboxUuid" });
             }
 
             // TwilioTaskrouterWorkerId (string) maxLength

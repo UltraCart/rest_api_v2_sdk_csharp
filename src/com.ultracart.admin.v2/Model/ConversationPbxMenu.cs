@@ -31,6 +31,33 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationPbxMenu :  IEquatable<ConversationPbxMenu>, IValidatableObject
     {
         /// <summary>
+        /// say voice
+        /// </summary>
+        /// <value>say voice</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SayVoiceEnum
+        {
+            
+            /// <summary>
+            /// Enum Man for value: man
+            /// </summary>
+            [EnumMember(Value = "man")]
+            Man = 1,
+            
+            /// <summary>
+            /// Enum Woman for value: woman
+            /// </summary>
+            [EnumMember(Value = "woman")]
+            Woman = 2
+        }
+
+        /// <summary>
+        /// say voice
+        /// </summary>
+        /// <value>say voice</value>
+        [DataMember(Name="say_voice", EmitDefaultValue=false)]
+        public SayVoiceEnum? SayVoice { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxMenu" /> class.
         /// </summary>
         /// <param name="allowDirectExtensions">If true, the customer is allowed to input direct extensions within this menu.</param>
@@ -42,8 +69,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="name">Menu name.</param>
         /// <param name="playAudioUuid">An optional audio clip that plays when a customer enters this menu.</param>
         /// <param name="say">An optional saying that plays when a customer enters this menu.</param>
+        /// <param name="sayVoice">say voice.</param>
         /// <param name="timeout">The idle seconds before this menu times out.</param>
-        public ConversationPbxMenu(bool? allowDirectExtensions = default(bool?), string conversationPbxMenuUuid = default(string), string defaultAction = default(string), string defaultActionTarget = default(string), List<ConversationPbxMenuMapping> mappings = default(List<ConversationPbxMenuMapping>), string merchantId = default(string), string name = default(string), string playAudioUuid = default(string), string say = default(string), int? timeout = default(int?))
+        public ConversationPbxMenu(bool? allowDirectExtensions = default(bool?), string conversationPbxMenuUuid = default(string), string defaultAction = default(string), string defaultActionTarget = default(string), List<ConversationPbxMenuMapping> mappings = default(List<ConversationPbxMenuMapping>), string merchantId = default(string), string name = default(string), string playAudioUuid = default(string), string say = default(string), SayVoiceEnum? sayVoice = default(SayVoiceEnum?), int? timeout = default(int?))
         {
             this.AllowDirectExtensions = allowDirectExtensions;
             this.ConversationPbxMenuUuid = conversationPbxMenuUuid;
@@ -54,6 +82,7 @@ namespace com.ultracart.admin.v2.Model
             this.Name = name;
             this.PlayAudioUuid = playAudioUuid;
             this.Say = say;
+            this.SayVoice = sayVoice;
             this.Timeout = timeout;
         }
         
@@ -120,6 +149,7 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="say", EmitDefaultValue=false)]
         public string Say { get; set; }
 
+
         /// <summary>
         /// The idle seconds before this menu times out
         /// </summary>
@@ -144,6 +174,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  PlayAudioUuid: ").Append(PlayAudioUuid).Append("\n");
             sb.Append("  Say: ").Append(Say).Append("\n");
+            sb.Append("  SayVoice: ").Append(SayVoice).Append("\n");
             sb.Append("  Timeout: ").Append(Timeout).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -225,6 +256,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Say.Equals(input.Say))
                 ) && 
                 (
+                    this.SayVoice == input.SayVoice ||
+                    (this.SayVoice != null &&
+                    this.SayVoice.Equals(input.SayVoice))
+                ) && 
+                (
                     this.Timeout == input.Timeout ||
                     (this.Timeout != null &&
                     this.Timeout.Equals(input.Timeout))
@@ -258,6 +294,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PlayAudioUuid.GetHashCode();
                 if (this.Say != null)
                     hashCode = hashCode * 59 + this.Say.GetHashCode();
+                if (this.SayVoice != null)
+                    hashCode = hashCode * 59 + this.SayVoice.GetHashCode();
                 if (this.Timeout != null)
                     hashCode = hashCode * 59 + this.Timeout.GetHashCode();
                 return hashCode;
@@ -305,6 +343,12 @@ namespace com.ultracart.admin.v2.Model
             if(this.PlayAudioUuid != null && this.PlayAudioUuid.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayAudioUuid, length must be less than 50.", new [] { "PlayAudioUuid" });
+            }
+
+            // SayVoice (string) maxLength
+            if(this.SayVoice != null && this.SayVoice.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SayVoice, length must be less than 50.", new [] { "SayVoice" });
             }
 
             yield break;

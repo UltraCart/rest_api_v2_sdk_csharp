@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Menu name | [optional] 
 **PlayAudioUuid** | **string** | An optional audio clip that plays when a customer enters this menu | [optional] 
 **Say** | **string** | An optional saying that plays when a customer enters this menu | [optional] 
+**SayVoice** | **string** | say voice | [optional] 
 **Timeout** | **int** | The idle seconds before this menu times out | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

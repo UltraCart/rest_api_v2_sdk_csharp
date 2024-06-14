@@ -31,6 +31,33 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationPbxVoicemailMailbox :  IEquatable<ConversationPbxVoicemailMailbox>, IValidatableObject
     {
         /// <summary>
+        /// Voicemail followup say voice
+        /// </summary>
+        /// <value>Voicemail followup say voice</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum VoicemailFollowupSayVoiceEnum
+        {
+            /// <summary>
+            /// Enum Man for value: man
+            /// </summary>
+            [EnumMember(Value = "man")]
+            Man = 1,
+
+            /// <summary>
+            /// Enum Woman for value: woman
+            /// </summary>
+            [EnumMember(Value = "woman")]
+            Woman = 2
+
+        }
+
+        /// <summary>
+        /// Voicemail followup say voice
+        /// </summary>
+        /// <value>Voicemail followup say voice</value>
+        [DataMember(Name="voicemail_followup_say_voice", EmitDefaultValue=false)]
+        public VoicemailFollowupSayVoiceEnum? VoicemailFollowupSayVoice { get; set; }
+        /// <summary>
         /// Voicemail mailbox type
         /// </summary>
         /// <value>Voicemail mailbox type</value>
@@ -58,6 +85,33 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="voicemail_mailbox_type", EmitDefaultValue=false)]
         public VoicemailMailboxTypeEnum? VoicemailMailboxType { get; set; }
         /// <summary>
+        /// Voicemail prompt say voice
+        /// </summary>
+        /// <value>Voicemail prompt say voice</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum VoicemailPromptSayVoiceEnum
+        {
+            /// <summary>
+            /// Enum Man for value: man
+            /// </summary>
+            [EnumMember(Value = "man")]
+            Man = 1,
+
+            /// <summary>
+            /// Enum Woman for value: woman
+            /// </summary>
+            [EnumMember(Value = "woman")]
+            Woman = 2
+
+        }
+
+        /// <summary>
+        /// Voicemail prompt say voice
+        /// </summary>
+        /// <value>Voicemail prompt say voice</value>
+        [DataMember(Name="voicemail_prompt_say_voice", EmitDefaultValue=false)]
+        public VoicemailPromptSayVoiceEnum? VoicemailPromptSayVoice { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxVoicemailMailbox" /> class.
         /// </summary>
         /// <param name="conversationPbxVoicemailMailboxUuid">Conversation Pbx Voicemail Mailbox UUID.</param>
@@ -72,7 +126,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="voicemailPromptPlayAudioUuid">Voicemail prompt play audio UUID.</param>
         /// <param name="voicemailPromptSay">Voicemail prompt say.</param>
         /// <param name="voicemailPromptSayVoice">Voicemail prompt say voice.</param>
-        public ConversationPbxVoicemailMailbox(string conversationPbxVoicemailMailboxUuid = default(string), string merchantId = default(string), string sendNoticesToEmail = default(string), int userId = default(int), string voicemailFollowupPlayAudioUuid = default(string), string voicemailFollowupSay = default(string), string voicemailFollowupSayVoice = default(string), string voicemailMailboxId = default(string), VoicemailMailboxTypeEnum? voicemailMailboxType = default(VoicemailMailboxTypeEnum?), string voicemailPromptPlayAudioUuid = default(string), string voicemailPromptSay = default(string), string voicemailPromptSayVoice = default(string))
+        public ConversationPbxVoicemailMailbox(string conversationPbxVoicemailMailboxUuid = default(string), string merchantId = default(string), string sendNoticesToEmail = default(string), int userId = default(int), string voicemailFollowupPlayAudioUuid = default(string), string voicemailFollowupSay = default(string), VoicemailFollowupSayVoiceEnum? voicemailFollowupSayVoice = default(VoicemailFollowupSayVoiceEnum?), string voicemailMailboxId = default(string), VoicemailMailboxTypeEnum? voicemailMailboxType = default(VoicemailMailboxTypeEnum?), string voicemailPromptPlayAudioUuid = default(string), string voicemailPromptSay = default(string), VoicemailPromptSayVoiceEnum? voicemailPromptSayVoice = default(VoicemailPromptSayVoiceEnum?))
         {
             this.ConversationPbxVoicemailMailboxUuid = conversationPbxVoicemailMailboxUuid;
             this.MerchantId = merchantId;
@@ -130,12 +184,6 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="voicemail_followup_say", EmitDefaultValue=false)]
         public string VoicemailFollowupSay { get; set; }
 
-        /// <summary>
-        /// Voicemail followup say voice
-        /// </summary>
-        /// <value>Voicemail followup say voice</value>
-        [DataMember(Name="voicemail_followup_say_voice", EmitDefaultValue=false)]
-        public string VoicemailFollowupSayVoice { get; set; }
 
         /// <summary>
         /// Voicemail mailbox id
@@ -159,12 +207,6 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="voicemail_prompt_say", EmitDefaultValue=false)]
         public string VoicemailPromptSay { get; set; }
 
-        /// <summary>
-        /// Voicemail prompt say voice
-        /// </summary>
-        /// <value>Voicemail prompt say voice</value>
-        [DataMember(Name="voicemail_prompt_say_voice", EmitDefaultValue=false)]
-        public string VoicemailPromptSayVoice { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -355,7 +397,7 @@ namespace com.ultracart.admin.v2.Model
 
 
             // VoicemailFollowupSayVoice (string) maxLength
-            if(this.VoicemailFollowupSayVoice != null && this.VoicemailFollowupSayVoice.Length > 50)
+            if(this.VoicemailFollowupSayVoice != null && this.VoicemailFollowupSayVoice.ToString().Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VoicemailFollowupSayVoice, length must be less than 50.", new [] { "VoicemailFollowupSayVoice" });
             }
@@ -383,7 +425,7 @@ namespace com.ultracart.admin.v2.Model
 
 
             // VoicemailPromptSayVoice (string) maxLength
-            if(this.VoicemailPromptSayVoice != null && this.VoicemailPromptSayVoice.Length > 50)
+            if(this.VoicemailPromptSayVoice != null && this.VoicemailPromptSayVoice.ToString().Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VoicemailPromptSayVoice, length must be less than 50.", new [] { "VoicemailPromptSayVoice" });
             }

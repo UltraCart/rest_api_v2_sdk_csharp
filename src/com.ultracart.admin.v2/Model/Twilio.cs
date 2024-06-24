@@ -36,30 +36,22 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="accountSid">accountSid.</param>
         /// <param name="apiKeyId">apiKeyId.</param>
         /// <param name="apiKeyName">apiKeyName.</param>
-        /// <param name="apiKeySecret">apiKeySecret.</param>
         /// <param name="authToken">authToken.</param>
         /// <param name="espTwilioUuid">espTwilioUuid.</param>
         /// <param name="inboundTwimlAppSid">inboundTwimlAppSid.</param>
         /// <param name="outboundTwimlAppSid">outboundTwimlAppSid.</param>
         /// <param name="phoneNumbers">phoneNumbers.</param>
-        /// <param name="privateKeyPem">privateKeyPem.</param>
-        /// <param name="publicKeyPem">publicKeyPem.</param>
-        /// <param name="publicKeySid">publicKeySid.</param>
         /// <param name="twilioWorkspaceSid">twilioWorkspaceSid.</param>
-        public Twilio(string accountSid = default(string), string apiKeyId = default(string), string apiKeyName = default(string), string apiKeySecret = default(string), string authToken = default(string), string espTwilioUuid = default(string), string inboundTwimlAppSid = default(string), string outboundTwimlAppSid = default(string), List<string> phoneNumbers = default(List<string>), string privateKeyPem = default(string), string publicKeyPem = default(string), string publicKeySid = default(string), string twilioWorkspaceSid = default(string))
+        public Twilio(string accountSid = default(string), string apiKeyId = default(string), string apiKeyName = default(string), string authToken = default(string), string espTwilioUuid = default(string), string inboundTwimlAppSid = default(string), string outboundTwimlAppSid = default(string), List<string> phoneNumbers = default(List<string>), string twilioWorkspaceSid = default(string))
         {
             this.AccountSid = accountSid;
             this.ApiKeyId = apiKeyId;
             this.ApiKeyName = apiKeyName;
-            this.ApiKeySecret = apiKeySecret;
             this.AuthToken = authToken;
             this.EspTwilioUuid = espTwilioUuid;
             this.InboundTwimlAppSid = inboundTwimlAppSid;
             this.OutboundTwimlAppSid = outboundTwimlAppSid;
             this.PhoneNumbers = phoneNumbers;
-            this.PrivateKeyPem = privateKeyPem;
-            this.PublicKeyPem = publicKeyPem;
-            this.PublicKeySid = publicKeySid;
             this.TwilioWorkspaceSid = twilioWorkspaceSid;
         }
 
@@ -80,12 +72,6 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="api_key_name", EmitDefaultValue=false)]
         public string ApiKeyName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ApiKeySecret
-        /// </summary>
-        [DataMember(Name="api_key_secret", EmitDefaultValue=false)]
-        public string ApiKeySecret { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthToken
@@ -118,24 +104,6 @@ namespace com.ultracart.admin.v2.Model
         public List<string> PhoneNumbers { get; set; }
 
         /// <summary>
-        /// Gets or Sets PrivateKeyPem
-        /// </summary>
-        [DataMember(Name="private_key_pem", EmitDefaultValue=false)]
-        public string PrivateKeyPem { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PublicKeyPem
-        /// </summary>
-        [DataMember(Name="public_key_pem", EmitDefaultValue=false)]
-        public string PublicKeyPem { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PublicKeySid
-        /// </summary>
-        [DataMember(Name="public_key_sid", EmitDefaultValue=false)]
-        public string PublicKeySid { get; set; }
-
-        /// <summary>
         /// Gets or Sets TwilioWorkspaceSid
         /// </summary>
         [DataMember(Name="twilio_workspace_sid", EmitDefaultValue=false)]
@@ -152,15 +120,11 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AccountSid: ").Append(AccountSid).Append("\n");
             sb.Append("  ApiKeyId: ").Append(ApiKeyId).Append("\n");
             sb.Append("  ApiKeyName: ").Append(ApiKeyName).Append("\n");
-            sb.Append("  ApiKeySecret: ").Append(ApiKeySecret).Append("\n");
             sb.Append("  AuthToken: ").Append(AuthToken).Append("\n");
             sb.Append("  EspTwilioUuid: ").Append(EspTwilioUuid).Append("\n");
             sb.Append("  InboundTwimlAppSid: ").Append(InboundTwimlAppSid).Append("\n");
             sb.Append("  OutboundTwimlAppSid: ").Append(OutboundTwimlAppSid).Append("\n");
             sb.Append("  PhoneNumbers: ").Append(PhoneNumbers).Append("\n");
-            sb.Append("  PrivateKeyPem: ").Append(PrivateKeyPem).Append("\n");
-            sb.Append("  PublicKeyPem: ").Append(PublicKeyPem).Append("\n");
-            sb.Append("  PublicKeySid: ").Append(PublicKeySid).Append("\n");
             sb.Append("  TwilioWorkspaceSid: ").Append(TwilioWorkspaceSid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -212,11 +176,6 @@ namespace com.ultracart.admin.v2.Model
                     this.ApiKeyName.Equals(input.ApiKeyName))
                 ) && 
                 (
-                    this.ApiKeySecret == input.ApiKeySecret ||
-                    (this.ApiKeySecret != null &&
-                    this.ApiKeySecret.Equals(input.ApiKeySecret))
-                ) && 
-                (
                     this.AuthToken == input.AuthToken ||
                     (this.AuthToken != null &&
                     this.AuthToken.Equals(input.AuthToken))
@@ -243,21 +202,6 @@ namespace com.ultracart.admin.v2.Model
                     this.PhoneNumbers.SequenceEqual(input.PhoneNumbers)
                 ) && 
                 (
-                    this.PrivateKeyPem == input.PrivateKeyPem ||
-                    (this.PrivateKeyPem != null &&
-                    this.PrivateKeyPem.Equals(input.PrivateKeyPem))
-                ) && 
-                (
-                    this.PublicKeyPem == input.PublicKeyPem ||
-                    (this.PublicKeyPem != null &&
-                    this.PublicKeyPem.Equals(input.PublicKeyPem))
-                ) && 
-                (
-                    this.PublicKeySid == input.PublicKeySid ||
-                    (this.PublicKeySid != null &&
-                    this.PublicKeySid.Equals(input.PublicKeySid))
-                ) && 
-                (
                     this.TwilioWorkspaceSid == input.TwilioWorkspaceSid ||
                     (this.TwilioWorkspaceSid != null &&
                     this.TwilioWorkspaceSid.Equals(input.TwilioWorkspaceSid))
@@ -279,8 +223,6 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ApiKeyId.GetHashCode();
                 if (this.ApiKeyName != null)
                     hashCode = hashCode * 59 + this.ApiKeyName.GetHashCode();
-                if (this.ApiKeySecret != null)
-                    hashCode = hashCode * 59 + this.ApiKeySecret.GetHashCode();
                 if (this.AuthToken != null)
                     hashCode = hashCode * 59 + this.AuthToken.GetHashCode();
                 if (this.EspTwilioUuid != null)
@@ -291,12 +233,6 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OutboundTwimlAppSid.GetHashCode();
                 if (this.PhoneNumbers != null)
                     hashCode = hashCode * 59 + this.PhoneNumbers.GetHashCode();
-                if (this.PrivateKeyPem != null)
-                    hashCode = hashCode * 59 + this.PrivateKeyPem.GetHashCode();
-                if (this.PublicKeyPem != null)
-                    hashCode = hashCode * 59 + this.PublicKeyPem.GetHashCode();
-                if (this.PublicKeySid != null)
-                    hashCode = hashCode * 59 + this.PublicKeySid.GetHashCode();
                 if (this.TwilioWorkspaceSid != null)
                     hashCode = hashCode * 59 + this.TwilioWorkspaceSid.GetHashCode();
                 return hashCode;

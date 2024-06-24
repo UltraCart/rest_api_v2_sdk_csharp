@@ -6,15 +6,11 @@ Name | Type | Description | Notes
 **AccountSid** | **string** |  | [optional] 
 **ApiKeyId** | **string** |  | [optional] 
 **ApiKeyName** | **string** |  | [optional] 
-**ApiKeySecret** | **string** |  | [optional] 
 **AuthToken** | **string** |  | [optional] 
 **EspTwilioUuid** | **string** |  | [optional] 
 **InboundTwimlAppSid** | **string** |  | [optional] 
 **OutboundTwimlAppSid** | **string** |  | [optional] 
 **PhoneNumbers** | **List&lt;string&gt;** |  | [optional] 
-**PrivateKeyPem** | **string** |  | [optional] 
-**PublicKeyPem** | **string** |  | [optional] 
-**PublicKeySid** | **string** |  | [optional] 
 **TwilioWorkspaceSid** | **string** |  | [optional] 
 
 

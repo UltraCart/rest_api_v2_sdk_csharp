@@ -1843,7 +1843,7 @@ Name | Type | Description  | Notes
 
 ## RefundOrder
 
-> OrderResponse RefundOrder (string orderId, Order order, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string expand = null)
+> OrderResponse RefundOrder (string orderId, Order order, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string autoOrderCancelReason = null, string expand = null)
 
 Refund an order
 
@@ -1879,12 +1879,13 @@ namespace Example
             var manualRefund = false;  // bool? | Consider a manual refund done externally (optional)  (default to false)
             var reverseAffiliateTransactions = true;  // bool? | Reverse affiliate transactions (optional)  (default to true)
             var issueStoreCredit = false;  // bool? | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional)  (default to false)
+            var autoOrderCancelReason = "autoOrderCancelReason_example";  // string | Reason for auto orders cancellation (optional) 
             var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
                 // Refund an order
-                OrderResponse result = apiInstance.RefundOrder(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand);
+                OrderResponse result = apiInstance.RefundOrder(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -1911,6 +1912,7 @@ Name | Type | Description  | Notes
  **manualRefund** | **bool?**| Consider a manual refund done externally | [optional] [default to false]
  **reverseAffiliateTransactions** | **bool?**| Reverse affiliate transactions | [optional] [default to true]
  **issueStoreCredit** | **bool?**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] [default to false]
+ **autoOrderCancelReason** | **string**| Reason for auto orders cancellation | [optional] 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type

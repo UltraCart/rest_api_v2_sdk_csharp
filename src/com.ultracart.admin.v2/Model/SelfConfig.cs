@@ -33,12 +33,30 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SelfConfig" /> class.
         /// </summary>
+        /// <param name="exemptFromColoradoRetailDeliveryFee">True if the Colorado Retail Delivery Fee should not be collected.</param>
+        /// <param name="exemptFromMinnesotaRetailDeliveryFee">True if the Minnesota Retail Delivery Fee should not be collected.</param>
         /// <param name="taxBilling">True if sales tax should be collected based on billing address instead of shipping address.</param>
-        public SelfConfig(bool? taxBilling = default(bool?))
+        public SelfConfig(bool? exemptFromColoradoRetailDeliveryFee = default(bool?), bool? exemptFromMinnesotaRetailDeliveryFee = default(bool?), bool? taxBilling = default(bool?))
         {
+            this.ExemptFromColoradoRetailDeliveryFee = exemptFromColoradoRetailDeliveryFee;
+            this.ExemptFromMinnesotaRetailDeliveryFee = exemptFromMinnesotaRetailDeliveryFee;
             this.TaxBilling = taxBilling;
         }
         
+        /// <summary>
+        /// True if the Colorado Retail Delivery Fee should not be collected
+        /// </summary>
+        /// <value>True if the Colorado Retail Delivery Fee should not be collected</value>
+        [DataMember(Name="exempt_from_colorado_retail_delivery_fee", EmitDefaultValue=false)]
+        public bool? ExemptFromColoradoRetailDeliveryFee { get; set; }
+
+        /// <summary>
+        /// True if the Minnesota Retail Delivery Fee should not be collected
+        /// </summary>
+        /// <value>True if the Minnesota Retail Delivery Fee should not be collected</value>
+        [DataMember(Name="exempt_from_minnesota_retail_delivery_fee", EmitDefaultValue=false)]
+        public bool? ExemptFromMinnesotaRetailDeliveryFee { get; set; }
+
         /// <summary>
         /// True if sales tax should be collected based on billing address instead of shipping address
         /// </summary>
@@ -54,6 +72,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SelfConfig {\n");
+            sb.Append("  ExemptFromColoradoRetailDeliveryFee: ").Append(ExemptFromColoradoRetailDeliveryFee).Append("\n");
+            sb.Append("  ExemptFromMinnesotaRetailDeliveryFee: ").Append(ExemptFromMinnesotaRetailDeliveryFee).Append("\n");
             sb.Append("  TaxBilling: ").Append(TaxBilling).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -90,6 +110,16 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.ExemptFromColoradoRetailDeliveryFee == input.ExemptFromColoradoRetailDeliveryFee ||
+                    (this.ExemptFromColoradoRetailDeliveryFee != null &&
+                    this.ExemptFromColoradoRetailDeliveryFee.Equals(input.ExemptFromColoradoRetailDeliveryFee))
+                ) && 
+                (
+                    this.ExemptFromMinnesotaRetailDeliveryFee == input.ExemptFromMinnesotaRetailDeliveryFee ||
+                    (this.ExemptFromMinnesotaRetailDeliveryFee != null &&
+                    this.ExemptFromMinnesotaRetailDeliveryFee.Equals(input.ExemptFromMinnesotaRetailDeliveryFee))
+                ) && 
+                (
                     this.TaxBilling == input.TaxBilling ||
                     (this.TaxBilling != null &&
                     this.TaxBilling.Equals(input.TaxBilling))
@@ -105,6 +135,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ExemptFromColoradoRetailDeliveryFee != null)
+                    hashCode = hashCode * 59 + this.ExemptFromColoradoRetailDeliveryFee.GetHashCode();
+                if (this.ExemptFromMinnesotaRetailDeliveryFee != null)
+                    hashCode = hashCode * 59 + this.ExemptFromMinnesotaRetailDeliveryFee.GetHashCode();
                 if (this.TaxBilling != null)
                     hashCode = hashCode * 59 + this.TaxBilling.GetHashCode();
                 return hashCode;

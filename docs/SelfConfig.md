@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ExemptFromColoradoRetailDeliveryFee** | **bool?** | True if the Colorado Retail Delivery Fee should not be collected | [optional] 
+**ExemptFromMinnesotaRetailDeliveryFee** | **bool?** | True if the Minnesota Retail Delivery Fee should not be collected | [optional] 
 **TaxBilling** | **bool?** | True if sales tax should be collected based on billing address instead of shipping address | [optional] 
 
 

@@ -31,12 +31,41 @@ namespace com.ultracart.admin.v2.Model
     public partial class OrderQueryBatch :  IEquatable<OrderQueryBatch>, IValidatableObject
     {
         /// <summary>
+        /// Query Target
+        /// </summary>
+        /// <value>Query Target</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum QueryTargetEnum
+        {
+            
+            /// <summary>
+            /// Enum Origin for value: origin
+            /// </summary>
+            [EnumMember(Value = "origin")]
+            Origin = 1,
+            
+            /// <summary>
+            /// Enum Cache for value: cache
+            /// </summary>
+            [EnumMember(Value = "cache")]
+            Cache = 2
+        }
+
+        /// <summary>
+        /// Query Target
+        /// </summary>
+        /// <value>Query Target</value>
+        [DataMember(Name="query_target", EmitDefaultValue=false)]
+        public QueryTargetEnum? QueryTarget { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="OrderQueryBatch" /> class.
         /// </summary>
         /// <param name="orderIds">Order IDs.</param>
-        public OrderQueryBatch(List<string> orderIds = default(List<string>))
+        /// <param name="queryTarget">Query Target.</param>
+        public OrderQueryBatch(List<string> orderIds = default(List<string>), QueryTargetEnum? queryTarget = default(QueryTargetEnum?))
         {
             this.OrderIds = orderIds;
+            this.QueryTarget = queryTarget;
         }
         
         /// <summary>
@@ -45,6 +74,7 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Order IDs</value>
         [DataMember(Name="order_ids", EmitDefaultValue=false)]
         public List<string> OrderIds { get; set; }
+
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,6 +85,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class OrderQueryBatch {\n");
             sb.Append("  OrderIds: ").Append(OrderIds).Append("\n");
+            sb.Append("  QueryTarget: ").Append(QueryTarget).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,6 +124,11 @@ namespace com.ultracart.admin.v2.Model
                     this.OrderIds == input.OrderIds ||
                     this.OrderIds != null &&
                     this.OrderIds.SequenceEqual(input.OrderIds)
+                ) && 
+                (
+                    this.QueryTarget == input.QueryTarget ||
+                    (this.QueryTarget != null &&
+                    this.QueryTarget.Equals(input.QueryTarget))
                 );
         }
 
@@ -107,6 +143,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.OrderIds != null)
                     hashCode = hashCode * 59 + this.OrderIds.GetHashCode();
+                if (this.QueryTarget != null)
+                    hashCode = hashCode * 59 + this.QueryTarget.GetHashCode();
                 return hashCode;
             }
         }

@@ -56,6 +56,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="freeShipping">Qualifies for free shipping.</param>
         /// <param name="freightClass">Freight class.</param>
         /// <param name="hazmat">Hazardous material.</param>
+        /// <param name="holdForTransmission">Hold for transmission.</param>
         /// <param name="madeToOrder">True if this item is made to order.</param>
         /// <param name="madeToOrderLeadTime">Number of days lead time it takes to make the item before ite can ship.</param>
         /// <param name="maxDaysTimeInTransit">Maximum days allowed in transit.</param>
@@ -81,7 +82,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="shipSeparatelyWidth">shipSeparatelyWidth.</param>
         /// <param name="specialProductType">Special product type (USPS Media Mail).</param>
         /// <param name="trackInventory">Track inventory.</param>
-        public ItemShipping(bool allowBackOrder = default(bool), bool amazonFba = default(bool), int caseInnerPacks = default(int), int caseUnits = default(int), List<ItemShippingCase> cases = default(List<ItemShippingCase>), bool collectSerialNumbers = default(bool), string countryCodeOfOrigin = default(string), string customsDescription = default(string), decimal customsValue = default(decimal), bool deliveryOnFriday = default(bool), bool deliveryOnMonday = default(bool), bool deliveryOnSaturday = default(bool), bool deliveryOnSunday = default(bool), bool deliveryOnThursday = default(bool), bool deliveryOnTuesday = default(bool), bool deliveryOnWednesday = default(bool), List<ItemShippingDestinationMarkup> destinationMarkups = default(List<ItemShippingDestinationMarkup>), List<ItemShippingDestinationRestriction> destinationRestrictions = default(List<ItemShippingDestinationRestriction>), List<ItemShippingDistributionCenter> distributionCenters = default(List<ItemShippingDistributionCenter>), string eta = default(string), bool freeShipping = default(bool), string freightClass = default(string), bool hazmat = default(bool), bool madeToOrder = default(bool), int madeToOrderLeadTime = default(int), int maxDaysTimeInTransit = default(int), List<ItemShippingMethod> methods = default(List<ItemShippingMethod>), bool noShippingDiscount = default(bool), List<ItemShippingPackageRequirement> packageRequirements = default(List<ItemShippingPackageRequirement>), string perishableClassName = default(string), int perishableClassOid = default(int), bool preorder = default(bool), bool requireDeliveryDate = default(bool), bool restrictShipmentOnFriday = default(bool), bool restrictShipmentOnMonday = default(bool), bool restrictShipmentOnSaturday = default(bool), bool restrictShipmentOnSunday = default(bool), bool restrictShipmentOnThursday = default(bool), bool restrictShipmentOnTuesday = default(bool), bool restrictShipmentOnWednesday = default(bool), bool shipSeparately = default(bool), Weight shipSeparatelyAdditionalWeight = default(Weight), Distance shipSeparatelyHeight = default(Distance), Distance shipSeparatelyLength = default(Distance), string shipSeparatelyPackageSpecialType = default(string), Distance shipSeparatelyWidth = default(Distance), string specialProductType = default(string), bool trackInventory = default(bool))
+        public ItemShipping(bool allowBackOrder = default(bool), bool amazonFba = default(bool), int caseInnerPacks = default(int), int caseUnits = default(int), List<ItemShippingCase> cases = default(List<ItemShippingCase>), bool collectSerialNumbers = default(bool), string countryCodeOfOrigin = default(string), string customsDescription = default(string), decimal customsValue = default(decimal), bool deliveryOnFriday = default(bool), bool deliveryOnMonday = default(bool), bool deliveryOnSaturday = default(bool), bool deliveryOnSunday = default(bool), bool deliveryOnThursday = default(bool), bool deliveryOnTuesday = default(bool), bool deliveryOnWednesday = default(bool), List<ItemShippingDestinationMarkup> destinationMarkups = default(List<ItemShippingDestinationMarkup>), List<ItemShippingDestinationRestriction> destinationRestrictions = default(List<ItemShippingDestinationRestriction>), List<ItemShippingDistributionCenter> distributionCenters = default(List<ItemShippingDistributionCenter>), string eta = default(string), bool freeShipping = default(bool), string freightClass = default(string), bool hazmat = default(bool), bool holdForTransmission = default(bool), bool madeToOrder = default(bool), int madeToOrderLeadTime = default(int), int maxDaysTimeInTransit = default(int), List<ItemShippingMethod> methods = default(List<ItemShippingMethod>), bool noShippingDiscount = default(bool), List<ItemShippingPackageRequirement> packageRequirements = default(List<ItemShippingPackageRequirement>), string perishableClassName = default(string), int perishableClassOid = default(int), bool preorder = default(bool), bool requireDeliveryDate = default(bool), bool restrictShipmentOnFriday = default(bool), bool restrictShipmentOnMonday = default(bool), bool restrictShipmentOnSaturday = default(bool), bool restrictShipmentOnSunday = default(bool), bool restrictShipmentOnThursday = default(bool), bool restrictShipmentOnTuesday = default(bool), bool restrictShipmentOnWednesday = default(bool), bool shipSeparately = default(bool), Weight shipSeparatelyAdditionalWeight = default(Weight), Distance shipSeparatelyHeight = default(Distance), Distance shipSeparatelyLength = default(Distance), string shipSeparatelyPackageSpecialType = default(string), Distance shipSeparatelyWidth = default(Distance), string specialProductType = default(string), bool trackInventory = default(bool))
         {
             this.AllowBackOrder = allowBackOrder;
             this.AmazonFba = amazonFba;
@@ -106,6 +107,7 @@ namespace com.ultracart.admin.v2.Model
             this.FreeShipping = freeShipping;
             this.FreightClass = freightClass;
             this.Hazmat = hazmat;
+            this.HoldForTransmission = holdForTransmission;
             this.MadeToOrder = madeToOrder;
             this.MadeToOrderLeadTime = madeToOrderLeadTime;
             this.MaxDaysTimeInTransit = maxDaysTimeInTransit;
@@ -293,6 +295,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Hazardous material</value>
         [DataMember(Name="hazmat", EmitDefaultValue=false)]
         public bool Hazmat { get; set; }
+
+        /// <summary>
+        /// Hold for transmission
+        /// </summary>
+        /// <value>Hold for transmission</value>
+        [DataMember(Name="hold_for_transmission", EmitDefaultValue=false)]
+        public bool HoldForTransmission { get; set; }
 
         /// <summary>
         /// True if this item is made to order
@@ -496,6 +505,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  FreeShipping: ").Append(FreeShipping).Append("\n");
             sb.Append("  FreightClass: ").Append(FreightClass).Append("\n");
             sb.Append("  Hazmat: ").Append(Hazmat).Append("\n");
+            sb.Append("  HoldForTransmission: ").Append(HoldForTransmission).Append("\n");
             sb.Append("  MadeToOrder: ").Append(MadeToOrder).Append("\n");
             sb.Append("  MadeToOrderLeadTime: ").Append(MadeToOrderLeadTime).Append("\n");
             sb.Append("  MaxDaysTimeInTransit: ").Append(MaxDaysTimeInTransit).Append("\n");
@@ -673,6 +683,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Hazmat == input.Hazmat ||
                     (this.Hazmat != null &&
                     this.Hazmat.Equals(input.Hazmat))
+                ) && 
+                (
+                    this.HoldForTransmission == input.HoldForTransmission ||
+                    (this.HoldForTransmission != null &&
+                    this.HoldForTransmission.Equals(input.HoldForTransmission))
                 ) && 
                 (
                     this.MadeToOrder == input.MadeToOrder ||
@@ -858,6 +873,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.FreightClass.GetHashCode();
                 if (this.Hazmat != null)
                     hashCode = hashCode * 59 + this.Hazmat.GetHashCode();
+                if (this.HoldForTransmission != null)
+                    hashCode = hashCode * 59 + this.HoldForTransmission.GetHashCode();
                 if (this.MadeToOrder != null)
                     hashCode = hashCode * 59 + this.MadeToOrder.GetHashCode();
                 if (this.MadeToOrderLeadTime != null)

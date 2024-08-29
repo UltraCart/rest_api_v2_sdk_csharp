@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **FreeShipping** | **bool?** | Qualifies for free shipping | [optional] 
 **FreightClass** | **string** | Freight class | [optional] 
 **Hazmat** | **bool?** | Hazardous material | [optional] 
+**HoldForTransmission** | **bool?** | Hold for transmission | [optional] 
 **MadeToOrder** | **bool?** | True if this item is made to order | [optional] 
 **MadeToOrderLeadTime** | **int?** | Number of days lead time it takes to make the item before ite can ship | [optional] 
 **MaxDaysTimeInTransit** | **int?** | Maximum days allowed in transit | [optional] 

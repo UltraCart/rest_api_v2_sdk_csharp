@@ -69,7 +69,19 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Basic for value: basic
             /// </summary>
             [EnumMember(Value = "basic")]
-            Basic = 2
+            Basic = 2,
+            
+            /// <summary>
+            /// Enum Apiuser for value: api user
+            /// </summary>
+            [EnumMember(Value = "api user")]
+            Apiuser = 3,
+            
+            /// <summary>
+            /// Enum Awsiam for value: aws iam
+            /// </summary>
+            [EnumMember(Value = "aws iam")]
+            Awsiam = 4
         }
 
         /// <summary>

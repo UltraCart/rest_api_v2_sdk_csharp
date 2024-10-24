@@ -23,6 +23,8 @@ Name | Type | Description | Notes
 **ItmSource** | **string** |  | [optional] 
 **ItmTerm** | **string** |  | [optional] 
 **Msclkid** | **string** |  | [optional] 
+**ShortCode** | **string** |  | [optional] 
+**ShortCodeBackup** | **bool?** |  | [optional] 
 **Ttclid** | **string** |  | [optional] 
 **UcMessageId** | **string** |  | [optional] 
 **UtmCampaign** | **string** |  | [optional] 

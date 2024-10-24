@@ -2983,6 +2983,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ScreenRecordingSegmentResponse</returns>
         ApiResponse<ScreenRecordingSegmentResponse> InsertScreenRecordingSegmentWithHttpInfo (int storefrontOid, ScreenRecordingSegment segment);
         /// <summary>
+        /// Upsert a page content attribute
+        /// </summary>
+        /// <remarks>
+        /// Update a page content attribute, creating it new if it does not yet exist. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageOid">The page oid to modify.</param>
+        /// <param name="pageAttribute">Page content attribute to upsert</param>
+        /// <returns></returns>
+        void InsertUpdatePageContentAttribute (int storefrontOid, int pageOid, StoreFrontPageContentAttribute pageAttribute);
+
+        /// <summary>
+        /// Upsert a page content attribute
+        /// </summary>
+        /// <remarks>
+        /// Update a page content attribute, creating it new if it does not yet exist. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageOid">The page oid to modify.</param>
+        /// <param name="pageAttribute">Page content attribute to upsert</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> InsertUpdatePageContentAttributeWithHttpInfo (int storefrontOid, int pageOid, StoreFrontPageContentAttribute pageAttribute);
+        /// <summary>
         /// Prepare download of email segment
         /// </summary>
         /// <remarks>
@@ -7371,6 +7396,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ScreenRecordingSegmentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentResponse>> InsertScreenRecordingSegmentWithHttpInfoAsync (int storefrontOid, ScreenRecordingSegment segment, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Upsert a page content attribute
+        /// </summary>
+        /// <remarks>
+        /// Update a page content attribute, creating it new if it does not yet exist. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageOid">The page oid to modify.</param>
+        /// <param name="pageAttribute">Page content attribute to upsert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task InsertUpdatePageContentAttributeAsync (int storefrontOid, int pageOid, StoreFrontPageContentAttribute pageAttribute, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Upsert a page content attribute
+        /// </summary>
+        /// <remarks>
+        /// Update a page content attribute, creating it new if it does not yet exist. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageOid">The page oid to modify.</param>
+        /// <param name="pageAttribute">Page content attribute to upsert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> InsertUpdatePageContentAttributeWithHttpInfoAsync (int storefrontOid, int pageOid, StoreFrontPageContentAttribute pageAttribute, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Prepare download of email segment
         /// </summary>
@@ -31961,6 +32013,201 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ScreenRecordingSegmentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ScreenRecordingSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentResponse)));
+        }
+
+        /// <summary>
+        /// Upsert a page content attribute Update a page content attribute, creating it new if it does not yet exist. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageOid">The page oid to modify.</param>
+        /// <param name="pageAttribute">Page content attribute to upsert</param>
+        /// <returns></returns>
+        public void InsertUpdatePageContentAttribute (int storefrontOid, int pageOid, StoreFrontPageContentAttribute pageAttribute)
+        {
+             InsertUpdatePageContentAttributeWithHttpInfo(storefrontOid, pageOid, pageAttribute);
+        }
+
+        /// <summary>
+        /// Upsert a page content attribute Update a page content attribute, creating it new if it does not yet exist. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageOid">The page oid to modify.</param>
+        /// <param name="pageAttribute">Page content attribute to upsert</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> InsertUpdatePageContentAttributeWithHttpInfo (int storefrontOid, int pageOid, StoreFrontPageContentAttribute pageAttribute)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->InsertUpdatePageContentAttribute");
+            // verify the required parameter 'pageOid' is set
+            if (pageOid == null)
+                throw new ApiException(400, "Missing required parameter 'pageOid' when calling StorefrontApi->InsertUpdatePageContentAttribute");
+            // verify the required parameter 'pageAttribute' is set
+            if (pageAttribute == null)
+                throw new ApiException(400, "Missing required parameter 'pageAttribute' when calling StorefrontApi->InsertUpdatePageContentAttribute");
+
+            var localVarPath = "/storefront/{storefront_oid}/pages/{page_oid}/content/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (pageOid != null) localVarPathParams.Add("page_oid", this.Configuration.ApiClient.ParameterToString(pageOid)); // path parameter
+            if (pageAttribute != null && pageAttribute.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageAttribute); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageAttribute; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertUpdatePageContentAttribute", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Upsert a page content attribute Update a page content attribute, creating it new if it does not yet exist. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageOid">The page oid to modify.</param>
+        /// <param name="pageAttribute">Page content attribute to upsert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task InsertUpdatePageContentAttributeAsync (int storefrontOid, int pageOid, StoreFrontPageContentAttribute pageAttribute, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await InsertUpdatePageContentAttributeWithHttpInfoAsync(storefrontOid, pageOid, pageAttribute, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Upsert a page content attribute Update a page content attribute, creating it new if it does not yet exist. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageOid">The page oid to modify.</param>
+        /// <param name="pageAttribute">Page content attribute to upsert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> InsertUpdatePageContentAttributeWithHttpInfoAsync (int storefrontOid, int pageOid, StoreFrontPageContentAttribute pageAttribute, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->InsertUpdatePageContentAttribute");
+            // verify the required parameter 'pageOid' is set
+            if (pageOid == null)
+                throw new ApiException(400, "Missing required parameter 'pageOid' when calling StorefrontApi->InsertUpdatePageContentAttribute");
+            // verify the required parameter 'pageAttribute' is set
+            if (pageAttribute == null)
+                throw new ApiException(400, "Missing required parameter 'pageAttribute' when calling StorefrontApi->InsertUpdatePageContentAttribute");
+
+            var localVarPath = "/storefront/{storefront_oid}/pages/{page_oid}/content/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (pageOid != null) localVarPathParams.Add("page_oid", this.Configuration.ApiClient.ParameterToString(pageOid)); // path parameter
+            if (pageAttribute != null && pageAttribute.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageAttribute); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageAttribute; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertUpdatePageContentAttribute", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>

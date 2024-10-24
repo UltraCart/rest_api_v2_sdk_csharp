@@ -799,6 +799,7 @@ docs/SsoApi.md
 docs/StateProvince.md
 docs/StepWaiting.md
 docs/StoreFront.md
+docs/StoreFrontPageContentAttribute.md
 docs/StoreFrontsResponse.md
 docs/StorefrontApi.md
 docs/TaxApi.md
@@ -1688,6 +1689,7 @@ src/com.ultracart.admin.v2/Model/SovosConfig.cs
 src/com.ultracart.admin.v2/Model/StateProvince.cs
 src/com.ultracart.admin.v2/Model/StepWaiting.cs
 src/com.ultracart.admin.v2/Model/StoreFront.cs
+src/com.ultracart.admin.v2/Model/StoreFrontPageContentAttribute.cs
 src/com.ultracart.admin.v2/Model/StoreFrontsResponse.cs
 src/com.ultracart.admin.v2/Model/TaxCity.cs
 src/com.ultracart.admin.v2/Model/TaxCountry.cs

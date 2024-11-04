@@ -44,7 +44,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="statusCode">HTTP status code received from the server.</param>
         /// <param name="success">True if the delivery was successful.</param>
         /// <param name="uri">URI of the webhook delivered to.</param>
-        public WebhookLog(string deliveryDts = default(string), int? duration = default(int?), long? queueDelay = default(long?), string request = default(string), List<HTTPHeader> requestHeaders = default(List<HTTPHeader>), string requestId = default(string), string response = default(string), List<HTTPHeader> responseHeaders = default(List<HTTPHeader>), int? statusCode = default(int?), bool? success = default(bool?), string uri = default(string))
+        /// <param name="webhookOid">webhook oid.</param>
+        public WebhookLog(string deliveryDts = default(string), int? duration = default(int?), long? queueDelay = default(long?), string request = default(string), List<HTTPHeader> requestHeaders = default(List<HTTPHeader>), string requestId = default(string), string response = default(string), List<HTTPHeader> responseHeaders = default(List<HTTPHeader>), int? statusCode = default(int?), bool? success = default(bool?), string uri = default(string), int? webhookOid = default(int?))
         {
             this.DeliveryDts = deliveryDts;
             this.Duration = duration;
@@ -57,6 +58,7 @@ namespace com.ultracart.admin.v2.Model
             this.StatusCode = statusCode;
             this.Success = success;
             this.Uri = uri;
+            this.WebhookOid = webhookOid;
         }
         
         /// <summary>
@@ -137,6 +139,13 @@ namespace com.ultracart.admin.v2.Model
         public string Uri { get; set; }
 
         /// <summary>
+        /// webhook oid
+        /// </summary>
+        /// <value>webhook oid</value>
+        [DataMember(Name="webhook_oid", EmitDefaultValue=false)]
+        public int? WebhookOid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -155,6 +164,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Uri: ").Append(Uri).Append("\n");
+            sb.Append("  WebhookOid: ").Append(WebhookOid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -243,6 +253,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Uri == input.Uri ||
                     (this.Uri != null &&
                     this.Uri.Equals(input.Uri))
+                ) && 
+                (
+                    this.WebhookOid == input.WebhookOid ||
+                    (this.WebhookOid != null &&
+                    this.WebhookOid.Equals(input.WebhookOid))
                 );
         }
 
@@ -277,6 +292,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Uri != null)
                     hashCode = hashCode * 59 + this.Uri.GetHashCode();
+                if (this.WebhookOid != null)
+                    hashCode = hashCode * 59 + this.WebhookOid.GetHashCode();
                 return hashCode;
             }
         }

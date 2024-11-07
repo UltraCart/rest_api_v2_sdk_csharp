@@ -34,16 +34,20 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="CouponPercentOffItemWithItemsQuantityPurchase" /> class.
         /// </summary>
         /// <param name="discountPercent">The percentage of subtotal discount.</param>
+        /// <param name="itemTags">An optional list of item tags which will receive a discount if one of the required purchased items is purchased..</param>
         /// <param name="items">A list of items which will receive a discount if one of the required purchase items is purchased..</param>
         /// <param name="limit">The (optional) maximum quantity of discounted items..</param>
         /// <param name="requiredPurchaseItems">Required items (at least one from the list) that must be purchased for coupon to be valid.</param>
+        /// <param name="requiredPurchaseItemsTags">Required item tags (at least one from the list) that must be purchase for coupon to be valid..</param>
         /// <param name="requiredPurchaseQuantity">The quantity of items that must be purchased for the discount to be applied..</param>
-        public CouponPercentOffItemWithItemsQuantityPurchase(decimal discountPercent = default(decimal), List<string> items = default(List<string>), int limit = default(int), List<string> requiredPurchaseItems = default(List<string>), int requiredPurchaseQuantity = default(int))
+        public CouponPercentOffItemWithItemsQuantityPurchase(decimal discountPercent = default(decimal), List<string> itemTags = default(List<string>), List<string> items = default(List<string>), int limit = default(int), List<string> requiredPurchaseItems = default(List<string>), List<string> requiredPurchaseItemsTags = default(List<string>), int requiredPurchaseQuantity = default(int))
         {
             this.DiscountPercent = discountPercent;
+            this.ItemTags = itemTags;
             this.Items = items;
             this.Limit = limit;
             this.RequiredPurchaseItems = requiredPurchaseItems;
+            this.RequiredPurchaseItemsTags = requiredPurchaseItemsTags;
             this.RequiredPurchaseQuantity = requiredPurchaseQuantity;
         }
 
@@ -53,6 +57,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The percentage of subtotal discount</value>
         [DataMember(Name="discount_percent", EmitDefaultValue=false)]
         public decimal DiscountPercent { get; set; }
+
+        /// <summary>
+        /// An optional list of item tags which will receive a discount if one of the required purchased items is purchased.
+        /// </summary>
+        /// <value>An optional list of item tags which will receive a discount if one of the required purchased items is purchased.</value>
+        [DataMember(Name="item_tags", EmitDefaultValue=false)]
+        public List<string> ItemTags { get; set; }
 
         /// <summary>
         /// A list of items which will receive a discount if one of the required purchase items is purchased.
@@ -76,6 +87,13 @@ namespace com.ultracart.admin.v2.Model
         public List<string> RequiredPurchaseItems { get; set; }
 
         /// <summary>
+        /// Required item tags (at least one from the list) that must be purchase for coupon to be valid.
+        /// </summary>
+        /// <value>Required item tags (at least one from the list) that must be purchase for coupon to be valid.</value>
+        [DataMember(Name="required_purchase_items_tags", EmitDefaultValue=false)]
+        public List<string> RequiredPurchaseItemsTags { get; set; }
+
+        /// <summary>
         /// The quantity of items that must be purchased for the discount to be applied.
         /// </summary>
         /// <value>The quantity of items that must be purchased for the discount to be applied.</value>
@@ -91,9 +109,11 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class CouponPercentOffItemWithItemsQuantityPurchase {\n");
             sb.Append("  DiscountPercent: ").Append(DiscountPercent).Append("\n");
+            sb.Append("  ItemTags: ").Append(ItemTags).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  RequiredPurchaseItems: ").Append(RequiredPurchaseItems).Append("\n");
+            sb.Append("  RequiredPurchaseItemsTags: ").Append(RequiredPurchaseItemsTags).Append("\n");
             sb.Append("  RequiredPurchaseQuantity: ").Append(RequiredPurchaseQuantity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -135,6 +155,12 @@ namespace com.ultracart.admin.v2.Model
                     this.DiscountPercent.Equals(input.DiscountPercent))
                 ) && 
                 (
+                    this.ItemTags == input.ItemTags ||
+                    this.ItemTags != null &&
+                    input.ItemTags != null &&
+                    this.ItemTags.SequenceEqual(input.ItemTags)
+                ) && 
+                (
                     this.Items == input.Items ||
                     this.Items != null &&
                     input.Items != null &&
@@ -150,6 +176,12 @@ namespace com.ultracart.admin.v2.Model
                     this.RequiredPurchaseItems != null &&
                     input.RequiredPurchaseItems != null &&
                     this.RequiredPurchaseItems.SequenceEqual(input.RequiredPurchaseItems)
+                ) && 
+                (
+                    this.RequiredPurchaseItemsTags == input.RequiredPurchaseItemsTags ||
+                    this.RequiredPurchaseItemsTags != null &&
+                    input.RequiredPurchaseItemsTags != null &&
+                    this.RequiredPurchaseItemsTags.SequenceEqual(input.RequiredPurchaseItemsTags)
                 ) && 
                 (
                     this.RequiredPurchaseQuantity == input.RequiredPurchaseQuantity ||
@@ -169,12 +201,16 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.DiscountPercent != null)
                     hashCode = hashCode * 59 + this.DiscountPercent.GetHashCode();
+                if (this.ItemTags != null)
+                    hashCode = hashCode * 59 + this.ItemTags.GetHashCode();
                 if (this.Items != null)
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.Limit != null)
                     hashCode = hashCode * 59 + this.Limit.GetHashCode();
                 if (this.RequiredPurchaseItems != null)
                     hashCode = hashCode * 59 + this.RequiredPurchaseItems.GetHashCode();
+                if (this.RequiredPurchaseItemsTags != null)
+                    hashCode = hashCode * 59 + this.RequiredPurchaseItemsTags.GetHashCode();
                 if (this.RequiredPurchaseQuantity != null)
                     hashCode = hashCode * 59 + this.RequiredPurchaseQuantity.GetHashCode();
                 return hashCode;

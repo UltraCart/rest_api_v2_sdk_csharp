@@ -40,13 +40,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="excludeFromSitemap">Exclude from the sitemap for the StoreFront.</param>
         /// <param name="excludeFromTopSellers">Exclude from the top sellers list in the StoreFront.</param>
         /// <param name="extendedDescription">Extended description (max 10000 characters).</param>
-        /// <param name="extendedDescriptionTranslatedTextInstanceOid">Extneded description text translation instance identifier.</param>
+        /// <param name="extendedDescriptionTranslatedTextInstanceOid">Extended description text translation instance identifier.</param>
+        /// <param name="metaDescription">SEO meta description used by Storefronts.</param>
+        /// <param name="metaKeywords">SEO meta keywords used by Storefronts.</param>
+        /// <param name="metaTitle">SEO meta title used by Storefronts.</param>
         /// <param name="multimedia">Multimedia.</param>
         /// <param name="newItem">True if the item is new.</param>
         /// <param name="newItemEnd">The date the item should no longer be considered new.</param>
         /// <param name="newItemStart">The date the item should start being considered new.</param>
         /// <param name="viewUrl">Legacy view URL (not used by StoreFronts).</param>
-        public ItemContent(List<ItemContentAssignment> assignments = default(List<ItemContentAssignment>), List<ItemContentAttribute> attributes = default(List<ItemContentAttribute>), string customThankYouUrl = default(string), bool? excludeFromSearch = default(bool?), bool? excludeFromSitemap = default(bool?), bool? excludeFromTopSellers = default(bool?), string extendedDescription = default(string), int? extendedDescriptionTranslatedTextInstanceOid = default(int?), List<ItemContentMultimedia> multimedia = default(List<ItemContentMultimedia>), bool? newItem = default(bool?), string newItemEnd = default(string), string newItemStart = default(string), string viewUrl = default(string))
+        public ItemContent(List<ItemContentAssignment> assignments = default(List<ItemContentAssignment>), List<ItemContentAttribute> attributes = default(List<ItemContentAttribute>), string customThankYouUrl = default(string), bool? excludeFromSearch = default(bool?), bool? excludeFromSitemap = default(bool?), bool? excludeFromTopSellers = default(bool?), string extendedDescription = default(string), int? extendedDescriptionTranslatedTextInstanceOid = default(int?), string metaDescription = default(string), string metaKeywords = default(string), string metaTitle = default(string), List<ItemContentMultimedia> multimedia = default(List<ItemContentMultimedia>), bool? newItem = default(bool?), string newItemEnd = default(string), string newItemStart = default(string), string viewUrl = default(string))
         {
             this.Assignments = assignments;
             this.Attributes = attributes;
@@ -56,6 +59,9 @@ namespace com.ultracart.admin.v2.Model
             this.ExcludeFromTopSellers = excludeFromTopSellers;
             this.ExtendedDescription = extendedDescription;
             this.ExtendedDescriptionTranslatedTextInstanceOid = extendedDescriptionTranslatedTextInstanceOid;
+            this.MetaDescription = metaDescription;
+            this.MetaKeywords = metaKeywords;
+            this.MetaTitle = metaTitle;
             this.Multimedia = multimedia;
             this.NewItem = newItem;
             this.NewItemEnd = newItemEnd;
@@ -113,11 +119,32 @@ namespace com.ultracart.admin.v2.Model
         public string ExtendedDescription { get; set; }
 
         /// <summary>
-        /// Extneded description text translation instance identifier
+        /// Extended description text translation instance identifier
         /// </summary>
-        /// <value>Extneded description text translation instance identifier</value>
+        /// <value>Extended description text translation instance identifier</value>
         [DataMember(Name="extended_description_translated_text_instance_oid", EmitDefaultValue=false)]
         public int? ExtendedDescriptionTranslatedTextInstanceOid { get; set; }
+
+        /// <summary>
+        /// SEO meta description used by Storefronts
+        /// </summary>
+        /// <value>SEO meta description used by Storefronts</value>
+        [DataMember(Name="meta_description", EmitDefaultValue=false)]
+        public string MetaDescription { get; set; }
+
+        /// <summary>
+        /// SEO meta keywords used by Storefronts
+        /// </summary>
+        /// <value>SEO meta keywords used by Storefronts</value>
+        [DataMember(Name="meta_keywords", EmitDefaultValue=false)]
+        public string MetaKeywords { get; set; }
+
+        /// <summary>
+        /// SEO meta title used by Storefronts
+        /// </summary>
+        /// <value>SEO meta title used by Storefronts</value>
+        [DataMember(Name="meta_title", EmitDefaultValue=false)]
+        public string MetaTitle { get; set; }
 
         /// <summary>
         /// Multimedia
@@ -170,6 +197,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ExcludeFromTopSellers: ").Append(ExcludeFromTopSellers).Append("\n");
             sb.Append("  ExtendedDescription: ").Append(ExtendedDescription).Append("\n");
             sb.Append("  ExtendedDescriptionTranslatedTextInstanceOid: ").Append(ExtendedDescriptionTranslatedTextInstanceOid).Append("\n");
+            sb.Append("  MetaDescription: ").Append(MetaDescription).Append("\n");
+            sb.Append("  MetaKeywords: ").Append(MetaKeywords).Append("\n");
+            sb.Append("  MetaTitle: ").Append(MetaTitle).Append("\n");
             sb.Append("  Multimedia: ").Append(Multimedia).Append("\n");
             sb.Append("  NewItem: ").Append(NewItem).Append("\n");
             sb.Append("  NewItemEnd: ").Append(NewItemEnd).Append("\n");
@@ -250,6 +280,21 @@ namespace com.ultracart.admin.v2.Model
                     this.ExtendedDescriptionTranslatedTextInstanceOid.Equals(input.ExtendedDescriptionTranslatedTextInstanceOid))
                 ) && 
                 (
+                    this.MetaDescription == input.MetaDescription ||
+                    (this.MetaDescription != null &&
+                    this.MetaDescription.Equals(input.MetaDescription))
+                ) && 
+                (
+                    this.MetaKeywords == input.MetaKeywords ||
+                    (this.MetaKeywords != null &&
+                    this.MetaKeywords.Equals(input.MetaKeywords))
+                ) && 
+                (
+                    this.MetaTitle == input.MetaTitle ||
+                    (this.MetaTitle != null &&
+                    this.MetaTitle.Equals(input.MetaTitle))
+                ) && 
+                (
                     this.Multimedia == input.Multimedia ||
                     this.Multimedia != null &&
                     this.Multimedia.SequenceEqual(input.Multimedia)
@@ -301,6 +346,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ExtendedDescription.GetHashCode();
                 if (this.ExtendedDescriptionTranslatedTextInstanceOid != null)
                     hashCode = hashCode * 59 + this.ExtendedDescriptionTranslatedTextInstanceOid.GetHashCode();
+                if (this.MetaDescription != null)
+                    hashCode = hashCode * 59 + this.MetaDescription.GetHashCode();
+                if (this.MetaKeywords != null)
+                    hashCode = hashCode * 59 + this.MetaKeywords.GetHashCode();
+                if (this.MetaTitle != null)
+                    hashCode = hashCode * 59 + this.MetaTitle.GetHashCode();
                 if (this.Multimedia != null)
                     hashCode = hashCode * 59 + this.Multimedia.GetHashCode();
                 if (this.NewItem != null)

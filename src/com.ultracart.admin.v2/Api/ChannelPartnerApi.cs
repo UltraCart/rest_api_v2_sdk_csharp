@@ -132,6 +132,52 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ChannelPartnerEstimateTaxResponse</returns>
         ApiResponse<ChannelPartnerEstimateTaxResponse> EstimateTaxForChannelPartnerOrderWithHttpInfo (ChannelPartnerOrder channelPartnerOrder);
         /// <summary>
+        /// Retrieve a channel partner order
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        OrderResponse GetChannelPartnerOrder (string orderId, string expand = null);
+
+        /// <summary>
+        /// Retrieve a channel partner order
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        ApiResponse<OrderResponse> GetChannelPartnerOrderWithHttpInfo (string orderId, string expand = null);
+        /// <summary>
+        /// Retrieve a channel partner order by the channel partner order id
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The channel partner order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        OrderResponse GetChannelPartnerOrderByChannelPartnerOrderId (string orderId, string expand = null);
+
+        /// <summary>
+        /// Retrieve a channel partner order by the channel partner order id
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The channel partner order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        ApiResponse<OrderResponse> GetChannelPartnerOrderByChannelPartnerOrderIdWithHttpInfo (string orderId, string expand = null);
+        /// <summary>
         /// Retrieve the ship to preference associated with the channel partner and the specific id.
         /// </summary>
         /// <remarks>
@@ -238,6 +284,45 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="shipToPreference">Ship to preference to create</param>
         /// <returns>ApiResponse of ChannelPartnerShipToPreferenceResponse</returns>
         ApiResponse<ChannelPartnerShipToPreferenceResponse> InsertChannelPartnerShipToPreferenceWithHttpInfo (int? channelPartnerOid, ChannelPartnerShipToPreference shipToPreference);
+        /// <summary>
+        /// Refund a channel partner order
+        /// </summary>
+        /// <remarks>
+        /// Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        OrderResponse RefundChannelPartnerOrder (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string autoOrderCancelReason = null, string expand = null);
+
+        /// <summary>
+        /// Refund a channel partner order
+        /// </summary>
+        /// <remarks>
+        /// Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        ApiResponse<OrderResponse> RefundChannelPartnerOrderWithHttpInfo (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string autoOrderCancelReason = null, string expand = null);
         /// <summary>
         /// Update a ship to preference record for the channel partner.
         /// </summary>
@@ -373,6 +458,52 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ChannelPartnerEstimateTaxResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ChannelPartnerEstimateTaxResponse>> EstimateTaxForChannelPartnerOrderAsyncWithHttpInfo (ChannelPartnerOrder channelPartnerOrder);
         /// <summary>
+        /// Retrieve a channel partner order
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>Task of OrderResponse</returns>
+        System.Threading.Tasks.Task<OrderResponse> GetChannelPartnerOrderAsync (string orderId, string expand = null);
+
+        /// <summary>
+        /// Retrieve a channel partner order
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> GetChannelPartnerOrderAsyncWithHttpInfo (string orderId, string expand = null);
+        /// <summary>
+        /// Retrieve a channel partner order by the channel partner order id
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The channel partner order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>Task of OrderResponse</returns>
+        System.Threading.Tasks.Task<OrderResponse> GetChannelPartnerOrderByChannelPartnerOrderIdAsync (string orderId, string expand = null);
+
+        /// <summary>
+        /// Retrieve a channel partner order by the channel partner order id
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The channel partner order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> GetChannelPartnerOrderByChannelPartnerOrderIdAsyncWithHttpInfo (string orderId, string expand = null);
+        /// <summary>
         /// Retrieve the ship to preference associated with the channel partner and the specific id.
         /// </summary>
         /// <remarks>
@@ -479,6 +610,45 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="shipToPreference">Ship to preference to create</param>
         /// <returns>Task of ApiResponse (ChannelPartnerShipToPreferenceResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ChannelPartnerShipToPreferenceResponse>> InsertChannelPartnerShipToPreferenceAsyncWithHttpInfo (int? channelPartnerOid, ChannelPartnerShipToPreference shipToPreference);
+        /// <summary>
+        /// Refund a channel partner order
+        /// </summary>
+        /// <remarks>
+        /// Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)</param>
+        /// <returns>Task of OrderResponse</returns>
+        System.Threading.Tasks.Task<OrderResponse> RefundChannelPartnerOrderAsync (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string autoOrderCancelReason = null, string expand = null);
+
+        /// <summary>
+        /// Refund a channel partner order
+        /// </summary>
+        /// <remarks>
+        /// Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundChannelPartnerOrderAsyncWithHttpInfo (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string autoOrderCancelReason = null, string expand = null);
         /// <summary>
         /// Update a ship to preference record for the channel partner.
         /// </summary>
@@ -1435,6 +1605,332 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Retrieve a channel partner order Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        public OrderResponse GetChannelPartnerOrder (string orderId, string expand = null)
+        {
+             ApiResponse<OrderResponse> localVarResponse = GetChannelPartnerOrderWithHttpInfo(orderId, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve a channel partner order Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        public ApiResponse< OrderResponse > GetChannelPartnerOrderWithHttpInfo (string orderId, string expand = null)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling ChannelPartnerApi->GetChannelPartnerOrder");
+
+            var localVarPath = "/channel_partner/orders/{order_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetChannelPartnerOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a channel partner order Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>Task of OrderResponse</returns>
+        public async System.Threading.Tasks.Task<OrderResponse> GetChannelPartnerOrderAsync (string orderId, string expand = null)
+        {
+             ApiResponse<OrderResponse> localVarResponse = await GetChannelPartnerOrderAsyncWithHttpInfo(orderId, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve a channel partner order Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> GetChannelPartnerOrderAsyncWithHttpInfo (string orderId, string expand = null)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling ChannelPartnerApi->GetChannelPartnerOrder");
+
+            var localVarPath = "/channel_partner/orders/{order_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetChannelPartnerOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a channel partner order by the channel partner order id Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The channel partner order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        public OrderResponse GetChannelPartnerOrderByChannelPartnerOrderId (string orderId, string expand = null)
+        {
+             ApiResponse<OrderResponse> localVarResponse = GetChannelPartnerOrderByChannelPartnerOrderIdWithHttpInfo(orderId, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve a channel partner order by the channel partner order id Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The channel partner order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        public ApiResponse< OrderResponse > GetChannelPartnerOrderByChannelPartnerOrderIdWithHttpInfo (string orderId, string expand = null)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling ChannelPartnerApi->GetChannelPartnerOrderByChannelPartnerOrderId");
+
+            var localVarPath = "/channel_partner/orders/by_channel_partner_order_id/{order_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetChannelPartnerOrderByChannelPartnerOrderId", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a channel partner order by the channel partner order id Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The channel partner order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>Task of OrderResponse</returns>
+        public async System.Threading.Tasks.Task<OrderResponse> GetChannelPartnerOrderByChannelPartnerOrderIdAsync (string orderId, string expand = null)
+        {
+             ApiResponse<OrderResponse> localVarResponse = await GetChannelPartnerOrderByChannelPartnerOrderIdAsyncWithHttpInfo(orderId, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve a channel partner order by the channel partner order id Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The channel partner order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> GetChannelPartnerOrderByChannelPartnerOrderIdAsyncWithHttpInfo (string orderId, string expand = null)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling ChannelPartnerApi->GetChannelPartnerOrderByChannelPartnerOrderId");
+
+            var localVarPath = "/channel_partner/orders/by_channel_partner_order_id/{order_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetChannelPartnerOrderByChannelPartnerOrderId", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
         /// Retrieve the ship to preference associated with the channel partner and the specific id. Retrieve the ship to preference associated with the channel partner and the specific id. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2257,6 +2753,237 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ChannelPartnerShipToPreferenceResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ChannelPartnerShipToPreferenceResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerShipToPreferenceResponse)));
+        }
+
+        /// <summary>
+        /// Refund a channel partner order Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        public OrderResponse RefundChannelPartnerOrder (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string autoOrderCancelReason = null, string expand = null)
+        {
+             ApiResponse<OrderResponse> localVarResponse = RefundChannelPartnerOrderWithHttpInfo(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Refund a channel partner order Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        public ApiResponse< OrderResponse > RefundChannelPartnerOrderWithHttpInfo (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string autoOrderCancelReason = null, string expand = null)
+        {
+            // verify the required parameter 'order' is set
+            if (order == null)
+                throw new ApiException(400, "Missing required parameter 'order' when calling ChannelPartnerApi->RefundChannelPartnerOrder");
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling ChannelPartnerApi->RefundChannelPartnerOrder");
+
+            var localVarPath = "/channel_partner/orders/{order_id}/refund";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (rejectAfterRefund != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reject_after_refund", rejectAfterRefund)); // query parameter
+            if (skipCustomerNotification != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip_customer_notification", skipCustomerNotification)); // query parameter
+            if (autoOrderCancel != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order_cancel", autoOrderCancel)); // query parameter
+            if (manualRefund != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "manual_refund", manualRefund)); // query parameter
+            if (reverseAffiliateTransactions != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reverse_affiliate_transactions", reverseAffiliateTransactions)); // query parameter
+            if (issueStoreCredit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "issue_store_credit", issueStoreCredit)); // query parameter
+            if (autoOrderCancelReason != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order_cancel_reason", autoOrderCancelReason)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (order != null && order.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(order); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = order; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RefundChannelPartnerOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Refund a channel partner order Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)</param>
+        /// <returns>Task of OrderResponse</returns>
+        public async System.Threading.Tasks.Task<OrderResponse> RefundChannelPartnerOrderAsync (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string autoOrderCancelReason = null, string expand = null)
+        {
+             ApiResponse<OrderResponse> localVarResponse = await RefundChannelPartnerOrderAsyncWithHttpInfo(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Refund a channel partner order Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundChannelPartnerOrderAsyncWithHttpInfo (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string autoOrderCancelReason = null, string expand = null)
+        {
+            // verify the required parameter 'order' is set
+            if (order == null)
+                throw new ApiException(400, "Missing required parameter 'order' when calling ChannelPartnerApi->RefundChannelPartnerOrder");
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling ChannelPartnerApi->RefundChannelPartnerOrder");
+
+            var localVarPath = "/channel_partner/orders/{order_id}/refund";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (rejectAfterRefund != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reject_after_refund", rejectAfterRefund)); // query parameter
+            if (skipCustomerNotification != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip_customer_notification", skipCustomerNotification)); // query parameter
+            if (autoOrderCancel != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order_cancel", autoOrderCancel)); // query parameter
+            if (manualRefund != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "manual_refund", manualRefund)); // query parameter
+            if (reverseAffiliateTransactions != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reverse_affiliate_transactions", reverseAffiliateTransactions)); // query parameter
+            if (issueStoreCredit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "issue_store_credit", issueStoreCredit)); // query parameter
+            if (autoOrderCancelReason != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order_cancel_reason", autoOrderCancelReason)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (order != null && order.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(order); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = order; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RefundChannelPartnerOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
         }
 
         /// <summary>

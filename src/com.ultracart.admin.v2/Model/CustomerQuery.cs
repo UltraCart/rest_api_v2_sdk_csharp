@@ -45,6 +45,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="billingPostalCode">Billing postal code.</param>
         /// <param name="billingState">Billing state.</param>
         /// <param name="email">Email address of this customer profile.</param>
+        /// <param name="emails">Emails allows for searching on multiple email addresses and work with our without the single email variable.  You may specify a single email address here or use the email property..</param>
         /// <param name="lastModifiedDtsEnd">Last modified date end.</param>
         /// <param name="lastModifiedDtsStart">Last modified date start.</param>
         /// <param name="pricingTierName">Pricing tier name.</param>
@@ -62,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="shippingState">Billing state.</param>
         /// <param name="signupDtsEnd">Signup date end.</param>
         /// <param name="signupDtsStart">Signup date start.</param>
-        public CustomerQuery(List<string> allTags = default(List<string>), List<string> anyTags = default(List<string>), string billingCity = default(string), string billingCompany = default(string), string billingCountryCode = default(string), string billingDayPhone = default(string), string billingEveningPhone = default(string), string billingFirstName = default(string), string billingLastName = default(string), string billingPostalCode = default(string), string billingState = default(string), string email = default(string), string lastModifiedDtsEnd = default(string), string lastModifiedDtsStart = default(string), string pricingTierName = default(string), int? pricingTierOid = default(int?), string qbClass = default(string), string quickbooksCode = default(string), string shippingCity = default(string), string shippingCompany = default(string), string shippingCountryCode = default(string), string shippingDayPhone = default(string), string shippingEveningPhone = default(string), string shippingFirstName = default(string), string shippingLastName = default(string), string shippingPostalCode = default(string), string shippingState = default(string), string signupDtsEnd = default(string), string signupDtsStart = default(string))
+        public CustomerQuery(List<string> allTags = default(List<string>), List<string> anyTags = default(List<string>), string billingCity = default(string), string billingCompany = default(string), string billingCountryCode = default(string), string billingDayPhone = default(string), string billingEveningPhone = default(string), string billingFirstName = default(string), string billingLastName = default(string), string billingPostalCode = default(string), string billingState = default(string), string email = default(string), List<string> emails = default(List<string>), string lastModifiedDtsEnd = default(string), string lastModifiedDtsStart = default(string), string pricingTierName = default(string), int? pricingTierOid = default(int?), string qbClass = default(string), string quickbooksCode = default(string), string shippingCity = default(string), string shippingCompany = default(string), string shippingCountryCode = default(string), string shippingDayPhone = default(string), string shippingEveningPhone = default(string), string shippingFirstName = default(string), string shippingLastName = default(string), string shippingPostalCode = default(string), string shippingState = default(string), string signupDtsEnd = default(string), string signupDtsStart = default(string))
         {
             this.AllTags = allTags;
             this.AnyTags = anyTags;
@@ -76,6 +77,7 @@ namespace com.ultracart.admin.v2.Model
             this.BillingPostalCode = billingPostalCode;
             this.BillingState = billingState;
             this.Email = email;
+            this.Emails = emails;
             this.LastModifiedDtsEnd = lastModifiedDtsEnd;
             this.LastModifiedDtsStart = lastModifiedDtsStart;
             this.PricingTierName = pricingTierName;
@@ -178,6 +180,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Email address of this customer profile</value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
+
+        /// <summary>
+        /// Emails allows for searching on multiple email addresses and work with our without the single email variable.  You may specify a single email address here or use the email property.
+        /// </summary>
+        /// <value>Emails allows for searching on multiple email addresses and work with our without the single email variable.  You may specify a single email address here or use the email property.</value>
+        [DataMember(Name="emails", EmitDefaultValue=false)]
+        public List<string> Emails { get; set; }
 
         /// <summary>
         /// Last modified date end
@@ -318,6 +327,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  BillingPostalCode: ").Append(BillingPostalCode).Append("\n");
             sb.Append("  BillingState: ").Append(BillingState).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  Emails: ").Append(Emails).Append("\n");
             sb.Append("  LastModifiedDtsEnd: ").Append(LastModifiedDtsEnd).Append("\n");
             sb.Append("  LastModifiedDtsStart: ").Append(LastModifiedDtsStart).Append("\n");
             sb.Append("  PricingTierName: ").Append(PricingTierName).Append("\n");
@@ -428,6 +438,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Email == input.Email ||
                     (this.Email != null &&
                     this.Email.Equals(input.Email))
+                ) && 
+                (
+                    this.Emails == input.Emails ||
+                    this.Emails != null &&
+                    this.Emails.SequenceEqual(input.Emails)
                 ) && 
                 (
                     this.LastModifiedDtsEnd == input.LastModifiedDtsEnd ||
@@ -549,6 +564,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.BillingState.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
+                if (this.Emails != null)
+                    hashCode = hashCode * 59 + this.Emails.GetHashCode();
                 if (this.LastModifiedDtsEnd != null)
                     hashCode = hashCode * 59 + this.LastModifiedDtsEnd.GetHashCode();
                 if (this.LastModifiedDtsStart != null)

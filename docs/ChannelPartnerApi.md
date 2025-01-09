@@ -9,11 +9,14 @@ Method | HTTP request | Description
 [**DeleteChannelPartnerShipToPreference**](ChannelPartnerApi.md#deletechannelpartnershiptopreference) | **DELETE** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Delete a ship to preference record for the channel partner.
 [**EstimateShippingForChannelPartnerOrder**](ChannelPartnerApi.md#estimateshippingforchannelpartnerorder) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
 [**EstimateTaxForChannelPartnerOrder**](ChannelPartnerApi.md#estimatetaxforchannelpartnerorder) | **POST** /channel_partner/estimate_tax | Estimate tax for channel partner order
+[**GetChannelPartnerOrder**](ChannelPartnerApi.md#getchannelpartnerorder) | **GET** /channel_partner/orders/{order_id} | Retrieve a channel partner order
+[**GetChannelPartnerOrderByChannelPartnerOrderId**](ChannelPartnerApi.md#getchannelpartnerorderbychannelpartnerorderid) | **GET** /channel_partner/orders/by_channel_partner_order_id/{order_id} | Retrieve a channel partner order by the channel partner order id
 [**GetChannelPartnerShipToPreference**](ChannelPartnerApi.md#getchannelpartnershiptopreference) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Retrieve the ship to preference associated with the channel partner and the specific id.
 [**GetChannelPartnerShipToPreferences**](ChannelPartnerApi.md#getchannelpartnershiptopreferences) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Retrieve the ship to preferences associated with the channel partner.
 [**GetChannelPartners**](ChannelPartnerApi.md#getchannelpartners) | **GET** /channel_partner/channel_partners | Retrieve the channel partners configured on the account.
 [**ImportChannelPartnerOrder**](ChannelPartnerApi.md#importchannelpartnerorder) | **POST** /channel_partner/import | Insert channel partner order
 [**InsertChannelPartnerShipToPreference**](ChannelPartnerApi.md#insertchannelpartnershiptopreference) | **POST** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Insert a ship to preference record for the channel partner.
+[**RefundChannelPartnerOrder**](ChannelPartnerApi.md#refundchannelpartnerorder) | **PUT** /channel_partner/orders/{order_id}/refund | Refund a channel partner order
 [**UpdateChannelPartnerShipToPreference**](ChannelPartnerApi.md#updatechannelpartnershiptopreference) | **PUT** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Update a ship to preference record for the channel partner.
 
 
@@ -348,6 +351,142 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getchannelpartnerorder"></a>
+# **GetChannelPartnerOrder**
+> OrderResponse GetChannelPartnerOrder (string orderId, string expand = null)
+
+Retrieve a channel partner order
+
+Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetChannelPartnerOrderExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ChannelPartnerApi(simpleKey);
+
+            var orderId = orderId_example;  // string | The order id to retrieve.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional) 
+
+            try
+            {
+                // Retrieve a channel partner order
+                OrderResponse result = apiInstance.GetChannelPartnerOrder(orderId, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ChannelPartnerApi.GetChannelPartnerOrder: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **string**| The order id to retrieve. | 
+ **expand** | **string**| The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getchannelpartnerorderbychannelpartnerorderid"></a>
+# **GetChannelPartnerOrderByChannelPartnerOrderId**
+> OrderResponse GetChannelPartnerOrderByChannelPartnerOrderId (string orderId, string expand = null)
+
+Retrieve a channel partner order by the channel partner order id
+
+Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetChannelPartnerOrderByChannelPartnerOrderIdExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ChannelPartnerApi(simpleKey);
+
+            var orderId = orderId_example;  // string | The channel partner order id to retrieve.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional) 
+
+            try
+            {
+                // Retrieve a channel partner order by the channel partner order id
+                OrderResponse result = apiInstance.GetChannelPartnerOrderByChannelPartnerOrderId(orderId, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ChannelPartnerApi.GetChannelPartnerOrderByChannelPartnerOrderId: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **string**| The channel partner order id to retrieve. | 
+ **expand** | **string**| The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getchannelpartnershiptopreference"></a>
 # **GetChannelPartnerShipToPreference**
 > ChannelPartnerShipToPreferenceResponse GetChannelPartnerShipToPreference (int? channelPartnerOid, int? channelPartnerShipToPreferenceOid)
@@ -674,6 +813,90 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="refundchannelpartnerorder"></a>
+# **RefundChannelPartnerOrder**
+> OrderResponse RefundChannelPartnerOrder (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string autoOrderCancelReason = null, string expand = null)
+
+Refund a channel partner order
+
+Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class RefundChannelPartnerOrderExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ChannelPartnerApi(simpleKey);
+
+            var order = new Order(); // Order | Order to refund
+            var orderId = orderId_example;  // string | The order id to refund.
+            var rejectAfterRefund = true;  // bool? | Reject order after refund (optional)  (default to false)
+            var skipCustomerNotification = true;  // bool? | Skip customer email notification (optional)  (default to false)
+            var autoOrderCancel = true;  // bool? | Cancel associated auto orders (optional)  (default to false)
+            var manualRefund = true;  // bool? | Consider a manual refund done externally (optional)  (default to false)
+            var reverseAffiliateTransactions = true;  // bool? | Reverse affiliate transactions (optional)  (default to true)
+            var issueStoreCredit = true;  // bool? | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional)  (default to false)
+            var autoOrderCancelReason = autoOrderCancelReason_example;  // string | Reason for auto orders cancellation (optional) 
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional) 
+
+            try
+            {
+                // Refund a channel partner order
+                OrderResponse result = apiInstance.RefundChannelPartnerOrder(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ChannelPartnerApi.RefundChannelPartnerOrder: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order** | [**Order**](Order.md)| Order to refund | 
+ **orderId** | **string**| The order id to refund. | 
+ **rejectAfterRefund** | **bool?**| Reject order after refund | [optional] [default to false]
+ **skipCustomerNotification** | **bool?**| Skip customer email notification | [optional] [default to false]
+ **autoOrderCancel** | **bool?**| Cancel associated auto orders | [optional] [default to false]
+ **manualRefund** | **bool?**| Consider a manual refund done externally | [optional] [default to false]
+ **reverseAffiliateTransactions** | **bool?**| Reverse affiliate transactions | [optional] [default to true]
+ **issueStoreCredit** | **bool?**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] [default to false]
+ **autoOrderCancelReason** | **string**| Reason for auto orders cancellation | [optional] 
+ **expand** | **string**| The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

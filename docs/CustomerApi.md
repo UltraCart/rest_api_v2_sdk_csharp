@@ -761,7 +761,7 @@ Name | Type | Description  | Notes
 
 <a name="getcustomers"></a>
 # **GetCustomers**
-> CustomersResponse GetCustomers (string email = null, string qbClass = null, string quickbooksCode = null, string lastModifiedDtsStart = null, string lastModifiedDtsEnd = null, string signupDtsStart = null, string signupDtsEnd = null, string billingFirstName = null, string billingLastName = null, string billingCompany = null, string billingCity = null, string billingState = null, string billingPostalCode = null, string billingCountryCode = null, string billingDayPhone = null, string billingEveningPhone = null, string shippingFirstName = null, string shippingLastName = null, string shippingCompany = null, string shippingCity = null, string shippingState = null, string shippingPostalCode = null, string shippingCountryCode = null, string shippingDayPhone = null, string shippingEveningPhone = null, int? pricingTierOid = null, string pricingTierName = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+> CustomersResponse GetCustomers (string email = null, string qbClass = null, string quickbooksCode = null, string lastModifiedDtsStart = null, string lastModifiedDtsEnd = null, string signupDtsStart = null, string signupDtsEnd = null, string billingFirstName = null, string billingLastName = null, string billingCompany = null, string billingCity = null, string billingState = null, string billingPostalCode = null, string billingCountryCode = null, string billingDayPhone = null, string billingEveningPhone = null, string shippingFirstName = null, string shippingLastName = null, string shippingCompany = null, string shippingCity = null, string shippingState = null, string shippingPostalCode = null, string shippingCountryCode = null, string shippingDayPhone = null, string shippingEveningPhone = null, int? pricingTierOid = null, string pricingTierName = null, Object emails = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
 
 Retrieve customers
 
@@ -856,6 +856,7 @@ Name | Type | Description  | Notes
  **shippingEveningPhone** | **string**| Shipping evening phone | [optional] 
  **pricingTierOid** | **int?**| Pricing tier oid | [optional] 
  **pricingTierName** | **string**| Pricing tier name | [optional] 
+ **emails** | [**Object**](Object.md)| Emails | [optional] 
  **limit** | **int?**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **since** | **string**| Fetch customers that have been created/modified since this date/time. | [optional] 

@@ -74,6 +74,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="accountingCode">QuickBooks code.</param>
         /// <param name="activationCodes">Activation codes assigned to this item.</param>
+        /// <param name="actualCogs">actualCogs.</param>
         /// <param name="arbitraryUnitCost">arbitraryUnitCost.</param>
         /// <param name="autoOrderLastRebillDts">Date/time of the last rebill, used only during order insert to help project future rebills.</param>
         /// <param name="autoOrderSchedule">Auto order schedule, used only during inserts supplying the recurring schedule.</param>
@@ -137,10 +138,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="upsell">True if this item was added to the order as part of an upsell.</param>
         /// <param name="weight">weight.</param>
         /// <param name="width">width.</param>
-        public OrderItem(string accountingCode = default(string), List<string> activationCodes = default(List<string>), Currency arbitraryUnitCost = default(Currency), string autoOrderLastRebillDts = default(string), string autoOrderSchedule = default(string), string barcode = default(string), string barcodeGtin12 = default(string), string barcodeGtin14 = default(string), string barcodeUpc11 = default(string), string barcodeUpc12 = default(string), string channelPartnerItemId = default(string), decimal cogs = default(decimal), decimal componentUnitValue = default(decimal), Currency cost = default(Currency), string countryCodeOfOrigin = default(string), string customsDescription = default(string), string description = default(string), Currency discount = default(Currency), decimal discountQuantity = default(decimal), Weight discountShippingWeight = default(Weight), string distributionCenterCode = default(string), OrderItemEdi edi = default(OrderItemEdi), bool excludeCoupon = default(bool), bool freeShipping = default(bool), bool hazmat = default(bool), Distance height = default(Distance), int itemIndex = default(int), int itemReferenceOid = default(int), bool kit = default(bool), bool kitComponent = default(bool), Distance length = default(Distance), string manufacturerSku = default(string), int maxDaysTimeInTransit = default(int), string merchantItemId = default(string), string mixAndMatchGroupName = default(string), int mixAndMatchGroupOid = default(int), bool noShippingDiscount = default(bool), List<OrderItemOption> options = default(List<OrderItemOption>), string packedByUser = default(string), int parentItemIndex = default(int), string parentMerchantItemId = default(string), string perishableClass = default(string), string pricingTierName = default(string), List<OrderItemProperty> properties = default(List<OrderItemProperty>), decimal quantity = default(decimal), decimal quantityRefunded = default(decimal), string quickbooksClass = default(string), string refundReason = default(string), string returnReason = default(string), bool shipSeparately = default(bool), string shippedByUser = default(string), string shippedDts = default(string), string shippingStatus = default(string), string specialProductType = default(string), List<OrderItemTag> tags = default(List<OrderItemTag>), bool taxFree = default(bool), TaxProductTypeEnum? taxProductType = default(TaxProductTypeEnum?), Currency taxableCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency totalRefunded = default(Currency), string transmittedToDistributionCenterDts = default(string), Currency unitCostWithDiscount = default(Currency), bool upsell = default(bool), Weight weight = default(Weight), Distance width = default(Distance))
+        public OrderItem(string accountingCode = default(string), List<string> activationCodes = default(List<string>), Currency actualCogs = default(Currency), Currency arbitraryUnitCost = default(Currency), string autoOrderLastRebillDts = default(string), string autoOrderSchedule = default(string), string barcode = default(string), string barcodeGtin12 = default(string), string barcodeGtin14 = default(string), string barcodeUpc11 = default(string), string barcodeUpc12 = default(string), string channelPartnerItemId = default(string), decimal cogs = default(decimal), decimal componentUnitValue = default(decimal), Currency cost = default(Currency), string countryCodeOfOrigin = default(string), string customsDescription = default(string), string description = default(string), Currency discount = default(Currency), decimal discountQuantity = default(decimal), Weight discountShippingWeight = default(Weight), string distributionCenterCode = default(string), OrderItemEdi edi = default(OrderItemEdi), bool excludeCoupon = default(bool), bool freeShipping = default(bool), bool hazmat = default(bool), Distance height = default(Distance), int itemIndex = default(int), int itemReferenceOid = default(int), bool kit = default(bool), bool kitComponent = default(bool), Distance length = default(Distance), string manufacturerSku = default(string), int maxDaysTimeInTransit = default(int), string merchantItemId = default(string), string mixAndMatchGroupName = default(string), int mixAndMatchGroupOid = default(int), bool noShippingDiscount = default(bool), List<OrderItemOption> options = default(List<OrderItemOption>), string packedByUser = default(string), int parentItemIndex = default(int), string parentMerchantItemId = default(string), string perishableClass = default(string), string pricingTierName = default(string), List<OrderItemProperty> properties = default(List<OrderItemProperty>), decimal quantity = default(decimal), decimal quantityRefunded = default(decimal), string quickbooksClass = default(string), string refundReason = default(string), string returnReason = default(string), bool shipSeparately = default(bool), string shippedByUser = default(string), string shippedDts = default(string), string shippingStatus = default(string), string specialProductType = default(string), List<OrderItemTag> tags = default(List<OrderItemTag>), bool taxFree = default(bool), TaxProductTypeEnum? taxProductType = default(TaxProductTypeEnum?), Currency taxableCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency totalRefunded = default(Currency), string transmittedToDistributionCenterDts = default(string), Currency unitCostWithDiscount = default(Currency), bool upsell = default(bool), Weight weight = default(Weight), Distance width = default(Distance))
         {
             this.AccountingCode = accountingCode;
             this.ActivationCodes = activationCodes;
+            this.ActualCogs = actualCogs;
             this.ArbitraryUnitCost = arbitraryUnitCost;
             this.AutoOrderLastRebillDts = autoOrderLastRebillDts;
             this.AutoOrderSchedule = autoOrderSchedule;
@@ -219,6 +221,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Activation codes assigned to this item</value>
         [DataMember(Name="activation_codes", EmitDefaultValue=false)]
         public List<string> ActivationCodes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ActualCogs
+        /// </summary>
+        [DataMember(Name="actual_cogs", EmitDefaultValue=false)]
+        public Currency ActualCogs { get; set; }
 
         /// <summary>
         /// Gets or Sets ArbitraryUnitCost
@@ -652,6 +660,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class OrderItem {\n");
             sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
             sb.Append("  ActivationCodes: ").Append(ActivationCodes).Append("\n");
+            sb.Append("  ActualCogs: ").Append(ActualCogs).Append("\n");
             sb.Append("  ArbitraryUnitCost: ").Append(ArbitraryUnitCost).Append("\n");
             sb.Append("  AutoOrderLastRebillDts: ").Append(AutoOrderLastRebillDts).Append("\n");
             sb.Append("  AutoOrderSchedule: ").Append(AutoOrderSchedule).Append("\n");
@@ -759,6 +768,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ActivationCodes != null &&
                     input.ActivationCodes != null &&
                     this.ActivationCodes.SequenceEqual(input.ActivationCodes)
+                ) && 
+                (
+                    this.ActualCogs == input.ActualCogs ||
+                    (this.ActualCogs != null &&
+                    this.ActualCogs.Equals(input.ActualCogs))
                 ) && 
                 (
                     this.ArbitraryUnitCost == input.ArbitraryUnitCost ||
@@ -1093,6 +1107,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
                 if (this.ActivationCodes != null)
                     hashCode = hashCode * 59 + this.ActivationCodes.GetHashCode();
+                if (this.ActualCogs != null)
+                    hashCode = hashCode * 59 + this.ActualCogs.GetHashCode();
                 if (this.ArbitraryUnitCost != null)
                     hashCode = hashCode * 59 + this.ArbitraryUnitCost.GetHashCode();
                 if (this.AutoOrderLastRebillDts != null)

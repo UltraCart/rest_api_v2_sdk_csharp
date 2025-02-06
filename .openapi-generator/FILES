@@ -636,6 +636,7 @@ docs/OrderByTokenQuery.md
 docs/OrderChannelPartner.md
 docs/OrderCheckout.md
 docs/OrderCoupon.md
+docs/OrderCurrentStageHistory.md
 docs/OrderDigitalItem.md
 docs/OrderDigitalOrder.md
 docs/OrderEdi.md
@@ -1527,6 +1528,7 @@ src/com.ultracart.admin.v2/Model/OrderByTokenQuery.cs
 src/com.ultracart.admin.v2/Model/OrderChannelPartner.cs
 src/com.ultracart.admin.v2/Model/OrderCheckout.cs
 src/com.ultracart.admin.v2/Model/OrderCoupon.cs
+src/com.ultracart.admin.v2/Model/OrderCurrentStageHistory.cs
 src/com.ultracart.admin.v2/Model/OrderDigitalItem.cs
 src/com.ultracart.admin.v2/Model/OrderDigitalOrder.cs
 src/com.ultracart.admin.v2/Model/OrderEdi.cs

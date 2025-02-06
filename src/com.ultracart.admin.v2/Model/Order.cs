@@ -136,6 +136,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="creationDts">Date/time that the order was created.</param>
         /// <param name="currencyCode">Currency code that the customer used if different than the merchant&#39;s base currency code.</param>
         /// <param name="currentStage">Current stage that the order is in..</param>
+        /// <param name="currentStageHistories">History of the changes to the current_stage field.</param>
         /// <param name="customerProfile">customerProfile.</param>
         /// <param name="digitalOrder">digitalOrder.</param>
         /// <param name="edi">edi.</param>
@@ -164,7 +165,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="tags">tags, available only through update, not through insert due to the nature of how tags are handled internally.</param>
         /// <param name="taxes">taxes.</param>
         /// <param name="utms">UTM clicks.  The zero index is the most recent (last) UTM click.</param>
-        public Order(List<OrderAffiliate> affiliates = default(List<OrderAffiliate>), OrderAutoOrder autoOrder = default(OrderAutoOrder), OrderBilling billing = default(OrderBilling), OrderBuysafe buysafe = default(OrderBuysafe), OrderChannelPartner channelPartner = default(OrderChannelPartner), OrderCheckout checkout = default(OrderCheckout), List<OrderCoupon> coupons = default(List<OrderCoupon>), string creationDts = default(string), string currencyCode = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), Customer customerProfile = default(Customer), OrderDigitalOrder digitalOrder = default(OrderDigitalOrder), OrderEdi edi = default(OrderEdi), decimal? exchangeRate = default(decimal?), OrderFraudScore fraudScore = default(OrderFraudScore), OrderGift gift = default(OrderGift), OrderGiftCertificate giftCertificate = default(OrderGiftCertificate), OrderInternal _internal = default(OrderInternal), List<OrderItem> items = default(List<OrderItem>), string languageIsoCode = default(string), OrderLinkedShipment linkedShipment = default(OrderLinkedShipment), OrderMarketing marketing = default(OrderMarketing), string merchantId = default(string), string orderId = default(string), OrderPayment payment = default(OrderPayment), OrderPointOfSale pointOfSale = default(OrderPointOfSale), List<OrderProperty> properties = default(List<OrderProperty>), OrderQuote quote = default(OrderQuote), string refundDts = default(string), string refundReason = default(string), string rejectDts = default(string), string rejectReason = default(string), OrderSalesforce salesforce = default(OrderSalesforce), OrderShipping shipping = default(OrderShipping), OrderSummary summary = default(OrderSummary), List<OrderTag> tags = default(List<OrderTag>), OrderTaxes taxes = default(OrderTaxes), List<OrderUtm> utms = default(List<OrderUtm>))
+        public Order(List<OrderAffiliate> affiliates = default(List<OrderAffiliate>), OrderAutoOrder autoOrder = default(OrderAutoOrder), OrderBilling billing = default(OrderBilling), OrderBuysafe buysafe = default(OrderBuysafe), OrderChannelPartner channelPartner = default(OrderChannelPartner), OrderCheckout checkout = default(OrderCheckout), List<OrderCoupon> coupons = default(List<OrderCoupon>), string creationDts = default(string), string currencyCode = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), List<OrderCurrentStageHistory> currentStageHistories = default(List<OrderCurrentStageHistory>), Customer customerProfile = default(Customer), OrderDigitalOrder digitalOrder = default(OrderDigitalOrder), OrderEdi edi = default(OrderEdi), decimal? exchangeRate = default(decimal?), OrderFraudScore fraudScore = default(OrderFraudScore), OrderGift gift = default(OrderGift), OrderGiftCertificate giftCertificate = default(OrderGiftCertificate), OrderInternal _internal = default(OrderInternal), List<OrderItem> items = default(List<OrderItem>), string languageIsoCode = default(string), OrderLinkedShipment linkedShipment = default(OrderLinkedShipment), OrderMarketing marketing = default(OrderMarketing), string merchantId = default(string), string orderId = default(string), OrderPayment payment = default(OrderPayment), OrderPointOfSale pointOfSale = default(OrderPointOfSale), List<OrderProperty> properties = default(List<OrderProperty>), OrderQuote quote = default(OrderQuote), string refundDts = default(string), string refundReason = default(string), string rejectDts = default(string), string rejectReason = default(string), OrderSalesforce salesforce = default(OrderSalesforce), OrderShipping shipping = default(OrderShipping), OrderSummary summary = default(OrderSummary), List<OrderTag> tags = default(List<OrderTag>), OrderTaxes taxes = default(OrderTaxes), List<OrderUtm> utms = default(List<OrderUtm>))
         {
             this.Affiliates = affiliates;
             this.AutoOrder = autoOrder;
@@ -176,6 +177,7 @@ namespace com.ultracart.admin.v2.Model
             this.CreationDts = creationDts;
             this.CurrencyCode = currencyCode;
             this.CurrentStage = currentStage;
+            this.CurrentStageHistories = currentStageHistories;
             this.CustomerProfile = customerProfile;
             this.DigitalOrder = digitalOrder;
             this.Edi = edi;
@@ -264,6 +266,13 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="currency_code", EmitDefaultValue=false)]
         public string CurrencyCode { get; set; }
 
+
+        /// <summary>
+        /// History of the changes to the current_stage field
+        /// </summary>
+        /// <value>History of the changes to the current_stage field</value>
+        [DataMember(Name="current_stage_histories", EmitDefaultValue=false)]
+        public List<OrderCurrentStageHistory> CurrentStageHistories { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomerProfile
@@ -463,6 +472,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreationDts: ").Append(CreationDts).Append("\n");
             sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
             sb.Append("  CurrentStage: ").Append(CurrentStage).Append("\n");
+            sb.Append("  CurrentStageHistories: ").Append(CurrentStageHistories).Append("\n");
             sb.Append("  CustomerProfile: ").Append(CustomerProfile).Append("\n");
             sb.Append("  DigitalOrder: ").Append(DigitalOrder).Append("\n");
             sb.Append("  Edi: ").Append(Edi).Append("\n");
@@ -574,6 +584,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CurrentStage == input.CurrentStage ||
                     (this.CurrentStage != null &&
                     this.CurrentStage.Equals(input.CurrentStage))
+                ) && 
+                (
+                    this.CurrentStageHistories == input.CurrentStageHistories ||
+                    this.CurrentStageHistories != null &&
+                    this.CurrentStageHistories.SequenceEqual(input.CurrentStageHistories)
                 ) && 
                 (
                     this.CustomerProfile == input.CustomerProfile ||
@@ -746,6 +761,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CurrencyCode.GetHashCode();
                 if (this.CurrentStage != null)
                     hashCode = hashCode * 59 + this.CurrentStage.GetHashCode();
+                if (this.CurrentStageHistories != null)
+                    hashCode = hashCode * 59 + this.CurrentStageHistories.GetHashCode();
                 if (this.CustomerProfile != null)
                     hashCode = hashCode * 59 + this.CustomerProfile.GetHashCode();
                 if (this.DigitalOrder != null)

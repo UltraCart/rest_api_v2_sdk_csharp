@@ -261,11 +261,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="specialInstructions">Special instructions from the customer regarding shipping.</param>
         /// <param name="storeCompleted">If true the order bypasses shipping and is marked completed.</param>
         /// <param name="storeIfPaymentDeclines">If true any failed payments are placed into Accounts Receivable.  If false any failed payments result in a rejected order resulting in errors thrown during the insert routine.</param>
+        /// <param name="storefrontHostName">StoreFront host name associated with the order.</param>
         /// <param name="taxCounty">The optional shipping county used to determine exact taxes.</param>
         /// <param name="taxExempt">If true this order is marked as being tax exempt.</param>
         /// <param name="transaction">transaction.</param>
         /// <param name="treatWarningsAsErrors">If true all warnings are considered errors, this is true by default.</param>
-        public ChannelPartnerOrder(string advertisingSource = default(string), string affiliateId = default(string), string affiliateSubId = default(string), decimal? arbitraryShippingHandlingTotal = default(decimal?), decimal? arbitraryTax = default(decimal?), decimal? arbitraryTaxRate = default(decimal?), decimal? arbitraryTaxableSubtotal = default(decimal?), bool? associateWithCustomerProfileIfPresent = default(bool?), bool? autoApprovePurchaseOrder = default(bool?), string billtoAddress1 = default(string), string billtoAddress2 = default(string), string billtoCity = default(string), string billtoCompany = default(string), string billtoCountryCode = default(string), string billtoDayPhone = default(string), string billtoEveningPhone = default(string), string billtoFirstName = default(string), string billtoLastName = default(string), string billtoPostalCode = default(string), string billtoStateRegion = default(string), string billtoTitle = default(string), string ccEmail = default(string), string channelPartnerOrderId = default(string), bool? considerRecurring = default(bool?), List<string> coupons = default(List<string>), decimal? creditCardAuthorizationAmount = default(decimal?), string creditCardAuthorizationDts = default(string), string creditCardAuthorizationNumber = default(string), int? creditCardExpirationMonth = default(int?), int? creditCardExpirationYear = default(int?), string creditCardType = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string deliveryDate = default(string), string echeckBankAbaCode = default(string), string echeckBankAccountName = default(string), string echeckBankAccountNumber = default(string), EcheckBankAccountTypeEnum? echeckBankAccountType = default(EcheckBankAccountTypeEnum?), string echeckBankName = default(string), EcheckBankOwnerTypeEnum? echeckBankOwnerType = default(EcheckBankOwnerTypeEnum?), string echeckCustomerTaxId = default(string), string echeckDriversLicenseDob = default(string), string echeckDriversLicenseNumber = default(string), string echeckDriversLicenseState = default(string), string email = default(string), bool? gift = default(bool?), string giftEmail = default(string), string giftMessage = default(string), string hostedFieldsCardToken = default(string), string hostedFieldsCvvToken = default(string), string insuranceApplicationId = default(string), string insuranceClaimId = default(string), string ipAddress = default(string), List<ChannelPartnerOrderItem> items = default(List<ChannelPartnerOrderItem>), bool? leastCostRoute = default(bool?), List<string> leastCostRouteShippingMethods = default(List<string>), bool? mailingListOptIn = default(bool?), bool? noRealtimePaymentProcessing = default(bool?), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string purchaseOrderNumber = default(string), string rotatingTransactionGatewayCode = default(string), string salesRepCode = default(string), string screenBrandingThemeCode = default(string), string shipOnDate = default(string), bool? shipToResidential = default(bool?), string shippingMethod = default(string), string shiptoAddress1 = default(string), string shiptoAddress2 = default(string), string shiptoCity = default(string), string shiptoCompany = default(string), string shiptoCountryCode = default(string), string shiptoDayPhone = default(string), string shiptoEveningPhone = default(string), string shiptoFirstName = default(string), string shiptoLastName = default(string), string shiptoPostalCode = default(string), string shiptoStateRegion = default(string), string shiptoTitle = default(string), bool? skipPaymentProcessing = default(bool?), string specialInstructions = default(string), bool? storeCompleted = default(bool?), bool? storeIfPaymentDeclines = default(bool?), string taxCounty = default(string), bool? taxExempt = default(bool?), ChannelPartnerOrderTransaction transaction = default(ChannelPartnerOrderTransaction), bool? treatWarningsAsErrors = default(bool?))
+        public ChannelPartnerOrder(string advertisingSource = default(string), string affiliateId = default(string), string affiliateSubId = default(string), decimal? arbitraryShippingHandlingTotal = default(decimal?), decimal? arbitraryTax = default(decimal?), decimal? arbitraryTaxRate = default(decimal?), decimal? arbitraryTaxableSubtotal = default(decimal?), bool? associateWithCustomerProfileIfPresent = default(bool?), bool? autoApprovePurchaseOrder = default(bool?), string billtoAddress1 = default(string), string billtoAddress2 = default(string), string billtoCity = default(string), string billtoCompany = default(string), string billtoCountryCode = default(string), string billtoDayPhone = default(string), string billtoEveningPhone = default(string), string billtoFirstName = default(string), string billtoLastName = default(string), string billtoPostalCode = default(string), string billtoStateRegion = default(string), string billtoTitle = default(string), string ccEmail = default(string), string channelPartnerOrderId = default(string), bool? considerRecurring = default(bool?), List<string> coupons = default(List<string>), decimal? creditCardAuthorizationAmount = default(decimal?), string creditCardAuthorizationDts = default(string), string creditCardAuthorizationNumber = default(string), int? creditCardExpirationMonth = default(int?), int? creditCardExpirationYear = default(int?), string creditCardType = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string deliveryDate = default(string), string echeckBankAbaCode = default(string), string echeckBankAccountName = default(string), string echeckBankAccountNumber = default(string), EcheckBankAccountTypeEnum? echeckBankAccountType = default(EcheckBankAccountTypeEnum?), string echeckBankName = default(string), EcheckBankOwnerTypeEnum? echeckBankOwnerType = default(EcheckBankOwnerTypeEnum?), string echeckCustomerTaxId = default(string), string echeckDriversLicenseDob = default(string), string echeckDriversLicenseNumber = default(string), string echeckDriversLicenseState = default(string), string email = default(string), bool? gift = default(bool?), string giftEmail = default(string), string giftMessage = default(string), string hostedFieldsCardToken = default(string), string hostedFieldsCvvToken = default(string), string insuranceApplicationId = default(string), string insuranceClaimId = default(string), string ipAddress = default(string), List<ChannelPartnerOrderItem> items = default(List<ChannelPartnerOrderItem>), bool? leastCostRoute = default(bool?), List<string> leastCostRouteShippingMethods = default(List<string>), bool? mailingListOptIn = default(bool?), bool? noRealtimePaymentProcessing = default(bool?), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string purchaseOrderNumber = default(string), string rotatingTransactionGatewayCode = default(string), string salesRepCode = default(string), string screenBrandingThemeCode = default(string), string shipOnDate = default(string), bool? shipToResidential = default(bool?), string shippingMethod = default(string), string shiptoAddress1 = default(string), string shiptoAddress2 = default(string), string shiptoCity = default(string), string shiptoCompany = default(string), string shiptoCountryCode = default(string), string shiptoDayPhone = default(string), string shiptoEveningPhone = default(string), string shiptoFirstName = default(string), string shiptoLastName = default(string), string shiptoPostalCode = default(string), string shiptoStateRegion = default(string), string shiptoTitle = default(string), bool? skipPaymentProcessing = default(bool?), string specialInstructions = default(string), bool? storeCompleted = default(bool?), bool? storeIfPaymentDeclines = default(bool?), string storefrontHostName = default(string), string taxCounty = default(string), bool? taxExempt = default(bool?), ChannelPartnerOrderTransaction transaction = default(ChannelPartnerOrderTransaction), bool? treatWarningsAsErrors = default(bool?))
         {
             this.AdvertisingSource = advertisingSource;
             this.AffiliateId = affiliateId;
@@ -354,6 +355,7 @@ namespace com.ultracart.admin.v2.Model
             this.SpecialInstructions = specialInstructions;
             this.StoreCompleted = storeCompleted;
             this.StoreIfPaymentDeclines = storeIfPaymentDeclines;
+            this.StorefrontHostName = storefrontHostName;
             this.TaxCounty = taxCounty;
             this.TaxExempt = taxExempt;
             this.Transaction = transaction;
@@ -952,6 +954,13 @@ namespace com.ultracart.admin.v2.Model
         public bool? StoreIfPaymentDeclines { get; set; }
 
         /// <summary>
+        /// StoreFront host name associated with the order
+        /// </summary>
+        /// <value>StoreFront host name associated with the order</value>
+        [DataMember(Name="storefront_host_name", EmitDefaultValue=false)]
+        public string StorefrontHostName { get; set; }
+
+        /// <summary>
         /// The optional shipping county used to determine exact taxes
         /// </summary>
         /// <value>The optional shipping county used to determine exact taxes</value>
@@ -1073,6 +1082,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  SpecialInstructions: ").Append(SpecialInstructions).Append("\n");
             sb.Append("  StoreCompleted: ").Append(StoreCompleted).Append("\n");
             sb.Append("  StoreIfPaymentDeclines: ").Append(StoreIfPaymentDeclines).Append("\n");
+            sb.Append("  StorefrontHostName: ").Append(StorefrontHostName).Append("\n");
             sb.Append("  TaxCounty: ").Append(TaxCounty).Append("\n");
             sb.Append("  TaxExempt: ").Append(TaxExempt).Append("\n");
             sb.Append("  Transaction: ").Append(Transaction).Append("\n");
@@ -1547,6 +1557,11 @@ namespace com.ultracart.admin.v2.Model
                     this.StoreIfPaymentDeclines.Equals(input.StoreIfPaymentDeclines))
                 ) && 
                 (
+                    this.StorefrontHostName == input.StorefrontHostName ||
+                    (this.StorefrontHostName != null &&
+                    this.StorefrontHostName.Equals(input.StorefrontHostName))
+                ) && 
+                (
                     this.TaxCounty == input.TaxCounty ||
                     (this.TaxCounty != null &&
                     this.TaxCounty.Equals(input.TaxCounty))
@@ -1751,6 +1766,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.StoreCompleted.GetHashCode();
                 if (this.StoreIfPaymentDeclines != null)
                     hashCode = hashCode * 59 + this.StoreIfPaymentDeclines.GetHashCode();
+                if (this.StorefrontHostName != null)
+                    hashCode = hashCode * 59 + this.StorefrontHostName.GetHashCode();
                 if (this.TaxCounty != null)
                     hashCode = hashCode * 59 + this.TaxCounty.GetHashCode();
                 if (this.TaxExempt != null)

@@ -36,7 +36,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="customerProfileAttachmentOid">Attachment identifier.</param>
         /// <param name="description">Description.</param>
         /// <param name="fileName">File name.</param>
-        /// <param name="mimeType">Mime typoe.</param>
+        /// <param name="mimeType">Mime type.</param>
         /// <param name="uploadDts">Upload date/time.</param>
         public CustomerAttachment(int? customerProfileAttachmentOid = default(int?), string description = default(string), string fileName = default(string), string mimeType = default(string), string uploadDts = default(string))
         {
@@ -69,9 +69,9 @@ namespace com.ultracart.admin.v2.Model
         public string FileName { get; set; }
 
         /// <summary>
-        /// Mime typoe
+        /// Mime type
         /// </summary>
-        /// <value>Mime typoe</value>
+        /// <value>Mime type</value>
         [DataMember(Name="mime_type", EmitDefaultValue=false)]
         public string MimeType { get; set; }
 

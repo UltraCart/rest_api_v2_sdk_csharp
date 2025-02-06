@@ -76,6 +76,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="featured">featured.</param>
         /// <param name="helperfulNoVotes">helperfulNoVotes.</param>
         /// <param name="helpfulYesVotes">helpfulYesVotes.</param>
+        /// <param name="merchantReply">Merchant Reply (set to an empty string to remove).</param>
         /// <param name="orderId">orderId.</param>
         /// <param name="overall">overall.</param>
         /// <param name="ratingName1">Rating Name 1.</param>
@@ -109,12 +110,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="storeFeedback">Store Feedback.</param>
         /// <param name="submittedDts">Date/time of review submission.</param>
         /// <param name="title">Title.</param>
-        public ItemReview(int? customerProfileOid = default(int?), bool? featured = default(bool?), int? helperfulNoVotes = default(int?), int? helpfulYesVotes = default(int?), string orderId = default(string), decimal? overall = default(decimal?), string ratingName1 = default(string), string ratingName10 = default(string), string ratingName2 = default(string), string ratingName3 = default(string), string ratingName4 = default(string), string ratingName5 = default(string), string ratingName6 = default(string), string ratingName7 = default(string), string ratingName8 = default(string), string ratingName9 = default(string), decimal? ratingScore1 = default(decimal?), decimal? ratingScore10 = default(decimal?), decimal? ratingScore2 = default(decimal?), decimal? ratingScore3 = default(decimal?), decimal? ratingScore4 = default(decimal?), decimal? ratingScore5 = default(decimal?), decimal? ratingScore6 = default(decimal?), decimal? ratingScore7 = default(decimal?), decimal? ratingScore8 = default(decimal?), decimal? ratingScore9 = default(decimal?), int? recommendStoreToFriend = default(int?), bool? recommendToFriend = default(bool?), string review = default(string), int? reviewOid = default(int?), string reviewedNickname = default(string), string reviewerEmail = default(string), string reviewerLocation = default(string), StatusEnum? status = default(StatusEnum?), string storeFeedback = default(string), string submittedDts = default(string), string title = default(string))
+        public ItemReview(int? customerProfileOid = default(int?), bool? featured = default(bool?), int? helperfulNoVotes = default(int?), int? helpfulYesVotes = default(int?), string merchantReply = default(string), string orderId = default(string), decimal? overall = default(decimal?), string ratingName1 = default(string), string ratingName10 = default(string), string ratingName2 = default(string), string ratingName3 = default(string), string ratingName4 = default(string), string ratingName5 = default(string), string ratingName6 = default(string), string ratingName7 = default(string), string ratingName8 = default(string), string ratingName9 = default(string), decimal? ratingScore1 = default(decimal?), decimal? ratingScore10 = default(decimal?), decimal? ratingScore2 = default(decimal?), decimal? ratingScore3 = default(decimal?), decimal? ratingScore4 = default(decimal?), decimal? ratingScore5 = default(decimal?), decimal? ratingScore6 = default(decimal?), decimal? ratingScore7 = default(decimal?), decimal? ratingScore8 = default(decimal?), decimal? ratingScore9 = default(decimal?), int? recommendStoreToFriend = default(int?), bool? recommendToFriend = default(bool?), string review = default(string), int? reviewOid = default(int?), string reviewedNickname = default(string), string reviewerEmail = default(string), string reviewerLocation = default(string), StatusEnum? status = default(StatusEnum?), string storeFeedback = default(string), string submittedDts = default(string), string title = default(string))
         {
             this.CustomerProfileOid = customerProfileOid;
             this.Featured = featured;
             this.HelperfulNoVotes = helperfulNoVotes;
             this.HelpfulYesVotes = helpfulYesVotes;
+            this.MerchantReply = merchantReply;
             this.OrderId = orderId;
             this.Overall = overall;
             this.RatingName1 = ratingName1;
@@ -174,6 +176,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="helpful_yes_votes", EmitDefaultValue=false)]
         public int? HelpfulYesVotes { get; set; }
+
+        /// <summary>
+        /// Merchant Reply (set to an empty string to remove)
+        /// </summary>
+        /// <value>Merchant Reply (set to an empty string to remove)</value>
+        [DataMember(Name="merchant_reply", EmitDefaultValue=false)]
+        public string MerchantReply { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderId
@@ -397,6 +406,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Featured: ").Append(Featured).Append("\n");
             sb.Append("  HelperfulNoVotes: ").Append(HelperfulNoVotes).Append("\n");
             sb.Append("  HelpfulYesVotes: ").Append(HelpfulYesVotes).Append("\n");
+            sb.Append("  MerchantReply: ").Append(MerchantReply).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  Overall: ").Append(Overall).Append("\n");
             sb.Append("  RatingName1: ").Append(RatingName1).Append("\n");
@@ -483,6 +493,11 @@ namespace com.ultracart.admin.v2.Model
                     this.HelpfulYesVotes == input.HelpfulYesVotes ||
                     (this.HelpfulYesVotes != null &&
                     this.HelpfulYesVotes.Equals(input.HelpfulYesVotes))
+                ) && 
+                (
+                    this.MerchantReply == input.MerchantReply ||
+                    (this.MerchantReply != null &&
+                    this.MerchantReply.Equals(input.MerchantReply))
                 ) && 
                 (
                     this.OrderId == input.OrderId ||
@@ -668,6 +683,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.HelperfulNoVotes.GetHashCode();
                 if (this.HelpfulYesVotes != null)
                     hashCode = hashCode * 59 + this.HelpfulYesVotes.GetHashCode();
+                if (this.MerchantReply != null)
+                    hashCode = hashCode * 59 + this.MerchantReply.GetHashCode();
                 if (this.OrderId != null)
                     hashCode = hashCode * 59 + this.OrderId.GetHashCode();
                 if (this.Overall != null)
@@ -745,6 +762,12 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // MerchantReply (string) maxLength
+            if(this.MerchantReply != null && this.MerchantReply.Length > 10000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantReply, length must be less than 10000.", new [] { "MerchantReply" });
+            }
+
             // RatingName1 (string) maxLength
             if(this.RatingName1 != null && this.RatingName1.Length > 100)
             {

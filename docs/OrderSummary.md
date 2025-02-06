@@ -4,7 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ActualFulfillment** | [**Currency**](Currency.md) |  | [optional] 
+**ActualOtherCost** | [**Currency**](Currency.md) |  | [optional] 
 **ActualPaymentProcessing** | [**Currency**](Currency.md) |  | [optional] 
+**ActualProfit** | [**Currency**](Currency.md) |  | [optional] 
+**ActualProfitAnalyzed** | **bool?** | Actual profit has been analyzed | [optional] 
+**ActualProfitReview** | **bool?** | Actual profit needs review | [optional] 
 **ActualShipping** | [**Currency**](Currency.md) |  | [optional] 
 **ArbitraryShippingHandlingTotal** | [**Currency**](Currency.md) |  | [optional] 
 **HealthBenefitCardAmount** | [**Currency**](Currency.md) |  | [optional] 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **CustomerProfileAttachmentOid** | **int?** | Attachment identifier | [optional] 
 **Description** | **string** | Description | [optional] 
 **FileName** | **string** | File name | [optional] 
-**MimeType** | **string** | Mime typoe | [optional] 
+**MimeType** | **string** | Mime type | [optional] 
 **UploadDts** | **string** | Upload date/time | [optional] 
 
 

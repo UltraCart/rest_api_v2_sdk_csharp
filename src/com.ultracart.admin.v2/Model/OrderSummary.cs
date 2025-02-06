@@ -34,7 +34,11 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="OrderSummary" /> class.
         /// </summary>
         /// <param name="actualFulfillment">actualFulfillment.</param>
+        /// <param name="actualOtherCost">actualOtherCost.</param>
         /// <param name="actualPaymentProcessing">actualPaymentProcessing.</param>
+        /// <param name="actualProfit">actualProfit.</param>
+        /// <param name="actualProfitAnalyzed">Actual profit has been analyzed.</param>
+        /// <param name="actualProfitReview">Actual profit needs review.</param>
         /// <param name="actualShipping">actualShipping.</param>
         /// <param name="arbitraryShippingHandlingTotal">arbitraryShippingHandlingTotal.</param>
         /// <param name="healthBenefitCardAmount">healthBenefitCardAmount.</param>
@@ -55,10 +59,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="taxableSubtotalDiscount">taxableSubtotalDiscount.</param>
         /// <param name="total">total.</param>
         /// <param name="totalRefunded">totalRefunded.</param>
-        public OrderSummary(Currency actualFulfillment = default(Currency), Currency actualPaymentProcessing = default(Currency), Currency actualShipping = default(Currency), Currency arbitraryShippingHandlingTotal = default(Currency), Currency healthBenefitCardAmount = default(Currency), Currency healthBenefitCardRefunded = default(Currency), Currency internalGiftCertificateAmount = default(Currency), Currency internalGiftCertificateRefunded = default(Currency), Currency otherRefunded = default(Currency), Currency shippingHandlingRefunded = default(Currency), Currency shippingHandlingTotal = default(Currency), Currency shippingHandlingTotalDiscount = default(Currency), Currency subtotal = default(Currency), Currency subtotalDiscount = default(Currency), Currency subtotalDiscountRefunded = default(Currency), Currency subtotalRefunded = default(Currency), Currency tax = default(Currency), Currency taxRefunded = default(Currency), Currency taxableSubtotal = default(Currency), Currency taxableSubtotalDiscount = default(Currency), Currency total = default(Currency), Currency totalRefunded = default(Currency))
+        public OrderSummary(Currency actualFulfillment = default(Currency), Currency actualOtherCost = default(Currency), Currency actualPaymentProcessing = default(Currency), Currency actualProfit = default(Currency), bool? actualProfitAnalyzed = default(bool?), bool? actualProfitReview = default(bool?), Currency actualShipping = default(Currency), Currency arbitraryShippingHandlingTotal = default(Currency), Currency healthBenefitCardAmount = default(Currency), Currency healthBenefitCardRefunded = default(Currency), Currency internalGiftCertificateAmount = default(Currency), Currency internalGiftCertificateRefunded = default(Currency), Currency otherRefunded = default(Currency), Currency shippingHandlingRefunded = default(Currency), Currency shippingHandlingTotal = default(Currency), Currency shippingHandlingTotalDiscount = default(Currency), Currency subtotal = default(Currency), Currency subtotalDiscount = default(Currency), Currency subtotalDiscountRefunded = default(Currency), Currency subtotalRefunded = default(Currency), Currency tax = default(Currency), Currency taxRefunded = default(Currency), Currency taxableSubtotal = default(Currency), Currency taxableSubtotalDiscount = default(Currency), Currency total = default(Currency), Currency totalRefunded = default(Currency))
         {
             this.ActualFulfillment = actualFulfillment;
+            this.ActualOtherCost = actualOtherCost;
             this.ActualPaymentProcessing = actualPaymentProcessing;
+            this.ActualProfit = actualProfit;
+            this.ActualProfitAnalyzed = actualProfitAnalyzed;
+            this.ActualProfitReview = actualProfitReview;
             this.ActualShipping = actualShipping;
             this.ArbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
             this.HealthBenefitCardAmount = healthBenefitCardAmount;
@@ -88,10 +96,36 @@ namespace com.ultracart.admin.v2.Model
         public Currency ActualFulfillment { get; set; }
 
         /// <summary>
+        /// Gets or Sets ActualOtherCost
+        /// </summary>
+        [DataMember(Name="actual_other_cost", EmitDefaultValue=false)]
+        public Currency ActualOtherCost { get; set; }
+
+        /// <summary>
         /// Gets or Sets ActualPaymentProcessing
         /// </summary>
         [DataMember(Name="actual_payment_processing", EmitDefaultValue=false)]
         public Currency ActualPaymentProcessing { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ActualProfit
+        /// </summary>
+        [DataMember(Name="actual_profit", EmitDefaultValue=false)]
+        public Currency ActualProfit { get; set; }
+
+        /// <summary>
+        /// Actual profit has been analyzed
+        /// </summary>
+        /// <value>Actual profit has been analyzed</value>
+        [DataMember(Name="actual_profit_analyzed", EmitDefaultValue=false)]
+        public bool? ActualProfitAnalyzed { get; set; }
+
+        /// <summary>
+        /// Actual profit needs review
+        /// </summary>
+        /// <value>Actual profit needs review</value>
+        [DataMember(Name="actual_profit_review", EmitDefaultValue=false)]
+        public bool? ActualProfitReview { get; set; }
 
         /// <summary>
         /// Gets or Sets ActualShipping
@@ -222,7 +256,11 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class OrderSummary {\n");
             sb.Append("  ActualFulfillment: ").Append(ActualFulfillment).Append("\n");
+            sb.Append("  ActualOtherCost: ").Append(ActualOtherCost).Append("\n");
             sb.Append("  ActualPaymentProcessing: ").Append(ActualPaymentProcessing).Append("\n");
+            sb.Append("  ActualProfit: ").Append(ActualProfit).Append("\n");
+            sb.Append("  ActualProfitAnalyzed: ").Append(ActualProfitAnalyzed).Append("\n");
+            sb.Append("  ActualProfitReview: ").Append(ActualProfitReview).Append("\n");
             sb.Append("  ActualShipping: ").Append(ActualShipping).Append("\n");
             sb.Append("  ArbitraryShippingHandlingTotal: ").Append(ArbitraryShippingHandlingTotal).Append("\n");
             sb.Append("  HealthBenefitCardAmount: ").Append(HealthBenefitCardAmount).Append("\n");
@@ -283,9 +321,29 @@ namespace com.ultracart.admin.v2.Model
                     this.ActualFulfillment.Equals(input.ActualFulfillment))
                 ) && 
                 (
+                    this.ActualOtherCost == input.ActualOtherCost ||
+                    (this.ActualOtherCost != null &&
+                    this.ActualOtherCost.Equals(input.ActualOtherCost))
+                ) && 
+                (
                     this.ActualPaymentProcessing == input.ActualPaymentProcessing ||
                     (this.ActualPaymentProcessing != null &&
                     this.ActualPaymentProcessing.Equals(input.ActualPaymentProcessing))
+                ) && 
+                (
+                    this.ActualProfit == input.ActualProfit ||
+                    (this.ActualProfit != null &&
+                    this.ActualProfit.Equals(input.ActualProfit))
+                ) && 
+                (
+                    this.ActualProfitAnalyzed == input.ActualProfitAnalyzed ||
+                    (this.ActualProfitAnalyzed != null &&
+                    this.ActualProfitAnalyzed.Equals(input.ActualProfitAnalyzed))
+                ) && 
+                (
+                    this.ActualProfitReview == input.ActualProfitReview ||
+                    (this.ActualProfitReview != null &&
+                    this.ActualProfitReview.Equals(input.ActualProfitReview))
                 ) && 
                 (
                     this.ActualShipping == input.ActualShipping ||
@@ -400,8 +458,16 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.ActualFulfillment != null)
                     hashCode = hashCode * 59 + this.ActualFulfillment.GetHashCode();
+                if (this.ActualOtherCost != null)
+                    hashCode = hashCode * 59 + this.ActualOtherCost.GetHashCode();
                 if (this.ActualPaymentProcessing != null)
                     hashCode = hashCode * 59 + this.ActualPaymentProcessing.GetHashCode();
+                if (this.ActualProfit != null)
+                    hashCode = hashCode * 59 + this.ActualProfit.GetHashCode();
+                if (this.ActualProfitAnalyzed != null)
+                    hashCode = hashCode * 59 + this.ActualProfitAnalyzed.GetHashCode();
+                if (this.ActualProfitReview != null)
+                    hashCode = hashCode * 59 + this.ActualProfitReview.GetHashCode();
                 if (this.ActualShipping != null)
                     hashCode = hashCode * 59 + this.ActualShipping.GetHashCode();
                 if (this.ArbitraryShippingHandlingTotal != null)

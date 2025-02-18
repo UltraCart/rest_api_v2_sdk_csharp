@@ -34,13 +34,15 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ItemPaymentProcessing" /> class.
         /// </summary>
         /// <param name="blockPrepaid">True if prepaid cards should be blocked from buying this item.</param>
+        /// <param name="blockRefunds">True if this item should block any refund attempts.</param>
         /// <param name="creditCardTransactionType">Credit card transaction type.</param>
         /// <param name="noRealtimeCharge">True if no real-time charge should be performed on this item..</param>
         /// <param name="paymentMethodValidity">Payment method validity.</param>
         /// <param name="rotatingTransactionGatewayCodes">Rotating transaction gateway codes.</param>
-        public ItemPaymentProcessing(bool? blockPrepaid = default(bool?), string creditCardTransactionType = default(string), bool? noRealtimeCharge = default(bool?), List<string> paymentMethodValidity = default(List<string>), List<string> rotatingTransactionGatewayCodes = default(List<string>))
+        public ItemPaymentProcessing(bool? blockPrepaid = default(bool?), bool? blockRefunds = default(bool?), string creditCardTransactionType = default(string), bool? noRealtimeCharge = default(bool?), List<string> paymentMethodValidity = default(List<string>), List<string> rotatingTransactionGatewayCodes = default(List<string>))
         {
             this.BlockPrepaid = blockPrepaid;
+            this.BlockRefunds = blockRefunds;
             this.CreditCardTransactionType = creditCardTransactionType;
             this.NoRealtimeCharge = noRealtimeCharge;
             this.PaymentMethodValidity = paymentMethodValidity;
@@ -53,6 +55,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if prepaid cards should be blocked from buying this item</value>
         [DataMember(Name="block_prepaid", EmitDefaultValue=false)]
         public bool? BlockPrepaid { get; set; }
+
+        /// <summary>
+        /// True if this item should block any refund attempts
+        /// </summary>
+        /// <value>True if this item should block any refund attempts</value>
+        [DataMember(Name="block_refunds", EmitDefaultValue=false)]
+        public bool? BlockRefunds { get; set; }
 
         /// <summary>
         /// Credit card transaction type
@@ -91,6 +100,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ItemPaymentProcessing {\n");
             sb.Append("  BlockPrepaid: ").Append(BlockPrepaid).Append("\n");
+            sb.Append("  BlockRefunds: ").Append(BlockRefunds).Append("\n");
             sb.Append("  CreditCardTransactionType: ").Append(CreditCardTransactionType).Append("\n");
             sb.Append("  NoRealtimeCharge: ").Append(NoRealtimeCharge).Append("\n");
             sb.Append("  PaymentMethodValidity: ").Append(PaymentMethodValidity).Append("\n");
@@ -135,6 +145,11 @@ namespace com.ultracart.admin.v2.Model
                     this.BlockPrepaid.Equals(input.BlockPrepaid))
                 ) && 
                 (
+                    this.BlockRefunds == input.BlockRefunds ||
+                    (this.BlockRefunds != null &&
+                    this.BlockRefunds.Equals(input.BlockRefunds))
+                ) && 
+                (
                     this.CreditCardTransactionType == input.CreditCardTransactionType ||
                     (this.CreditCardTransactionType != null &&
                     this.CreditCardTransactionType.Equals(input.CreditCardTransactionType))
@@ -167,6 +182,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.BlockPrepaid != null)
                     hashCode = hashCode * 59 + this.BlockPrepaid.GetHashCode();
+                if (this.BlockRefunds != null)
+                    hashCode = hashCode * 59 + this.BlockRefunds.GetHashCode();
                 if (this.CreditCardTransactionType != null)
                     hashCode = hashCode * 59 + this.CreditCardTransactionType.GetHashCode();
                 if (this.NoRealtimeCharge != null)

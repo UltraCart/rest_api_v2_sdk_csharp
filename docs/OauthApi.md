@@ -38,7 +38,7 @@ namespace Example
             var clientId = clientId_example;  // string | The OAuth application client_id.
             var grantType = grantType_example;  // string | Type of grant
             var code = code_example;  // string | Authorization code received back from the browser redirect (optional) 
-            var redirectUri = redirectUri_example;  // string | The URI that you redirect the browser to to start the authorization process (optional) 
+            var redirectUri = redirectUri_example;  // string | The URI that you redirect the browser to start the authorization process (optional) 
             var refreshToken = refreshToken_example;  // string | The refresh token received during the original grant_type=authorization_code that can be used to return a new access token (optional) 
 
             try
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
  **clientId** | **string**| The OAuth application client_id. | 
  **grantType** | **string**| Type of grant | 
  **code** | **string**| Authorization code received back from the browser redirect | [optional] 
- **redirectUri** | **string**| The URI that you redirect the browser to to start the authorization process | [optional] 
+ **redirectUri** | **string**| The URI that you redirect the browser to start the authorization process | [optional] 
  **refreshToken** | **string**| The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token | [optional] 
 
 ### Return type

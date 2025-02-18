@@ -56,8 +56,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>OrdersResponse</returns>
-        OrdersResponse GeneratePackingSlip (string distributionCenterCode, string orderId);
+        /// <returns>OrderPackingSlipResponse</returns>
+        OrderPackingSlipResponse GeneratePackingSlip (string distributionCenterCode, string orderId);
 
         /// <summary>
         /// Generate a packing slip for this order for the given distribution center.
@@ -68,13 +68,13 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>ApiResponse of OrdersResponse</returns>
-        ApiResponse<OrdersResponse> GeneratePackingSlipWithHttpInfo (string distributionCenterCode, string orderId);
+        /// <returns>ApiResponse of OrderPackingSlipResponse</returns>
+        ApiResponse<OrderPackingSlipResponse> GeneratePackingSlipWithHttpInfo (string distributionCenterCode, string orderId);
         /// <summary>
         /// Retrieve orders queued up for this distribution center.
         /// </summary>
         /// <remarks>
-        /// Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+        /// Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
@@ -85,7 +85,7 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve orders queued up for this distribution center.
         /// </summary>
         /// <remarks>
-        /// Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+        /// Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
@@ -190,8 +190,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>Task of OrdersResponse</returns>
-        System.Threading.Tasks.Task<OrdersResponse> GeneratePackingSlipAsync (string distributionCenterCode, string orderId);
+        /// <returns>Task of OrderPackingSlipResponse</returns>
+        System.Threading.Tasks.Task<OrderPackingSlipResponse> GeneratePackingSlipAsync (string distributionCenterCode, string orderId);
 
         /// <summary>
         /// Generate a packing slip for this order for the given distribution center.
@@ -202,13 +202,13 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GeneratePackingSlipAsyncWithHttpInfo (string distributionCenterCode, string orderId);
+        /// <returns>Task of ApiResponse (OrderPackingSlipResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderPackingSlipResponse>> GeneratePackingSlipAsyncWithHttpInfo (string distributionCenterCode, string orderId);
         /// <summary>
         /// Retrieve orders queued up for this distribution center.
         /// </summary>
         /// <remarks>
-        /// Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+        /// Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
@@ -219,7 +219,7 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve orders queued up for this distribution center.
         /// </summary>
         /// <remarks>
-        /// Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+        /// Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
@@ -584,10 +584,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>OrdersResponse</returns>
-        public OrdersResponse GeneratePackingSlip (string distributionCenterCode, string orderId)
+        /// <returns>OrderPackingSlipResponse</returns>
+        public OrderPackingSlipResponse GeneratePackingSlip (string distributionCenterCode, string orderId)
         {
-             ApiResponse<OrdersResponse> localVarResponse = GeneratePackingSlipWithHttpInfo(distributionCenterCode, orderId);
+             ApiResponse<OrderPackingSlipResponse> localVarResponse = GeneratePackingSlipWithHttpInfo(distributionCenterCode, orderId);
              return localVarResponse.Data;
         }
 
@@ -597,8 +597,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>ApiResponse of OrdersResponse</returns>
-        public ApiResponse< OrdersResponse > GeneratePackingSlipWithHttpInfo (string distributionCenterCode, string orderId)
+        /// <returns>ApiResponse of OrderPackingSlipResponse</returns>
+        public ApiResponse< OrderPackingSlipResponse > GeneratePackingSlipWithHttpInfo (string distributionCenterCode, string orderId)
         {
             // verify the required parameter 'distributionCenterCode' is set
             if (distributionCenterCode == null)
@@ -657,9 +657,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+            return new ApiResponse<OrderPackingSlipResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+                (OrderPackingSlipResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderPackingSlipResponse)));
         }
 
         /// <summary>
@@ -668,10 +668,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>Task of OrdersResponse</returns>
-        public async System.Threading.Tasks.Task<OrdersResponse> GeneratePackingSlipAsync (string distributionCenterCode, string orderId)
+        /// <returns>Task of OrderPackingSlipResponse</returns>
+        public async System.Threading.Tasks.Task<OrderPackingSlipResponse> GeneratePackingSlipAsync (string distributionCenterCode, string orderId)
         {
-             ApiResponse<OrdersResponse> localVarResponse = await GeneratePackingSlipAsyncWithHttpInfo(distributionCenterCode, orderId);
+             ApiResponse<OrderPackingSlipResponse> localVarResponse = await GeneratePackingSlipAsyncWithHttpInfo(distributionCenterCode, orderId);
              return localVarResponse.Data;
 
         }
@@ -682,8 +682,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GeneratePackingSlipAsyncWithHttpInfo (string distributionCenterCode, string orderId)
+        /// <returns>Task of ApiResponse (OrderPackingSlipResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderPackingSlipResponse>> GeneratePackingSlipAsyncWithHttpInfo (string distributionCenterCode, string orderId)
         {
             // verify the required parameter 'distributionCenterCode' is set
             if (distributionCenterCode == null)
@@ -742,13 +742,13 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+            return new ApiResponse<OrderPackingSlipResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+                (OrderPackingSlipResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderPackingSlipResponse)));
         }
 
         /// <summary>
-        /// Retrieve orders queued up for this distribution center. Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+        /// Retrieve orders queued up for this distribution center. Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
@@ -760,7 +760,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve orders queued up for this distribution center. Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+        /// Retrieve orders queued up for this distribution center. Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
@@ -826,7 +826,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve orders queued up for this distribution center. Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+        /// Retrieve orders queued up for this distribution center. Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
@@ -839,7 +839,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve orders queued up for this distribution center. Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+        /// Retrieve orders queued up for this distribution center. Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You&#39;ll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>

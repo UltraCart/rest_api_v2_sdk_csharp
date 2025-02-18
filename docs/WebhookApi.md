@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 <a name="resendevent"></a>
 # **ResendEvent**
-> WebhookSampleRequestResponse ResendEvent (int? webhookOid, string eventName)
+> WebhookReflowResponse ResendEvent (int? webhookOid, string eventName)
 
 Resend events to the webhook endpoint.
 
@@ -458,7 +458,7 @@ namespace Example
             try
             {
                 // Resend events to the webhook endpoint.
-                WebhookSampleRequestResponse result = apiInstance.ResendEvent(webhookOid, eventName);
+                WebhookReflowResponse result = apiInstance.ResendEvent(webhookOid, eventName);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WebhookSampleRequestResponse**](WebhookSampleRequestResponse.md)
+[**WebhookReflowResponse**](WebhookReflowResponse.md)
 
 ### Authorization
 

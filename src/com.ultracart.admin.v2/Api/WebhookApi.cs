@@ -175,8 +175,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
         /// <param name="eventName">The event to reflow.</param>
-        /// <returns>WebhookSampleRequestResponse</returns>
-        WebhookSampleRequestResponse ResendEvent (int? webhookOid, string eventName);
+        /// <returns>WebhookReflowResponse</returns>
+        WebhookReflowResponse ResendEvent (int? webhookOid, string eventName);
 
         /// <summary>
         /// Resend events to the webhook endpoint.
@@ -187,8 +187,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
         /// <param name="eventName">The event to reflow.</param>
-        /// <returns>ApiResponse of WebhookSampleRequestResponse</returns>
-        ApiResponse<WebhookSampleRequestResponse> ResendEventWithHttpInfo (int? webhookOid, string eventName);
+        /// <returns>ApiResponse of WebhookReflowResponse</returns>
+        ApiResponse<WebhookReflowResponse> ResendEventWithHttpInfo (int? webhookOid, string eventName);
         /// <summary>
         /// Update a webhook
         /// </summary>
@@ -367,8 +367,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
         /// <param name="eventName">The event to reflow.</param>
-        /// <returns>Task of WebhookSampleRequestResponse</returns>
-        System.Threading.Tasks.Task<WebhookSampleRequestResponse> ResendEventAsync (int? webhookOid, string eventName);
+        /// <returns>Task of WebhookReflowResponse</returns>
+        System.Threading.Tasks.Task<WebhookReflowResponse> ResendEventAsync (int? webhookOid, string eventName);
 
         /// <summary>
         /// Resend events to the webhook endpoint.
@@ -379,8 +379,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
         /// <param name="eventName">The event to reflow.</param>
-        /// <returns>Task of ApiResponse (WebhookSampleRequestResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebhookSampleRequestResponse>> ResendEventAsyncWithHttpInfo (int? webhookOid, string eventName);
+        /// <returns>Task of ApiResponse (WebhookReflowResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WebhookReflowResponse>> ResendEventAsyncWithHttpInfo (int? webhookOid, string eventName);
         /// <summary>
         /// Update a webhook
         /// </summary>
@@ -1535,10 +1535,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
         /// <param name="eventName">The event to reflow.</param>
-        /// <returns>WebhookSampleRequestResponse</returns>
-        public WebhookSampleRequestResponse ResendEvent (int? webhookOid, string eventName)
+        /// <returns>WebhookReflowResponse</returns>
+        public WebhookReflowResponse ResendEvent (int? webhookOid, string eventName)
         {
-             ApiResponse<WebhookSampleRequestResponse> localVarResponse = ResendEventWithHttpInfo(webhookOid, eventName);
+             ApiResponse<WebhookReflowResponse> localVarResponse = ResendEventWithHttpInfo(webhookOid, eventName);
              return localVarResponse.Data;
         }
 
@@ -1548,8 +1548,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
         /// <param name="eventName">The event to reflow.</param>
-        /// <returns>ApiResponse of WebhookSampleRequestResponse</returns>
-        public ApiResponse< WebhookSampleRequestResponse > ResendEventWithHttpInfo (int? webhookOid, string eventName)
+        /// <returns>ApiResponse of WebhookReflowResponse</returns>
+        public ApiResponse< WebhookReflowResponse > ResendEventWithHttpInfo (int? webhookOid, string eventName)
         {
             // verify the required parameter 'webhookOid' is set
             if (webhookOid == null)
@@ -1608,9 +1608,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<WebhookSampleRequestResponse>(localVarStatusCode,
+            return new ApiResponse<WebhookReflowResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (WebhookSampleRequestResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookSampleRequestResponse)));
+                (WebhookReflowResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookReflowResponse)));
         }
 
         /// <summary>
@@ -1619,10 +1619,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
         /// <param name="eventName">The event to reflow.</param>
-        /// <returns>Task of WebhookSampleRequestResponse</returns>
-        public async System.Threading.Tasks.Task<WebhookSampleRequestResponse> ResendEventAsync (int? webhookOid, string eventName)
+        /// <returns>Task of WebhookReflowResponse</returns>
+        public async System.Threading.Tasks.Task<WebhookReflowResponse> ResendEventAsync (int? webhookOid, string eventName)
         {
-             ApiResponse<WebhookSampleRequestResponse> localVarResponse = await ResendEventAsyncWithHttpInfo(webhookOid, eventName);
+             ApiResponse<WebhookReflowResponse> localVarResponse = await ResendEventAsyncWithHttpInfo(webhookOid, eventName);
              return localVarResponse.Data;
 
         }
@@ -1633,8 +1633,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
         /// <param name="eventName">The event to reflow.</param>
-        /// <returns>Task of ApiResponse (WebhookSampleRequestResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebhookSampleRequestResponse>> ResendEventAsyncWithHttpInfo (int? webhookOid, string eventName)
+        /// <returns>Task of ApiResponse (WebhookReflowResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<WebhookReflowResponse>> ResendEventAsyncWithHttpInfo (int? webhookOid, string eventName)
         {
             // verify the required parameter 'webhookOid' is set
             if (webhookOid == null)
@@ -1693,9 +1693,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<WebhookSampleRequestResponse>(localVarStatusCode,
+            return new ApiResponse<WebhookReflowResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (WebhookSampleRequestResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookSampleRequestResponse)));
+                (WebhookReflowResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookReflowResponse)));
         }
 
         /// <summary>

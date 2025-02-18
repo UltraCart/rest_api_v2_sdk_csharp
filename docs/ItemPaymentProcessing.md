@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BlockPrepaid** | **bool** | True if prepaid cards should be blocked from buying this item | [optional] 
+**BlockRefunds** | **bool** | True if this item should block any refund attempts | [optional] 
 **CreditCardTransactionType** | **string** | Credit card transaction type | [optional] 
 **NoRealtimeCharge** | **bool** | True if no real-time charge should be performed on this item. | [optional] 
 **PaymentMethodValidity** | **List&lt;string&gt;** | Payment method validity | [optional] 

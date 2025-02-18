@@ -35,7 +35,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="grantType">Type of grant</param>
         /// <param name="code">Authorization code received back from the browser redirect (optional)</param>
-        /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
+        /// <param name="redirectUri">The URI that you redirect the browser to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <returns>OauthTokenResponse</returns>
         OauthTokenResponse OauthAccessToken (string clientId, string grantType, string code = default(string), string redirectUri = default(string), string refreshToken = default(string));
@@ -50,7 +50,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="grantType">Type of grant</param>
         /// <param name="code">Authorization code received back from the browser redirect (optional)</param>
-        /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
+        /// <param name="redirectUri">The URI that you redirect the browser to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <returns>ApiResponse of OauthTokenResponse</returns>
         ApiResponse<OauthTokenResponse> OauthAccessTokenWithHttpInfo (string clientId, string grantType, string code = default(string), string redirectUri = default(string), string refreshToken = default(string));
@@ -89,7 +89,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="grantType">Type of grant</param>
         /// <param name="code">Authorization code received back from the browser redirect (optional)</param>
-        /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
+        /// <param name="redirectUri">The URI that you redirect the browser to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of OauthTokenResponse</returns>
@@ -105,7 +105,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="grantType">Type of grant</param>
         /// <param name="code">Authorization code received back from the browser redirect (optional)</param>
-        /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
+        /// <param name="redirectUri">The URI that you redirect the browser to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OauthTokenResponse)</returns>
@@ -271,7 +271,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="grantType">Type of grant</param>
         /// <param name="code">Authorization code received back from the browser redirect (optional)</param>
-        /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
+        /// <param name="redirectUri">The URI that you redirect the browser to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <returns>OauthTokenResponse</returns>
         public OauthTokenResponse OauthAccessToken (string clientId, string grantType, string code = default(string), string redirectUri = default(string), string refreshToken = default(string))
@@ -287,7 +287,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="grantType">Type of grant</param>
         /// <param name="code">Authorization code received back from the browser redirect (optional)</param>
-        /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
+        /// <param name="redirectUri">The URI that you redirect the browser to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <returns>ApiResponse of OauthTokenResponse</returns>
         public ApiResponse<OauthTokenResponse> OauthAccessTokenWithHttpInfo (string clientId, string grantType, string code = default(string), string redirectUri = default(string), string refreshToken = default(string))
@@ -369,7 +369,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="grantType">Type of grant</param>
         /// <param name="code">Authorization code received back from the browser redirect (optional)</param>
-        /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
+        /// <param name="redirectUri">The URI that you redirect the browser to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of OauthTokenResponse</returns>
@@ -387,7 +387,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="grantType">Type of grant</param>
         /// <param name="code">Authorization code received back from the browser redirect (optional)</param>
-        /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
+        /// <param name="redirectUri">The URI that you redirect the browser to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OauthTokenResponse)</returns>

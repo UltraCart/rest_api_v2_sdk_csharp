@@ -25,26 +25,26 @@ using OpenAPIDateConverter = com.ultracart.admin.v2.Client.OpenAPIDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// WebhookSampleRequestResponse
+    /// WebhookReflowResponse
     /// </summary>
     [DataContract]
-    public partial class WebhookSampleRequestResponse :  IEquatable<WebhookSampleRequestResponse>, IValidatableObject
+    public partial class WebhookReflowResponse :  IEquatable<WebhookReflowResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="WebhookSampleRequestResponse" /> class.
+        /// Initializes a new instance of the <see cref="WebhookReflowResponse" /> class.
         /// </summary>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
+        /// <param name="reflow">reflow.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        /// <param name="webhookSampleRequest">webhookSampleRequest.</param>
-        public WebhookSampleRequestResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), Warning warning = default(Warning), WebhookSampleRequest webhookSampleRequest = default(WebhookSampleRequest))
+        public WebhookReflowResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), WebhookReflow reflow = default(WebhookReflow), bool success = default(bool), Warning warning = default(Warning))
         {
             this.Error = error;
             this.Metadata = metadata;
+            this.Reflow = reflow;
             this.Success = success;
             this.Warning = warning;
-            this.WebhookSampleRequest = webhookSampleRequest;
         }
 
         /// <summary>
@@ -60,6 +60,12 @@ namespace com.ultracart.admin.v2.Model
         public ResponseMetadata Metadata { get; set; }
 
         /// <summary>
+        /// Gets or Sets Reflow
+        /// </summary>
+        [DataMember(Name="reflow", EmitDefaultValue=false)]
+        public WebhookReflow Reflow { get; set; }
+
+        /// <summary>
         /// Indicates if API call was successful
         /// </summary>
         /// <value>Indicates if API call was successful</value>
@@ -73,24 +79,18 @@ namespace com.ultracart.admin.v2.Model
         public Warning Warning { get; set; }
 
         /// <summary>
-        /// Gets or Sets WebhookSampleRequest
-        /// </summary>
-        [DataMember(Name="webhook_sample_request", EmitDefaultValue=false)]
-        public WebhookSampleRequest WebhookSampleRequest { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class WebhookSampleRequestResponse {\n");
+            sb.Append("class WebhookReflowResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  Reflow: ").Append(Reflow).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
-            sb.Append("  WebhookSampleRequest: ").Append(WebhookSampleRequest).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,15 +111,15 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as WebhookSampleRequestResponse);
+            return this.Equals(input as WebhookReflowResponse);
         }
 
         /// <summary>
-        /// Returns true if WebhookSampleRequestResponse instances are equal
+        /// Returns true if WebhookReflowResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of WebhookSampleRequestResponse to be compared</param>
+        /// <param name="input">Instance of WebhookReflowResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(WebhookSampleRequestResponse input)
+        public bool Equals(WebhookReflowResponse input)
         {
             if (input == null)
                 return false;
@@ -136,6 +136,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Metadata.Equals(input.Metadata))
                 ) && 
                 (
+                    this.Reflow == input.Reflow ||
+                    (this.Reflow != null &&
+                    this.Reflow.Equals(input.Reflow))
+                ) && 
+                (
                     this.Success == input.Success ||
                     (this.Success != null &&
                     this.Success.Equals(input.Success))
@@ -144,11 +149,6 @@ namespace com.ultracart.admin.v2.Model
                     this.Warning == input.Warning ||
                     (this.Warning != null &&
                     this.Warning.Equals(input.Warning))
-                ) && 
-                (
-                    this.WebhookSampleRequest == input.WebhookSampleRequest ||
-                    (this.WebhookSampleRequest != null &&
-                    this.WebhookSampleRequest.Equals(input.WebhookSampleRequest))
                 );
         }
 
@@ -165,12 +165,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
+                if (this.Reflow != null)
+                    hashCode = hashCode * 59 + this.Reflow.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Warning != null)
                     hashCode = hashCode * 59 + this.Warning.GetHashCode();
-                if (this.WebhookSampleRequest != null)
-                    hashCode = hashCode * 59 + this.WebhookSampleRequest.GetHashCode();
                 return hashCode;
             }
         }

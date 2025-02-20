@@ -284,6 +284,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="paymentMethodAccountingCode">Payment method QuickBooks code.</param>
         /// <param name="paymentMethodDepositToAccount">Payment method QuickBooks deposit account.</param>
         /// <param name="paymentStatus">Payment status.</param>
+        /// <param name="paypal">paypal.</param>
         /// <param name="purchaseOrder">purchaseOrder.</param>
         /// <param name="rotatingTransactionGatewayCode">Rotating transaction gateway code used to process this order.</param>
         /// <param name="surcharge">surcharge.</param>
@@ -292,7 +293,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="surchargeTransactionPercentage">Surcharge transaction percentage.</param>
         /// <param name="testOrder">True if this is a test order.</param>
         /// <param name="transactions">Transactions associated with processing this payment.</param>
-        public OrderPayment(OrderPaymentCheck check = default(OrderPaymentCheck), OrderPaymentCreditCard creditCard = default(OrderPaymentCreditCard), OrderPaymentECheck echeck = default(OrderPaymentECheck), OrderPaymentHealthBenefitCard healthBenefitCard = default(OrderPaymentHealthBenefitCard), bool? holdForFraudReview = default(bool?), OrderPaymentInsurance insurance = default(OrderPaymentInsurance), string paymentDts = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string paymentMethodAccountingCode = default(string), string paymentMethodDepositToAccount = default(string), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), OrderPaymentPurchaseOrder purchaseOrder = default(OrderPaymentPurchaseOrder), string rotatingTransactionGatewayCode = default(string), Currency surcharge = default(Currency), string surchargeAccountingCode = default(string), decimal? surchargeTransactionFee = default(decimal?), decimal? surchargeTransactionPercentage = default(decimal?), bool? testOrder = default(bool?), List<OrderPaymentTransaction> transactions = default(List<OrderPaymentTransaction>))
+        public OrderPayment(OrderPaymentCheck check = default(OrderPaymentCheck), OrderPaymentCreditCard creditCard = default(OrderPaymentCreditCard), OrderPaymentECheck echeck = default(OrderPaymentECheck), OrderPaymentHealthBenefitCard healthBenefitCard = default(OrderPaymentHealthBenefitCard), bool? holdForFraudReview = default(bool?), OrderPaymentInsurance insurance = default(OrderPaymentInsurance), string paymentDts = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string paymentMethodAccountingCode = default(string), string paymentMethodDepositToAccount = default(string), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), OrderPaymentPayPal paypal = default(OrderPaymentPayPal), OrderPaymentPurchaseOrder purchaseOrder = default(OrderPaymentPurchaseOrder), string rotatingTransactionGatewayCode = default(string), Currency surcharge = default(Currency), string surchargeAccountingCode = default(string), decimal? surchargeTransactionFee = default(decimal?), decimal? surchargeTransactionPercentage = default(decimal?), bool? testOrder = default(bool?), List<OrderPaymentTransaction> transactions = default(List<OrderPaymentTransaction>))
         {
             this.Check = check;
             this.CreditCard = creditCard;
@@ -305,6 +306,7 @@ namespace com.ultracart.admin.v2.Model
             this.PaymentMethodAccountingCode = paymentMethodAccountingCode;
             this.PaymentMethodDepositToAccount = paymentMethodDepositToAccount;
             this.PaymentStatus = paymentStatus;
+            this.Paypal = paypal;
             this.PurchaseOrder = purchaseOrder;
             this.RotatingTransactionGatewayCode = rotatingTransactionGatewayCode;
             this.Surcharge = surcharge;
@@ -374,6 +376,12 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="payment_method_deposit_to_account", EmitDefaultValue=false)]
         public string PaymentMethodDepositToAccount { get; set; }
 
+
+        /// <summary>
+        /// Gets or Sets Paypal
+        /// </summary>
+        [DataMember(Name="paypal", EmitDefaultValue=false)]
+        public OrderPaymentPayPal Paypal { get; set; }
 
         /// <summary>
         /// Gets or Sets PurchaseOrder
@@ -448,6 +456,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PaymentMethodAccountingCode: ").Append(PaymentMethodAccountingCode).Append("\n");
             sb.Append("  PaymentMethodDepositToAccount: ").Append(PaymentMethodDepositToAccount).Append("\n");
             sb.Append("  PaymentStatus: ").Append(PaymentStatus).Append("\n");
+            sb.Append("  Paypal: ").Append(Paypal).Append("\n");
             sb.Append("  PurchaseOrder: ").Append(PurchaseOrder).Append("\n");
             sb.Append("  RotatingTransactionGatewayCode: ").Append(RotatingTransactionGatewayCode).Append("\n");
             sb.Append("  Surcharge: ").Append(Surcharge).Append("\n");
@@ -546,6 +555,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PaymentStatus.Equals(input.PaymentStatus))
                 ) && 
                 (
+                    this.Paypal == input.Paypal ||
+                    (this.Paypal != null &&
+                    this.Paypal.Equals(input.Paypal))
+                ) && 
+                (
                     this.PurchaseOrder == input.PurchaseOrder ||
                     (this.PurchaseOrder != null &&
                     this.PurchaseOrder.Equals(input.PurchaseOrder))
@@ -618,6 +632,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PaymentMethodDepositToAccount.GetHashCode();
                 if (this.PaymentStatus != null)
                     hashCode = hashCode * 59 + this.PaymentStatus.GetHashCode();
+                if (this.Paypal != null)
+                    hashCode = hashCode * 59 + this.Paypal.GetHashCode();
                 if (this.PurchaseOrder != null)
                     hashCode = hashCode * 59 + this.PurchaseOrder.GetHashCode();
                 if (this.RotatingTransactionGatewayCode != null)

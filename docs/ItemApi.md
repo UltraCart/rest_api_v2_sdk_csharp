@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetDigitalItem**](ItemApi.md#getdigitalitem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 [**GetDigitalItems**](ItemApi.md#getdigitalitems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 [**GetDigitalItemsByExternalId**](ItemApi.md#getdigitalitemsbyexternalid) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+[**GetInventorySnapshot**](ItemApi.md#getinventorysnapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**GetItem**](ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**GetItemByMerchantItemId**](ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**GetItems**](ItemApi.md#getitems) | **GET** /item/items | Retrieve items
@@ -21,7 +22,6 @@ Method | HTTP request | Description
 [**InsertItem**](ItemApi.md#insertitem) | **POST** /item/items | Create an item
 [**InsertReview**](ItemApi.md#insertreview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**InsertUpdateItemContentAttribute**](ItemApi.md#insertupdateitemcontentattribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
-[**RestItemInventorySnapshotResponse**](ItemApi.md#restiteminventorysnapshotresponse) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**UpdateDigitalItem**](ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**UpdateItem**](ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**UpdateItems**](ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
@@ -422,6 +422,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemDigitalItemsResponse**](ItemDigitalItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getinventorysnapshot"></a>
+# **GetInventorySnapshot**
+> ItemInventorySnapshotResponse GetInventorySnapshot ()
+
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
+
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetInventorySnapshotExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+
+            try
+            {
+                // Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
+                ItemInventorySnapshotResponse result = apiInstance.GetInventorySnapshot();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.GetInventorySnapshot: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ItemInventorySnapshotResponse**](ItemInventorySnapshotResponse.md)
 
 ### Authorization
 
@@ -1197,68 +1259,6 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="restiteminventorysnapshotresponse"></a>
-# **RestItemInventorySnapshotResponse**
-> ItemInventorySnapshotResponse RestItemInventorySnapshotResponse ()
-
-Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
-
-Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
-### Example
-```csharp
-
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class RestItemInventorySnapshotResponseExample
-    {
-        public void main()
-        {
-
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new ItemApi(simpleKey);
-
-
-            try
-            {
-                // Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
-                ItemInventorySnapshotResponse result = apiInstance.RestItemInventorySnapshotResponse();
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ItemApi.RestItemInventorySnapshotResponse: " + e.Message );
-            }
-        }
-    }
-}
-
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ItemInventorySnapshotResponse**](ItemInventorySnapshotResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

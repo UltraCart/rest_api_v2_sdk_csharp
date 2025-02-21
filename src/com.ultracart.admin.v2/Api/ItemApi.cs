@@ -164,6 +164,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ItemDigitalItemsResponse</returns>
         ApiResponse<ItemDigitalItemsResponse> GetDigitalItemsByExternalIdWithHttpInfo (string externalId);
         /// <summary>
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ItemInventorySnapshotResponse</returns>
+        ItemInventorySnapshotResponse GetInventorySnapshot ();
+
+        /// <summary>
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ItemInventorySnapshotResponse</returns>
+        ApiResponse<ItemInventorySnapshotResponse> GetInventorySnapshotWithHttpInfo ();
+        /// <summary>
         /// Retrieve an item
         /// </summary>
         /// <remarks>
@@ -436,25 +455,6 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="itemAttribute">Item content attribute to upsert</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> InsertUpdateItemContentAttributeWithHttpInfo (int merchantItemOid, ItemContentAttribute itemAttribute);
-        /// <summary>
-        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
-        /// </summary>
-        /// <remarks>
-        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ItemInventorySnapshotResponse</returns>
-        ItemInventorySnapshotResponse RestItemInventorySnapshotResponse ();
-
-        /// <summary>
-        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
-        /// </summary>
-        /// <remarks>
-        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ItemInventorySnapshotResponse</returns>
-        ApiResponse<ItemInventorySnapshotResponse> RestItemInventorySnapshotResponseWithHttpInfo ();
         /// <summary>
         /// Updates a file within the digital library
         /// </summary>
@@ -730,6 +730,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ItemDigitalItemsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemsResponse>> GetDigitalItemsByExternalIdWithHttpInfoAsync (string externalId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemInventorySnapshotResponse</returns>
+        System.Threading.Tasks.Task<ItemInventorySnapshotResponse> GetInventorySnapshotAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemInventorySnapshotResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemInventorySnapshotResponse>> GetInventorySnapshotWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve an item
         /// </summary>
@@ -1025,27 +1046,6 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> InsertUpdateItemContentAttributeWithHttpInfoAsync (int merchantItemOid, ItemContentAttribute itemAttribute, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
-        /// </summary>
-        /// <remarks>
-        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ItemInventorySnapshotResponse</returns>
-        System.Threading.Tasks.Task<ItemInventorySnapshotResponse> RestItemInventorySnapshotResponseAsync (CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
-        /// </summary>
-        /// <remarks>
-        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (ItemInventorySnapshotResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ItemInventorySnapshotResponse>> RestItemInventorySnapshotResponseWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates a file within the digital library
         /// </summary>
@@ -2278,6 +2278,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ItemDigitalItemsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ItemDigitalItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ItemInventorySnapshotResponse</returns>
+        public ItemInventorySnapshotResponse GetInventorySnapshot ()
+        {
+             ApiResponse<ItemInventorySnapshotResponse> localVarResponse = GetInventorySnapshotWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ItemInventorySnapshotResponse</returns>
+        public ApiResponse<ItemInventorySnapshotResponse> GetInventorySnapshotWithHttpInfo ()
+        {
+
+            var localVarPath = "/item/items/inventory_snapshot";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetInventorySnapshot", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemInventorySnapshotResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemInventorySnapshotResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemInventorySnapshotResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemInventorySnapshotResponse</returns>
+        public async System.Threading.Tasks.Task<ItemInventorySnapshotResponse> GetInventorySnapshotAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ItemInventorySnapshotResponse> localVarResponse = await GetInventorySnapshotWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemInventorySnapshotResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemInventorySnapshotResponse>> GetInventorySnapshotWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/item/items/inventory_snapshot";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetInventorySnapshot", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemInventorySnapshotResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemInventorySnapshotResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemInventorySnapshotResponse)));
         }
 
         /// <summary>
@@ -4193,151 +4338,6 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
-        }
-
-        /// <summary>
-        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ItemInventorySnapshotResponse</returns>
-        public ItemInventorySnapshotResponse RestItemInventorySnapshotResponse ()
-        {
-             ApiResponse<ItemInventorySnapshotResponse> localVarResponse = RestItemInventorySnapshotResponseWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ItemInventorySnapshotResponse</returns>
-        public ApiResponse<ItemInventorySnapshotResponse> RestItemInventorySnapshotResponseWithHttpInfo ()
-        {
-
-            var localVarPath = "/item/items/inventory_snapshot";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("RestItemInventorySnapshotResponse", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ItemInventorySnapshotResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ItemInventorySnapshotResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemInventorySnapshotResponse)));
-        }
-
-        /// <summary>
-        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ItemInventorySnapshotResponse</returns>
-        public async System.Threading.Tasks.Task<ItemInventorySnapshotResponse> RestItemInventorySnapshotResponseAsync (CancellationToken cancellationToken = default(CancellationToken))
-        {
-             ApiResponse<ItemInventorySnapshotResponse> localVarResponse = await RestItemInventorySnapshotResponseWithHttpInfoAsync(cancellationToken);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (ItemInventorySnapshotResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ItemInventorySnapshotResponse>> RestItemInventorySnapshotResponseWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var localVarPath = "/item/items/inventory_snapshot";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("RestItemInventorySnapshotResponse", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ItemInventorySnapshotResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ItemInventorySnapshotResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemInventorySnapshotResponse)));
         }
 
         /// <summary>

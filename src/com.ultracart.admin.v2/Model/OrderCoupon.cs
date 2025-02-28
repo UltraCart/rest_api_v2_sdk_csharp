@@ -37,7 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="automaticallyApplied">Whether or not the coupon was automatically applied to the order.</param>
         /// <param name="baseCouponCode">Coupon code configured by the merchant.  Will differ if the customer used a one time coupon code generated off this base coupon.</param>
         /// <param name="couponCode">Coupon code entered by the customer.</param>
-        /// <param name="hdieFromCustomer">True if this coupon is hidde from the customer.</param>
+        /// <param name="hdieFromCustomer">True if this coupon is hide from the customer.</param>
         public OrderCoupon(string accountingCode = default(string), bool? automaticallyApplied = default(bool?), string baseCouponCode = default(string), string couponCode = default(string), bool? hdieFromCustomer = default(bool?))
         {
             this.AccountingCode = accountingCode;
@@ -76,9 +76,9 @@ namespace com.ultracart.admin.v2.Model
         public string CouponCode { get; set; }
 
         /// <summary>
-        /// True if this coupon is hidde from the customer
+        /// True if this coupon is hide from the customer
         /// </summary>
-        /// <value>True if this coupon is hidde from the customer</value>
+        /// <value>True if this coupon is hide from the customer</value>
         [DataMember(Name="hdie_from_customer", EmitDefaultValue=false)]
         public bool? HdieFromCustomer { get; set; }
 

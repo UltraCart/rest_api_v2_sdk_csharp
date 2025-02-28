@@ -34,7 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ItemPaymentProcessing" /> class.
         /// </summary>
         /// <param name="blockPrepaid">True if prepaid cards should be blocked from buying this item.</param>
-        /// <param name="blockRefunds">True if this item should block any refund attempts.</param>
+        /// <param name="blockRefunds">True if this item should block any refund attempts, set to false otherwise, null value will not update the field.</param>
         /// <param name="creditCardTransactionType">Credit card transaction type.</param>
         /// <param name="noRealtimeCharge">True if no real-time charge should be performed on this item..</param>
         /// <param name="paymentMethodValidity">Payment method validity.</param>
@@ -57,9 +57,9 @@ namespace com.ultracart.admin.v2.Model
         public bool BlockPrepaid { get; set; }
 
         /// <summary>
-        /// True if this item should block any refund attempts
+        /// True if this item should block any refund attempts, set to false otherwise, null value will not update the field
         /// </summary>
-        /// <value>True if this item should block any refund attempts</value>
+        /// <value>True if this item should block any refund attempts, set to false otherwise, null value will not update the field</value>
         [DataMember(Name="block_refunds", EmitDefaultValue=false)]
         public bool BlockRefunds { get; set; }
 

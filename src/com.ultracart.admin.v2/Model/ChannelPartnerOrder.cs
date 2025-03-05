@@ -266,7 +266,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="taxExempt">If true this order is marked as being tax exempt.</param>
         /// <param name="transaction">transaction.</param>
         /// <param name="treatWarningsAsErrors">If true all warnings are considered errors, this is true by default.</param>
-        public ChannelPartnerOrder(string advertisingSource = default(string), string affiliateId = default(string), string affiliateSubId = default(string), decimal arbitraryShippingHandlingTotal = default(decimal), decimal arbitraryTax = default(decimal), decimal arbitraryTaxRate = default(decimal), decimal arbitraryTaxableSubtotal = default(decimal), bool associateWithCustomerProfileIfPresent = default(bool), bool autoApprovePurchaseOrder = default(bool), string billtoAddress1 = default(string), string billtoAddress2 = default(string), string billtoCity = default(string), string billtoCompany = default(string), string billtoCountryCode = default(string), string billtoDayPhone = default(string), string billtoEveningPhone = default(string), string billtoFirstName = default(string), string billtoLastName = default(string), string billtoPostalCode = default(string), string billtoStateRegion = default(string), string billtoTitle = default(string), string ccEmail = default(string), string channelPartnerOrderId = default(string), bool considerRecurring = default(bool), List<string> coupons = default(List<string>), decimal creditCardAuthorizationAmount = default(decimal), string creditCardAuthorizationDts = default(string), string creditCardAuthorizationNumber = default(string), int creditCardExpirationMonth = default(int), int creditCardExpirationYear = default(int), string creditCardType = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string deliveryDate = default(string), string echeckBankAbaCode = default(string), string echeckBankAccountName = default(string), string echeckBankAccountNumber = default(string), EcheckBankAccountTypeEnum? echeckBankAccountType = default(EcheckBankAccountTypeEnum?), string echeckBankName = default(string), EcheckBankOwnerTypeEnum? echeckBankOwnerType = default(EcheckBankOwnerTypeEnum?), string echeckCustomerTaxId = default(string), string echeckDriversLicenseDob = default(string), string echeckDriversLicenseNumber = default(string), string echeckDriversLicenseState = default(string), string email = default(string), bool gift = default(bool), string giftEmail = default(string), string giftMessage = default(string), string hostedFieldsCardToken = default(string), string hostedFieldsCvvToken = default(string), string insuranceApplicationId = default(string), string insuranceClaimId = default(string), string ipAddress = default(string), List<ChannelPartnerOrderItem> items = default(List<ChannelPartnerOrderItem>), bool leastCostRoute = default(bool), List<string> leastCostRouteShippingMethods = default(List<string>), bool mailingListOptIn = default(bool), bool noRealtimePaymentProcessing = default(bool), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string purchaseOrderNumber = default(string), string rotatingTransactionGatewayCode = default(string), string salesRepCode = default(string), string screenBrandingThemeCode = default(string), string shipOnDate = default(string), bool shipToResidential = default(bool), string shippingMethod = default(string), string shiptoAddress1 = default(string), string shiptoAddress2 = default(string), string shiptoCity = default(string), string shiptoCompany = default(string), string shiptoCountryCode = default(string), string shiptoDayPhone = default(string), string shiptoEveningPhone = default(string), string shiptoFirstName = default(string), string shiptoLastName = default(string), string shiptoPostalCode = default(string), string shiptoStateRegion = default(string), string shiptoTitle = default(string), bool skipPaymentProcessing = default(bool), string specialInstructions = default(string), bool storeCompleted = default(bool), bool storeIfPaymentDeclines = default(bool), string storefrontHostName = default(string), string taxCounty = default(string), bool taxExempt = default(bool), ChannelPartnerOrderTransaction transaction = default(ChannelPartnerOrderTransaction), bool treatWarningsAsErrors = default(bool))
+        /// <param name="usePriorPaymentInformationFromOrderId">An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order..</param>
+        public ChannelPartnerOrder(string advertisingSource = default(string), string affiliateId = default(string), string affiliateSubId = default(string), decimal arbitraryShippingHandlingTotal = default(decimal), decimal arbitraryTax = default(decimal), decimal arbitraryTaxRate = default(decimal), decimal arbitraryTaxableSubtotal = default(decimal), bool associateWithCustomerProfileIfPresent = default(bool), bool autoApprovePurchaseOrder = default(bool), string billtoAddress1 = default(string), string billtoAddress2 = default(string), string billtoCity = default(string), string billtoCompany = default(string), string billtoCountryCode = default(string), string billtoDayPhone = default(string), string billtoEveningPhone = default(string), string billtoFirstName = default(string), string billtoLastName = default(string), string billtoPostalCode = default(string), string billtoStateRegion = default(string), string billtoTitle = default(string), string ccEmail = default(string), string channelPartnerOrderId = default(string), bool considerRecurring = default(bool), List<string> coupons = default(List<string>), decimal creditCardAuthorizationAmount = default(decimal), string creditCardAuthorizationDts = default(string), string creditCardAuthorizationNumber = default(string), int creditCardExpirationMonth = default(int), int creditCardExpirationYear = default(int), string creditCardType = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string deliveryDate = default(string), string echeckBankAbaCode = default(string), string echeckBankAccountName = default(string), string echeckBankAccountNumber = default(string), EcheckBankAccountTypeEnum? echeckBankAccountType = default(EcheckBankAccountTypeEnum?), string echeckBankName = default(string), EcheckBankOwnerTypeEnum? echeckBankOwnerType = default(EcheckBankOwnerTypeEnum?), string echeckCustomerTaxId = default(string), string echeckDriversLicenseDob = default(string), string echeckDriversLicenseNumber = default(string), string echeckDriversLicenseState = default(string), string email = default(string), bool gift = default(bool), string giftEmail = default(string), string giftMessage = default(string), string hostedFieldsCardToken = default(string), string hostedFieldsCvvToken = default(string), string insuranceApplicationId = default(string), string insuranceClaimId = default(string), string ipAddress = default(string), List<ChannelPartnerOrderItem> items = default(List<ChannelPartnerOrderItem>), bool leastCostRoute = default(bool), List<string> leastCostRouteShippingMethods = default(List<string>), bool mailingListOptIn = default(bool), bool noRealtimePaymentProcessing = default(bool), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string purchaseOrderNumber = default(string), string rotatingTransactionGatewayCode = default(string), string salesRepCode = default(string), string screenBrandingThemeCode = default(string), string shipOnDate = default(string), bool shipToResidential = default(bool), string shippingMethod = default(string), string shiptoAddress1 = default(string), string shiptoAddress2 = default(string), string shiptoCity = default(string), string shiptoCompany = default(string), string shiptoCountryCode = default(string), string shiptoDayPhone = default(string), string shiptoEveningPhone = default(string), string shiptoFirstName = default(string), string shiptoLastName = default(string), string shiptoPostalCode = default(string), string shiptoStateRegion = default(string), string shiptoTitle = default(string), bool skipPaymentProcessing = default(bool), string specialInstructions = default(string), bool storeCompleted = default(bool), bool storeIfPaymentDeclines = default(bool), string storefrontHostName = default(string), string taxCounty = default(string), bool taxExempt = default(bool), ChannelPartnerOrderTransaction transaction = default(ChannelPartnerOrderTransaction), bool treatWarningsAsErrors = default(bool), string usePriorPaymentInformationFromOrderId = default(string))
         {
             this.AdvertisingSource = advertisingSource;
             this.AffiliateId = affiliateId;
@@ -360,6 +361,7 @@ namespace com.ultracart.admin.v2.Model
             this.TaxExempt = taxExempt;
             this.Transaction = transaction;
             this.TreatWarningsAsErrors = treatWarningsAsErrors;
+            this.UsePriorPaymentInformationFromOrderId = usePriorPaymentInformationFromOrderId;
         }
 
         /// <summary>
@@ -988,6 +990,13 @@ namespace com.ultracart.admin.v2.Model
         public bool TreatWarningsAsErrors { get; set; }
 
         /// <summary>
+        /// An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order.
+        /// </summary>
+        /// <value>An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order.</value>
+        [DataMember(Name="use_prior_payment_information_from_order_id", EmitDefaultValue=false)]
+        public string UsePriorPaymentInformationFromOrderId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -1087,6 +1096,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  TaxExempt: ").Append(TaxExempt).Append("\n");
             sb.Append("  Transaction: ").Append(Transaction).Append("\n");
             sb.Append("  TreatWarningsAsErrors: ").Append(TreatWarningsAsErrors).Append("\n");
+            sb.Append("  UsePriorPaymentInformationFromOrderId: ").Append(UsePriorPaymentInformationFromOrderId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -1583,6 +1593,11 @@ namespace com.ultracart.admin.v2.Model
                     this.TreatWarningsAsErrors == input.TreatWarningsAsErrors ||
                     (this.TreatWarningsAsErrors != null &&
                     this.TreatWarningsAsErrors.Equals(input.TreatWarningsAsErrors))
+                ) && 
+                (
+                    this.UsePriorPaymentInformationFromOrderId == input.UsePriorPaymentInformationFromOrderId ||
+                    (this.UsePriorPaymentInformationFromOrderId != null &&
+                    this.UsePriorPaymentInformationFromOrderId.Equals(input.UsePriorPaymentInformationFromOrderId))
                 );
         }
 
@@ -1779,6 +1794,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Transaction.GetHashCode();
                 if (this.TreatWarningsAsErrors != null)
                     hashCode = hashCode * 59 + this.TreatWarningsAsErrors.GetHashCode();
+                if (this.UsePriorPaymentInformationFromOrderId != null)
+                    hashCode = hashCode * 59 + this.UsePriorPaymentInformationFromOrderId.GetHashCode();
                 return hashCode;
             }
         }

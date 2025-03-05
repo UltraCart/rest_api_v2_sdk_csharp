@@ -95,6 +95,7 @@ Name | Type | Description | Notes
 **TaxExempt** | **bool?** | If true this order is marked as being tax exempt | [optional] 
 **Transaction** | [**ChannelPartnerOrderTransaction**](ChannelPartnerOrderTransaction.md) |  | [optional] 
 **TreatWarningsAsErrors** | **bool?** | If true all warnings are considered errors, this is true by default | [optional] 
+**UsePriorPaymentInformationFromOrderId** | **string** | An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order. | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -803,7 +803,7 @@ namespace Example
             var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
             var autoOrderOid = 56;  // int | The auto order oid to pause.
-            var autoOrder = new AutoOrder(); // AutoOrder | Auto orders to pause
+            var autoOrder = new AutoOrder(); // AutoOrder | Auto order to pause
             var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
@@ -829,7 +829,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **autoOrderOid** | **int**| The auto order oid to pause. | 
- **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto orders to pause | 
+ **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to pause | 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type

@@ -265,7 +265,7 @@ namespace com.ultracart.admin.v2.Api
         /// Completely pause an auto order 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoOrder">Auto orders to pause</param>
+        /// <param name="autoOrder">Auto order to pause</param>
         /// <param name="autoOrderOid">The auto order oid to pause.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>AutoOrderResponse</returns>
@@ -278,7 +278,7 @@ namespace com.ultracart.admin.v2.Api
         /// Completely pause an auto order 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoOrder">Auto orders to pause</param>
+        /// <param name="autoOrder">Auto order to pause</param>
         /// <param name="autoOrderOid">The auto order oid to pause.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of AutoOrderResponse</returns>
@@ -580,7 +580,7 @@ namespace com.ultracart.admin.v2.Api
         /// Completely pause an auto order 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoOrder">Auto orders to pause</param>
+        /// <param name="autoOrder">Auto order to pause</param>
         /// <param name="autoOrderOid">The auto order oid to pause.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of AutoOrderResponse</returns>
@@ -593,7 +593,7 @@ namespace com.ultracart.admin.v2.Api
         /// Completely pause an auto order 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoOrder">Auto orders to pause</param>
+        /// <param name="autoOrder">Auto order to pause</param>
         /// <param name="autoOrderOid">The auto order oid to pause.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
@@ -2259,7 +2259,7 @@ namespace com.ultracart.admin.v2.Api
         /// Pause auto order Completely pause an auto order 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoOrder">Auto orders to pause</param>
+        /// <param name="autoOrder">Auto order to pause</param>
         /// <param name="autoOrderOid">The auto order oid to pause.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>AutoOrderResponse</returns>
@@ -2273,7 +2273,7 @@ namespace com.ultracart.admin.v2.Api
         /// Pause auto order Completely pause an auto order 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoOrder">Auto orders to pause</param>
+        /// <param name="autoOrder">Auto order to pause</param>
         /// <param name="autoOrderOid">The auto order oid to pause.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of AutoOrderResponse</returns>
@@ -2353,7 +2353,7 @@ namespace com.ultracart.admin.v2.Api
         /// Pause auto order Completely pause an auto order 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoOrder">Auto orders to pause</param>
+        /// <param name="autoOrder">Auto order to pause</param>
         /// <param name="autoOrderOid">The auto order oid to pause.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of AutoOrderResponse</returns>
@@ -2368,7 +2368,7 @@ namespace com.ultracart.admin.v2.Api
         /// Pause auto order Completely pause an auto order 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoOrder">Auto orders to pause</param>
+        /// <param name="autoOrder">Auto order to pause</param>
         /// <param name="autoOrderOid">The auto order oid to pause.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>

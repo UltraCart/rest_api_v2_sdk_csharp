@@ -638,7 +638,7 @@ namespace Example
             const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
             var api = new AutoOrderApi(simpleKey);
 
-            var autoOrder = new AutoOrder(); // AutoOrder | Auto orders to pause
+            var autoOrder = new AutoOrder(); // AutoOrder | Auto order to pause
             var autoOrderOid = 56;  // int? | The auto order oid to pause.
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
@@ -662,7 +662,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto orders to pause | 
+ **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to pause | 
  **autoOrderOid** | **int?**| The auto order oid to pause. | 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 

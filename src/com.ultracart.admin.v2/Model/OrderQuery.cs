@@ -218,7 +218,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum GooglePay for value:  Google Pay
             /// </summary>
             [EnumMember(Value = " Google Pay")]
-            GooglePay = 18
+            GooglePay = 18,
+
+            /// <summary>
+            /// Enum PayPalFastlane for value: PayPal Fastlane
+            /// </summary>
+            [EnumMember(Value = "PayPal Fastlane")]
+            PayPalFastlane = 19
 
         }
 

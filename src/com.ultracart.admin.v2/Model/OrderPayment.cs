@@ -198,7 +198,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum HealthBenefitCard for value: Health Benefit Card
             /// </summary>
             [EnumMember(Value = "Health Benefit Card")]
-            HealthBenefitCard = 27
+            HealthBenefitCard = 27,
+            
+            /// <summary>
+            /// Enum PayPalFastlane for value: PayPal Fastlane
+            /// </summary>
+            [EnumMember(Value = "PayPal Fastlane")]
+            PayPalFastlane = 28
         }
 
         /// <summary>

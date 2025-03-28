@@ -162,7 +162,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum WireTransfer for value: Wire Transfer
             /// </summary>
             [EnumMember(Value = "Wire Transfer")]
-            WireTransfer = 12
+            WireTransfer = 12,
+            
+            /// <summary>
+            /// Enum PayPalFastlane for value: PayPal Fastlane
+            /// </summary>
+            [EnumMember(Value = "PayPal Fastlane")]
+            PayPalFastlane = 13
         }
 
         /// <summary>

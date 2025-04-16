@@ -149,15 +149,17 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="autoOrderSchedule">The frequency schedule for this item if this item is part of an auto (recurring) order.</param>
         /// <param name="merchantItemId">Item ID.</param>
         /// <param name="options">Item options.</param>
+        /// <param name="properties">Properties.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="upsell">True if this item was an upsell item..</param>
-        public ChannelPartnerOrderItem(decimal? arbitraryUnitCost = default(decimal?), string autoOrderLastRebillDts = default(string), AutoOrderScheduleEnum? autoOrderSchedule = default(AutoOrderScheduleEnum?), string merchantItemId = default(string), List<ChannelPartnerOrderItemOption> options = default(List<ChannelPartnerOrderItemOption>), decimal? quantity = default(decimal?), bool? upsell = default(bool?))
+        public ChannelPartnerOrderItem(decimal? arbitraryUnitCost = default(decimal?), string autoOrderLastRebillDts = default(string), AutoOrderScheduleEnum? autoOrderSchedule = default(AutoOrderScheduleEnum?), string merchantItemId = default(string), List<ChannelPartnerOrderItemOption> options = default(List<ChannelPartnerOrderItemOption>), List<ChannelPartnerOrderItemProperty> properties = default(List<ChannelPartnerOrderItemProperty>), decimal? quantity = default(decimal?), bool? upsell = default(bool?))
         {
             this.ArbitraryUnitCost = arbitraryUnitCost;
             this.AutoOrderLastRebillDts = autoOrderLastRebillDts;
             this.AutoOrderSchedule = autoOrderSchedule;
             this.MerchantItemId = merchantItemId;
             this.Options = options;
+            this.Properties = properties;
             this.Quantity = quantity;
             this.Upsell = upsell;
         }
@@ -192,6 +194,13 @@ namespace com.ultracart.admin.v2.Model
         public List<ChannelPartnerOrderItemOption> Options { get; set; }
 
         /// <summary>
+        /// Properties
+        /// </summary>
+        /// <value>Properties</value>
+        [DataMember(Name="properties", EmitDefaultValue=false)]
+        public List<ChannelPartnerOrderItemProperty> Properties { get; set; }
+
+        /// <summary>
         /// Quantity
         /// </summary>
         /// <value>Quantity</value>
@@ -218,6 +227,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AutoOrderSchedule: ").Append(AutoOrderSchedule).Append("\n");
             sb.Append("  MerchantItemId: ").Append(MerchantItemId).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  Upsell: ").Append(Upsell).Append("\n");
             sb.Append("}\n");
@@ -280,6 +290,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Options.SequenceEqual(input.Options)
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.Quantity == input.Quantity ||
                     (this.Quantity != null &&
                     this.Quantity.Equals(input.Quantity))
@@ -310,6 +325,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MerchantItemId.GetHashCode();
                 if (this.Options != null)
                     hashCode = hashCode * 59 + this.Options.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 if (this.Quantity != null)
                     hashCode = hashCode * 59 + this.Quantity.GetHashCode();
                 if (this.Upsell != null)

@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**IsRefundableOrder**](OrderApi.md#isrefundableorder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 [**ProcessPayment**](OrderApi.md#processpayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 [**RefundOrder**](OrderApi.md#refundorder) | **PUT** /order/orders/{order_id}/refund | Refund an order
+[**RefundOrderCompletely**](OrderApi.md#refundordercompletely) | **PUT** /order/orders/{order_id}/refund_completely | Refund an order completely
 [**Replacement**](OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 [**ResendReceipt**](OrderApi.md#resendreceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 [**ResendShipmentConfirmation**](OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
@@ -1926,6 +1927,110 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RefundOrderCompletely
+
+> OrderResponse RefundOrderCompletely (string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string autoOrderCancelReason = null, string refundReason = null, string rejectReason = null)
+
+Refund an order completely
+
+Perform a refund operation on an order and then update the order if successful. 
+
+### Example
+
+```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+using System.Collections.Generic;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class RefundOrderCompletelyExample
+    {
+        public static void Main()
+        {
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+
+            var orderId = "orderId_example";  // string | The order id to refund.
+            var rejectAfterRefund = false;  // bool? | Reject order after refund (optional)  (default to false)
+            var skipCustomerNotification = false;  // bool? | Skip customer email notification (optional)  (default to false)
+            var autoOrderCancel = false;  // bool? | Cancel associated auto orders (optional)  (default to false)
+            var manualRefund = false;  // bool? | Consider a manual refund done externally (optional)  (default to false)
+            var reverseAffiliateTransactions = true;  // bool? | Reverse affiliate transactions (optional)  (default to true)
+            var issueStoreCredit = false;  // bool? | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional)  (default to false)
+            var autoOrderCancelReason = "autoOrderCancelReason_example";  // string | Reason for auto orders cancellation (optional) 
+            var refundReason = "refundReason_example";  // string | Reason for refund (optional) 
+            var rejectReason = "rejectReason_example";  // string | Reason for reject (optional) 
+
+            try
+            {
+                // Refund an order completely
+                OrderResponse result = apiInstance.RefundOrderCompletely(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling OrderApi.RefundOrderCompletely: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **string**| The order id to refund. | 
+ **rejectAfterRefund** | **bool?**| Reject order after refund | [optional] [default to false]
+ **skipCustomerNotification** | **bool?**| Skip customer email notification | [optional] [default to false]
+ **autoOrderCancel** | **bool?**| Cancel associated auto orders | [optional] [default to false]
+ **manualRefund** | **bool?**| Consider a manual refund done externally | [optional] [default to false]
+ **reverseAffiliateTransactions** | **bool?**| Reverse affiliate transactions | [optional] [default to true]
+ **issueStoreCredit** | **bool?**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] [default to false]
+ **autoOrderCancelReason** | **string**| Reason for auto orders cancellation | [optional] 
+ **refundReason** | **string**| Reason for refund | [optional] 
+ **rejectReason** | **string**| Reason for reject | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

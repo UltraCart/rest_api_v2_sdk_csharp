@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **AutoOrderSchedule** | **string** | The frequency schedule for this item if this item is part of an auto (recurring) order | [optional] 
 **MerchantItemId** | **string** | Item ID | [optional] 
 **Options** | [**List&lt;ChannelPartnerOrderItemOption&gt;**](ChannelPartnerOrderItemOption.md) | Item options | [optional] 
+**Properties** | [**List&lt;ChannelPartnerOrderItemProperty&gt;**](ChannelPartnerOrderItemProperty.md) | Properties | [optional] 
 **Quantity** | **decimal** | Quantity | [optional] 
 **Upsell** | **bool** | True if this item was an upsell item. | [optional] 
 

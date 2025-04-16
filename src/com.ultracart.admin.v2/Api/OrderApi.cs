@@ -575,6 +575,45 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrderResponse</returns>
         ApiResponse<OrderResponse> RefundOrderWithHttpInfo (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string autoOrderCancelReason = default(string), string expand = default(string));
         /// <summary>
+        /// Refund an order completely
+        /// </summary>
+        /// <remarks>
+        /// Perform a refund operation on an order and then update the order if successful. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="refundReason">Reason for refund (optional)</param>
+        /// <param name="rejectReason">Reason for reject (optional)</param>
+        /// <returns>OrderResponse</returns>
+        OrderResponse RefundOrderCompletely (string orderId, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string autoOrderCancelReason = default(string), string refundReason = default(string), string rejectReason = default(string));
+
+        /// <summary>
+        /// Refund an order completely
+        /// </summary>
+        /// <remarks>
+        /// Perform a refund operation on an order and then update the order if successful. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="refundReason">Reason for refund (optional)</param>
+        /// <param name="rejectReason">Reason for reject (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        ApiResponse<OrderResponse> RefundOrderCompletelyWithHttpInfo (string orderId, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string autoOrderCancelReason = default(string), string refundReason = default(string), string rejectReason = default(string));
+        /// <summary>
         /// Replacement order
         /// </summary>
         /// <remarks>
@@ -1299,6 +1338,47 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundOrderWithHttpInfoAsync (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string autoOrderCancelReason = default(string), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Refund an order completely
+        /// </summary>
+        /// <remarks>
+        /// Perform a refund operation on an order and then update the order if successful. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="refundReason">Reason for refund (optional)</param>
+        /// <param name="rejectReason">Reason for reject (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderResponse</returns>
+        System.Threading.Tasks.Task<OrderResponse> RefundOrderCompletelyAsync (string orderId, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string autoOrderCancelReason = default(string), string refundReason = default(string), string rejectReason = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Refund an order completely
+        /// </summary>
+        /// <remarks>
+        /// Perform a refund operation on an order and then update the order if successful. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="refundReason">Reason for refund (optional)</param>
+        /// <param name="rejectReason">Reason for reject (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundOrderCompletelyWithHttpInfoAsync (string orderId, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string autoOrderCancelReason = default(string), string refundReason = default(string), string rejectReason = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Replacement order
         /// </summary>
@@ -5307,6 +5387,217 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("RefundOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Refund an order completely Perform a refund operation on an order and then update the order if successful. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="refundReason">Reason for refund (optional)</param>
+        /// <param name="rejectReason">Reason for reject (optional)</param>
+        /// <returns>OrderResponse</returns>
+        public OrderResponse RefundOrderCompletely (string orderId, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string autoOrderCancelReason = default(string), string refundReason = default(string), string rejectReason = default(string))
+        {
+             ApiResponse<OrderResponse> localVarResponse = RefundOrderCompletelyWithHttpInfo(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Refund an order completely Perform a refund operation on an order and then update the order if successful. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="refundReason">Reason for refund (optional)</param>
+        /// <param name="rejectReason">Reason for reject (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        public ApiResponse<OrderResponse> RefundOrderCompletelyWithHttpInfo (string orderId, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string autoOrderCancelReason = default(string), string refundReason = default(string), string rejectReason = default(string))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->RefundOrderCompletely");
+
+            var localVarPath = "/order/orders/{order_id}/refund_completely";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (rejectAfterRefund != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reject_after_refund", rejectAfterRefund)); // query parameter
+            if (skipCustomerNotification != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip_customer_notification", skipCustomerNotification)); // query parameter
+            if (autoOrderCancel != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order_cancel", autoOrderCancel)); // query parameter
+            if (manualRefund != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "manual_refund", manualRefund)); // query parameter
+            if (reverseAffiliateTransactions != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reverse_affiliate_transactions", reverseAffiliateTransactions)); // query parameter
+            if (issueStoreCredit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "issue_store_credit", issueStoreCredit)); // query parameter
+            if (autoOrderCancelReason != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order_cancel_reason", autoOrderCancelReason)); // query parameter
+            if (refundReason != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "refund_reason", refundReason)); // query parameter
+            if (rejectReason != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reject_reason", rejectReason)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RefundOrderCompletely", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Refund an order completely Perform a refund operation on an order and then update the order if successful. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="refundReason">Reason for refund (optional)</param>
+        /// <param name="rejectReason">Reason for reject (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderResponse</returns>
+        public async System.Threading.Tasks.Task<OrderResponse> RefundOrderCompletelyAsync (string orderId, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string autoOrderCancelReason = default(string), string refundReason = default(string), string rejectReason = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<OrderResponse> localVarResponse = await RefundOrderCompletelyWithHttpInfoAsync(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Refund an order completely Perform a refund operation on an order and then update the order if successful. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
+        /// <param name="autoOrderCancelReason">Reason for auto orders cancellation (optional)</param>
+        /// <param name="refundReason">Reason for refund (optional)</param>
+        /// <param name="rejectReason">Reason for reject (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundOrderCompletelyWithHttpInfoAsync (string orderId, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string autoOrderCancelReason = default(string), string refundReason = default(string), string rejectReason = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->RefundOrderCompletely");
+
+            var localVarPath = "/order/orders/{order_id}/refund_completely";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (rejectAfterRefund != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reject_after_refund", rejectAfterRefund)); // query parameter
+            if (skipCustomerNotification != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip_customer_notification", skipCustomerNotification)); // query parameter
+            if (autoOrderCancel != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order_cancel", autoOrderCancel)); // query parameter
+            if (manualRefund != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "manual_refund", manualRefund)); // query parameter
+            if (reverseAffiliateTransactions != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reverse_affiliate_transactions", reverseAffiliateTransactions)); // query parameter
+            if (issueStoreCredit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "issue_store_credit", issueStoreCredit)); // query parameter
+            if (autoOrderCancelReason != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order_cancel_reason", autoOrderCancelReason)); // query parameter
+            if (refundReason != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "refund_reason", refundReason)); // query parameter
+            if (rejectReason != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reject_reason", rejectReason)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RefundOrderCompletely", localVarResponse);
                 if (exception != null) throw exception;
             }
 

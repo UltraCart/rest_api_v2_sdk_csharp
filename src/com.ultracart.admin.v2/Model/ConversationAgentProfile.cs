@@ -66,6 +66,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationAgentProfile" /> class.
         /// </summary>
+        /// <param name="ai">AI powered chat bot.</param>
+        /// <param name="aiChatInstructions">Additional instructions for this AI when handle web chats.</param>
+        /// <param name="aiPersona">Persona of this AI agent.</param>
+        /// <param name="aiSmsInstructions">Additional instructions for this AI when handle SMS messages.</param>
         /// <param name="chatLimit">The number of engagement chats that can be pushed on them at any given time..</param>
         /// <param name="defaultLanguageIsoCode">The default language the agent is chatting in.</param>
         /// <param name="defaultStatus">Default status when the agent loads conversations app..</param>
@@ -73,8 +77,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="name">Their actual user name for profile settings display as placeholder test.</param>
         /// <param name="profileImageUploadKey">An upload key used to update the profile image..</param>
         /// <param name="profileImageUrl">Their current profile image URL.</param>
-        public ConversationAgentProfile(int? chatLimit = default(int?), string defaultLanguageIsoCode = default(string), DefaultStatusEnum? defaultStatus = default(DefaultStatusEnum?), string displayName = default(string), string name = default(string), string profileImageUploadKey = default(string), string profileImageUrl = default(string))
+        public ConversationAgentProfile(bool? ai = default(bool?), string aiChatInstructions = default(string), string aiPersona = default(string), string aiSmsInstructions = default(string), int? chatLimit = default(int?), string defaultLanguageIsoCode = default(string), DefaultStatusEnum? defaultStatus = default(DefaultStatusEnum?), string displayName = default(string), string name = default(string), string profileImageUploadKey = default(string), string profileImageUrl = default(string))
         {
+            this.Ai = ai;
+            this.AiChatInstructions = aiChatInstructions;
+            this.AiPersona = aiPersona;
+            this.AiSmsInstructions = aiSmsInstructions;
             this.ChatLimit = chatLimit;
             this.DefaultLanguageIsoCode = defaultLanguageIsoCode;
             this.DefaultStatus = defaultStatus;
@@ -84,6 +92,34 @@ namespace com.ultracart.admin.v2.Model
             this.ProfileImageUrl = profileImageUrl;
         }
         
+        /// <summary>
+        /// AI powered chat bot
+        /// </summary>
+        /// <value>AI powered chat bot</value>
+        [DataMember(Name="ai", EmitDefaultValue=false)]
+        public bool? Ai { get; set; }
+
+        /// <summary>
+        /// Additional instructions for this AI when handle web chats
+        /// </summary>
+        /// <value>Additional instructions for this AI when handle web chats</value>
+        [DataMember(Name="ai_chat_instructions", EmitDefaultValue=false)]
+        public string AiChatInstructions { get; set; }
+
+        /// <summary>
+        /// Persona of this AI agent
+        /// </summary>
+        /// <value>Persona of this AI agent</value>
+        [DataMember(Name="ai_persona", EmitDefaultValue=false)]
+        public string AiPersona { get; set; }
+
+        /// <summary>
+        /// Additional instructions for this AI when handle SMS messages
+        /// </summary>
+        /// <value>Additional instructions for this AI when handle SMS messages</value>
+        [DataMember(Name="ai_sms_instructions", EmitDefaultValue=false)]
+        public string AiSmsInstructions { get; set; }
+
         /// <summary>
         /// The number of engagement chats that can be pushed on them at any given time.
         /// </summary>
@@ -135,6 +171,10 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationAgentProfile {\n");
+            sb.Append("  Ai: ").Append(Ai).Append("\n");
+            sb.Append("  AiChatInstructions: ").Append(AiChatInstructions).Append("\n");
+            sb.Append("  AiPersona: ").Append(AiPersona).Append("\n");
+            sb.Append("  AiSmsInstructions: ").Append(AiSmsInstructions).Append("\n");
             sb.Append("  ChatLimit: ").Append(ChatLimit).Append("\n");
             sb.Append("  DefaultLanguageIsoCode: ").Append(DefaultLanguageIsoCode).Append("\n");
             sb.Append("  DefaultStatus: ").Append(DefaultStatus).Append("\n");
@@ -176,6 +216,26 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.Ai == input.Ai ||
+                    (this.Ai != null &&
+                    this.Ai.Equals(input.Ai))
+                ) && 
+                (
+                    this.AiChatInstructions == input.AiChatInstructions ||
+                    (this.AiChatInstructions != null &&
+                    this.AiChatInstructions.Equals(input.AiChatInstructions))
+                ) && 
+                (
+                    this.AiPersona == input.AiPersona ||
+                    (this.AiPersona != null &&
+                    this.AiPersona.Equals(input.AiPersona))
+                ) && 
+                (
+                    this.AiSmsInstructions == input.AiSmsInstructions ||
+                    (this.AiSmsInstructions != null &&
+                    this.AiSmsInstructions.Equals(input.AiSmsInstructions))
+                ) && 
                 (
                     this.ChatLimit == input.ChatLimit ||
                     (this.ChatLimit != null &&
@@ -222,6 +282,14 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Ai != null)
+                    hashCode = hashCode * 59 + this.Ai.GetHashCode();
+                if (this.AiChatInstructions != null)
+                    hashCode = hashCode * 59 + this.AiChatInstructions.GetHashCode();
+                if (this.AiPersona != null)
+                    hashCode = hashCode * 59 + this.AiPersona.GetHashCode();
+                if (this.AiSmsInstructions != null)
+                    hashCode = hashCode * 59 + this.AiSmsInstructions.GetHashCode();
                 if (this.ChatLimit != null)
                     hashCode = hashCode * 59 + this.ChatLimit.GetHashCode();
                 if (this.DefaultLanguageIsoCode != null)

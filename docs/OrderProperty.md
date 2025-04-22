@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CreatedBy** | **string** | Created by user | [optional] 
+**CreatedDts** | **string** | The date/time that the property was created by the user | [optional] 
 **Display** | **bool** | True if this property is displayed to the customer | [optional] 
 **ExpirationDts** | **string** | The date/time that the property expires and is deleted | [optional] 
 **Name** | **string** | Name | [optional] 

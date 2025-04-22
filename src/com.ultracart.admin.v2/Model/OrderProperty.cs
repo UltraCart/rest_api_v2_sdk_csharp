@@ -33,17 +33,35 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderProperty" /> class.
         /// </summary>
+        /// <param name="createdBy">Created by user.</param>
+        /// <param name="createdDts">The date/time that the property was created by the user.</param>
         /// <param name="display">True if this property is displayed to the customer.</param>
         /// <param name="expirationDts">The date/time that the property expires and is deleted.</param>
         /// <param name="name">Name.</param>
         /// <param name="value">Value.</param>
-        public OrderProperty(bool display = default(bool), string expirationDts = default(string), string name = default(string), string value = default(string))
+        public OrderProperty(string createdBy = default(string), string createdDts = default(string), bool display = default(bool), string expirationDts = default(string), string name = default(string), string value = default(string))
         {
+            this.CreatedBy = createdBy;
+            this.CreatedDts = createdDts;
             this.Display = display;
             this.ExpirationDts = expirationDts;
             this.Name = name;
             this.Value = value;
         }
+
+        /// <summary>
+        /// Created by user
+        /// </summary>
+        /// <value>Created by user</value>
+        [DataMember(Name="created_by", EmitDefaultValue=false)]
+        public string CreatedBy { get; set; }
+
+        /// <summary>
+        /// The date/time that the property was created by the user
+        /// </summary>
+        /// <value>The date/time that the property was created by the user</value>
+        [DataMember(Name="created_dts", EmitDefaultValue=false)]
+        public string CreatedDts { get; set; }
 
         /// <summary>
         /// True if this property is displayed to the customer
@@ -81,6 +99,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class OrderProperty {\n");
+            sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
+            sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
             sb.Append("  Display: ").Append(Display).Append("\n");
             sb.Append("  ExpirationDts: ").Append(ExpirationDts).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -120,6 +140,16 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.CreatedBy == input.CreatedBy ||
+                    (this.CreatedBy != null &&
+                    this.CreatedBy.Equals(input.CreatedBy))
+                ) && 
+                (
+                    this.CreatedDts == input.CreatedDts ||
+                    (this.CreatedDts != null &&
+                    this.CreatedDts.Equals(input.CreatedDts))
+                ) && 
+                (
                     this.Display == input.Display ||
                     (this.Display != null &&
                     this.Display.Equals(input.Display))
@@ -150,6 +180,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CreatedBy != null)
+                    hashCode = hashCode * 59 + this.CreatedBy.GetHashCode();
+                if (this.CreatedDts != null)
+                    hashCode = hashCode * 59 + this.CreatedDts.GetHashCode();
                 if (this.Display != null)
                     hashCode = hashCode * 59 + this.Display.GetHashCode();
                 if (this.ExpirationDts != null)
@@ -169,6 +203,13 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CreatedBy (string) maxLength
+            if(this.CreatedBy != null && this.CreatedBy.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedBy, length must be less than 20.", new [] { "CreatedBy" });
+            }
+
+
             // Name (string) maxLength
             if(this.Name != null && this.Name.Length > 100)
             {

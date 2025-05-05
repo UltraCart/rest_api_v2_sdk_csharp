@@ -296,6 +296,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationAgentProfileResponse</returns>
         ApiResponse<ConversationAgentProfileResponse> GetAgentProfileWithHttpInfo ();
         /// <summary>
+        /// Get agent profiles
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the agents profile 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationAgentProfilesResponse</returns>
+        ConversationAgentProfilesResponse GetAgentProfiles ();
+
+        /// <summary>
+        /// Get agent profiles
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the agents profile 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationAgentProfilesResponse</returns>
+        ApiResponse<ConversationAgentProfilesResponse> GetAgentProfilesWithHttpInfo ();
+        /// <summary>
         /// Get agent websocket authorization
         /// </summary>
         /// <remarks>
@@ -2046,6 +2065,25 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ConversationAgentProfileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationAgentProfileResponse>> GetAgentProfileAsyncWithHttpInfo ();
+        /// <summary>
+        /// Get agent profiles
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the agents profile 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationAgentProfilesResponse</returns>
+        System.Threading.Tasks.Task<ConversationAgentProfilesResponse> GetAgentProfilesAsync ();
+
+        /// <summary>
+        /// Get agent profiles
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the agents profile 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationAgentProfilesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationAgentProfilesResponse>> GetAgentProfilesAsyncWithHttpInfo ();
         /// <summary>
         /// Get agent websocket authorization
         /// </summary>
@@ -5646,6 +5684,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationAgentProfileResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationAgentProfileResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationAgentProfileResponse)));
+        }
+
+        /// <summary>
+        /// Get agent profiles Retrieve the agents profile 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationAgentProfilesResponse</returns>
+        public ConversationAgentProfilesResponse GetAgentProfiles ()
+        {
+             ApiResponse<ConversationAgentProfilesResponse> localVarResponse = GetAgentProfilesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get agent profiles Retrieve the agents profile 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationAgentProfilesResponse</returns>
+        public ApiResponse< ConversationAgentProfilesResponse > GetAgentProfilesWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/agent/profiles";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAgentProfiles", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationAgentProfilesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationAgentProfilesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationAgentProfilesResponse)));
+        }
+
+        /// <summary>
+        /// Get agent profiles Retrieve the agents profile 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationAgentProfilesResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationAgentProfilesResponse> GetAgentProfilesAsync ()
+        {
+             ApiResponse<ConversationAgentProfilesResponse> localVarResponse = await GetAgentProfilesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get agent profiles Retrieve the agents profile 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationAgentProfilesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationAgentProfilesResponse>> GetAgentProfilesAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/agent/profiles";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAgentProfiles", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationAgentProfilesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationAgentProfilesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationAgentProfilesResponse)));
         }
 
         /// <summary>

@@ -97,11 +97,19 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to retrieve log summaries for.</param>
+        /// <param name="requestId"> (optional)</param>
+        /// <param name="beginDate"> (optional)</param>
+        /// <param name="endDate"> (optional)</param>
+        /// <param name="status"> (optional)</param>
+        /// <param name="_event"> (optional)</param>
+        /// <param name="orderId"> (optional)</param>
+        /// <param name="request"> (optional)</param>
+        /// <param name="duration"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>WebhookLogSummariesResponse</returns>
-        WebhookLogSummariesResponse GetWebhookLogSummaries (int? webhookOid, int? limit = null, int? offset = null, string since = null);
+        WebhookLogSummariesResponse GetWebhookLogSummaries (int? webhookOid, string requestId = null, string beginDate = null, string endDate = null, string status = null, string _event = null, string orderId = null, string request = null, int? duration = null, int? limit = null, int? offset = null, string since = null);
 
         /// <summary>
         /// Retrieve the log summaries
@@ -111,11 +119,19 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to retrieve log summaries for.</param>
+        /// <param name="requestId"> (optional)</param>
+        /// <param name="beginDate"> (optional)</param>
+        /// <param name="endDate"> (optional)</param>
+        /// <param name="status"> (optional)</param>
+        /// <param name="_event"> (optional)</param>
+        /// <param name="orderId"> (optional)</param>
+        /// <param name="request"> (optional)</param>
+        /// <param name="duration"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>ApiResponse of WebhookLogSummariesResponse</returns>
-        ApiResponse<WebhookLogSummariesResponse> GetWebhookLogSummariesWithHttpInfo (int? webhookOid, int? limit = null, int? offset = null, string since = null);
+        ApiResponse<WebhookLogSummariesResponse> GetWebhookLogSummariesWithHttpInfo (int? webhookOid, string requestId = null, string beginDate = null, string endDate = null, string status = null, string _event = null, string orderId = null, string request = null, int? duration = null, int? limit = null, int? offset = null, string since = null);
         /// <summary>
         /// Retrieve webhooks
         /// </summary>
@@ -289,11 +305,19 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to retrieve log summaries for.</param>
+        /// <param name="requestId"> (optional)</param>
+        /// <param name="beginDate"> (optional)</param>
+        /// <param name="endDate"> (optional)</param>
+        /// <param name="status"> (optional)</param>
+        /// <param name="_event"> (optional)</param>
+        /// <param name="orderId"> (optional)</param>
+        /// <param name="request"> (optional)</param>
+        /// <param name="duration"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>Task of WebhookLogSummariesResponse</returns>
-        System.Threading.Tasks.Task<WebhookLogSummariesResponse> GetWebhookLogSummariesAsync (int? webhookOid, int? limit = null, int? offset = null, string since = null);
+        System.Threading.Tasks.Task<WebhookLogSummariesResponse> GetWebhookLogSummariesAsync (int? webhookOid, string requestId = null, string beginDate = null, string endDate = null, string status = null, string _event = null, string orderId = null, string request = null, int? duration = null, int? limit = null, int? offset = null, string since = null);
 
         /// <summary>
         /// Retrieve the log summaries
@@ -303,11 +327,19 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to retrieve log summaries for.</param>
+        /// <param name="requestId"> (optional)</param>
+        /// <param name="beginDate"> (optional)</param>
+        /// <param name="endDate"> (optional)</param>
+        /// <param name="status"> (optional)</param>
+        /// <param name="_event"> (optional)</param>
+        /// <param name="orderId"> (optional)</param>
+        /// <param name="request"> (optional)</param>
+        /// <param name="duration"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>Task of ApiResponse (WebhookLogSummariesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebhookLogSummariesResponse>> GetWebhookLogSummariesAsyncWithHttpInfo (int? webhookOid, int? limit = null, int? offset = null, string since = null);
+        System.Threading.Tasks.Task<ApiResponse<WebhookLogSummariesResponse>> GetWebhookLogSummariesAsyncWithHttpInfo (int? webhookOid, string requestId = null, string beginDate = null, string endDate = null, string status = null, string _event = null, string orderId = null, string request = null, int? duration = null, int? limit = null, int? offset = null, string since = null);
         /// <summary>
         /// Retrieve webhooks
         /// </summary>
@@ -1013,13 +1045,21 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to retrieve log summaries for.</param>
+        /// <param name="requestId"> (optional)</param>
+        /// <param name="beginDate"> (optional)</param>
+        /// <param name="endDate"> (optional)</param>
+        /// <param name="status"> (optional)</param>
+        /// <param name="_event"> (optional)</param>
+        /// <param name="orderId"> (optional)</param>
+        /// <param name="request"> (optional)</param>
+        /// <param name="duration"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>WebhookLogSummariesResponse</returns>
-        public WebhookLogSummariesResponse GetWebhookLogSummaries (int? webhookOid, int? limit = null, int? offset = null, string since = null)
+        public WebhookLogSummariesResponse GetWebhookLogSummaries (int? webhookOid, string requestId = null, string beginDate = null, string endDate = null, string status = null, string _event = null, string orderId = null, string request = null, int? duration = null, int? limit = null, int? offset = null, string since = null)
         {
-             ApiResponse<WebhookLogSummariesResponse> localVarResponse = GetWebhookLogSummariesWithHttpInfo(webhookOid, limit, offset, since);
+             ApiResponse<WebhookLogSummariesResponse> localVarResponse = GetWebhookLogSummariesWithHttpInfo(webhookOid, requestId, beginDate, endDate, status, _event, orderId, request, duration, limit, offset, since);
              return localVarResponse.Data;
         }
 
@@ -1028,11 +1068,19 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to retrieve log summaries for.</param>
+        /// <param name="requestId"> (optional)</param>
+        /// <param name="beginDate"> (optional)</param>
+        /// <param name="endDate"> (optional)</param>
+        /// <param name="status"> (optional)</param>
+        /// <param name="_event"> (optional)</param>
+        /// <param name="orderId"> (optional)</param>
+        /// <param name="request"> (optional)</param>
+        /// <param name="duration"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>ApiResponse of WebhookLogSummariesResponse</returns>
-        public ApiResponse< WebhookLogSummariesResponse > GetWebhookLogSummariesWithHttpInfo (int? webhookOid, int? limit = null, int? offset = null, string since = null)
+        public ApiResponse< WebhookLogSummariesResponse > GetWebhookLogSummariesWithHttpInfo (int? webhookOid, string requestId = null, string beginDate = null, string endDate = null, string status = null, string _event = null, string orderId = null, string request = null, int? duration = null, int? limit = null, int? offset = null, string since = null)
         {
             // verify the required parameter 'webhookOid' is set
             if (webhookOid == null)
@@ -1061,6 +1109,14 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (webhookOid != null) localVarPathParams.Add("webhookOid", this.Configuration.ApiClient.ParameterToString(webhookOid)); // path parameter
+            if (requestId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "requestId", requestId)); // query parameter
+            if (beginDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "beginDate", beginDate)); // query parameter
+            if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
+            if (status != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "status", status)); // query parameter
+            if (_event != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "event", _event)); // query parameter
+            if (orderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderId", orderId)); // query parameter
+            if (request != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "request", request)); // query parameter
+            if (duration != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "duration", duration)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
@@ -1100,13 +1156,21 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to retrieve log summaries for.</param>
+        /// <param name="requestId"> (optional)</param>
+        /// <param name="beginDate"> (optional)</param>
+        /// <param name="endDate"> (optional)</param>
+        /// <param name="status"> (optional)</param>
+        /// <param name="_event"> (optional)</param>
+        /// <param name="orderId"> (optional)</param>
+        /// <param name="request"> (optional)</param>
+        /// <param name="duration"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>Task of WebhookLogSummariesResponse</returns>
-        public async System.Threading.Tasks.Task<WebhookLogSummariesResponse> GetWebhookLogSummariesAsync (int? webhookOid, int? limit = null, int? offset = null, string since = null)
+        public async System.Threading.Tasks.Task<WebhookLogSummariesResponse> GetWebhookLogSummariesAsync (int? webhookOid, string requestId = null, string beginDate = null, string endDate = null, string status = null, string _event = null, string orderId = null, string request = null, int? duration = null, int? limit = null, int? offset = null, string since = null)
         {
-             ApiResponse<WebhookLogSummariesResponse> localVarResponse = await GetWebhookLogSummariesAsyncWithHttpInfo(webhookOid, limit, offset, since);
+             ApiResponse<WebhookLogSummariesResponse> localVarResponse = await GetWebhookLogSummariesAsyncWithHttpInfo(webhookOid, requestId, beginDate, endDate, status, _event, orderId, request, duration, limit, offset, since);
              return localVarResponse.Data;
 
         }
@@ -1116,11 +1180,19 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to retrieve log summaries for.</param>
+        /// <param name="requestId"> (optional)</param>
+        /// <param name="beginDate"> (optional)</param>
+        /// <param name="endDate"> (optional)</param>
+        /// <param name="status"> (optional)</param>
+        /// <param name="_event"> (optional)</param>
+        /// <param name="orderId"> (optional)</param>
+        /// <param name="request"> (optional)</param>
+        /// <param name="duration"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>Task of ApiResponse (WebhookLogSummariesResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebhookLogSummariesResponse>> GetWebhookLogSummariesAsyncWithHttpInfo (int? webhookOid, int? limit = null, int? offset = null, string since = null)
+        public async System.Threading.Tasks.Task<ApiResponse<WebhookLogSummariesResponse>> GetWebhookLogSummariesAsyncWithHttpInfo (int? webhookOid, string requestId = null, string beginDate = null, string endDate = null, string status = null, string _event = null, string orderId = null, string request = null, int? duration = null, int? limit = null, int? offset = null, string since = null)
         {
             // verify the required parameter 'webhookOid' is set
             if (webhookOid == null)
@@ -1149,6 +1221,14 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (webhookOid != null) localVarPathParams.Add("webhookOid", this.Configuration.ApiClient.ParameterToString(webhookOid)); // path parameter
+            if (requestId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "requestId", requestId)); // query parameter
+            if (beginDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "beginDate", beginDate)); // query parameter
+            if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
+            if (status != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "status", status)); // query parameter
+            if (_event != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "event", _event)); // query parameter
+            if (orderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderId", orderId)); // query parameter
+            if (request != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "request", request)); // query parameter
+            if (duration != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "duration", duration)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter

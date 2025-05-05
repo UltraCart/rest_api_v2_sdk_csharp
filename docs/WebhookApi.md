@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ## GetWebhookLogSummaries
 
-> WebhookLogSummariesResponse GetWebhookLogSummaries (int webhookOid, int? limit = null, int? offset = null, string since = null)
+> WebhookLogSummariesResponse GetWebhookLogSummaries (int webhookOid, string requestId = null, string beginDate = null, string endDate = null, string status = null, string _event = null, string orderId = null, string request = null, int? duration = null, int? limit = null, int? offset = null, string since = null)
 
 Retrieve the log summaries
 
@@ -305,6 +305,14 @@ namespace Example
             var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
             var webhookOid = 56;  // int | The webhook oid to retrieve log summaries for.
+            var requestId = "requestId_example";  // string |  (optional) 
+            var beginDate = "beginDate_example";  // string |  (optional) 
+            var endDate = "endDate_example";  // string |  (optional) 
+            var status = "status_example";  // string |  (optional) 
+            var _event = "_event_example";  // string |  (optional) 
+            var orderId = "orderId_example";  // string |  (optional) 
+            var request = "request_example";  // string |  (optional) 
+            var duration = 56;  // int? |  (optional) 
             var limit = 100;  // int? | The maximum number of records to return on this one API call. (optional)  (default to 100)
             var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
             var since = "since_example";  // string | Fetch log summaries that have been delivered since this date/time. (optional) 
@@ -312,7 +320,7 @@ namespace Example
             try
             {
                 // Retrieve the log summaries
-                WebhookLogSummariesResponse result = apiInstance.GetWebhookLogSummaries(webhookOid, limit, offset, since);
+                WebhookLogSummariesResponse result = apiInstance.GetWebhookLogSummaries(webhookOid, requestId, beginDate, endDate, status, _event, orderId, request, duration, limit, offset, since);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -332,6 +340,14 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhookOid** | **int**| The webhook oid to retrieve log summaries for. | 
+ **requestId** | **string**|  | [optional] 
+ **beginDate** | **string**|  | [optional] 
+ **endDate** | **string**|  | [optional] 
+ **status** | **string**|  | [optional] 
+ **_event** | **string**|  | [optional] 
+ **orderId** | **string**|  | [optional] 
+ **request** | **string**|  | [optional] 
+ **duration** | **int?**|  | [optional] 
  **limit** | **int?**| The maximum number of records to return on this one API call. | [optional] [default to 100]
  **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **since** | **string**| Fetch log summaries that have been delivered since this date/time. | [optional] 

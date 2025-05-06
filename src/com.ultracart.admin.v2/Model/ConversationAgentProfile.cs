@@ -77,7 +77,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="name">Their actual user name for profile settings display as placeholder test.</param>
         /// <param name="profileImageUploadKey">An upload key used to update the profile image..</param>
         /// <param name="profileImageUrl">Their current profile image URL.</param>
-        public ConversationAgentProfile(bool? ai = default(bool?), string aiChatInstructions = default(string), string aiPersona = default(string), string aiSmsInstructions = default(string), int? chatLimit = default(int?), string defaultLanguageIsoCode = default(string), DefaultStatusEnum? defaultStatus = default(DefaultStatusEnum?), string displayName = default(string), string name = default(string), string profileImageUploadKey = default(string), string profileImageUrl = default(string))
+        /// <param name="userId">User ID associated with the agent.  Populated by getAgentProfiles call only..</param>
+        public ConversationAgentProfile(bool? ai = default(bool?), string aiChatInstructions = default(string), string aiPersona = default(string), string aiSmsInstructions = default(string), int? chatLimit = default(int?), string defaultLanguageIsoCode = default(string), DefaultStatusEnum? defaultStatus = default(DefaultStatusEnum?), string displayName = default(string), string name = default(string), string profileImageUploadKey = default(string), string profileImageUrl = default(string), int? userId = default(int?))
         {
             this.Ai = ai;
             this.AiChatInstructions = aiChatInstructions;
@@ -90,6 +91,7 @@ namespace com.ultracart.admin.v2.Model
             this.Name = name;
             this.ProfileImageUploadKey = profileImageUploadKey;
             this.ProfileImageUrl = profileImageUrl;
+            this.UserId = userId;
         }
         
         /// <summary>
@@ -164,6 +166,13 @@ namespace com.ultracart.admin.v2.Model
         public string ProfileImageUrl { get; set; }
 
         /// <summary>
+        /// User ID associated with the agent.  Populated by getAgentProfiles call only.
+        /// </summary>
+        /// <value>User ID associated with the agent.  Populated by getAgentProfiles call only.</value>
+        [DataMember(Name="user_id", EmitDefaultValue=false)]
+        public int? UserId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -182,6 +191,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ProfileImageUploadKey: ").Append(ProfileImageUploadKey).Append("\n");
             sb.Append("  ProfileImageUrl: ").Append(ProfileImageUrl).Append("\n");
+            sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -270,6 +280,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ProfileImageUrl == input.ProfileImageUrl ||
                     (this.ProfileImageUrl != null &&
                     this.ProfileImageUrl.Equals(input.ProfileImageUrl))
+                ) && 
+                (
+                    this.UserId == input.UserId ||
+                    (this.UserId != null &&
+                    this.UserId.Equals(input.UserId))
                 );
         }
 
@@ -304,6 +319,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ProfileImageUploadKey.GetHashCode();
                 if (this.ProfileImageUrl != null)
                     hashCode = hashCode * 59 + this.ProfileImageUrl.GetHashCode();
+                if (this.UserId != null)
+                    hashCode = hashCode * 59 + this.UserId.GetHashCode();
                 return hashCode;
             }
         }

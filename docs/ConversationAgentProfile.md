@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Their actual user name for profile settings display as placeholder test | [optional] 
 **ProfileImageUploadKey** | **string** | An upload key used to update the profile image. | [optional] 
 **ProfileImageUrl** | **string** | Their current profile image URL | [optional] 
+**UserId** | **int** | User ID associated with the agent.  Populated by getAgentProfiles call only. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

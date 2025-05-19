@@ -1114,6 +1114,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationPbxVoicemailMailboxesResponse</returns>
         ApiResponse<ConversationPbxVoicemailMailboxesResponse> GetPbxVoicemailMailboxesWithHttpInfo ();
         /// <summary>
+        /// Get virtual agent budget
+        /// </summary>
+        /// <remarks>
+        /// Retrieve virtual agent budget 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationVirtualAgentBudgetResponse</returns>
+        ConversationVirtualAgentBudgetResponse GetVirtualAgentBudget ();
+
+        /// <summary>
+        /// Get virtual agent budget
+        /// </summary>
+        /// <remarks>
+        /// Retrieve virtual agent budget 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationVirtualAgentBudgetResponse</returns>
+        ApiResponse<ConversationVirtualAgentBudgetResponse> GetVirtualAgentBudgetWithHttpInfo ();
+        /// <summary>
         /// Insert a canned message
         /// </summary>
         /// <remarks>
@@ -1792,6 +1811,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pbxVoicemailMailbox">Pbx VoicemailMailbox</param>
         /// <returns>ApiResponse of ConversationPbxVoicemailMailboxResponse</returns>
         ApiResponse<ConversationPbxVoicemailMailboxResponse> UpdatePbxVoicemailMailboxWithHttpInfo (string conversationPbxVoicemailMailboxUuid, ConversationPbxVoicemailMailbox pbxVoicemailMailbox);
+        /// <summary>
+        /// Update virtual agent budget
+        /// </summary>
+        /// <remarks>
+        /// Update virtual agent budget 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="virtualAgentBudget">Virtual Agent Budget</param>
+        /// <returns>ConversationVirtualAgentBudgetResponse</returns>
+        ConversationVirtualAgentBudgetResponse UpdateVirtualAgentBudget (ConversationVirtualAgentBudget virtualAgentBudget);
+
+        /// <summary>
+        /// Update virtual agent budget
+        /// </summary>
+        /// <remarks>
+        /// Update virtual agent budget 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="virtualAgentBudget">Virtual Agent Budget</param>
+        /// <returns>ApiResponse of ConversationVirtualAgentBudgetResponse</returns>
+        ApiResponse<ConversationVirtualAgentBudgetResponse> UpdateVirtualAgentBudgetWithHttpInfo (ConversationVirtualAgentBudget virtualAgentBudget);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -2884,6 +2924,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ConversationPbxVoicemailMailboxesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationPbxVoicemailMailboxesResponse>> GetPbxVoicemailMailboxesAsyncWithHttpInfo ();
         /// <summary>
+        /// Get virtual agent budget
+        /// </summary>
+        /// <remarks>
+        /// Retrieve virtual agent budget 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationVirtualAgentBudgetResponse</returns>
+        System.Threading.Tasks.Task<ConversationVirtualAgentBudgetResponse> GetVirtualAgentBudgetAsync ();
+
+        /// <summary>
+        /// Get virtual agent budget
+        /// </summary>
+        /// <remarks>
+        /// Retrieve virtual agent budget 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationVirtualAgentBudgetResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationVirtualAgentBudgetResponse>> GetVirtualAgentBudgetAsyncWithHttpInfo ();
+        /// <summary>
         /// Insert a canned message
         /// </summary>
         /// <remarks>
@@ -3562,6 +3621,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pbxVoicemailMailbox">Pbx VoicemailMailbox</param>
         /// <returns>Task of ApiResponse (ConversationPbxVoicemailMailboxResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationPbxVoicemailMailboxResponse>> UpdatePbxVoicemailMailboxAsyncWithHttpInfo (string conversationPbxVoicemailMailboxUuid, ConversationPbxVoicemailMailbox pbxVoicemailMailbox);
+        /// <summary>
+        /// Update virtual agent budget
+        /// </summary>
+        /// <remarks>
+        /// Update virtual agent budget 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="virtualAgentBudget">Virtual Agent Budget</param>
+        /// <returns>Task of ConversationVirtualAgentBudgetResponse</returns>
+        System.Threading.Tasks.Task<ConversationVirtualAgentBudgetResponse> UpdateVirtualAgentBudgetAsync (ConversationVirtualAgentBudget virtualAgentBudget);
+
+        /// <summary>
+        /// Update virtual agent budget
+        /// </summary>
+        /// <remarks>
+        /// Update virtual agent budget 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="virtualAgentBudget">Virtual Agent Budget</param>
+        /// <returns>Task of ApiResponse (ConversationVirtualAgentBudgetResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationVirtualAgentBudgetResponse>> UpdateVirtualAgentBudgetAsyncWithHttpInfo (ConversationVirtualAgentBudget virtualAgentBudget);
         #endregion Asynchronous Operations
     }
 
@@ -11841,6 +11921,151 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get virtual agent budget Retrieve virtual agent budget 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationVirtualAgentBudgetResponse</returns>
+        public ConversationVirtualAgentBudgetResponse GetVirtualAgentBudget ()
+        {
+             ApiResponse<ConversationVirtualAgentBudgetResponse> localVarResponse = GetVirtualAgentBudgetWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get virtual agent budget Retrieve virtual agent budget 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationVirtualAgentBudgetResponse</returns>
+        public ApiResponse< ConversationVirtualAgentBudgetResponse > GetVirtualAgentBudgetWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/virtualagent/budget";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetVirtualAgentBudget", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationVirtualAgentBudgetResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationVirtualAgentBudgetResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationVirtualAgentBudgetResponse)));
+        }
+
+        /// <summary>
+        /// Get virtual agent budget Retrieve virtual agent budget 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationVirtualAgentBudgetResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationVirtualAgentBudgetResponse> GetVirtualAgentBudgetAsync ()
+        {
+             ApiResponse<ConversationVirtualAgentBudgetResponse> localVarResponse = await GetVirtualAgentBudgetAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get virtual agent budget Retrieve virtual agent budget 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationVirtualAgentBudgetResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationVirtualAgentBudgetResponse>> GetVirtualAgentBudgetAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/virtualagent/budget";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetVirtualAgentBudget", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationVirtualAgentBudgetResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationVirtualAgentBudgetResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationVirtualAgentBudgetResponse)));
+        }
+
+        /// <summary>
         /// Insert a canned message Insert a canned message 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -17201,6 +17426,177 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationPbxVoicemailMailboxResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationPbxVoicemailMailboxResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxVoicemailMailboxResponse)));
+        }
+
+        /// <summary>
+        /// Update virtual agent budget Update virtual agent budget 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="virtualAgentBudget">Virtual Agent Budget</param>
+        /// <returns>ConversationVirtualAgentBudgetResponse</returns>
+        public ConversationVirtualAgentBudgetResponse UpdateVirtualAgentBudget (ConversationVirtualAgentBudget virtualAgentBudget)
+        {
+             ApiResponse<ConversationVirtualAgentBudgetResponse> localVarResponse = UpdateVirtualAgentBudgetWithHttpInfo(virtualAgentBudget);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update virtual agent budget Update virtual agent budget 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="virtualAgentBudget">Virtual Agent Budget</param>
+        /// <returns>ApiResponse of ConversationVirtualAgentBudgetResponse</returns>
+        public ApiResponse< ConversationVirtualAgentBudgetResponse > UpdateVirtualAgentBudgetWithHttpInfo (ConversationVirtualAgentBudget virtualAgentBudget)
+        {
+            // verify the required parameter 'virtualAgentBudget' is set
+            if (virtualAgentBudget == null)
+                throw new ApiException(400, "Missing required parameter 'virtualAgentBudget' when calling ConversationApi->UpdateVirtualAgentBudget");
+
+            var localVarPath = "/conversation/virtualagent/budget";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (virtualAgentBudget != null && virtualAgentBudget.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(virtualAgentBudget); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = virtualAgentBudget; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateVirtualAgentBudget", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationVirtualAgentBudgetResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationVirtualAgentBudgetResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationVirtualAgentBudgetResponse)));
+        }
+
+        /// <summary>
+        /// Update virtual agent budget Update virtual agent budget 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="virtualAgentBudget">Virtual Agent Budget</param>
+        /// <returns>Task of ConversationVirtualAgentBudgetResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationVirtualAgentBudgetResponse> UpdateVirtualAgentBudgetAsync (ConversationVirtualAgentBudget virtualAgentBudget)
+        {
+             ApiResponse<ConversationVirtualAgentBudgetResponse> localVarResponse = await UpdateVirtualAgentBudgetAsyncWithHttpInfo(virtualAgentBudget);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update virtual agent budget Update virtual agent budget 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="virtualAgentBudget">Virtual Agent Budget</param>
+        /// <returns>Task of ApiResponse (ConversationVirtualAgentBudgetResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationVirtualAgentBudgetResponse>> UpdateVirtualAgentBudgetAsyncWithHttpInfo (ConversationVirtualAgentBudget virtualAgentBudget)
+        {
+            // verify the required parameter 'virtualAgentBudget' is set
+            if (virtualAgentBudget == null)
+                throw new ApiException(400, "Missing required parameter 'virtualAgentBudget' when calling ConversationApi->UpdateVirtualAgentBudget");
+
+            var localVarPath = "/conversation/virtualagent/budget";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (virtualAgentBudget != null && virtualAgentBudget.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(virtualAgentBudget); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = virtualAgentBudget; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateVirtualAgentBudget", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationVirtualAgentBudgetResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationVirtualAgentBudgetResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationVirtualAgentBudgetResponse)));
         }
 
     }

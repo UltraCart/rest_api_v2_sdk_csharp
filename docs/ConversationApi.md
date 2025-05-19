@@ -58,6 +58,7 @@ Method | HTTP request | Description
 [**GetPbxVoicemailMailbox**](ConversationApi.md#getpbxvoicemailmailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
 [**GetPbxVoicemailMailboxes**](ConversationApi.md#getpbxvoicemailmailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
 [**GetVirtualAgentBudget**](ConversationApi.md#getvirtualagentbudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
+[**GetVirtualAgentCapabilities**](ConversationApi.md#getvirtualagentcapabilities) | **GET** /conversation/virtualagent/capabilities | Get virtual agent capabilities
 [**InsertConversationCannedMessage**](ConversationApi.md#insertconversationcannedmessage) | **POST** /conversation/canned_messages | Insert a canned message
 [**InsertConversationDepartment**](ConversationApi.md#insertconversationdepartment) | **POST** /conversation/departments | Insert a department
 [**InsertConversationEngagement**](ConversationApi.md#insertconversationengagement) | **POST** /conversation/engagements | Insert a engagement
@@ -90,6 +91,7 @@ Method | HTTP request | Description
 [**UpdatePbxTimeRange**](ConversationApi.md#updatepbxtimerange) | **PUT** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Update pbx timeRange
 [**UpdatePbxVoicemailMailbox**](ConversationApi.md#updatepbxvoicemailmailbox) | **PUT** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Update pbx voicemailMailbox
 [**UpdateVirtualAgentBudget**](ConversationApi.md#updatevirtualagentbudget) | **PUT** /conversation/virtualagent/budget | Update virtual agent budget
+[**UpdateVirtualAgentCapabilities**](ConversationApi.md#updatevirtualagentcapabilities) | **PUT** /conversation/virtualagent/capabilities | Update virtual agent capabilities
 
 
 <a name="deleteconversationcannedmessage"></a>
@@ -3582,6 +3584,68 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getvirtualagentcapabilities"></a>
+# **GetVirtualAgentCapabilities**
+> ConversationVirtualAgentCapabilitiesResponse GetVirtualAgentCapabilities ()
+
+Get virtual agent capabilities
+
+Retrieve virtual agent capabilities 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetVirtualAgentCapabilitiesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+
+            try
+            {
+                // Get virtual agent capabilities
+                ConversationVirtualAgentCapabilitiesResponse result = apiInstance.GetVirtualAgentCapabilities();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.GetVirtualAgentCapabilities: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationVirtualAgentCapabilitiesResponse**](ConversationVirtualAgentCapabilitiesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="insertconversationcannedmessage"></a>
 # **InsertConversationCannedMessage**
 > ConversationCannedMessageResponse InsertConversationCannedMessage (ConversationCannedMessage cannedMessage)
@@ -5702,6 +5766,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationVirtualAgentBudgetResponse**](ConversationVirtualAgentBudgetResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatevirtualagentcapabilities"></a>
+# **UpdateVirtualAgentCapabilities**
+> ConversationVirtualAgentCapabilitiesResponse UpdateVirtualAgentCapabilities (ConversationVirtualAgentCapabilities virtualAgentCapabilities)
+
+Update virtual agent capabilities
+
+Update virtual agent capabilities 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateVirtualAgentCapabilitiesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var virtualAgentCapabilities = new ConversationVirtualAgentCapabilities(); // ConversationVirtualAgentCapabilities | Virtual Agent Capabilities
+
+            try
+            {
+                // Update virtual agent capabilities
+                ConversationVirtualAgentCapabilitiesResponse result = apiInstance.UpdateVirtualAgentCapabilities(virtualAgentCapabilities);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.UpdateVirtualAgentCapabilities: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **virtualAgentCapabilities** | [**ConversationVirtualAgentCapabilities**](ConversationVirtualAgentCapabilities.md)| Virtual Agent Capabilities | 
+
+### Return type
+
+[**ConversationVirtualAgentCapabilitiesResponse**](ConversationVirtualAgentCapabilitiesResponse.md)
 
 ### Authorization
 

@@ -232,6 +232,8 @@ docs/ConversationSummary.md
 docs/ConversationTwilioAccount.md
 docs/ConversationVirtualAgentBudget.md
 docs/ConversationVirtualAgentBudgetResponse.md
+docs/ConversationVirtualAgentCapabilities.md
+docs/ConversationVirtualAgentCapabilitiesResponse.md
 docs/ConversationWebchatContext.md
 docs/ConversationWebchatQueueStatus.md
 docs/ConversationWebchatQueueStatusAgent.md
@@ -1139,6 +1141,8 @@ src/com.ultracart.admin.v2/Model/ConversationSummary.cs
 src/com.ultracart.admin.v2/Model/ConversationTwilioAccount.cs
 src/com.ultracart.admin.v2/Model/ConversationVirtualAgentBudget.cs
 src/com.ultracart.admin.v2/Model/ConversationVirtualAgentBudgetResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationVirtualAgentCapabilities.cs
+src/com.ultracart.admin.v2/Model/ConversationVirtualAgentCapabilitiesResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationWebchatContext.cs
 src/com.ultracart.admin.v2/Model/ConversationWebchatQueueStatus.cs
 src/com.ultracart.admin.v2/Model/ConversationWebchatQueueStatusAgent.cs

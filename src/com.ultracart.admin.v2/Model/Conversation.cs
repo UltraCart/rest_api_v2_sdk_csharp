@@ -78,8 +78,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="sentiment">sentiment.</param>
         /// <param name="startDts">Start of the conversation date/time.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
+        /// <param name="virtualAgent">True if a virtual agent answered the conversation.</param>
+        /// <param name="virtualAgentCost">The cost of this conversation performed by the virtual agent.</param>
         /// <param name="visible">visible.</param>
-        public Conversation(string baseLanguageIsoCode = default(string), bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string customerFirstMessageUnrespondedToDts = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastInteractiveMessageDts = default(string), string lastMessageDts = default(string), MediumEnum? medium = default(MediumEnum?), string merchantId = default(string), int? messageCount = default(int?), List<ConversationMessage> messages = default(List<ConversationMessage>), List<ConversationParticipant> participants = default(List<ConversationParticipant>), ConversationSentiment sentiment = default(ConversationSentiment), string startDts = default(string), bool? unreadMessages = default(bool?), bool? visible = default(bool?))
+        public Conversation(string baseLanguageIsoCode = default(string), bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string customerFirstMessageUnrespondedToDts = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastInteractiveMessageDts = default(string), string lastMessageDts = default(string), MediumEnum? medium = default(MediumEnum?), string merchantId = default(string), int? messageCount = default(int?), List<ConversationMessage> messages = default(List<ConversationMessage>), List<ConversationParticipant> participants = default(List<ConversationParticipant>), ConversationSentiment sentiment = default(ConversationSentiment), string startDts = default(string), bool? unreadMessages = default(bool?), bool? virtualAgent = default(bool?), decimal? virtualAgentCost = default(decimal?), bool? visible = default(bool?))
         {
             this.BaseLanguageIsoCode = baseLanguageIsoCode;
             this.Closed = closed;
@@ -99,6 +101,8 @@ namespace com.ultracart.admin.v2.Model
             this.Sentiment = sentiment;
             this.StartDts = startDts;
             this.UnreadMessages = unreadMessages;
+            this.VirtualAgent = virtualAgent;
+            this.VirtualAgentCost = virtualAgentCost;
             this.Visible = visible;
         }
         
@@ -211,6 +215,20 @@ namespace com.ultracart.admin.v2.Model
         public bool? UnreadMessages { get; set; }
 
         /// <summary>
+        /// True if a virtual agent answered the conversation
+        /// </summary>
+        /// <value>True if a virtual agent answered the conversation</value>
+        [DataMember(Name="virtual_agent", EmitDefaultValue=false)]
+        public bool? VirtualAgent { get; set; }
+
+        /// <summary>
+        /// The cost of this conversation performed by the virtual agent
+        /// </summary>
+        /// <value>The cost of this conversation performed by the virtual agent</value>
+        [DataMember(Name="virtual_agent_cost", EmitDefaultValue=false)]
+        public decimal? VirtualAgentCost { get; set; }
+
+        /// <summary>
         /// Gets or Sets Visible
         /// </summary>
         [DataMember(Name="visible", EmitDefaultValue=false)]
@@ -242,6 +260,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Sentiment: ").Append(Sentiment).Append("\n");
             sb.Append("  StartDts: ").Append(StartDts).Append("\n");
             sb.Append("  UnreadMessages: ").Append(UnreadMessages).Append("\n");
+            sb.Append("  VirtualAgent: ").Append(VirtualAgent).Append("\n");
+            sb.Append("  VirtualAgentCost: ").Append(VirtualAgentCost).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -368,6 +388,16 @@ namespace com.ultracart.admin.v2.Model
                     this.UnreadMessages.Equals(input.UnreadMessages))
                 ) && 
                 (
+                    this.VirtualAgent == input.VirtualAgent ||
+                    (this.VirtualAgent != null &&
+                    this.VirtualAgent.Equals(input.VirtualAgent))
+                ) && 
+                (
+                    this.VirtualAgentCost == input.VirtualAgentCost ||
+                    (this.VirtualAgentCost != null &&
+                    this.VirtualAgentCost.Equals(input.VirtualAgentCost))
+                ) && 
+                (
                     this.Visible == input.Visible ||
                     (this.Visible != null &&
                     this.Visible.Equals(input.Visible))
@@ -419,6 +449,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.StartDts.GetHashCode();
                 if (this.UnreadMessages != null)
                     hashCode = hashCode * 59 + this.UnreadMessages.GetHashCode();
+                if (this.VirtualAgent != null)
+                    hashCode = hashCode * 59 + this.VirtualAgent.GetHashCode();
+                if (this.VirtualAgentCost != null)
+                    hashCode = hashCode * 59 + this.VirtualAgentCost.GetHashCode();
                 if (this.Visible != null)
                     hashCode = hashCode * 59 + this.Visible.GetHashCode();
                 return hashCode;

@@ -35,16 +35,18 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="excludeCoupon">Exclude coupons.</param>
         /// <param name="excludeFromFreePromotion">Exclude from free promotion.</param>
+        /// <param name="excludeFromLoyalty">Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility.</param>
         /// <param name="items">Items.</param>
         /// <param name="maximumQuantity">Maximum quantity.</param>
         /// <param name="minimumQuantity">Minimum quantity (defaults to 1).</param>
         /// <param name="multipleQuantity">Multiple of quantity.</param>
         /// <param name="onePerCustomer">One per customer.</param>
         /// <param name="purchaseSeparately">Purchase separately.</param>
-        public ItemRestriction(bool excludeCoupon = default(bool), bool excludeFromFreePromotion = default(bool), List<ItemRestrictionItem> items = default(List<ItemRestrictionItem>), int maximumQuantity = default(int), int minimumQuantity = default(int), int multipleQuantity = default(int), bool onePerCustomer = default(bool), bool purchaseSeparately = default(bool))
+        public ItemRestriction(bool excludeCoupon = default(bool), bool excludeFromFreePromotion = default(bool), bool excludeFromLoyalty = default(bool), List<ItemRestrictionItem> items = default(List<ItemRestrictionItem>), int maximumQuantity = default(int), int minimumQuantity = default(int), int multipleQuantity = default(int), bool onePerCustomer = default(bool), bool purchaseSeparately = default(bool))
         {
             this.ExcludeCoupon = excludeCoupon;
             this.ExcludeFromFreePromotion = excludeFromFreePromotion;
+            this.ExcludeFromLoyalty = excludeFromLoyalty;
             this.Items = items;
             this.MaximumQuantity = maximumQuantity;
             this.MinimumQuantity = minimumQuantity;
@@ -66,6 +68,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Exclude from free promotion</value>
         [DataMember(Name="exclude_from_free_promotion", EmitDefaultValue=false)]
         public bool ExcludeFromFreePromotion { get; set; }
+
+        /// <summary>
+        /// Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility
+        /// </summary>
+        /// <value>Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility</value>
+        [DataMember(Name="exclude_from_loyalty", EmitDefaultValue=false)]
+        public bool ExcludeFromLoyalty { get; set; }
 
         /// <summary>
         /// Items
@@ -119,6 +128,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ItemRestriction {\n");
             sb.Append("  ExcludeCoupon: ").Append(ExcludeCoupon).Append("\n");
             sb.Append("  ExcludeFromFreePromotion: ").Append(ExcludeFromFreePromotion).Append("\n");
+            sb.Append("  ExcludeFromLoyalty: ").Append(ExcludeFromLoyalty).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  MaximumQuantity: ").Append(MaximumQuantity).Append("\n");
             sb.Append("  MinimumQuantity: ").Append(MinimumQuantity).Append("\n");
@@ -170,6 +180,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ExcludeFromFreePromotion.Equals(input.ExcludeFromFreePromotion))
                 ) && 
                 (
+                    this.ExcludeFromLoyalty == input.ExcludeFromLoyalty ||
+                    (this.ExcludeFromLoyalty != null &&
+                    this.ExcludeFromLoyalty.Equals(input.ExcludeFromLoyalty))
+                ) && 
+                (
                     this.Items == input.Items ||
                     this.Items != null &&
                     input.Items != null &&
@@ -215,6 +230,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ExcludeCoupon.GetHashCode();
                 if (this.ExcludeFromFreePromotion != null)
                     hashCode = hashCode * 59 + this.ExcludeFromFreePromotion.GetHashCode();
+                if (this.ExcludeFromLoyalty != null)
+                    hashCode = hashCode * 59 + this.ExcludeFromLoyalty.GetHashCode();
                 if (this.Items != null)
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.MaximumQuantity != null)

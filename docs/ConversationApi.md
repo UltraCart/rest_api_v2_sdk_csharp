@@ -103,45 +103,13 @@ Delete a conversation canned message
 
 Delete a conversation canned message 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteConversationCannedMessageExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationCannedMessageOid = 56;  // int | 
-
-            try
-            {
-                // Delete a conversation canned message
-                apiInstance.DeleteConversationCannedMessage(conversationCannedMessageOid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeleteConversationCannedMessage: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -187,45 +155,13 @@ Delete a conversation department
 
 Delete a conversation department 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteDepartmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationDepartmentOid = 56;  // int | 
-
-            try
-            {
-                // Delete a conversation department
-                apiInstance.DeleteDepartment(conversationDepartmentOid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeleteDepartment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -271,45 +207,13 @@ Delete a conversation engagement
 
 Delete a conversation engagement 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteEngagementExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationEngagementOid = 56;  // int | 
-
-            try
-            {
-                // Delete a conversation engagement
-                apiInstance.DeleteEngagement(conversationEngagementOid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeleteEngagement: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -355,45 +259,13 @@ Delete Agent Voicemail
 
 Delete pbx agent Voicemail 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeletePbxAgentVoicemailExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var recordingSid = "recordingSid_example";  // string | 
-
-            try
-            {
-                // Delete Agent Voicemail
-                apiInstance.DeletePbxAgentVoicemail(recordingSid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeletePbxAgentVoicemail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -439,46 +311,13 @@ Delete pbx audio
 
 Delete a pbx audio 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeletePbxAudioExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxAudioUuid = "conversationPbxAudioUuid_example";  // string | 
-
-            try
-            {
-                // Delete pbx audio
-                ConversationPbxAudioResponse result = apiInstance.DeletePbxAudio(conversationPbxAudioUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeletePbxAudio: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -525,46 +364,13 @@ Delete pbx menu
 
 Delete a pbx menu 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeletePbxMenuExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxMenuUuid = "conversationPbxMenuUuid_example";  // string | 
-
-            try
-            {
-                // Delete pbx menu
-                ConversationPbxMenuResponse result = apiInstance.DeletePbxMenu(conversationPbxMenuUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeletePbxMenu: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -611,46 +417,13 @@ Delete pbx queue
 
 Delete a pbx queue 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeletePbxQueueExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxQueueUuid = "conversationPbxQueueUuid_example";  // string | 
-
-            try
-            {
-                // Delete pbx queue
-                ConversationPbxQueueResponse result = apiInstance.DeletePbxQueue(conversationPbxQueueUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeletePbxQueue: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -697,46 +470,13 @@ Delete Queue Voicemail
 
 Delete pbx queue Voicemail 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeletePbxQueueVoicemailExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var queueUuid = "queueUuid_example";  // string | 
-            var recordingSid = "recordingSid_example";  // string | 
-
-            try
-            {
-                // Delete Queue Voicemail
-                apiInstance.DeletePbxQueueVoicemail(queueUuid, recordingSid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeletePbxQueueVoicemail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -783,46 +523,13 @@ Delete pbx timeBased
 
 Delete a pbx timeBased 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeletePbxTimeBasedExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxTimeBasedUuid = "conversationPbxTimeBasedUuid_example";  // string | 
-
-            try
-            {
-                // Delete pbx timeBased
-                ConversationPbxTimeBasedResponse result = apiInstance.DeletePbxTimeBased(conversationPbxTimeBasedUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeletePbxTimeBased: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -869,46 +576,13 @@ Delete pbx timeRange
 
 Delete a pbx timeRange 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeletePbxTimeRangeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxTimeRangeUuid = "conversationPbxTimeRangeUuid_example";  // string | 
-
-            try
-            {
-                // Delete pbx timeRange
-                ConversationPbxTimeRangeResponse result = apiInstance.DeletePbxTimeRange(conversationPbxTimeRangeUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeletePbxTimeRange: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -955,46 +629,13 @@ Delete pbx voicemailMailbox
 
 Delete a pbx voicemailMailbox 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeletePbxVoicemailMailboxExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxVoicemailMailboxUuid = "conversationPbxVoicemailMailboxUuid_example";  // string | 
-
-            try
-            {
-                // Delete pbx voicemailMailbox
-                ConversationPbxVoicemailMailboxResponse result = apiInstance.DeletePbxVoicemailMailbox(conversationPbxVoicemailMailboxUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.DeletePbxVoicemailMailbox: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1041,44 +682,13 @@ Agent keep alive
 
 Called periodically by the conversation API to keep the session alive. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetAgentKeepAliveExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Agent keep alive
-                apiInstance.GetAgentKeepAlive();
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetAgentKeepAlive: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1121,45 +731,13 @@ Get agent profile
 
 Retrieve the agents profile 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetAgentProfileExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get agent profile
-                ConversationAgentProfileResponse result = apiInstance.GetAgentProfile();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetAgentProfile: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1203,45 +781,12 @@ Get agent profiles
 
 Retrieve the agents profile 
 
+
 ### Example
 
-```csharp
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetAgentProfilesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get agent profiles
-                ConversationAgentProfilesResponse result = apiInstance.GetAgentProfiles();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetAgentProfiles: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -1285,45 +830,13 @@ Get agent websocket authorization
 
 Retrieve a JWT to authorize an agent to make a websocket connection. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetAgentWebsocketAuthorizationExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get agent websocket authorization
-                ConversationAgentAuthResponse result = apiInstance.GetAgentWebsocketAuthorization();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetAgentWebsocketAuthorization: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1367,47 +880,13 @@ Retrieve a conversation
 
 Retrieve a conversation including the participants and messages 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationUuid = "conversationUuid_example";  // string | 
-            var limit = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Retrieve a conversation
-                ConversationResponse result = apiInstance.GetConversation(conversationUuid, limit);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversation: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1455,45 +934,13 @@ Retrieve a list of canned messages ordered by short_code
 
 Retrieve a list of canned messages ordered by short_code 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationCannedMessagesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve a list of canned messages ordered by short_code
-                ConversationCannedMessagesResponse result = apiInstance.GetConversationCannedMessages();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationCannedMessages: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1537,46 +984,13 @@ Get a webchat conversation context
 
 Get a webchat conversation context 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationContextExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationUuid = "conversationUuid_example";  // string | 
-
-            try
-            {
-                // Get a webchat conversation context
-                ConversationWebchatContext result = apiInstance.GetConversationContext(conversationUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationContext: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1623,45 +1037,13 @@ Retrieve a list of possible department members
 
 Retrieve a list of possible department members 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationDepartmentMemberListExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve a list of possible department members
-                ConversationDepartmentMembersResponse result = apiInstance.GetConversationDepartmentMemberList();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationDepartmentMemberList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1705,45 +1087,13 @@ Retrieve a list of departments ordered by name
 
 Retrieve a list of departments ordered by name 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationDepartmentsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve a list of departments ordered by name
-                ConversationDepartmentsResponse result = apiInstance.GetConversationDepartments();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationDepartments: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1787,46 +1137,13 @@ Retrieve an engagement
 
 Retrieve an engagement 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationEngagementExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationEngagementOid = 56;  // int | 
-
-            try
-            {
-                // Retrieve an engagement
-                ConversationEngagementResponse result = apiInstance.GetConversationEngagement(conversationEngagementOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationEngagement: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1873,45 +1190,13 @@ Retrieve a list of engagements ordered by name
 
 Retrieve a list of engagements ordered by name 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationEngagementsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve a list of engagements ordered by name
-                ConversationEngagementsResponse result = apiInstance.GetConversationEngagements();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationEngagements: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1955,48 +1240,13 @@ Retrieve conversation messages
 
 Retrieve conversation messages since a particular time 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationMessagesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationUuid = "conversationUuid_example";  // string | 
-            var since = 789L;  // long | 
-            var limit = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Retrieve conversation messages
-                ConversationMessagesResponse result = apiInstance.GetConversationMessages(conversationUuid, since, limit);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationMessages: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2045,46 +1295,13 @@ Get a presigned conversation multimedia upload URL
 
 Get a presigned conversation multimedia upload URL 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationMultimediaUploadUrlExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var extension = "extension_example";  // string | 
-
-            try
-            {
-                // Get a presigned conversation multimedia upload URL
-                ConversationMultimediaUploadUrlResponse result = apiInstance.GetConversationMultimediaUploadUrl(extension);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationMultimediaUploadUrl: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2131,46 +1348,13 @@ Get a pre-signed conversation multimedia upload URL
 
 Get a pre-signed conversation multimedia upload URL 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationPbxAudioUploadUrlExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var extension = "extension_example";  // string | 
-
-            try
-            {
-                // Get a pre-signed conversation multimedia upload URL
-                ConversationPbxAudioUploadUrlResponse result = apiInstance.GetConversationPbxAudioUploadUrl(extension);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationPbxAudioUploadUrl: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2217,46 +1401,13 @@ Get orders and customer information for a phone number
 
 Retrieves all the orders, auto orders, and customer profile for a given phone number 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationPbxCustomerSnapshotExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var pbxCustomerSnapshotRequest = new ConversationPbxCustomerSnapshotRequest(); // ConversationPbxCustomerSnapshotRequest | Conversation pbx customer snapshot request
-
-            try
-            {
-                // Get orders and customer information for a phone number
-                ConversationPbxCustomerSnapshotResponse result = apiInstance.GetConversationPbxCustomerSnapshot(pbxCustomerSnapshotRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationPbxCustomerSnapshot: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2303,45 +1454,13 @@ Retrieve conversation permissions
 
 Retrieve conversation permissions 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationPermissionsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve conversation permissions
-                ConversationPermissionsResponse result = apiInstance.GetConversationPermissions();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationPermissions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2385,45 +1504,13 @@ Retrieve a conversation webchat queue statuses
 
 Retrieve a conversation webchat queue statuses including agent status and queue entries 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationWebchatQueueStatusesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve a conversation webchat queue statuses
-                ConversationWebchatQueueStatusesResponse result = apiInstance.GetConversationWebchatQueueStatuses();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationWebchatQueueStatuses: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2467,49 +1554,13 @@ Retrieve a list of conversation summaries newest to oldest
 
 Retrieve a list of conversation summaries that are ordered newest to oldest, include the most recent message and whether its been read. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var medium = "medium_example";  // string |  (optional) 
-            var before = "before_example";  // string |  (optional) 
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-
-            try
-            {
-                // Retrieve a list of conversation summaries newest to oldest
-                ConversationsResponse result = apiInstance.GetConversations(medium, before, limit, offset);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversations: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2559,46 +1610,13 @@ Retrieve a list of matching terms for a search field
 
 Retrieve a list of matching terms for a search field 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationsAutocompleteExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var autocompleteRequest = new ConversationAutocompleteRequest(); // ConversationAutocompleteRequest | Autocomplete Request
-
-            try
-            {
-                // Retrieve a list of matching terms for a search field
-                ConversationAutocompleteResponse result = apiInstance.GetConversationsAutocomplete(autocompleteRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationsAutocomplete: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2645,46 +1663,13 @@ Search conversations
 
 Search conversations 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetConversationsSearchExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var searchRequest = new ConversationSearchRequest(); // ConversationSearchRequest | Search Request
-
-            try
-            {
-                // Search conversations
-                ConversationSearchResponse result = apiInstance.GetConversationsSearch(searchRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetConversationsSearch: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2731,45 +1716,13 @@ Get location data for engagement configuration
 
 Get location data for engagement configuration 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetLocationsForEngagementExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get location data for engagement configuration
-                ConversationLocationsResponse result = apiInstance.GetLocationsForEngagement();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetLocationsForEngagement: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2813,46 +1766,13 @@ Get pbx agent
 
 Retrieve a pbx agent 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxAgentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxAgentUuid = "conversationPbxAgentUuid_example";  // string | 
-
-            try
-            {
-                // Get pbx agent
-                ConversationPbxAgentResponse result = apiInstance.GetPbxAgent(conversationPbxAgentUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxAgent: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2899,46 +1819,13 @@ Get Agent Voicemail
 
 Retrieve pbx agent Voicemail 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxAgentVoicemailExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var recordingSid = "recordingSid_example";  // string | 
-
-            try
-            {
-                // Get Agent Voicemail
-                ConversationPbxVoicemailMessageResponse result = apiInstance.GetPbxAgentVoicemail(recordingSid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxAgentVoicemail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2985,45 +1872,13 @@ Get Agent Voicemails
 
 Retrieve pbx agent Voicemails 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxAgentVoicemailsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get Agent Voicemails
-                ConversationPbxVoicemailMessageSummariesResponse result = apiInstance.GetPbxAgentVoicemails();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxAgentVoicemails: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3067,45 +1922,13 @@ Get pbx agents
 
 Retrieve pbx agents 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxAgentsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get pbx agents
-                ConversationPbxAgentsResponse result = apiInstance.GetPbxAgents();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxAgents: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3149,46 +1972,13 @@ Get pbx audio
 
 Retrieve a pbx audio 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxAudioExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxAudioUuid = "conversationPbxAudioUuid_example";  // string | 
-
-            try
-            {
-                // Get pbx audio
-                ConversationPbxAudioResponse result = apiInstance.GetPbxAudio(conversationPbxAudioUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxAudio: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3235,46 +2025,13 @@ Get pbx audio usage
 
 Retrieve a pbx audio usage 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxAudioUsageExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxAudioUuid = "conversationPbxAudioUuid_example";  // string | 
-
-            try
-            {
-                // Get pbx audio usage
-                ConversationPbxAudioUsageResponse result = apiInstance.GetPbxAudioUsage(conversationPbxAudioUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxAudioUsage: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3321,45 +2078,13 @@ Get pbx audios
 
 Retrieve pbx audios 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxAudiosExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get pbx audios
-                ConversationPbxAudiosResponse result = apiInstance.GetPbxAudios();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxAudios: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3403,46 +2128,13 @@ Get pbx menu
 
 Retrieve a pbx menu 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxMenuExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxMenuUuid = "conversationPbxMenuUuid_example";  // string | 
-
-            try
-            {
-                // Get pbx menu
-                ConversationPbxMenuResponse result = apiInstance.GetPbxMenu(conversationPbxMenuUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxMenu: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3489,45 +2181,13 @@ Get pbx menus
 
 Retrieve pbx menus 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxMenusExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get pbx menus
-                ConversationPbxMenusResponse result = apiInstance.GetPbxMenus();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxMenus: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3571,46 +2231,13 @@ Get pbx phoneNumber
 
 Retrieve a pbx phoneNumber 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxPhoneNumberExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxPhoneNumberUuid = "conversationPbxPhoneNumberUuid_example";  // string | 
-
-            try
-            {
-                // Get pbx phoneNumber
-                ConversationPbxPhoneNumberResponse result = apiInstance.GetPbxPhoneNumber(conversationPbxPhoneNumberUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxPhoneNumber: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3657,45 +2284,13 @@ Get pbx phoneNumbers
 
 Retrieve pbx phoneNumbers 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxPhoneNumbersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get pbx phoneNumbers
-                ConversationPbxPhoneNumbersResponse result = apiInstance.GetPbxPhoneNumbers();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxPhoneNumbers: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3739,46 +2334,13 @@ Get pbx queue
 
 Retrieve a pbx queue 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxQueueExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxQueueUuid = "conversationPbxQueueUuid_example";  // string | 
-
-            try
-            {
-                // Get pbx queue
-                ConversationPbxQueueResponse result = apiInstance.GetPbxQueue(conversationPbxQueueUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxQueue: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3825,47 +2387,13 @@ Get Queue Voicemail
 
 Retrieve pbx queue Voicemail 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxQueueVoicemailExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var queueUuid = "queueUuid_example";  // string | 
-            var recordingSid = "recordingSid_example";  // string | 
-
-            try
-            {
-                // Get Queue Voicemail
-                ConversationPbxVoicemailMessageResponse result = apiInstance.GetPbxQueueVoicemail(queueUuid, recordingSid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxQueueVoicemail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3913,46 +2441,12 @@ Get Queue Voicemails
 
 Retrieve pbx queue voicemails 
 
+
 ### Example
 
-```csharp
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxQueueVoicemailsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var queueUuid = "queueUuid_example";  // string | 
-
-            try
-            {
-                // Get Queue Voicemails
-                ConversationPbxVoicemailMessageSummariesResponse result = apiInstance.GetPbxQueueVoicemails(queueUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxQueueVoicemails: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -3999,45 +2493,13 @@ Get pbx queues
 
 Retrieve pbx queues 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxQueuesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get pbx queues
-                ConversationPbxQueuesResponse result = apiInstance.GetPbxQueues();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxQueues: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4081,46 +2543,13 @@ Get pbx timeBased
 
 Retrieve a pbx timeBased 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxTimeBasedExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxTimeBasedUuid = "conversationPbxTimeBasedUuid_example";  // string | 
-
-            try
-            {
-                // Get pbx timeBased
-                ConversationPbxTimeBasedResponse result = apiInstance.GetPbxTimeBased(conversationPbxTimeBasedUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxTimeBased: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4167,45 +2596,13 @@ Get pbx timeBaseds
 
 Retrieve pbx timeBaseds 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxTimeBasedsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get pbx timeBaseds
-                ConversationPbxTimeBasedsResponse result = apiInstance.GetPbxTimeBaseds();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxTimeBaseds: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4249,46 +2646,13 @@ Get pbx timeRange
 
 Retrieve a pbx timeRange 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxTimeRangeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxTimeRangeUuid = "conversationPbxTimeRangeUuid_example";  // string | 
-
-            try
-            {
-                // Get pbx timeRange
-                ConversationPbxTimeRangeResponse result = apiInstance.GetPbxTimeRange(conversationPbxTimeRangeUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxTimeRange: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4335,45 +2699,13 @@ Get pbx timeRanges
 
 Retrieve pbx timeRanges 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxTimeRangesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get pbx timeRanges
-                ConversationPbxTimeRangesResponse result = apiInstance.GetPbxTimeRanges();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxTimeRanges: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4417,46 +2749,13 @@ Get pbx voicemailMailbox
 
 Retrieve a pbx voicemailMailbox 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxVoicemailMailboxExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxVoicemailMailboxUuid = "conversationPbxVoicemailMailboxUuid_example";  // string | 
-
-            try
-            {
-                // Get pbx voicemailMailbox
-                ConversationPbxVoicemailMailboxResponse result = apiInstance.GetPbxVoicemailMailbox(conversationPbxVoicemailMailboxUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxVoicemailMailbox: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4503,45 +2802,13 @@ Get pbx voicemailMailboxes
 
 Retrieve pbx voicemailMailboxes 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetPbxVoicemailMailboxesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get pbx voicemailMailboxes
-                ConversationPbxVoicemailMailboxesResponse result = apiInstance.GetPbxVoicemailMailboxes();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetPbxVoicemailMailboxes: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4585,45 +2852,12 @@ Get virtual agent budget
 
 Retrieve virtual agent budget 
 
+
 ### Example
 
-```csharp
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetVirtualAgentBudgetExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get virtual agent budget
-                ConversationVirtualAgentBudgetResponse result = apiInstance.GetVirtualAgentBudget();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetVirtualAgentBudget: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -4667,45 +2901,12 @@ Get virtual agent capabilities
 
 Retrieve virtual agent capabilities 
 
+
 ### Example
 
-```csharp
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetVirtualAgentCapabilitiesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get virtual agent capabilities
-                ConversationVirtualAgentCapabilitiesResponse result = apiInstance.GetVirtualAgentCapabilities();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.GetVirtualAgentCapabilities: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -4749,46 +2950,13 @@ Insert a canned message
 
 Insert a canned message 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertConversationCannedMessageExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var cannedMessage = new ConversationCannedMessage(); // ConversationCannedMessage | Canned message
-
-            try
-            {
-                // Insert a canned message
-                ConversationCannedMessageResponse result = apiInstance.InsertConversationCannedMessage(cannedMessage);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.InsertConversationCannedMessage: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4835,46 +3003,13 @@ Insert a department
 
 Insert a department 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertConversationDepartmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var department = new ConversationDepartment(); // ConversationDepartment | Department
-
-            try
-            {
-                // Insert a department
-                ConversationDepartmentResponse result = apiInstance.InsertConversationDepartment(department);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.InsertConversationDepartment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4921,46 +3056,13 @@ Insert a engagement
 
 Insert a engagement 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertConversationEngagementExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var engagement = new ConversationEngagement(); // ConversationEngagement | Engagement
-
-            try
-            {
-                // Insert a engagement
-                ConversationEngagementResponse result = apiInstance.InsertConversationEngagement(engagement);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.InsertConversationEngagement: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -5007,46 +3109,13 @@ Insert pbx audio
 
 Insert a pbx audio 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertPbxAudioExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var pbxAudio = new ConversationPbxAudio(); // ConversationPbxAudio | Pbx Audio
-
-            try
-            {
-                // Insert pbx audio
-                ConversationPbxAudioResponse result = apiInstance.InsertPbxAudio(pbxAudio);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.InsertPbxAudio: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -5093,46 +3162,13 @@ Insert pbx menu
 
 Insert a pbx menu 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertPbxMenuExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var pbxMenu = new ConversationPbxMenu(); // ConversationPbxMenu | Pbx Menu
-
-            try
-            {
-                // Insert pbx menu
-                ConversationPbxMenuResponse result = apiInstance.InsertPbxMenu(pbxMenu);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.InsertPbxMenu: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -5179,46 +3215,13 @@ Insert pbx queue
 
 Insert a pbx queue 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertPbxQueueExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var pbxQueue = new ConversationPbxQueue(); // ConversationPbxQueue | Pbx Queue
-
-            try
-            {
-                // Insert pbx queue
-                ConversationPbxQueueResponse result = apiInstance.InsertPbxQueue(pbxQueue);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.InsertPbxQueue: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -5265,46 +3268,13 @@ Insert pbx timeBased
 
 Insert a pbx timeBased 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertPbxTimeBasedExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var pbxTimeBased = new ConversationPbxTimeBased(); // ConversationPbxTimeBased | Pbx TimeBased
-
-            try
-            {
-                // Insert pbx timeBased
-                ConversationPbxTimeBasedResponse result = apiInstance.InsertPbxTimeBased(pbxTimeBased);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.InsertPbxTimeBased: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -5351,46 +3321,13 @@ Insert pbx timeRange
 
 Insert a pbx timeRange 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertPbxTimeRangeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var pbxTimeRange = new ConversationPbxTimeRange(); // ConversationPbxTimeRange | Pbx TimeRange
-
-            try
-            {
-                // Insert pbx timeRange
-                ConversationPbxTimeRangeResponse result = apiInstance.InsertPbxTimeRange(pbxTimeRange);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.InsertPbxTimeRange: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -5437,46 +3374,13 @@ Insert pbx voicemailMailbox
 
 Insert a pbx voicemailMailbox 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertPbxVoicemailMailboxExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var pbxVoicemailMailbox = new ConversationPbxVoicemailMailbox(); // ConversationPbxVoicemailMailbox | Pbx VoicemailMailbox
-
-            try
-            {
-                // Insert pbx voicemailMailbox
-                ConversationPbxVoicemailMailboxResponse result = apiInstance.InsertPbxVoicemailMailbox(pbxVoicemailMailbox);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.InsertPbxVoicemailMailbox: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -5523,46 +3427,13 @@ Join a conversation
 
 Join a conversation 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class JoinConversationExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationUuid = "conversationUuid_example";  // string | 
-            var joinRequest = new ConversationJoinRequest(); // ConversationJoinRequest | Join request (optional) 
-
-            try
-            {
-                // Join a conversation
-                apiInstance.JoinConversation(conversationUuid, joinRequest);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.JoinConversation: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -5609,45 +3480,13 @@ Leave a conversation
 
 Leave a conversation 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class LeaveConversationExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationUuid = "conversationUuid_example";  // string | 
-
-            try
-            {
-                // Leave a conversation
-                apiInstance.LeaveConversation(conversationUuid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.LeaveConversation: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -5693,45 +3532,12 @@ Listened Agent Voicemail
 
 Listened pbx agent Voicemail 
 
+
 ### Example
 
-```csharp
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ListenedPbxAgentVoicemailExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var recordingSid = "recordingSid_example";  // string | 
-
-            try
-            {
-                // Listened Agent Voicemail
-                apiInstance.ListenedPbxAgentVoicemail(recordingSid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.ListenedPbxAgentVoicemail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -5777,46 +3583,13 @@ Listened Queue Voicemail
 
 Listened pbx queue Voicemail 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ListenedPbxQueueVoicemailExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var queueUuid = "queueUuid_example";  // string | 
-            var recordingSid = "recordingSid_example";  // string | 
-
-            try
-            {
-                // Listened Queue Voicemail
-                apiInstance.ListenedPbxQueueVoicemail(queueUuid, recordingSid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.ListenedPbxQueueVoicemail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -5863,45 +3636,13 @@ Mark a conversation as read
 
 Mark a conversation as read 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class MarkReadConversationExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationUuid = "conversationUuid_example";  // string | 
-
-            try
-            {
-                // Mark a conversation as read
-                apiInstance.MarkReadConversation(conversationUuid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.MarkReadConversation: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -5947,45 +3688,13 @@ reset statistics within the queue
 
 reset statistics within the queue 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ResetConversationPbxQueueStatisticsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var queueUuid = "queueUuid_example";  // string | 
-
-            try
-            {
-                // reset statistics within the queue
-                apiInstance.ResetConversationPbxQueueStatistics(queueUuid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.ResetConversationPbxQueueStatistics: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -6031,46 +3740,13 @@ Search for canned messages by short_code
 
 Search for canned messages by short_code 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SearchConversationCannedMessagesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var searchRequest = new ConversationCannedMessagesSearch(); // ConversationCannedMessagesSearch | Search request
-
-            try
-            {
-                // Search for canned messages by short_code
-                ConversationCannedMessagesResponse result = apiInstance.SearchConversationCannedMessages(searchRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.SearchConversationCannedMessages: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -6117,45 +3793,12 @@ Unsubscribe any SMS participants in this conversation
 
 Unsubscribe any SMS participants in this conversation 
 
+
 ### Example
 
-```csharp
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SmsUnsubscribeConversationExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationUuid = "conversationUuid_example";  // string | 
-
-            try
-            {
-                // Unsubscribe any SMS participants in this conversation
-                apiInstance.SmsUnsubscribeConversation(conversationUuid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.SmsUnsubscribeConversation: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -6201,46 +3844,13 @@ Start a conversation
 
 Start a new conversation 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class StartConversationExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var startRequest = new ConversationStartRequest(); // ConversationStartRequest | Start request
-
-            try
-            {
-                // Start a conversation
-                ConversationStartResponse result = apiInstance.StartConversation(startRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.StartConversation: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -6287,46 +3897,13 @@ Update agent profile
 
 Update agent profile 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateAgentProfileExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var profileRequest = new ConversationAgentProfile(); // ConversationAgentProfile | Profile request
-
-            try
-            {
-                // Update agent profile
-                ConversationAgentProfileResponse result = apiInstance.UpdateAgentProfile(profileRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdateAgentProfile: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -6373,47 +3950,13 @@ Update a canned message
 
 Update a canned message 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateConversationCannedMessageExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationCannedMessageOid = 56;  // int | 
-            var cannedMessage = new ConversationCannedMessage(); // ConversationCannedMessage | Canned message
-
-            try
-            {
-                // Update a canned message
-                ConversationCannedMessageResponse result = apiInstance.UpdateConversationCannedMessage(conversationCannedMessageOid, cannedMessage);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdateConversationCannedMessage: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -6461,47 +4004,13 @@ Update a department
 
 Update a department 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateConversationDepartmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationDepartmentOid = 56;  // int | 
-            var department = new ConversationDepartment(); // ConversationDepartment | Department
-
-            try
-            {
-                // Update a department
-                ConversationDepartmentResponse result = apiInstance.UpdateConversationDepartment(conversationDepartmentOid, department);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdateConversationDepartment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -6549,47 +4058,13 @@ Update a engagement
 
 Update a engagement 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateConversationEngagementExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationEngagementOid = 56;  // int | 
-            var engagement = new ConversationEngagement(); // ConversationEngagement | Engagement
-
-            try
-            {
-                // Update a engagement
-                ConversationEngagementResponse result = apiInstance.UpdateConversationEngagement(conversationEngagementOid, engagement);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdateConversationEngagement: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -6637,46 +4112,13 @@ Update status within the queue
 
 Update status within the queue 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateConversationWebchatQueueStatusExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var queueName = "queueName_example";  // string | 
-            var statusRequest = new ConversationWebchatQueueStatusUpdateRequest(); // ConversationWebchatQueueStatusUpdateRequest | Status request
-
-            try
-            {
-                // Update status within the queue
-                apiInstance.UpdateConversationWebchatQueueStatus(queueName, statusRequest);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdateConversationWebchatQueueStatus: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -6723,47 +4165,13 @@ Update pbx agent
 
 Update a pbx agent 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdatePbxAgentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxAgentUuid = "conversationPbxAgentUuid_example";  // string | 
-            var pbxAgent = new ConversationPbxAgent(); // ConversationPbxAgent | Pbx Agent
-
-            try
-            {
-                // Update pbx agent
-                ConversationPbxAgentResponse result = apiInstance.UpdatePbxAgent(conversationPbxAgentUuid, pbxAgent);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdatePbxAgent: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -6811,47 +4219,13 @@ Update pbx audio
 
 Update a pbx audio 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdatePbxAudioExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxAudioUuid = "conversationPbxAudioUuid_example";  // string | 
-            var pbxAudio = new ConversationPbxAudio(); // ConversationPbxAudio | Pbx Audio
-
-            try
-            {
-                // Update pbx audio
-                ConversationPbxAudioResponse result = apiInstance.UpdatePbxAudio(conversationPbxAudioUuid, pbxAudio);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdatePbxAudio: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -6899,47 +4273,13 @@ Update pbx menu
 
 Update a pbx menu 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdatePbxMenuExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxMenuUuid = "conversationPbxMenuUuid_example";  // string | 
-            var pbxMenu = new ConversationPbxMenu(); // ConversationPbxMenu | Pbx Menu
-
-            try
-            {
-                // Update pbx menu
-                ConversationPbxMenuResponse result = apiInstance.UpdatePbxMenu(conversationPbxMenuUuid, pbxMenu);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdatePbxMenu: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -6987,47 +4327,13 @@ Update pbx phoneNumber
 
 Update a pbx phoneNumber 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdatePbxPhoneNumberExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxPhoneNumberUuid = "conversationPbxPhoneNumberUuid_example";  // string | 
-            var pbxPhoneNumber = new ConversationPbxPhoneNumber(); // ConversationPbxPhoneNumber | Pbx PhoneNumber
-
-            try
-            {
-                // Update pbx phoneNumber
-                ConversationPbxPhoneNumberResponse result = apiInstance.UpdatePbxPhoneNumber(conversationPbxPhoneNumberUuid, pbxPhoneNumber);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdatePbxPhoneNumber: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -7075,47 +4381,13 @@ Update pbx queue
 
 Update a pbx queue 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdatePbxQueueExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxQueueUuid = "conversationPbxQueueUuid_example";  // string | 
-            var pbxQueue = new ConversationPbxQueue(); // ConversationPbxQueue | Pbx Queue
-
-            try
-            {
-                // Update pbx queue
-                ConversationPbxQueueResponse result = apiInstance.UpdatePbxQueue(conversationPbxQueueUuid, pbxQueue);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdatePbxQueue: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -7163,47 +4435,13 @@ Update pbx timeBased
 
 Update a pbx timeBased 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdatePbxTimeBasedExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxTimeBasedUuid = "conversationPbxTimeBasedUuid_example";  // string | 
-            var pbxTimeBased = new ConversationPbxTimeBased(); // ConversationPbxTimeBased | Pbx TimeBased
-
-            try
-            {
-                // Update pbx timeBased
-                ConversationPbxTimeBasedResponse result = apiInstance.UpdatePbxTimeBased(conversationPbxTimeBasedUuid, pbxTimeBased);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdatePbxTimeBased: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -7251,47 +4489,13 @@ Update pbx timeRange
 
 Update a pbx timeRange 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdatePbxTimeRangeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxTimeRangeUuid = "conversationPbxTimeRangeUuid_example";  // string | 
-            var pbxTimeRange = new ConversationPbxTimeRange(); // ConversationPbxTimeRange | Pbx TimeRange
-
-            try
-            {
-                // Update pbx timeRange
-                ConversationPbxTimeRangeResponse result = apiInstance.UpdatePbxTimeRange(conversationPbxTimeRangeUuid, pbxTimeRange);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdatePbxTimeRange: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -7339,47 +4543,12 @@ Update pbx voicemailMailbox
 
 Update a pbx voicemailMailbox 
 
+
 ### Example
 
-```csharp
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdatePbxVoicemailMailboxExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var conversationPbxVoicemailMailboxUuid = "conversationPbxVoicemailMailboxUuid_example";  // string | 
-            var pbxVoicemailMailbox = new ConversationPbxVoicemailMailbox(); // ConversationPbxVoicemailMailbox | Pbx VoicemailMailbox
-
-            try
-            {
-                // Update pbx voicemailMailbox
-                ConversationPbxVoicemailMailboxResponse result = apiInstance.UpdatePbxVoicemailMailbox(conversationPbxVoicemailMailboxUuid, pbxVoicemailMailbox);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdatePbxVoicemailMailbox: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -7427,46 +4596,12 @@ Update virtual agent budget
 
 Update virtual agent budget 
 
+
 ### Example
 
-```csharp
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateVirtualAgentBudgetExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var virtualAgentBudget = new ConversationVirtualAgentBudget(); // ConversationVirtualAgentBudget | Virtual Agent Budget
-
-            try
-            {
-                // Update virtual agent budget
-                ConversationVirtualAgentBudgetResponse result = apiInstance.UpdateVirtualAgentBudget(virtualAgentBudget);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdateVirtualAgentBudget: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -7513,46 +4648,12 @@ Update virtual agent capabilities
 
 Update virtual agent capabilities 
 
+
 ### Example
 
-```csharp
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateVirtualAgentCapabilitiesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var virtualAgentCapabilities = new ConversationVirtualAgentCapabilities(); // ConversationVirtualAgentCapabilities | Virtual Agent Capabilities
-
-            try
-            {
-                // Update virtual agent capabilities
-                ConversationVirtualAgentCapabilitiesResponse result = apiInstance.UpdateVirtualAgentCapabilities(virtualAgentCapabilities);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ConversationApi.UpdateVirtualAgentCapabilities: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
 
 ### Parameters
 

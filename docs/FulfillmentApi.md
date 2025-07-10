@@ -21,46 +21,72 @@ Acknowledge receipt of orders.
 
 Acknowledge receipt of orders so that they are removed from the fulfillment queue.  This method must be called after receiving and order (via webhook) or retrieving (via retrieve orders method). 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
+using com.ultracart.admin.v2.Client;
 
-namespace Example
+namespace SdkSample.fulfillment
 {
-    public class AcknowledgeOrdersExample
+    public class AcknowledgeOrders
     {
-        public static void Main()
+        /// <summary>
+        /// acknowledgeOrders informs UltraCart that you (the fulfillment center) have received an order and have queued it for
+        /// shipping.  This method is NOT used to notify an order has shipped, only that it is going to be shipped at some
+        /// point in the future.
+        /// 
+        /// This method should be called by a fulfillment center after receiving an order either by 1) getDistributionCenterOrders
+        /// or 2) webhook.  Webhooks are the most efficient means for receiving orders, but if your fulfillment center lacks
+        /// the ability to consume webhooks, polling by getDistributionCenterOrders is an alternate means.
+        /// 
+        /// This method is important for notifying UltraCart that a fulfillment center has the action on an order.  Until this
+        /// call is made, UltraCart will continue to notify a fulfillment center of an order either by 1) subsequent webhooks or
+        /// 2) continue to include an order in subsequent getDistributionCenterOrders.
+        /// 
+        /// You will need the distribution center (DC) code.  UltraCart allows for multiple DC and the code is a
+        /// unique short string you assign to a DC as an easy mnemonic.
+        /// 
+        /// For more information about UltraCart distribution centers, please see:
+        /// https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377114/Distribution+Center
+        /// 
+        /// If you do not know your DC code, query a list of all DC and print them out.
+        /// $result = $fulfillment_api->getDistributionCenters();
+        /// print_r($result);
+        /// 
+        /// A successful call will receive back a status code 204 (No Content).
+        /// 
+        /// Possible Errors:
+        /// More than 100 order ids provided -> "order_ids can not contain more than 100 records at a time"
+        /// </summary>
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            string distributionCenterCode = "RAMI";
+            FulfillmentApi fulfillmentApi = new FulfillmentApi(Constants.ApiKey);
 
-            var distributionCenterCode = "distributionCenterCode_example";  // string | Distribution center code
-            var orderIds = new List<string>(); // List<string> | Orders to acknowledge receipt of (limit 100)
+            List<string> ordersIds = new List<string> { "DEMO-12345", "DEMO-12346", "DEMO-12347", "DEMO-12348", "DEMO-12349" };
 
             try
             {
-                // Acknowledge receipt of orders.
-                apiInstance.AcknowledgeOrders(distributionCenterCode, orderIds);
+                // limit is 100 acknowledgements at a time.
+                fulfillmentApi.AcknowledgeOrders(distributionCenterCode, ordersIds);
+                Console.WriteLine("done");
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling FulfillmentApi.AcknowledgeOrders: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                // update inventory failed. examine the reason.
+                Console.WriteLine("Exception when calling FulfillmentApi->AcknowledgeOrders: " + e.Message);
+                Environment.Exit(1);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -108,47 +134,63 @@ Generate a packing slip for this order for the given distribution center.
 
 The packing slip PDF that is returned is base 64 encoded 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.IO;
+using System.Text;
 using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.fulfillment
 {
-    public class GeneratePackingSlipExample
+    public class GeneratePackingSlip
     {
-        public static void Main()
+        /// <summary>
+        /// generatePackingSlip accepts a distribution center code and order_id and returns back a base64 encoded byte array pdf.
+        /// Both the dc code and order_id are needed because an order may have multiple items shipping via different DCs.
+        /// 
+        /// You will need the distribution center (DC) code. UltraCart allows for multiple DC and the code is a
+        /// unique short string you assign to a DC as an easy mnemonic.
+        /// 
+        /// For more information about UltraCart distribution centers, please see:
+        /// https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377114/Distribution+Center
+        /// 
+        /// If you do not know your DC code, query a list of all DC and print them out.
+        /// $result = $fulfillment_api->getDistributionCenters();
+        /// print_r($result);
+        /// </summary>
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            FulfillmentApi fulfillmentApi = Samples.GetFulfillmentApi();
 
-            var distributionCenterCode = "distributionCenterCode_example";  // string | Distribution center code
-            var orderId = "orderId_example";  // string | Order ID
+            string distributionCenterCode = "RAMI";
+            string orderId = "DEMO-12345";
 
             try
             {
-                // Generate a packing slip for this order for the given distribution center.
-                OrderPackingSlipResponse result = apiInstance.GeneratePackingSlip(distributionCenterCode, orderId);
-                Debug.WriteLine(result);
+                // limit is 500 inventory updates at a time. batch them if you're going large.
+                OrderPackingSlipResponse apiResponse = fulfillmentApi.GeneratePackingSlip(distributionCenterCode, orderId);
+                string base64Pdf = apiResponse.PdfBase64;
+                byte[] decodedPdf = Convert.FromBase64String(base64Pdf);
+                File.WriteAllBytes("packing_slip.pdf", decodedPdf);
+
+                Console.WriteLine("done");
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling FulfillmentApi.GeneratePackingSlip: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                // update inventory failed. examine the reason.
+                Console.WriteLine("Exception when calling FulfillmentApi->GeneratePackingSlip: " + e.Message);
+                Environment.Exit(1);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -196,46 +238,77 @@ Retrieve orders queued up for this distribution center.
 
 Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You'll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.fulfillment
 {
-    public class GetDistributionCenterOrdersExample
+    public class GetDistributionCenterOrders
     {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+        /*
+            getDistributionCenterOrders accepts a distribution center code and returns back up to 100 orders that need shipping.
+            There is NO pagination with this method call. Once you receive the orders, you should insert them into your
+            system, and acknowledge them via the acknowledgeOrders call. After you acknowledge the orders, subsequent calls
+            to getDistributionCenterOrders will return another batch of 100 orders.
 
-            var distributionCenterCode = "distributionCenterCode_example";  // string | Distribution center code
+            The orders that are returned contain only items for THIS distribution center and are by default completely expanded
+            with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal,
+            items, payment, shipping, summary, taxes
+
+            You will need the distribution center (DC) code. UltraCart allows for multiple DC and the code is a
+            unique short string you assign to a DC as an easy mnemonic.
+
+            For more information about UltraCart distribution centers, please see:
+            https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377114/Distribution+Center
+
+            If you do not know your DC code, query a list of all DC and print them out.
+            DistributionCentersResponse result = fulfillmentApi.GetDistributionCenters();
+            Console.WriteLine(result);
+        */
+
+        public static void Execute()
+        {
+            FulfillmentApi fulfillmentApi = Samples.GetFulfillmentApi();
 
             try
             {
-                // Retrieve orders queued up for this distribution center.
-                OrdersResponse result = apiInstance.GetDistributionCenterOrders(distributionCenterCode);
-                Debug.WriteLine(result);
+                List<string> acknowledgedOrders = new List<string>();
+                string distributionCenterCode = "RAMI";
+                OrdersResponse result = fulfillmentApi.GetDistributionCenterOrders(distributionCenterCode);
+                List<Order> orders = result.Orders;
+                foreach (Order order in orders)
+                {
+                    Console.WriteLine(order);
+                    // TODO: do something useful with this order, like adding it to your shipping queue.
+                    acknowledgedOrders.Add(order.OrderId);
+                }
+
+                // TODO: once you've securely and completely received it into your system, acknowledge the order.
+                fulfillmentApi.AcknowledgeOrders(distributionCenterCode, acknowledgedOrders);
+
+                // After acknowledging orders, you should call getDistributionCenterOrders again until you receive zero orders to ship.
+
+                Console.WriteLine("done");
             }
-            catch (ApiException e)
+            catch (Exception e)
             {
-                Debug.Print("Exception when calling FulfillmentApi.GetDistributionCenterOrders: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                // update inventory failed. examine the reason.
+                Console.WriteLine("Exception when calling FulfillmentApi.GetDistributionCenterOrders: " + e.Message);
+                Environment.Exit(1);
             }
         }
+
+
     }
 }
 ```
+
 
 ### Parameters
 
@@ -282,45 +355,53 @@ Retrieve distribution centers
 
 Retrieves the distribution centers that this user has access to. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.fulfillment
 {
-    public class GetDistributionCentersExample
+    public class GetDistributionCenters
     {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+        /*
+            This method returns back a list of all distribution centers configured for a merchant.
 
+            You will need the distribution center (DC) code for most operations.
+            UltraCart allows for multiple DC and the code is a unique short string you assign to a DC as an easy mnemonic.
+            This method call is an easy way to determine what a DC code is for a particular distribution center.
+
+            For more information about UltraCart distribution centers, please see:
+            https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377114/Distribution+Center
+        */
+
+        public static void Execute()
+        {
+            FulfillmentApi fulfillmentApi = Samples.GetFulfillmentApi();
 
             try
             {
-                // Retrieve distribution centers
-                DistributionCentersResponse result = apiInstance.GetDistributionCenters();
-                Debug.WriteLine(result);
+                DistributionCentersResponse result = fulfillmentApi.GetDistributionCenters();
+                foreach(DistributionCenter dc in result.DistributionCenters)
+                Console.WriteLine(dc.ToString());
+
+                Console.WriteLine("done");
             }
-            catch (ApiException e)
+            catch (Exception e)
             {
-                Debug.Print("Exception when calling FulfillmentApi.GetDistributionCenters: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                // update inventory failed.  examine the reason.
+                Console.WriteLine("Exception when calling FulfillmentApi.GetDistributionCenters: " + e.Message);
+                Environment.Exit(1);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -364,46 +445,70 @@ Mark orders as shipped
 
 Store the tracking information and mark the order shipped for this distribution center. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.fulfillment
 {
-    public class ShipOrdersExample
+    public class ShipOrders
     {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+        /*
+            shipOrders informs UltraCart that you (the fulfillment center) have shipped an order and allows you to provide
+            UltraCart with tracking information.
 
-            var distributionCenterCode = "distributionCenterCode_example";  // string | Distribution center code
-            var shipments = new List<FulfillmentShipment>(); // List<FulfillmentShipment> | Orders to mark shipped
+            You will need the distribution center (DC) code.  UltraCart allows for multiple DC and the code is a
+            unique short string you assign to a DC as an easy mnemonic.
+
+            For more information about UltraCart distribution centers, please see:
+            https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377114/Distribution+Center
+
+            If you do not know your DC code, query a list of all DC and print them out.
+            DistributionCentersResponse result = fulfillmentApi.GetDistributionCenters();
+            Console.WriteLine(result);
+
+            A successful call will receive back a status code 204 (No Content).
+
+            Possible Errors:
+            More than 100 order ids provided -> "shipments can not contain more than 100 records at a time"
+        */
+
+        public static void Execute()
+        {
+            string distributionCenterCode = "RAMI";
+            FulfillmentApi fulfillmentApi = Samples.GetFulfillmentApi();
+
+            FulfillmentShipment shipment = new FulfillmentShipment();
+            shipment.OrderId = "DEMO-12345";
+            shipment.TrackingNumbers = new List<string> { "UPS-1234567890", "USPS-BLAH-BLAH-BLAH" }; // this order had two boxes.
+            shipment.ShippingCost = 16.99m; // the actual cost to ship this order
+            shipment.FulfillmentFee = 8.99m; // this fulfillment center is kinda pricey.
+            shipment.PackageCost = 11.99m; // 11.99?  we use only the finest packaging.
+
+            List<FulfillmentShipment> shipments = new List<FulfillmentShipment> { shipment }; // up to 100 shipments per call
 
             try
             {
-                // Mark orders as shipped
-                apiInstance.ShipOrders(distributionCenterCode, shipments);
+                // limit is 100 shipments updates at a time.
+                fulfillmentApi.ShipOrders(distributionCenterCode, shipments);
+                Console.WriteLine("done");
             }
-            catch (ApiException e)
+            catch (Exception e)
             {
-                Debug.Print("Exception when calling FulfillmentApi.ShipOrders: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                // update inventory failed.  examine the reason.
+                Console.WriteLine("Exception when calling FulfillmentApi.ShipOrders: " + e.Message);
+                Environment.Exit(1);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -451,46 +556,66 @@ Update inventory
 
 Update the inventory for items associated with this distribution center 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.fulfillment
 {
-    public class UpdateInventoryExample
+    public class UpdateInventory
     {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+        /*
+            updateInventory is a simple means of updating UltraCart inventory for one or more items (500 max per call)
+            You will need the distribution center (DC) code.  UltraCart allows for multiple DC and the code is a
+            unique short string you assign to a DC as an easy mnemonic.
 
-            var distributionCenterCode = "distributionCenterCode_example";  // string | Distribution center code
-            var inventories = new List<FulfillmentInventory>(); // List<FulfillmentInventory> | Inventory updates (limit 500)
+            For more information about UltraCart distribution centers, please see:
+            https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377114/Distribution+Center
+
+            If you do not know your DC code, query a list of all DC and print them out.
+            DistributionCentersResponse result = fulfillmentApi.GetDistributionCenters();
+            Console.WriteLine(result);
+
+            Possible Errors:
+            More than 500 items provided -> "inventories can not contain more than 500 records at a time"
+        */
+
+        public static void Execute()
+        {
+            string distributionCenterCode = "RAMI";
+            FulfillmentApi fulfillmentApi = Samples.GetFulfillmentApi();
+
+            string sku = "9780982021361";
+            int quantity = 9;
+            FulfillmentInventory firstInventory = new FulfillmentInventory();
+            firstInventory.ItemId = sku;
+            firstInventory.Quantity = quantity;
+            List<FulfillmentInventory> inventoryUpdates = new List<FulfillmentInventory> { firstInventory }; // for this example, we're only updating one item.
+
+            Console.WriteLine(inventoryUpdates);
 
             try
             {
-                // Update inventory
-                apiInstance.UpdateInventory(distributionCenterCode, inventories);
+                // limit is 500 inventory updates at a time.  batch them if you're going large.
+                fulfillmentApi.UpdateInventory(distributionCenterCode, inventoryUpdates);
+                Console.WriteLine("done");
             }
-            catch (ApiException e)
+            catch (Exception e)
             {
-                Debug.Print("Exception when calling FulfillmentApi.UpdateInventory: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                // update inventory failed.  examine the reason.
+                Console.WriteLine("Exception when calling FulfillmentApi.UpdateInventory: " + e.Message);
+                Environment.Exit(1);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 

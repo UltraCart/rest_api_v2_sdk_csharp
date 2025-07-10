@@ -26,48 +26,59 @@ Consolidates multiple auto orders
 
 Consolidates mutliple auto orders on the UltraCart account. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Reflection;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.auto_order
 {
-    public class ConsolidateAutoOrdersExample
+    public class ConsolidateAutoOrders
     {
-        public static void Main()
+        /*
+         *
+         * consolidateAutoOrders
+         * an auto order with no items, the original_order is used for shipping, billing, and payment information.
+         * Once you have your empty auto order, add items to it and call updateAutoOrder.
+         *
+         */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var autoOrderOid = 56;  // int | The auto order oid to consolidate into.
-            var autoOrderConsolidate = new AutoOrderConsolidate(); // AutoOrderConsolidate | Auto orders to consolidate
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
+            Console.WriteLine("--- " + MethodBase.GetCurrentMethod()?.DeclaringType?.Name + " ---");
+            
             try
             {
-                // Consolidates multiple auto orders
-                AutoOrderResponse result = apiInstance.ConsolidateAutoOrders(autoOrderOid, autoOrderConsolidate, expand);
-                Debug.WriteLine(result);
+                // Create auto order API instance using API key
+                AutoOrderApi autoOrderApi = new AutoOrderApi(Constants.ApiKey);
+                
+                string expand = "items,items.future_schedules,original_order,rebill_orders"; // see https://www.ultracart.com/api/#resource_auto_order.html for list
+                
+                int targetAutoOrderOid = 123456789; // set getAutoOrdersByQuery for retrieving auto orders where you can get their auto_order_oid.
+                AutoOrderConsolidate consolidateRequest = new AutoOrderConsolidate();
+                consolidateRequest.SourceAutoOrderOids = new List<int> { 23456789, 3456789 }; // these are the autoorder_oids you wish to consolidate into the target.
+                
+                var apiResponse = autoOrderApi.ConsolidateAutoOrders(targetAutoOrderOid, consolidateRequest, expand);
+                
+                var consolidatedAutoOrder = apiResponse.AutoOrder;
+                
+                // TODO: make sure the consolidated order has all the items and history of all orders.
+                Console.WriteLine(consolidatedAutoOrder);
             }
-            catch (ApiException e)
+            catch (Exception ex)
             {
-                Debug.Print("Exception when calling AutoOrderApi.ConsolidateAutoOrders: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -116,47 +127,71 @@ Establish an auto order by referencing a regular order id
 
 Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Reflection;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.auto_order
 {
-    public class EstablishAutoOrderByReferenceOrderIdExample
+    public class EstablishAutoOrderByReferenceOrderId
     {
-        public static void Main()
+        /*
+         *
+         * This method takes a normal order id and creates an empty auto order from it.  While this might seem useless having
+         * an auto order with no items, the original_order is used for shipping, billing, and payment information.
+         * Once you have your empty auto order, add items to it and call updateAutoOrder.
+         *
+         */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var referenceOrderId = "referenceOrderId_example";  // string | The order id to attach this auto order to
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
+            Console.WriteLine("--- " + MethodBase.GetCurrentMethod()?.DeclaringType?.Name + " ---");
+            
             try
             {
-                // Establish an auto order by referencing a regular order id
-                AutoOrderResponse result = apiInstance.EstablishAutoOrderByReferenceOrderId(referenceOrderId, expand);
-                Debug.WriteLine(result);
+                // Create auto order API instance using API key
+                AutoOrderApi autoOrderApi = new AutoOrderApi(Constants.ApiKey);
+                
+                string expand = "items,items.future_schedules,original_order,rebill_orders"; // see https://www.ultracart.com/api/#resource_auto_order.html for list
+                
+                string originalOrderId = "DEMO-123457";
+                var apiResponse = autoOrderApi.EstablishAutoOrderByReferenceOrderId(originalOrderId, expand);
+                
+                AutoOrder emptyAutoOrder = apiResponse.AutoOrder;
+                int autoOrderOid = emptyAutoOrder.AutoOrderOid;
+                
+                List<AutoOrderItem> items = new List<AutoOrderItem>();
+                AutoOrderItem item = new AutoOrderItem();
+                item.OriginalItemId = "ITEM_ABC"; // This item should be configured with auto order features.
+                item.OriginalQuantity = 1;
+                item.ArbitraryUnitCost = 59.99m;
+                // Valid Frequencies
+                // "Weekly", "Biweekly", "Every...", "Every 10 Days", "Every 4 Weeks", "Every 6 Weeks", "Every 8 Weeks", "Every 24 Days", "Every 28 Days", "Monthly",
+                // "Every 45 Days", "Every 2 Months", "Every 3 Months", "Every 4 Months", "Every 5 Months", "Every 6 Months", "Yearly"
+                item.Frequency = AutoOrderItem.FrequencyEnum.Monthly;
+                items.Add(item);
+                emptyAutoOrder.Items = items;
+                
+                string validateOriginalOrder = "No";
+                var updateResponse = autoOrderApi.UpdateAutoOrder(autoOrderOid, emptyAutoOrder, validateOriginalOrder, expand);
+                AutoOrder updatedAutoOrder = updateResponse.AutoOrder;
+                Console.WriteLine(updatedAutoOrder);
             }
-            catch (ApiException e)
+            catch (Exception ex)
             {
-                Debug.Print("Exception when calling AutoOrderApi.EstablishAutoOrderByReferenceOrderId: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -204,47 +239,49 @@ Retrieve an auto order by oid
 
 Retrieves a single auto order using the specified auto order oid. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Reflection;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.auto_order
 {
-    public class GetAutoOrderExample
+    public class GetAutoOrder
     {
-        public static void Main()
+        /*
+         * retrieves an auto_order given the auto_order_oid;
+         */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var autoOrderOid = 56;  // int | The auto order oid to retrieve.
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
+            Console.WriteLine("--- " + MethodBase.GetCurrentMethod()?.DeclaringType?.Name + " ---");
+            
             try
             {
-                // Retrieve an auto order by oid
-                AutoOrderResponse result = apiInstance.GetAutoOrder(autoOrderOid, expand);
-                Debug.WriteLine(result);
+                // Create auto order API instance using API key
+                AutoOrderApi autoOrderApi = new AutoOrderApi(Constants.ApiKey);
+                
+                string expand = "items,items.future_schedules,original_order,rebill_orders"; // see https://www.ultracart.com/api/#resource_auto_order.html for list
+                int autoOrderOid = 123456789; // If you don't know the oid, use getAutoOrdersByQuery for retrieving auto orders
+                
+                var apiResponse = autoOrderApi.GetAutoOrder(autoOrderOid, expand);
+                AutoOrder autoOrder = apiResponse.AutoOrder;
+                
+                Console.WriteLine(autoOrder);
             }
-            catch (ApiException e)
+            catch (Exception ex)
             {
-                Debug.Print("Exception when calling AutoOrderApi.GetAutoOrder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -292,47 +329,112 @@ Retrieve an auto order by code
 
 Retrieves a single auto order using the specified reference (original) order id. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Reflection;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.auto_order
 {
-    public class GetAutoOrderByCodeExample
+    public class GetAutoOrderByCode
     {
-        public static void Main()
+        /*
+         * This example illustrates how to query an auto order when you know the 'code'.  Each AutoOrder has a unique
+         * identifier used by UltraCart called an OID (Object Identifier).  AutoOrders also have a unique code which
+         * is (arguably) an easy way for customers to discuss a specific auto order with a merchant.
+         * The codes look like this: "RT2A9CBSX9"
+         *
+         * It is doubtful that an UltraCart merchant will ever make use of this method.
+         *
+         * These are the possible expansion values for auto orders.  This list is taken from www.ultracart.com/api/
+         * and may become stale. Please review the master website when in doubt.
+         * items
+         * items.future_schedules
+         * items.sample_schedule
+         * original_order
+         * original_order.affiliate
+         * original_order.affiliate.ledger
+         * original_order.auto_order
+         * original_order.billing
+         * original_order.buysafe
+         * original_order.channel_partner
+         * original_order.checkout
+         * original_order.coupon
+         * original_order.customer_profile
+         * original_order.digital_order
+         * original_order.edi
+         * original_order.fraud_score
+         * original_order.gift
+         * original_order.gift_certificate
+         * original_order.internal
+         * original_order.item
+         * original_order.linked_shipment
+         * original_order.marketing
+         * original_order.payment
+         * original_order.payment.transaction
+         * original_order.quote
+         * original_order.salesforce
+         * original_order.shipping
+         * original_order.summary
+         * original_order.taxes
+         * rebill_orders
+         * rebill_orders.affiliate
+         * rebill_orders.affiliate.ledger
+         * rebill_orders.auto_order
+         * rebill_orders.billing
+         * rebill_orders.buysafe
+         * rebill_orders.channel_partner
+         * rebill_orders.checkout
+         * rebill_orders.coupon
+         * rebill_orders.customer_profile
+         * rebill_orders.digital_order
+         * rebill_orders.edi
+         * rebill_orders.fraud_score
+         * rebill_orders.gift
+         * rebill_orders.gift_certificate
+         * rebill_orders.internal
+         * rebill_orders.item
+         * rebill_orders.linked_shipment
+         * rebill_orders.marketing
+         * rebill_orders.payment
+         * rebill_orders.payment.transaction
+         * rebill_orders.quote
+         * rebill_orders.salesforce
+         * rebill_orders.shipping
+         * rebill_orders.summary
+         * rebill_orders.taxes
+         */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var autoOrderCode = "autoOrderCode_example";  // string | The auto order oid to retrieve.
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
+            Console.WriteLine("--- " + MethodBase.GetCurrentMethod()?.DeclaringType?.Name + " ---");
+            
             try
             {
-                // Retrieve an auto order by code
-                AutoOrderResponse result = apiInstance.GetAutoOrderByCode(autoOrderCode, expand);
-                Debug.WriteLine(result);
+                // Create auto order API instance using API key
+                AutoOrderApi autoOrderApi = new AutoOrderApi(Constants.ApiKey);
+                
+                string expand = "items,items.future_schedules,original_order,rebill_orders"; // contact us if you're unsure what you need
+                string code = "RT2A9CBSX9";
+                var apiResponse = autoOrderApi.GetAutoOrderByCode(code, expand);
+                AutoOrder autoOrder = apiResponse.AutoOrder;
+                
+                // this will be verbose...
+                Console.WriteLine(autoOrder);
             }
-            catch (ApiException e)
+            catch (Exception ex)
             {
-                Debug.Print("Exception when calling AutoOrderApi.GetAutoOrderByCode: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -380,47 +482,107 @@ Retrieve an auto order by order id
 
 Retrieves a single auto order using the specified reference (original) order id. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Reflection;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.auto_order
 {
-    public class GetAutoOrderByReferenceOrderIdExample
+    public class GetAutoOrderByReferenceOrderId
     {
-        public static void Main()
+        /*
+         * This example illustrates how to query an auto order when you know the original order id.
+         * These are the possible expansion values for auto orders.  This list is taken from www.ultracart.com/api/
+         * and may become stale. Please review the master website when in doubt.
+         * items
+         * items.future_schedules
+         * items.sample_schedule
+         * original_order
+         * original_order.affiliate
+         * original_order.affiliate.ledger
+         * original_order.auto_order
+         * original_order.billing
+         * original_order.buysafe
+         * original_order.channel_partner
+         * original_order.checkout
+         * original_order.coupon
+         * original_order.customer_profile
+         * original_order.digital_order
+         * original_order.edi
+         * original_order.fraud_score
+         * original_order.gift
+         * original_order.gift_certificate
+         * original_order.internal
+         * original_order.item
+         * original_order.linked_shipment
+         * original_order.marketing
+         * original_order.payment
+         * original_order.payment.transaction
+         * original_order.quote
+         * original_order.salesforce
+         * original_order.shipping
+         * original_order.summary
+         * original_order.taxes
+         * rebill_orders
+         * rebill_orders.affiliate
+         * rebill_orders.affiliate.ledger
+         * rebill_orders.auto_order
+         * rebill_orders.billing
+         * rebill_orders.buysafe
+         * rebill_orders.channel_partner
+         * rebill_orders.checkout
+         * rebill_orders.coupon
+         * rebill_orders.customer_profile
+         * rebill_orders.digital_order
+         * rebill_orders.edi
+         * rebill_orders.fraud_score
+         * rebill_orders.gift
+         * rebill_orders.gift_certificate
+         * rebill_orders.internal
+         * rebill_orders.item
+         * rebill_orders.linked_shipment
+         * rebill_orders.marketing
+         * rebill_orders.payment
+         * rebill_orders.payment.transaction
+         * rebill_orders.quote
+         * rebill_orders.salesforce
+         * rebill_orders.shipping
+         * rebill_orders.summary
+         * rebill_orders.taxes
+         */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var referenceOrderId = "referenceOrderId_example";  // string | The auto order oid to retrieve.
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            Console.WriteLine("--- " + MethodBase.GetCurrentMethod()?.DeclaringType?.Name + " ---");
 
             try
             {
-                // Retrieve an auto order by order id
-                AutoOrderResponse result = apiInstance.GetAutoOrderByReferenceOrderId(referenceOrderId, expand);
-                Debug.WriteLine(result);
+                // Create auto order API instance using API key
+                AutoOrderApi autoOrderApi = new AutoOrderApi(Constants.ApiKey);
+
+                string expand =
+                    "items,items.future_schedules,original_order,rebill_orders"; // contact us if you're unsure what you need
+                string originalOrderId = "DEMO-12345678";
+                var apiResponse = autoOrderApi.GetAutoOrderByReferenceOrderId(originalOrderId, expand);
+                AutoOrder autoOrder = apiResponse.AutoOrder;
+
+                // this will be verbose...
+                Console.WriteLine(autoOrder);
             }
-            catch (ApiException e)
+            catch (Exception ex)
             {
-                Debug.Print("Exception when calling AutoOrderApi.GetAutoOrderByReferenceOrderId: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -468,68 +630,138 @@ Retrieve auto orders
 
 Retrieves auto orders from the account.  If no parameters are specified, all auto orders will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Reflection;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.auto_order
 {
-    public class GetAutoOrdersExample
+    public class GetAutoOrders
     {
-        public static void Main()
+        /*
+        getAutoOrders provides a query service on AutoOrders (aka subscriptions or recurring orders) within the UltraCart
+        system. It was the first query provided and the most cumbersome to use.  Please use getAutoOrdersByQuery for an
+        easier query method.  If you have multiple auto_order_oids and need the corresponding objects, consider
+        getAutoOrdersBatch() to reduce call count.
+        */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var autoOrderCode = "autoOrderCode_example";  // string | Auto order code (optional) 
-            var originalOrderId = "originalOrderId_example";  // string | Original order id (optional) 
-            var firstName = "firstName_example";  // string | First name (optional) 
-            var lastName = "lastName_example";  // string | Last name (optional) 
-            var company = "company_example";  // string | Company (optional) 
-            var city = "city_example";  // string | City (optional) 
-            var state = "state_example";  // string | State (optional) 
-            var postalCode = "postalCode_example";  // string | Postal code (optional) 
-            var countryCode = "countryCode_example";  // string | Country code (ISO-3166 two letter) (optional) 
-            var phone = "phone_example";  // string | Phone (optional) 
-            var email = "email_example";  // string | Email (optional) 
-            var originalOrderDateBegin = "originalOrderDateBegin_example";  // string | Original order date begin (optional) 
-            var originalOrderDateEnd = "originalOrderDateEnd_example";  // string | Original order date end (optional) 
-            var nextShipmentDateBegin = "nextShipmentDateBegin_example";  // string | Next shipment date begin (optional) 
-            var nextShipmentDateEnd = "nextShipmentDateEnd_example";  // string | Next shipment date end (optional) 
-            var cardType = "cardType_example";  // string | Card type (optional) 
-            var itemId = "itemId_example";  // string | Item ID (optional) 
-            var status = "status_example";  // string | Status (optional) 
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var since = "since_example";  // string | Fetch auto orders that have been created/modified since this date/time. (optional) 
-            var sort = "sort_example";  // string | The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
+            Console.WriteLine("--- " + MethodBase.GetCurrentMethod()?.DeclaringType?.Name + " ---");
+            
             try
             {
-                // Retrieve auto orders
-                AutoOrdersResponse result = apiInstance.GetAutoOrders(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
-                Debug.WriteLine(result);
+                List<AutoOrder> autoOrders = new List<AutoOrder>();
+                
+                int iteration = 1;
+                int offset = 0;
+                int limit = 200;
+                bool moreRecordsToFetch = true;
+                
+                // Create auto order API instance using API key
+                AutoOrderApi autoOrderApi = new AutoOrderApi(Constants.ApiKey);
+                
+                while (moreRecordsToFetch)
+                {
+                    Console.WriteLine($"executing iteration {iteration}");
+                    List<AutoOrder> chunkOfAutoOrders = GetAutoOrderChunk(autoOrderApi, offset, limit);
+                    autoOrders.AddRange(chunkOfAutoOrders);
+                    offset = offset + limit;
+                    moreRecordsToFetch = chunkOfAutoOrders.Count == limit;
+                    iteration++;
+                }
+                
+                // Display the auto orders
+                foreach (var autoOrder in autoOrders)
+                {
+                    Console.WriteLine(autoOrder);
+                }
+                
+                Console.WriteLine($"Total auto orders retrieved: {autoOrders.Count}");
             }
-            catch (ApiException e)
+            catch (Exception ex)
             {
-                Debug.Print("Exception when calling AutoOrderApi.GetAutoOrders: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
             }
+        }
+        
+        /// <summary>
+        /// Returns a chunk of auto orders based on query parameters
+        /// </summary>
+        /// <param name="autoOrderApi">The auto order API instance</param>
+        /// <param name="offset">Pagination offset</param>
+        /// <param name="limit">Maximum number of records to return</param>
+        /// <returns>List of matching auto orders</returns>
+        public static List<AutoOrder> GetAutoOrderChunk(AutoOrderApi autoOrderApi, int offset, int limit)
+        {
+            string expand = "items,original_order,rebill_orders";
+            // see www.ultracart.com/api/ for all the expansion fields available (this list below may become stale)
+            /*
+            Possible Order Expansions:
+
+            add_ons                             items.sample_schedule	        original_order.buysafe	        original_order.payment.transaction
+            items	                            original_order	                original_order.channel_partner	original_order.quote
+            items.future_schedules	            original_order.affiliate	    original_order.checkout	        original_order.salesforce
+            original_order.affiliate.ledger	    original_order.coupon	        original_order.shipping
+            original_order.auto_order	        original_order.customer_profile	original_order.summary
+            original_order.billing	            original_order.digital_order	original_order.taxes
+            rebill_orders	                    original_order.edi	            rebill_orders.affiliate
+            rebill_orders.affiliate.ledger	    original_order.fraud_score	    rebill_orders.auto_order
+            rebill_orders.billing	            original_order.gift	            rebill_orders.buysafe
+            rebill_orders.channel_partner	    original_order.gift_certificate	rebill_orders.checkout
+            rebill_orders.coupon	            original_order.internal	        rebill_orders.customer_profile
+            rebill_orders.digital_order	        original_order.item	            rebill_orders.edi
+            rebill_orders.fraud_score	        original_order.linked_shipment	rebill_orders.gift
+            rebill_orders.gift_certificate      original_order.marketing	    rebill_orders.internal
+            rebill_orders.item	                original_order.payment	        rebill_orders.linked_shipment
+            rebill_orders.marketing	            rebill_orders.payment	        rebill_orders.quote
+            rebill_orders.payment.transaction	rebill_orders.salesforce	    rebill_orders.shipping
+            rebill_orders.summary	            rebill_orders.taxes
+            */
+            
+            string autoOrderCode = null;
+            string originalOrderId = null;
+            string firstName = null;
+            string lastName = null;
+            string company = null;
+            string city = null;
+            string state = null;
+            string postalCode = null;
+            string countryCode = null;
+            string phone = null;
+            string email = "test@ultracart.com"; // <-- for this example, we are only filtering on email address.
+            string originalOrderDateBegin = null;
+            string originalOrderDateEnd = null;
+            string nextShipmentDateBegin = null;
+            string nextShipmentDateEnd = null;
+            string cardType = null;
+            string itemId = null;
+            string status = null;
+            string since = null;
+            string sort = null;
+            
+            // see all these parameters?  that is why you should use getAutoOrdersByQuery() instead of getAutoOrders()
+            var apiResponse = autoOrderApi.GetAutoOrders(autoOrderCode, originalOrderId, firstName, lastName,
+                company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin,
+                originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status,
+                limit, offset, since, sort, expand);
+                
+            if (apiResponse.AutoOrders != null)
+            {
+                return apiResponse.AutoOrders;
+            }
+            return new List<AutoOrder>();
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -598,47 +830,117 @@ Retrieve auto order batch
 
 Retrieves a group of auto orders from the account based on an array of auto order oids.  If more than 200 auto order ids are specified, the API call will fail with a bad request error. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Reflection;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.auto_order
 {
-    public class GetAutoOrdersBatchExample
+    public class GetAutoOrdersBatch
     {
-        public static void Main()
+        /*
+         * This example illustrates how to retrieve auto orders when you have a list of auto_order_oid.
+         * These are the possible expansion values for auto orders.  This list is taken from www.ultracart.com/api/
+         * and may become stale. Please review the master website when in doubt.
+         * items
+         * items.future_schedules
+         * items.sample_schedule
+         * original_order
+         * original_order.affiliate
+         * original_order.affiliate.ledger
+         * original_order.auto_order
+         * original_order.billing
+         * original_order.buysafe
+         * original_order.channel_partner
+         * original_order.checkout
+         * original_order.coupon
+         * original_order.customer_profile
+         * original_order.digital_order
+         * original_order.edi
+         * original_order.fraud_score
+         * original_order.gift
+         * original_order.gift_certificate
+         * original_order.internal
+         * original_order.item
+         * original_order.linked_shipment
+         * original_order.marketing
+         * original_order.payment
+         * original_order.payment.transaction
+         * original_order.quote
+         * original_order.salesforce
+         * original_order.shipping
+         * original_order.summary
+         * original_order.taxes
+         * rebill_orders
+         * rebill_orders.affiliate
+         * rebill_orders.affiliate.ledger
+         * rebill_orders.auto_order
+         * rebill_orders.billing
+         * rebill_orders.buysafe
+         * rebill_orders.channel_partner
+         * rebill_orders.checkout
+         * rebill_orders.coupon
+         * rebill_orders.customer_profile
+         * rebill_orders.digital_order
+         * rebill_orders.edi
+         * rebill_orders.fraud_score
+         * rebill_orders.gift
+         * rebill_orders.gift_certificate
+         * rebill_orders.internal
+         * rebill_orders.item
+         * rebill_orders.linked_shipment
+         * rebill_orders.marketing
+         * rebill_orders.payment
+         * rebill_orders.payment.transaction
+         * rebill_orders.quote
+         * rebill_orders.salesforce
+         * rebill_orders.shipping
+         * rebill_orders.summary
+         * rebill_orders.taxes*
+         */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var autoOrderBatch = new AutoOrderQueryBatch(); // AutoOrderQueryBatch | Auto order batch
-            var expand = "expand_example";  // string | The object expansion to perform on the result. (optional) 
+            Console.WriteLine("--- " + MethodBase.GetCurrentMethod()?.DeclaringType?.Name + " ---");
 
             try
             {
-                // Retrieve auto order batch
-                AutoOrdersResponse result = apiInstance.GetAutoOrdersBatch(autoOrderBatch, expand);
-                Debug.WriteLine(result);
+                // Create auto order API instance using API key
+                AutoOrderApi autoOrderApi = new AutoOrderApi(Constants.ApiKey);
+
+                string expand =
+                    "items,items.future_schedules,original_order,rebill_orders"; // contact us if you're unsure what you need
+                List<int> autoOrderOids = new List<int> { 123456, 234567, 345678, 456789 };
+
+                AutoOrderQueryBatch batchRequest = new AutoOrderQueryBatch();
+                batchRequest.AutoOrderOids = autoOrderOids;
+
+                var apiResponse = autoOrderApi.GetAutoOrdersBatch(batchRequest, expand);
+                List<AutoOrder> autoOrders = apiResponse.AutoOrders;
+
+                // Display auto orders
+                foreach (var autoOrder in autoOrders)
+                {
+                    Console.WriteLine(autoOrder);
+                }
+
+                Console.WriteLine($"Retrieved {autoOrders.Count} auto orders");
             }
-            catch (ApiException e)
+            catch (Exception ex)
             {
-                Debug.Print("Exception when calling AutoOrderApi.GetAutoOrdersBatch: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -686,50 +988,179 @@ Retrieve auto orders by query
 
 Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Reflection;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.auto_order
 {
-    public class GetAutoOrdersByQueryExample
+    public class GetAutoOrdersByQuery
     {
-        public static void Main()
+        /*
+         * This example illustrates how to retrieve auto orders and handle pagination.
+         *
+             * These are the possible expansion values for auto orders.  This list is taken from www.ultracart.com/api/
+             * and may become stale. Please review the master website when in doubt.
+            items
+            items.future_schedules
+            items.sample_schedule
+            original_order
+            original_order.affiliate
+            original_order.affiliate.ledger
+            original_order.auto_order
+            original_order.billing
+            original_order.buysafe
+            original_order.channel_partner
+            original_order.checkout
+            original_order.coupon
+            original_order.customer_profile
+            original_order.digital_order
+            original_order.edi
+            original_order.fraud_score
+            original_order.gift
+            original_order.gift_certificate
+            original_order.internal
+            original_order.item
+            original_order.linked_shipment
+            original_order.marketing
+            original_order.payment
+            original_order.payment.transaction
+            original_order.quote
+            original_order.salesforce
+            original_order.shipping
+            original_order.summary
+            original_order.taxes
+            rebill_orders
+            rebill_orders.affiliate
+            rebill_orders.affiliate.ledger
+            rebill_orders.auto_order
+            rebill_orders.billing
+            rebill_orders.buysafe
+            rebill_orders.channel_partner
+            rebill_orders.checkout
+            rebill_orders.coupon
+            rebill_orders.customer_profile
+            rebill_orders.digital_order
+            rebill_orders.edi
+            rebill_orders.fraud_score
+            rebill_orders.gift
+            rebill_orders.gift_certificate
+            rebill_orders.internal
+            rebill_orders.item
+            rebill_orders.linked_shipment
+            rebill_orders.marketing
+            rebill_orders.payment
+            rebill_orders.payment.transaction
+            rebill_orders.quote
+            rebill_orders.salesforce
+            rebill_orders.shipping
+            rebill_orders.summary
+            rebill_orders.taxes
+         */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var autoOrderQuery = new AutoOrderQuery(); // AutoOrderQuery | Auto order query
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Maximum 200) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = "sort_example";  // string | The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-            var expand = "expand_example";  // string | The object expansion to perform on the result. (optional) 
+            Console.WriteLine("--- " + MethodBase.GetCurrentMethod()?.DeclaringType?.Name + " ---");
 
             try
             {
-                // Retrieve auto orders by query
-                AutoOrdersResponse result = apiInstance.GetAutoOrdersByQuery(autoOrderQuery, limit, offset, sort, expand);
-                Debug.WriteLine(result);
+                List<AutoOrder> autoOrders = new List<AutoOrder>();
+
+                int iteration = 1;
+                int offset = 0;
+                int limit = 200;
+                bool moreRecordsToFetch = true;
+
+                // Create auto order API instance using API key
+                AutoOrderApi autoOrderApi = new AutoOrderApi(Constants.ApiKey);
+
+                while (moreRecordsToFetch)
+                {
+                    Console.WriteLine($"executing iteration {iteration}");
+
+                    List<AutoOrder> chunkOfOrders = GetAutoOrderChunk(autoOrderApi, offset, limit);
+                    autoOrders.AddRange(chunkOfOrders);
+                    offset = offset + limit;
+                    moreRecordsToFetch = chunkOfOrders.Count == limit;
+                    iteration++;
+                }
+
+                // Display auto orders
+                foreach (var autoOrder in autoOrders)
+                {
+                    Console.WriteLine(autoOrder);
+                }
+
+                Console.WriteLine($"Retrieved {autoOrders.Count} auto orders");
             }
-            catch (ApiException e)
+            catch (Exception ex)
             {
-                Debug.Print("Exception when calling AutoOrderApi.GetAutoOrdersByQuery: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine($"ApiException occurred on iteration");
+                Console.WriteLine(ex);
+                Environment.Exit(1);
             }
+        }
+
+        /// <summary>
+        /// Returns a chunk of auto orders based on query parameters
+        /// </summary>
+        /// <param name="autoOrderApi">The auto order API instance</param>
+        /// <param name="offset">Pagination offset</param>
+        /// <param name="limit">Maximum number of records to return</param>
+        /// <returns>List of matching auto orders</returns>
+        public static List<AutoOrder> GetAutoOrderChunk(AutoOrderApi autoOrderApi, int offset, int limit)
+        {
+            string expand =
+                "items,items.future_schedules,original_order,rebill_orders"; // contact us if you're unsure what you need
+
+            /*
+             * These are the supported sorting fields:
+            auto_order_code
+            order_id
+            shipping.company
+            shipping.first_name
+            shipping.last_name
+            shipping.city
+            shipping.state_region
+            shipping.postal_code
+            shipping.country_code
+            billing.phone
+            billing.email
+            billing.cc_email
+            billing.company
+            billing.first_name
+            billing.last_name
+            billing.city
+            billing.state
+            billing.postal_code
+            billing.country_code
+            creation_dts
+            payment.payment_dts
+            checkout.screen_branding_theme_code
+            next_shipment_dts
+             */
+            
+            string sort = "next_shipment_dts";
+            AutoOrderQuery query = new AutoOrderQuery();
+            query.Email = "support@ultracart.com";
+            var apiResponse = autoOrderApi.GetAutoOrdersByQuery(query, limit, offset, sort, expand);
+
+            if (apiResponse.AutoOrders != null)
+            {
+                return apiResponse.AutoOrders;
+            }
+
+            return new List<AutoOrder>();
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -780,48 +1211,49 @@ Pause auto order
 
 Completely pause an auto order 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.channel_partner
 {
-    public class PauseAutoOrderExample
+    public class PauseAutoOrder
     {
-        public static void Main()
+        /*
+         * This is a convenience method created for an UltraCart merchant to pause a large number of auto orders
+         * due to an inventory shortage. This is not new functionality and can be accomplished with the normal updateAutoOrder
+         * call. It does the following logic to an auto order:
+         * for each item in the auto order:
+         *    if the item is not paused, pause it, setPause(true)
+         * save the changes by calling updateAutoOrder()
+         *
+         * Some warnings if you choose to use this method.
+         * There are no convenience methods to unpause auto orders.
+         * There are no convenience methods to query which auto orders are paused.
+         * We do not recommend pausing auto orders and the merchant is on their own to manage auto order state if they
+         * choose to begin pausing orders. Keep good track of what you're doing.
+         *
+         */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            AutoOrderApi autoOrderApi = new AutoOrderApi(Constants.ApiKey);
 
-            var autoOrderOid = 56;  // int | The auto order oid to pause.
-            var autoOrder = new AutoOrder(); // AutoOrder | Auto order to pause
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            string expand = "items"; // see https://www.ultracart.com/api/#resource_auto_order.html for list
+            int autoOrderOid = 123456789; // get an auto order and update it. There are many ways to retrieve an auto order.
+            AutoOrderResponse getResponse = autoOrderApi.GetAutoOrder(autoOrderOid);
+            AutoOrder autoOrder = getResponse.AutoOrder;
 
-            try
-            {
-                // Pause auto order
-                AutoOrderResponse result = apiInstance.PauseAutoOrder(autoOrderOid, autoOrder, expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling AutoOrderApi.PauseAutoOrder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            AutoOrderResponse pauseResponse = autoOrderApi.PauseAutoOrder(autoOrderOid, autoOrder);
+            AutoOrder pausedAutoOrder = pauseResponse.AutoOrder;
+            System.Console.WriteLine(pausedAutoOrder);
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -870,49 +1302,61 @@ Update an auto order
 
 Update an auto order on the UltraCart account. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Reflection;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.auto_order
 {
-    public class UpdateAutoOrderExample
+    public class UpdateAutoOrder
     {
-        public static void Main()
+        /*
+         *
+         * This method allows for updating an auto order.
+         * Warning: Take great care editing auto orders.  They are complex.
+         * Sometimes you must change the original_order to affect the auto_order.  If you have questions about what fields
+         * to update to achieve your desired change, contact UltraCart support.  Better to ask and get it right than to
+         * make a bad assumption and corrupt a thousand auto orders.  UltraCart support is ready to assist.
+         *
+         */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var autoOrderOid = 56;  // int | The auto order oid to update.
-            var autoOrder = new AutoOrder(); // AutoOrder | Auto order to update
-            var validateOriginalOrder = "validateOriginalOrder_example";  // string | Validate original order before updating (optional) 
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
+            Console.WriteLine("--- " + MethodBase.GetCurrentMethod()?.DeclaringType?.Name + " ---");
+            
             try
             {
-                // Update an auto order
-                AutoOrderResponse result = apiInstance.UpdateAutoOrder(autoOrderOid, autoOrder, validateOriginalOrder, expand);
-                Debug.WriteLine(result);
+                // Create auto order API instance using API key
+                AutoOrderApi autoOrderApi = new AutoOrderApi(Constants.ApiKey);
+                
+                string expand = "items,items.future_schedules,original_order,rebill_orders"; // see https://www.ultracart.com/api/#resource_auto_order.html for list
+                int autoOrderOid = 123456789; // get an auto order and update it. There are many ways to retrieve an auto order.
+                var apiResponse = autoOrderApi.GetAutoOrder(autoOrderOid);
+                AutoOrder autoOrder = apiResponse.AutoOrder;
+                string validateOriginalOrder = "No";
+                
+                // for this example, the customer supplied the wrong postal code when ordering. So to change the postal code for
+                // all subsequent auto orders, we change the original order.
+                autoOrder.OriginalOrder.Billing.PostalCode = "44233";
+                
+                var updateResponse = autoOrderApi.UpdateAutoOrder(autoOrderOid, autoOrder, validateOriginalOrder, expand);
+                AutoOrder updatedAutoOrder = updateResponse.AutoOrder;
+                Console.WriteLine(updatedAutoOrder);
             }
-            catch (ApiException e)
+            catch (Exception ex)
             {
-                Debug.Print("Exception when calling AutoOrderApi.UpdateAutoOrder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -962,49 +1406,68 @@ Update multiple auto orders
 
 Update multiple auto orders on the UltraCart account. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Reflection;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.auto_order
 {
-    public class UpdateAutoOrdersBatchExample
+    public class UpdateAutoOrdersBatch
     {
-        public static void Main()
+        /*
+         *
+         * This method allows for updating multiple auto orders.
+         * Warning: Take great care editing auto orders.  They are complex.
+         * Sometimes you must change the original_order to affect the auto_order.  If you have questions about what fields
+         * to update to achieve your desired change, contact UltraCart support.  Better to ask and get it right than to
+         * make a bad assumption and corrupt a thousand auto orders.  UltraCart support is ready to assist.
+         *
+         */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var autoOrdersRequest = new AutoOrdersRequest(); // AutoOrdersRequest | Auto orders to update (synchronous maximum 20 / asynchronous maximum 100)
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
-            var async = true;  // bool? | True if the operation should be run async.  No result returned (optional) 
-
+            Console.WriteLine("--- " + MethodBase.GetCurrentMethod()?.DeclaringType?.Name + " ---");
+            
             try
             {
-                // Update multiple auto orders
-                AutoOrdersResponse result = apiInstance.UpdateAutoOrdersBatch(autoOrdersRequest, expand, placeholders, async);
-                Debug.WriteLine(result);
+                // Create auto order API instance using API key
+                AutoOrderApi autoOrderApi = new AutoOrderApi(Constants.ApiKey);
+                
+                // The _async parameter is what it seems.  True if async.
+                // The max records allowed depends on the async flag.  Synch max is 20, Asynch max is 100.
+                
+                bool async = true; // if true, success returns back a 204 No Content. False returns back the updated orders.
+                string expand = null; // since we're async, nothing is returned, so we don't care about expansions.
+                // If you are doing a synchronous operation, then set your expand appropriately. set getAutoOrders()
+                // sample for expansion samples.
+                bool placeholders = false; // mostly used for UI, not needed for a pure scripting operation.
+                
+                List<AutoOrder> autoOrders = new List<AutoOrder>(); // TODO: This should be a list of auto orders that have been updated. See any getAutoOrders method for retrieval.
+                AutoOrdersRequest autoOrdersRequest = new AutoOrdersRequest();
+                autoOrdersRequest.AutoOrders = autoOrders;
+                
+                var apiResponse = autoOrderApi.UpdateAutoOrdersBatch(autoOrdersRequest, expand, placeholders, async);
+                if (apiResponse != null)
+                {
+                    // something went wrong if we have a response.
+                    Console.WriteLine(apiResponse);
+                }
             }
-            catch (ApiException e)
+            catch (Exception ex)
             {
-                Debug.Print("Exception when calling AutoOrderApi.UpdateAutoOrdersBatch: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 

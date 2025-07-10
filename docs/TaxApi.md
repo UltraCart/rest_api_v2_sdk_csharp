@@ -43,46 +43,13 @@ Deletes a Self tax provider city
 
 Deletes a Self tax provider city. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteTaxProviderSelfCityExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var city = "city_example";  // string | The city being deleted.
-            var taxCity = new TaxCity(); // TaxCity | tax city to be deleted
-
-            try
-            {
-                // Deletes a Self tax provider city
-                apiInstance.DeleteTaxProviderSelfCity(city, taxCity);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.DeleteTaxProviderSelfCity: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -129,46 +96,13 @@ Deletes a Self tax provider country
 
 Deletes a Self tax provider country. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteTaxProviderSelfCountryExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var countryCode = "countryCode_example";  // string | The country code being deleted.
-            var taxCountry = new TaxCountry(); // TaxCountry | tax country to be deleted
-
-            try
-            {
-                // Deletes a Self tax provider country
-                apiInstance.DeleteTaxProviderSelfCountry(countryCode, taxCountry);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.DeleteTaxProviderSelfCountry: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -215,46 +149,13 @@ Deletes a Self tax provider county
 
 Deletes a Self tax provider county. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteTaxProviderSelfCountyExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var county = "county_example";  // string | The county being deleted.
-            var taxCounty = new TaxCounty(); // TaxCounty | tax county to be deleted
-
-            try
-            {
-                // Deletes a Self tax provider county
-                apiInstance.DeleteTaxProviderSelfCounty(county, taxCounty);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.DeleteTaxProviderSelfCounty: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -301,46 +202,13 @@ Deletes a Self tax provider postalCode
 
 Deletes a Self tax provider postalCode. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteTaxProviderSelfPostalCodeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var postalCode = "postalCode_example";  // string | The postal code being deleted.
-            var taxPostalCode = new TaxPostalCode(); // TaxPostalCode | tax postal code to be deleted
-
-            try
-            {
-                // Deletes a Self tax provider postalCode
-                apiInstance.DeleteTaxProviderSelfPostalCode(postalCode, taxPostalCode);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.DeleteTaxProviderSelfPostalCode: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -387,46 +255,13 @@ Deletes a Self tax provider state
 
 Deletes a Self tax provider state. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteTaxProviderSelfStateExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var stateCode = "stateCode_example";  // string | The state code being deleted.
-            var taxState = new TaxState(); // TaxState | tax state to be deleted
-
-            try
-            {
-                // Deletes a Self tax provider state
-                apiInstance.DeleteTaxProviderSelfState(stateCode, taxState);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.DeleteTaxProviderSelfState: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -473,45 +308,13 @@ Retrieve the Avalara tax provider
 
 Retrieves the Avalara tax provider. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTaxProviderAvalaraExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve the Avalara tax provider
-                TaxProviderAvalara result = apiInstance.GetTaxProviderAvalara();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.GetTaxProviderAvalara: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -555,46 +358,13 @@ Returns Avalara Tax companies configured by the merchant
 
 Returns Avalara Tax companies configured by the merchant 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTaxProviderAvalaraCompaniesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
-
-            try
-            {
-                // Returns Avalara Tax companies configured by the merchant
-                TaxProviderAvalaraCompaniesResult result = apiInstance.GetTaxProviderAvalaraCompanies(taxProviderAvalara);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.GetTaxProviderAvalaraCompanies: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -641,45 +411,13 @@ Attempts to connect to Avalara and returns back the response
 
 Attempts to connect to Avalara and returns back the response. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTaxProviderAvalaraTestExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Attempts to connect to Avalara and returns back the response
-                TaxProviderTestResult result = apiInstance.GetTaxProviderAvalaraTest();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.GetTaxProviderAvalaraTest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -723,45 +461,13 @@ Retrieve the Self tax provider
 
 Retrieves the Self tax provider. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTaxProviderSelfExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve the Self tax provider
-                TaxProviderSelf result = apiInstance.GetTaxProviderSelf();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.GetTaxProviderSelf: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -805,45 +511,13 @@ Retrieve the Self tax provider countries
 
 Retrieves the Self tax provider countries. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTaxProviderSelfCountriesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve the Self tax provider countries
-                TaxProviderSelfCountriesResponse result = apiInstance.GetTaxProviderSelfCountries();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.GetTaxProviderSelfCountries: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -887,46 +561,13 @@ Retrieve the Self tax provider regions for a given country code
 
 Retrieves the Self tax provider regions for a given country code. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTaxProviderSelfRegionsByCountryCodeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var countryCode = "countryCode_example";  // string | The country code regions desired.
-
-            try
-            {
-                // Retrieve the Self tax provider regions for a given country code
-                TaxProviderSelfRegionsResponse result = apiInstance.GetTaxProviderSelfRegionsByCountryCode(countryCode);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.GetTaxProviderSelfRegionsByCountryCode: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -973,45 +614,13 @@ Retrieve the Sovos tax provider
 
 Retrieves the Sovos tax provider. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTaxProviderSovosExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve the Sovos tax provider
-                TaxProviderSovos result = apiInstance.GetTaxProviderSovos();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.GetTaxProviderSovos: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -1055,45 +664,13 @@ Attempts to connect to Sovos and returns back the response
 
 Attempts to connect to Sovos and returns back the response. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTaxProviderSovosTestExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Attempts to connect to Sovos and returns back the response
-                TaxProviderTestResult result = apiInstance.GetTaxProviderSovosTest();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.GetTaxProviderSovosTest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -1137,45 +714,13 @@ Retrieve the TaxJar tax provider
 
 Retrieves the TaxJar tax provider. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTaxProviderTaxJarExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve the TaxJar tax provider
-                TaxProviderTaxJar result = apiInstance.GetTaxProviderTaxJar();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.GetTaxProviderTaxJar: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -1219,45 +764,13 @@ Attempts to connect to TaxJar and returns back the response
 
 Attempts to connect to TaxJar and returns back the response. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTaxProviderTaxJarTestExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Attempts to connect to TaxJar and returns back the response
-                TaxProviderTestResult result = apiInstance.GetTaxProviderTaxJarTest();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.GetTaxProviderTaxJarTest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -1301,45 +814,13 @@ Retrieve the UltraCart tax provider
 
 Retrieves the UltraCart tax provider. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTaxProviderUltraCartExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve the UltraCart tax provider
-                TaxProviderUltraCart result = apiInstance.GetTaxProviderUltraCart();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.GetTaxProviderUltraCart: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -1383,48 +864,13 @@ Retrieve tax methods
 
 Retrieves tax methods for this account. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTaxProvidersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
-            {
-                // Retrieve tax methods
-                TaxProvidersResponse result = apiInstance.GetTaxProviders(limit, offset, expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.GetTaxProviders: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -1473,46 +919,13 @@ Toggle a tax provider to active
 
 Toggle a tax provider to active. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SetActiveTaxProviderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var providerName = "providerName_example";  // string | The tax provider to set active.
-
-            try
-            {
-                // Toggle a tax provider to active
-                TaxProviderActivateResult result = apiInstance.SetActiveTaxProvider(providerName);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.SetActiveTaxProvider: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -1559,46 +972,13 @@ Update the Avalara tax provider
 
 Update the Avalara tax provider. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateTaxProviderAvalaraExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
-
-            try
-            {
-                // Update the Avalara tax provider
-                TaxProviderAvalara result = apiInstance.UpdateTaxProviderAvalara(taxProviderAvalara);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.UpdateTaxProviderAvalara: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -1645,46 +1025,13 @@ Update the Self tax provider
 
 Update the Self tax provider. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateTaxProviderSelfExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var taxProviderSelf = new TaxProviderSelf(); // TaxProviderSelf | TaxProviderSelf object
-
-            try
-            {
-                // Update the Self tax provider
-                TaxProviderSelf result = apiInstance.UpdateTaxProviderSelf(taxProviderSelf);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.UpdateTaxProviderSelf: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -1731,47 +1078,13 @@ Updates a Self tax provider city
 
 Updates a Self tax provider city. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateTaxProviderSelfCityExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var city = "city_example";  // string | The city being updated.
-            var taxCity = new TaxCity(); // TaxCity | tax city to be updated
-
-            try
-            {
-                // Updates a Self tax provider city
-                TaxCity result = apiInstance.UpdateTaxProviderSelfCity(city, taxCity);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.UpdateTaxProviderSelfCity: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -1819,47 +1132,13 @@ Updates a Self tax provider country
 
 Updates a Self tax provider country. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateTaxProviderSelfCountryExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var countryCode = "countryCode_example";  // string | The country code being updated.
-            var taxCountry = new TaxCountry(); // TaxCountry | tax country to be updated
-
-            try
-            {
-                // Updates a Self tax provider country
-                TaxCountry result = apiInstance.UpdateTaxProviderSelfCountry(countryCode, taxCountry);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.UpdateTaxProviderSelfCountry: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -1907,47 +1186,13 @@ Updates a Self tax provider county
 
 Updates a Self tax provider county. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateTaxProviderSelfCountyExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var county = "county_example";  // string | The county being updated.
-            var taxCounty = new TaxCounty(); // TaxCounty | tax county to be updated
-
-            try
-            {
-                // Updates a Self tax provider county
-                TaxCounty result = apiInstance.UpdateTaxProviderSelfCounty(county, taxCounty);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.UpdateTaxProviderSelfCounty: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -1995,47 +1240,13 @@ Updates a Self tax provider postalCode
 
 Updates a Self tax provider postalCode. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateTaxProviderSelfPostalCodeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var postalCode = "postalCode_example";  // string | The postal code being updated.
-            var taxPostalCode = new TaxPostalCode(); // TaxPostalCode | tax postal code to be updated
-
-            try
-            {
-                // Updates a Self tax provider postalCode
-                TaxPostalCode result = apiInstance.UpdateTaxProviderSelfPostalCode(postalCode, taxPostalCode);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.UpdateTaxProviderSelfPostalCode: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -2083,47 +1294,13 @@ Updates a Self tax provider state
 
 Updates a Self tax provider state. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateTaxProviderSelfStateExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var stateCode = "stateCode_example";  // string | The state code being updated.
-            var taxState = new TaxState(); // TaxState | tax state to be updated
-
-            try
-            {
-                // Updates a Self tax provider state
-                TaxState result = apiInstance.UpdateTaxProviderSelfState(stateCode, taxState);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.UpdateTaxProviderSelfState: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -2171,46 +1348,13 @@ Update the Sovos tax provider
 
 Update the Sovos tax provider. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateTaxProviderSovosExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var taxProviderSovos = new TaxProviderSovos(); // TaxProviderSovos | TaxProviderSovos object
-
-            try
-            {
-                // Update the Sovos tax provider
-                TaxProviderSovos result = apiInstance.UpdateTaxProviderSovos(taxProviderSovos);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.UpdateTaxProviderSovos: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -2257,46 +1401,13 @@ Update the TaxJar tax provider
 
 Update the TaxJar tax provider. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateTaxProviderTaxJarExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var taxProviderTaxJar = new TaxProviderTaxJar(); // TaxProviderTaxJar | TaxProviderTaxJar object
-
-            try
-            {
-                // Update the TaxJar tax provider
-                TaxProviderTaxJar result = apiInstance.UpdateTaxProviderTaxJar(taxProviderTaxJar);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.UpdateTaxProviderTaxJar: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -2343,46 +1454,13 @@ Update the UltraCart tax provider
 
 Update the UltraCart tax provider. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateTaxProviderUltraCartExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var taxProviderUltracart = new TaxProviderUltraCart(); // TaxProviderUltraCart | TaxProviderUltraCart object
-
-            try
-            {
-                // Update the UltraCart tax provider
-                TaxProviderUltraCart result = apiInstance.UpdateTaxProviderUltraCart(taxProviderUltracart);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxApi.UpdateTaxProviderUltraCart: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Tax API has no value to merchants.
 ```
+
 
 ### Parameters
 

@@ -17,50 +17,76 @@ Exchange authorization code for access token.
 
 The final leg in the OAuth process which exchanges the specified access token for the access code needed to make API calls. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System.Web;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.oauth
 {
-    public class OauthAccessTokenExample
+    public class OauthAccessToken
     {
-        public static void Main()
+        /*
+         * The first step in implementing an OAuth authorization to your UltraCart Developer Application is
+         * creating a Client ID and Secret. See the following doc for instructions on doing so:
+         * https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/3488907265/Developer+Applications+-+Creating+a+Client+ID+and+Secret+for+an+OAuth+Application
+         * 
+         * The second step is to construct an authorize url for your customers to follow and authorize your application.
+         * See the oauthAuthorize.php for an example on constructing that url.
+         * 
+         * This method, OAuth.oauthAccessToken() will be called from within your redirect script, i.e. that web page the
+         * customer is redirected to by UltraCart after successfully authorizing your application.
+         * 
+         * This example illustrates how to retrieve the code parameter and exchange it for an access_token and refresh_token.
+         * 
+         * Once you have your Client ID and Secret created, our OAuth security follows the industry standards.
+         * 1. Construct an authorize url for your customers.
+         * 2. Your customers will follow the link and authorize your application.
+         * 3. Store their oauth credentials as best fits your application.
+         * 
+         * Parameters this script should expect:
+         * code -> used to exchange for an access token
+         * state -> whatever you passed in your authorize url
+         * error -> if you have a problem with your application configure. Possible values are:
+         *     invalid_request -> your authorize url has expired
+         *     access_denied -> user said 'no' and did not grant access.
+         * 
+         * Parameters you will use to retrieve a token:
+         * code -> the value provided as a query parameter from UltraCart, required if grant_type is 'authorization_code'
+         * client_id -> your client id (see doc link at top of this file)
+         * grant_type -> 'authorization_code' or 'refresh_token'
+         * redirect_url -> The URI that you redirect the browser to start the authorization process
+         * refresh_token -> if grant_type = 'refresh_token', you have to provide the refresh token. makes sense, yes?
+         * 
+         * See OauthTokenResponse for fields that are returned from this call.
+         * All SDKs have the same field names with slight differences in capitalization and underscores.
+         * https://github.com/UltraCart/rest_api_v2_sdk_csharp/blob/master/src/com.ultracart.admin.v2/Model/OauthTokenResponse.cs
+         */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            string clientId = "5e31ce86e17f02015a35257c47151544";  // this is given to you when you create your application (see the doc link above)
+            string grantType = "authorization_code";
+            string redirectUrl = "https://www.mywebsite.com/oauth/redirect_here.php";
+            string state = "denmark";  // this is whatever you used when you created your authorize url (see oauthAuthorize.php)
 
-            var clientId = "clientId_example";  // string | The OAuth application client_id.
-            var grantType = "grantType_example";  // string | Type of grant
-            var code = "code_example";  // string | Authorization code received back from the browser redirect (optional) 
-            var redirectUri = "redirectUri_example";  // string | The URI that you redirect the browser to start the authorization process (optional) 
-            var refreshToken = "refreshToken_example";  // string | The refresh token received during the original grant_type=authorization_code that can be used to return a new access token (optional) 
+            // Note: You'll need to implement your own method to get the code from query parameters
+            string code = HttpContext.Current.Request.QueryString["code"];
+            string refreshToken = null;
 
-            try
-            {
-                // Exchange authorization code for access token.
-                OauthTokenResponse result = apiInstance.OauthAccessToken(clientId, grantType, code, redirectUri, refreshToken);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling OauthApi.OauthAccessToken: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            OauthApi oauthApi = new OauthApi(Constants.ApiKey);
+            OauthTokenResponse apiResponse = oauthApi.OauthAccessToken(clientId, grantType, code, redirectUrl, refreshToken);
+
+            // apiResponse is an OauthTokenResponse object
+            string newRefreshToken = apiResponse.RefreshToken;
+            string expiresIn = apiResponse.ExpiresIn;
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -108,47 +134,42 @@ Revoke this OAuth application.
 
 Revokes the OAuth application associated with the specified client_id and token. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.oauth
 {
-    public class OauthRevokeExample
+    public class OauthRevoke 
     {
-        public static void Main()
+        /*
+         * This is a last feature of the UltraCart OAuth Security Implementation.
+         * oauthRevoke is used to kill an access token.
+         * Call this method when a customer desires to terminate using your Developer Application.
+         *
+         * The first step in implementing an OAuth authorization to your UltraCart Developer Application is
+         * creating a Client ID and Secret. See the following doc for instructions on doing so:
+         * https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/3488907265/Developer+Applications+-+Creating+a+Client+ID+and+Secret+for+an+OAuth+Application
+         */
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            string clientId = "5e31ce86e17f02015a35257c47151544";  // this is given to you when you create your application (see the doc link above)
+            string accessToken = "123456789012345678901234567890"; // this is stored by your application somewhere somehow.
 
-            var clientId = "clientId_example";  // string | The OAuth application client_id.
-            var token = "token_example";  // string | The OAuth access token that is to be revoked..
+            OauthApi oauthApi = new OauthApi(Constants.ApiKey);
+            OauthRevokeSuccessResponse apiResponse = oauthApi.OauthRevoke(clientId, accessToken);
 
-            try
-            {
-                // Revoke this OAuth application.
-                OauthRevokeSuccessResponse result = apiInstance.OauthRevoke(clientId, token);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling OauthApi.OauthRevoke: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            // apiResponse is an OauthRevokeSuccessResponse object
+            bool successful = apiResponse.Successful;
+            string message = apiResponse.Message;
         }
     }
 }
 ```
+
 
 ### Parameters
 

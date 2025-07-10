@@ -191,46 +191,13 @@ Method | HTTP request | Description
 
 Add to library
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class AddToLibraryExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var addLibraryRequest = new AddLibraryItemRequest(); // AddLibraryItemRequest | New library item request
-
-            try
-            {
-                // Add to library
-                LibraryItemResponse result = apiInstance.AddToLibrary(addLibraryRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.AddToLibrary: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -275,46 +242,13 @@ Name | Type | Description  | Notes
 
 Apply library item to storefront.
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ApplyToStoreFrontExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var applyLibraryRequest = new ApplyLibraryItemRequest(); // ApplyLibraryItemRequest | New library item
-
-            try
-            {
-                // Apply library item to storefront.
-                ApplyLibraryItemResponse result = apiInstance.ApplyToStoreFront(applyLibraryRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.ApplyToStoreFront: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -359,47 +293,13 @@ Name | Type | Description  | Notes
 
 Archive email list
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ArchiveEmailListExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailListUuid = "emailListUuid_example";  // string | 
-
-            try
-            {
-                // Archive email list
-                EmailListArchiveResponse result = apiInstance.ArchiveEmailList(storefrontOid, emailListUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.ArchiveEmailList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -445,47 +345,13 @@ Name | Type | Description  | Notes
 
 Archive email segment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ArchiveEmailSegmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailSegmentUuid = "emailSegmentUuid_example";  // string | 
-
-            try
-            {
-                // Archive email segment
-                EmailSegmentArchiveResponse result = apiInstance.ArchiveEmailSegment(storefrontOid, emailSegmentUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.ArchiveEmailSegment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -531,48 +397,13 @@ Name | Type | Description  | Notes
 
 Back populate email flow
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class BackPopulateEmailFlowExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailFlowUuid = "emailFlowUuid_example";  // string | 
-            var backPopulateRequest = new EmailFlowBackPopulateRequest(); // EmailFlowBackPopulateRequest | The request to back populate
-
-            try
-            {
-                // Back populate email flow
-                EmailFlowBackPopulateResponse result = apiInstance.BackPopulateEmailFlow(storefrontOid, emailFlowUuid, backPopulateRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.BackPopulateEmailFlow: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -619,48 +450,13 @@ Name | Type | Description  | Notes
 
 Check download of email segment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CheckDownloadEmailSegmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailSegmentUuid = "emailSegmentUuid_example";  // string | 
-            var emailSegmentRebuildUuid = "emailSegmentRebuildUuid_example";  // string | 
-
-            try
-            {
-                // Check download of email segment
-                EmailSegmentDownloadPrepareResponse result = apiInstance.CheckDownloadEmailSegment(storefrontOid, emailSegmentUuid, emailSegmentRebuildUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.CheckDownloadEmailSegment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -707,48 +503,13 @@ Name | Type | Description  | Notes
 
 Clone email campaign
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CloneEmailCampaignExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCampaignUuid = "emailCampaignUuid_example";  // string | 
-            var targetStorefrontOid = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Clone email campaign
-                EmailCampaignResponse result = apiInstance.CloneEmailCampaign(storefrontOid, emailCampaignUuid, targetStorefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.CloneEmailCampaign: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -795,48 +556,13 @@ Name | Type | Description  | Notes
 
 Clone email flow
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CloneEmailFlowExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailFlowUuid = "emailFlowUuid_example";  // string | 
-            var targetStorefrontOid = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Clone email flow
-                EmailFlowResponse result = apiInstance.CloneEmailFlow(storefrontOid, emailFlowUuid, targetStorefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.CloneEmailFlow: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -883,46 +609,13 @@ Name | Type | Description  | Notes
 
 Create email campaign
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CreateEmailSendingDomainExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var domain = "domain_example";  // string | 
-
-            try
-            {
-                // Create email campaign
-                EmailSendingDomainResponse result = apiInstance.CreateEmailSendingDomain(domain);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.CreateEmailSendingDomain: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -967,46 +660,13 @@ Name | Type | Description  | Notes
 
 Create email sending domain for various providers
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CreateEmailSendingDomain2Example
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var emailDomain = new EmailDomain(); // EmailDomain | EmailDomain
-
-            try
-            {
-                // Create email sending domain for various providers
-                EmailSendingDomainResponse result = apiInstance.CreateEmailSendingDomain2(emailDomain);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.CreateEmailSendingDomain2: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1051,48 +711,13 @@ Name | Type | Description  | Notes
 
 Create file manager directory
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CreateFsDirectoryExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var id = 56;  // int | 
-            var name = "name_example";  // string |  (optional) 
-            var parentStorefrontFsDirectoryOid = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Create file manager directory
-                FileManagerPageResponse result = apiInstance.CreateFsDirectory(id, name, parentStorefrontFsDirectoryOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.CreateFsDirectory: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1139,46 +764,13 @@ Name | Type | Description  | Notes
 
 Create Twilio account
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CreateTwilioAccountExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var twilio = new Twilio(); // Twilio | Twilio
-
-            try
-            {
-                // Create Twilio account
-                TwilioResponse result = apiInstance.CreateTwilioAccount(twilio);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.CreateTwilioAccount: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1223,47 +815,13 @@ Name | Type | Description  | Notes
 
 Delete email campaignFolder
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteEmailCampaignFolderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCampaignFolderUuid = "emailCampaignFolderUuid_example";  // string | 
-
-            try
-            {
-                // Delete email campaignFolder
-                BaseResponse result = apiInstance.DeleteEmailCampaignFolder(storefrontOid, emailCampaignFolderUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteEmailCampaignFolder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1309,46 +867,13 @@ Name | Type | Description  | Notes
 
 Delete communication sequence stats
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteEmailCommseqStatExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-
-            try
-            {
-                // Delete communication sequence stats
-                apiInstance.DeleteEmailCommseqStat(storefrontOid, commseqUuid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteEmailCommseqStat: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1393,47 +918,13 @@ void (empty response body)
 
 Delete email email
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteEmailEmailExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqEmailUuid = "commseqEmailUuid_example";  // string | 
-
-            try
-            {
-                // Delete email email
-                BaseResponse result = apiInstance.DeleteEmailEmail(storefrontOid, commseqEmailUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteEmailEmail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1479,47 +970,13 @@ Name | Type | Description  | Notes
 
 Delete email flowFolder
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteEmailFlowFolderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailFlowFolderUuid = "emailFlowFolderUuid_example";  // string | 
-
-            try
-            {
-                // Delete email flowFolder
-                BaseResponse result = apiInstance.DeleteEmailFlowFolder(storefrontOid, emailFlowFolderUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteEmailFlowFolder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1565,48 +1022,13 @@ Name | Type | Description  | Notes
 
 Delete email list customer
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteEmailListCustomerExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailListUuid = "emailListUuid_example";  // string | 
-            var emailCustomerUuid = "emailCustomerUuid_example";  // string | 
-
-            try
-            {
-                // Delete email list customer
-                BaseResponse result = apiInstance.DeleteEmailListCustomer(storefrontOid, emailListUuid, emailCustomerUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteEmailListCustomer: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1653,47 +1075,13 @@ Name | Type | Description  | Notes
 
 Delete email ListSegmentFolder
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteEmailListSegmentFolderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailListSegmentFolderUuid = "emailListSegmentFolderUuid_example";  // string | 
-
-            try
-            {
-                // Delete email ListSegmentFolder
-                BaseResponse result = apiInstance.DeleteEmailListSegmentFolder(storefrontOid, emailListSegmentFolderUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteEmailListSegmentFolder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1739,47 +1127,13 @@ Name | Type | Description  | Notes
 
 Delete email postcard
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteEmailPostcardExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqPostcardUuid = "commseqPostcardUuid_example";  // string | 
-
-            try
-            {
-                // Delete email postcard
-                BaseResponse result = apiInstance.DeleteEmailPostcard(storefrontOid, commseqPostcardUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteEmailPostcard: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1825,46 +1179,13 @@ Name | Type | Description  | Notes
 
 delete email campaign
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteEmailSendingDomainExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var domain = "domain_example";  // string | 
-
-            try
-            {
-                // delete email campaign
-                BaseResponse result = apiInstance.DeleteEmailSendingDomain(domain);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteEmailSendingDomain: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1909,46 +1230,13 @@ Name | Type | Description  | Notes
 
 Delete experiment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteExperimentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var storefrontExperimentOid = 56;  // int | 
-
-            try
-            {
-                // Delete experiment
-                apiInstance.DeleteExperiment(storefrontOid, storefrontExperimentOid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteExperiment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1993,48 +1281,13 @@ void (empty response body)
 
 Delete file manager directory
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteFsFileExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var id = 56;  // int | 
-            var parentStorefrontFsDirectoryOid = 56;  // int? |  (optional) 
-            var storefrontFsFileOid = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Delete file manager directory
-                FileManagerPageResponse result = apiInstance.DeleteFsFile(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteFsFile: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2083,46 +1336,13 @@ Delete screen recording heatmap
 
 Delete screen recording heatmap 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteHeatmapExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var query = new ScreenRecordingHeatmapReset(); // ScreenRecordingHeatmapReset | Query
-
-            try
-            {
-                // Delete screen recording heatmap
-                apiInstance.DeleteHeatmap(storefrontOid, query);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteHeatmap: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2167,45 +1387,13 @@ void (empty response body)
 
 Delete library item
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteLibraryItemExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var libraryItemOid = 56;  // int | 
-
-            try
-            {
-                // Delete library item
-                apiInstance.DeleteLibraryItem(libraryItemOid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteLibraryItem: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2249,45 +1437,13 @@ void (empty response body)
 
 Delete all published versions for a library item, including anything in review.
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteLibraryItemPublishedVersionsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var libraryItemOid = 56;  // int | 
-
-            try
-            {
-                // Delete all published versions for a library item, including anything in review.
-                apiInstance.DeleteLibraryItemPublishedVersions(libraryItemOid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteLibraryItemPublishedVersions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2331,46 +1487,13 @@ void (empty response body)
 
 Delete screen recording segment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteScreenRecordingSegmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var screenRecordingSegmentOid = 56;  // int | 
-
-            try
-            {
-                // Delete screen recording segment
-                apiInstance.DeleteScreenRecordingSegment(storefrontOid, screenRecordingSegmentOid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteScreenRecordingSegment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2415,46 +1538,13 @@ void (empty response body)
 
 delete Twilio account
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteTwilioAccountExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var espTwilioUuid = "espTwilioUuid_example";  // string | 
-
-            try
-            {
-                // delete Twilio account
-                BaseResponse result = apiInstance.DeleteTwilioAccount(espTwilioUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteTwilioAccount: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2499,46 +1589,13 @@ Name | Type | Description  | Notes
 
 Duplicate library item.
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DuplicateLibraryItemExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var libraryItemOid = 56;  // int | 
-
-            try
-            {
-                // Duplicate library item.
-                LibraryItemResponse result = apiInstance.DuplicateLibraryItem(libraryItemOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DuplicateLibraryItem: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2585,46 +1642,13 @@ Update favorite flag on screen recording
 
 Update favorite flag on screen recording 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class FavoriteScreenRecordingExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var screenRecordingUuid = "screenRecordingUuid_example";  // string | 
-
-            try
-            {
-                // Update favorite flag on screen recording
-                apiInstance.FavoriteScreenRecording(storefrontOid, screenRecordingUuid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.FavoriteScreenRecording: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2669,47 +1693,13 @@ void (empty response body)
 
 Obtain lat/long for an address
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GeocodeAddressExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var geocodeRequest = new GeocodeRequest(); // GeocodeRequest | geocode request
-
-            try
-            {
-                // Obtain lat/long for an address
-                GeocodeResponse result = apiInstance.GeocodeAddress(storefrontOid, geocodeRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GeocodeAddress: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2757,46 +1747,13 @@ Get countries
 
 Obtain a list of all the countries 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetCountriesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get countries
-                CountriesResponse result = apiInstance.GetCountries(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetCountries: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2843,46 +1800,13 @@ Gets editor token
 
 Fetches a temporary authentication token for the editor 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEditorTokenExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Gets editor token
-                EmailEditorTokenResponse result = apiInstance.GetEditorToken(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEditorToken: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2927,46 +1851,13 @@ Name | Type | Description  | Notes
 
 Get email communication base templates
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailBaseTemplatesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email communication base templates
-                EmailBaseTemplateListResponse result = apiInstance.GetEmailBaseTemplates(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailBaseTemplates: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3011,47 +1902,13 @@ Name | Type | Description  | Notes
 
 Get email campaign
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCampaignExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCampaignUuid = "emailCampaignUuid_example";  // string | 
-
-            try
-            {
-                // Get email campaign
-                EmailCampaignResponse result = apiInstance.GetEmailCampaign(storefrontOid, emailCampaignUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCampaign: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3097,47 +1954,13 @@ Name | Type | Description  | Notes
 
 Get email campaign folder
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCampaignFolderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCampaignFolderUuid = "emailCampaignFolderUuid_example";  // string | 
-
-            try
-            {
-                // Get email campaign folder
-                EmailCampaignFolderResponse result = apiInstance.GetEmailCampaignFolder(storefrontOid, emailCampaignFolderUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCampaignFolder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3183,46 +2006,13 @@ Name | Type | Description  | Notes
 
 Get email campaign folders
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCampaignFoldersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email campaign folders
-                EmailCampaignFoldersResponse result = apiInstance.GetEmailCampaignFolders(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCampaignFolders: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3267,47 +2057,13 @@ Name | Type | Description  | Notes
 
 Get email campaign screenshots
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCampaignScreenshotsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCampaignUuid = "emailCampaignUuid_example";  // string | 
-
-            try
-            {
-                // Get email campaign screenshots
-                ScreenshotsResponse result = apiInstance.GetEmailCampaignScreenshots(storefrontOid, emailCampaignUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCampaignScreenshots: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3353,46 +2109,13 @@ Name | Type | Description  | Notes
 
 Get email campaigns
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCampaignsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email campaigns
-                EmailCampaignsResponse result = apiInstance.GetEmailCampaigns(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCampaigns: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3437,47 +2160,13 @@ Name | Type | Description  | Notes
 
 Get email campaigns with stats
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCampaignsWithStatsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var statDays = "statDays_example";  // string | 
-
-            try
-            {
-                // Get email campaigns with stats
-                EmailCampaignsResponse result = apiInstance.GetEmailCampaignsWithStats(storefrontOid, statDays);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCampaignsWithStats: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3523,47 +2212,13 @@ Name | Type | Description  | Notes
 
 Get email commseq
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCommseqExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-
-            try
-            {
-                // Get email commseq
-                EmailCommseqResponse result = apiInstance.GetEmailCommseq(storefrontOid, commseqUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseq: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3609,48 +2264,13 @@ Name | Type | Description  | Notes
 
 Get email communication sequence emails stats
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCommseqEmailStatsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var statsRequest = new EmailStatSummaryRequest(); // EmailStatSummaryRequest | StatsRequest
-
-            try
-            {
-                // Get email communication sequence emails stats
-                EmailStatSummaryResponse result = apiInstance.GetEmailCommseqEmailStats(storefrontOid, commseqUuid, statsRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqEmailStats: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3697,48 +2317,13 @@ Name | Type | Description  | Notes
 
 Get email communication sequence postcard stats
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCommseqPostcardStatsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var statsRequest = new EmailStatPostcardSummaryRequest(); // EmailStatPostcardSummaryRequest | StatsRequest
-
-            try
-            {
-                // Get email communication sequence postcard stats
-                EmailStatPostcardSummaryResponse result = apiInstance.GetEmailCommseqPostcardStats(storefrontOid, commseqUuid, statsRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqPostcardStats: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3785,47 +2370,13 @@ Name | Type | Description  | Notes
 
 Get email communication postcard tracking
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCommseqPostcardTrackingExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqPostcardUuid = "commseqPostcardUuid_example";  // string | 
-
-            try
-            {
-                // Get email communication postcard tracking
-                EmailPostcardTrackingResponse result = apiInstance.GetEmailCommseqPostcardTracking(storefrontOid, commseqPostcardUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqPostcardTracking: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3871,47 +2422,13 @@ Name | Type | Description  | Notes
 
 Get email commseq rate limiters
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCommseqRateLimitersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-
-            try
-            {
-                // Get email commseq rate limiters
-                EmailRateLimitersResponse result = apiInstance.GetEmailCommseqRateLimiters(storefrontOid, commseqUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqRateLimiters: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3957,48 +2474,13 @@ Name | Type | Description  | Notes
 
 Get email communication sequence sms stats
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCommseqSmsStatsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var statsRequest = new EmailStatSmsSummaryRequest(); // EmailStatSmsSummaryRequest | StatsRequest
-
-            try
-            {
-                // Get email communication sequence sms stats
-                EmailStatSmsSummaryResponse result = apiInstance.GetEmailCommseqSmsStats(storefrontOid, commseqUuid, statsRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqSmsStats: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4045,47 +2527,13 @@ Name | Type | Description  | Notes
 
 Get communication sequence stats overall
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCommseqStatOverallExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-
-            try
-            {
-                // Get communication sequence stats overall
-                EmailCommseqStatResponse result = apiInstance.GetEmailCommseqStatOverall(storefrontOid, commseqUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqStatOverall: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4131,48 +2579,13 @@ Name | Type | Description  | Notes
 
 Get email communication sequence step stats
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCommseqStepStatsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var statsRequest = new EmailStepStatRequest(); // EmailStepStatRequest | StatsRequest
-
-            try
-            {
-                // Get email communication sequence step stats
-                EmailStepStatResponse result = apiInstance.GetEmailCommseqStepStats(storefrontOid, commseqUuid, statsRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqStepStats: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4219,48 +2632,13 @@ Name | Type | Description  | Notes
 
 Get email communication sequence customers waiting at each requested step
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCommseqStepWaitingExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var waitingRequest = new EmailStepWaitingRequest(); // EmailStepWaitingRequest | WaitingRequest
-
-            try
-            {
-                // Get email communication sequence customers waiting at each requested step
-                EmailStepWaitingResponse result = apiInstance.GetEmailCommseqStepWaiting(storefrontOid, commseqUuid, waitingRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqStepWaiting: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4307,47 +2685,13 @@ Name | Type | Description  | Notes
 
 Get email webhook editor values
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCommseqWebhookEditorValuesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-
-            try
-            {
-                // Get email webhook editor values
-                EmailWebhookEditorValuesResponse result = apiInstance.GetEmailCommseqWebhookEditorValues(storefrontOid, commseqUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqWebhookEditorValues: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4393,46 +2737,13 @@ Name | Type | Description  | Notes
 
 Get email commseqs
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCommseqsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email commseqs
-                EmailCommseqsResponse result = apiInstance.GetEmailCommseqs(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqs: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4477,47 +2788,13 @@ Name | Type | Description  | Notes
 
 Get customers editor URL
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailCustomerEditorUrlExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCustomerUuid = "emailCustomerUuid_example";  // string | 
-
-            try
-            {
-                // Get customers editor URL
-                EmailCustomerEditorUrlResponse result = apiInstance.GetEmailCustomerEditorUrl(storefrontOid, emailCustomerUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCustomerEditorUrl: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4563,49 +2840,40 @@ Name | Type | Description  | Notes
 
 Get email customers
 
+
 ### Example
 
 ```csharp
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-using System.Collections.Generic;
-using System.Diagnostics;
+
+using System;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
+using NUnit.Framework;
 
-namespace Example
+namespace SdkSample.storefront
 {
-    public class GetEmailCustomersExample
+    public class GetEmailCustomers
     {
-        public static void Main()
+
+        [Test]
+        public void ExecuteTest()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var pageNumber = 56;  // int? |  (optional) 
-            var pageSize = 56;  // int? |  (optional) 
-            var searchEmailPrefix = "searchEmailPrefix_example";  // string |  (optional) 
-
-            try
-            {
-                // Get email customers
-                EmailCustomersResponse result = apiInstance.GetEmailCustomers(storefrontOid, pageNumber, pageSize, searchEmailPrefix);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailCustomers: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
         }
+
+        public static void GetEmailCustomersCall()
+        {
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new StorefrontApi(simpleKey);
+        }
+
+
     }
 }
 ```
+
 
 ### Parameters
 
@@ -4653,47 +2921,13 @@ Name | Type | Description  | Notes
 
 Get email dashboard activity
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailDashboardActivityExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var lastRecords = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Get email dashboard activity
-                EmailDashboardActivityResponse result = apiInstance.GetEmailDashboardActivity(storefrontOid, lastRecords);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailDashboardActivity: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4739,47 +2973,13 @@ Name | Type | Description  | Notes
 
 Get dashboard stats
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailDashboardStatsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var days = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Get dashboard stats
-                EmailDashboardStatsResponse result = apiInstance.GetEmailDashboardStats(storefrontOid, days);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailDashboardStats: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4825,48 +3025,13 @@ Name | Type | Description  | Notes
 
 Get email dispatch logs
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailDispatchLogsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var commseqStepUuid = "commseqStepUuid_example";  // string | 
-
-            try
-            {
-                // Get email dispatch logs
-                EmailCommseqStepLogsResponse result = apiInstance.GetEmailDispatchLogs(storefrontOid, commseqUuid, commseqStepUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailDispatchLogs: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4913,47 +3078,13 @@ Name | Type | Description  | Notes
 
 Get email email
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailEmailExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqEmailUuid = "commseqEmailUuid_example";  // string | 
-
-            try
-            {
-                // Get email email
-                EmailCommseqEmailResponse result = apiInstance.GetEmailEmail(storefrontOid, commseqEmailUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailEmail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4999,50 +3130,13 @@ Name | Type | Description  | Notes
 
 Get email email clicks
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailEmailClicksExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var commseqStepUuid = "commseqStepUuid_example";  // string | 
-            var commseqEmailUuid = "commseqEmailUuid_example";  // string | 
-            var days = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Get email email clicks
-                EmailClicksResponse result = apiInstance.GetEmailEmailClicks(storefrontOid, commseqUuid, commseqStepUuid, commseqEmailUuid, days);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailEmailClicks: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5091,48 +3185,13 @@ Name | Type | Description  | Notes
 
 Get email order customer editor url
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailEmailCustomerEditorUrlExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqEmailUuid = "commseqEmailUuid_example";  // string | 
-            var orderId = "orderId_example";  // string | 
-
-            try
-            {
-                // Get email order customer editor url
-                EmailCustomerEditorUrlResponse result = apiInstance.GetEmailEmailCustomerEditorUrl(storefrontOid, commseqEmailUuid, orderId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailEmailCustomerEditorUrl: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5179,50 +3238,13 @@ Name | Type | Description  | Notes
 
 Get email email orders
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailEmailOrdersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var commseqStepUuid = "commseqStepUuid_example";  // string | 
-            var commseqEmailUuid = "commseqEmailUuid_example";  // string | 
-            var days = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Get email email orders
-                EmailOrdersResponse result = apiInstance.GetEmailEmailOrders(storefrontOid, commseqUuid, commseqStepUuid, commseqEmailUuid, days);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailEmailOrders: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5271,46 +3293,13 @@ Name | Type | Description  | Notes
 
 Get email emails
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailEmailsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email emails
-                EmailCommseqEmailsResponse result = apiInstance.GetEmailEmails(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailEmails: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5355,47 +3344,13 @@ Name | Type | Description  | Notes
 
 Get email emails multiple
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailEmailsMultipleExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCommseqEmailsRequest = new EmailCommseqEmailsRequest(); // EmailCommseqEmailsRequest | Request of email uuids
-
-            try
-            {
-                // Get email emails multiple
-                EmailCommseqEmailsResponse result = apiInstance.GetEmailEmailsMultiple(storefrontOid, emailCommseqEmailsRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailEmailsMultiple: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5441,47 +3396,13 @@ Name | Type | Description  | Notes
 
 Get email flow
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailFlowExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailFlowUuid = "emailFlowUuid_example";  // string | 
-
-            try
-            {
-                // Get email flow
-                EmailFlowResponse result = apiInstance.GetEmailFlow(storefrontOid, emailFlowUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailFlow: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5527,47 +3448,13 @@ Name | Type | Description  | Notes
 
 Get email flow folder
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailFlowFolderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailFlowFolderUuid = "emailFlowFolderUuid_example";  // string | 
-
-            try
-            {
-                // Get email flow folder
-                EmailFlowFolderResponse result = apiInstance.GetEmailFlowFolder(storefrontOid, emailFlowFolderUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailFlowFolder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5613,46 +3500,13 @@ Name | Type | Description  | Notes
 
 Get email flow folders
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailFlowFoldersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email flow folders
-                EmailFlowFoldersResponse result = apiInstance.GetEmailFlowFolders(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailFlowFolders: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5697,47 +3551,40 @@ Name | Type | Description  | Notes
 
 Get email flow screenshots
 
+
 ### Example
 
 ```csharp
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-using System.Collections.Generic;
-using System.Diagnostics;
+
+using System;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
+using NUnit.Framework;
 
-namespace Example
+namespace SdkSample.storefront
 {
-    public class GetEmailFlowScreenshotsExample
+    public class GetEmailFlowScreenshots
     {
-        public static void Main()
+
+        [Test]
+        public void ExecuteTest()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailFlowUuid = "emailFlowUuid_example";  // string | 
-
-            try
-            {
-                // Get email flow screenshots
-                ScreenshotsResponse result = apiInstance.GetEmailFlowScreenshots(storefrontOid, emailFlowUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailFlowScreenshots: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
         }
+
+        public static void GetEmailFlowScreenshotsCall()
+        {
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new StorefrontApi(simpleKey);
+        }
+
+
     }
 }
 ```
+
 
 ### Parameters
 
@@ -5783,46 +3630,40 @@ Name | Type | Description  | Notes
 
 Get email flows
 
+
 ### Example
 
 ```csharp
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-using System.Collections.Generic;
-using System.Diagnostics;
+
+using System;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
+using NUnit.Framework;
 
-namespace Example
+namespace SdkSample.storefront
 {
-    public class GetEmailFlowsExample
+    public class GetEmailFlows
     {
-        public static void Main()
+
+        [Test]
+        public void ExecuteTest()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email flows
-                EmailFlowsResponse result = apiInstance.GetEmailFlows(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailFlows: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
         }
+
+        public static void GetEmailFlowsCall()
+        {
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new StorefrontApi(simpleKey);
+        }
+
+
     }
 }
 ```
+
 
 ### Parameters
 
@@ -5867,45 +3708,13 @@ Name | Type | Description  | Notes
 
 Get email globalsettings
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailGlobalSettingsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get email globalsettings
-                EmailGlobalSettingsResponse result = apiInstance.GetEmailGlobalSettings();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailGlobalSettings: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5947,47 +3756,13 @@ This endpoint does not need any parameter.
 
 Get email list
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailListExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailListUuid = "emailListUuid_example";  // string | 
-
-            try
-            {
-                // Get email list
-                EmailListResponse result = apiInstance.GetEmailList(storefrontOid, emailListUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6033,48 +3808,13 @@ Name | Type | Description  | Notes
 
 Get email list customer editor url
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailListCustomerEditorUrlExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailListUuid = "emailListUuid_example";  // string | 
-            var emailCustomerUuid = "emailCustomerUuid_example";  // string | 
-
-            try
-            {
-                // Get email list customer editor url
-                EmailCustomerEditorUrlResponse result = apiInstance.GetEmailListCustomerEditorUrl(storefrontOid, emailListUuid, emailCustomerUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailListCustomerEditorUrl: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6121,49 +3861,13 @@ Name | Type | Description  | Notes
 
 Get email list customers
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailListCustomersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailListUuid = "emailListUuid_example";  // string | 
-            var pageNumber = 56;  // int? |  (optional) 
-            var pageSize = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Get email list customers
-                EmailListCustomersResponse result = apiInstance.GetEmailListCustomers(storefrontOid, emailListUuid, pageNumber, pageSize);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailListCustomers: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6211,47 +3915,13 @@ Name | Type | Description  | Notes
 
 Get email campaign folder
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailListSegmentFolderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailListSegmentFolderUuid = "emailListSegmentFolderUuid_example";  // string | 
-
-            try
-            {
-                // Get email campaign folder
-                EmailListSegmentFolderResponse result = apiInstance.GetEmailListSegmentFolder(storefrontOid, emailListSegmentFolderUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailListSegmentFolder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6297,46 +3967,13 @@ Name | Type | Description  | Notes
 
 Get email campaign folders
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailListSegmentFoldersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email campaign folders
-                EmailListSegmentFoldersResponse result = apiInstance.GetEmailListSegmentFolders(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailListSegmentFolders: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6381,46 +4018,13 @@ Name | Type | Description  | Notes
 
 Get email lists
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailListsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email lists
-                EmailListsResponse result = apiInstance.GetEmailLists(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailLists: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6465,46 +4069,13 @@ Name | Type | Description  | Notes
 
 Get email performance
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailPerformanceExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email performance
-                EmailPerformanceResponse result = apiInstance.GetEmailPerformance(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailPerformance: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6549,46 +4120,13 @@ Name | Type | Description  | Notes
 
 Get email plan
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailPlanExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email plan
-                EmailPlanResponse result = apiInstance.GetEmailPlan(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailPlan: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6633,47 +4171,13 @@ Name | Type | Description  | Notes
 
 Get email postcard
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailPostcardExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqPostcardUuid = "commseqPostcardUuid_example";  // string | 
-
-            try
-            {
-                // Get email postcard
-                EmailCommseqPostcardResponse result = apiInstance.GetEmailPostcard(storefrontOid, commseqPostcardUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailPostcard: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6719,46 +4223,13 @@ Name | Type | Description  | Notes
 
 Get email postcards
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailPostcardsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email postcards
-                EmailCommseqPostcardsResponse result = apiInstance.GetEmailPostcards(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailPostcards: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6803,47 +4274,13 @@ Name | Type | Description  | Notes
 
 Get email postcards multiple
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailPostcardsMultipleExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCommseqPostcardsRequest = new EmailCommseqPostcardsRequest(); // EmailCommseqPostcardsRequest | Request of postcard uuids
-
-            try
-            {
-                // Get email postcards multiple
-                EmailCommseqPostcardsResponse result = apiInstance.GetEmailPostcardsMultiple(storefrontOid, emailCommseqPostcardsRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailPostcardsMultiple: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6889,47 +4326,13 @@ Name | Type | Description  | Notes
 
 Get email segment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailSegmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailSegmentUuid = "emailSegmentUuid_example";  // string | 
-
-            try
-            {
-                // Get email segment
-                EmailSegmentResponse result = apiInstance.GetEmailSegment(storefrontOid, emailSegmentUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailSegment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6975,48 +4378,13 @@ Name | Type | Description  | Notes
 
 Get email segment customers editor URL
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailSegmentCustomerEditorUrlExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailSegmentUuid = "emailSegmentUuid_example";  // string | 
-            var emailCustomerUuid = "emailCustomerUuid_example";  // string | 
-
-            try
-            {
-                // Get email segment customers editor URL
-                EmailCustomerEditorUrlResponse result = apiInstance.GetEmailSegmentCustomerEditorUrl(storefrontOid, emailSegmentUuid, emailCustomerUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailSegmentCustomerEditorUrl: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7063,49 +4431,13 @@ Name | Type | Description  | Notes
 
 Get email segment customers
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailSegmentCustomersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailSegmentUuid = "emailSegmentUuid_example";  // string | 
-            var pageNumber = 56;  // int? |  (optional) 
-            var pageSize = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Get email segment customers
-                EmailSegmentCustomersResponse result = apiInstance.GetEmailSegmentCustomers(storefrontOid, emailSegmentUuid, pageNumber, pageSize);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailSegmentCustomers: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7153,46 +4485,13 @@ Name | Type | Description  | Notes
 
 Get email segments
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailSegmentsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email segments
-                EmailSegmentsResponse result = apiInstance.GetEmailSegments(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailSegments: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7237,46 +4536,13 @@ Name | Type | Description  | Notes
 
 Get email sending domain
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailSendingDomainExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var domain = "domain_example";  // string | 
-
-            try
-            {
-                // Get email sending domain
-                EmailSendingDomainResponse result = apiInstance.GetEmailSendingDomain(domain);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailSendingDomain: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7321,46 +4587,13 @@ Name | Type | Description  | Notes
 
 Get email sending domain status
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailSendingDomainStatusExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var domain = "domain_example";  // string | 
-
-            try
-            {
-                // Get email sending domain status
-                EmailSendingDomainResponse result = apiInstance.GetEmailSendingDomainStatus(domain);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailSendingDomainStatus: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7405,45 +4638,13 @@ Name | Type | Description  | Notes
 
 Get email sending domains
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailSendingDomainsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get email sending domains
-                EmailSendingDomainsResponse result = apiInstance.GetEmailSendingDomains();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailSendingDomains: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7485,46 +4686,13 @@ This endpoint does not need any parameter.
 
 Get email settings
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailSettingsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get email settings
-                EmailSettingsResponse result = apiInstance.GetEmailSettings(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailSettings: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7569,49 +4737,13 @@ Name | Type | Description  | Notes
 
 Get email sms orders
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailSmsOrdersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var commseqStepUuid = "commseqStepUuid_example";  // string | 
-            var days = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Get email sms orders
-                EmailSmsOrdersResponse result = apiInstance.GetEmailSmsOrders(storefrontOid, commseqUuid, commseqStepUuid, days);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailSmsOrders: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7659,47 +4791,13 @@ Name | Type | Description  | Notes
 
 Get email template
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailTemplateExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailTemplateOid = 56;  // int | 
-
-            try
-            {
-                // Get email template
-                EmailTemplate result = apiInstance.GetEmailTemplate(storefrontOid, emailTemplateOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailTemplate: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7745,47 +4843,13 @@ Name | Type | Description  | Notes
 
 Get email templates
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailTemplatesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var triggerType = "triggerType_example";  // string |  (optional) 
-
-            try
-            {
-                // Get email templates
-                EmailTemplatesResponse result = apiInstance.GetEmailTemplates(storefrontOid, triggerType);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailTemplates: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7831,46 +4895,13 @@ Name | Type | Description  | Notes
 
 Get a list of third party email providers
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailThirdPartyProvidersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get a list of third party email providers
-                EmailThirdPartyProvidersResponse result = apiInstance.GetEmailThirdPartyProviders(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetEmailThirdPartyProviders: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7915,46 +4946,13 @@ Name | Type | Description  | Notes
 
 Get experiments
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetExperimentsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get experiments
-                ExperimentsResponse result = apiInstance.GetExperiments(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetExperiments: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7999,49 +4997,13 @@ Name | Type | Description  | Notes
 
 Get file manager directory
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetFsDirectoryExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var id = 56;  // int | 
-            var path = "path_example";  // string |  (optional) 
-            var storefrontFsDirectoryOid = 56;  // int? |  (optional) 
-            var storefrontThemeOid = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Get file manager directory
-                FileManagerPageResponse result = apiInstance.GetFsDirectory(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetFsDirectory: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8091,47 +5053,13 @@ Get screen recording heatmap
 
 Get screen recording heatmap 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetHeatmapExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var query = new ScreenRecordingHeatmapRequest(); // ScreenRecordingHeatmapRequest | Query
-
-            try
-            {
-                // Get screen recording heatmap
-                ScreenRecordingHeatmapResponse result = apiInstance.GetHeatmap(storefrontOid, query);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetHeatmap: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8179,50 +5107,13 @@ Get screen recording heatmap index
 
 Get screen recording heatmap index 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetHeatmapIndexExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var query = new ScreenRecordingHeatmapIndexRequest(); // ScreenRecordingHeatmapIndexRequest | Query
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = "sort_example";  // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-
-            try
-            {
-                // Get screen recording heatmap index
-                ScreenRecordingHeatmapIndexResponse result = apiInstance.GetHeatmapIndex(storefrontOid, query, limit, offset, sort);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetHeatmapIndex: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8273,47 +5164,13 @@ Get histogram property names
 
 Obtain a list of property names for a given property type 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetHistogramPropertyNamesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var propertyType = "propertyType_example";  // string |  (optional) 
-
-            try
-            {
-                // Get histogram property names
-                EmailHistogramPropertyNamesResponse result = apiInstance.GetHistogramPropertyNames(storefrontOid, propertyType);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetHistogramPropertyNames: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8361,49 +5218,13 @@ Get histogram property values
 
 Obtain a list of property values for a given property name and type 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetHistogramPropertyValuesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var propertyName = "propertyName_example";  // string |  (optional) 
-            var propertyType = "propertyType_example";  // string |  (optional) 
-            var limit = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Get histogram property values
-                EmailHistogramPropertyValuesResponse result = apiInstance.GetHistogramPropertyValues(storefrontOid, propertyName, propertyType, limit);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetHistogramPropertyValues: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8451,45 +5272,13 @@ Name | Type | Description  | Notes
 
 Get library values used to populate drop down boxes for filtering.
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetLibraryFilterValuesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get library values used to populate drop down boxes for filtering.
-                LibraryFilterValuesResponse result = apiInstance.GetLibraryFilterValues();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetLibraryFilterValues: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8531,46 +5320,13 @@ This endpoint does not need any parameter.
 
 Get library item.
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetLibraryItemExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var libraryItemOid = 56;  // int | 
-
-            try
-            {
-                // Get library item.
-                LibraryItemResponse result = apiInstance.GetLibraryItem(libraryItemOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetLibraryItem: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8615,46 +5371,13 @@ Name | Type | Description  | Notes
 
 Get all published versions for a library item.
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetLibraryItemPublishedVersionsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var libraryItemOid = 56;  // int | 
-
-            try
-            {
-                // Get all published versions for a library item.
-                LibraryItemsResponse result = apiInstance.GetLibraryItemPublishedVersions(libraryItemOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetLibraryItemPublishedVersions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8701,47 +5424,13 @@ Get screen recording
 
 Get screen recording 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetScreenRecordingExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var screenRecordingUuid = "screenRecordingUuid_example";  // string | 
-
-            try
-            {
-                // Get screen recording
-                ScreenRecordingResponse result = apiInstance.GetScreenRecording(storefrontOid, screenRecordingUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetScreenRecording: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8789,48 +5478,13 @@ Get screen recording page view data
 
 Get screen recording page view data 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetScreenRecordingPageViewDataExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var screenRecordingUuid = "screenRecordingUuid_example";  // string | 
-            var screenRecordingPageViewUuid = "screenRecordingPageViewUuid_example";  // string | 
-
-            try
-            {
-                // Get screen recording page view data
-                ScreenRecordingPageViewDataResponse result = apiInstance.GetScreenRecordingPageViewData(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetScreenRecordingPageViewData: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8877,47 +5531,13 @@ Name | Type | Description  | Notes
 
 Get screen recording segment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetScreenRecordingSegmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var screenRecordingSegmentOid = 56;  // int | 
-
-            try
-            {
-                // Get screen recording segment
-                ScreenRecordingSegmentResponse result = apiInstance.GetScreenRecordingSegment(storefrontOid, screenRecordingSegmentOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetScreenRecordingSegment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8963,46 +5583,13 @@ Name | Type | Description  | Notes
 
 Get screen recording segments
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetScreenRecordingSegmentsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get screen recording segments
-                ScreenRecordingSegmentsResponse result = apiInstance.GetScreenRecordingSegments(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetScreenRecordingSegments: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9047,46 +5634,13 @@ Name | Type | Description  | Notes
 
 Get screen recording settings
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetScreenRecordingSettingsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get screen recording settings
-                ScreenRecordingSettingsResponse result = apiInstance.GetScreenRecordingSettings(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetScreenRecordingSettings: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9133,46 +5687,13 @@ Get tags used by screen recording
 
 Get tags used by screen recording 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetScreenRecordingTagsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Get tags used by screen recording
-                ScreenRecordingTagsResponse result = apiInstance.GetScreenRecordingTags(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetScreenRecordingTags: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9219,50 +5740,13 @@ Query screen recordings
 
 Query screen recordings 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetScreenRecordingsByQueryExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var query = new ScreenRecordingQueryRequest(); // ScreenRecordingQueryRequest | Query
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = "sort_example";  // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-
-            try
-            {
-                // Query screen recordings
-                ScreenRecordingQueryResponse result = apiInstance.GetScreenRecordingsByQuery(storefrontOid, query, limit, offset, sort);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetScreenRecordingsByQuery: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9313,50 +5797,13 @@ Get screen recordings by segment
 
 Get screen recordings by segment 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetScreenRecordingsBySegmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var screenRecordingSegmentOid = 56;  // int | 
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = "sort_example";  // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-
-            try
-            {
-                // Get screen recordings by segment
-                ScreenRecordingQueryResponse result = apiInstance.GetScreenRecordingsBySegment(storefrontOid, screenRecordingSegmentOid, limit, offset, sort);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetScreenRecordingsBySegment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9407,46 +5854,13 @@ Retrieve pricing tiers
 
 Retrieves the pricing tiers 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetStoreFrontPricingTiersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
-            {
-                // Retrieve pricing tiers
-                PricingTiersResponse result = apiInstance.GetStoreFrontPricingTiers(expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetStoreFrontPricingTiers: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9491,45 +5905,13 @@ Name | Type | Description  | Notes
 
 Get storefronts (internal use only for security reasons)
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetStoreFrontsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get storefronts (internal use only for security reasons)
-                StoreFrontsResponse result = apiInstance.GetStoreFronts();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetStoreFronts: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9571,46 +5953,13 @@ This endpoint does not need any parameter.
 
 Get thumbnail parameters
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetThumbnailParametersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var thumbnailParameters = new ThumbnailParametersRequest(); // ThumbnailParametersRequest | Thumbnail Parameters
-
-            try
-            {
-                // Get thumbnail parameters
-                ThumbnailParametersResponse result = apiInstance.GetThumbnailParameters(thumbnailParameters);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetThumbnailParameters: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9657,47 +6006,13 @@ Gets a transaction email object
 
 Fetch a transactional email 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTransactionEmailExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailId = "emailId_example";  // string | 
-
-            try
-            {
-                // Gets a transaction email object
-                TransactionEmailResponse result = apiInstance.GetTransactionEmail(storefrontOid, emailId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetTransactionEmail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9745,46 +6060,13 @@ Gets a list of transaction email names
 
 Obtain a list of all transactional emails and return back just their names 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTransactionEmailListExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-
-            try
-            {
-                // Gets a list of transaction email names
-                TransactionEmailListResponse result = apiInstance.GetTransactionEmailList(storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetTransactionEmailList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9829,47 +6111,13 @@ Name | Type | Description  | Notes
 
 Get transactional email screenshots
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTransactionEmailScreenshotsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailId = "emailId_example";  // string | 
-
-            try
-            {
-                // Get transactional email screenshots
-                ScreenshotsResponse result = apiInstance.GetTransactionEmailScreenshots(storefrontOid, emailId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetTransactionEmailScreenshots: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9915,46 +6163,13 @@ Name | Type | Description  | Notes
 
 Get Twilio account
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTwilioAccountExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var espTwilioUuid = "espTwilioUuid_example";  // string | 
-
-            try
-            {
-                // Get Twilio account
-                TwilioResponse result = apiInstance.GetTwilioAccount(espTwilioUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetTwilioAccount: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9999,45 +6214,13 @@ Name | Type | Description  | Notes
 
 Get all Twilio accounts
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetTwilioAccountsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get all Twilio accounts
-                TwiliosResponse result = apiInstance.GetTwilioAccounts();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetTwilioAccounts: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10079,47 +6262,13 @@ This endpoint does not need any parameter.
 
 Retrieves a S3 url where a file may be uploaded. Once uploaded, use uploadFsFile to trigger the server into reading the S3 bucket and retrieving the file.
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetUploadFsFileUrlExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var id = 56;  // int | 
-            var extension = "extension_example";  // string | 
-
-            try
-            {
-                // Retrieves a S3 url where a file may be uploaded. Once uploaded, use uploadFsFile to trigger the server into reading the S3 bucket and retrieving the file.
-                FileManagerUploadUrlResponse result = apiInstance.GetUploadFsFileUrl(id, extension);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetUploadFsFileUrl: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10165,47 +6314,13 @@ Name | Type | Description  | Notes
 
 Globally unsubscribe a customer
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GlobalUnsubscribeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var unsubscribe = new EmailGlobalUnsubscribeRequest(); // EmailGlobalUnsubscribeRequest | Unsubscribe
-
-            try
-            {
-                // Globally unsubscribe a customer
-                EmailGlobalUnsubscribeResponse result = apiInstance.GlobalUnsubscribe(storefrontOid, unsubscribe);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GlobalUnsubscribe: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10251,46 +6366,13 @@ Name | Type | Description  | Notes
 
 Import a third party provider list
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ImportEmailThirdPartyProviderListExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var importRequest = new EmailThirdPartyListImportRequest(); // EmailThirdPartyListImportRequest | lists to import
-
-            try
-            {
-                // Import a third party provider list
-                apiInstance.ImportEmailThirdPartyProviderList(storefrontOid, importRequest);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.ImportEmailThirdPartyProviderList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10335,47 +6417,13 @@ void (empty response body)
 
 Insert email campaign
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertEmailCampaignExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCampaign = new EmailCampaign(); // EmailCampaign | Email campaign
-
-            try
-            {
-                // Insert email campaign
-                EmailCampaignResponse result = apiInstance.InsertEmailCampaign(storefrontOid, emailCampaign);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.InsertEmailCampaign: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10421,47 +6469,13 @@ Name | Type | Description  | Notes
 
 Insert email campaign folder
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertEmailCampaignFolderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCampaignFolder = new EmailCampaignFolder(); // EmailCampaignFolder | Email campaign folder
-
-            try
-            {
-                // Insert email campaign folder
-                EmailCampaignFolderResponse result = apiInstance.InsertEmailCampaignFolder(storefrontOid, emailCampaignFolder);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.InsertEmailCampaignFolder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10507,47 +6521,13 @@ Name | Type | Description  | Notes
 
 Insert email commseq
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertEmailCommseqExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCommseq = new EmailCommseq(); // EmailCommseq | Email commseq
-
-            try
-            {
-                // Insert email commseq
-                EmailCommseqResponse result = apiInstance.InsertEmailCommseq(storefrontOid, emailCommseq);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.InsertEmailCommseq: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10593,47 +6573,13 @@ Name | Type | Description  | Notes
 
 Insert email email
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertEmailEmailExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCommseqEmail = new EmailCommseqEmail(); // EmailCommseqEmail | Email email
-
-            try
-            {
-                // Insert email email
-                EmailCommseqEmailResponse result = apiInstance.InsertEmailEmail(storefrontOid, emailCommseqEmail);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.InsertEmailEmail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10679,47 +6625,13 @@ Name | Type | Description  | Notes
 
 Insert email flow
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertEmailFlowExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailFlow = new EmailFlow(); // EmailFlow | Email flow
-
-            try
-            {
-                // Insert email flow
-                EmailFlowResponse result = apiInstance.InsertEmailFlow(storefrontOid, emailFlow);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.InsertEmailFlow: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10765,47 +6677,13 @@ Name | Type | Description  | Notes
 
 Insert email flow folder
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertEmailFlowFolderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailFlowFolder = new EmailFlowFolder(); // EmailFlowFolder | Email flow folder
-
-            try
-            {
-                // Insert email flow folder
-                EmailFlowFolderResponse result = apiInstance.InsertEmailFlowFolder(storefrontOid, emailFlowFolder);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.InsertEmailFlowFolder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10851,47 +6729,13 @@ Name | Type | Description  | Notes
 
 Insert email list
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertEmailListExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailList = new EmailList(); // EmailList | Email list
-
-            try
-            {
-                // Insert email list
-                EmailListResponse result = apiInstance.InsertEmailList(storefrontOid, emailList);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.InsertEmailList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10937,47 +6781,13 @@ Name | Type | Description  | Notes
 
 Insert email campaign folder
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertEmailListSegmentFolderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailListSegmentFolder = new EmailListSegmentFolder(); // EmailListSegmentFolder | Email campaign folder
-
-            try
-            {
-                // Insert email campaign folder
-                EmailListSegmentFolderResponse result = apiInstance.InsertEmailListSegmentFolder(storefrontOid, emailListSegmentFolder);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.InsertEmailListSegmentFolder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -11023,47 +6833,13 @@ Name | Type | Description  | Notes
 
 Insert email postcard
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertEmailPostcardExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCommseqPostcard = new EmailCommseqPostcard(); // EmailCommseqPostcard | Email postcard
-
-            try
-            {
-                // Insert email postcard
-                EmailCommseqPostcardResponse result = apiInstance.InsertEmailPostcard(storefrontOid, emailCommseqPostcard);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.InsertEmailPostcard: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -11109,47 +6885,13 @@ Name | Type | Description  | Notes
 
 Insert email segment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertEmailSegmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailSegment = new EmailSegment(); // EmailSegment | Email segment
-
-            try
-            {
-                // Insert email segment
-                EmailSegmentResponse result = apiInstance.InsertEmailSegment(storefrontOid, emailSegment);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.InsertEmailSegment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -11195,47 +6937,13 @@ Name | Type | Description  | Notes
 
 Insert screen recording segment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertScreenRecordingSegmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var segment = new ScreenRecordingSegment(); // ScreenRecordingSegment | Segment
-
-            try
-            {
-                // Insert screen recording segment
-                ScreenRecordingSegmentResponse result = apiInstance.InsertScreenRecordingSegment(storefrontOid, segment);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.InsertScreenRecordingSegment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -11283,47 +6991,13 @@ Upsert a page content attribute
 
 Update a page content attribute, creating it new if it does not yet exist. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertUpdatePageContentAttributeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var pageOid = 56;  // int | The page oid to modify.
-            var pageAttribute = new StoreFrontPageContentAttribute(); // StoreFrontPageContentAttribute | Page content attribute to upsert
-
-            try
-            {
-                // Upsert a page content attribute
-                apiInstance.InsertUpdatePageContentAttribute(storefrontOid, pageOid, pageAttribute);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.InsertUpdatePageContentAttribute: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -11369,47 +7043,13 @@ void (empty response body)
 
 Prepare download of email segment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class PrepareDownloadEmailSegmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailSegmentUuid = "emailSegmentUuid_example";  // string | 
-
-            try
-            {
-                // Prepare download of email segment
-                EmailSegmentDownloadPrepareResponse result = apiInstance.PrepareDownloadEmailSegment(storefrontOid, emailSegmentUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.PrepareDownloadEmailSegment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -11455,47 +7095,13 @@ Name | Type | Description  | Notes
 
 Publish library item.
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class PublishLibraryItemExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var libraryItemOid = 56;  // int | 
-            var publishLibraryRequest = new PublishLibraryItemRequest(); // PublishLibraryItemRequest | Publish library item request
-
-            try
-            {
-                // Publish library item.
-                LibraryItemResponse result = apiInstance.PublishLibraryItem(libraryItemOid, publishLibraryRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.PublishLibraryItem: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -11541,47 +7147,13 @@ Name | Type | Description  | Notes
 
 Purchase public library item, which creates a copy of the item in your personal code library
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class PurchaseLibraryItemExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var libraryItemOid = 56;  // int | 
-            var storefrontOid = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Purchase public library item, which creates a copy of the item in your personal code library
-                LibraryItemResponse result = apiInstance.PurchaseLibraryItem(libraryItemOid, storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.PurchaseLibraryItem: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -11627,47 +7199,13 @@ Name | Type | Description  | Notes
 
 Release email communication sequence customers waiting at the specified step
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ReleaseEmailCommseqStepWaitingExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var commseqStepUuid = "commseqStepUuid_example";  // string | 
-
-            try
-            {
-                // Release email communication sequence customers waiting at the specified step
-                apiInstance.ReleaseEmailCommseqStepWaiting(storefrontOid, commseqUuid, commseqStepUuid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.ReleaseEmailCommseqStepWaiting: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -11713,46 +7251,13 @@ void (empty response body)
 
 Reset email commseq rate limiters (only callable by UltraCart Support)
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ResetEmailCommseqRateLimitersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-
-            try
-            {
-                // Reset email commseq rate limiters (only callable by UltraCart Support)
-                apiInstance.ResetEmailCommseqRateLimiters(storefrontOid, commseqUuid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.ResetEmailCommseqRateLimiters: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -11797,48 +7302,13 @@ void (empty response body)
 
 Request a review of an email
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ReviewExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqEmailUuid = "commseqEmailUuid_example";  // string | 
-            var emailCommseqEmailReviewRequest = new EmailCommseqEmailSendTestRequest(); // EmailCommseqEmailSendTestRequest | Email commseq email review request
-
-            try
-            {
-                // Request a review of an email
-                EmailCommseqEmailSendTestResponse result = apiInstance.Review(storefrontOid, commseqEmailUuid, emailCommseqEmailReviewRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.Review: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -11885,50 +7355,13 @@ Name | Type | Description  | Notes
 
 Searches for all matching values
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SearchExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var category = "category_example";  // string |  (optional) 
-            var matches = "matches_example";  // string |  (optional) 
-            var storefrontOid = "storefrontOid_example";  // string |  (optional) 
-            var maxHits = 56;  // int? |  (optional) 
-            var subcategory = "subcategory_example";  // string |  (optional) 
-
-            try
-            {
-                // Searches for all matching values
-                LookupResponse result = apiInstance.Search(category, matches, storefrontOid, maxHits, subcategory);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.Search: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -11977,46 +7410,13 @@ Name | Type | Description  | Notes
 
 Searches for all matching values (using POST)
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class Search2Example
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var lookupRequest = new LookupRequest(); // LookupRequest | LookupRequest
-
-            try
-            {
-                // Searches for all matching values (using POST)
-                LookupResponse result = apiInstance.Search2(lookupRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.Search2: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -12061,48 +7461,13 @@ Name | Type | Description  | Notes
 
 Search email list customers
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SearchEmailListCustomersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailListUuid = "emailListUuid_example";  // string | 
-            var startsWith = "startsWith_example";  // string |  (optional) 
-
-            try
-            {
-                // Search email list customers
-                EmailListCustomersResponse result = apiInstance.SearchEmailListCustomers(storefrontOid, emailListUuid, startsWith);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SearchEmailListCustomers: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -12149,48 +7514,13 @@ Name | Type | Description  | Notes
 
 Search email segment customers
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SearchEmailSegmentCustomersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailSegmentUuid = "emailSegmentUuid_example";  // string | 
-            var startsWith = "startsWith_example";  // string |  (optional) 
-
-            try
-            {
-                // Search email segment customers
-                EmailSegmentCustomersResponse result = apiInstance.SearchEmailSegmentCustomers(storefrontOid, emailSegmentUuid, startsWith);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SearchEmailSegmentCustomers: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -12239,49 +7569,13 @@ Retrieve library items
 
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SearchLibraryItemsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
-            var limit = 10000;  // int? | The maximum number of records to return on this one API call. (Maximum 10000) (optional)  (default to 10000)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = "sort_example";  // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-
-            try
-            {
-                // Retrieve library items
-                LibraryItemsResponse result = apiInstance.SearchLibraryItems(itemQuery, limit, offset, sort);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SearchLibraryItems: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -12331,49 +7625,13 @@ Retrieve library items
 
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SearchPublishedItemsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
-            var limit = 10000;  // int? | The maximum number of records to return on this one API call. (Maximum 10000) (optional)  (default to 10000)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = "sort_example";  // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-
-            try
-            {
-                // Retrieve library items
-                LibraryItemsResponse result = apiInstance.SearchPublishedItems(itemQuery, limit, offset, sort);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SearchPublishedItems: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -12423,49 +7681,13 @@ Retrieve library items needing review or rejected
 
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SearchReviewItemsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
-            var limit = 10000;  // int? | The maximum number of records to return on this one API call. (Maximum 10000) (optional)  (default to 10000)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = "sort_example";  // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-
-            try
-            {
-                // Retrieve library items needing review or rejected
-                LibraryItemsResponse result = apiInstance.SearchReviewItems(itemQuery, limit, offset, sort);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SearchReviewItems: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -12515,49 +7737,13 @@ Retrieve library items
 
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SearchSharedItemsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
-            var limit = 10000;  // int? | The maximum number of records to return on this one API call. (Maximum 10000) (optional)  (default to 10000)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = "sort_example";  // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-
-            try
-            {
-                // Retrieve library items
-                LibraryItemsResponse result = apiInstance.SearchSharedItems(itemQuery, limit, offset, sort);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SearchSharedItems: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -12605,48 +7791,13 @@ Name | Type | Description  | Notes
 
 Send email test
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SendEmailTestExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqEmailUuid = "commseqEmailUuid_example";  // string | 
-            var emailCommseqEmailTestRequest = new EmailCommseqEmailSendTestRequest(); // EmailCommseqEmailSendTestRequest | Email commseq email test request
-
-            try
-            {
-                // Send email test
-                EmailCommseqEmailSendTestResponse result = apiInstance.SendEmailTest(storefrontOid, commseqEmailUuid, emailCommseqEmailTestRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SendEmailTest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -12693,48 +7844,13 @@ Name | Type | Description  | Notes
 
 Send postcard test
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SendPostcardTestExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqPostcardUuid = "commseqPostcardUuid_example";  // string | 
-            var emailCommseqPostcardTestRequest = new EmailCommseqPostcardSendTestRequest(); // EmailCommseqPostcardSendTestRequest | Email commseq email test request
-
-            try
-            {
-                // Send postcard test
-                EmailCommseqPostcardSendTestResponse result = apiInstance.SendPostcardTest(storefrontOid, commseqPostcardUuid, emailCommseqPostcardTestRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SendPostcardTest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -12781,49 +7897,13 @@ Name | Type | Description  | Notes
 
 Send SMS test
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SendSmsTestExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var commseqStepUuid = "commseqStepUuid_example";  // string | 
-            var emailCommseqSmsTestRequest = new EmailCommseqSmsSendTestRequest(); // EmailCommseqSmsSendTestRequest | Email commseq sms test request
-
-            try
-            {
-                // Send SMS test
-                EmailCommseqSmsSendTestResponse result = apiInstance.SendSmsTest(storefrontOid, commseqUuid, commseqStepUuid, emailCommseqSmsTestRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SendSmsTest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -12871,47 +7951,13 @@ Name | Type | Description  | Notes
 
 Send webhook test
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SendWebhookTestExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCommseqWebhookTestRequest = new EmailCommseqWebhookSendTestRequest(); // EmailCommseqWebhookSendTestRequest | Email commseq webhook test request
-
-            try
-            {
-                // Send webhook test
-                EmailCommseqWebhookSendTestResponse result = apiInstance.SendWebhookTest(storefrontOid, emailCommseqWebhookTestRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SendWebhookTest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -12957,48 +8003,13 @@ Name | Type | Description  | Notes
 
 Sequence test
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SequenceTestExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var emailCommseqSequenceTestRequest = new EmailCommseqSequenceTestRequest(); // EmailCommseqSequenceTestRequest | Commseq test request
-
-            try
-            {
-                // Sequence test
-                EmailCommseqSequenceTestResponse result = apiInstance.SequenceTest(storefrontOid, commseqUuid, emailCommseqSequenceTestRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SequenceTest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -13045,47 +8056,13 @@ Name | Type | Description  | Notes
 
 Start email campaign
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class StartEmailCampaignExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCampaignUuid = "emailCampaignUuid_example";  // string | 
-
-            try
-            {
-                // Start email campaign
-                BaseResponse result = apiInstance.StartEmailCampaign(storefrontOid, emailCampaignUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.StartEmailCampaign: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -13131,48 +8108,13 @@ Name | Type | Description  | Notes
 
 Subscribe customers to email list
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SubscribeToEmailListExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailListUuid = "emailListUuid_example";  // string | 
-            var customers = new List<EmailCustomer>(); // List<EmailCustomer> | Customers
-
-            try
-            {
-                // Subscribe customers to email list
-                EmailListSubscribeResponse result = apiInstance.SubscribeToEmailList(storefrontOid, emailListUuid, customers);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SubscribeToEmailList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -13219,46 +8161,13 @@ Name | Type | Description  | Notes
 
 Sunset email segment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SunsetEmailSegmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailSegmentUuid = "emailSegmentUuid_example";  // string | 
-
-            try
-            {
-                // Sunset email segment
-                apiInstance.SunsetEmailSegment(storefrontOid, emailSegmentUuid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.SunsetEmailSegment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -13305,46 +8214,13 @@ Remove favorite flag on screen recording
 
 Remove favorite flag on screen recording 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UnfavoriteScreenRecordingExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var screenRecordingUuid = "screenRecordingUuid_example";  // string | 
-
-            try
-            {
-                // Remove favorite flag on screen recording
-                apiInstance.UnfavoriteScreenRecording(storefrontOid, screenRecordingUuid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UnfavoriteScreenRecording: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -13389,48 +8265,13 @@ void (empty response body)
 
 Update email campaign
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailCampaignExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCampaignUuid = "emailCampaignUuid_example";  // string | 
-            var emailCampaign = new EmailCampaign(); // EmailCampaign | Email campaign
-
-            try
-            {
-                // Update email campaign
-                EmailCampaignResponse result = apiInstance.UpdateEmailCampaign(storefrontOid, emailCampaignUuid, emailCampaign);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailCampaign: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -13477,48 +8318,13 @@ Name | Type | Description  | Notes
 
 Update email campaign folder
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailCampaignFolderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCampaignFolderUuid = "emailCampaignFolderUuid_example";  // string | 
-            var emailCampaignFolder = new EmailCampaignFolder(); // EmailCampaignFolder | Email campaign folder
-
-            try
-            {
-                // Update email campaign folder
-                EmailCampaignFolderResponse result = apiInstance.UpdateEmailCampaignFolder(storefrontOid, emailCampaignFolderUuid, emailCampaignFolder);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailCampaignFolder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -13565,48 +8371,13 @@ Name | Type | Description  | Notes
 
 Update email commseq
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailCommseqExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqUuid = "commseqUuid_example";  // string | 
-            var emailCommseq = new EmailCommseq(); // EmailCommseq | Email commseq
-
-            try
-            {
-                // Update email commseq
-                EmailCommseqResponse result = apiInstance.UpdateEmailCommseq(storefrontOid, commseqUuid, emailCommseq);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailCommseq: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -13653,47 +8424,13 @@ Name | Type | Description  | Notes
 
 Update email customer
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailCustomerExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailCustomerUuid = "emailCustomerUuid_example";  // string | 
-            var emailCustomer = new EmailCustomer(); // EmailCustomer | Email customer
-
-            try
-            {
-                // Update email customer
-                apiInstance.UpdateEmailCustomer(storefrontOid, emailCustomerUuid, emailCustomer);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailCustomer: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -13739,48 +8476,13 @@ void (empty response body)
 
 Update email email
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailEmailExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqEmailUuid = "commseqEmailUuid_example";  // string | 
-            var emailCommseqEmail = new EmailCommseqEmail(); // EmailCommseqEmail | Email commseq email
-
-            try
-            {
-                // Update email email
-                EmailCommseqEmailResponse result = apiInstance.UpdateEmailEmail(storefrontOid, commseqEmailUuid, emailCommseqEmail);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailEmail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -13827,48 +8529,13 @@ Name | Type | Description  | Notes
 
 Update email flow
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailFlowExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailFlowUuid = "emailFlowUuid_example";  // string | 
-            var emailFlow = new EmailFlow(); // EmailFlow | Email flow
-
-            try
-            {
-                // Update email flow
-                EmailFlowResponse result = apiInstance.UpdateEmailFlow(storefrontOid, emailFlowUuid, emailFlow);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailFlow: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -13915,48 +8582,13 @@ Name | Type | Description  | Notes
 
 Update email flow folder
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailFlowFolderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailFlowFolderUuid = "emailFlowFolderUuid_example";  // string | 
-            var emailFlowFolder = new EmailFlowFolder(); // EmailFlowFolder | Email flow folder
-
-            try
-            {
-                // Update email flow folder
-                EmailFlowFolderResponse result = apiInstance.UpdateEmailFlowFolder(storefrontOid, emailFlowFolderUuid, emailFlowFolder);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailFlowFolder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -14003,46 +8635,13 @@ Name | Type | Description  | Notes
 
 Update email global settings
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailGlobalSettingsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var globalSettings = new EmailGlobalSettings(); // EmailGlobalSettings | global settings request
-
-            try
-            {
-                // Update email global settings
-                EmailGlobalSettingsResponse result = apiInstance.UpdateEmailGlobalSettings(globalSettings);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailGlobalSettings: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -14087,48 +8686,13 @@ Name | Type | Description  | Notes
 
 Update email list
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailListExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailListUuid = "emailListUuid_example";  // string | 
-            var emailList = new EmailList(); // EmailList | Email list
-
-            try
-            {
-                // Update email list
-                EmailListResponse result = apiInstance.UpdateEmailList(storefrontOid, emailListUuid, emailList);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -14175,48 +8739,13 @@ Name | Type | Description  | Notes
 
 Update email campaign folder
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailListSegmentFolderExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailListSegmentFolderUuid = "emailListSegmentFolderUuid_example";  // string | 
-            var emailListSegmentFolder = new EmailListSegmentFolder(); // EmailListSegmentFolder | Email campaign folder
-
-            try
-            {
-                // Update email campaign folder
-                EmailListSegmentFolderResponse result = apiInstance.UpdateEmailListSegmentFolder(storefrontOid, emailListSegmentFolderUuid, emailListSegmentFolder);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailListSegmentFolder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -14263,47 +8792,13 @@ Name | Type | Description  | Notes
 
 Update email plan
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailPlanExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var settings = new EmailPlan(); // EmailPlan | plan request
-
-            try
-            {
-                // Update email plan
-                EmailPlanResponse result = apiInstance.UpdateEmailPlan(storefrontOid, settings);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailPlan: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -14349,48 +8844,13 @@ Name | Type | Description  | Notes
 
 Update email postcard
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailPostcardExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var commseqPostcardUuid = "commseqPostcardUuid_example";  // string | 
-            var emailCommseqPostcard = new EmailCommseqPostcard(); // EmailCommseqPostcard | Email commseq postcard
-
-            try
-            {
-                // Update email postcard
-                EmailCommseqPostcardResponse result = apiInstance.UpdateEmailPostcard(storefrontOid, commseqPostcardUuid, emailCommseqPostcard);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailPostcard: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -14437,48 +8897,13 @@ Name | Type | Description  | Notes
 
 Update email segment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailSegmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailSegmentUuid = "emailSegmentUuid_example";  // string | 
-            var emailSegment = new EmailSegment(); // EmailSegment | Email segment
-
-            try
-            {
-                // Update email segment
-                EmailSegmentResponse result = apiInstance.UpdateEmailSegment(storefrontOid, emailSegmentUuid, emailSegment);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailSegment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -14525,47 +8950,13 @@ Name | Type | Description  | Notes
 
 Update email sending domain
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailSendingDomainExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var domain = "domain_example";  // string | 
-            var emailDomain = new EmailDomain(); // EmailDomain | EmailDomain
-
-            try
-            {
-                // Update email sending domain
-                EmailSendingDomainResponse result = apiInstance.UpdateEmailSendingDomain(domain, emailDomain);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailSendingDomain: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -14611,47 +9002,13 @@ Name | Type | Description  | Notes
 
 Update email settings
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateEmailSettingsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var settings = new EmailSettings(); // EmailSettings | settings request
-
-            try
-            {
-                // Update email settings
-                EmailSettingsResponse result = apiInstance.UpdateEmailSettings(storefrontOid, settings);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateEmailSettings: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -14697,48 +9054,13 @@ Name | Type | Description  | Notes
 
 Update experiment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateExperimentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var storefrontExperimentOid = 56;  // int | 
-            var experiment = new Experiment(); // Experiment | Experiment
-
-            try
-            {
-                // Update experiment
-                ExperimentResponse result = apiInstance.UpdateExperiment(storefrontOid, storefrontExperimentOid, experiment);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateExperiment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -14785,47 +9107,13 @@ Name | Type | Description  | Notes
 
 Update library item. Note that only certain fields may be updated via this method.
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateLibraryItemExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var libraryItemOid = 56;  // int | 
-            var libraryItem = new LibraryItem(); // LibraryItem | Library item
-
-            try
-            {
-                // Update library item. Note that only certain fields may be updated via this method.
-                LibraryItemResponse result = apiInstance.UpdateLibraryItem(libraryItemOid, libraryItem);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateLibraryItem: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -14873,47 +9161,13 @@ Update merchant notes on a screen recording
 
 Update merchant notes on a screen recording 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateScreenRecordingMerchantNotesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var screenRecordingUuid = "screenRecordingUuid_example";  // string | 
-            var merchantNotesRequest = new ScreenRecordingMerchantNotesRequest(); // ScreenRecordingMerchantNotesRequest | Merchant Notes
-
-            try
-            {
-                // Update merchant notes on a screen recording
-                apiInstance.UpdateScreenRecordingMerchantNotes(storefrontOid, screenRecordingUuid, merchantNotesRequest);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateScreenRecordingMerchantNotes: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -14959,48 +9213,13 @@ void (empty response body)
 
 Update screen recording segment
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateScreenRecordingSegmentExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var screenRecordingSegmentOid = 56;  // int | 
-            var segment = new ScreenRecordingSegment(); // ScreenRecordingSegment | Segment
-
-            try
-            {
-                // Update screen recording segment
-                ScreenRecordingSegmentResponse result = apiInstance.UpdateScreenRecordingSegment(storefrontOid, screenRecordingSegmentOid, segment);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateScreenRecordingSegment: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -15047,47 +9266,13 @@ Name | Type | Description  | Notes
 
 Update screen recording settings
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateScreenRecordingSettingsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var settings = new ScreenRecordingSettings(); // ScreenRecordingSettings | Settings
-
-            try
-            {
-                // Update screen recording settings
-                ScreenRecordingSettingsResponse result = apiInstance.UpdateScreenRecordingSettings(storefrontOid, settings);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateScreenRecordingSettings: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -15135,47 +9320,13 @@ Update tags on a screen recording
 
 Update tags on a screen recording 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateScreenRecordingTagsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var screenRecordingUuid = "screenRecordingUuid_example";  // string | 
-            var tags = new ScreenRecordingTagsRequest(); // ScreenRecordingTagsRequest | Tags
-
-            try
-            {
-                // Update tags on a screen recording
-                apiInstance.UpdateScreenRecordingTags(storefrontOid, screenRecordingUuid, tags);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateScreenRecordingTags: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -15223,48 +9374,13 @@ Updates a transaction email object
 
 Updates a transactional email 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateTransactionEmailExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var storefrontOid = 56;  // int | 
-            var emailId = "emailId_example";  // string | 
-            var transactionEmail = new TransactionEmail(); // TransactionEmail | TransactionEmail
-
-            try
-            {
-                // Updates a transaction email object
-                TransactionEmailResponse result = apiInstance.UpdateTransactionEmail(storefrontOid, emailId, transactionEmail);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateTransactionEmail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -15311,47 +9427,13 @@ Name | Type | Description  | Notes
 
 Update Twilio account
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateTwilioAccountExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var espTwilioUuid = "espTwilioUuid_example";  // string | 
-            var twilio = new Twilio(); // Twilio | Twilio
-
-            try
-            {
-                // Update Twilio account
-                TwilioResponse result = apiInstance.UpdateTwilioAccount(espTwilioUuid, twilio);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UpdateTwilioAccount: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -15397,46 +9479,13 @@ Name | Type | Description  | Notes
 
 This is the last step in uploading a file after 1) calling getUploadFsFileUrl and 2) uploading a file to the provided url, then finally 3) calling this method and providing the key to trigger the server into reading the S3 bucket and retrieving the file.
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UploadFsFileExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var id = 56;  // int | 
-            var uploadRequest = new FileManagerUploadRequest(); // FileManagerUploadRequest | UploadRequest
-
-            try
-            {
-                // This is the last step in uploading a file after 1) calling getUploadFsFileUrl and 2) uploading a file to the provided url, then finally 3) calling this method and providing the key to trigger the server into reading the S3 bucket and retrieving the file.
-                apiInstance.UploadFsFile(id, uploadRequest);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.UploadFsFile: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -15481,46 +9530,13 @@ void (empty response body)
 
 Validate AWS Event Ruler
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ValidateRulerExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var rulerValidateRequest = new RulerValidationRequest(); // RulerValidationRequest | Ruler Validate Request
-
-            try
-            {
-                // Validate AWS Event Ruler
-                RulerValidationResponse result = apiInstance.ValidateRuler(rulerValidateRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.ValidateRuler: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 

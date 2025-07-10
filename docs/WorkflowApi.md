@@ -27,45 +27,13 @@ Get agent websocket authorization
 
 Retrieve a JWT to authorize an agent to make a websocket connection. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetWorkflowAgentWebsocketAuthorizationExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get agent websocket authorization
-                WorkflowAgentAuthResponse result = apiInstance.GetWorkflowAgentWebsocketAuthorization();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling WorkflowApi.GetWorkflowAgentWebsocketAuthorization: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Workflow API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -109,47 +77,13 @@ Retrieve a list of groups that workflow tasks can be assigned to
 
 Retrieve a list of groups that workflow tasks can be assigned to 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetWorkflowAssignmentGroupsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-
-            try
-            {
-                // Retrieve a list of groups that workflow tasks can be assigned to
-                WorkflowGroupsResponse result = apiInstance.GetWorkflowAssignmentGroups(limit, offset);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling WorkflowApi.GetWorkflowAssignmentGroups: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Workflow API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -197,47 +131,13 @@ Retrieve a list of users that workflow tasks can be assigned to
 
 Retrieve a list of users that workflow tasks can be assigned to 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetWorkflowAssignmentUsersExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-
-            try
-            {
-                // Retrieve a list of users that workflow tasks can be assigned to
-                WorkflowUsersResponse result = apiInstance.GetWorkflowAssignmentUsers(limit, offset);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling WorkflowApi.GetWorkflowAssignmentUsers: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Workflow API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -285,45 +185,13 @@ Retrieve a user object for myself
 
 Retrieve a user object for myself 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetWorkflowMeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve a user object for myself
-                WorkflowUserResponse result = apiInstance.GetWorkflowMe();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling WorkflowApi.GetWorkflowMe: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Workflow API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -367,46 +235,13 @@ Retrieve a workflow task
 
 Retrieve a workflow task 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetWorkflowTaskExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var taskUuid = "taskUuid_example";  // string | 
-
-            try
-            {
-                // Retrieve a workflow task
-                WorkflowTaskResponse result = apiInstance.GetWorkflowTask(taskUuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling WorkflowApi.GetWorkflowTask: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Workflow API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -453,46 +288,13 @@ Get a presigned workflow task attachment upload URL
 
 Get a presigned workflow task attachment upload URL 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetWorkflowTaskAttachmentUploadUrlExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var extension = "extension_example";  // string | 
-
-            try
-            {
-                // Get a presigned workflow task attachment upload URL
-                WorkflowAttachmentUploadUrlResponse result = apiInstance.GetWorkflowTaskAttachmentUploadUrl(extension);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling WorkflowApi.GetWorkflowTaskAttachmentUploadUrl: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Workflow API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -539,47 +341,13 @@ Retrieve a workflow task by object type and id
 
 Retrieve a workflow task by object type and id 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetWorkflowTaskByObjectTypeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var objectType = "objectType_example";  // string | 
-            var objectId = "objectId_example";  // string | 
-
-            try
-            {
-                // Retrieve a workflow task by object type and id
-                WorkflowTasksResponse result = apiInstance.GetWorkflowTaskByObjectType(objectType, objectId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling WorkflowApi.GetWorkflowTaskByObjectType: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Workflow API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -627,45 +395,13 @@ Retrieve workflow task open count
 
 Retrieve workflow task open count 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetWorkflowTaskOpenCountExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Retrieve workflow task open count
-                WorkflowTaskOpenCountResponse result = apiInstance.GetWorkflowTaskOpenCount();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling WorkflowApi.GetWorkflowTaskOpenCount: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Workflow API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -709,45 +445,13 @@ Get a list of existing workflow task tags
 
 Retrieves a unique list of all the existing workflow task tags. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetWorkflowTaskTagsExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get a list of existing workflow task tags
-                WorkflowTaskTagsResponse result = apiInstance.GetWorkflowTaskTags();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling WorkflowApi.GetWorkflowTaskTags: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Workflow API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -791,49 +495,13 @@ Search workflow tasks
 
 Retrieves a set of workflow tasks from the account based on a query object. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetWorkflowTasksExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var workflowTasksQuery = new WorkflowTasksRequest(); // WorkflowTasksRequest | Workflow tasks query
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = "sort_example";  // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-
-            try
-            {
-                // Search workflow tasks
-                WorkflowTasksResponse result = apiInstance.GetWorkflowTasks(workflowTasksQuery, limit, offset, sort);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling WorkflowApi.GetWorkflowTasks: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Workflow API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -883,46 +551,13 @@ Insert a workflow task
 
 Insert a workflow task 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertWorkflowTaskExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var workflowTask = new WorkflowTask(); // WorkflowTask | workflow task
-
-            try
-            {
-                // Insert a workflow task
-                WorkflowTaskResponse result = apiInstance.InsertWorkflowTask(workflowTask);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling WorkflowApi.InsertWorkflowTask: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Workflow API has no value to merchants.
 ```
+
 
 ### Parameters
 
@@ -969,47 +604,13 @@ Update a workflow task
 
 Update a workflow task 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateWorkflowTaskExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var taskUuid = "taskUuid_example";  // string | 
-            var workflowTask = new WorkflowTask(); // WorkflowTask | Workflow task
-
-            try
-            {
-                // Update a workflow task
-                WorkflowTaskResponse result = apiInstance.UpdateWorkflowTask(taskUuid, workflowTask);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling WorkflowApi.UpdateWorkflowTask: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Internal API.  Workflow API has no value to merchants.
 ```
+
 
 ### Parameters
 

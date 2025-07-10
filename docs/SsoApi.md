@@ -19,45 +19,13 @@ Get single sign on session user
 
 This is the equivalent of logging out of the single sign on session 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetSsoSessionUserExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Get single sign on session user
-                User result = apiInstance.GetSsoSessionUser();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling SsoApi.GetSsoSessionUser: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -101,46 +69,13 @@ Authorize a single sign on session
 
 Starts the process of authorizing a single sign on session. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SsoAuthorizeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var authorizationRequest = new SingleSignOnAuthorizeRequest(); // SingleSignOnAuthorizeRequest | Authorization request
-
-            try
-            {
-                // Authorize a single sign on session
-                SingleSignOnAuthorizeResponse result = apiInstance.SsoAuthorize(authorizationRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling SsoApi.SsoAuthorize: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -187,44 +122,13 @@ Revoke single sign on session
 
 This is the equivalent of logging out of the single sign on session 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SsoSessionRevokeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-
-            try
-            {
-                // Revoke single sign on session
-                apiInstance.SsoSessionRevoke();
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling SsoApi.SsoSessionRevoke: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -267,46 +171,13 @@ Exchange a single sign on code for a simple key token
 
 Called by your application after receiving the code back on the redirect URI to obtain a simple key token to make API calls with 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class SsoTokenExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var tokenRequest = new SingleSignOnTokenRequest(); // SingleSignOnTokenRequest | Token request
-
-            try
-            {
-                // Exchange a single sign on code for a simple key token
-                SingleSignOnTokenResponse result = apiInstance.SsoToken(tokenRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling SsoApi.SsoToken: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 

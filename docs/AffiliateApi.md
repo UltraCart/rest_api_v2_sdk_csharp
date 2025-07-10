@@ -17,49 +17,19 @@ Retrieve clicks
 
 Retrieves a group of clicks from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the clicks returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
+namespace SdkSample.affiliate
 {
-    public class GetClicksByQueryExample
+    public class GetClicksByQuery
     {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var clickQuery = new AffiliateClickQuery(); // AffiliateClickQuery | Click query
-            var limit = 10000;  // int? | The maximum number of records to return on this one API call. (Maximum 10000) (optional)  (default to 10000)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  Only option is link. (optional) 
-
-            try
-            {
-                // Retrieve clicks
-                AffiliateClicksResponse result = apiInstance.GetClicksByQuery(clickQuery, limit, offset, expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling AffiliateApi.GetClicksByQuery: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
+        // Please see the README.md in this directory for an explanation on why there are no samples here.
     }
 }
 ```
+
 
 ### Parameters
 
@@ -109,49 +79,19 @@ Retrieve ledger entries
 
 Retrieves a group of ledger entries from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the ledgers returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
+namespace SdkSample.affiliate
 {
-    public class GetLedgersByQueryExample
+    public class GetLedgersByQuery
     {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var ledgerQuery = new AffiliateLedgerQuery(); // AffiliateLedgerQuery | Ledger query
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Maximum 200) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  Only option is link. (optional) 
-
-            try
-            {
-                // Retrieve ledger entries
-                AffiliateLedgersResponse result = apiInstance.GetLedgersByQuery(ledgerQuery, limit, offset, expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling AffiliateApi.GetLedgersByQuery: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
+        // Please see the README.md in this directory for an explanation on why there are no samples here.
     }
 }
 ```
+
 
 ### Parameters
 

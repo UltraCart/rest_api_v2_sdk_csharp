@@ -23,47 +23,50 @@ Add a gift certificate ledger entry
 
 Adds a ledger entry for this gift certificate. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.gift_certificate
 {
-    public class AddGiftCertificateLedgerEntryExample
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class AddGiftCertificateLedgerEntry
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            var giftCertificate = AddGiftCertificateLedgerEntryCall();
+            Utility.DumpObject(giftCertificate, "Gift Certificate");
+        }
 
-            var giftCertificateOid = 56;  // int | 
-            var giftCertificateLedgerEntry = new GiftCertificateLedgerEntry(); // GiftCertificateLedgerEntry | Gift certificate ledger entry
+        // ReSharper disable once MemberCanBePrivate.Global
+        public static GiftCertificate AddGiftCertificateLedgerEntryCall()
+        {
+            var api = new GiftCertificateApi(Constants.ApiKey);
+            
+            const int giftCertificateOid = 676713;
+            
+            GiftCertificateLedgerEntry ledgerEntry = new GiftCertificateLedgerEntry()
+            {
+                Amount = new Decimal(-15.35),  // this is the change amount in the gift certificate.  this is not a balance.  it will be subtracted from it.
+                Description = "Customer bought something over the counter using this gift certificate.",
+                EntryDts = DateTime.UtcNow.ToString("s", System.Globalization.CultureInfo.InvariantCulture),
+                GiftCertificateLedgerOid = 0,  // the system will assign an oid.  do not assign one here.
+                GiftCertificateOid = giftCertificateOid,  // this is an existing gift certificate oid.  I created it using createGiftCertificate.ts
+                ReferenceOrderId = "BLAH-12345" // if this ledger entry is related to an order, add it here, else use null.                
+            };
 
-            try
-            {
-                // Add a gift certificate ledger entry
-                GiftCertificateResponse result = apiInstance.AddGiftCertificateLedgerEntry(giftCertificateOid, giftCertificateLedgerEntry);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling GiftCertificateApi.AddGiftCertificateLedgerEntry: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            // add ledger entry does not take an expansion variable.  it will return the entire object by default.
+            var gcResponse = api.AddGiftCertificateLedgerEntry(giftCertificateOid, ledgerEntry);
+            return gcResponse.GiftCertificate;
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -111,46 +114,48 @@ Create a gift certificate
 
 Creates a gift certificate for this merchant account. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.gift_certificate
 {
-    public class CreateGiftCertificateExample
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class CreateGiftCertificate
     {
-        public static void Main()
+
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            var giftCertificate = CreateGiftCertificateCall();
+            Utility.DumpObject(giftCertificate, "Gift Certificate");
+        }
 
-            var giftCertificateCreateRequest = new GiftCertificateCreateRequest(); // GiftCertificateCreateRequest | Gift certificate create request
+        // ReSharper disable once MemberCanBePrivate.Global
+        public static GiftCertificate CreateGiftCertificateCall()
+        {
+            var api = new GiftCertificateApi(Constants.ApiKey);
+            
+            GiftCertificateCreateRequest createRequest = new GiftCertificateCreateRequest()
+            {
+                Amount = new Decimal(200.00),
+                InitialLedgerDescription = "Created via C# SDK",
+                MerchantNote = "Internal comment here",
+                Email = "support@ultracart.com",
+                ExpirationDts = DateTime.UtcNow.AddMonths(3).ToString("s", System.Globalization.CultureInfo.InvariantCulture)
+            };
 
-            try
-            {
-                // Create a gift certificate
-                GiftCertificateResponse result = apiInstance.CreateGiftCertificate(giftCertificateCreateRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling GiftCertificateApi.CreateGiftCertificate: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            // create does not take an expansion variable.  it will return the entire object by default.
+            var gcResponse = api.CreateGiftCertificate(createRequest);
+            return gcResponse.GiftCertificate;
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -197,45 +202,42 @@ Delete a gift certificate
 
 Deletes a gift certificate for this merchant account. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.gift_certificate
 {
-    public class DeleteGiftCertificateExample
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class DeleteGiftCertificate
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            var giftCertificate = DeleteGiftCertificateCall();
+            Utility.DumpObject(giftCertificate, "Gift Certificate");
+        }
 
-            var giftCertificateOid = 56;  // int | 
+        // ReSharper disable once MemberCanBePrivate.Global
+        public static GiftCertificate DeleteGiftCertificateCall()
+        {
+            var api = new GiftCertificateApi(Constants.ApiKey);
+            
+            const int giftCertificateOid = 676713;
+            api.DeleteGiftCertificate(giftCertificateOid);
 
-            try
-            {
-                // Delete a gift certificate
-                apiInstance.DeleteGiftCertificate(giftCertificateOid);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling GiftCertificateApi.DeleteGiftCertificate: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            // if I re-query the gift certificate after deleting, I will still get an object back, but the
+            // deleted flag on the object will be true.
+            // by_oid does not take an expansion variable.  it will return the entire object by default.
+            var gcResponse = api.GetGiftCertificateByOid(giftCertificateOid);
+            return gcResponse.GiftCertificate;
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -281,46 +283,39 @@ Retrieve gift certificate by code
 
 Retrieves a gift certificate from the account based on the code (the value the customer enters at checkout time). 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.gift_certificate
 {
-    public class GetGiftCertificateByCodeExample
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class GetGiftCertificateByCode
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            var giftCertificate = GetGiftCertificateByCodeCall();
+            Utility.DumpObject(giftCertificate, "Gift Certificate");
+        }
 
-            var code = "code_example";  // string | 
+        // ReSharper disable once MemberCanBePrivate.Global
+        public static GiftCertificate GetGiftCertificateByCodeCall()
+        {
+            var api = new GiftCertificateApi(Constants.ApiKey);
+            
+            const string code = "X8PV761V2Z";
 
-            try
-            {
-                // Retrieve gift certificate by code
-                GiftCertificateResponse result = apiInstance.GetGiftCertificateByCode(code);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling GiftCertificateApi.GetGiftCertificateByCode: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            // by_code does not take an expansion variable.  it will return the entire object by default.
+            var gcResponse = api.GetGiftCertificateByCode(code);
+            return gcResponse.GiftCertificate;
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -367,46 +362,40 @@ Retrieve gift certificate by oid
 
 Retrieves a gift certificate from the account based on the internal primary key. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.gift_certificate
 {
-    public class GetGiftCertificateByOidExample
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class GetGiftCertificateByOid
     {
-        public static void Main()
+        
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            var giftCertificate = GetGiftCertificateByOidCall();
+            Utility.DumpObject(giftCertificate, "Gift Certificate");
+        }
 
-            var giftCertificateOid = 56;  // int | 
+        // ReSharper disable once MemberCanBePrivate.Global
+        public static GiftCertificate GetGiftCertificateByOidCall()
+        {
+            var api = new GiftCertificateApi(Constants.ApiKey);
+            
+            const int giftCertificateOid = 676713;
 
-            try
-            {
-                // Retrieve gift certificate by oid
-                GiftCertificateResponse result = apiInstance.GetGiftCertificateByOid(giftCertificateOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling GiftCertificateApi.GetGiftCertificateByOid: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            // by_oid does not take an expansion variable.  it will return the entire object by default.
+            var gcResponse = api.GetGiftCertificateByOid(giftCertificateOid);
+            return gcResponse.GiftCertificate;
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -453,46 +442,45 @@ Retrieve gift certificate by email
 
 Retrieves all gift certificates from the account based on customer email. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.gift_certificate
 {
-    public class GetGiftCertificatesByEmailExample
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class GetGiftCertificatesByEmail
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var email = "email_example";  // string | 
-
-            try
+            var giftCertificates = GetGiftCertificatesByEmailCall();
+            Utility.DumpObject(giftCertificates, "Gift Certificates");
+            foreach (var gc in giftCertificates)
             {
-                // Retrieve gift certificate by email
-                GiftCertificatesResponse result = apiInstance.GetGiftCertificatesByEmail(email);
-                Debug.WriteLine(result);
+                Utility.DumpObject(gc, "Gift Certificate");
             }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling GiftCertificateApi.GetGiftCertificatesByEmail: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            
+        }
+
+        // ReSharper disable once MemberCanBePrivate.Global
+        public static List<GiftCertificate> GetGiftCertificatesByEmailCall()
+        {
+            var api = new GiftCertificateApi(Constants.ApiKey);
+            
+            const string email = "support@ultracart.com";
+
+            // by_email does not take an expansion variable.  it will return the entire object by default.
+            var gcResponse = api.GetGiftCertificatesByEmail(email);
+            return gcResponse.GiftCertificates;
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -539,51 +527,77 @@ Retrieve gift certificates by query
 
 Retrieves gift certificates from the account.  If no parameters are specified, all gift certificates will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.gift_certificate
 {
-    public class GetGiftCertificatesByQueryExample
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class GetGiftCertificatesByQuery
     {
-        public static void Main()
+
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var giftCertificateQuery = new GiftCertificateQuery(); // GiftCertificateQuery | Gift certificates query
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var since = "since_example";  // string | Fetch customers that have been created/modified since this date/time. (optional) 
-            var sort = "sort_example";  // string | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
+            var giftCertificates = GetGiftCertificateByQueryCall();
+            foreach (var giftCertificate in giftCertificates)
             {
-                // Retrieve gift certificates by query
-                GiftCertificatesResponse result = apiInstance.GetGiftCertificatesByQuery(giftCertificateQuery, limit, offset, since, sort, expand);
-                Debug.WriteLine(result);
+                Utility.DumpObject(giftCertificate, "Gift Certificate");    
             }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling GiftCertificateApi.GetGiftCertificatesByQuery: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+        }
+
+
+        private static List<GiftCertificate> GetGiftCertificateChunk(GiftCertificateApi api, int offset, int limit)
+        {
+            const string expansion = "ledger";
+
+            // leaving query empty, so no filtering, and I should get all records returned.
+            GiftCertificateQuery query = new GiftCertificateQuery();
+            
+            var gcResponse = api.GetGiftCertificatesByQuery(query, limit, offset, null, null, expansion);
+                if(gcResponse.Success == true && gcResponse.GiftCertificates != null){
+                    return gcResponse.GiftCertificates;
+                }
+
+                return new List<GiftCertificate>();
+        }
+        
+        
+        
+        // ReSharper disable once MemberCanBePrivate.Global
+        public static List<GiftCertificate> GetGiftCertificateByQueryCall()
+        {
+            var api = new GiftCertificateApi(Constants.ApiKey);
+
+            List<GiftCertificate> giftCertificates = new List<GiftCertificate>();
+
+            var iteration = 1;
+            var offset = 0;
+            var limit = 200;
+            var moreRecordsToFetch = true;
+
+            while( moreRecordsToFetch ){
+
+                System.Console.WriteLine("executing iteration " + iteration);
+                var chuckOfCertificates = GetGiftCertificateChunk(api, offset, limit);
+                giftCertificates.AddRange(chuckOfCertificates);
+                offset += limit;
+                moreRecordsToFetch = chuckOfCertificates.Count == limit;
+                iteration++;
+                
             }
+            
+
+            return giftCertificates;
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -635,47 +649,44 @@ Update a gift certificate
 
 Update a gift certificate for this merchant account. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.gift_certificate
 {
-    public class UpdateGiftCertificateExample
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class UpdateGiftCertificate
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            var giftCertificate = UpdateGiftCertificateCall();
+            Utility.DumpObject(giftCertificate, "Gift Certificate");
+        }
 
-            var giftCertificateOid = 56;  // int | 
-            var giftCertificate = new GiftCertificate(); // GiftCertificate | Gift certificate
+        // ReSharper disable once MemberCanBePrivate.Global
+        public static GiftCertificate UpdateGiftCertificateCall()
+        {
+            var api = new GiftCertificateApi(Constants.ApiKey);
+            
+            const int giftCertificateOid = 676713;
+            
+            var gcResponse = api.GetGiftCertificateByOid(giftCertificateOid);
+            var giftCertificate = gcResponse.GiftCertificate;
+            giftCertificate.Email = "perry@ultracart.com";
+            
 
-            try
-            {
-                // Update a gift certificate
-                GiftCertificateResponse result = apiInstance.UpdateGiftCertificate(giftCertificateOid, giftCertificate);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling GiftCertificateApi.UpdateGiftCertificate: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            // update does not take an expansion variable.  it will return the entire object by default.
+            gcResponse = api.UpdateGiftCertificate(giftCertificateOid, giftCertificate);
+            return gcResponse.GiftCertificate;
         }
     }
 }
 ```
+
 
 ### Parameters
 

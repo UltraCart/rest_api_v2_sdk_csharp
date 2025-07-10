@@ -34,46 +34,42 @@ City/State for Zip
 
 Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class CityStateExample
+    public class CityState
     {
-        public static void Main()
+        /// <summary>
+        /// Takes a postal code and returns back a city and state (US Only)
+        /// </summary>
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
+            // Takes a postal code and returns back a city and state (US Only)
 
-            var cart = new Cart(); // Cart | Cart
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
 
-            try
-            {
-                // City/State for Zip
-                CityStateZip result = apiInstance.CityState(cart);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.CityState: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            String cartId = "123456789123456789123456789123456789";  // you should have the cart id from session or cookie.
+            Cart cart = new Cart();
+            cart.CartId = cartId; // required
+            cart.Shipping = new CartShipping();
+            cart.Shipping.PostalCode = "44233";
+
+            CityStateZip apiResponse = checkoutApi.CityState(cart);
+            Console.WriteLine("City: " + apiResponse.City);
+            Console.WriteLine("State: " + apiResponse.State);
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -120,46 +116,73 @@ Finalize Order
 
 Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class FinalizeOrderExample
+    public class FinalizeOrder
     {
-        public static void Main()
+        /// <summary>
+        /// Finalizes an order from a cart
+        /// </summary>
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
 
-            var finalizeRequest = new CartFinalizeOrderRequest(); // CartFinalizeOrderRequest | Finalize request
+            // Note: You probably should NOT be using this method.  Use handoffCart() instead.
+            // This method is a server-side only (no browser key allowed) method for turning a cart into an order.
+            // It exists for merchants who wish to provide their own upsells, but again, a warning, using this method
+            // will exclude the customer checkout from a vast and powerful suite of functionality provided free by UltraCart.
+            // Still, some merchants need this functionality, so here it is.  If you're unsure, you don't need it.  Use handoff.
 
-            try
-            {
-                // Finalize Order
-                CartFinalizeOrderResponse result = apiInstance.FinalizeOrder(finalizeRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.FinalizeOrder: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+
+            String expansion = "customer_profile,items,billing,shipping,coupons,checkout,payment,summary,taxes"; //
+            // Possible Expansion Variables: (see https://www.ultracart.com/api/#resource_checkout.html
+            /*
+            affiliate                   checkout                            customer_profile
+            billing                     coupons                             gift
+            gift_certificate            items.attributes                   items.multimedia
+            items                       items.multimedia.thumbnails         items.physical
+            marketing                   payment                                settings.gift
+            settings.billing.provinces  settings.shipping.deliver_on_date   settings.shipping.estimates
+            settings.shipping.provinces settings.shipping.ship_on_date     settings.taxes
+            settings.terms              shipping                           taxes
+            summary                     upsell_after
+             */
+
+            String cartId = "123456789123456789123456789123456789"; // get the cart id from session or cookie.  beyond this sample scope.
+            
+            CartResponse cartResponse = checkoutApi.GetCartByCartId(cartId, expansion);
+            Cart cart = cartResponse.Cart;
+
+            // TODO - add some items, collect billing and shipping, use hosted fields to collect payment, etc.
+
+            CartFinalizeOrderRequest finalizeRequest = new CartFinalizeOrderRequest();
+            finalizeRequest.Cart = cart;
+            CartFinalizeOrderRequestOptions finalizeOptions = new CartFinalizeOrderRequestOptions(); // Lots of options here.  Contact support if you're unsure what you need.
+            finalizeRequest.Options = finalizeOptions;
+
+            CartFinalizeOrderResponse orderResponse = checkoutApi.FinalizeOrder(finalizeRequest);
+            // orderResponse.Successful;
+            // orderResponse.Errors;
+            // orderResponse.OrderId;
+            // orderResponse.Order;
+
+
+            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(orderResponse, Newtonsoft.Json.Formatting.Indented));
+
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -206,46 +229,49 @@ Get affirm checkout (by cart id)
 
 Get a Affirm checkout object for the specified cart_id parameter. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class GetAffirmCheckoutExample
+    public class GetAffirmCheckout
     {
-        public static void Main()
+        /// <summary>
+        /// For a given cart id (the cart should be fully updated in UltraCart), returns back the json object
+        /// needed to proceed with an Affirm checkout.
+        /// </summary>
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
+            // For a given cart id (the cart should be fully updated in UltraCart), returns back the json object
+            // needed to proceed with an Affirm checkout.  See https://www.affirm.com/ for details about Affirm.
+            // This sample does not show the construction of the affirm checkout widgets.  See the affirm api for those examples.
 
-            var cartId = "cartId_example";  // string | Cart ID to retrieve
-
-            try
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+            String cartId = "123456789123456789123456789123456789"; // this should be retrieved from a session or cookie
+            CartAffirmCheckoutResponse apiResponse = checkoutApi.GetAffirmCheckout(cartId);
+            if (apiResponse.Errors != null && apiResponse.Errors.Count > 0)
             {
-                // Get affirm checkout (by cart id)
-                CartAffirmCheckoutResponse result = apiInstance.GetAffirmCheckout(cartId);
-                Debug.WriteLine(result);
+                // TODO: display errors to customer about the failure
+                foreach (String error in apiResponse.Errors)
+                {
+                    Console.WriteLine(error);
+                }
             }
-            catch (ApiException e)
+            else
             {
-                Debug.Print("Exception when calling CheckoutApi.GetAffirmCheckout: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine(apiResponse.CheckoutJson); // this is the object to send to Affirm.
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -292,45 +318,42 @@ Allowed countries
 
 Lookup the allowed countries for this merchant id 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class GetAllowedCountriesExample
+    public class GetAllowedCountries
     {
-        public static void Main()
+        /// <summary>
+        /// A simple method for populating the country list boxes with all the countries this merchant has configured to accept.
+        /// </summary>
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
+            // A simple method for populating the country list boxes with all the countries this merchant has configured to accept.
 
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
 
-            try
+            CheckoutAllowedCountriesResponse apiResponse = checkoutApi.GetAllowedCountries();
+            List<Country> allowedCountries = apiResponse.Countries;
+
+            foreach (Country country in allowedCountries)
             {
-                // Allowed countries
-                CheckoutAllowedCountriesResponse result = apiInstance.GetAllowedCountries();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.GetAllowedCountries: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine(JsonConvert.SerializeObject(country, new JsonSerializerSettings { Formatting = Formatting.Indented}));
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -374,46 +397,64 @@ Get cart
 
 If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Web;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
+using RestSharp;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class GetCartExample
+    public class GetCart
     {
-        public static void Main()
+        /// <summary>
+        /// Retrieves a cart either by creating a new one or getting an existing one by cart ID
+        /// </summary>
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
 
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            // this example is the same for both getCart.php and getCartByCartId.php.  They work as a pair and are called
+            // depending on the presence of an existing cart id or not.  For new carts, getCart() is used.  For existing
+            // carts, getCartByCartId($cart_id) is used.
 
-            try
-            {
-                // Get cart
-                CartResponse result = apiInstance.GetCart(expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.GetCart: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+
+            string expansion = "customer_profile,items,billing,shipping,coupons,checkout,payment,summary,taxes"; //
+            // Possible Expansion Variables: (see https://www.ultracart.com/api/#resource_checkout.html
+            /*
+            affiliate                   checkout                            customer_profile
+            billing                     coupons                             gift
+            gift_certificate            items.attributes                   items.multimedia
+            items                       items.multimedia.thumbnails         items.physical
+            marketing                   payment                                settings.gift
+            settings.billing.provinces  settings.shipping.deliver_on_date   settings.shipping.estimates
+            settings.shipping.provinces settings.shipping.ship_on_date     settings.taxes
+            settings.terms              shipping                           taxes
+            summary                     upsell_after
+             */
+
+            string cartId = null; // no cart id yet.  GetCart will return a new cart.
+            CartResponse apiResponse = checkoutApi.GetCart(expansion);
+            Cart cart  = apiResponse.Cart;
+
+            // TODO: set or re-set the cart cookie if this is part of a multi-page process. two weeks is a generous cart id time.
+            HttpCookie cookie = new HttpCookie(Constants.CartIdCookieName);
+            cookie.Value = cart.CartId;
+            cookie.Expires = DateTime.Now.AddDays(14); // 1209600 seconds = 14 days
+            cookie.Path = "/";
+            // HttpContext.Current.Response.Cookies.Add(cookie);
+
+            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(cart, Newtonsoft.Json.Formatting.Indented));
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -460,47 +501,52 @@ Get cart (by cart id)
 
 Get a cart specified by the cart_id parameter. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Web;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
+using RestSharp;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class GetCartByCartIdExample
+    public class GetCartByCartId
     {
-        public static void Main()
+        /// <summary>
+        /// Retrieves a cart either by creating a new one or getting an existing one by cart ID
+        /// </summary>
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
 
-            var cartId = "cartId_example";  // string | Cart ID to retrieve
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            // this example is the same for both getCart.php and getCartByCartId.php.  They work as a pair and are called
+            // depending on the presence of an existing cart id or not.  For new carts, getCart() is used.  For existing
+            // carts, getCartByCartId($cart_id) is used.
 
-            try
-            {
-                // Get cart (by cart id)
-                CartResponse result = apiInstance.GetCartByCartId(cartId, expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.GetCartByCartId: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+
+            String expansion = "items"; // for this example, we're just getting a cart to insert some items into it.
+
+            String cartId = "123456780123456780123456780123456780"; // get from session or cookie.
+            CartResponse apiResponse = checkoutApi.GetCartByCartId(cartId, expansion);
+            Cart cart = apiResponse.Cart;
+
+            // TODO: set or re-set the cart cookie if this is part of a multi-page process. two weeks is a generous cart id time.
+            HttpCookie cookie = new HttpCookie(Constants.CartIdCookieName);
+            cookie.Value = cart.CartId;
+            cookie.Expires = DateTime.Now.AddDays(14); // 1209600 seconds = 14 days
+            cookie.Path = "/";
+            // HttpContext.Current.Response.Cookies.Add(cookie);
+
+            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(cart, Newtonsoft.Json.Formatting.Indented));
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -548,47 +594,64 @@ Get cart (by return code)
 
 Get a cart specified by the return code parameter. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Web;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
+using RestSharp;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class GetCartByReturnCodeExample
+    public class GetCartByReturnCode
     {
-        public static void Main()
+        /// <summary>
+        /// Retrieves a cart using a return code
+        /// </summary>
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
 
-            var returnCode = "returnCode_example";  // string | Return code to lookup cart ID by
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            // this example returns a shopping cart given a return_code.  The return_code is generated by UltraCart
+            // and usually emailed to a customer.  The email will provide a link to this script where you may use the
+            // return_code to retrieve the customer's cart.
 
-            try
-            {
-                // Get cart (by return code)
-                CartResponse result = apiInstance.GetCartByReturnCode(returnCode, expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.GetCartByReturnCode: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+
+            String expansion = "items,billing,shipping,coupons,checkout,payment,summary,taxes"; //
+            // Possible Expansion Variables: (see https://www.ultracart.com/api/#resource_checkout.html
+            /*
+            affiliate                   checkout                            customer_profile
+            billing                     coupons                             gift
+            gift_certificate            items.attributes                   items.multimedia
+            items                       items.multimedia.thumbnails         items.physical
+            marketing                   payment                                settings.gift
+            settings.billing.provinces  settings.shipping.deliver_on_date   settings.shipping.estimates
+            settings.shipping.provinces settings.shipping.ship_on_date     settings.taxes
+            settings.terms              shipping                           taxes
+            summary                     upsell_after
+             */
+
+            String returnCode = "1234567890"; // usually retrieved from a query parameter
+            CartResponse apiResponse = checkoutApi.GetCartByReturnCode(returnCode, expansion);
+            Cart cart = apiResponse.Cart;
+
+            // TODO: set or re-set the cart cookie if this is part of a multi-page process. two weeks is a generous cart id time.
+            HttpCookie cookie = new HttpCookie(Constants.CartIdCookieName);
+            cookie.Value = cart.CartId;
+            cookie.Expires = DateTime.Now.AddDays(14); // 1209600 seconds = 14 days
+            cookie.Path = "/";
+            // HttpContext.Current.Response.Cookies.Add(cookie);
+
+            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(cart, Newtonsoft.Json.Formatting.Indented));
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -636,47 +699,64 @@ Get cart (by return token)
 
 Get a cart specified by the encrypted return token parameter. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Web;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
+using RestSharp;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class GetCartByReturnTokenExample
+    public class GetCartByReturnToken
     {
-        public static void Main()
+        /// <summary>
+        /// Retrieves a cart using a return token
+        /// </summary>
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
 
-            var returnToken = "returnToken_example";  // string | Return token provided by StoreFront Communications (optional) 
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            // this example returns a shopping cart given a return_token.  The return token is generated by StoreFront Communications
+            // and usually emailed to a customer.  The link within the email will (when you configure your storefront communications)
+            // provide a link to this script where you may use the token to retrieve the customer's cart.
 
-            try
-            {
-                // Get cart (by return token)
-                CartResponse result = apiInstance.GetCartByReturnToken(returnToken, expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.GetCartByReturnToken: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+
+            String expansion = "items,billing,shipping,coupons,checkout,payment,summary,taxes"; //
+            // Possible Expansion Variables: (see https://www.ultracart.com/api/#resource_checkout.html
+            /*
+            affiliate                   checkout                            customer_profile
+            billing                     coupons                             gift
+            gift_certificate            items.attributes                   items.multimedia
+            items                       items.multimedia.thumbnails         items.physical
+            marketing                   payment                                settings.gift
+            settings.billing.provinces  settings.shipping.deliver_on_date   settings.shipping.estimates
+            settings.shipping.provinces settings.shipping.ship_on_date     settings.taxes
+            settings.terms              shipping                           taxes
+            summary                     upsell_after
+             */
+
+            String cartToken = "1234567890"; // usually retrieved from a query parameter
+            CartResponse apiResponse = checkoutApi.GetCartByReturnToken(cartToken, expansion);
+            Cart cart = apiResponse.Cart;
+
+            // TODO: set or re-set the cart cookie if this is part of a multi-page process. two weeks is a generous cart id time.
+            HttpCookie cookie = new HttpCookie(Constants.CartIdCookieName);
+            cookie.Value = cart.CartId;
+            cookie.Expires = DateTime.Now.AddDays(14); // 1209600 seconds = 14 days
+            cookie.Path = "/";
+            // HttpContext.Current.Response.Cookies.Add(cookie);
+
+            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(cart, Newtonsoft.Json.Formatting.Indented));
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -724,46 +804,45 @@ Get state/province list for a country code
 
 Lookup a state/province list for a given country code 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class GetStateProvincesForCountryExample
+    public class GetStateProvincesForCountry
     {
-        public static void Main()
+        /// <summary>
+        /// A simple method for populating the state_region list boxes with all the states/regions allowed for a country code.
+        /// </summary>
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
+            // A simple method for populating the state_region list boxes with all the states/regions allowed for a country code.
 
-            var countryCode = "countryCode_example";  // string | Two letter ISO country code
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
 
-            try
+            String countryCode = "US";
+
+            CheckoutStateProvinceResponse apiResponse = checkoutApi.GetStateProvincesForCountry(countryCode);
+            List<StateProvince> provinces = apiResponse.StateProvinces;
+
+            foreach (StateProvince province in provinces)
             {
-                // Get state/province list for a country code
-                CheckoutStateProvinceResponse result = apiInstance.GetStateProvincesForCountry(countryCode);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.GetStateProvincesForCountry: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine(JsonConvert.SerializeObject(province,
+                    new JsonSerializerSettings { Formatting = Formatting.Indented }));
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -810,47 +889,97 @@ Handoff cart
 
 Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Web;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class HandoffCartExample
+    public class HandoffCart
     {
-        public static void Main()
+        /// <summary>
+        /// Hands off a cart to the UltraCart engine for further processing
+        /// </summary>
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
 
-            var handoffRequest = new CheckoutHandoffRequest(); // CheckoutHandoffRequest | Handoff request
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            // this example uses the getCart.php code as a starting point, because we must get a cart to handoff a cart.
+            // here, we are handing off the cart to the ultracart engine with an operation of 'view', meaning that we
+            // simply added some items to the cart and wish for UltraCart to gather the remaining customer information
+            // as part of a normal checkout operation.
+            // valid operations are: "view", "checkout", "paypal", "paypalcredit", "affirm", "sezzle"
+            // Besides "view", the other operations are finalizers.
+            // "checkout": finalize the transaction using a customer's personal credit card (traditional checkout)
+            // "paypal": finalize the transaction by sending the customer to PayPal
 
-            try
+            // getCart.php code start ----------------------------------------------------------------------------
+
+            // this example is the same for both getCart.php and getCartByCartId.php.  They work as a pair and are called
+            // depending on the presence of an existing cart id or not.  For new carts, getCart() is used.  For existing
+            // carts, getCartByCartId($cart_id) is used.
+
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+
+            String expansion = "items"; // for this example, we're just getting a cart to insert some items into it.
+
+            String cartId = null;
+            // get the cartId from session or cookie.
+            // if (HttpContext.Current.Request.Cookies[Constants.CART_ID_COOKIE_NAME] != null)
+            // {
+            //     cartId = HttpContext.Current.Request.Cookies[Constants.CART_ID_COOKIE_NAME].Value;
+            // }
+
+            Cart cart = null;
+            CartResponse apiResponse;
+            if (cartId == null)
             {
-                // Handoff cart
-                CheckoutHandoffResponse result = apiInstance.HandoffCart(handoffRequest, expand);
-                Debug.WriteLine(result);
+                apiResponse = checkoutApi.GetCart(expansion);
             }
-            catch (ApiException e)
+            else
             {
-                Debug.Print("Exception when calling CheckoutApi.HandoffCart: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                apiResponse = checkoutApi.GetCartByCartId(cartId, expansion);
+            }
+            cart = apiResponse.Cart;
+
+            // getCart.php code end ----------------------------------------------------------------------------
+
+
+            // Although the above code checks for a cookie and retrieves or creates a cart based on the cookie presence, typically
+            // a php script calling the handoff() method will have an existing cart, so you may wish to check for a cookie and
+            // redirect if there isn't one.  However, it is possible that you wish to create a cart, update it, and hand it off
+            // to UltraCart all within one script, so we've left the conditional cart creation calls intact.
+
+            CheckoutHandoffRequest handoffRequest = new CheckoutHandoffRequest();
+            handoffRequest.Cart = cart;
+            handoffRequest.Operation = CheckoutHandoffRequest.OperationEnum.View;
+            handoffRequest.ErrorReturnUrl = "/some/page/on/this/php/server/that/can/handle/errors/if/ultracart/encounters/an/issue/with/this/cart.php";
+            handoffRequest.ErrorParameterName = "uc_error"; // name this whatever the script supplied in ->setErrorReturnUrl() will check for in the $_GET object.
+            handoffRequest.SecureHostName = "mystorefront.com"; // set to desired storefront.  some merchants have multiple storefronts.
+            CheckoutHandoffResponse handoffResponse = checkoutApi.HandoffCart(handoffRequest, expansion);
+
+
+            if (handoffResponse.Errors != null && handoffResponse.Errors.Count > 0)
+            {
+                // TODO: handle errors that might happen before handoff and manage those
+            }
+            else
+            {
+                String redirectUrl = handoffResponse.RedirectToUrl;
+                Console.WriteLine(redirectUrl);
+                // Issue the redirect to the customer.
+                // HttpContext.Current.Response.Redirect(redirectUrl);
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -898,47 +1027,63 @@ Profile login
 
 Login in to the customer profile specified by cart.billing.email and password 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Linq;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class LoginExample
+    public class Login
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
 
-            var loginRequest = new CartProfileLoginRequest(); // CartProfileLoginRequest | Login request
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            // This example logs a user into the UltraCart system.
+            // This example assumes you already have a shopping cart object created.
+            // For new carts, getCart() is used.  For existing carts, getCartByCartId(cart_id) is used.
 
-            try
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+
+            // Note: customer_profile is a required expansion for login to work properly
+            string expansion = "customer_profile,items,billing,shipping,coupons,checkout,payment,summary,taxes";
+            // Possible Expansion Variables: (see https://www.ultracart.com/api/#resource_checkout.html
+
+            // create a new cart (change this to an existing if you have one)
+            Cart cart = checkoutApi.GetCart(expansion).Cart;
+
+            string email = "test@test.com"; // collect this from user.
+            string password = "ABC123"; // collect this from user.
+
+            cart.Billing = new CartBilling();
+            cart.Billing.Email = email;
+
+            CartProfileLoginRequest loginRequest = new CartProfileLoginRequest();
+            loginRequest.Cart = cart; // will look for billing.email
+            loginRequest.Password = password;
+
+            CartProfileLoginResponse apiResponse = checkoutApi.Login(loginRequest);
+            // Store the updated cart variable.
+            cart = apiResponse.Cart;
+
+            if (apiResponse.Errors?.Any() == true)
             {
-                // Profile login
-                CartProfileLoginResponse result = apiInstance.Login(loginRequest, expand);
-                Debug.WriteLine(result);
+                // notify customer login failed.
             }
-            catch (ApiException e)
+            else
             {
-                Debug.Print("Exception when calling CheckoutApi.Login: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                // proceed with successful login.                
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -986,47 +1131,63 @@ Profile logout
 
 Log the cart out of the current profile.  No error will occur if they are not logged in. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Linq;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class LogoutExample
+    public class Logout
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
 
-            var cart = new Cart(); // Cart | Cart
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            // This example logs a user OUT of the UltraCart system.
+            //  It assumes the shopping cart has already had a successful login.
+            // see login sdk_sample for logging in help.
+            // For new carts, getCart() is used.  For existing carts, getCartByCartId(cart_id) is used.
 
-            try
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+
+            // Note: customer_profile is a required expansion for login to work properly
+            string expansion = "customer_profile,items,billing,shipping,coupons,checkout,payment,summary,taxes";
+            // Possible Expansion Variables: (see https://www.ultracart.com/api/#resource_checkout.html
+
+            // create a new cart (change this to an existing if you have one)
+            Cart cart = checkoutApi.GetCart(expansion).Cart;
+
+            string email = "test@test.com"; // collect this from user.
+            string password = "ABC123"; // collect this from user.
+
+            cart.Billing = new CartBilling();
+            cart.Billing.Email = email;
+
+            CartProfileLoginRequest loginRequest = new CartProfileLoginRequest();
+            loginRequest.Cart = cart; // will look for billing.email
+            loginRequest.Password = password;
+
+            CartProfileLoginResponse apiResponse = checkoutApi.Login(loginRequest);
+            cart = apiResponse.Cart;
+
+            if (apiResponse.Errors?.Any() == true)
             {
-                // Profile logout
-                CartResponse result = apiInstance.Logout(cart, expand);
-                Debug.WriteLine(result);
+                // notify customer login failed. Until they login, you can't logout.
             }
-            catch (ApiException e)
+            else
             {
-                Debug.Print("Exception when calling CheckoutApi.Logout: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                checkoutApi.Logout(cart, expansion); // <-- Here is the logout call.                
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -1074,47 +1235,64 @@ Profile registration
 
 Register a new customer profile.  Requires the cart.billing object to be populated along with the password. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using System.Linq;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class RegisterExample
+    public class Register
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
 
-            var registerRequest = new CartProfileRegisterRequest(); // CartProfileRegisterRequest | Register request
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            // Registers a user in your merchant system.  This will create a customer profile.
+            // For new carts, getCart() is used.  For existing carts, getCartByCartId(cart_id) is used.
 
-            try
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+
+            // Note: customer_profile is a required expansion for login to work properly
+            string expansion = "customer_profile,items,billing,shipping,coupons,checkout,payment,summary,taxes";
+            // Possible Expansion Variables: (see https://www.ultracart.com/api/#resource_checkout.html
+
+            // create a new cart (change this to an existing if you have one)
+            Cart cart = checkoutApi.GetCart(expansion).Cart;
+
+            string email = "test@test.com"; // collect this from user.
+            string password = "ABC123"; // collect this from user.
+
+            cart.Billing = new CartBilling();
+            cart.Billing.Email = email; // this is the username.
+
+            CartProfileRegisterRequest registerRequest = new CartProfileRegisterRequest();
+            registerRequest.Cart = cart; // will look for billing.email
+            registerRequest.Password = password;
+
+            CartProfileRegisterResponse apiResponse = checkoutApi.Register(registerRequest);
+            cart = apiResponse.Cart; // Important!  Get the cart from the response.
+
+            if (apiResponse.Errors?.Any() == true)
             {
-                // Profile registration
-                CartProfileRegisterResponse result = apiInstance.Register(registerRequest, expand);
-                Debug.WriteLine(result);
+                foreach (string error in apiResponse.Errors)
+                {
+                    Console.WriteLine(error);
+                }
             }
-            catch (ApiException e)
+            else
             {
-                Debug.Print("Exception when calling CheckoutApi.Register: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Successfully registered new customer profile!");
             }
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -1162,47 +1340,48 @@ Register affiliate click
 
 Register an affiliate click.  Used by custom checkouts that are completely API based and do not perform checkout handoff. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class RegisterAffiliateClickExample
+    public class RegisterAffiliateClick
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
+            // Records an affiliate click.
 
-            var registerAffiliateClickRequest = new RegisterAffiliateClickRequest(); // RegisterAffiliateClickRequest | Register affiliate click request
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
 
-            try
-            {
-                // Register affiliate click
-                RegisterAffiliateClickResponse result = apiInstance.RegisterAffiliateClick(registerAffiliateClickRequest, expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.RegisterAffiliateClick: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            RegisterAffiliateClickRequest clickRequest = new RegisterAffiliateClickRequest();
+            
+            // Note: In C#, you'll need to get these values from your HttpContext
+            // This is a simplified example - implement proper request handling in your application
+            string ipAddress = "127.0.0.1"; // Replace with actual implementation to get IP
+            string userAgent = ""; // Replace with actual implementation to get user agent
+            string refererUrl = ""; // Replace with actual implementation to get referer URL
+            
+            clickRequest.IpAddress = ipAddress;
+            clickRequest.UserAgent = userAgent;
+            clickRequest.ReferrerUrl = refererUrl;
+            clickRequest.Affid = 123456789; // you should know this from your UltraCart affiliate system.
+            clickRequest.Subid = "TODO:SupplyThisValue";
+            // clickRequest.LandingPageUrl = null;  // if you have landing page url.
+
+            RegisterAffiliateClickResponse apiResponse = checkoutApi.RegisterAffiliateClick(clickRequest);
+            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(apiResponse, Newtonsoft.Json.Formatting.Indented));
+            
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -1250,47 +1429,91 @@ Related items
 
 Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class RelatedItemsForCartExample
+    public class RelatedItemsForCart
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
 
-            var cart = new Cart(); // Cart | Cart
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See item resource documentation for examples (optional) 
+            // Retrieves items related to the items within the cart.  Item relations are configured in the UltraCart backend.
+            // See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377171/Related+Items
 
-            try
+            // Note: The returned items have a fixed expansion (only so many item properties are returned).  The item expansion is:
+            // content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers
+
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+
+            string expansion = "customer_profile,items,billing,shipping,coupons,checkout,payment,summary,taxes"; //
+            // Possible Expansion Variables: (see https://www.ultracart.com/api/#resource_checkout.html
+            /*
+            affiliate                   checkout                            customer_profile
+            billing                     coupons                             gift
+            gift_certificate            items.attributes                   items.multimedia
+            items                       items.multimedia.thumbnails         items.physical
+            marketing                   payment                                settings.gift
+            settings.billing.provinces  settings.shipping.deliver_on_date   settings.shipping.estimates
+            settings.shipping.provinces settings.shipping.ship_on_date     settings.taxes
+            settings.terms              shipping                           taxes
+            summary                     upsell_after
+             */
+
+            // In C# web application, you'd get the cookie from HttpContext
+            string cartId = null;
+            // Example of how you might get the cookie in ASP.NET
+            // if (HttpContext.Current.Request.Cookies[Constants.CART_ID_COOKIE_NAME] != null)
+            // {
+            //     cartId = HttpContext.Current.Request.Cookies[Constants.CART_ID_COOKIE_NAME].Value;
+            // }
+
+            Cart cart = null;
+            if (cartId == null)
             {
-                // Related items
-                ItemsResponse result = apiInstance.RelatedItemsForCart(cart, expand);
-                Debug.WriteLine(result);
+                CartResponse apiResponse = checkoutApi.GetCart(expansion);
+                cart = apiResponse.Cart;
             }
-            catch (ApiException e)
+            else
             {
-                Debug.Print("Exception when calling CheckoutApi.RelatedItemsForCart: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                CartResponse apiResponse = checkoutApi.GetCartByCartId(cartId, expansion);
+                cart = apiResponse.Cart;
             }
+
+            // TODO - add some items to the cart and update.
+
+            List<CartItem> items = new List<CartItem>();
+            CartItem cartItem = new CartItem();
+            cartItem.ItemId = "ITEM_ABC";
+            cartItem.Quantity = 1;
+            items.Add(cartItem);
+            cart.Items = items;
+
+            // update the cart and assign it back to our variable.
+            cart = checkoutApi.UpdateCart(cart, expansion).Cart;
+
+            ItemsResponse apiResponse2 = checkoutApi.RelatedItemsForCart(cart);
+            List<Item> relatedItems = apiResponse2.Items;
+
+            Console.WriteLine("<html lang=\"en\"><body><pre>");
+            foreach (Item item in relatedItems)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("</pre></body></html>");
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -1338,48 +1561,94 @@ Related items (specific item)
 
 Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class RelatedItemsForItemExample
+    public class RelatedItemsForItem
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
 
-            var itemId = "itemId_example";  // string | Item ID to retrieve related items for
-            var cart = new Cart(); // Cart | Cart
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See item resource documentation for examples (optional) 
+            // Retrieves items related to the items within the cart, in addition to another item id you supply.
+            // Item relations are configured in the UltraCart backend.
+            // See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377171/Related+Items
 
-            try
+            // Note: The returned items have a fixed expansion (only so many item properties are returned).  The item expansion is:
+            // content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers
+
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+
+            string expansion = "customer_profile,items,billing,shipping,coupons,checkout,payment,summary,taxes"; //
+            // Possible Expansion Variables: (see https://www.ultracart.com/api/#resource_checkout.html
+            /*
+            affiliate                   checkout                            customer_profile
+            billing                     coupons                             gift
+            gift_certificate            items.attributes                   items.multimedia
+            items                       items.multimedia.thumbnails         items.physical
+            marketing                   payment                                settings.gift
+            settings.billing.provinces  settings.shipping.deliver_on_date   settings.shipping.estimates
+            settings.shipping.provinces settings.shipping.ship_on_date     settings.taxes
+            settings.terms              shipping                           taxes
+            summary                     upsell_after
+             */
+
+            // In C# web application, you'd get the cookie from HttpContext
+            string cartId = null;
+            // Example of how you might get the cookie in ASP.NET
+            // if (HttpContext.Current.Request.Cookies[Constants.CART_ID_COOKIE_NAME] != null)
+            // {
+            //     cartId = HttpContext.Current.Request.Cookies[Constants.CART_ID_COOKIE_NAME].Value;
+            // }
+
+            Cart cart = null;
+            if (cartId == null)
             {
-                // Related items (specific item)
-                ItemsResponse result = apiInstance.RelatedItemsForItem(itemId, cart, expand);
-                Debug.WriteLine(result);
+                CartResponse apiResponse = checkoutApi.GetCart(expansion);
+                cart = apiResponse.Cart;
             }
-            catch (ApiException e)
+            else
             {
-                Debug.Print("Exception when calling CheckoutApi.RelatedItemsForItem: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                CartResponse apiResponse = checkoutApi.GetCartByCartId(cartId, expansion);
+                cart = apiResponse.Cart;
             }
+
+            // TODO - add some items to the cart and update.
+
+            List<CartItem> items = new List<CartItem>();
+            CartItem cartItem = new CartItem();
+            cartItem.ItemId = "ITEM_ABC";
+            cartItem.Quantity = 1;
+            items.Add(cartItem);
+            cart.Items = items;
+
+            // update the cart and assign it back to our variable.
+            cart = checkoutApi.UpdateCart(cart, expansion).Cart;
+
+            string anotherItemId = "ITEM_ZZZ";
+
+            ItemsResponse apiResponse2 = checkoutApi.RelatedItemsForItem(anotherItemId, cart, expansion);
+            List<Item> relatedItems = apiResponse2.Items;
+
+            Console.WriteLine("<html lang=\"en\"><body><pre>");
+            foreach (Item item in relatedItems)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("</pre></body></html>");
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -1428,46 +1697,40 @@ Setup Browser Application
 
 Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth application, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class SetupBrowserKeyExample
+    public class SetupBrowserKey
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            /*
+                This is a checkout api method.  It creates a browser key for use in a client side checkout.  This call must be
+                made server side with a Simple API Key or an OAuth access_token.
+             */
 
-            var browserKeyRequest = new CheckoutSetupBrowserKeyRequest(); // CheckoutSetupBrowserKeyRequest | Setup browser key request
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
 
-            try
-            {
-                // Setup Browser Application
-                CheckoutSetupBrowserKeyResponse result = apiInstance.SetupBrowserKey(browserKeyRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.SetupBrowserKey: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            CheckoutSetupBrowserKeyRequest keyRequest = new CheckoutSetupBrowserKeyRequest();
+            keyRequest.AllowedReferrers = new List<string> { "https://www.mywebsite.com" };
+            string browserKey = checkoutApi.SetupBrowserKey(keyRequest).BrowserKey;
+
+            Console.WriteLine("<html lang=\"en\"><body><pre>");
+            Console.WriteLine(browserKey);
+            Console.WriteLine("</pre></body></html>");
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -1514,47 +1777,99 @@ Update cart
 
 Update the cart. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class UpdateCartExample
+    public class UpdateCart
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            // Reference Implementation: https://github.com/UltraCart/responsive_checkout
 
-            var cart = new Cart(); // Cart | Cart
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            // this example uses the getCart.php code as a starting point, because we must get a cart to update a cart.
+            // getCart.php code start ----------------------------------------------------------------------------
+            // this example is the same for both getCart.php and getCartByCartId.php.  They work as a pair and are called
+            // depending on the presence of an existing cart id or not.  For new carts, getCart() is used.  For existing
+            // carts, getCartByCartId(cart_id) is used.
 
-            try
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+
+            string expansion = "items"; // for this example, we're just getting a cart to insert some items into it.
+
+            // In C# web applications, you'd retrieve the cookie from the HttpContext
+            string cartId = null;
+            // Example of how you might retrieve a cookie in ASP.NET:
+            // if (HttpContext.Current.Request.Cookies[Constants.CART_ID_COOKIE_NAME] != null)
+            // {
+            //     cartId = HttpContext.Current.Request.Cookies[Constants.CART_ID_COOKIE_NAME].Value;
+            // }
+
+            Cart cart = null;
+            if (cartId == null)
             {
-                // Update cart
-                CartResponse result = apiInstance.UpdateCart(cart, expand);
-                Debug.WriteLine(result);
+                CartResponse apiResponse = checkoutApi.GetCart(expansion);
+                cart = apiResponse.Cart;
             }
-            catch (ApiException e)
+            else
             {
-                Debug.Print("Exception when calling CheckoutApi.UpdateCart: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                CartResponse apiResponse = checkoutApi.GetCartByCartId(cartId, expansion);
+                cart = apiResponse.Cart;
             }
+
+            // getCart.php code end ----------------------------------------------------------------------------
+
+            // for this simple example, items will be added to the cart.  so our expansion variable is simply 'items' above.
+            // Get the items array on the cart, creating it if it doesn't exist.
+            List<CartItem> items = cart.Items;
+            // If null, go ahead and initialize it to an empty list
+            if (items == null)
+            {
+                items = new List<CartItem>();
+            }
+
+            // Create a new item
+            CartItem item = new CartItem();
+            item.ItemId = "BASEBALL"; // TODO: Adjust the item id
+            item.Quantity = 1; // TODO: Adjust the quantity
+
+            // TODO: If your item has options then you need to create a new CartItemOption object and add it to the list.
+            List<CartItemOption> options = new List<CartItemOption>();
+            item.Options = options;
+
+            // Add the item to the items list
+            items.Add(item);
+
+            // Make sure to update the cart with the new list
+            cart.Items = items;
+
+            // Push the cart up to save the item
+            CartResponse cartResponse = checkoutApi.UpdateCart(cart, expansion);
+
+            // Extract the updated cart from the response
+            cart = cartResponse.Cart;
+
+            // TODO: set or re-set the cart cookie if this is part of a multi-page process. two weeks is a generous cart id time.
+            // Example of how you might set a cookie in ASP.NET:
+            // HttpCookie cookie = new HttpCookie(Constants.CART_ID_COOKIE_NAME);
+            // cookie.Value = cart.CartId;
+            // cookie.Expires = DateTime.Now.AddDays(14); // 2 weeks
+            // cookie.Path = "/";
+            // HttpContext.Current.Response.Cookies.Add(cookie);
+
+            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(cart, Newtonsoft.Json.Formatting.Indented));
         }
     }
 }
 ```
+
 
 ### Parameters
 
@@ -1602,47 +1917,72 @@ Validate
 
 Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 
-namespace Example
+namespace SdkSample.checkout
 {
-    public class ValidateCartExample
+    public class ValidateCart
     {
-        public static void Main()
+        public static void Execute()
         {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+            /*
+                This is a checkout api method.  It can be used both server side or client side.  This example is a server side
+                call using a Simple API Key.  See the JavaScript sdk samples if you wish to see a browser key implementation.
 
-            var validationRequest = new CartValidationRequest(); // CartValidationRequest | Validation request
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+                validateCart passes a shopping cart to UltraCart for validation.
+             */
 
-            try
+            CheckoutApi checkoutApi = new CheckoutApi(Constants.ApiKey);
+            string cartId = "123456789123456789123456789123456789"; // usually this would be retrieved from a session variable or cookie.
+
+            string expansion = "items,billing,shipping,coupons,checkout,payment,summary,taxes"; //
+            // Possible Expansion Variables: (see https://www.ultracart.com/api/#resource_checkout.html) also see getCart() example
+
+
+            Cart cart = checkoutApi.GetCartByCartId(cartId, expansion).Cart;
+
+            CartValidationRequest validationRequest = new CartValidationRequest();
+            validationRequest.Cart = cart;
+            // validationRequest.Checks = null; // leave this null for all validations
+            // Possible Checks
+            /*
+            All,Advertising Source Provided,Billing Address Provided,
+            Billing Destination Restriction,Billing Phone Numbers Provided,Billing State Abbreviation Valid,Billing Validate City State Zip,
+            Coupon Zip Code Restriction,Credit Card Shipping Method Conflict,Customer Profile Does Not Exist.,CVV2 Not Required,
+            Electronic Check Confirm Account Number,Email confirmed,Email provided if required,Gift Message Length,Item Quantity Valid,
+            Item Restrictions,Items Present,Merchant Specific Item Relationships,One per customer violations,Options Provided,
+            Payment Information Validate,Payment Method Provided,Payment Method Restriction,Pricing Tier Limits,Quantity requirements met,
+            Referral Code Provided,Shipping Address Provided,Shipping Destination Restriction,Shipping Method Provided,
+            Shipping Needs Recalculation,Shipping State Abbreviation Valid,Shipping Validate City State Zip,Special Instructions Length,
+            Tax County Specified,Valid Delivery Date,Valid Ship On Date,Auth Test Credit Card
+             */
+
+            // This method also does an update in the process, so pass in a good expansion and grab the return cart variable.
+            CartValidationResponse apiResponse = checkoutApi.ValidateCart(validationRequest, expansion);
+            cart = apiResponse.Cart;
+
+            Console.WriteLine("<html lang=\"en\"><body><pre>");
+            Console.WriteLine("Validation Errors:");
+            if (apiResponse.Errors != null)
             {
-                // Validate
-                CartValidationResponse result = apiInstance.ValidateCart(validationRequest, expand);
-                Debug.WriteLine(result);
+                foreach (string error in apiResponse.Errors)
+                {
+                    Console.WriteLine(error);
+                }
             }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.ValidateCart: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
+            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(cart, Newtonsoft.Json.Formatting.Indented));
         }
     }
 }
 ```
+
 
 ### Parameters
 

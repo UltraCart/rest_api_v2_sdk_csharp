@@ -20,47 +20,13 @@ Retrieve an integration log
 
 Retrieve an integration logs from the account based identifiers 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetIntegrationLogExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var pk = "pk_example";  // string | 
-            var sk = "sk_example";  // string | 
-
-            try
-            {
-                // Retrieve an integration log
-                IntegrationLogResponse result = apiInstance.GetIntegrationLog(pk, sk);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling IntegrationLogApi.GetIntegrationLog: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -108,48 +74,13 @@ Retrieve an integration log file
 
 Retrieve an integration log file from the account based identifiers 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetIntegrationLogFileExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var pk = "pk_example";  // string | 
-            var sk = "sk_example";  // string | 
-            var uuid = "uuid_example";  // string | 
-
-            try
-            {
-                // Retrieve an integration log file
-                System.IO.Stream result = apiInstance.GetIntegrationLogFile(pk, sk, uuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling IntegrationLogApi.GetIntegrationLogFile: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -198,48 +129,13 @@ Retrieve an integration log file converted to PDF
 
 Retrieve an integration log file from the account based identifiers 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetIntegrationLogFilePdfExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var pk = "pk_example";  // string | 
-            var sk = "sk_example";  // string | 
-            var uuid = "uuid_example";  // string | 
-
-            try
-            {
-                // Retrieve an integration log file converted to PDF
-                System.IO.Stream result = apiInstance.GetIntegrationLogFilePdf(pk, sk, uuid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling IntegrationLogApi.GetIntegrationLogFilePdf: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -288,46 +184,13 @@ Retrieve integration log summaries
 
 Retrieves a set of integration log summaries from the account based on a query object. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetIntegrationLogSummariesQueryExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var integrationLogSummariesQuery = new IntegrationLogSummaryQueryRequest(); // IntegrationLogSummaryQueryRequest | Integration log summaries query
-
-            try
-            {
-                // Retrieve integration log summaries
-                IntegrationLogSummaryQueryResponse result = apiInstance.GetIntegrationLogSummariesQuery(integrationLogSummariesQuery);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling IntegrationLogApi.GetIntegrationLogSummariesQuery: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -374,49 +237,13 @@ Retrieve integration logs
 
 Retrieves a set of integration logs from the account based on a query object. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetIntegrationLogsQueryExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var integrationLogQuery = new IntegrationLogQueryRequest(); // IntegrationLogQueryRequest | Integration log query
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = "sort_example";  // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-
-            try
-            {
-                // Retrieve integration logs
-                IntegrationLogQueryResponse result = apiInstance.GetIntegrationLogsQuery(integrationLogQuery, limit, offset, sort);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling IntegrationLogApi.GetIntegrationLogsQuery: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 

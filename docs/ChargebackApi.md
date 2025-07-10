@@ -20,46 +20,13 @@ Delete a chargeback
 
 Delete a chargeback on the UltraCart account. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteChargebackExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var chargebackDisputeOid = 56;  // int | The chargeback_dispute_oid to delete.
-
-            try
-            {
-                // Delete a chargeback
-                ChargebackDisputeResponse result = apiInstance.DeleteChargeback(chargebackDisputeOid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ChargebackApi.DeleteChargeback: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
+
 
 ### Parameters
 
@@ -106,47 +73,13 @@ Retrieve a chargeback
 
 Retrieves a single chargeback using the specified chargeback dispute oid. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetChargebackDisputeExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var chargebackDisputeOid = 56;  // int | The chargeback dispute oid to retrieve.
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
-            {
-                // Retrieve a chargeback
-                ChargebackDisputeResponse result = apiInstance.GetChargebackDispute(chargebackDisputeOid, expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ChargebackApi.GetChargebackDispute: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
+
 
 ### Parameters
 
@@ -194,57 +127,13 @@ Retrieve chargebacks
 
 Retrieves chargebacks from the account.  If no parameters are specified, all chargebacks will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetChargebackDisputesExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var orderId = "orderId_example";  // string | Order Id (optional) 
-            var caseNumber = "caseNumber_example";  // string | Case number (optional) 
-            var status = "status_example";  // string | Status (optional) 
-            var expirationDtsStart = "expirationDtsStart_example";  // string | Expiration dts start (optional) 
-            var expirationDtsEnd = "expirationDtsEnd_example";  // string | Expiration dts end (optional) 
-            var chargebackDtsStart = "chargebackDtsStart_example";  // string | Chargeback dts start (optional) 
-            var chargebackDtsEnd = "chargebackDtsEnd_example";  // string | Chargeback dts end (optional) 
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var since = "since_example";  // string | Fetch chargebacks that have been created/modified since this date/time. (optional) 
-            var sort = "sort_example";  // string | The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
-            {
-                // Retrieve chargebacks
-                ChargebackDisputesResponse result = apiInstance.GetChargebackDisputes(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ChargebackApi.GetChargebackDisputes: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
+
 
 ### Parameters
 
@@ -302,47 +191,13 @@ Insert a chargeback
 
 Insert a chargeback on the UltraCart account. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class InsertChargebackExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to insert
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
-            {
-                // Insert a chargeback
-                ChargebackDisputeResponse result = apiInstance.InsertChargeback(chargeback, expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ChargebackApi.InsertChargeback: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
+
 
 ### Parameters
 
@@ -390,48 +245,13 @@ Update a chargeback
 
 Update a chargeback on the UltraCart account. 
 
+
 ### Example
 
 ```csharp
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-using System.Collections.Generic;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class UpdateChargebackExample
-    {
-        public static void Main()
-        {
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
-
-            var chargebackDisputeOid = 56;  // int | The chargeback_dispute_oid to update.
-            var chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to update
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
-            {
-                // Update a chargeback
-                ChargebackDisputeResponse result = apiInstance.UpdateChargeback(chargebackDisputeOid, chargeback, expand);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ChargebackApi.UpdateChargeback: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+// (Internal API).  No sample for this method as a merchant will never need call it.
 ```
+
 
 ### Parameters
 

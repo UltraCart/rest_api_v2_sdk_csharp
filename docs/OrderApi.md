@@ -5,7 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AdjustOrderTotal**](OrderApi.md#adjustordertotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
-[**BlockRefundOnOrder**](OrderApi.md#blockrefundonorder) | **POST** /order/orders/{order_id}/refund_block | Set a refund block on an order
+[**BlockRefundOnOrder**](OrderApi.md#blockrefundonorder) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 [**CancelOrder**](OrderApi.md#cancelorder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**DeleteOrder**](OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
 [**DuplicateOrder**](OrderApi.md#duplicateorder) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
@@ -26,11 +26,10 @@ Method | HTTP request | Description
 [**IsRefundableOrder**](OrderApi.md#isrefundableorder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 [**ProcessPayment**](OrderApi.md#processpayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 [**RefundOrder**](OrderApi.md#refundorder) | **PUT** /order/orders/{order_id}/refund | Refund an order
-[**RefundOrderCompletely**](OrderApi.md#refundordercompletely) | **PUT** /order/orders/{order_id}/refund_completely | Refund an order completely
 [**Replacement**](OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 [**ResendReceipt**](OrderApi.md#resendreceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 [**ResendShipmentConfirmation**](OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
-[**UnblockRefundOnOrder**](OrderApi.md#unblockrefundonorder) | **POST** /order/orders/{order_id}/refund_unblock | Remove a refund block on an order
+[**UnblockRefundOnOrder**](OrderApi.md#unblockrefundonorder) | **GET** /order/orders/{order_id}/refund_unblock | Remove a refund block on an order
 [**UpdateAccountsReceivableRetryConfig**](OrderApi.md#updateaccountsreceivableretryconfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 [**UpdateOrder**](OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
 [**ValidateOrder**](OrderApi.md#validateorder) | **POST** /order/validate | Validate
@@ -166,7 +165,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1594,90 +1593,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="refundordercompletely"></a>
-# **RefundOrderCompletely**
-> OrderResponse RefundOrderCompletely (string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, bool? issueStoreCredit = null, string autoOrderCancelReason = null, string refundReason = null, string rejectReason = null)
-
-Refund an order completely
-
-Perform a refund operation on an order and then update the order if successful. 
-### Example
-```csharp
-
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class RefundOrderCompletelyExample
-    {
-        public void main()
-        {
-
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | The order id to refund.
-            var rejectAfterRefund = true;  // bool? | Reject order after refund (optional)  (default to false)
-            var skipCustomerNotification = true;  // bool? | Skip customer email notification (optional)  (default to false)
-            var autoOrderCancel = true;  // bool? | Cancel associated auto orders (optional)  (default to false)
-            var manualRefund = true;  // bool? | Consider a manual refund done externally (optional)  (default to false)
-            var reverseAffiliateTransactions = true;  // bool? | Reverse affiliate transactions (optional)  (default to true)
-            var issueStoreCredit = true;  // bool? | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional)  (default to false)
-            var autoOrderCancelReason = autoOrderCancelReason_example;  // string | Reason for auto orders cancellation (optional) 
-            var refundReason = refundReason_example;  // string | Reason for refund (optional) 
-            var rejectReason = rejectReason_example;  // string | Reason for reject (optional) 
-
-            try
-            {
-                // Refund an order completely
-                OrderResponse result = apiInstance.RefundOrderCompletely(orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, autoOrderCancelReason, refundReason, rejectReason);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling OrderApi.RefundOrderCompletely: " + e.Message );
-            }
-        }
-    }
-}
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **string**| The order id to refund. | 
- **rejectAfterRefund** | **bool?**| Reject order after refund | [optional] [default to false]
- **skipCustomerNotification** | **bool?**| Skip customer email notification | [optional] [default to false]
- **autoOrderCancel** | **bool?**| Cancel associated auto orders | [optional] [default to false]
- **manualRefund** | **bool?**| Consider a manual refund done externally | [optional] [default to false]
- **reverseAffiliateTransactions** | **bool?**| Reverse affiliate transactions | [optional] [default to true]
- **issueStoreCredit** | **bool?**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] [default to false]
- **autoOrderCancelReason** | **string**| Reason for auto orders cancellation | [optional] 
- **refundReason** | **string**| Reason for refund | [optional] 
- **rejectReason** | **string**| Reason for reject | [optional] 
-
-### Return type
-
-[**OrderResponse**](OrderResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="replacement"></a>
 # **Replacement**
 > OrderReplacementResponse Replacement (string orderId, OrderReplacement replacement)
@@ -1938,7 +1853,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

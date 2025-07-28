@@ -64,7 +64,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantItemOid">Unique object identifier for this item.</param>
         /// <param name="options">Options.</param>
         /// <param name="parentCategoryId">Parent category of the item.  Zero indicates the root folder..</param>
-        /// <param name="parentCategoryPath">Parent category path.  / indicates the root folder..</param>
+        /// <param name="parentCategoryPath">Parent category path.  / indicates the root folder.  This is the folder structure within item management..</param>
         /// <param name="paymentProcessing">paymentProcessing.</param>
         /// <param name="physical">physical.</param>
         /// <param name="pricing">pricing.</param>
@@ -340,9 +340,9 @@ namespace com.ultracart.admin.v2.Model
         public int ParentCategoryId { get; set; }
 
         /// <summary>
-        /// Parent category path.  / indicates the root folder.
+        /// Parent category path.  / indicates the root folder.  This is the folder structure within item management.
         /// </summary>
-        /// <value>Parent category path.  / indicates the root folder.</value>
+        /// <value>Parent category path.  / indicates the root folder.  This is the folder structure within item management.</value>
         [DataMember(Name="parent_category_path", EmitDefaultValue=false)]
         public string ParentCategoryPath { get; set; }
 

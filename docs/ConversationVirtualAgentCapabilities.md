@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **LookupOrderInformation** | **bool** |  | [optional] 
 **LookupSubscriptionInformation** | **bool** |  | [optional] 
 **OpenSupportTicket** | **bool** |  | [optional] 
+**OpenSupportTicketChannel** | **string** | Channel to use to open the support ticket | [optional] 
+**OpenSupportTicketChannelEmail** | **string** | Email to send support ticket to | [optional] 
 **PauseSubscription** | **bool** |  | [optional] 
 **ResumeSubscription** | **bool** |  | [optional] 
 **TransferChatToLiveAgent** | **bool** |  | [optional] 

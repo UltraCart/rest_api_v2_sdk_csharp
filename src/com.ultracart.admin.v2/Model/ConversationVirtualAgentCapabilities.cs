@@ -31,6 +31,45 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationVirtualAgentCapabilities :  IEquatable<ConversationVirtualAgentCapabilities>, IValidatableObject
     {
         /// <summary>
+        /// Channel to use to open the support ticket
+        /// </summary>
+        /// <value>Channel to use to open the support ticket</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum OpenSupportTicketChannelEnum
+        {
+            /// <summary>
+            /// Enum None for value: none
+            /// </summary>
+            [EnumMember(Value = "none")]
+            None = 1,
+
+            /// <summary>
+            /// Enum Email for value: email
+            /// </summary>
+            [EnumMember(Value = "email")]
+            Email = 2,
+
+            /// <summary>
+            /// Enum UltraCartTask for value: UltraCart Task
+            /// </summary>
+            [EnumMember(Value = "UltraCart Task")]
+            UltraCartTask = 3,
+
+            /// <summary>
+            /// Enum ZohoDeskTicket for value: Zoho Desk Ticket
+            /// </summary>
+            [EnumMember(Value = "Zoho Desk Ticket")]
+            ZohoDeskTicket = 4
+
+        }
+
+        /// <summary>
+        /// Channel to use to open the support ticket
+        /// </summary>
+        /// <value>Channel to use to open the support ticket</value>
+        [DataMember(Name="open_support_ticket_channel", EmitDefaultValue=false)]
+        public OpenSupportTicketChannelEnum? OpenSupportTicketChannel { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationVirtualAgentCapabilities" /> class.
         /// </summary>
         /// <param name="cancelSubscription">cancelSubscription.</param>
@@ -38,17 +77,21 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="lookupOrderInformation">lookupOrderInformation.</param>
         /// <param name="lookupSubscriptionInformation">lookupSubscriptionInformation.</param>
         /// <param name="openSupportTicket">openSupportTicket.</param>
+        /// <param name="openSupportTicketChannel">Channel to use to open the support ticket.</param>
+        /// <param name="openSupportTicketChannelEmail">Email to send support ticket to.</param>
         /// <param name="pauseSubscription">pauseSubscription.</param>
         /// <param name="resumeSubscription">resumeSubscription.</param>
         /// <param name="transferChatToLiveAgent">transferChatToLiveAgent.</param>
         /// <param name="updateSubscriptionCreditCard">updateSubscriptionCreditCard.</param>
-        public ConversationVirtualAgentCapabilities(bool cancelSubscription = default(bool), bool delaySubscription = default(bool), bool lookupOrderInformation = default(bool), bool lookupSubscriptionInformation = default(bool), bool openSupportTicket = default(bool), bool pauseSubscription = default(bool), bool resumeSubscription = default(bool), bool transferChatToLiveAgent = default(bool), bool updateSubscriptionCreditCard = default(bool))
+        public ConversationVirtualAgentCapabilities(bool cancelSubscription = default(bool), bool delaySubscription = default(bool), bool lookupOrderInformation = default(bool), bool lookupSubscriptionInformation = default(bool), bool openSupportTicket = default(bool), OpenSupportTicketChannelEnum? openSupportTicketChannel = default(OpenSupportTicketChannelEnum?), string openSupportTicketChannelEmail = default(string), bool pauseSubscription = default(bool), bool resumeSubscription = default(bool), bool transferChatToLiveAgent = default(bool), bool updateSubscriptionCreditCard = default(bool))
         {
             this.CancelSubscription = cancelSubscription;
             this.DelaySubscription = delaySubscription;
             this.LookupOrderInformation = lookupOrderInformation;
             this.LookupSubscriptionInformation = lookupSubscriptionInformation;
             this.OpenSupportTicket = openSupportTicket;
+            this.OpenSupportTicketChannel = openSupportTicketChannel;
+            this.OpenSupportTicketChannelEmail = openSupportTicketChannelEmail;
             this.PauseSubscription = pauseSubscription;
             this.ResumeSubscription = resumeSubscription;
             this.TransferChatToLiveAgent = transferChatToLiveAgent;
@@ -84,6 +127,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="open_support_ticket", EmitDefaultValue=false)]
         public bool OpenSupportTicket { get; set; }
+
+
+        /// <summary>
+        /// Email to send support ticket to
+        /// </summary>
+        /// <value>Email to send support ticket to</value>
+        [DataMember(Name="open_support_ticket_channel_email", EmitDefaultValue=false)]
+        public string OpenSupportTicketChannelEmail { get; set; }
 
         /// <summary>
         /// Gets or Sets PauseSubscription
@@ -122,6 +173,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  LookupOrderInformation: ").Append(LookupOrderInformation).Append("\n");
             sb.Append("  LookupSubscriptionInformation: ").Append(LookupSubscriptionInformation).Append("\n");
             sb.Append("  OpenSupportTicket: ").Append(OpenSupportTicket).Append("\n");
+            sb.Append("  OpenSupportTicketChannel: ").Append(OpenSupportTicketChannel).Append("\n");
+            sb.Append("  OpenSupportTicketChannelEmail: ").Append(OpenSupportTicketChannelEmail).Append("\n");
             sb.Append("  PauseSubscription: ").Append(PauseSubscription).Append("\n");
             sb.Append("  ResumeSubscription: ").Append(ResumeSubscription).Append("\n");
             sb.Append("  TransferChatToLiveAgent: ").Append(TransferChatToLiveAgent).Append("\n");
@@ -186,6 +239,16 @@ namespace com.ultracart.admin.v2.Model
                     this.OpenSupportTicket.Equals(input.OpenSupportTicket))
                 ) && 
                 (
+                    this.OpenSupportTicketChannel == input.OpenSupportTicketChannel ||
+                    (this.OpenSupportTicketChannel != null &&
+                    this.OpenSupportTicketChannel.Equals(input.OpenSupportTicketChannel))
+                ) && 
+                (
+                    this.OpenSupportTicketChannelEmail == input.OpenSupportTicketChannelEmail ||
+                    (this.OpenSupportTicketChannelEmail != null &&
+                    this.OpenSupportTicketChannelEmail.Equals(input.OpenSupportTicketChannelEmail))
+                ) && 
+                (
                     this.PauseSubscription == input.PauseSubscription ||
                     (this.PauseSubscription != null &&
                     this.PauseSubscription.Equals(input.PauseSubscription))
@@ -226,6 +289,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LookupSubscriptionInformation.GetHashCode();
                 if (this.OpenSupportTicket != null)
                     hashCode = hashCode * 59 + this.OpenSupportTicket.GetHashCode();
+                if (this.OpenSupportTicketChannel != null)
+                    hashCode = hashCode * 59 + this.OpenSupportTicketChannel.GetHashCode();
+                if (this.OpenSupportTicketChannelEmail != null)
+                    hashCode = hashCode * 59 + this.OpenSupportTicketChannelEmail.GetHashCode();
                 if (this.PauseSubscription != null)
                     hashCode = hashCode * 59 + this.PauseSubscription.GetHashCode();
                 if (this.ResumeSubscription != null)

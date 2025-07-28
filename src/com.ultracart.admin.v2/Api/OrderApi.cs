@@ -49,6 +49,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of BaseResponse</returns>
         ApiResponse<BaseResponse> AdjustOrderTotalWithHttpInfo (string orderId, string desiredTotal);
         /// <summary>
+        /// Set a refund block on an order
+        /// </summary>
+        /// <remarks>
+        /// Sets a refund block on an order to prevent a user from performing a refund.  Commonly used when a chargeback has been received. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to block a refund on.</param>
+        /// <param name="blockReason">Block reason code (optional) (optional)</param>
+        /// <returns></returns>
+        void BlockRefundOnOrder (string orderId, string blockReason = default(string));
+
+        /// <summary>
+        /// Set a refund block on an order
+        /// </summary>
+        /// <remarks>
+        /// Sets a refund block on an order to prevent a user from performing a refund.  Commonly used when a chargeback has been received. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to block a refund on.</param>
+        /// <param name="blockReason">Block reason code (optional) (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> BlockRefundOnOrderWithHttpInfo (string orderId, string blockReason = default(string));
+        /// <summary>
         /// Cancel an order
         /// </summary>
         /// <remarks>
@@ -679,6 +702,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of BaseResponse</returns>
         ApiResponse<BaseResponse> ResendShipmentConfirmationWithHttpInfo (string orderId);
         /// <summary>
+        /// Remove a refund block on an order
+        /// </summary>
+        /// <remarks>
+        /// Removes a refund block on an order to prevent a user from performing a refund. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to unblock a refund on.</param>
+        /// <returns></returns>
+        void UnblockRefundOnOrder (string orderId);
+
+        /// <summary>
+        /// Remove a refund block on an order
+        /// </summary>
+        /// <remarks>
+        /// Removes a refund block on an order to prevent a user from performing a refund. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to unblock a refund on.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UnblockRefundOnOrderWithHttpInfo (string orderId);
+        /// <summary>
         /// Update A/R Retry Configuration
         /// </summary>
         /// <remarks>
@@ -772,6 +816,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (BaseResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BaseResponse>> AdjustOrderTotalWithHttpInfoAsync (string orderId, string desiredTotal, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Set a refund block on an order
+        /// </summary>
+        /// <remarks>
+        /// Sets a refund block on an order to prevent a user from performing a refund.  Commonly used when a chargeback has been received. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to block a refund on.</param>
+        /// <param name="blockReason">Block reason code (optional) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task BlockRefundOnOrderAsync (string orderId, string blockReason = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Set a refund block on an order
+        /// </summary>
+        /// <remarks>
+        /// Sets a refund block on an order to prevent a user from performing a refund.  Commonly used when a chargeback has been received. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to block a refund on.</param>
+        /// <param name="blockReason">Block reason code (optional) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> BlockRefundOnOrderWithHttpInfoAsync (string orderId, string blockReason = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Cancel an order
         /// </summary>
@@ -1451,6 +1520,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (BaseResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BaseResponse>> ResendShipmentConfirmationWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Remove a refund block on an order
+        /// </summary>
+        /// <remarks>
+        /// Removes a refund block on an order to prevent a user from performing a refund. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to unblock a refund on.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UnblockRefundOnOrderAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Remove a refund block on an order
+        /// </summary>
+        /// <remarks>
+        /// Removes a refund block on an order to prevent a user from performing a refund. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to unblock a refund on.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UnblockRefundOnOrderWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Update A/R Retry Configuration
         /// </summary>
         /// <remarks>
@@ -1819,6 +1911,167 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<BaseResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Set a refund block on an order Sets a refund block on an order to prevent a user from performing a refund.  Commonly used when a chargeback has been received. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to block a refund on.</param>
+        /// <param name="blockReason">Block reason code (optional) (optional)</param>
+        /// <returns></returns>
+        public void BlockRefundOnOrder (string orderId, string blockReason = default(string))
+        {
+             BlockRefundOnOrderWithHttpInfo(orderId, blockReason);
+        }
+
+        /// <summary>
+        /// Set a refund block on an order Sets a refund block on an order to prevent a user from performing a refund.  Commonly used when a chargeback has been received. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to block a refund on.</param>
+        /// <param name="blockReason">Block reason code (optional) (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> BlockRefundOnOrderWithHttpInfo (string orderId, string blockReason = default(string))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->BlockRefundOnOrder");
+
+            var localVarPath = "/order/orders/{order_id}/refund_block";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (blockReason != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "block_reason", blockReason)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("BlockRefundOnOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Set a refund block on an order Sets a refund block on an order to prevent a user from performing a refund.  Commonly used when a chargeback has been received. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to block a refund on.</param>
+        /// <param name="blockReason">Block reason code (optional) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task BlockRefundOnOrderAsync (string orderId, string blockReason = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await BlockRefundOnOrderWithHttpInfoAsync(orderId, blockReason, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Set a refund block on an order Sets a refund block on an order to prevent a user from performing a refund.  Commonly used when a chargeback has been received. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to block a refund on.</param>
+        /// <param name="blockReason">Block reason code (optional) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> BlockRefundOnOrderWithHttpInfoAsync (string orderId, string blockReason = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->BlockRefundOnOrder");
+
+            var localVarPath = "/order/orders/{order_id}/refund_block";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (blockReason != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "block_reason", blockReason)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("BlockRefundOnOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>
@@ -6103,6 +6356,161 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<BaseResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Remove a refund block on an order Removes a refund block on an order to prevent a user from performing a refund. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to unblock a refund on.</param>
+        /// <returns></returns>
+        public void UnblockRefundOnOrder (string orderId)
+        {
+             UnblockRefundOnOrderWithHttpInfo(orderId);
+        }
+
+        /// <summary>
+        /// Remove a refund block on an order Removes a refund block on an order to prevent a user from performing a refund. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to unblock a refund on.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UnblockRefundOnOrderWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->UnblockRefundOnOrder");
+
+            var localVarPath = "/order/orders/{order_id}/refund_unblock";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnblockRefundOnOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Remove a refund block on an order Removes a refund block on an order to prevent a user from performing a refund. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to unblock a refund on.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UnblockRefundOnOrderAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await UnblockRefundOnOrderWithHttpInfoAsync(orderId, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Remove a refund block on an order Removes a refund block on an order to prevent a user from performing a refund. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to unblock a refund on.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UnblockRefundOnOrderWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->UnblockRefundOnOrder");
+
+            var localVarPath = "/order/orders/{order_id}/refund_unblock";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnblockRefundOnOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>

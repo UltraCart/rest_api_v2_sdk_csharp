@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ## GetWebhookLogSummaries
 
-> WebhookLogSummariesResponse GetWebhookLogSummaries (int webhookOid, string requestId = null, string beginDate = null, string endDate = null, string status = null, string _event = null, string orderId = null, string request = null, int? duration = null, int? limit = null, int? offset = null, string since = null)
+> WebhookLogSummariesResponse GetWebhookLogSummaries (int webhookOid, int? limit = null, int? offset = null, string since = null)
 
 Retrieve the log summaries
 
@@ -363,14 +363,6 @@ namespace SdkSample.webhook
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhookOid** | **int**| The webhook oid to retrieve log summaries for. | 
- **requestId** | **string**|  | [optional] 
- **beginDate** | **string**|  | [optional] 
- **endDate** | **string**|  | [optional] 
- **status** | **string**|  | [optional] 
- **_event** | **string**|  | [optional] 
- **orderId** | **string**|  | [optional] 
- **request** | **string**|  | [optional] 
- **duration** | **int?**|  | [optional] 
  **limit** | **int?**| The maximum number of records to return on this one API call. | [optional] [default to 100]
  **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **since** | **string**| Fetch log summaries that have been delivered since this date/time. | [optional] 

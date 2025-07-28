@@ -325,6 +325,7 @@ docs/CustomReportParameterOption.md
 docs/CustomReportQuery.md
 docs/CustomReportResponse.md
 docs/CustomReportTooltip.md
+docs/CustomReportsResponse.md
 docs/Customer.md
 docs/CustomerActivity.md
 docs/CustomerAffiliate.md
@@ -1243,6 +1244,7 @@ src/com.ultracart.admin.v2/Model/CustomReportParameterOption.cs
 src/com.ultracart.admin.v2/Model/CustomReportQuery.cs
 src/com.ultracart.admin.v2/Model/CustomReportResponse.cs
 src/com.ultracart.admin.v2/Model/CustomReportTooltip.cs
+src/com.ultracart.admin.v2/Model/CustomReportsResponse.cs
 src/com.ultracart.admin.v2/Model/Customer.cs
 src/com.ultracart.admin.v2/Model/CustomerActivity.cs
 src/com.ultracart.admin.v2/Model/CustomerAffiliate.cs

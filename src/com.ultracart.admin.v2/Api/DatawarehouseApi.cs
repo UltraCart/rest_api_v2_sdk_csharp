@@ -173,6 +173,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CustomReportAccountConfigResponse</returns>
         ApiResponse<CustomReportAccountConfigResponse> GetCustomReportAccountConfigWithHttpInfo ();
         /// <summary>
+        /// Get custom reports
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom reports 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CustomReportsResponse</returns>
+        CustomReportsResponse GetCustomReports ();
+
+        /// <summary>
+        /// Get custom reports
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom reports 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CustomReportsResponse</returns>
+        ApiResponse<CustomReportsResponse> GetCustomReportsWithHttpInfo ();
+        /// <summary>
         /// Get a report
         /// </summary>
         /// <remarks>
@@ -547,6 +566,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CustomReportAccountConfigResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomReportAccountConfigResponse>> GetCustomReportAccountConfigWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get custom reports
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom reports 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomReportsResponse</returns>
+        System.Threading.Tasks.Task<CustomReportsResponse> GetCustomReportsAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get custom reports
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom reports 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomReportsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomReportsResponse>> GetCustomReportsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a report
         /// </summary>
@@ -2047,6 +2087,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomReportAccountConfigResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CustomReportAccountConfigResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportAccountConfigResponse)));
+        }
+
+        /// <summary>
+        /// Get custom reports Retrieve a custom reports 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CustomReportsResponse</returns>
+        public CustomReportsResponse GetCustomReports ()
+        {
+             ApiResponse<CustomReportsResponse> localVarResponse = GetCustomReportsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get custom reports Retrieve a custom reports 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CustomReportsResponse</returns>
+        public ApiResponse<CustomReportsResponse> GetCustomReportsWithHttpInfo ()
+        {
+
+            var localVarPath = "/datawarehouse/custom_reports";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomReports", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomReportsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomReportsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportsResponse)));
+        }
+
+        /// <summary>
+        /// Get custom reports Retrieve a custom reports 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomReportsResponse</returns>
+        public async System.Threading.Tasks.Task<CustomReportsResponse> GetCustomReportsAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<CustomReportsResponse> localVarResponse = await GetCustomReportsWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get custom reports Retrieve a custom reports 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomReportsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomReportsResponse>> GetCustomReportsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/datawarehouse/custom_reports";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomReports", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomReportsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomReportsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportsResponse)));
         }
 
         /// <summary>

@@ -35,12 +35,16 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="finalizeAfterDts">The date/time after which the cart will finalize into an order..</param>
         /// <param name="finalizeAfterMinutes">The amount of inactivity in minutes after which the cart should be finalized into an order.  This will calculate the finalize_after_dts field..</param>
-        /// <param name="upsellPathCode">Upsell path code.</param>
-        public CartUpsellAfter(string finalizeAfterDts = default(string), int? finalizeAfterMinutes = default(int?), string upsellPathCode = default(string))
+        /// <param name="upsellPathCode">Upsell path code (this is for legacy upsells only).</param>
+        /// <param name="upsellPathName">Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call..</param>
+        /// <param name="upsellPathVariation">Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call..</param>
+        public CartUpsellAfter(string finalizeAfterDts = default(string), int? finalizeAfterMinutes = default(int?), string upsellPathCode = default(string), string upsellPathName = default(string), string upsellPathVariation = default(string))
         {
             this.FinalizeAfterDts = finalizeAfterDts;
             this.FinalizeAfterMinutes = finalizeAfterMinutes;
             this.UpsellPathCode = upsellPathCode;
+            this.UpsellPathName = upsellPathName;
+            this.UpsellPathVariation = upsellPathVariation;
         }
         
         /// <summary>
@@ -58,11 +62,25 @@ namespace com.ultracart.admin.v2.Model
         public int? FinalizeAfterMinutes { get; set; }
 
         /// <summary>
-        /// Upsell path code
+        /// Upsell path code (this is for legacy upsells only)
         /// </summary>
-        /// <value>Upsell path code</value>
+        /// <value>Upsell path code (this is for legacy upsells only)</value>
         [DataMember(Name="upsell_path_code", EmitDefaultValue=false)]
         public string UpsellPathCode { get; set; }
+
+        /// <summary>
+        /// Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.
+        /// </summary>
+        /// <value>Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.</value>
+        [DataMember(Name="upsell_path_name", EmitDefaultValue=false)]
+        public string UpsellPathName { get; set; }
+
+        /// <summary>
+        /// Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.
+        /// </summary>
+        /// <value>Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.</value>
+        [DataMember(Name="upsell_path_variation", EmitDefaultValue=false)]
+        public string UpsellPathVariation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,6 +93,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  FinalizeAfterDts: ").Append(FinalizeAfterDts).Append("\n");
             sb.Append("  FinalizeAfterMinutes: ").Append(FinalizeAfterMinutes).Append("\n");
             sb.Append("  UpsellPathCode: ").Append(UpsellPathCode).Append("\n");
+            sb.Append("  UpsellPathName: ").Append(UpsellPathName).Append("\n");
+            sb.Append("  UpsellPathVariation: ").Append(UpsellPathVariation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +143,16 @@ namespace com.ultracart.admin.v2.Model
                     this.UpsellPathCode == input.UpsellPathCode ||
                     (this.UpsellPathCode != null &&
                     this.UpsellPathCode.Equals(input.UpsellPathCode))
+                ) && 
+                (
+                    this.UpsellPathName == input.UpsellPathName ||
+                    (this.UpsellPathName != null &&
+                    this.UpsellPathName.Equals(input.UpsellPathName))
+                ) && 
+                (
+                    this.UpsellPathVariation == input.UpsellPathVariation ||
+                    (this.UpsellPathVariation != null &&
+                    this.UpsellPathVariation.Equals(input.UpsellPathVariation))
                 );
         }
 
@@ -141,6 +171,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.FinalizeAfterMinutes.GetHashCode();
                 if (this.UpsellPathCode != null)
                     hashCode = hashCode * 59 + this.UpsellPathCode.GetHashCode();
+                if (this.UpsellPathName != null)
+                    hashCode = hashCode * 59 + this.UpsellPathName.GetHashCode();
+                if (this.UpsellPathVariation != null)
+                    hashCode = hashCode * 59 + this.UpsellPathVariation.GetHashCode();
                 return hashCode;
             }
         }

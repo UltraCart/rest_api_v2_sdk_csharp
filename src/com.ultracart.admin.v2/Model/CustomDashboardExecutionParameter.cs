@@ -25,19 +25,19 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// CustomReportExecutionParameter
+    /// CustomDashboardExecutionParameter
     /// </summary>
     [DataContract]
-    public partial class CustomReportExecutionParameter :  IEquatable<CustomReportExecutionParameter>, IValidatableObject
+    public partial class CustomDashboardExecutionParameter :  IEquatable<CustomDashboardExecutionParameter>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomReportExecutionParameter" /> class.
+        /// Initializes a new instance of the <see cref="CustomDashboardExecutionParameter" /> class.
         /// </summary>
         /// <param name="name">name.</param>
         /// <param name="quickPickKey">quickPickKey.</param>
         /// <param name="type">type.</param>
         /// <param name="value">value.</param>
-        public CustomReportExecutionParameter(string name = default(string), string quickPickKey = default(string), string type = default(string), string value = default(string))
+        public CustomDashboardExecutionParameter(string name = default(string), string quickPickKey = default(string), string type = default(string), string value = default(string))
         {
             this.Name = name;
             this.QuickPickKey = quickPickKey;
@@ -76,7 +76,7 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CustomReportExecutionParameter {\n");
+            sb.Append("class CustomDashboardExecutionParameter {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  QuickPickKey: ").Append(QuickPickKey).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -101,15 +101,15 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CustomReportExecutionParameter);
+            return this.Equals(input as CustomDashboardExecutionParameter);
         }
 
         /// <summary>
-        /// Returns true if CustomReportExecutionParameter instances are equal
+        /// Returns true if CustomDashboardExecutionParameter instances are equal
         /// </summary>
-        /// <param name="input">Instance of CustomReportExecutionParameter to be compared</param>
+        /// <param name="input">Instance of CustomDashboardExecutionParameter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CustomReportExecutionParameter input)
+        public bool Equals(CustomDashboardExecutionParameter input)
         {
             if (input == null)
                 return false;

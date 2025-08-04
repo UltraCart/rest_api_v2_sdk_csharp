@@ -44,6 +44,7 @@ Method | HTTP request | Description
 [**GetEmailCampaigns**](StorefrontApi.md#getemailcampaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
 [**GetEmailCampaignsWithStats**](StorefrontApi.md#getemailcampaignswithstats) | **GET** /storefront/{storefront_oid}/email/campaignsWithStats/{stat_days} | Get email campaigns with stats
 [**GetEmailCommseq**](StorefrontApi.md#getemailcommseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
+[**GetEmailCommseqEditorValues**](StorefrontApi.md#getemailcommseqeditorvalues) | **GET** /storefront/{storefront_oid}/email/commseqs/editorValues | Get email merchant specific editor values
 [**GetEmailCommseqEmailStats**](StorefrontApi.md#getemailcommseqemailstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
 [**GetEmailCommseqPostcardStats**](StorefrontApi.md#getemailcommseqpostcardstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats
 [**GetEmailCommseqPostcardTracking**](StorefrontApi.md#getemailcommseqpostcardtracking) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking | Get email communication postcard tracking
@@ -2797,6 +2798,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailCommseqResponse**](EmailCommseqResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemailcommseqeditorvalues"></a>
+# **GetEmailCommseqEditorValues**
+> EmailEditorValuesResponse GetEmailCommseqEditorValues (int? storefrontOid)
+
+Get email merchant specific editor values
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailCommseqEditorValuesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new StorefrontApi(simpleKey);
+
+            var storefrontOid = 56;  // int? | 
+
+            try
+            {
+                // Get email merchant specific editor values
+                EmailEditorValuesResponse result = apiInstance.GetEmailCommseqEditorValues(storefrontOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqEditorValues: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+
+### Return type
+
+[**EmailEditorValuesResponse**](EmailEditorValuesResponse.md)
 
 ### Authorization
 

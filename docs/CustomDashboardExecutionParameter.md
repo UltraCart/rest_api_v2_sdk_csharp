@@ -1,5 +1,5 @@
 
-# com.ultracart.admin.v2.Model.CustomReportExecutionParameter
+# com.ultracart.admin.v2.Model.CustomDashboardExecutionParameter
 
 ## Properties
 

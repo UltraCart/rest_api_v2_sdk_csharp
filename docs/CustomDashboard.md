@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **MerchantId** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **Pages** | [**List&lt;CustomDashboardPage&gt;**](CustomDashboardPage.md) |  | [optional] 
+**Parameters** | [**List&lt;CustomDashboardExecutionParameter&gt;**](CustomDashboardExecutionParameter.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

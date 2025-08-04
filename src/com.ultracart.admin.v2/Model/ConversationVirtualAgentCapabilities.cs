@@ -50,16 +50,16 @@ namespace com.ultracart.admin.v2.Model
             Email = 2,
 
             /// <summary>
-            /// Enum UltraCartTask for value: UltraCart Task
+            /// Enum Ultracarttask for value: ultracart_task
             /// </summary>
-            [EnumMember(Value = "UltraCart Task")]
-            UltraCartTask = 3,
+            [EnumMember(Value = "ultracart_task")]
+            Ultracarttask = 3,
 
             /// <summary>
-            /// Enum ZohoDeskTicket for value: Zoho Desk Ticket
+            /// Enum Zohodeskticket for value: zoho_desk_ticket
             /// </summary>
-            [EnumMember(Value = "Zoho Desk Ticket")]
-            ZohoDeskTicket = 4
+            [EnumMember(Value = "zoho_desk_ticket")]
+            Zohodeskticket = 4
 
         }
 
@@ -79,11 +79,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="openSupportTicket">openSupportTicket.</param>
         /// <param name="openSupportTicketChannel">Channel to use to open the support ticket.</param>
         /// <param name="openSupportTicketChannelEmail">Email to send support ticket to.</param>
+        /// <param name="openSupportTicketZohoDeskDepartmentId">Department ID to open a Zoho Desk ticket for.</param>
         /// <param name="pauseSubscription">pauseSubscription.</param>
         /// <param name="resumeSubscription">resumeSubscription.</param>
         /// <param name="transferChatToLiveAgent">transferChatToLiveAgent.</param>
         /// <param name="updateSubscriptionCreditCard">updateSubscriptionCreditCard.</param>
-        public ConversationVirtualAgentCapabilities(bool cancelSubscription = default(bool), bool delaySubscription = default(bool), bool lookupOrderInformation = default(bool), bool lookupSubscriptionInformation = default(bool), bool openSupportTicket = default(bool), OpenSupportTicketChannelEnum? openSupportTicketChannel = default(OpenSupportTicketChannelEnum?), string openSupportTicketChannelEmail = default(string), bool pauseSubscription = default(bool), bool resumeSubscription = default(bool), bool transferChatToLiveAgent = default(bool), bool updateSubscriptionCreditCard = default(bool))
+        /// <param name="zohoDeskAvailable">True if Zoho Desk is connected to UltraCart.</param>
+        /// <param name="zohoDeskDepartments">Array of Zoho Desk Department if zoho desk is connected to UltraCart.</param>
+        public ConversationVirtualAgentCapabilities(bool cancelSubscription = default(bool), bool delaySubscription = default(bool), bool lookupOrderInformation = default(bool), bool lookupSubscriptionInformation = default(bool), bool openSupportTicket = default(bool), OpenSupportTicketChannelEnum? openSupportTicketChannel = default(OpenSupportTicketChannelEnum?), string openSupportTicketChannelEmail = default(string), string openSupportTicketZohoDeskDepartmentId = default(string), bool pauseSubscription = default(bool), bool resumeSubscription = default(bool), bool transferChatToLiveAgent = default(bool), bool updateSubscriptionCreditCard = default(bool), bool zohoDeskAvailable = default(bool), List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments = default(List<ConversationVirtualAgentCapabilityZohoDeskDepartment>))
         {
             this.CancelSubscription = cancelSubscription;
             this.DelaySubscription = delaySubscription;
@@ -92,10 +95,13 @@ namespace com.ultracart.admin.v2.Model
             this.OpenSupportTicket = openSupportTicket;
             this.OpenSupportTicketChannel = openSupportTicketChannel;
             this.OpenSupportTicketChannelEmail = openSupportTicketChannelEmail;
+            this.OpenSupportTicketZohoDeskDepartmentId = openSupportTicketZohoDeskDepartmentId;
             this.PauseSubscription = pauseSubscription;
             this.ResumeSubscription = resumeSubscription;
             this.TransferChatToLiveAgent = transferChatToLiveAgent;
             this.UpdateSubscriptionCreditCard = updateSubscriptionCreditCard;
+            this.ZohoDeskAvailable = zohoDeskAvailable;
+            this.ZohoDeskDepartments = zohoDeskDepartments;
         }
 
         /// <summary>
@@ -137,6 +143,13 @@ namespace com.ultracart.admin.v2.Model
         public string OpenSupportTicketChannelEmail { get; set; }
 
         /// <summary>
+        /// Department ID to open a Zoho Desk ticket for
+        /// </summary>
+        /// <value>Department ID to open a Zoho Desk ticket for</value>
+        [DataMember(Name="open_support_ticket_zoho_desk_department_id", EmitDefaultValue=false)]
+        public string OpenSupportTicketZohoDeskDepartmentId { get; set; }
+
+        /// <summary>
         /// Gets or Sets PauseSubscription
         /// </summary>
         [DataMember(Name="pause_subscription", EmitDefaultValue=false)]
@@ -161,6 +174,20 @@ namespace com.ultracart.admin.v2.Model
         public bool UpdateSubscriptionCreditCard { get; set; }
 
         /// <summary>
+        /// True if Zoho Desk is connected to UltraCart
+        /// </summary>
+        /// <value>True if Zoho Desk is connected to UltraCart</value>
+        [DataMember(Name="zoho_desk_available", EmitDefaultValue=false)]
+        public bool ZohoDeskAvailable { get; set; }
+
+        /// <summary>
+        /// Array of Zoho Desk Department if zoho desk is connected to UltraCart
+        /// </summary>
+        /// <value>Array of Zoho Desk Department if zoho desk is connected to UltraCart</value>
+        [DataMember(Name="zoho_desk_departments", EmitDefaultValue=false)]
+        public List<ConversationVirtualAgentCapabilityZohoDeskDepartment> ZohoDeskDepartments { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -175,10 +202,13 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  OpenSupportTicket: ").Append(OpenSupportTicket).Append("\n");
             sb.Append("  OpenSupportTicketChannel: ").Append(OpenSupportTicketChannel).Append("\n");
             sb.Append("  OpenSupportTicketChannelEmail: ").Append(OpenSupportTicketChannelEmail).Append("\n");
+            sb.Append("  OpenSupportTicketZohoDeskDepartmentId: ").Append(OpenSupportTicketZohoDeskDepartmentId).Append("\n");
             sb.Append("  PauseSubscription: ").Append(PauseSubscription).Append("\n");
             sb.Append("  ResumeSubscription: ").Append(ResumeSubscription).Append("\n");
             sb.Append("  TransferChatToLiveAgent: ").Append(TransferChatToLiveAgent).Append("\n");
             sb.Append("  UpdateSubscriptionCreditCard: ").Append(UpdateSubscriptionCreditCard).Append("\n");
+            sb.Append("  ZohoDeskAvailable: ").Append(ZohoDeskAvailable).Append("\n");
+            sb.Append("  ZohoDeskDepartments: ").Append(ZohoDeskDepartments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -249,6 +279,11 @@ namespace com.ultracart.admin.v2.Model
                     this.OpenSupportTicketChannelEmail.Equals(input.OpenSupportTicketChannelEmail))
                 ) && 
                 (
+                    this.OpenSupportTicketZohoDeskDepartmentId == input.OpenSupportTicketZohoDeskDepartmentId ||
+                    (this.OpenSupportTicketZohoDeskDepartmentId != null &&
+                    this.OpenSupportTicketZohoDeskDepartmentId.Equals(input.OpenSupportTicketZohoDeskDepartmentId))
+                ) && 
+                (
                     this.PauseSubscription == input.PauseSubscription ||
                     (this.PauseSubscription != null &&
                     this.PauseSubscription.Equals(input.PauseSubscription))
@@ -267,6 +302,17 @@ namespace com.ultracart.admin.v2.Model
                     this.UpdateSubscriptionCreditCard == input.UpdateSubscriptionCreditCard ||
                     (this.UpdateSubscriptionCreditCard != null &&
                     this.UpdateSubscriptionCreditCard.Equals(input.UpdateSubscriptionCreditCard))
+                ) && 
+                (
+                    this.ZohoDeskAvailable == input.ZohoDeskAvailable ||
+                    (this.ZohoDeskAvailable != null &&
+                    this.ZohoDeskAvailable.Equals(input.ZohoDeskAvailable))
+                ) && 
+                (
+                    this.ZohoDeskDepartments == input.ZohoDeskDepartments ||
+                    this.ZohoDeskDepartments != null &&
+                    input.ZohoDeskDepartments != null &&
+                    this.ZohoDeskDepartments.SequenceEqual(input.ZohoDeskDepartments)
                 );
         }
 
@@ -293,6 +339,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OpenSupportTicketChannel.GetHashCode();
                 if (this.OpenSupportTicketChannelEmail != null)
                     hashCode = hashCode * 59 + this.OpenSupportTicketChannelEmail.GetHashCode();
+                if (this.OpenSupportTicketZohoDeskDepartmentId != null)
+                    hashCode = hashCode * 59 + this.OpenSupportTicketZohoDeskDepartmentId.GetHashCode();
                 if (this.PauseSubscription != null)
                     hashCode = hashCode * 59 + this.PauseSubscription.GetHashCode();
                 if (this.ResumeSubscription != null)
@@ -301,6 +349,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.TransferChatToLiveAgent.GetHashCode();
                 if (this.UpdateSubscriptionCreditCard != null)
                     hashCode = hashCode * 59 + this.UpdateSubscriptionCreditCard.GetHashCode();
+                if (this.ZohoDeskAvailable != null)
+                    hashCode = hashCode * 59 + this.ZohoDeskAvailable.GetHashCode();
+                if (this.ZohoDeskDepartments != null)
+                    hashCode = hashCode * 59 + this.ZohoDeskDepartments.GetHashCode();
                 return hashCode;
             }
         }

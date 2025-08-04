@@ -37,12 +37,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantId">merchantId.</param>
         /// <param name="name">name.</param>
         /// <param name="pages">pages.</param>
-        public CustomDashboard(int dataWarehouseCustomDashboardOid = default(int), string merchantId = default(string), string name = default(string), List<CustomDashboardPage> pages = default(List<CustomDashboardPage>))
+        /// <param name="parameters">parameters.</param>
+        public CustomDashboard(int dataWarehouseCustomDashboardOid = default(int), string merchantId = default(string), string name = default(string), List<CustomDashboardPage> pages = default(List<CustomDashboardPage>), List<CustomDashboardExecutionParameter> parameters = default(List<CustomDashboardExecutionParameter>))
         {
             this.DataWarehouseCustomDashboardOid = dataWarehouseCustomDashboardOid;
             this.MerchantId = merchantId;
             this.Name = name;
             this.Pages = pages;
+            this.Parameters = parameters;
         }
 
         /// <summary>
@@ -70,6 +72,12 @@ namespace com.ultracart.admin.v2.Model
         public List<CustomDashboardPage> Pages { get; set; }
 
         /// <summary>
+        /// Gets or Sets Parameters
+        /// </summary>
+        [DataMember(Name="parameters", EmitDefaultValue=false)]
+        public List<CustomDashboardExecutionParameter> Parameters { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +89,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Pages: ").Append(Pages).Append("\n");
+            sb.Append("  Parameters: ").Append(Parameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,6 +144,12 @@ namespace com.ultracart.admin.v2.Model
                     this.Pages != null &&
                     input.Pages != null &&
                     this.Pages.SequenceEqual(input.Pages)
+                ) && 
+                (
+                    this.Parameters == input.Parameters ||
+                    this.Parameters != null &&
+                    input.Parameters != null &&
+                    this.Parameters.SequenceEqual(input.Parameters)
                 );
         }
 
@@ -155,6 +170,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Pages != null)
                     hashCode = hashCode * 59 + this.Pages.GetHashCode();
+                if (this.Parameters != null)
+                    hashCode = hashCode * 59 + this.Parameters.GetHashCode();
                 return hashCode;
             }
         }

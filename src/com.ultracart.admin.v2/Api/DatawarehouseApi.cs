@@ -25,6 +25,27 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Delete a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Delete a custom dashboard on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid">The dashboard oid to delete.</param>
+        /// <returns></returns>
+        void DeleteCustomDashboard (int? customDashboardOid);
+
+        /// <summary>
+        /// Delete a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Delete a custom dashboard on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid">The dashboard oid to delete.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteCustomDashboardWithHttpInfo (int? customDashboardOid);
+        /// <summary>
         /// Delete a custom report
         /// </summary>
         /// <remarks>
@@ -96,8 +117,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionRequest">Request to execute custom report</param>
         /// <param name="customReportOid">The report oid to execute.</param>
-        /// <returns>CustomReportResponse</returns>
-        CustomReportResponse ExecuteCustomReport (CustomReportExecutionRequest executionRequest, int? customReportOid);
+        /// <returns>CustomReportExecutionResponse</returns>
+        CustomReportExecutionResponse ExecuteCustomReport (CustomReportExecutionRequest executionRequest, int? customReportOid);
 
         /// <summary>
         /// Execute a custom report
@@ -108,8 +129,29 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionRequest">Request to execute custom report</param>
         /// <param name="customReportOid">The report oid to execute.</param>
-        /// <returns>ApiResponse of CustomReportResponse</returns>
-        ApiResponse<CustomReportResponse> ExecuteCustomReportWithHttpInfo (CustomReportExecutionRequest executionRequest, int? customReportOid);
+        /// <returns>ApiResponse of CustomReportExecutionResponse</returns>
+        ApiResponse<CustomReportExecutionResponse> ExecuteCustomReportWithHttpInfo (CustomReportExecutionRequest executionRequest, int? customReportOid);
+        /// <summary>
+        /// Execute a custom reports
+        /// </summary>
+        /// <remarks>
+        /// Execute a custom reports on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionRequest">Request to execute custom reports</param>
+        /// <returns>CustomReportsExecutionResponse</returns>
+        CustomReportsExecutionResponse ExecuteCustomReports (CustomReportsExecutionRequest executionRequest);
+
+        /// <summary>
+        /// Execute a custom reports
+        /// </summary>
+        /// <remarks>
+        /// Execute a custom reports on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionRequest">Request to execute custom reports</param>
+        /// <returns>ApiResponse of CustomReportsExecutionResponse</returns>
+        ApiResponse<CustomReportsExecutionResponse> ExecuteCustomReportsWithHttpInfo (CustomReportsExecutionRequest executionRequest);
         /// <summary>
         /// Execute the report queries
         /// </summary>
@@ -131,6 +173,46 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="queryRequest">Query request</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ExecuteReportQueriesWithHttpInfo (ReportExecuteQueriesRequest queryRequest);
+        /// <summary>
+        /// Get a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom dashboard 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>CustomDashboardResponse</returns>
+        CustomDashboardResponse GetCustomDashboard (int? customDashboardOid);
+
+        /// <summary>
+        /// Get a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom dashboard 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>ApiResponse of CustomDashboardResponse</returns>
+        ApiResponse<CustomDashboardResponse> GetCustomDashboardWithHttpInfo (int? customDashboardOid);
+        /// <summary>
+        /// Get custom dashboards
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom dashboards 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CustomDashboardsResponse</returns>
+        CustomDashboardsResponse GetCustomDashboards ();
+
+        /// <summary>
+        /// Get custom dashboards
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom dashboards 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CustomDashboardsResponse</returns>
+        ApiResponse<CustomDashboardsResponse> GetCustomDashboardsWithHttpInfo ();
         /// <summary>
         /// Get a custom report
         /// </summary>
@@ -294,6 +376,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ReportsResponse</returns>
         ApiResponse<ReportsResponse> GetReportsWithHttpInfo ();
         /// <summary>
+        /// Create a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Create a new custom dashboard on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to create</param>
+        /// <returns>CustomDashboardResponse</returns>
+        CustomDashboardResponse InsertCustomDashboard (CustomDashboard dashboard);
+
+        /// <summary>
+        /// Create a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Create a new custom dashboard on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to create</param>
+        /// <returns>ApiResponse of CustomDashboardResponse</returns>
+        ApiResponse<CustomDashboardResponse> InsertCustomDashboardWithHttpInfo (CustomDashboard dashboard);
+        /// <summary>
         /// Create a custom report
         /// </summary>
         /// <remarks>
@@ -335,6 +438,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="report">Report to create</param>
         /// <returns>ApiResponse of ReportResponse</returns>
         ApiResponse<ReportResponse> InsertReportWithHttpInfo (Report report);
+        /// <summary>
+        /// Update a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Update a custom dashboard on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to custom update</param>
+        /// <param name="customDashboardOid">The dashboard oid to custom update.</param>
+        /// <returns>CustomDashboardResponse</returns>
+        CustomDashboardResponse UpdateCustomDashboard (CustomDashboard dashboard, int? customDashboardOid);
+
+        /// <summary>
+        /// Update a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Update a custom dashboard on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to custom update</param>
+        /// <param name="customDashboardOid">The dashboard oid to custom update.</param>
+        /// <returns>ApiResponse of CustomDashboardResponse</returns>
+        ApiResponse<CustomDashboardResponse> UpdateCustomDashboardWithHttpInfo (CustomDashboard dashboard, int? customDashboardOid);
         /// <summary>
         /// Update a custom report
         /// </summary>
@@ -404,6 +530,27 @@ namespace com.ultracart.admin.v2.Api
         ApiResponse<ReportResponse> UpdateReportWithHttpInfo (Report report, int? reportOid);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Delete a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Delete a custom dashboard on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid">The dashboard oid to delete.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteCustomDashboardAsync (int? customDashboardOid);
+
+        /// <summary>
+        /// Delete a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Delete a custom dashboard on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid">The dashboard oid to delete.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCustomDashboardAsyncWithHttpInfo (int? customDashboardOid);
         /// <summary>
         /// Delete a custom report
         /// </summary>
@@ -476,8 +623,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionRequest">Request to execute custom report</param>
         /// <param name="customReportOid">The report oid to execute.</param>
-        /// <returns>Task of CustomReportResponse</returns>
-        System.Threading.Tasks.Task<CustomReportResponse> ExecuteCustomReportAsync (CustomReportExecutionRequest executionRequest, int? customReportOid);
+        /// <returns>Task of CustomReportExecutionResponse</returns>
+        System.Threading.Tasks.Task<CustomReportExecutionResponse> ExecuteCustomReportAsync (CustomReportExecutionRequest executionRequest, int? customReportOid);
 
         /// <summary>
         /// Execute a custom report
@@ -488,8 +635,29 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionRequest">Request to execute custom report</param>
         /// <param name="customReportOid">The report oid to execute.</param>
-        /// <returns>Task of ApiResponse (CustomReportResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomReportResponse>> ExecuteCustomReportAsyncWithHttpInfo (CustomReportExecutionRequest executionRequest, int? customReportOid);
+        /// <returns>Task of ApiResponse (CustomReportExecutionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomReportExecutionResponse>> ExecuteCustomReportAsyncWithHttpInfo (CustomReportExecutionRequest executionRequest, int? customReportOid);
+        /// <summary>
+        /// Execute a custom reports
+        /// </summary>
+        /// <remarks>
+        /// Execute a custom reports on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionRequest">Request to execute custom reports</param>
+        /// <returns>Task of CustomReportsExecutionResponse</returns>
+        System.Threading.Tasks.Task<CustomReportsExecutionResponse> ExecuteCustomReportsAsync (CustomReportsExecutionRequest executionRequest);
+
+        /// <summary>
+        /// Execute a custom reports
+        /// </summary>
+        /// <remarks>
+        /// Execute a custom reports on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionRequest">Request to execute custom reports</param>
+        /// <returns>Task of ApiResponse (CustomReportsExecutionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomReportsExecutionResponse>> ExecuteCustomReportsAsyncWithHttpInfo (CustomReportsExecutionRequest executionRequest);
         /// <summary>
         /// Execute the report queries
         /// </summary>
@@ -511,6 +679,46 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="queryRequest">Query request</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ExecuteReportQueriesAsyncWithHttpInfo (ReportExecuteQueriesRequest queryRequest);
+        /// <summary>
+        /// Get a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom dashboard 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>Task of CustomDashboardResponse</returns>
+        System.Threading.Tasks.Task<CustomDashboardResponse> GetCustomDashboardAsync (int? customDashboardOid);
+
+        /// <summary>
+        /// Get a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom dashboard 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>Task of ApiResponse (CustomDashboardResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomDashboardResponse>> GetCustomDashboardAsyncWithHttpInfo (int? customDashboardOid);
+        /// <summary>
+        /// Get custom dashboards
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom dashboards 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of CustomDashboardsResponse</returns>
+        System.Threading.Tasks.Task<CustomDashboardsResponse> GetCustomDashboardsAsync ();
+
+        /// <summary>
+        /// Get custom dashboards
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom dashboards 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (CustomDashboardsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomDashboardsResponse>> GetCustomDashboardsAsyncWithHttpInfo ();
         /// <summary>
         /// Get a custom report
         /// </summary>
@@ -674,6 +882,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ReportsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportsResponse>> GetReportsAsyncWithHttpInfo ();
         /// <summary>
+        /// Create a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Create a new custom dashboard on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to create</param>
+        /// <returns>Task of CustomDashboardResponse</returns>
+        System.Threading.Tasks.Task<CustomDashboardResponse> InsertCustomDashboardAsync (CustomDashboard dashboard);
+
+        /// <summary>
+        /// Create a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Create a new custom dashboard on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to create</param>
+        /// <returns>Task of ApiResponse (CustomDashboardResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomDashboardResponse>> InsertCustomDashboardAsyncWithHttpInfo (CustomDashboard dashboard);
+        /// <summary>
         /// Create a custom report
         /// </summary>
         /// <remarks>
@@ -715,6 +944,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="report">Report to create</param>
         /// <returns>Task of ApiResponse (ReportResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportResponse>> InsertReportAsyncWithHttpInfo (Report report);
+        /// <summary>
+        /// Update a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Update a custom dashboard on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to custom update</param>
+        /// <param name="customDashboardOid">The dashboard oid to custom update.</param>
+        /// <returns>Task of CustomDashboardResponse</returns>
+        System.Threading.Tasks.Task<CustomDashboardResponse> UpdateCustomDashboardAsync (CustomDashboard dashboard, int? customDashboardOid);
+
+        /// <summary>
+        /// Update a custom dashboard
+        /// </summary>
+        /// <remarks>
+        /// Update a custom dashboard on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to custom update</param>
+        /// <param name="customDashboardOid">The dashboard oid to custom update.</param>
+        /// <returns>Task of ApiResponse (CustomDashboardResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomDashboardResponse>> UpdateCustomDashboardAsyncWithHttpInfo (CustomDashboard dashboard, int? customDashboardOid);
         /// <summary>
         /// Update a custom report
         /// </summary>
@@ -887,6 +1139,161 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Delete a custom dashboard Delete a custom dashboard on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid">The dashboard oid to delete.</param>
+        /// <returns></returns>
+        public void DeleteCustomDashboard (int? customDashboardOid)
+        {
+             DeleteCustomDashboardWithHttpInfo(customDashboardOid);
+        }
+
+        /// <summary>
+        /// Delete a custom dashboard Delete a custom dashboard on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid">The dashboard oid to delete.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteCustomDashboardWithHttpInfo (int? customDashboardOid)
+        {
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->DeleteCustomDashboard");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteCustomDashboard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a custom dashboard Delete a custom dashboard on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid">The dashboard oid to delete.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteCustomDashboardAsync (int? customDashboardOid)
+        {
+             await DeleteCustomDashboardAsyncWithHttpInfo(customDashboardOid);
+
+        }
+
+        /// <summary>
+        /// Delete a custom dashboard Delete a custom dashboard on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid">The dashboard oid to delete.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCustomDashboardAsyncWithHttpInfo (int? customDashboardOid)
+        {
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->DeleteCustomDashboard");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteCustomDashboard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
@@ -1376,10 +1783,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionRequest">Request to execute custom report</param>
         /// <param name="customReportOid">The report oid to execute.</param>
-        /// <returns>CustomReportResponse</returns>
-        public CustomReportResponse ExecuteCustomReport (CustomReportExecutionRequest executionRequest, int? customReportOid)
+        /// <returns>CustomReportExecutionResponse</returns>
+        public CustomReportExecutionResponse ExecuteCustomReport (CustomReportExecutionRequest executionRequest, int? customReportOid)
         {
-             ApiResponse<CustomReportResponse> localVarResponse = ExecuteCustomReportWithHttpInfo(executionRequest, customReportOid);
+             ApiResponse<CustomReportExecutionResponse> localVarResponse = ExecuteCustomReportWithHttpInfo(executionRequest, customReportOid);
              return localVarResponse.Data;
         }
 
@@ -1389,8 +1796,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionRequest">Request to execute custom report</param>
         /// <param name="customReportOid">The report oid to execute.</param>
-        /// <returns>ApiResponse of CustomReportResponse</returns>
-        public ApiResponse< CustomReportResponse > ExecuteCustomReportWithHttpInfo (CustomReportExecutionRequest executionRequest, int? customReportOid)
+        /// <returns>ApiResponse of CustomReportExecutionResponse</returns>
+        public ApiResponse< CustomReportExecutionResponse > ExecuteCustomReportWithHttpInfo (CustomReportExecutionRequest executionRequest, int? customReportOid)
         {
             // verify the required parameter 'executionRequest' is set
             if (executionRequest == null)
@@ -1456,9 +1863,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CustomReportResponse>(localVarStatusCode,
+            return new ApiResponse<CustomReportExecutionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CustomReportResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportResponse)));
+                (CustomReportExecutionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportExecutionResponse)));
         }
 
         /// <summary>
@@ -1467,10 +1874,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionRequest">Request to execute custom report</param>
         /// <param name="customReportOid">The report oid to execute.</param>
-        /// <returns>Task of CustomReportResponse</returns>
-        public async System.Threading.Tasks.Task<CustomReportResponse> ExecuteCustomReportAsync (CustomReportExecutionRequest executionRequest, int? customReportOid)
+        /// <returns>Task of CustomReportExecutionResponse</returns>
+        public async System.Threading.Tasks.Task<CustomReportExecutionResponse> ExecuteCustomReportAsync (CustomReportExecutionRequest executionRequest, int? customReportOid)
         {
-             ApiResponse<CustomReportResponse> localVarResponse = await ExecuteCustomReportAsyncWithHttpInfo(executionRequest, customReportOid);
+             ApiResponse<CustomReportExecutionResponse> localVarResponse = await ExecuteCustomReportAsyncWithHttpInfo(executionRequest, customReportOid);
              return localVarResponse.Data;
 
         }
@@ -1481,8 +1888,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionRequest">Request to execute custom report</param>
         /// <param name="customReportOid">The report oid to execute.</param>
-        /// <returns>Task of ApiResponse (CustomReportResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomReportResponse>> ExecuteCustomReportAsyncWithHttpInfo (CustomReportExecutionRequest executionRequest, int? customReportOid)
+        /// <returns>Task of ApiResponse (CustomReportExecutionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomReportExecutionResponse>> ExecuteCustomReportAsyncWithHttpInfo (CustomReportExecutionRequest executionRequest, int? customReportOid)
         {
             // verify the required parameter 'executionRequest' is set
             if (executionRequest == null)
@@ -1548,9 +1955,180 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CustomReportResponse>(localVarStatusCode,
+            return new ApiResponse<CustomReportExecutionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CustomReportResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportResponse)));
+                (CustomReportExecutionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportExecutionResponse)));
+        }
+
+        /// <summary>
+        /// Execute a custom reports Execute a custom reports on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionRequest">Request to execute custom reports</param>
+        /// <returns>CustomReportsExecutionResponse</returns>
+        public CustomReportsExecutionResponse ExecuteCustomReports (CustomReportsExecutionRequest executionRequest)
+        {
+             ApiResponse<CustomReportsExecutionResponse> localVarResponse = ExecuteCustomReportsWithHttpInfo(executionRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Execute a custom reports Execute a custom reports on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionRequest">Request to execute custom reports</param>
+        /// <returns>ApiResponse of CustomReportsExecutionResponse</returns>
+        public ApiResponse< CustomReportsExecutionResponse > ExecuteCustomReportsWithHttpInfo (CustomReportsExecutionRequest executionRequest)
+        {
+            // verify the required parameter 'executionRequest' is set
+            if (executionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'executionRequest' when calling DatawarehouseApi->ExecuteCustomReports");
+
+            var localVarPath = "/datawarehouse/custom_reports/execute";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (executionRequest != null && executionRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(executionRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = executionRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExecuteCustomReports", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomReportsExecutionResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomReportsExecutionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportsExecutionResponse)));
+        }
+
+        /// <summary>
+        /// Execute a custom reports Execute a custom reports on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionRequest">Request to execute custom reports</param>
+        /// <returns>Task of CustomReportsExecutionResponse</returns>
+        public async System.Threading.Tasks.Task<CustomReportsExecutionResponse> ExecuteCustomReportsAsync (CustomReportsExecutionRequest executionRequest)
+        {
+             ApiResponse<CustomReportsExecutionResponse> localVarResponse = await ExecuteCustomReportsAsyncWithHttpInfo(executionRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Execute a custom reports Execute a custom reports on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionRequest">Request to execute custom reports</param>
+        /// <returns>Task of ApiResponse (CustomReportsExecutionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomReportsExecutionResponse>> ExecuteCustomReportsAsyncWithHttpInfo (CustomReportsExecutionRequest executionRequest)
+        {
+            // verify the required parameter 'executionRequest' is set
+            if (executionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'executionRequest' when calling DatawarehouseApi->ExecuteCustomReports");
+
+            var localVarPath = "/datawarehouse/custom_reports/execute";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (executionRequest != null && executionRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(executionRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = executionRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExecuteCustomReports", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomReportsExecutionResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomReportsExecutionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportsExecutionResponse)));
         }
 
         /// <summary>
@@ -1720,6 +2298,308 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+
+        /// <summary>
+        /// Get a custom dashboard Retrieve a custom dashboard 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>CustomDashboardResponse</returns>
+        public CustomDashboardResponse GetCustomDashboard (int? customDashboardOid)
+        {
+             ApiResponse<CustomDashboardResponse> localVarResponse = GetCustomDashboardWithHttpInfo(customDashboardOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a custom dashboard Retrieve a custom dashboard 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>ApiResponse of CustomDashboardResponse</returns>
+        public ApiResponse< CustomDashboardResponse > GetCustomDashboardWithHttpInfo (int? customDashboardOid)
+        {
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->GetCustomDashboard");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomDashboard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardResponse)));
+        }
+
+        /// <summary>
+        /// Get a custom dashboard Retrieve a custom dashboard 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>Task of CustomDashboardResponse</returns>
+        public async System.Threading.Tasks.Task<CustomDashboardResponse> GetCustomDashboardAsync (int? customDashboardOid)
+        {
+             ApiResponse<CustomDashboardResponse> localVarResponse = await GetCustomDashboardAsyncWithHttpInfo(customDashboardOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a custom dashboard Retrieve a custom dashboard 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>Task of ApiResponse (CustomDashboardResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomDashboardResponse>> GetCustomDashboardAsyncWithHttpInfo (int? customDashboardOid)
+        {
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->GetCustomDashboard");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomDashboard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardResponse)));
+        }
+
+        /// <summary>
+        /// Get custom dashboards Retrieve a custom dashboards 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CustomDashboardsResponse</returns>
+        public CustomDashboardsResponse GetCustomDashboards ()
+        {
+             ApiResponse<CustomDashboardsResponse> localVarResponse = GetCustomDashboardsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get custom dashboards Retrieve a custom dashboards 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CustomDashboardsResponse</returns>
+        public ApiResponse< CustomDashboardsResponse > GetCustomDashboardsWithHttpInfo ()
+        {
+
+            var localVarPath = "/datawarehouse/custom_dashboards";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomDashboards", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardsResponse)));
+        }
+
+        /// <summary>
+        /// Get custom dashboards Retrieve a custom dashboards 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of CustomDashboardsResponse</returns>
+        public async System.Threading.Tasks.Task<CustomDashboardsResponse> GetCustomDashboardsAsync ()
+        {
+             ApiResponse<CustomDashboardsResponse> localVarResponse = await GetCustomDashboardsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get custom dashboards Retrieve a custom dashboards 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (CustomDashboardsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomDashboardsResponse>> GetCustomDashboardsAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/datawarehouse/custom_dashboards";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomDashboards", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardsResponse)));
         }
 
         /// <summary>
@@ -2943,6 +3823,177 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Create a custom dashboard Create a new custom dashboard on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to create</param>
+        /// <returns>CustomDashboardResponse</returns>
+        public CustomDashboardResponse InsertCustomDashboard (CustomDashboard dashboard)
+        {
+             ApiResponse<CustomDashboardResponse> localVarResponse = InsertCustomDashboardWithHttpInfo(dashboard);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a custom dashboard Create a new custom dashboard on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to create</param>
+        /// <returns>ApiResponse of CustomDashboardResponse</returns>
+        public ApiResponse< CustomDashboardResponse > InsertCustomDashboardWithHttpInfo (CustomDashboard dashboard)
+        {
+            // verify the required parameter 'dashboard' is set
+            if (dashboard == null)
+                throw new ApiException(400, "Missing required parameter 'dashboard' when calling DatawarehouseApi->InsertCustomDashboard");
+
+            var localVarPath = "/datawarehouse/custom_dashboards";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dashboard != null && dashboard.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(dashboard); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = dashboard; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertCustomDashboard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardResponse)));
+        }
+
+        /// <summary>
+        /// Create a custom dashboard Create a new custom dashboard on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to create</param>
+        /// <returns>Task of CustomDashboardResponse</returns>
+        public async System.Threading.Tasks.Task<CustomDashboardResponse> InsertCustomDashboardAsync (CustomDashboard dashboard)
+        {
+             ApiResponse<CustomDashboardResponse> localVarResponse = await InsertCustomDashboardAsyncWithHttpInfo(dashboard);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a custom dashboard Create a new custom dashboard on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to create</param>
+        /// <returns>Task of ApiResponse (CustomDashboardResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomDashboardResponse>> InsertCustomDashboardAsyncWithHttpInfo (CustomDashboard dashboard)
+        {
+            // verify the required parameter 'dashboard' is set
+            if (dashboard == null)
+                throw new ApiException(400, "Missing required parameter 'dashboard' when calling DatawarehouseApi->InsertCustomDashboard");
+
+            var localVarPath = "/datawarehouse/custom_dashboards";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dashboard != null && dashboard.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(dashboard); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = dashboard; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertCustomDashboard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardResponse)));
+        }
+
+        /// <summary>
         /// Create a custom report Create a new custom report on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3282,6 +4333,189 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ReportResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ReportResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportResponse)));
+        }
+
+        /// <summary>
+        /// Update a custom dashboard Update a custom dashboard on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to custom update</param>
+        /// <param name="customDashboardOid">The dashboard oid to custom update.</param>
+        /// <returns>CustomDashboardResponse</returns>
+        public CustomDashboardResponse UpdateCustomDashboard (CustomDashboard dashboard, int? customDashboardOid)
+        {
+             ApiResponse<CustomDashboardResponse> localVarResponse = UpdateCustomDashboardWithHttpInfo(dashboard, customDashboardOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a custom dashboard Update a custom dashboard on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to custom update</param>
+        /// <param name="customDashboardOid">The dashboard oid to custom update.</param>
+        /// <returns>ApiResponse of CustomDashboardResponse</returns>
+        public ApiResponse< CustomDashboardResponse > UpdateCustomDashboardWithHttpInfo (CustomDashboard dashboard, int? customDashboardOid)
+        {
+            // verify the required parameter 'dashboard' is set
+            if (dashboard == null)
+                throw new ApiException(400, "Missing required parameter 'dashboard' when calling DatawarehouseApi->UpdateCustomDashboard");
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->UpdateCustomDashboard");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+            if (dashboard != null && dashboard.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(dashboard); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = dashboard; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCustomDashboard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardResponse)));
+        }
+
+        /// <summary>
+        /// Update a custom dashboard Update a custom dashboard on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to custom update</param>
+        /// <param name="customDashboardOid">The dashboard oid to custom update.</param>
+        /// <returns>Task of CustomDashboardResponse</returns>
+        public async System.Threading.Tasks.Task<CustomDashboardResponse> UpdateCustomDashboardAsync (CustomDashboard dashboard, int? customDashboardOid)
+        {
+             ApiResponse<CustomDashboardResponse> localVarResponse = await UpdateCustomDashboardAsyncWithHttpInfo(dashboard, customDashboardOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a custom dashboard Update a custom dashboard on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboard">Dashboard to custom update</param>
+        /// <param name="customDashboardOid">The dashboard oid to custom update.</param>
+        /// <returns>Task of ApiResponse (CustomDashboardResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomDashboardResponse>> UpdateCustomDashboardAsyncWithHttpInfo (CustomDashboard dashboard, int? customDashboardOid)
+        {
+            // verify the required parameter 'dashboard' is set
+            if (dashboard == null)
+                throw new ApiException(400, "Missing required parameter 'dashboard' when calling DatawarehouseApi->UpdateCustomDashboard");
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->UpdateCustomDashboard");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+            if (dashboard != null && dashboard.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(dashboard); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = dashboard; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCustomDashboard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardResponse)));
         }
 
         /// <summary>

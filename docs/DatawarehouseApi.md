@@ -4,11 +4,15 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**DeleteCustomDashboard**](DatawarehouseApi.md#deletecustomdashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
 [**DeleteCustomReport**](DatawarehouseApi.md#deletecustomreport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
 [**DeleteReport**](DatawarehouseApi.md#deletereport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
 [**DryRunReportQueries**](DatawarehouseApi.md#dryrunreportqueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
 [**ExecuteCustomReport**](DatawarehouseApi.md#executecustomreport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid}/execute | Execute a custom report
+[**ExecuteCustomReports**](DatawarehouseApi.md#executecustomreports) | **PUT** /datawarehouse/custom_reports/execute | Execute a custom reports
 [**ExecuteReportQueries**](DatawarehouseApi.md#executereportqueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
+[**GetCustomDashboard**](DatawarehouseApi.md#getcustomdashboard) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Get a custom dashboard
+[**GetCustomDashboards**](DatawarehouseApi.md#getcustomdashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 [**GetCustomReport**](DatawarehouseApi.md#getcustomreport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 [**GetCustomReportAccountConfig**](DatawarehouseApi.md#getcustomreportaccountconfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
 [**GetCustomReports**](DatawarehouseApi.md#getcustomreports) | **GET** /datawarehouse/custom_reports | Get custom reports
@@ -17,12 +21,79 @@ Method | HTTP request | Description
 [**GetReportDataSetPage**](DatawarehouseApi.md#getreportdatasetpage) | **GET** /datawarehouse/reports/dataset/{dataset_uuid}/pages/{page_number} | Get a report data set page
 [**GetReportWebsocketAuthorization**](DatawarehouseApi.md#getreportwebsocketauthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
 [**GetReports**](DatawarehouseApi.md#getreports) | **GET** /datawarehouse/reports | Get list of reports available
+[**InsertCustomDashboard**](DatawarehouseApi.md#insertcustomdashboard) | **POST** /datawarehouse/custom_dashboards | Create a custom dashboard
 [**InsertCustomReport**](DatawarehouseApi.md#insertcustomreport) | **POST** /datawarehouse/custom_reports | Create a custom report
 [**InsertReport**](DatawarehouseApi.md#insertreport) | **POST** /datawarehouse/reports | Create a report
+[**UpdateCustomDashboard**](DatawarehouseApi.md#updatecustomdashboard) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Update a custom dashboard
 [**UpdateCustomReport**](DatawarehouseApi.md#updatecustomreport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
 [**UpdateCustomReportAccountConfig**](DatawarehouseApi.md#updatecustomreportaccountconfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 [**UpdateReport**](DatawarehouseApi.md#updatereport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
 
+
+<a name="deletecustomdashboard"></a>
+# **DeleteCustomDashboard**
+> void DeleteCustomDashboard (int? customDashboardOid)
+
+Delete a custom dashboard
+
+Delete a custom dashboard on the UltraCart account. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeleteCustomDashboardExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new DatawarehouseApi(simpleKey);
+
+            var customDashboardOid = 56;  // int? | The dashboard oid to delete.
+
+            try
+            {
+                // Delete a custom dashboard
+                apiInstance.DeleteCustomDashboard(customDashboardOid);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DatawarehouseApi.DeleteCustomDashboard: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customDashboardOid** | **int?**| The dashboard oid to delete. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="deletecustomreport"></a>
 # **DeleteCustomReport**
@@ -222,7 +293,7 @@ Name | Type | Description  | Notes
 
 <a name="executecustomreport"></a>
 # **ExecuteCustomReport**
-> CustomReportResponse ExecuteCustomReport (CustomReportExecutionRequest executionRequest, int? customReportOid)
+> CustomReportExecutionResponse ExecuteCustomReport (CustomReportExecutionRequest executionRequest, int? customReportOid)
 
 Execute a custom report
 
@@ -253,7 +324,7 @@ namespace Example
             try
             {
                 // Execute a custom report
-                CustomReportResponse result = apiInstance.ExecuteCustomReport(executionRequest, customReportOid);
+                CustomReportExecutionResponse result = apiInstance.ExecuteCustomReport(executionRequest, customReportOid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -275,7 +346,73 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomReportResponse**](CustomReportResponse.md)
+[**CustomReportExecutionResponse**](CustomReportExecutionResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="executecustomreports"></a>
+# **ExecuteCustomReports**
+> CustomReportsExecutionResponse ExecuteCustomReports (CustomReportsExecutionRequest executionRequest)
+
+Execute a custom reports
+
+Execute a custom reports on the UltraCart account. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class ExecuteCustomReportsExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new DatawarehouseApi(simpleKey);
+
+            var executionRequest = new CustomReportsExecutionRequest(); // CustomReportsExecutionRequest | Request to execute custom reports
+
+            try
+            {
+                // Execute a custom reports
+                CustomReportsExecutionResponse result = apiInstance.ExecuteCustomReports(executionRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DatawarehouseApi.ExecuteCustomReports: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **executionRequest** | [**CustomReportsExecutionRequest**](CustomReportsExecutionRequest.md)| Request to execute custom reports | 
+
+### Return type
+
+[**CustomReportsExecutionResponse**](CustomReportsExecutionResponse.md)
 
 ### Authorization
 
@@ -341,6 +478,134 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcustomdashboard"></a>
+# **GetCustomDashboard**
+> CustomDashboardResponse GetCustomDashboard (int? customDashboardOid)
+
+Get a custom dashboard
+
+Retrieve a custom dashboard 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetCustomDashboardExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new DatawarehouseApi(simpleKey);
+
+            var customDashboardOid = 56;  // int? | 
+
+            try
+            {
+                // Get a custom dashboard
+                CustomDashboardResponse result = apiInstance.GetCustomDashboard(customDashboardOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DatawarehouseApi.GetCustomDashboard: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customDashboardOid** | **int?**|  | 
+
+### Return type
+
+[**CustomDashboardResponse**](CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcustomdashboards"></a>
+# **GetCustomDashboards**
+> CustomDashboardsResponse GetCustomDashboards ()
+
+Get custom dashboards
+
+Retrieve a custom dashboards 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetCustomDashboardsExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new DatawarehouseApi(simpleKey);
+
+
+            try
+            {
+                // Get custom dashboards
+                CustomDashboardsResponse result = apiInstance.GetCustomDashboards();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DatawarehouseApi.GetCustomDashboards: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CustomDashboardsResponse**](CustomDashboardsResponse.md)
 
 ### Authorization
 
@@ -867,6 +1132,72 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="insertcustomdashboard"></a>
+# **InsertCustomDashboard**
+> CustomDashboardResponse InsertCustomDashboard (CustomDashboard dashboard)
+
+Create a custom dashboard
+
+Create a new custom dashboard on the UltraCart account. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class InsertCustomDashboardExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new DatawarehouseApi(simpleKey);
+
+            var dashboard = new CustomDashboard(); // CustomDashboard | Dashboard to create
+
+            try
+            {
+                // Create a custom dashboard
+                CustomDashboardResponse result = apiInstance.InsertCustomDashboard(dashboard);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DatawarehouseApi.InsertCustomDashboard: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dashboard** | [**CustomDashboard**](CustomDashboard.md)| Dashboard to create | 
+
+### Return type
+
+[**CustomDashboardResponse**](CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="insertcustomreport"></a>
 # **InsertCustomReport**
 > CustomReportResponse InsertCustomReport (CustomReport report)
@@ -987,6 +1318,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ReportResponse**](ReportResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatecustomdashboard"></a>
+# **UpdateCustomDashboard**
+> CustomDashboardResponse UpdateCustomDashboard (CustomDashboard dashboard, int? customDashboardOid)
+
+Update a custom dashboard
+
+Update a custom dashboard on the UltraCart account. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateCustomDashboardExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new DatawarehouseApi(simpleKey);
+
+            var dashboard = new CustomDashboard(); // CustomDashboard | Dashboard to custom update
+            var customDashboardOid = 56;  // int? | The dashboard oid to custom update.
+
+            try
+            {
+                // Update a custom dashboard
+                CustomDashboardResponse result = apiInstance.UpdateCustomDashboard(dashboard, customDashboardOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DatawarehouseApi.UpdateCustomDashboard: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dashboard** | [**CustomDashboard**](CustomDashboard.md)| Dashboard to custom update | 
+ **customDashboardOid** | **int?**| The dashboard oid to custom update. | 
+
+### Return type
+
+[**CustomDashboardResponse**](CustomDashboardResponse.md)
 
 ### Authorization
 

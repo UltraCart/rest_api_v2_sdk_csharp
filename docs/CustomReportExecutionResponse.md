@@ -1,14 +1,14 @@
-# com.ultracart.admin.v2.Model.EmailWebhookEditorValuesResponse
+# com.ultracart.admin.v2.Model.CustomReportExecutionResponse
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AvailableExpansions** | **List&lt;string&gt;** |  | [optional] 
-**AvailableTokens** | **List&lt;string&gt;** |  | [optional] 
 **Error** | [**Error**](Error.md) |  | [optional] 
-**LoyaltyTiers** | **List&lt;string&gt;** |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
-**RestObjectType** | **string** |  | [optional] 
+**Parameters** | [**List&lt;CustomReportExecutionParameter&gt;**](CustomReportExecutionParameter.md) |  | [optional] 
+**Report** | [**CustomReport**](CustomReport.md) |  | [optional] 
+**ResultSchemaJson** | **string** |  | [optional] 
+**ResultUrl** | **string** |  | [optional] 
 **Success** | **bool?** | Indicates if API call was successful | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 
 

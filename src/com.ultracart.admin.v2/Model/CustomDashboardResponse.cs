@@ -25,45 +25,33 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// EmailWebhookEditorValuesResponse
+    /// CustomDashboardResponse
     /// </summary>
     [DataContract]
-    public partial class EmailWebhookEditorValuesResponse :  IEquatable<EmailWebhookEditorValuesResponse>, IValidatableObject
+    public partial class CustomDashboardResponse :  IEquatable<CustomDashboardResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EmailWebhookEditorValuesResponse" /> class.
+        /// Initializes a new instance of the <see cref="CustomDashboardResponse" /> class.
         /// </summary>
-        /// <param name="availableExpansions">availableExpansions.</param>
-        /// <param name="availableTokens">availableTokens.</param>
+        /// <param name="dashboard">dashboard.</param>
         /// <param name="error">error.</param>
-        /// <param name="loyaltyTiers">loyaltyTiers.</param>
         /// <param name="metadata">metadata.</param>
-        /// <param name="restObjectType">restObjectType.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public EmailWebhookEditorValuesResponse(List<string> availableExpansions = default(List<string>), List<string> availableTokens = default(List<string>), Error error = default(Error), List<string> loyaltyTiers = default(List<string>), ResponseMetadata metadata = default(ResponseMetadata), string restObjectType = default(string), bool? success = default(bool?), Warning warning = default(Warning))
+        public CustomDashboardResponse(CustomDashboard dashboard = default(CustomDashboard), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning))
         {
-            this.AvailableExpansions = availableExpansions;
-            this.AvailableTokens = availableTokens;
+            this.Dashboard = dashboard;
             this.Error = error;
-            this.LoyaltyTiers = loyaltyTiers;
             this.Metadata = metadata;
-            this.RestObjectType = restObjectType;
             this.Success = success;
             this.Warning = warning;
         }
         
         /// <summary>
-        /// Gets or Sets AvailableExpansions
+        /// Gets or Sets Dashboard
         /// </summary>
-        [DataMember(Name="available_expansions", EmitDefaultValue=false)]
-        public List<string> AvailableExpansions { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AvailableTokens
-        /// </summary>
-        [DataMember(Name="available_tokens", EmitDefaultValue=false)]
-        public List<string> AvailableTokens { get; set; }
+        [DataMember(Name="dashboard", EmitDefaultValue=false)]
+        public CustomDashboard Dashboard { get; set; }
 
         /// <summary>
         /// Gets or Sets Error
@@ -72,22 +60,10 @@ namespace com.ultracart.admin.v2.Model
         public Error Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets LoyaltyTiers
-        /// </summary>
-        [DataMember(Name="loyalty_tiers", EmitDefaultValue=false)]
-        public List<string> LoyaltyTiers { get; set; }
-
-        /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public ResponseMetadata Metadata { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RestObjectType
-        /// </summary>
-        [DataMember(Name="rest_object_type", EmitDefaultValue=false)]
-        public string RestObjectType { get; set; }
 
         /// <summary>
         /// Indicates if API call was successful
@@ -109,13 +85,10 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class EmailWebhookEditorValuesResponse {\n");
-            sb.Append("  AvailableExpansions: ").Append(AvailableExpansions).Append("\n");
-            sb.Append("  AvailableTokens: ").Append(AvailableTokens).Append("\n");
+            sb.Append("class CustomDashboardResponse {\n");
+            sb.Append("  Dashboard: ").Append(Dashboard).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  LoyaltyTiers: ").Append(LoyaltyTiers).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  RestObjectType: ").Append(RestObjectType).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
@@ -138,29 +111,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EmailWebhookEditorValuesResponse);
+            return this.Equals(input as CustomDashboardResponse);
         }
 
         /// <summary>
-        /// Returns true if EmailWebhookEditorValuesResponse instances are equal
+        /// Returns true if CustomDashboardResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of EmailWebhookEditorValuesResponse to be compared</param>
+        /// <param name="input">Instance of CustomDashboardResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EmailWebhookEditorValuesResponse input)
+        public bool Equals(CustomDashboardResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.AvailableExpansions == input.AvailableExpansions ||
-                    this.AvailableExpansions != null &&
-                    this.AvailableExpansions.SequenceEqual(input.AvailableExpansions)
-                ) && 
-                (
-                    this.AvailableTokens == input.AvailableTokens ||
-                    this.AvailableTokens != null &&
-                    this.AvailableTokens.SequenceEqual(input.AvailableTokens)
+                    this.Dashboard == input.Dashboard ||
+                    (this.Dashboard != null &&
+                    this.Dashboard.Equals(input.Dashboard))
                 ) && 
                 (
                     this.Error == input.Error ||
@@ -168,19 +136,9 @@ namespace com.ultracart.admin.v2.Model
                     this.Error.Equals(input.Error))
                 ) && 
                 (
-                    this.LoyaltyTiers == input.LoyaltyTiers ||
-                    this.LoyaltyTiers != null &&
-                    this.LoyaltyTiers.SequenceEqual(input.LoyaltyTiers)
-                ) && 
-                (
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
-                ) && 
-                (
-                    this.RestObjectType == input.RestObjectType ||
-                    (this.RestObjectType != null &&
-                    this.RestObjectType.Equals(input.RestObjectType))
                 ) && 
                 (
                     this.Success == input.Success ||
@@ -203,18 +161,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AvailableExpansions != null)
-                    hashCode = hashCode * 59 + this.AvailableExpansions.GetHashCode();
-                if (this.AvailableTokens != null)
-                    hashCode = hashCode * 59 + this.AvailableTokens.GetHashCode();
+                if (this.Dashboard != null)
+                    hashCode = hashCode * 59 + this.Dashboard.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.LoyaltyTiers != null)
-                    hashCode = hashCode * 59 + this.LoyaltyTiers.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
-                if (this.RestObjectType != null)
-                    hashCode = hashCode * 59 + this.RestObjectType.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Warning != null)

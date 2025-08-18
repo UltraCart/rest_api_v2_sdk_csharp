@@ -1,13 +1,13 @@
 
-# com.ultracart.admin.v2.Model.ChargebackDisputeResponse
+# com.ultracart.admin.v2.Model.CustomDashboardSchedulesResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Chargeback** | [**ChargebackDispute**](ChargebackDispute.md) |  | [optional] 
 **Error** | [**Error**](Error.md) |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**Schedules** | [**List&lt;CustomDashboardSchedule&gt;**](CustomDashboardSchedule.md) | schedules | [optional] 
 **Success** | **bool** | Indicates if API call was successful | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 
 

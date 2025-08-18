@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of email campaign | [optional] 
 **OpenRateFormatted** | **string** | Open rate of emails | [optional] 
 **PreventSendingDueToSpam** | **bool** | True if this campaign is prevented from sending at this time due to spam complaints. | [optional] 
+**RepeatMonthly** | **bool** | True if the campaign should repeat on a monthly basis | [optional] 
+**RepeatWeekly** | **bool** | True if the campaign should repeat on a weekly basis | [optional] 
 **RevenueFormatted** | **string** | Revenue associated with campaign | [optional] 
 **RevenuePerCustomerFormatted** | **string** | Revenue per customer associated with campaign | [optional] 
 **ScheduledDts** | **string** | Scheduled date | [optional] 

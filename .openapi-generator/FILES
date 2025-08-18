@@ -127,10 +127,6 @@ docs/ChannelPartnerShipToPreferenceResponse.md
 docs/ChannelPartnerShipToPreferencesResponse.md
 docs/ChannelPartnerShippingEstimate.md
 docs/ChannelPartnersResponse.md
-docs/ChargebackApi.md
-docs/ChargebackDispute.md
-docs/ChargebackDisputeResponse.md
-docs/ChargebackDisputesResponse.md
 docs/CheckoutAllowedCountriesResponse.md
 docs/CheckoutApi.md
 docs/CheckoutHandoffRequest.md
@@ -321,6 +317,9 @@ docs/CustomDashboardExecutionParameter.md
 docs/CustomDashboardPage.md
 docs/CustomDashboardPageReport.md
 docs/CustomDashboardResponse.md
+docs/CustomDashboardSchedule.md
+docs/CustomDashboardScheduleResponse.md
+docs/CustomDashboardSchedulesResponse.md
 docs/CustomDashboardsResponse.md
 docs/CustomReport.md
 docs/CustomReportAccountConfig.md
@@ -915,7 +914,6 @@ git_push.sh
 src/com.ultracart.admin.v2/Api/AffiliateApi.cs
 src/com.ultracart.admin.v2/Api/AutoOrderApi.cs
 src/com.ultracart.admin.v2/Api/ChannelPartnerApi.cs
-src/com.ultracart.admin.v2/Api/ChargebackApi.cs
 src/com.ultracart.admin.v2/Api/CheckoutApi.cs
 src/com.ultracart.admin.v2/Api/ConversationApi.cs
 src/com.ultracart.admin.v2/Api/CouponApi.cs
@@ -1062,9 +1060,6 @@ src/com.ultracart.admin.v2/Model/ChannelPartnerShipToPreferenceResponse.cs
 src/com.ultracart.admin.v2/Model/ChannelPartnerShipToPreferencesResponse.cs
 src/com.ultracart.admin.v2/Model/ChannelPartnerShippingEstimate.cs
 src/com.ultracart.admin.v2/Model/ChannelPartnersResponse.cs
-src/com.ultracart.admin.v2/Model/ChargebackDispute.cs
-src/com.ultracart.admin.v2/Model/ChargebackDisputeResponse.cs
-src/com.ultracart.admin.v2/Model/ChargebackDisputesResponse.cs
 src/com.ultracart.admin.v2/Model/CheckoutAllowedCountriesResponse.cs
 src/com.ultracart.admin.v2/Model/CheckoutHandoffRequest.cs
 src/com.ultracart.admin.v2/Model/CheckoutHandoffResponse.cs
@@ -1252,6 +1247,9 @@ src/com.ultracart.admin.v2/Model/CustomDashboardExecutionParameter.cs
 src/com.ultracart.admin.v2/Model/CustomDashboardPage.cs
 src/com.ultracart.admin.v2/Model/CustomDashboardPageReport.cs
 src/com.ultracart.admin.v2/Model/CustomDashboardResponse.cs
+src/com.ultracart.admin.v2/Model/CustomDashboardSchedule.cs
+src/com.ultracart.admin.v2/Model/CustomDashboardScheduleResponse.cs
+src/com.ultracart.admin.v2/Model/CustomDashboardSchedulesResponse.cs
 src/com.ultracart.admin.v2/Model/CustomDashboardsResponse.cs
 src/com.ultracart.admin.v2/Model/CustomReport.cs
 src/com.ultracart.admin.v2/Model/CustomReportAccountConfig.cs

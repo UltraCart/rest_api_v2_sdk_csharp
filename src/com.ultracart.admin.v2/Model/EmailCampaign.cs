@@ -50,6 +50,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="name">Name of email campaign.</param>
         /// <param name="openRateFormatted">Open rate of emails.</param>
         /// <param name="preventSendingDueToSpam">True if this campaign is prevented from sending at this time due to spam complaints..</param>
+        /// <param name="repeatMonthly">True if the campaign should repeat on a monthly basis.</param>
+        /// <param name="repeatWeekly">True if the campaign should repeat on a weekly basis.</param>
         /// <param name="revenueFormatted">Revenue associated with campaign.</param>
         /// <param name="revenuePerCustomerFormatted">Revenue per customer associated with campaign.</param>
         /// <param name="scheduledDts">Scheduled date.</param>
@@ -59,7 +61,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="status">Status of the campaign of draft, archived, and sent.</param>
         /// <param name="statusDts">Timestamp when the last status change happened.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
-        public EmailCampaign(string clickRateFormatted = default(string), string createdDts = default(string), bool deleted = default(bool), string emailCampaignUuid = default(string), string emailCommunicationSequenceUuid = default(string), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string espCampaignFolderUuid = default(string), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), int libraryItemOid = default(int), List<EmailListSegmentMembership> memberships = default(List<EmailListSegmentMembership>), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), bool preventSendingDueToSpam = default(bool), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string scheduledDts = default(string), string screenshotLargeFullUrl = default(string), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string status = default(string), string statusDts = default(string), int storefrontOid = default(int))
+        public EmailCampaign(string clickRateFormatted = default(string), string createdDts = default(string), bool deleted = default(bool), string emailCampaignUuid = default(string), string emailCommunicationSequenceUuid = default(string), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string espCampaignFolderUuid = default(string), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), int libraryItemOid = default(int), List<EmailListSegmentMembership> memberships = default(List<EmailListSegmentMembership>), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), bool preventSendingDueToSpam = default(bool), bool repeatMonthly = default(bool), bool repeatWeekly = default(bool), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string scheduledDts = default(string), string screenshotLargeFullUrl = default(string), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string status = default(string), string statusDts = default(string), int storefrontOid = default(int))
         {
             this.ClickRateFormatted = clickRateFormatted;
             this.CreatedDts = createdDts;
@@ -78,6 +80,8 @@ namespace com.ultracart.admin.v2.Model
             this.Name = name;
             this.OpenRateFormatted = openRateFormatted;
             this.PreventSendingDueToSpam = preventSendingDueToSpam;
+            this.RepeatMonthly = repeatMonthly;
+            this.RepeatWeekly = repeatWeekly;
             this.RevenueFormatted = revenueFormatted;
             this.RevenuePerCustomerFormatted = revenuePerCustomerFormatted;
             this.ScheduledDts = scheduledDts;
@@ -209,6 +213,20 @@ namespace com.ultracart.admin.v2.Model
         public bool PreventSendingDueToSpam { get; set; }
 
         /// <summary>
+        /// True if the campaign should repeat on a monthly basis
+        /// </summary>
+        /// <value>True if the campaign should repeat on a monthly basis</value>
+        [DataMember(Name="repeat_monthly", EmitDefaultValue=false)]
+        public bool RepeatMonthly { get; set; }
+
+        /// <summary>
+        /// True if the campaign should repeat on a weekly basis
+        /// </summary>
+        /// <value>True if the campaign should repeat on a weekly basis</value>
+        [DataMember(Name="repeat_weekly", EmitDefaultValue=false)]
+        public bool RepeatWeekly { get; set; }
+
+        /// <summary>
         /// Revenue associated with campaign
         /// </summary>
         /// <value>Revenue associated with campaign</value>
@@ -296,6 +314,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OpenRateFormatted: ").Append(OpenRateFormatted).Append("\n");
             sb.Append("  PreventSendingDueToSpam: ").Append(PreventSendingDueToSpam).Append("\n");
+            sb.Append("  RepeatMonthly: ").Append(RepeatMonthly).Append("\n");
+            sb.Append("  RepeatWeekly: ").Append(RepeatWeekly).Append("\n");
             sb.Append("  RevenueFormatted: ").Append(RevenueFormatted).Append("\n");
             sb.Append("  RevenuePerCustomerFormatted: ").Append(RevenuePerCustomerFormatted).Append("\n");
             sb.Append("  ScheduledDts: ").Append(ScheduledDts).Append("\n");
@@ -426,6 +446,16 @@ namespace com.ultracart.admin.v2.Model
                     this.PreventSendingDueToSpam.Equals(input.PreventSendingDueToSpam))
                 ) && 
                 (
+                    this.RepeatMonthly == input.RepeatMonthly ||
+                    (this.RepeatMonthly != null &&
+                    this.RepeatMonthly.Equals(input.RepeatMonthly))
+                ) && 
+                (
+                    this.RepeatWeekly == input.RepeatWeekly ||
+                    (this.RepeatWeekly != null &&
+                    this.RepeatWeekly.Equals(input.RepeatWeekly))
+                ) && 
+                (
                     this.RevenueFormatted == input.RevenueFormatted ||
                     (this.RevenueFormatted != null &&
                     this.RevenueFormatted.Equals(input.RevenueFormatted))
@@ -515,6 +545,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OpenRateFormatted.GetHashCode();
                 if (this.PreventSendingDueToSpam != null)
                     hashCode = hashCode * 59 + this.PreventSendingDueToSpam.GetHashCode();
+                if (this.RepeatMonthly != null)
+                    hashCode = hashCode * 59 + this.RepeatMonthly.GetHashCode();
+                if (this.RepeatWeekly != null)
+                    hashCode = hashCode * 59 + this.RepeatWeekly.GetHashCode();
                 if (this.RevenueFormatted != null)
                     hashCode = hashCode * 59 + this.RevenueFormatted.GetHashCode();
                 if (this.RevenuePerCustomerFormatted != null)

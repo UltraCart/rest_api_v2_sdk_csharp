@@ -25,34 +25,28 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ChargebackDisputeResponse
+    /// CustomDashboardSchedulesResponse
     /// </summary>
     [DataContract]
-    public partial class ChargebackDisputeResponse :  IEquatable<ChargebackDisputeResponse>, IValidatableObject
+    public partial class CustomDashboardSchedulesResponse :  IEquatable<CustomDashboardSchedulesResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChargebackDisputeResponse" /> class.
+        /// Initializes a new instance of the <see cref="CustomDashboardSchedulesResponse" /> class.
         /// </summary>
-        /// <param name="chargeback">chargeback.</param>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
+        /// <param name="schedules">schedules.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ChargebackDisputeResponse(ChargebackDispute chargeback = default(ChargebackDispute), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning))
+        public CustomDashboardSchedulesResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), List<CustomDashboardSchedule> schedules = default(List<CustomDashboardSchedule>), bool? success = default(bool?), Warning warning = default(Warning))
         {
-            this.Chargeback = chargeback;
             this.Error = error;
             this.Metadata = metadata;
+            this.Schedules = schedules;
             this.Success = success;
             this.Warning = warning;
         }
         
-        /// <summary>
-        /// Gets or Sets Chargeback
-        /// </summary>
-        [DataMember(Name="chargeback", EmitDefaultValue=false)]
-        public ChargebackDispute Chargeback { get; set; }
-
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
@@ -64,6 +58,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public ResponseMetadata Metadata { get; set; }
+
+        /// <summary>
+        /// schedules
+        /// </summary>
+        /// <value>schedules</value>
+        [DataMember(Name="schedules", EmitDefaultValue=false)]
+        public List<CustomDashboardSchedule> Schedules { get; set; }
 
         /// <summary>
         /// Indicates if API call was successful
@@ -85,10 +86,10 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ChargebackDisputeResponse {\n");
-            sb.Append("  Chargeback: ").Append(Chargeback).Append("\n");
+            sb.Append("class CustomDashboardSchedulesResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  Schedules: ").Append(Schedules).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
@@ -111,25 +112,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ChargebackDisputeResponse);
+            return this.Equals(input as CustomDashboardSchedulesResponse);
         }
 
         /// <summary>
-        /// Returns true if ChargebackDisputeResponse instances are equal
+        /// Returns true if CustomDashboardSchedulesResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ChargebackDisputeResponse to be compared</param>
+        /// <param name="input">Instance of CustomDashboardSchedulesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChargebackDisputeResponse input)
+        public bool Equals(CustomDashboardSchedulesResponse input)
         {
             if (input == null)
                 return false;
 
             return 
-                (
-                    this.Chargeback == input.Chargeback ||
-                    (this.Chargeback != null &&
-                    this.Chargeback.Equals(input.Chargeback))
-                ) && 
                 (
                     this.Error == input.Error ||
                     (this.Error != null &&
@@ -139,6 +135,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
+                ) && 
+                (
+                    this.Schedules == input.Schedules ||
+                    this.Schedules != null &&
+                    this.Schedules.SequenceEqual(input.Schedules)
                 ) && 
                 (
                     this.Success == input.Success ||
@@ -161,12 +162,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Chargeback != null)
-                    hashCode = hashCode * 59 + this.Chargeback.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
+                if (this.Schedules != null)
+                    hashCode = hashCode * 59 + this.Schedules.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Warning != null)

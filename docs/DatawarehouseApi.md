@@ -5,6 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteCustomDashboard**](DatawarehouseApi.md#deletecustomdashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
+[**DeleteCustomDashboardSchedule**](DatawarehouseApi.md#deletecustomdashboardschedule) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid} | Delete a custom dashboard schedule
 [**DeleteCustomReport**](DatawarehouseApi.md#deletecustomreport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
 [**DeleteReport**](DatawarehouseApi.md#deletereport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
 [**DryRunReportQueries**](DatawarehouseApi.md#dryrunreportqueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
@@ -12,6 +13,7 @@ Method | HTTP request | Description
 [**ExecuteCustomReports**](DatawarehouseApi.md#executecustomreports) | **PUT** /datawarehouse/custom_reports/execute | Execute a custom reports
 [**ExecuteReportQueries**](DatawarehouseApi.md#executereportqueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
 [**GetCustomDashboard**](DatawarehouseApi.md#getcustomdashboard) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Get a custom dashboard
+[**GetCustomDashboardSchedules**](DatawarehouseApi.md#getcustomdashboardschedules) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules | Get custom dashboards
 [**GetCustomDashboards**](DatawarehouseApi.md#getcustomdashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 [**GetCustomReport**](DatawarehouseApi.md#getcustomreport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 [**GetCustomReportAccountConfig**](DatawarehouseApi.md#getcustomreportaccountconfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
@@ -22,9 +24,11 @@ Method | HTTP request | Description
 [**GetReportWebsocketAuthorization**](DatawarehouseApi.md#getreportwebsocketauthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
 [**GetReports**](DatawarehouseApi.md#getreports) | **GET** /datawarehouse/reports | Get list of reports available
 [**InsertCustomDashboard**](DatawarehouseApi.md#insertcustomdashboard) | **POST** /datawarehouse/custom_dashboards | Create a custom dashboard
+[**InsertCustomDashboardSchedule**](DatawarehouseApi.md#insertcustomdashboardschedule) | **POST** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules | Create a custom dashboard schedule
 [**InsertCustomReport**](DatawarehouseApi.md#insertcustomreport) | **POST** /datawarehouse/custom_reports | Create a custom report
 [**InsertReport**](DatawarehouseApi.md#insertreport) | **POST** /datawarehouse/reports | Create a report
 [**UpdateCustomDashboard**](DatawarehouseApi.md#updatecustomdashboard) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Update a custom dashboard
+[**UpdateCustomDashboardSchedule**](DatawarehouseApi.md#updatecustomdashboardschedule) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid} | Update a custom dashboard schedule
 [**UpdateCustomReport**](DatawarehouseApi.md#updatecustomreport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
 [**UpdateCustomReportAccountConfig**](DatawarehouseApi.md#updatecustomreportaccountconfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 [**UpdateReport**](DatawarehouseApi.md#updatereport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
@@ -91,6 +95,73 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletecustomdashboardschedule"></a>
+# **DeleteCustomDashboardSchedule**
+> void DeleteCustomDashboardSchedule (int? customDashboardScheduleOid, int? customDashboardOid)
+
+Delete a custom dashboard schedule
+
+delete a custom dashboard schedule on the UltraCart account. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeleteCustomDashboardScheduleExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new DatawarehouseApi(simpleKey);
+
+            var customDashboardScheduleOid = 56;  // int? | The dashboard schedule oid to delete.
+            var customDashboardOid = 56;  // int? | The dashboard oid that owns the schedule.
+
+            try
+            {
+                // Delete a custom dashboard schedule
+                apiInstance.DeleteCustomDashboardSchedule(customDashboardScheduleOid, customDashboardOid);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DatawarehouseApi.DeleteCustomDashboardSchedule: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customDashboardScheduleOid** | **int?**| The dashboard schedule oid to delete. | 
+ **customDashboardOid** | **int?**| The dashboard oid that owns the schedule. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -544,6 +615,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomDashboardResponse**](CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcustomdashboardschedules"></a>
+# **GetCustomDashboardSchedules**
+> CustomDashboardSchedulesResponse GetCustomDashboardSchedules (int? customDashboardOid)
+
+Get custom dashboards
+
+Retrieve a custom dashboards 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetCustomDashboardSchedulesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new DatawarehouseApi(simpleKey);
+
+            var customDashboardOid = 56;  // int? | 
+
+            try
+            {
+                // Get custom dashboards
+                CustomDashboardSchedulesResponse result = apiInstance.GetCustomDashboardSchedules(customDashboardOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DatawarehouseApi.GetCustomDashboardSchedules: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customDashboardOid** | **int?**|  | 
+
+### Return type
+
+[**CustomDashboardSchedulesResponse**](CustomDashboardSchedulesResponse.md)
 
 ### Authorization
 
@@ -1198,6 +1335,74 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="insertcustomdashboardschedule"></a>
+# **InsertCustomDashboardSchedule**
+> CustomDashboardScheduleResponse InsertCustomDashboardSchedule (int? customDashboardOid, CustomDashboardSchedule dashboardSchedule)
+
+Create a custom dashboard schedule
+
+Create a new custom dashboard schedule on the UltraCart account. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class InsertCustomDashboardScheduleExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new DatawarehouseApi(simpleKey);
+
+            var customDashboardOid = 56;  // int? | 
+            var dashboardSchedule = new CustomDashboardSchedule(); // CustomDashboardSchedule | Dashboard schedule to create
+
+            try
+            {
+                // Create a custom dashboard schedule
+                CustomDashboardScheduleResponse result = apiInstance.InsertCustomDashboardSchedule(customDashboardOid, dashboardSchedule);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DatawarehouseApi.InsertCustomDashboardSchedule: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customDashboardOid** | **int?**|  | 
+ **dashboardSchedule** | [**CustomDashboardSchedule**](CustomDashboardSchedule.md)| Dashboard schedule to create | 
+
+### Return type
+
+[**CustomDashboardScheduleResponse**](CustomDashboardScheduleResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="insertcustomreport"></a>
 # **InsertCustomReport**
 > CustomReportResponse InsertCustomReport (CustomReport report)
@@ -1382,6 +1587,76 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dashboard** | [**CustomDashboard**](CustomDashboard.md)| Dashboard to custom update | 
  **customDashboardOid** | **int?**| The dashboard oid to custom update. | 
+
+### Return type
+
+[**CustomDashboardResponse**](CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatecustomdashboardschedule"></a>
+# **UpdateCustomDashboardSchedule**
+> CustomDashboardResponse UpdateCustomDashboardSchedule (CustomDashboardSchedule dashboardSchedule, int? customDashboardScheduleOid, int? customDashboardOid)
+
+Update a custom dashboard schedule
+
+Update a custom dashboard schedule on the UltraCart account. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateCustomDashboardScheduleExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new DatawarehouseApi(simpleKey);
+
+            var dashboardSchedule = new CustomDashboardSchedule(); // CustomDashboardSchedule | Dashboard schedule to update
+            var customDashboardScheduleOid = 56;  // int? | The dashboard schedule oid to update.
+            var customDashboardOid = 56;  // int? | The dashboard oid to update.
+
+            try
+            {
+                // Update a custom dashboard schedule
+                CustomDashboardResponse result = apiInstance.UpdateCustomDashboardSchedule(dashboardSchedule, customDashboardScheduleOid, customDashboardOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DatawarehouseApi.UpdateCustomDashboardSchedule: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dashboardSchedule** | [**CustomDashboardSchedule**](CustomDashboardSchedule.md)| Dashboard schedule to update | 
+ **customDashboardScheduleOid** | **int?**| The dashboard schedule oid to update. | 
+ **customDashboardOid** | **int?**| The dashboard oid to update. | 
 
 ### Return type
 

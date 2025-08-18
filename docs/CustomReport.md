@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BusinessAnalysisPrompt** | **string** |  | [optional] 
 **ChartJavascript** | **string** |  | [optional] 
 **ChartJavascriptUrl** | **string** |  | [optional] 
 **DataWarehouseReportConfigOid** | **int?** |  | [optional] 

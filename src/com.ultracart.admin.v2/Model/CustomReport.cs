@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomReport" /> class.
         /// </summary>
+        /// <param name="businessAnalysisPrompt">businessAnalysisPrompt.</param>
         /// <param name="chartJavascript">chartJavascript.</param>
         /// <param name="chartJavascriptUrl">chartJavascriptUrl.</param>
         /// <param name="dataWarehouseReportConfigOid">dataWarehouseReportConfigOid.</param>
@@ -43,8 +44,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="parameters">parameters.</param>
         /// <param name="queries">queries.</param>
         /// <param name="tooltips">tooltips.</param>
-        public CustomReport(string chartJavascript = default(string), string chartJavascriptUrl = default(string), int? dataWarehouseReportConfigOid = default(int?), string datasetSecurityLevel = default(string), string groupName = default(string), string merchantId = default(string), string name = default(string), List<CustomReportParameter> parameters = default(List<CustomReportParameter>), List<CustomReportQuery> queries = default(List<CustomReportQuery>), List<CustomReportTooltip> tooltips = default(List<CustomReportTooltip>))
+        public CustomReport(string businessAnalysisPrompt = default(string), string chartJavascript = default(string), string chartJavascriptUrl = default(string), int? dataWarehouseReportConfigOid = default(int?), string datasetSecurityLevel = default(string), string groupName = default(string), string merchantId = default(string), string name = default(string), List<CustomReportParameter> parameters = default(List<CustomReportParameter>), List<CustomReportQuery> queries = default(List<CustomReportQuery>), List<CustomReportTooltip> tooltips = default(List<CustomReportTooltip>))
         {
+            this.BusinessAnalysisPrompt = businessAnalysisPrompt;
             this.ChartJavascript = chartJavascript;
             this.ChartJavascriptUrl = chartJavascriptUrl;
             this.DataWarehouseReportConfigOid = dataWarehouseReportConfigOid;
@@ -57,6 +59,12 @@ namespace com.ultracart.admin.v2.Model
             this.Tooltips = tooltips;
         }
         
+        /// <summary>
+        /// Gets or Sets BusinessAnalysisPrompt
+        /// </summary>
+        [DataMember(Name="business_analysis_prompt", EmitDefaultValue=false)]
+        public string BusinessAnalysisPrompt { get; set; }
+
         /// <summary>
         /// Gets or Sets ChartJavascript
         /// </summary>
@@ -125,6 +133,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CustomReport {\n");
+            sb.Append("  BusinessAnalysisPrompt: ").Append(BusinessAnalysisPrompt).Append("\n");
             sb.Append("  ChartJavascript: ").Append(ChartJavascript).Append("\n");
             sb.Append("  ChartJavascriptUrl: ").Append(ChartJavascriptUrl).Append("\n");
             sb.Append("  DataWarehouseReportConfigOid: ").Append(DataWarehouseReportConfigOid).Append("\n");
@@ -169,6 +178,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.BusinessAnalysisPrompt == input.BusinessAnalysisPrompt ||
+                    (this.BusinessAnalysisPrompt != null &&
+                    this.BusinessAnalysisPrompt.Equals(input.BusinessAnalysisPrompt))
+                ) && 
                 (
                     this.ChartJavascript == input.ChartJavascript ||
                     (this.ChartJavascript != null &&
@@ -230,6 +244,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.BusinessAnalysisPrompt != null)
+                    hashCode = hashCode * 59 + this.BusinessAnalysisPrompt.GetHashCode();
                 if (this.ChartJavascript != null)
                     hashCode = hashCode * 59 + this.ChartJavascript.GetHashCode();
                 if (this.ChartJavascriptUrl != null)

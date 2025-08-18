@@ -46,6 +46,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCustomDashboardWithHttpInfo (int? customDashboardOid);
         /// <summary>
+        /// Delete a custom dashboard schedule
+        /// </summary>
+        /// <remarks>
+        /// delete a custom dashboard schedule on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to delete.</param>
+        /// <param name="customDashboardOid">The dashboard oid that owns the schedule.</param>
+        /// <returns></returns>
+        void DeleteCustomDashboardSchedule (int? customDashboardScheduleOid, int? customDashboardOid);
+
+        /// <summary>
+        /// Delete a custom dashboard schedule
+        /// </summary>
+        /// <remarks>
+        /// delete a custom dashboard schedule on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to delete.</param>
+        /// <param name="customDashboardOid">The dashboard oid that owns the schedule.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteCustomDashboardScheduleWithHttpInfo (int? customDashboardScheduleOid, int? customDashboardOid);
+        /// <summary>
         /// Delete a custom report
         /// </summary>
         /// <remarks>
@@ -194,6 +217,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="customDashboardOid"></param>
         /// <returns>ApiResponse of CustomDashboardResponse</returns>
         ApiResponse<CustomDashboardResponse> GetCustomDashboardWithHttpInfo (int? customDashboardOid);
+        /// <summary>
+        /// Get custom dashboards
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom dashboards 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>CustomDashboardSchedulesResponse</returns>
+        CustomDashboardSchedulesResponse GetCustomDashboardSchedules (int? customDashboardOid);
+
+        /// <summary>
+        /// Get custom dashboards
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom dashboards 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>ApiResponse of CustomDashboardSchedulesResponse</returns>
+        ApiResponse<CustomDashboardSchedulesResponse> GetCustomDashboardSchedulesWithHttpInfo (int? customDashboardOid);
         /// <summary>
         /// Get custom dashboards
         /// </summary>
@@ -397,6 +441,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CustomDashboardResponse</returns>
         ApiResponse<CustomDashboardResponse> InsertCustomDashboardWithHttpInfo (CustomDashboard dashboard);
         /// <summary>
+        /// Create a custom dashboard schedule
+        /// </summary>
+        /// <remarks>
+        /// Create a new custom dashboard schedule on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <param name="dashboardSchedule">Dashboard schedule to create</param>
+        /// <returns>CustomDashboardScheduleResponse</returns>
+        CustomDashboardScheduleResponse InsertCustomDashboardSchedule (int? customDashboardOid, CustomDashboardSchedule dashboardSchedule);
+
+        /// <summary>
+        /// Create a custom dashboard schedule
+        /// </summary>
+        /// <remarks>
+        /// Create a new custom dashboard schedule on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <param name="dashboardSchedule">Dashboard schedule to create</param>
+        /// <returns>ApiResponse of CustomDashboardScheduleResponse</returns>
+        ApiResponse<CustomDashboardScheduleResponse> InsertCustomDashboardScheduleWithHttpInfo (int? customDashboardOid, CustomDashboardSchedule dashboardSchedule);
+        /// <summary>
         /// Create a custom report
         /// </summary>
         /// <remarks>
@@ -461,6 +528,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="customDashboardOid">The dashboard oid to custom update.</param>
         /// <returns>ApiResponse of CustomDashboardResponse</returns>
         ApiResponse<CustomDashboardResponse> UpdateCustomDashboardWithHttpInfo (CustomDashboard dashboard, int? customDashboardOid);
+        /// <summary>
+        /// Update a custom dashboard schedule
+        /// </summary>
+        /// <remarks>
+        /// Update a custom dashboard schedule on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboardSchedule">Dashboard schedule to update</param>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to update.</param>
+        /// <param name="customDashboardOid">The dashboard oid to update.</param>
+        /// <returns>CustomDashboardResponse</returns>
+        CustomDashboardResponse UpdateCustomDashboardSchedule (CustomDashboardSchedule dashboardSchedule, int? customDashboardScheduleOid, int? customDashboardOid);
+
+        /// <summary>
+        /// Update a custom dashboard schedule
+        /// </summary>
+        /// <remarks>
+        /// Update a custom dashboard schedule on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboardSchedule">Dashboard schedule to update</param>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to update.</param>
+        /// <param name="customDashboardOid">The dashboard oid to update.</param>
+        /// <returns>ApiResponse of CustomDashboardResponse</returns>
+        ApiResponse<CustomDashboardResponse> UpdateCustomDashboardScheduleWithHttpInfo (CustomDashboardSchedule dashboardSchedule, int? customDashboardScheduleOid, int? customDashboardOid);
         /// <summary>
         /// Update a custom report
         /// </summary>
@@ -551,6 +643,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="customDashboardOid">The dashboard oid to delete.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCustomDashboardAsyncWithHttpInfo (int? customDashboardOid);
+        /// <summary>
+        /// Delete a custom dashboard schedule
+        /// </summary>
+        /// <remarks>
+        /// delete a custom dashboard schedule on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to delete.</param>
+        /// <param name="customDashboardOid">The dashboard oid that owns the schedule.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteCustomDashboardScheduleAsync (int? customDashboardScheduleOid, int? customDashboardOid);
+
+        /// <summary>
+        /// Delete a custom dashboard schedule
+        /// </summary>
+        /// <remarks>
+        /// delete a custom dashboard schedule on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to delete.</param>
+        /// <param name="customDashboardOid">The dashboard oid that owns the schedule.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCustomDashboardScheduleAsyncWithHttpInfo (int? customDashboardScheduleOid, int? customDashboardOid);
         /// <summary>
         /// Delete a custom report
         /// </summary>
@@ -700,6 +815,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="customDashboardOid"></param>
         /// <returns>Task of ApiResponse (CustomDashboardResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomDashboardResponse>> GetCustomDashboardAsyncWithHttpInfo (int? customDashboardOid);
+        /// <summary>
+        /// Get custom dashboards
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom dashboards 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>Task of CustomDashboardSchedulesResponse</returns>
+        System.Threading.Tasks.Task<CustomDashboardSchedulesResponse> GetCustomDashboardSchedulesAsync (int? customDashboardOid);
+
+        /// <summary>
+        /// Get custom dashboards
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a custom dashboards 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>Task of ApiResponse (CustomDashboardSchedulesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomDashboardSchedulesResponse>> GetCustomDashboardSchedulesAsyncWithHttpInfo (int? customDashboardOid);
         /// <summary>
         /// Get custom dashboards
         /// </summary>
@@ -903,6 +1039,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (CustomDashboardResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomDashboardResponse>> InsertCustomDashboardAsyncWithHttpInfo (CustomDashboard dashboard);
         /// <summary>
+        /// Create a custom dashboard schedule
+        /// </summary>
+        /// <remarks>
+        /// Create a new custom dashboard schedule on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <param name="dashboardSchedule">Dashboard schedule to create</param>
+        /// <returns>Task of CustomDashboardScheduleResponse</returns>
+        System.Threading.Tasks.Task<CustomDashboardScheduleResponse> InsertCustomDashboardScheduleAsync (int? customDashboardOid, CustomDashboardSchedule dashboardSchedule);
+
+        /// <summary>
+        /// Create a custom dashboard schedule
+        /// </summary>
+        /// <remarks>
+        /// Create a new custom dashboard schedule on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <param name="dashboardSchedule">Dashboard schedule to create</param>
+        /// <returns>Task of ApiResponse (CustomDashboardScheduleResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomDashboardScheduleResponse>> InsertCustomDashboardScheduleAsyncWithHttpInfo (int? customDashboardOid, CustomDashboardSchedule dashboardSchedule);
+        /// <summary>
         /// Create a custom report
         /// </summary>
         /// <remarks>
@@ -967,6 +1126,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="customDashboardOid">The dashboard oid to custom update.</param>
         /// <returns>Task of ApiResponse (CustomDashboardResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomDashboardResponse>> UpdateCustomDashboardAsyncWithHttpInfo (CustomDashboard dashboard, int? customDashboardOid);
+        /// <summary>
+        /// Update a custom dashboard schedule
+        /// </summary>
+        /// <remarks>
+        /// Update a custom dashboard schedule on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboardSchedule">Dashboard schedule to update</param>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to update.</param>
+        /// <param name="customDashboardOid">The dashboard oid to update.</param>
+        /// <returns>Task of CustomDashboardResponse</returns>
+        System.Threading.Tasks.Task<CustomDashboardResponse> UpdateCustomDashboardScheduleAsync (CustomDashboardSchedule dashboardSchedule, int? customDashboardScheduleOid, int? customDashboardOid);
+
+        /// <summary>
+        /// Update a custom dashboard schedule
+        /// </summary>
+        /// <remarks>
+        /// Update a custom dashboard schedule on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboardSchedule">Dashboard schedule to update</param>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to update.</param>
+        /// <param name="customDashboardOid">The dashboard oid to update.</param>
+        /// <returns>Task of ApiResponse (CustomDashboardResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomDashboardResponse>> UpdateCustomDashboardScheduleAsyncWithHttpInfo (CustomDashboardSchedule dashboardSchedule, int? customDashboardScheduleOid, int? customDashboardOid);
         /// <summary>
         /// Update a custom report
         /// </summary>
@@ -1288,6 +1472,173 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DeleteCustomDashboard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a custom dashboard schedule delete a custom dashboard schedule on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to delete.</param>
+        /// <param name="customDashboardOid">The dashboard oid that owns the schedule.</param>
+        /// <returns></returns>
+        public void DeleteCustomDashboardSchedule (int? customDashboardScheduleOid, int? customDashboardOid)
+        {
+             DeleteCustomDashboardScheduleWithHttpInfo(customDashboardScheduleOid, customDashboardOid);
+        }
+
+        /// <summary>
+        /// Delete a custom dashboard schedule delete a custom dashboard schedule on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to delete.</param>
+        /// <param name="customDashboardOid">The dashboard oid that owns the schedule.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteCustomDashboardScheduleWithHttpInfo (int? customDashboardScheduleOid, int? customDashboardOid)
+        {
+            // verify the required parameter 'customDashboardScheduleOid' is set
+            if (customDashboardScheduleOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardScheduleOid' when calling DatawarehouseApi->DeleteCustomDashboardSchedule");
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->DeleteCustomDashboardSchedule");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardScheduleOid != null) localVarPathParams.Add("custom_dashboard_schedule_oid", this.Configuration.ApiClient.ParameterToString(customDashboardScheduleOid)); // path parameter
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteCustomDashboardSchedule", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a custom dashboard schedule delete a custom dashboard schedule on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to delete.</param>
+        /// <param name="customDashboardOid">The dashboard oid that owns the schedule.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteCustomDashboardScheduleAsync (int? customDashboardScheduleOid, int? customDashboardOid)
+        {
+             await DeleteCustomDashboardScheduleAsyncWithHttpInfo(customDashboardScheduleOid, customDashboardOid);
+
+        }
+
+        /// <summary>
+        /// Delete a custom dashboard schedule delete a custom dashboard schedule on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to delete.</param>
+        /// <param name="customDashboardOid">The dashboard oid that owns the schedule.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCustomDashboardScheduleAsyncWithHttpInfo (int? customDashboardScheduleOid, int? customDashboardOid)
+        {
+            // verify the required parameter 'customDashboardScheduleOid' is set
+            if (customDashboardScheduleOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardScheduleOid' when calling DatawarehouseApi->DeleteCustomDashboardSchedule");
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->DeleteCustomDashboardSchedule");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardScheduleOid != null) localVarPathParams.Add("custom_dashboard_schedule_oid", this.Configuration.ApiClient.ParameterToString(customDashboardScheduleOid)); // path parameter
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteCustomDashboardSchedule", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2455,6 +2806,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomDashboardResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CustomDashboardResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardResponse)));
+        }
+
+        /// <summary>
+        /// Get custom dashboards Retrieve a custom dashboards 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>CustomDashboardSchedulesResponse</returns>
+        public CustomDashboardSchedulesResponse GetCustomDashboardSchedules (int? customDashboardOid)
+        {
+             ApiResponse<CustomDashboardSchedulesResponse> localVarResponse = GetCustomDashboardSchedulesWithHttpInfo(customDashboardOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get custom dashboards Retrieve a custom dashboards 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>ApiResponse of CustomDashboardSchedulesResponse</returns>
+        public ApiResponse< CustomDashboardSchedulesResponse > GetCustomDashboardSchedulesWithHttpInfo (int? customDashboardOid)
+        {
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->GetCustomDashboardSchedules");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomDashboardSchedules", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardSchedulesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardSchedulesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardSchedulesResponse)));
+        }
+
+        /// <summary>
+        /// Get custom dashboards Retrieve a custom dashboards 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>Task of CustomDashboardSchedulesResponse</returns>
+        public async System.Threading.Tasks.Task<CustomDashboardSchedulesResponse> GetCustomDashboardSchedulesAsync (int? customDashboardOid)
+        {
+             ApiResponse<CustomDashboardSchedulesResponse> localVarResponse = await GetCustomDashboardSchedulesAsyncWithHttpInfo(customDashboardOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get custom dashboards Retrieve a custom dashboards 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <returns>Task of ApiResponse (CustomDashboardSchedulesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomDashboardSchedulesResponse>> GetCustomDashboardSchedulesAsyncWithHttpInfo (int? customDashboardOid)
+        {
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->GetCustomDashboardSchedules");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomDashboardSchedules", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardSchedulesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardSchedulesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardSchedulesResponse)));
         }
 
         /// <summary>
@@ -3994,6 +4502,189 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Create a custom dashboard schedule Create a new custom dashboard schedule on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <param name="dashboardSchedule">Dashboard schedule to create</param>
+        /// <returns>CustomDashboardScheduleResponse</returns>
+        public CustomDashboardScheduleResponse InsertCustomDashboardSchedule (int? customDashboardOid, CustomDashboardSchedule dashboardSchedule)
+        {
+             ApiResponse<CustomDashboardScheduleResponse> localVarResponse = InsertCustomDashboardScheduleWithHttpInfo(customDashboardOid, dashboardSchedule);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a custom dashboard schedule Create a new custom dashboard schedule on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <param name="dashboardSchedule">Dashboard schedule to create</param>
+        /// <returns>ApiResponse of CustomDashboardScheduleResponse</returns>
+        public ApiResponse< CustomDashboardScheduleResponse > InsertCustomDashboardScheduleWithHttpInfo (int? customDashboardOid, CustomDashboardSchedule dashboardSchedule)
+        {
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->InsertCustomDashboardSchedule");
+            // verify the required parameter 'dashboardSchedule' is set
+            if (dashboardSchedule == null)
+                throw new ApiException(400, "Missing required parameter 'dashboardSchedule' when calling DatawarehouseApi->InsertCustomDashboardSchedule");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+            if (dashboardSchedule != null && dashboardSchedule.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(dashboardSchedule); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = dashboardSchedule; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertCustomDashboardSchedule", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardScheduleResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardScheduleResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardScheduleResponse)));
+        }
+
+        /// <summary>
+        /// Create a custom dashboard schedule Create a new custom dashboard schedule on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <param name="dashboardSchedule">Dashboard schedule to create</param>
+        /// <returns>Task of CustomDashboardScheduleResponse</returns>
+        public async System.Threading.Tasks.Task<CustomDashboardScheduleResponse> InsertCustomDashboardScheduleAsync (int? customDashboardOid, CustomDashboardSchedule dashboardSchedule)
+        {
+             ApiResponse<CustomDashboardScheduleResponse> localVarResponse = await InsertCustomDashboardScheduleAsyncWithHttpInfo(customDashboardOid, dashboardSchedule);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a custom dashboard schedule Create a new custom dashboard schedule on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customDashboardOid"></param>
+        /// <param name="dashboardSchedule">Dashboard schedule to create</param>
+        /// <returns>Task of ApiResponse (CustomDashboardScheduleResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomDashboardScheduleResponse>> InsertCustomDashboardScheduleAsyncWithHttpInfo (int? customDashboardOid, CustomDashboardSchedule dashboardSchedule)
+        {
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->InsertCustomDashboardSchedule");
+            // verify the required parameter 'dashboardSchedule' is set
+            if (dashboardSchedule == null)
+                throw new ApiException(400, "Missing required parameter 'dashboardSchedule' when calling DatawarehouseApi->InsertCustomDashboardSchedule");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+            if (dashboardSchedule != null && dashboardSchedule.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(dashboardSchedule); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = dashboardSchedule; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertCustomDashboardSchedule", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardScheduleResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardScheduleResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardScheduleResponse)));
+        }
+
+        /// <summary>
         /// Create a custom report Create a new custom report on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4510,6 +5201,201 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("UpdateCustomDashboard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardResponse)));
+        }
+
+        /// <summary>
+        /// Update a custom dashboard schedule Update a custom dashboard schedule on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboardSchedule">Dashboard schedule to update</param>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to update.</param>
+        /// <param name="customDashboardOid">The dashboard oid to update.</param>
+        /// <returns>CustomDashboardResponse</returns>
+        public CustomDashboardResponse UpdateCustomDashboardSchedule (CustomDashboardSchedule dashboardSchedule, int? customDashboardScheduleOid, int? customDashboardOid)
+        {
+             ApiResponse<CustomDashboardResponse> localVarResponse = UpdateCustomDashboardScheduleWithHttpInfo(dashboardSchedule, customDashboardScheduleOid, customDashboardOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a custom dashboard schedule Update a custom dashboard schedule on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboardSchedule">Dashboard schedule to update</param>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to update.</param>
+        /// <param name="customDashboardOid">The dashboard oid to update.</param>
+        /// <returns>ApiResponse of CustomDashboardResponse</returns>
+        public ApiResponse< CustomDashboardResponse > UpdateCustomDashboardScheduleWithHttpInfo (CustomDashboardSchedule dashboardSchedule, int? customDashboardScheduleOid, int? customDashboardOid)
+        {
+            // verify the required parameter 'dashboardSchedule' is set
+            if (dashboardSchedule == null)
+                throw new ApiException(400, "Missing required parameter 'dashboardSchedule' when calling DatawarehouseApi->UpdateCustomDashboardSchedule");
+            // verify the required parameter 'customDashboardScheduleOid' is set
+            if (customDashboardScheduleOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardScheduleOid' when calling DatawarehouseApi->UpdateCustomDashboardSchedule");
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->UpdateCustomDashboardSchedule");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardScheduleOid != null) localVarPathParams.Add("custom_dashboard_schedule_oid", this.Configuration.ApiClient.ParameterToString(customDashboardScheduleOid)); // path parameter
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+            if (dashboardSchedule != null && dashboardSchedule.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(dashboardSchedule); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = dashboardSchedule; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCustomDashboardSchedule", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomDashboardResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomDashboardResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomDashboardResponse)));
+        }
+
+        /// <summary>
+        /// Update a custom dashboard schedule Update a custom dashboard schedule on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboardSchedule">Dashboard schedule to update</param>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to update.</param>
+        /// <param name="customDashboardOid">The dashboard oid to update.</param>
+        /// <returns>Task of CustomDashboardResponse</returns>
+        public async System.Threading.Tasks.Task<CustomDashboardResponse> UpdateCustomDashboardScheduleAsync (CustomDashboardSchedule dashboardSchedule, int? customDashboardScheduleOid, int? customDashboardOid)
+        {
+             ApiResponse<CustomDashboardResponse> localVarResponse = await UpdateCustomDashboardScheduleAsyncWithHttpInfo(dashboardSchedule, customDashboardScheduleOid, customDashboardOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a custom dashboard schedule Update a custom dashboard schedule on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dashboardSchedule">Dashboard schedule to update</param>
+        /// <param name="customDashboardScheduleOid">The dashboard schedule oid to update.</param>
+        /// <param name="customDashboardOid">The dashboard oid to update.</param>
+        /// <returns>Task of ApiResponse (CustomDashboardResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomDashboardResponse>> UpdateCustomDashboardScheduleAsyncWithHttpInfo (CustomDashboardSchedule dashboardSchedule, int? customDashboardScheduleOid, int? customDashboardOid)
+        {
+            // verify the required parameter 'dashboardSchedule' is set
+            if (dashboardSchedule == null)
+                throw new ApiException(400, "Missing required parameter 'dashboardSchedule' when calling DatawarehouseApi->UpdateCustomDashboardSchedule");
+            // verify the required parameter 'customDashboardScheduleOid' is set
+            if (customDashboardScheduleOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardScheduleOid' when calling DatawarehouseApi->UpdateCustomDashboardSchedule");
+            // verify the required parameter 'customDashboardOid' is set
+            if (customDashboardOid == null)
+                throw new ApiException(400, "Missing required parameter 'customDashboardOid' when calling DatawarehouseApi->UpdateCustomDashboardSchedule");
+
+            var localVarPath = "/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customDashboardScheduleOid != null) localVarPathParams.Add("custom_dashboard_schedule_oid", this.Configuration.ApiClient.ParameterToString(customDashboardScheduleOid)); // path parameter
+            if (customDashboardOid != null) localVarPathParams.Add("custom_dashboard_oid", this.Configuration.ApiClient.ParameterToString(customDashboardOid)); // path parameter
+            if (dashboardSchedule != null && dashboardSchedule.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(dashboardSchedule); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = dashboardSchedule; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCustomDashboardSchedule", localVarResponse);
                 if (exception != null) throw exception;
             }
 

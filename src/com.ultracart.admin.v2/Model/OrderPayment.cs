@@ -105,106 +105,118 @@ namespace com.ultracart.admin.v2.Model
             GoogleShopping = 11,
             
             /// <summary>
+            /// Enum Goldbelly for value: Goldbelly
+            /// </summary>
+            [EnumMember(Value = "Goldbelly")]
+            Goldbelly = 12,
+            
+            /// <summary>
+            /// Enum GoHighLevel for value: GoHighLevel
+            /// </summary>
+            [EnumMember(Value = "GoHighLevel")]
+            GoHighLevel = 13,
+            
+            /// <summary>
             /// Enum Insurance for value: Insurance
             /// </summary>
             [EnumMember(Value = "Insurance")]
-            Insurance = 12,
+            Insurance = 14,
             
             /// <summary>
             /// Enum Link for value: Link
             /// </summary>
             [EnumMember(Value = "Link")]
-            Link = 13,
+            Link = 15,
             
             /// <summary>
             /// Enum LoanHero for value: LoanHero
             /// </summary>
             [EnumMember(Value = "LoanHero")]
-            LoanHero = 14,
+            LoanHero = 16,
             
             /// <summary>
             /// Enum MoneyOrder for value: Money Order
             /// </summary>
             [EnumMember(Value = "Money Order")]
-            MoneyOrder = 15,
+            MoneyOrder = 17,
             
             /// <summary>
             /// Enum PayPal for value: PayPal
             /// </summary>
             [EnumMember(Value = "PayPal")]
-            PayPal = 16,
+            PayPal = 18,
             
             /// <summary>
             /// Enum PurchaseOrder for value: Purchase Order
             /// </summary>
             [EnumMember(Value = "Purchase Order")]
-            PurchaseOrder = 17,
+            PurchaseOrder = 19,
             
             /// <summary>
             /// Enum QuoteRequest for value: Quote Request
             /// </summary>
             [EnumMember(Value = "Quote Request")]
-            QuoteRequest = 18,
+            QuoteRequest = 20,
             
             /// <summary>
             /// Enum Unknown for value: Unknown
             /// </summary>
             [EnumMember(Value = "Unknown")]
-            Unknown = 19,
+            Unknown = 21,
             
             /// <summary>
             /// Enum WireTransfer for value: Wire Transfer
             /// </summary>
             [EnumMember(Value = "Wire Transfer")]
-            WireTransfer = 20,
+            WireTransfer = 22,
             
             /// <summary>
             /// Enum Walmart for value: Walmart
             /// </summary>
             [EnumMember(Value = "Walmart")]
-            Walmart = 21,
+            Walmart = 23,
             
             /// <summary>
             /// Enum ShopCom for value: Shop.com
             /// </summary>
             [EnumMember(Value = "Shop.com")]
-            ShopCom = 22,
+            ShopCom = 24,
             
             /// <summary>
             /// Enum Sezzle for value: Sezzle
             /// </summary>
             [EnumMember(Value = "Sezzle")]
-            Sezzle = 23,
+            Sezzle = 25,
             
             /// <summary>
             /// Enum Venmo for value: Venmo
             /// </summary>
             [EnumMember(Value = "Venmo")]
-            Venmo = 24,
+            Venmo = 26,
             
             /// <summary>
             /// Enum ApplePay for value: Apple Pay
             /// </summary>
             [EnumMember(Value = "Apple Pay")]
-            ApplePay = 25,
+            ApplePay = 27,
             
             /// <summary>
             /// Enum GooglePay for value: Google Pay
             /// </summary>
             [EnumMember(Value = "Google Pay")]
-            GooglePay = 26,
+            GooglePay = 28,
             
             /// <summary>
             /// Enum HealthBenefitCard for value: Health Benefit Card
             /// </summary>
             [EnumMember(Value = "Health Benefit Card")]
-            HealthBenefitCard = 27,
+            HealthBenefitCard = 29,
             
             /// <summary>
             /// Enum PayPalFastlane for value: PayPal Fastlane
             /// </summary>
             [EnumMember(Value = "PayPal Fastlane")]
-            PayPalFastlane = 28
+            PayPalFastlane = 30
         }
 
         /// <summary>

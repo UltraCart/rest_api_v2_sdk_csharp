@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **OptIn** | **bool?** | True if they have opted into custom reports | [optional] 
 **OptInByUser** | **string** | User that opted into custom reporting | [optional] 
 **OptInDate** | **string** | Date/time that custom reporting was opted in to | [optional] 
+**ReadOnly** | **bool?** |  | [optional] 
 **SqlBudget** | **decimal?** |  | [optional] 
 **SqlUsage** | **decimal?** |  | [optional] 
 

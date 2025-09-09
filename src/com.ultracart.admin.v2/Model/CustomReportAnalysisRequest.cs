@@ -25,62 +25,33 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ItemTag
+    /// CustomReportAnalysisRequest
     /// </summary>
     [DataContract]
-    public partial class ItemTag :  IEquatable<ItemTag>, IValidatableObject
+    public partial class CustomReportAnalysisRequest :  IEquatable<CustomReportAnalysisRequest>, IValidatableObject
     {
         /// <summary>
-        /// tag_type
+        /// Initializes a new instance of the <see cref="CustomReportAnalysisRequest" /> class.
         /// </summary>
-        /// <value>tag_type</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TagTypeEnum
+        /// <param name="pngUrl">pngUrl.</param>
+        /// <param name="resultUrl">resultUrl.</param>
+        public CustomReportAnalysisRequest(string pngUrl = default(string), string resultUrl = default(string))
         {
-            
-            /// <summary>
-            /// Enum Item for value: item
-            /// </summary>
-            [EnumMember(Value = "item")]
-            Item = 1,
-            
-            /// <summary>
-            /// Enum Order for value: order
-            /// </summary>
-            [EnumMember(Value = "order")]
-            Order = 2,
-            
-            /// <summary>
-            /// Enum Customer for value: customer
-            /// </summary>
-            [EnumMember(Value = "customer")]
-            Customer = 3
-        }
-
-        /// <summary>
-        /// tag_type
-        /// </summary>
-        /// <value>tag_type</value>
-        [DataMember(Name="tagType", EmitDefaultValue=false)]
-        public TagTypeEnum? TagType { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ItemTag" /> class.
-        /// </summary>
-        /// <param name="tagType">tag_type.</param>
-        /// <param name="tagValue">tag_value.</param>
-        public ItemTag(TagTypeEnum? tagType = default(TagTypeEnum?), string tagValue = default(string))
-        {
-            this.TagType = tagType;
-            this.TagValue = tagValue;
+            this.PngUrl = pngUrl;
+            this.ResultUrl = resultUrl;
         }
         
+        /// <summary>
+        /// Gets or Sets PngUrl
+        /// </summary>
+        [DataMember(Name="png_url", EmitDefaultValue=false)]
+        public string PngUrl { get; set; }
 
         /// <summary>
-        /// tag_value
+        /// Gets or Sets ResultUrl
         /// </summary>
-        /// <value>tag_value</value>
-        [DataMember(Name="tagValue", EmitDefaultValue=false)]
-        public string TagValue { get; set; }
+        [DataMember(Name="result_url", EmitDefaultValue=false)]
+        public string ResultUrl { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,9 +60,9 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ItemTag {\n");
-            sb.Append("  TagType: ").Append(TagType).Append("\n");
-            sb.Append("  TagValue: ").Append(TagValue).Append("\n");
+            sb.Append("class CustomReportAnalysisRequest {\n");
+            sb.Append("  PngUrl: ").Append(PngUrl).Append("\n");
+            sb.Append("  ResultUrl: ").Append(ResultUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,29 +83,29 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ItemTag);
+            return this.Equals(input as CustomReportAnalysisRequest);
         }
 
         /// <summary>
-        /// Returns true if ItemTag instances are equal
+        /// Returns true if CustomReportAnalysisRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ItemTag to be compared</param>
+        /// <param name="input">Instance of CustomReportAnalysisRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemTag input)
+        public bool Equals(CustomReportAnalysisRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.TagType == input.TagType ||
-                    (this.TagType != null &&
-                    this.TagType.Equals(input.TagType))
+                    this.PngUrl == input.PngUrl ||
+                    (this.PngUrl != null &&
+                    this.PngUrl.Equals(input.PngUrl))
                 ) && 
                 (
-                    this.TagValue == input.TagValue ||
-                    (this.TagValue != null &&
-                    this.TagValue.Equals(input.TagValue))
+                    this.ResultUrl == input.ResultUrl ||
+                    (this.ResultUrl != null &&
+                    this.ResultUrl.Equals(input.ResultUrl))
                 );
         }
 
@@ -147,10 +118,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TagType != null)
-                    hashCode = hashCode * 59 + this.TagType.GetHashCode();
-                if (this.TagValue != null)
-                    hashCode = hashCode * 59 + this.TagValue.GetHashCode();
+                if (this.PngUrl != null)
+                    hashCode = hashCode * 59 + this.PngUrl.GetHashCode();
+                if (this.ResultUrl != null)
+                    hashCode = hashCode * 59 + this.ResultUrl.GetHashCode();
                 return hashCode;
             }
         }
@@ -162,12 +133,6 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TagValue (string) maxLength
-            if(this.TagValue != null && this.TagValue.Length > 100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TagValue, length must be less than 100.", new [] { "TagValue" });
-            }
-
             yield break;
         }
     }

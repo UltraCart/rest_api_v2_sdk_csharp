@@ -40,9 +40,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="optIn">True if they have opted into custom reports.</param>
         /// <param name="optInByUser">User that opted into custom reporting.</param>
         /// <param name="optInDate">Date/time that custom reporting was opted in to.</param>
+        /// <param name="readOnly">readOnly.</param>
         /// <param name="sqlBudget">sqlBudget.</param>
         /// <param name="sqlUsage">sqlUsage.</param>
-        public CustomReportAccountConfig(decimal? aiBudget = default(decimal?), decimal? aiUsage = default(decimal?), string merchantId = default(string), bool? noviceSqlComments = default(bool?), bool? optIn = default(bool?), string optInByUser = default(string), string optInDate = default(string), decimal? sqlBudget = default(decimal?), decimal? sqlUsage = default(decimal?))
+        public CustomReportAccountConfig(decimal? aiBudget = default(decimal?), decimal? aiUsage = default(decimal?), string merchantId = default(string), bool? noviceSqlComments = default(bool?), bool? optIn = default(bool?), string optInByUser = default(string), string optInDate = default(string), bool? readOnly = default(bool?), decimal? sqlBudget = default(decimal?), decimal? sqlUsage = default(decimal?))
         {
             this.AiBudget = aiBudget;
             this.AiUsage = aiUsage;
@@ -51,6 +52,7 @@ namespace com.ultracart.admin.v2.Model
             this.OptIn = optIn;
             this.OptInByUser = optInByUser;
             this.OptInDate = optInDate;
+            this.ReadOnly = readOnly;
             this.SqlBudget = sqlBudget;
             this.SqlUsage = sqlUsage;
         }
@@ -103,6 +105,12 @@ namespace com.ultracart.admin.v2.Model
         public string OptInDate { get; set; }
 
         /// <summary>
+        /// Gets or Sets ReadOnly
+        /// </summary>
+        [DataMember(Name="read_only", EmitDefaultValue=false)]
+        public bool? ReadOnly { get; set; }
+
+        /// <summary>
         /// Gets or Sets SqlBudget
         /// </summary>
         [DataMember(Name="sql_budget", EmitDefaultValue=false)]
@@ -129,6 +137,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  OptIn: ").Append(OptIn).Append("\n");
             sb.Append("  OptInByUser: ").Append(OptInByUser).Append("\n");
             sb.Append("  OptInDate: ").Append(OptInDate).Append("\n");
+            sb.Append("  ReadOnly: ").Append(ReadOnly).Append("\n");
             sb.Append("  SqlBudget: ").Append(SqlBudget).Append("\n");
             sb.Append("  SqlUsage: ").Append(SqlUsage).Append("\n");
             sb.Append("}\n");
@@ -201,6 +210,11 @@ namespace com.ultracart.admin.v2.Model
                     this.OptInDate.Equals(input.OptInDate))
                 ) && 
                 (
+                    this.ReadOnly == input.ReadOnly ||
+                    (this.ReadOnly != null &&
+                    this.ReadOnly.Equals(input.ReadOnly))
+                ) && 
+                (
                     this.SqlBudget == input.SqlBudget ||
                     (this.SqlBudget != null &&
                     this.SqlBudget.Equals(input.SqlBudget))
@@ -235,6 +249,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OptInByUser.GetHashCode();
                 if (this.OptInDate != null)
                     hashCode = hashCode * 59 + this.OptInDate.GetHashCode();
+                if (this.ReadOnly != null)
+                    hashCode = hashCode * 59 + this.ReadOnly.GetHashCode();
                 if (this.SqlBudget != null)
                     hashCode = hashCode * 59 + this.SqlBudget.GetHashCode();
                 if (this.SqlUsage != null)

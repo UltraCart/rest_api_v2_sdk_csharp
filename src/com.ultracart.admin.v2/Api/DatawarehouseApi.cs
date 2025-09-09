@@ -26,6 +26,29 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Analyze a custom report
+        /// </summary>
+        /// <remarks>
+        /// Analyze a custom report on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to analyze.</param>
+        /// <param name="analyzeRequest">Request to analyze custom report</param>
+        /// <returns>CustomReportAnalysisResponse</returns>
+        CustomReportAnalysisResponse AnalyzeCustomReport (int customReportOid, CustomReportAnalysisRequest analyzeRequest);
+
+        /// <summary>
+        /// Analyze a custom report
+        /// </summary>
+        /// <remarks>
+        /// Analyze a custom report on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to analyze.</param>
+        /// <param name="analyzeRequest">Request to analyze custom report</param>
+        /// <returns>ApiResponse of CustomReportAnalysisResponse</returns>
+        ApiResponse<CustomReportAnalysisResponse> AnalyzeCustomReportWithHttpInfo (int customReportOid, CustomReportAnalysisRequest analyzeRequest);
+        /// <summary>
         /// Delete a custom dashboard
         /// </summary>
         /// <remarks>
@@ -298,6 +321,27 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CustomReportAccountConfigResponse</returns>
         ApiResponse<CustomReportAccountConfigResponse> GetCustomReportAccountConfigWithHttpInfo ();
+        /// <summary>
+        /// Upload a PNG of a custom report chart
+        /// </summary>
+        /// <remarks>
+        /// Upload a PNG of a custom report chart 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to upload a chart PNG for.</param>
+        /// <returns>CustomReportChartPngUploadResponse</returns>
+        CustomReportChartPngUploadResponse GetCustomReportChartPngUploadUrl (int customReportOid);
+
+        /// <summary>
+        /// Upload a PNG of a custom report chart
+        /// </summary>
+        /// <remarks>
+        /// Upload a PNG of a custom report chart 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to upload a chart PNG for.</param>
+        /// <returns>ApiResponse of CustomReportChartPngUploadResponse</returns>
+        ApiResponse<CustomReportChartPngUploadResponse> GetCustomReportChartPngUploadUrlWithHttpInfo (int customReportOid);
         /// <summary>
         /// Get custom reports
         /// </summary>
@@ -624,6 +668,31 @@ namespace com.ultracart.admin.v2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// Analyze a custom report
+        /// </summary>
+        /// <remarks>
+        /// Analyze a custom report on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to analyze.</param>
+        /// <param name="analyzeRequest">Request to analyze custom report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomReportAnalysisResponse</returns>
+        System.Threading.Tasks.Task<CustomReportAnalysisResponse> AnalyzeCustomReportAsync (int customReportOid, CustomReportAnalysisRequest analyzeRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Analyze a custom report
+        /// </summary>
+        /// <remarks>
+        /// Analyze a custom report on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to analyze.</param>
+        /// <param name="analyzeRequest">Request to analyze custom report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomReportAnalysisResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomReportAnalysisResponse>> AnalyzeCustomReportWithHttpInfoAsync (int customReportOid, CustomReportAnalysisRequest analyzeRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Delete a custom dashboard
         /// </summary>
         /// <remarks>
@@ -922,6 +991,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CustomReportAccountConfigResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomReportAccountConfigResponse>> GetCustomReportAccountConfigWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Upload a PNG of a custom report chart
+        /// </summary>
+        /// <remarks>
+        /// Upload a PNG of a custom report chart 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to upload a chart PNG for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomReportChartPngUploadResponse</returns>
+        System.Threading.Tasks.Task<CustomReportChartPngUploadResponse> GetCustomReportChartPngUploadUrlAsync (int customReportOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Upload a PNG of a custom report chart
+        /// </summary>
+        /// <remarks>
+        /// Upload a PNG of a custom report chart 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to upload a chart PNG for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomReportChartPngUploadResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomReportChartPngUploadResponse>> GetCustomReportChartPngUploadUrlWithHttpInfoAsync (int customReportOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get custom reports
         /// </summary>
@@ -1402,6 +1494,191 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Analyze a custom report Analyze a custom report on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to analyze.</param>
+        /// <param name="analyzeRequest">Request to analyze custom report</param>
+        /// <returns>CustomReportAnalysisResponse</returns>
+        public CustomReportAnalysisResponse AnalyzeCustomReport (int customReportOid, CustomReportAnalysisRequest analyzeRequest)
+        {
+             ApiResponse<CustomReportAnalysisResponse> localVarResponse = AnalyzeCustomReportWithHttpInfo(customReportOid, analyzeRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Analyze a custom report Analyze a custom report on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to analyze.</param>
+        /// <param name="analyzeRequest">Request to analyze custom report</param>
+        /// <returns>ApiResponse of CustomReportAnalysisResponse</returns>
+        public ApiResponse<CustomReportAnalysisResponse> AnalyzeCustomReportWithHttpInfo (int customReportOid, CustomReportAnalysisRequest analyzeRequest)
+        {
+            // verify the required parameter 'customReportOid' is set
+            if (customReportOid == null)
+                throw new ApiException(400, "Missing required parameter 'customReportOid' when calling DatawarehouseApi->AnalyzeCustomReport");
+            // verify the required parameter 'analyzeRequest' is set
+            if (analyzeRequest == null)
+                throw new ApiException(400, "Missing required parameter 'analyzeRequest' when calling DatawarehouseApi->AnalyzeCustomReport");
+
+            var localVarPath = "/datawarehouse/custom_reports/{custom_report_oid}/analysis";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customReportOid != null) localVarPathParams.Add("custom_report_oid", this.Configuration.ApiClient.ParameterToString(customReportOid)); // path parameter
+            if (analyzeRequest != null && analyzeRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(analyzeRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = analyzeRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AnalyzeCustomReport", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomReportAnalysisResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomReportAnalysisResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportAnalysisResponse)));
+        }
+
+        /// <summary>
+        /// Analyze a custom report Analyze a custom report on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to analyze.</param>
+        /// <param name="analyzeRequest">Request to analyze custom report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomReportAnalysisResponse</returns>
+        public async System.Threading.Tasks.Task<CustomReportAnalysisResponse> AnalyzeCustomReportAsync (int customReportOid, CustomReportAnalysisRequest analyzeRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<CustomReportAnalysisResponse> localVarResponse = await AnalyzeCustomReportWithHttpInfoAsync(customReportOid, analyzeRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Analyze a custom report Analyze a custom report on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to analyze.</param>
+        /// <param name="analyzeRequest">Request to analyze custom report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomReportAnalysisResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomReportAnalysisResponse>> AnalyzeCustomReportWithHttpInfoAsync (int customReportOid, CustomReportAnalysisRequest analyzeRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'customReportOid' is set
+            if (customReportOid == null)
+                throw new ApiException(400, "Missing required parameter 'customReportOid' when calling DatawarehouseApi->AnalyzeCustomReport");
+            // verify the required parameter 'analyzeRequest' is set
+            if (analyzeRequest == null)
+                throw new ApiException(400, "Missing required parameter 'analyzeRequest' when calling DatawarehouseApi->AnalyzeCustomReport");
+
+            var localVarPath = "/datawarehouse/custom_reports/{custom_report_oid}/analysis";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customReportOid != null) localVarPathParams.Add("custom_report_oid", this.Configuration.ApiClient.ParameterToString(customReportOid)); // path parameter
+            if (analyzeRequest != null && analyzeRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(analyzeRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = analyzeRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AnalyzeCustomReport", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomReportAnalysisResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomReportAnalysisResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportAnalysisResponse)));
         }
 
         /// <summary>
@@ -3497,6 +3774,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomReportAccountConfigResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CustomReportAccountConfigResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportAccountConfigResponse)));
+        }
+
+        /// <summary>
+        /// Upload a PNG of a custom report chart Upload a PNG of a custom report chart 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to upload a chart PNG for.</param>
+        /// <returns>CustomReportChartPngUploadResponse</returns>
+        public CustomReportChartPngUploadResponse GetCustomReportChartPngUploadUrl (int customReportOid)
+        {
+             ApiResponse<CustomReportChartPngUploadResponse> localVarResponse = GetCustomReportChartPngUploadUrlWithHttpInfo(customReportOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Upload a PNG of a custom report chart Upload a PNG of a custom report chart 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to upload a chart PNG for.</param>
+        /// <returns>ApiResponse of CustomReportChartPngUploadResponse</returns>
+        public ApiResponse<CustomReportChartPngUploadResponse> GetCustomReportChartPngUploadUrlWithHttpInfo (int customReportOid)
+        {
+            // verify the required parameter 'customReportOid' is set
+            if (customReportOid == null)
+                throw new ApiException(400, "Missing required parameter 'customReportOid' when calling DatawarehouseApi->GetCustomReportChartPngUploadUrl");
+
+            var localVarPath = "/datawarehouse/custom_reports/{custom_report_oid}/chart_png";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customReportOid != null) localVarPathParams.Add("custom_report_oid", this.Configuration.ApiClient.ParameterToString(customReportOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomReportChartPngUploadUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomReportChartPngUploadResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomReportChartPngUploadResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportChartPngUploadResponse)));
+        }
+
+        /// <summary>
+        /// Upload a PNG of a custom report chart Upload a PNG of a custom report chart 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to upload a chart PNG for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomReportChartPngUploadResponse</returns>
+        public async System.Threading.Tasks.Task<CustomReportChartPngUploadResponse> GetCustomReportChartPngUploadUrlAsync (int customReportOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<CustomReportChartPngUploadResponse> localVarResponse = await GetCustomReportChartPngUploadUrlWithHttpInfoAsync(customReportOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Upload a PNG of a custom report chart Upload a PNG of a custom report chart 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customReportOid">The report oid to upload a chart PNG for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomReportChartPngUploadResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomReportChartPngUploadResponse>> GetCustomReportChartPngUploadUrlWithHttpInfoAsync (int customReportOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'customReportOid' is set
+            if (customReportOid == null)
+                throw new ApiException(400, "Missing required parameter 'customReportOid' when calling DatawarehouseApi->GetCustomReportChartPngUploadUrl");
+
+            var localVarPath = "/datawarehouse/custom_reports/{custom_report_oid}/chart_png";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customReportOid != null) localVarPathParams.Add("custom_report_oid", this.Configuration.ApiClient.ParameterToString(customReportOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomReportChartPngUploadUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomReportChartPngUploadResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomReportChartPngUploadResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomReportChartPngUploadResponse)));
         }
 
         /// <summary>

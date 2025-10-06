@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ItemIndex** | **int?** | Index of the item on the order (one based index) | [optional] 
+**ItemIndex** | **int?** | Index of the item on the order.  Must match order.items[].item_index | [optional] 
 **MerchantItemId** | **string** | Item ID | [optional] 
 **OrderId** | **string** | Order ID | [optional] 
 **ReplacementMerchantItemId** | **string** | Replacement Item ID | [optional] 

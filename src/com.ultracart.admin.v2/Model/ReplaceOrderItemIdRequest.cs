@@ -33,7 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReplaceOrderItemIdRequest" /> class.
         /// </summary>
-        /// <param name="itemIndex">Index of the item on the order (one based index).</param>
+        /// <param name="itemIndex">Index of the item on the order.  Must match order.items[].item_index.</param>
         /// <param name="merchantItemId">Item ID.</param>
         /// <param name="orderId">Order ID.</param>
         /// <param name="replacementMerchantItemId">Replacement Item ID.</param>
@@ -46,9 +46,9 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Index of the item on the order (one based index)
+        /// Index of the item on the order.  Must match order.items[].item_index
         /// </summary>
-        /// <value>Index of the item on the order (one based index)</value>
+        /// <value>Index of the item on the order.  Must match order.items[].item_index</value>
         [DataMember(Name="item_index", EmitDefaultValue=false)]
         public int? ItemIndex { get; set; }
 

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **ShippingMethod** | **string** | Shipping method name | [optional] 
 **ShippingMethodOid** | **int?** | Shipping method object identifier | [optional] 
 **ShippingMethodValidity** | **string** | Shipping method validity | [optional] 
+**ShipsSeparately** | **bool?** | Ships separately | [optional] 
 **SignatureRequired** | **bool?** | Signature required | [optional] 
 
 

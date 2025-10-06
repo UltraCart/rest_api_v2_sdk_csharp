@@ -56,6 +56,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="edi">edi.</param>
         /// <param name="email">Email address of this customer profile.</param>
         /// <param name="exemptShippingHandlingCharge">Exempt shipping handling charge.</param>
+        /// <param name="fax">Fax Number.</param>
         /// <param name="fedexAccountNumber">FedEx account number.</param>
         /// <param name="freeShipping">This customer always receives free shipping.</param>
         /// <param name="freeShippingMinimum">If free_shipping is true, this is the minimum subtotal required for free shipping.</param>
@@ -97,7 +98,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="unapproved">Unapproved.</param>
         /// <param name="upsAccountNumber">UPS account number.</param>
         /// <param name="websiteUrl">Website url.</param>
-        public Customer(CustomerActivity activity = default(CustomerActivity), int affiliateOid = default(int), bool allow3rdPartyBilling = default(bool), bool allowCod = default(bool), bool allowDropShipping = default(bool), bool allowPurchaseOrder = default(bool), bool allowQuoteRequest = default(bool), bool allowSelectionOfAddressType = default(bool), List<CustomerAttachment> attachments = default(List<CustomerAttachment>), bool autoApproveCod = default(bool), bool autoApprovePurchaseOrder = default(bool), string automaticMerchantNotes = default(string), List<CustomerBilling> billing = default(List<CustomerBilling>), string businessNotes = default(string), List<CustomerCard> cards = default(List<CustomerCard>), List<CustomerEmail> ccEmails = default(List<CustomerEmail>), int customerProfileOid = default(int), string dhlAccountNumber = default(string), string dhlDutyAccountNumber = default(string), bool doNotSendMail = default(bool), CustomerEDI edi = default(CustomerEDI), string email = default(string), bool exemptShippingHandlingCharge = default(bool), string fedexAccountNumber = default(string), bool freeShipping = default(bool), decimal freeShippingMinimum = default(decimal), string lastModifiedBy = default(string), string lastModifiedDts = default(string), CustomerLoyalty loyalty = default(CustomerLoyalty), int maximumItemCount = default(int), string merchantId = default(string), int minimumItemCount = default(int), decimal minimumSubtotal = default(decimal), bool noCoupons = default(bool), bool noFreeShipping = default(bool), bool noRealtimeCharge = default(bool), List<Order> orders = default(List<Order>), CustomerOrdersSummary ordersSummary = default(CustomerOrdersSummary), string password = default(string), List<CustomerPricingTier> pricingTiers = default(List<CustomerPricingTier>), CustomerPrivacy privacy = default(CustomerPrivacy), List<CustomerProperty> properties = default(List<CustomerProperty>), string qbClass = default(string), string qbCode = default(string), int qbTaxExemptionReasonCode = default(int), List<Order> quotes = default(List<Order>), CustomerQuotesSummary quotesSummary = default(CustomerQuotesSummary), string referralSource = default(string), CustomerReviewer reviewer = default(CustomerReviewer), string salesRepCode = default(string), bool sendSignupNotification = default(bool), List<CustomerShipping> shipping = default(List<CustomerShipping>), string signupDts = default(string), List<CustomerSoftwareEntitlement> softwareEntitlements = default(List<CustomerSoftwareEntitlement>), bool suppressBuysafe = default(bool), List<CustomerTag> tags = default(List<CustomerTag>), CustomerTaxCodes taxCodes = default(CustomerTaxCodes), bool taxExempt = default(bool), string taxId = default(string), string terms = default(string), bool trackSeparately = default(bool), bool unapproved = default(bool), string upsAccountNumber = default(string), string websiteUrl = default(string))
+        public Customer(CustomerActivity activity = default(CustomerActivity), int affiliateOid = default(int), bool allow3rdPartyBilling = default(bool), bool allowCod = default(bool), bool allowDropShipping = default(bool), bool allowPurchaseOrder = default(bool), bool allowQuoteRequest = default(bool), bool allowSelectionOfAddressType = default(bool), List<CustomerAttachment> attachments = default(List<CustomerAttachment>), bool autoApproveCod = default(bool), bool autoApprovePurchaseOrder = default(bool), string automaticMerchantNotes = default(string), List<CustomerBilling> billing = default(List<CustomerBilling>), string businessNotes = default(string), List<CustomerCard> cards = default(List<CustomerCard>), List<CustomerEmail> ccEmails = default(List<CustomerEmail>), int customerProfileOid = default(int), string dhlAccountNumber = default(string), string dhlDutyAccountNumber = default(string), bool doNotSendMail = default(bool), CustomerEDI edi = default(CustomerEDI), string email = default(string), bool exemptShippingHandlingCharge = default(bool), string fax = default(string), string fedexAccountNumber = default(string), bool freeShipping = default(bool), decimal freeShippingMinimum = default(decimal), string lastModifiedBy = default(string), string lastModifiedDts = default(string), CustomerLoyalty loyalty = default(CustomerLoyalty), int maximumItemCount = default(int), string merchantId = default(string), int minimumItemCount = default(int), decimal minimumSubtotal = default(decimal), bool noCoupons = default(bool), bool noFreeShipping = default(bool), bool noRealtimeCharge = default(bool), List<Order> orders = default(List<Order>), CustomerOrdersSummary ordersSummary = default(CustomerOrdersSummary), string password = default(string), List<CustomerPricingTier> pricingTiers = default(List<CustomerPricingTier>), CustomerPrivacy privacy = default(CustomerPrivacy), List<CustomerProperty> properties = default(List<CustomerProperty>), string qbClass = default(string), string qbCode = default(string), int qbTaxExemptionReasonCode = default(int), List<Order> quotes = default(List<Order>), CustomerQuotesSummary quotesSummary = default(CustomerQuotesSummary), string referralSource = default(string), CustomerReviewer reviewer = default(CustomerReviewer), string salesRepCode = default(string), bool sendSignupNotification = default(bool), List<CustomerShipping> shipping = default(List<CustomerShipping>), string signupDts = default(string), List<CustomerSoftwareEntitlement> softwareEntitlements = default(List<CustomerSoftwareEntitlement>), bool suppressBuysafe = default(bool), List<CustomerTag> tags = default(List<CustomerTag>), CustomerTaxCodes taxCodes = default(CustomerTaxCodes), bool taxExempt = default(bool), string taxId = default(string), string terms = default(string), bool trackSeparately = default(bool), bool unapproved = default(bool), string upsAccountNumber = default(string), string websiteUrl = default(string))
         {
             this.Activity = activity;
             this.AffiliateOid = affiliateOid;
@@ -122,6 +123,7 @@ namespace com.ultracart.admin.v2.Model
             this.Edi = edi;
             this.Email = email;
             this.ExemptShippingHandlingCharge = exemptShippingHandlingCharge;
+            this.Fax = fax;
             this.FedexAccountNumber = fedexAccountNumber;
             this.FreeShipping = freeShipping;
             this.FreeShippingMinimum = freeShippingMinimum;
@@ -323,6 +325,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Exempt shipping handling charge</value>
         [DataMember(Name="exempt_shipping_handling_charge", EmitDefaultValue=false)]
         public bool ExemptShippingHandlingCharge { get; set; }
+
+        /// <summary>
+        /// Fax Number
+        /// </summary>
+        /// <value>Fax Number</value>
+        [DataMember(Name="fax", EmitDefaultValue=false)]
+        public string Fax { get; set; }
 
         /// <summary>
         /// FedEx account number
@@ -636,6 +645,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Edi: ").Append(Edi).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  ExemptShippingHandlingCharge: ").Append(ExemptShippingHandlingCharge).Append("\n");
+            sb.Append("  Fax: ").Append(Fax).Append("\n");
             sb.Append("  FedexAccountNumber: ").Append(FedexAccountNumber).Append("\n");
             sb.Append("  FreeShipping: ").Append(FreeShipping).Append("\n");
             sb.Append("  FreeShippingMinimum: ").Append(FreeShippingMinimum).Append("\n");
@@ -829,6 +839,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ExemptShippingHandlingCharge == input.ExemptShippingHandlingCharge ||
                     (this.ExemptShippingHandlingCharge != null &&
                     this.ExemptShippingHandlingCharge.Equals(input.ExemptShippingHandlingCharge))
+                ) && 
+                (
+                    this.Fax == input.Fax ||
+                    (this.Fax != null &&
+                    this.Fax.Equals(input.Fax))
                 ) && 
                 (
                     this.FedexAccountNumber == input.FedexAccountNumber ||
@@ -1099,6 +1114,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.ExemptShippingHandlingCharge != null)
                     hashCode = hashCode * 59 + this.ExemptShippingHandlingCharge.GetHashCode();
+                if (this.Fax != null)
+                    hashCode = hashCode * 59 + this.Fax.GetHashCode();
                 if (this.FedexAccountNumber != null)
                     hashCode = hashCode * 59 + this.FedexAccountNumber.GetHashCode();
                 if (this.FreeShipping != null)
@@ -1210,6 +1227,13 @@ namespace com.ultracart.admin.v2.Model
             if(this.DhlDutyAccountNumber != null && this.DhlDutyAccountNumber.Length > 20)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DhlDutyAccountNumber, length must be less than 20.", new [] { "DhlDutyAccountNumber" });
+            }
+
+
+            // Fax (string) maxLength
+            if(this.Fax != null && this.Fax.Length > 32)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Fax, length must be less than 32.", new [] { "Fax" });
             }
 
 

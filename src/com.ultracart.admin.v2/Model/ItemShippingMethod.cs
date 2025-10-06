@@ -80,8 +80,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="shippingMethod">Shipping method name.</param>
         /// <param name="shippingMethodOid">Shipping method object identifier.</param>
         /// <param name="shippingMethodValidity">Shipping method validity.</param>
+        /// <param name="shipsSeparately">Ships separately.</param>
         /// <param name="signatureRequired">Signature required.</param>
-        public ItemShippingMethod(decimal cost = default(decimal), decimal eachAdditionalItemMarkup = default(decimal), bool filterToIfAvailable = default(bool), decimal firstItemMarkup = default(decimal), decimal fixedShippingCost = default(decimal), decimal flatFeeMarkup = default(decimal), bool freeShipping = default(bool), decimal perItemFeeMarkup = default(decimal), decimal percentageMarkup = default(decimal), decimal percentageOfItemMarkup = default(decimal), bool relaxRestrictionsOnUpsell = default(bool), string shippingMethod = default(string), int shippingMethodOid = default(int), ShippingMethodValidityEnum? shippingMethodValidity = default(ShippingMethodValidityEnum?), bool signatureRequired = default(bool))
+        public ItemShippingMethod(decimal cost = default(decimal), decimal eachAdditionalItemMarkup = default(decimal), bool filterToIfAvailable = default(bool), decimal firstItemMarkup = default(decimal), decimal fixedShippingCost = default(decimal), decimal flatFeeMarkup = default(decimal), bool freeShipping = default(bool), decimal perItemFeeMarkup = default(decimal), decimal percentageMarkup = default(decimal), decimal percentageOfItemMarkup = default(decimal), bool relaxRestrictionsOnUpsell = default(bool), string shippingMethod = default(string), int shippingMethodOid = default(int), ShippingMethodValidityEnum? shippingMethodValidity = default(ShippingMethodValidityEnum?), bool shipsSeparately = default(bool), bool signatureRequired = default(bool))
         {
             this.Cost = cost;
             this.EachAdditionalItemMarkup = eachAdditionalItemMarkup;
@@ -97,6 +98,7 @@ namespace com.ultracart.admin.v2.Model
             this.ShippingMethod = shippingMethod;
             this.ShippingMethodOid = shippingMethodOid;
             this.ShippingMethodValidity = shippingMethodValidity;
+            this.ShipsSeparately = shipsSeparately;
             this.SignatureRequired = signatureRequired;
         }
 
@@ -193,6 +195,13 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
+        /// Ships separately
+        /// </summary>
+        /// <value>Ships separately</value>
+        [DataMember(Name="ships_separately", EmitDefaultValue=false)]
+        public bool ShipsSeparately { get; set; }
+
+        /// <summary>
         /// Signature required
         /// </summary>
         /// <value>Signature required</value>
@@ -221,6 +230,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ShippingMethod: ").Append(ShippingMethod).Append("\n");
             sb.Append("  ShippingMethodOid: ").Append(ShippingMethodOid).Append("\n");
             sb.Append("  ShippingMethodValidity: ").Append(ShippingMethodValidity).Append("\n");
+            sb.Append("  ShipsSeparately: ").Append(ShipsSeparately).Append("\n");
             sb.Append("  SignatureRequired: ").Append(SignatureRequired).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -327,6 +337,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ShippingMethodValidity.Equals(input.ShippingMethodValidity))
                 ) && 
                 (
+                    this.ShipsSeparately == input.ShipsSeparately ||
+                    (this.ShipsSeparately != null &&
+                    this.ShipsSeparately.Equals(input.ShipsSeparately))
+                ) && 
+                (
                     this.SignatureRequired == input.SignatureRequired ||
                     (this.SignatureRequired != null &&
                     this.SignatureRequired.Equals(input.SignatureRequired))
@@ -370,6 +385,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ShippingMethodOid.GetHashCode();
                 if (this.ShippingMethodValidity != null)
                     hashCode = hashCode * 59 + this.ShippingMethodValidity.GetHashCode();
+                if (this.ShipsSeparately != null)
+                    hashCode = hashCode * 59 + this.ShipsSeparately.GetHashCode();
                 if (this.SignatureRequired != null)
                     hashCode = hashCode * 59 + this.SignatureRequired.GetHashCode();
                 return hashCode;

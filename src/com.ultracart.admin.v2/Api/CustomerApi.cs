@@ -101,8 +101,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
         /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
-        /// <returns>CustomerWishListItem</returns>
-        CustomerWishListItem DeleteWishListItem (int customerProfileOid, int customerWishlistItemOid);
+        /// <returns></returns>
+        void DeleteWishListItem (int customerProfileOid, int customerWishlistItemOid);
 
         /// <summary>
         /// Delete a customer wishlist item
@@ -113,8 +113,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
         /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
-        /// <returns>ApiResponse of CustomerWishListItem</returns>
-        ApiResponse<CustomerWishListItem> DeleteWishListItemWithHttpInfo (int customerProfileOid, int customerWishlistItemOid);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteWishListItemWithHttpInfo (int customerProfileOid, int customerWishlistItemOid);
         /// <summary>
         /// Retrieve a customer
         /// </summary>
@@ -714,8 +714,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
         /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of CustomerWishListItem</returns>
-        System.Threading.Tasks.Task<CustomerWishListItem> DeleteWishListItemAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteWishListItemAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete a customer wishlist item
@@ -727,8 +727,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
         /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (CustomerWishListItem)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomerWishListItem>> DeleteWishListItemWithHttpInfoAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWishListItemWithHttpInfoAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve a customer
         /// </summary>
@@ -1943,11 +1943,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
         /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
-        /// <returns>CustomerWishListItem</returns>
-        public CustomerWishListItem DeleteWishListItem (int customerProfileOid, int customerWishlistItemOid)
+        /// <returns></returns>
+        public void DeleteWishListItem (int customerProfileOid, int customerWishlistItemOid)
         {
-             ApiResponse<CustomerWishListItem> localVarResponse = DeleteWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid);
-             return localVarResponse.Data;
+             DeleteWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid);
         }
 
         /// <summary>
@@ -1956,8 +1955,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
         /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
-        /// <returns>ApiResponse of CustomerWishListItem</returns>
-        public ApiResponse<CustomerWishListItem> DeleteWishListItemWithHttpInfo (int customerProfileOid, int customerWishlistItemOid)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteWishListItemWithHttpInfo (int customerProfileOid, int customerWishlistItemOid)
         {
             // verify the required parameter 'customerProfileOid' is set
             if (customerProfileOid == null)
@@ -2015,9 +2014,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CustomerWishListItem>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (CustomerWishListItem) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerWishListItem)));
+                null);
         }
 
         /// <summary>
@@ -2027,11 +2026,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
         /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of CustomerWishListItem</returns>
-        public async System.Threading.Tasks.Task<CustomerWishListItem> DeleteWishListItemAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteWishListItemAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<CustomerWishListItem> localVarResponse = await DeleteWishListItemWithHttpInfoAsync(customerProfileOid, customerWishlistItemOid, cancellationToken);
-             return localVarResponse.Data;
+             await DeleteWishListItemWithHttpInfoAsync(customerProfileOid, customerWishlistItemOid, cancellationToken);
 
         }
 
@@ -2042,8 +2040,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
         /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (CustomerWishListItem)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomerWishListItem>> DeleteWishListItemWithHttpInfoAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWishListItemWithHttpInfoAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'customerProfileOid' is set
             if (customerProfileOid == null)
@@ -2101,9 +2099,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CustomerWishListItem>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (CustomerWishListItem) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerWishListItem)));
+                null);
         }
 
         /// <summary>

@@ -35,6 +35,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="aiBudget">aiBudget.</param>
         /// <param name="aiUsage">Current AI usage creating reports.</param>
+        /// <param name="aiUsageBreakdowns">aiUsageBreakdowns.</param>
         /// <param name="merchantId">Current BigQuery SQL usage running reports.</param>
         /// <param name="noviceSqlComments">noviceSqlComments.</param>
         /// <param name="optIn">True if they have opted into custom reports.</param>
@@ -43,10 +44,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="readOnly">readOnly.</param>
         /// <param name="sqlBudget">sqlBudget.</param>
         /// <param name="sqlUsage">sqlUsage.</param>
-        public CustomReportAccountConfig(decimal aiBudget = default(decimal), decimal aiUsage = default(decimal), string merchantId = default(string), bool noviceSqlComments = default(bool), bool optIn = default(bool), string optInByUser = default(string), string optInDate = default(string), bool readOnly = default(bool), decimal sqlBudget = default(decimal), decimal sqlUsage = default(decimal))
+        public CustomReportAccountConfig(decimal aiBudget = default(decimal), decimal aiUsage = default(decimal), List<CustomReportUsageBreakdown> aiUsageBreakdowns = default(List<CustomReportUsageBreakdown>), string merchantId = default(string), bool noviceSqlComments = default(bool), bool optIn = default(bool), string optInByUser = default(string), string optInDate = default(string), bool readOnly = default(bool), decimal sqlBudget = default(decimal), decimal sqlUsage = default(decimal))
         {
             this.AiBudget = aiBudget;
             this.AiUsage = aiUsage;
+            this.AiUsageBreakdowns = aiUsageBreakdowns;
             this.MerchantId = merchantId;
             this.NoviceSqlComments = noviceSqlComments;
             this.OptIn = optIn;
@@ -69,6 +71,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Current AI usage creating reports</value>
         [DataMember(Name="ai_usage", EmitDefaultValue=false)]
         public decimal AiUsage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AiUsageBreakdowns
+        /// </summary>
+        [DataMember(Name="ai_usage_breakdowns", EmitDefaultValue=false)]
+        public List<CustomReportUsageBreakdown> AiUsageBreakdowns { get; set; }
 
         /// <summary>
         /// Current BigQuery SQL usage running reports
@@ -132,6 +140,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class CustomReportAccountConfig {\n");
             sb.Append("  AiBudget: ").Append(AiBudget).Append("\n");
             sb.Append("  AiUsage: ").Append(AiUsage).Append("\n");
+            sb.Append("  AiUsageBreakdowns: ").Append(AiUsageBreakdowns).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  NoviceSqlComments: ").Append(NoviceSqlComments).Append("\n");
             sb.Append("  OptIn: ").Append(OptIn).Append("\n");
@@ -183,6 +192,12 @@ namespace com.ultracart.admin.v2.Model
                     this.AiUsage == input.AiUsage ||
                     (this.AiUsage != null &&
                     this.AiUsage.Equals(input.AiUsage))
+                ) && 
+                (
+                    this.AiUsageBreakdowns == input.AiUsageBreakdowns ||
+                    this.AiUsageBreakdowns != null &&
+                    input.AiUsageBreakdowns != null &&
+                    this.AiUsageBreakdowns.SequenceEqual(input.AiUsageBreakdowns)
                 ) && 
                 (
                     this.MerchantId == input.MerchantId ||
@@ -239,6 +254,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AiBudget.GetHashCode();
                 if (this.AiUsage != null)
                     hashCode = hashCode * 59 + this.AiUsage.GetHashCode();
+                if (this.AiUsageBreakdowns != null)
+                    hashCode = hashCode * 59 + this.AiUsageBreakdowns.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.NoviceSqlComments != null)

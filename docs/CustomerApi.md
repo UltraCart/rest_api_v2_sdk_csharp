@@ -310,7 +310,7 @@ void (empty response body)
 
 ## DeleteWishListItem
 
-> CustomerWishListItem DeleteWishListItem (int customerProfileOid, int customerWishlistItemOid)
+> void DeleteWishListItem (int customerProfileOid, int customerWishlistItemOid)
 
 Delete a customer wishlist item
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomerWishListItem**](CustomerWishListItem.md)
+void (empty response body)
 
 ### Authorization
 
@@ -428,7 +428,6 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |

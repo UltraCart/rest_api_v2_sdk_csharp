@@ -25,6 +25,29 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Delete a knowledge base document
+        /// </summary>
+        /// <remarks>
+        /// Delete a knowledge base document 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="documentUuid"></param>
+        /// <returns>ConversationDeleteKnowledgeBaseDocumentResponse</returns>
+        ConversationDeleteKnowledgeBaseDocumentResponse DeleteAgentProfileKnowledgeBaseDocument (int? userId, string documentUuid);
+
+        /// <summary>
+        /// Delete a knowledge base document
+        /// </summary>
+        /// <remarks>
+        /// Delete a knowledge base document 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="documentUuid"></param>
+        /// <returns>ApiResponse of ConversationDeleteKnowledgeBaseDocumentResponse</returns>
+        ApiResponse<ConversationDeleteKnowledgeBaseDocumentResponse> DeleteAgentProfileKnowledgeBaseDocumentWithHttpInfo (int? userId, string documentUuid);
+        /// <summary>
         /// Delete a conversation canned message
         /// </summary>
         /// <remarks>
@@ -296,6 +319,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationAgentProfileResponse</returns>
         ApiResponse<ConversationAgentProfileResponse> GetAgentProfileWithHttpInfo ();
         /// <summary>
+        /// Get the list of knowledge base documents associated with this agent profile
+        /// </summary>
+        /// <remarks>
+        /// Retrieve knowledge base documents 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <returns>ConversationKnowledgeBaseDocumentsResponse</returns>
+        ConversationKnowledgeBaseDocumentsResponse GetAgentProfileKnowledgeBase (int? userId);
+
+        /// <summary>
+        /// Get the list of knowledge base documents associated with this agent profile
+        /// </summary>
+        /// <remarks>
+        /// Retrieve knowledge base documents 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <returns>ApiResponse of ConversationKnowledgeBaseDocumentsResponse</returns>
+        ApiResponse<ConversationKnowledgeBaseDocumentsResponse> GetAgentProfileKnowledgeBaseWithHttpInfo (int? userId);
+        /// <summary>
         /// Get agent profiles
         /// </summary>
         /// <remarks>
@@ -474,6 +518,29 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ConversationEngagementsResponse</returns>
         ApiResponse<ConversationEngagementsResponse> GetConversationEngagementsWithHttpInfo ();
+        /// <summary>
+        /// Get a pre-signed conversation knowledge base document upload URL
+        /// </summary>
+        /// <remarks>
+        /// Get a pre-signed conversation knowledge base document upload URL 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="extension"></param>
+        /// <returns>ConversationKnowledgeBaseDocumentUploadUrlResponse</returns>
+        ConversationKnowledgeBaseDocumentUploadUrlResponse GetConversationKnowledgeBaseDocumentUploadUrl (int? userId, string extension);
+
+        /// <summary>
+        /// Get a pre-signed conversation knowledge base document upload URL
+        /// </summary>
+        /// <remarks>
+        /// Get a pre-signed conversation knowledge base document upload URL 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="extension"></param>
+        /// <returns>ApiResponse of ConversationKnowledgeBaseDocumentUploadUrlResponse</returns>
+        ApiResponse<ConversationKnowledgeBaseDocumentUploadUrlResponse> GetConversationKnowledgeBaseDocumentUploadUrlWithHttpInfo (int? userId, string extension);
         /// <summary>
         /// Retrieve conversation messages
         /// </summary>
@@ -1151,6 +1218,29 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ConversationVirtualAgentCapabilitiesResponse</returns>
         ApiResponse<ConversationVirtualAgentCapabilitiesResponse> GetVirtualAgentCapabilitiesWithHttpInfo ();
+        /// <summary>
+        /// Insert a knowledge base document
+        /// </summary>
+        /// <remarks>
+        /// Insert a knowledge base document 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="knowledgeBaseDocumentRequest">Insert request</param>
+        /// <returns>ConversationInsertKnowledgeBaseDocumentResponse</returns>
+        ConversationInsertKnowledgeBaseDocumentResponse InsertAgentProfileKnowledgeBaseDocument (int? userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest);
+
+        /// <summary>
+        /// Insert a knowledge base document
+        /// </summary>
+        /// <remarks>
+        /// Insert a knowledge base document 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="knowledgeBaseDocumentRequest">Insert request</param>
+        /// <returns>ApiResponse of ConversationInsertKnowledgeBaseDocumentResponse</returns>
+        ApiResponse<ConversationInsertKnowledgeBaseDocumentResponse> InsertAgentProfileKnowledgeBaseDocumentWithHttpInfo (int? userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest);
         /// <summary>
         /// Insert a canned message
         /// </summary>
@@ -1875,6 +1965,29 @@ namespace com.ultracart.admin.v2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// Delete a knowledge base document
+        /// </summary>
+        /// <remarks>
+        /// Delete a knowledge base document 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="documentUuid"></param>
+        /// <returns>Task of ConversationDeleteKnowledgeBaseDocumentResponse</returns>
+        System.Threading.Tasks.Task<ConversationDeleteKnowledgeBaseDocumentResponse> DeleteAgentProfileKnowledgeBaseDocumentAsync (int? userId, string documentUuid);
+
+        /// <summary>
+        /// Delete a knowledge base document
+        /// </summary>
+        /// <remarks>
+        /// Delete a knowledge base document 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="documentUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationDeleteKnowledgeBaseDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationDeleteKnowledgeBaseDocumentResponse>> DeleteAgentProfileKnowledgeBaseDocumentAsyncWithHttpInfo (int? userId, string documentUuid);
+        /// <summary>
         /// Delete a conversation canned message
         /// </summary>
         /// <remarks>
@@ -2146,6 +2259,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ConversationAgentProfileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationAgentProfileResponse>> GetAgentProfileAsyncWithHttpInfo ();
         /// <summary>
+        /// Get the list of knowledge base documents associated with this agent profile
+        /// </summary>
+        /// <remarks>
+        /// Retrieve knowledge base documents 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <returns>Task of ConversationKnowledgeBaseDocumentsResponse</returns>
+        System.Threading.Tasks.Task<ConversationKnowledgeBaseDocumentsResponse> GetAgentProfileKnowledgeBaseAsync (int? userId);
+
+        /// <summary>
+        /// Get the list of knowledge base documents associated with this agent profile
+        /// </summary>
+        /// <remarks>
+        /// Retrieve knowledge base documents 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <returns>Task of ApiResponse (ConversationKnowledgeBaseDocumentsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationKnowledgeBaseDocumentsResponse>> GetAgentProfileKnowledgeBaseAsyncWithHttpInfo (int? userId);
+        /// <summary>
         /// Get agent profiles
         /// </summary>
         /// <remarks>
@@ -2324,6 +2458,29 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ConversationEngagementsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationEngagementsResponse>> GetConversationEngagementsAsyncWithHttpInfo ();
+        /// <summary>
+        /// Get a pre-signed conversation knowledge base document upload URL
+        /// </summary>
+        /// <remarks>
+        /// Get a pre-signed conversation knowledge base document upload URL 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="extension"></param>
+        /// <returns>Task of ConversationKnowledgeBaseDocumentUploadUrlResponse</returns>
+        System.Threading.Tasks.Task<ConversationKnowledgeBaseDocumentUploadUrlResponse> GetConversationKnowledgeBaseDocumentUploadUrlAsync (int? userId, string extension);
+
+        /// <summary>
+        /// Get a pre-signed conversation knowledge base document upload URL
+        /// </summary>
+        /// <remarks>
+        /// Get a pre-signed conversation knowledge base document upload URL 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="extension"></param>
+        /// <returns>Task of ApiResponse (ConversationKnowledgeBaseDocumentUploadUrlResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationKnowledgeBaseDocumentUploadUrlResponse>> GetConversationKnowledgeBaseDocumentUploadUrlAsyncWithHttpInfo (int? userId, string extension);
         /// <summary>
         /// Retrieve conversation messages
         /// </summary>
@@ -3001,6 +3158,29 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ConversationVirtualAgentCapabilitiesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationVirtualAgentCapabilitiesResponse>> GetVirtualAgentCapabilitiesAsyncWithHttpInfo ();
+        /// <summary>
+        /// Insert a knowledge base document
+        /// </summary>
+        /// <remarks>
+        /// Insert a knowledge base document 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="knowledgeBaseDocumentRequest">Insert request</param>
+        /// <returns>Task of ConversationInsertKnowledgeBaseDocumentResponse</returns>
+        System.Threading.Tasks.Task<ConversationInsertKnowledgeBaseDocumentResponse> InsertAgentProfileKnowledgeBaseDocumentAsync (int? userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest);
+
+        /// <summary>
+        /// Insert a knowledge base document
+        /// </summary>
+        /// <remarks>
+        /// Insert a knowledge base document 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="knowledgeBaseDocumentRequest">Insert request</param>
+        /// <returns>Task of ApiResponse (ConversationInsertKnowledgeBaseDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationInsertKnowledgeBaseDocumentResponse>> InsertAgentProfileKnowledgeBaseDocumentAsyncWithHttpInfo (int? userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest);
         /// <summary>
         /// Insert a canned message
         /// </summary>
@@ -3827,6 +4007,175 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Delete a knowledge base document Delete a knowledge base document 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="documentUuid"></param>
+        /// <returns>ConversationDeleteKnowledgeBaseDocumentResponse</returns>
+        public ConversationDeleteKnowledgeBaseDocumentResponse DeleteAgentProfileKnowledgeBaseDocument (int? userId, string documentUuid)
+        {
+             ApiResponse<ConversationDeleteKnowledgeBaseDocumentResponse> localVarResponse = DeleteAgentProfileKnowledgeBaseDocumentWithHttpInfo(userId, documentUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete a knowledge base document Delete a knowledge base document 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="documentUuid"></param>
+        /// <returns>ApiResponse of ConversationDeleteKnowledgeBaseDocumentResponse</returns>
+        public ApiResponse< ConversationDeleteKnowledgeBaseDocumentResponse > DeleteAgentProfileKnowledgeBaseDocumentWithHttpInfo (int? userId, string documentUuid)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->DeleteAgentProfileKnowledgeBaseDocument");
+            // verify the required parameter 'documentUuid' is set
+            if (documentUuid == null)
+                throw new ApiException(400, "Missing required parameter 'documentUuid' when calling ConversationApi->DeleteAgentProfileKnowledgeBaseDocument");
+
+            var localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base/{document_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (documentUuid != null) localVarPathParams.Add("document_uuid", this.Configuration.ApiClient.ParameterToString(documentUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteAgentProfileKnowledgeBaseDocument", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationDeleteKnowledgeBaseDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationDeleteKnowledgeBaseDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationDeleteKnowledgeBaseDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Delete a knowledge base document Delete a knowledge base document 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="documentUuid"></param>
+        /// <returns>Task of ConversationDeleteKnowledgeBaseDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationDeleteKnowledgeBaseDocumentResponse> DeleteAgentProfileKnowledgeBaseDocumentAsync (int? userId, string documentUuid)
+        {
+             ApiResponse<ConversationDeleteKnowledgeBaseDocumentResponse> localVarResponse = await DeleteAgentProfileKnowledgeBaseDocumentAsyncWithHttpInfo(userId, documentUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete a knowledge base document Delete a knowledge base document 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="documentUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationDeleteKnowledgeBaseDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationDeleteKnowledgeBaseDocumentResponse>> DeleteAgentProfileKnowledgeBaseDocumentAsyncWithHttpInfo (int? userId, string documentUuid)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->DeleteAgentProfileKnowledgeBaseDocument");
+            // verify the required parameter 'documentUuid' is set
+            if (documentUuid == null)
+                throw new ApiException(400, "Missing required parameter 'documentUuid' when calling ConversationApi->DeleteAgentProfileKnowledgeBaseDocument");
+
+            var localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base/{document_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (documentUuid != null) localVarPathParams.Add("document_uuid", this.Configuration.ApiClient.ParameterToString(documentUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteAgentProfileKnowledgeBaseDocument", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationDeleteKnowledgeBaseDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationDeleteKnowledgeBaseDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationDeleteKnowledgeBaseDocumentResponse)));
         }
 
         /// <summary>
@@ -5847,6 +6196,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get the list of knowledge base documents associated with this agent profile Retrieve knowledge base documents 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <returns>ConversationKnowledgeBaseDocumentsResponse</returns>
+        public ConversationKnowledgeBaseDocumentsResponse GetAgentProfileKnowledgeBase (int? userId)
+        {
+             ApiResponse<ConversationKnowledgeBaseDocumentsResponse> localVarResponse = GetAgentProfileKnowledgeBaseWithHttpInfo(userId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the list of knowledge base documents associated with this agent profile Retrieve knowledge base documents 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <returns>ApiResponse of ConversationKnowledgeBaseDocumentsResponse</returns>
+        public ApiResponse< ConversationKnowledgeBaseDocumentsResponse > GetAgentProfileKnowledgeBaseWithHttpInfo (int? userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->GetAgentProfileKnowledgeBase");
+
+            var localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAgentProfileKnowledgeBase", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationKnowledgeBaseDocumentsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationKnowledgeBaseDocumentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationKnowledgeBaseDocumentsResponse)));
+        }
+
+        /// <summary>
+        /// Get the list of knowledge base documents associated with this agent profile Retrieve knowledge base documents 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <returns>Task of ConversationKnowledgeBaseDocumentsResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationKnowledgeBaseDocumentsResponse> GetAgentProfileKnowledgeBaseAsync (int? userId)
+        {
+             ApiResponse<ConversationKnowledgeBaseDocumentsResponse> localVarResponse = await GetAgentProfileKnowledgeBaseAsyncWithHttpInfo(userId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the list of knowledge base documents associated with this agent profile Retrieve knowledge base documents 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <returns>Task of ApiResponse (ConversationKnowledgeBaseDocumentsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationKnowledgeBaseDocumentsResponse>> GetAgentProfileKnowledgeBaseAsyncWithHttpInfo (int? userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->GetAgentProfileKnowledgeBase");
+
+            var localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAgentProfileKnowledgeBase", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationKnowledgeBaseDocumentsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationKnowledgeBaseDocumentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationKnowledgeBaseDocumentsResponse)));
+        }
+
+        /// <summary>
         /// Get agent profiles Retrieve the agents profile 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7191,6 +7697,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationEngagementsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationEngagementsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationEngagementsResponse)));
+        }
+
+        /// <summary>
+        /// Get a pre-signed conversation knowledge base document upload URL Get a pre-signed conversation knowledge base document upload URL 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="extension"></param>
+        /// <returns>ConversationKnowledgeBaseDocumentUploadUrlResponse</returns>
+        public ConversationKnowledgeBaseDocumentUploadUrlResponse GetConversationKnowledgeBaseDocumentUploadUrl (int? userId, string extension)
+        {
+             ApiResponse<ConversationKnowledgeBaseDocumentUploadUrlResponse> localVarResponse = GetConversationKnowledgeBaseDocumentUploadUrlWithHttpInfo(userId, extension);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a pre-signed conversation knowledge base document upload URL Get a pre-signed conversation knowledge base document upload URL 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="extension"></param>
+        /// <returns>ApiResponse of ConversationKnowledgeBaseDocumentUploadUrlResponse</returns>
+        public ApiResponse< ConversationKnowledgeBaseDocumentUploadUrlResponse > GetConversationKnowledgeBaseDocumentUploadUrlWithHttpInfo (int? userId, string extension)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->GetConversationKnowledgeBaseDocumentUploadUrl");
+            // verify the required parameter 'extension' is set
+            if (extension == null)
+                throw new ApiException(400, "Missing required parameter 'extension' when calling ConversationApi->GetConversationKnowledgeBaseDocumentUploadUrl");
+
+            var localVarPath = "/conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (extension != null) localVarPathParams.Add("extension", this.Configuration.ApiClient.ParameterToString(extension)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationKnowledgeBaseDocumentUploadUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationKnowledgeBaseDocumentUploadUrlResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationKnowledgeBaseDocumentUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationKnowledgeBaseDocumentUploadUrlResponse)));
+        }
+
+        /// <summary>
+        /// Get a pre-signed conversation knowledge base document upload URL Get a pre-signed conversation knowledge base document upload URL 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="extension"></param>
+        /// <returns>Task of ConversationKnowledgeBaseDocumentUploadUrlResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationKnowledgeBaseDocumentUploadUrlResponse> GetConversationKnowledgeBaseDocumentUploadUrlAsync (int? userId, string extension)
+        {
+             ApiResponse<ConversationKnowledgeBaseDocumentUploadUrlResponse> localVarResponse = await GetConversationKnowledgeBaseDocumentUploadUrlAsyncWithHttpInfo(userId, extension);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a pre-signed conversation knowledge base document upload URL Get a pre-signed conversation knowledge base document upload URL 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="extension"></param>
+        /// <returns>Task of ApiResponse (ConversationKnowledgeBaseDocumentUploadUrlResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationKnowledgeBaseDocumentUploadUrlResponse>> GetConversationKnowledgeBaseDocumentUploadUrlAsyncWithHttpInfo (int? userId, string extension)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->GetConversationKnowledgeBaseDocumentUploadUrl");
+            // verify the required parameter 'extension' is set
+            if (extension == null)
+                throw new ApiException(400, "Missing required parameter 'extension' when calling ConversationApi->GetConversationKnowledgeBaseDocumentUploadUrl");
+
+            var localVarPath = "/conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (extension != null) localVarPathParams.Add("extension", this.Configuration.ApiClient.ParameterToString(extension)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationKnowledgeBaseDocumentUploadUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationKnowledgeBaseDocumentUploadUrlResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationKnowledgeBaseDocumentUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationKnowledgeBaseDocumentUploadUrlResponse)));
         }
 
         /// <summary>
@@ -12288,6 +12963,189 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationVirtualAgentCapabilitiesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationVirtualAgentCapabilitiesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationVirtualAgentCapabilitiesResponse)));
+        }
+
+        /// <summary>
+        /// Insert a knowledge base document Insert a knowledge base document 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="knowledgeBaseDocumentRequest">Insert request</param>
+        /// <returns>ConversationInsertKnowledgeBaseDocumentResponse</returns>
+        public ConversationInsertKnowledgeBaseDocumentResponse InsertAgentProfileKnowledgeBaseDocument (int? userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest)
+        {
+             ApiResponse<ConversationInsertKnowledgeBaseDocumentResponse> localVarResponse = InsertAgentProfileKnowledgeBaseDocumentWithHttpInfo(userId, knowledgeBaseDocumentRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert a knowledge base document Insert a knowledge base document 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="knowledgeBaseDocumentRequest">Insert request</param>
+        /// <returns>ApiResponse of ConversationInsertKnowledgeBaseDocumentResponse</returns>
+        public ApiResponse< ConversationInsertKnowledgeBaseDocumentResponse > InsertAgentProfileKnowledgeBaseDocumentWithHttpInfo (int? userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->InsertAgentProfileKnowledgeBaseDocument");
+            // verify the required parameter 'knowledgeBaseDocumentRequest' is set
+            if (knowledgeBaseDocumentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'knowledgeBaseDocumentRequest' when calling ConversationApi->InsertAgentProfileKnowledgeBaseDocument");
+
+            var localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (knowledgeBaseDocumentRequest != null && knowledgeBaseDocumentRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(knowledgeBaseDocumentRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = knowledgeBaseDocumentRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertAgentProfileKnowledgeBaseDocument", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationInsertKnowledgeBaseDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationInsertKnowledgeBaseDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationInsertKnowledgeBaseDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Insert a knowledge base document Insert a knowledge base document 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="knowledgeBaseDocumentRequest">Insert request</param>
+        /// <returns>Task of ConversationInsertKnowledgeBaseDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationInsertKnowledgeBaseDocumentResponse> InsertAgentProfileKnowledgeBaseDocumentAsync (int? userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest)
+        {
+             ApiResponse<ConversationInsertKnowledgeBaseDocumentResponse> localVarResponse = await InsertAgentProfileKnowledgeBaseDocumentAsyncWithHttpInfo(userId, knowledgeBaseDocumentRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert a knowledge base document Insert a knowledge base document 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="knowledgeBaseDocumentRequest">Insert request</param>
+        /// <returns>Task of ApiResponse (ConversationInsertKnowledgeBaseDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationInsertKnowledgeBaseDocumentResponse>> InsertAgentProfileKnowledgeBaseDocumentAsyncWithHttpInfo (int? userId, ConversationInsertKnowledgeBaseDocumentRequest knowledgeBaseDocumentRequest)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->InsertAgentProfileKnowledgeBaseDocument");
+            // verify the required parameter 'knowledgeBaseDocumentRequest' is set
+            if (knowledgeBaseDocumentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'knowledgeBaseDocumentRequest' when calling ConversationApi->InsertAgentProfileKnowledgeBaseDocument");
+
+            var localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (knowledgeBaseDocumentRequest != null && knowledgeBaseDocumentRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(knowledgeBaseDocumentRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = knowledgeBaseDocumentRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertAgentProfileKnowledgeBaseDocument", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationInsertKnowledgeBaseDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationInsertKnowledgeBaseDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationInsertKnowledgeBaseDocumentResponse)));
         }
 
         /// <summary>

@@ -233,7 +233,7 @@ void (empty response body)
 
 <a name="deletewishlistitem"></a>
 # **DeleteWishListItem**
-> CustomerWishListItem DeleteWishListItem (int? customerProfileOid, int? customerWishlistItemOid)
+> void DeleteWishListItem (int? customerProfileOid, int? customerWishlistItemOid)
 
 Delete a customer wishlist item
 
@@ -264,8 +264,7 @@ namespace Example
             try
             {
                 // Delete a customer wishlist item
-                CustomerWishListItem result = apiInstance.DeleteWishListItem(customerProfileOid, customerWishlistItemOid);
-                Debug.WriteLine(result);
+                apiInstance.DeleteWishListItem(customerProfileOid, customerWishlistItemOid);
             }
             catch (Exception e)
             {
@@ -286,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomerWishListItem**](CustomerWishListItem.md)
+void (empty response body)
 
 ### Authorization
 
@@ -294,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

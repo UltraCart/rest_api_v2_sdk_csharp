@@ -7935,7 +7935,7 @@ namespace com.ultracart.admin.v2.Api
             if (extension == null)
                 throw new ApiException(400, "Missing required parameter 'extension' when calling ConversationApi->GetConversationKnowledgeBaseDocumentUploadUrl");
 
-            var localVarPath = "/conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}";
+            var localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8021,7 +8021,7 @@ namespace com.ultracart.admin.v2.Api
             if (extension == null)
                 throw new ApiException(400, "Missing required parameter 'extension' when calling ConversationApi->GetConversationKnowledgeBaseDocumentUploadUrl");
 
-            var localVarPath = "/conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}";
+            var localVarPath = "/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);

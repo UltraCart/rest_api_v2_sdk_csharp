@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **InternalGiftCertificateBalance** | **string** | Loyalty Cashback / Store credit balance (internal gift certificate balance) | [optional] 
 **InternalGiftCertificateOid** | **int?** | Internal gift certificate oid used to tracking loyalty cashback / store credit. | [optional] 
 **LedgerEntries** | [**List&lt;CustomerLoyaltyLedger&gt;**](CustomerLoyaltyLedger.md) | Ledger entries | [optional] 
+**LoyaltyTierExpirationDts** | **string** | Loyalty tier expiration date (read only because of SDK addition) | [optional] 
+**LoyaltyTierName** | **string** | Loyalty tier name | [optional] 
+**LoyaltyTierOid** | **int?** | Loyalty tier oid (set to zero to remove the tier) | [optional] 
 **PendingPoints** | **int?** | Pending Points | [optional] 
 **Redemptions** | [**List&lt;CustomerLoyaltyRedemption&gt;**](CustomerLoyaltyRedemption.md) | Redemptions | [optional] 
 

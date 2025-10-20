@@ -72,6 +72,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationVirtualAgentCapabilities" /> class.
         /// </summary>
+        /// <param name="accessStorefrontAndItem">Permission flag to allow this Agent access to the storefront and item information..</param>
         /// <param name="cancelSubscription">cancelSubscription.</param>
         /// <param name="delaySubscription">delaySubscription.</param>
         /// <param name="lookupOrderInformation">lookupOrderInformation.</param>
@@ -86,8 +87,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="updateSubscriptionCreditCard">updateSubscriptionCreditCard.</param>
         /// <param name="zohoDeskAvailable">True if Zoho Desk is connected to UltraCart.</param>
         /// <param name="zohoDeskDepartments">Array of Zoho Desk Department if zoho desk is connected to UltraCart.</param>
-        public ConversationVirtualAgentCapabilities(bool? cancelSubscription = default(bool?), bool? delaySubscription = default(bool?), bool? lookupOrderInformation = default(bool?), bool? lookupSubscriptionInformation = default(bool?), bool? openSupportTicket = default(bool?), OpenSupportTicketChannelEnum? openSupportTicketChannel = default(OpenSupportTicketChannelEnum?), string openSupportTicketChannelEmail = default(string), string openSupportTicketZohoDeskDepartmentId = default(string), bool? pauseSubscription = default(bool?), bool? resumeSubscription = default(bool?), bool? transferChatToLiveAgent = default(bool?), bool? updateSubscriptionCreditCard = default(bool?), bool? zohoDeskAvailable = default(bool?), List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments = default(List<ConversationVirtualAgentCapabilityZohoDeskDepartment>))
+        public ConversationVirtualAgentCapabilities(bool? accessStorefrontAndItem = default(bool?), bool? cancelSubscription = default(bool?), bool? delaySubscription = default(bool?), bool? lookupOrderInformation = default(bool?), bool? lookupSubscriptionInformation = default(bool?), bool? openSupportTicket = default(bool?), OpenSupportTicketChannelEnum? openSupportTicketChannel = default(OpenSupportTicketChannelEnum?), string openSupportTicketChannelEmail = default(string), string openSupportTicketZohoDeskDepartmentId = default(string), bool? pauseSubscription = default(bool?), bool? resumeSubscription = default(bool?), bool? transferChatToLiveAgent = default(bool?), bool? updateSubscriptionCreditCard = default(bool?), bool? zohoDeskAvailable = default(bool?), List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments = default(List<ConversationVirtualAgentCapabilityZohoDeskDepartment>))
         {
+            this.AccessStorefrontAndItem = accessStorefrontAndItem;
             this.CancelSubscription = cancelSubscription;
             this.DelaySubscription = delaySubscription;
             this.LookupOrderInformation = lookupOrderInformation;
@@ -104,6 +106,13 @@ namespace com.ultracart.admin.v2.Model
             this.ZohoDeskDepartments = zohoDeskDepartments;
         }
         
+        /// <summary>
+        /// Permission flag to allow this Agent access to the storefront and item information.
+        /// </summary>
+        /// <value>Permission flag to allow this Agent access to the storefront and item information.</value>
+        [DataMember(Name="access_storefront_and_item", EmitDefaultValue=false)]
+        public bool? AccessStorefrontAndItem { get; set; }
+
         /// <summary>
         /// Gets or Sets CancelSubscription
         /// </summary>
@@ -195,6 +204,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationVirtualAgentCapabilities {\n");
+            sb.Append("  AccessStorefrontAndItem: ").Append(AccessStorefrontAndItem).Append("\n");
             sb.Append("  CancelSubscription: ").Append(CancelSubscription).Append("\n");
             sb.Append("  DelaySubscription: ").Append(DelaySubscription).Append("\n");
             sb.Append("  LookupOrderInformation: ").Append(LookupOrderInformation).Append("\n");
@@ -243,6 +253,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.AccessStorefrontAndItem == input.AccessStorefrontAndItem ||
+                    (this.AccessStorefrontAndItem != null &&
+                    this.AccessStorefrontAndItem.Equals(input.AccessStorefrontAndItem))
+                ) && 
                 (
                     this.CancelSubscription == input.CancelSubscription ||
                     (this.CancelSubscription != null &&
@@ -324,6 +339,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AccessStorefrontAndItem != null)
+                    hashCode = hashCode * 59 + this.AccessStorefrontAndItem.GetHashCode();
                 if (this.CancelSubscription != null)
                     hashCode = hashCode * 59 + this.CancelSubscription.GetHashCode();
                 if (this.DelaySubscription != null)

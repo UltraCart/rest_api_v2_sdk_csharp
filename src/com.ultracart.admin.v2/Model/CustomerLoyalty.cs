@@ -38,15 +38,21 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="internalGiftCertificateBalance">Loyalty Cashback / Store credit balance (internal gift certificate balance).</param>
         /// <param name="internalGiftCertificateOid">Internal gift certificate oid used to tracking loyalty cashback / store credit..</param>
         /// <param name="ledgerEntries">Ledger entries.</param>
+        /// <param name="loyaltyTierExpirationDts">Loyalty tier expiration date (read only because of SDK addition).</param>
+        /// <param name="loyaltyTierName">Loyalty tier name.</param>
+        /// <param name="loyaltyTierOid">Loyalty tier oid (set to zero to remove the tier).</param>
         /// <param name="pendingPoints">Pending Points.</param>
         /// <param name="redemptions">Redemptions.</param>
-        public CustomerLoyalty(int? currentPoints = default(int?), GiftCertificate internalGiftCertificate = default(GiftCertificate), string internalGiftCertificateBalance = default(string), int? internalGiftCertificateOid = default(int?), List<CustomerLoyaltyLedger> ledgerEntries = default(List<CustomerLoyaltyLedger>), int? pendingPoints = default(int?), List<CustomerLoyaltyRedemption> redemptions = default(List<CustomerLoyaltyRedemption>))
+        public CustomerLoyalty(int? currentPoints = default(int?), GiftCertificate internalGiftCertificate = default(GiftCertificate), string internalGiftCertificateBalance = default(string), int? internalGiftCertificateOid = default(int?), List<CustomerLoyaltyLedger> ledgerEntries = default(List<CustomerLoyaltyLedger>), string loyaltyTierExpirationDts = default(string), string loyaltyTierName = default(string), int? loyaltyTierOid = default(int?), int? pendingPoints = default(int?), List<CustomerLoyaltyRedemption> redemptions = default(List<CustomerLoyaltyRedemption>))
         {
             this.CurrentPoints = currentPoints;
             this.InternalGiftCertificate = internalGiftCertificate;
             this.InternalGiftCertificateBalance = internalGiftCertificateBalance;
             this.InternalGiftCertificateOid = internalGiftCertificateOid;
             this.LedgerEntries = ledgerEntries;
+            this.LoyaltyTierExpirationDts = loyaltyTierExpirationDts;
+            this.LoyaltyTierName = loyaltyTierName;
+            this.LoyaltyTierOid = loyaltyTierOid;
             this.PendingPoints = pendingPoints;
             this.Redemptions = redemptions;
         }
@@ -86,6 +92,27 @@ namespace com.ultracart.admin.v2.Model
         public List<CustomerLoyaltyLedger> LedgerEntries { get; set; }
 
         /// <summary>
+        /// Loyalty tier expiration date (read only because of SDK addition)
+        /// </summary>
+        /// <value>Loyalty tier expiration date (read only because of SDK addition)</value>
+        [DataMember(Name="loyalty_tier_expiration_dts", EmitDefaultValue=false)]
+        public string LoyaltyTierExpirationDts { get; set; }
+
+        /// <summary>
+        /// Loyalty tier name
+        /// </summary>
+        /// <value>Loyalty tier name</value>
+        [DataMember(Name="loyalty_tier_name", EmitDefaultValue=false)]
+        public string LoyaltyTierName { get; set; }
+
+        /// <summary>
+        /// Loyalty tier oid (set to zero to remove the tier)
+        /// </summary>
+        /// <value>Loyalty tier oid (set to zero to remove the tier)</value>
+        [DataMember(Name="loyalty_tier_oid", EmitDefaultValue=false)]
+        public int? LoyaltyTierOid { get; set; }
+
+        /// <summary>
         /// Pending Points
         /// </summary>
         /// <value>Pending Points</value>
@@ -112,6 +139,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  InternalGiftCertificateBalance: ").Append(InternalGiftCertificateBalance).Append("\n");
             sb.Append("  InternalGiftCertificateOid: ").Append(InternalGiftCertificateOid).Append("\n");
             sb.Append("  LedgerEntries: ").Append(LedgerEntries).Append("\n");
+            sb.Append("  LoyaltyTierExpirationDts: ").Append(LoyaltyTierExpirationDts).Append("\n");
+            sb.Append("  LoyaltyTierName: ").Append(LoyaltyTierName).Append("\n");
+            sb.Append("  LoyaltyTierOid: ").Append(LoyaltyTierOid).Append("\n");
             sb.Append("  PendingPoints: ").Append(PendingPoints).Append("\n");
             sb.Append("  Redemptions: ").Append(Redemptions).Append("\n");
             sb.Append("}\n");
@@ -174,6 +204,21 @@ namespace com.ultracart.admin.v2.Model
                     this.LedgerEntries.SequenceEqual(input.LedgerEntries)
                 ) && 
                 (
+                    this.LoyaltyTierExpirationDts == input.LoyaltyTierExpirationDts ||
+                    (this.LoyaltyTierExpirationDts != null &&
+                    this.LoyaltyTierExpirationDts.Equals(input.LoyaltyTierExpirationDts))
+                ) && 
+                (
+                    this.LoyaltyTierName == input.LoyaltyTierName ||
+                    (this.LoyaltyTierName != null &&
+                    this.LoyaltyTierName.Equals(input.LoyaltyTierName))
+                ) && 
+                (
+                    this.LoyaltyTierOid == input.LoyaltyTierOid ||
+                    (this.LoyaltyTierOid != null &&
+                    this.LoyaltyTierOid.Equals(input.LoyaltyTierOid))
+                ) && 
+                (
                     this.PendingPoints == input.PendingPoints ||
                     (this.PendingPoints != null &&
                     this.PendingPoints.Equals(input.PendingPoints))
@@ -204,6 +249,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.InternalGiftCertificateOid.GetHashCode();
                 if (this.LedgerEntries != null)
                     hashCode = hashCode * 59 + this.LedgerEntries.GetHashCode();
+                if (this.LoyaltyTierExpirationDts != null)
+                    hashCode = hashCode * 59 + this.LoyaltyTierExpirationDts.GetHashCode();
+                if (this.LoyaltyTierName != null)
+                    hashCode = hashCode * 59 + this.LoyaltyTierName.GetHashCode();
+                if (this.LoyaltyTierOid != null)
+                    hashCode = hashCode * 59 + this.LoyaltyTierOid.GetHashCode();
                 if (this.PendingPoints != null)
                     hashCode = hashCode * 59 + this.PendingPoints.GetHashCode();
                 if (this.Redemptions != null)

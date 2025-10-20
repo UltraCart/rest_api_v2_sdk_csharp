@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConversationPbxAudioUploadUrl** | [**ConversationKnowledgeBaseDocumentUploadUrl**](ConversationKnowledgeBaseDocumentUploadUrl.md) |  | [optional] 
+**ConversationKnowledgeBaseDocumentUploadUrl** | [**ConversationKnowledgeBaseDocumentUploadUrl**](ConversationKnowledgeBaseDocumentUploadUrl.md) |  | [optional] 
 **Error** | [**Error**](Error.md) |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **Success** | **bool?** | Indicates if API call was successful | [optional] 

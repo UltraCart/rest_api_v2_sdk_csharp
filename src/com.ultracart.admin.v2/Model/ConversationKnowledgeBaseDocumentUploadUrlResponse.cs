@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationKnowledgeBaseDocumentUploadUrlResponse" /> class.
         /// </summary>
-        /// <param name="conversationPbxAudioUploadUrl">conversationPbxAudioUploadUrl.</param>
+        /// <param name="conversationKnowledgeBaseDocumentUploadUrl">conversationKnowledgeBaseDocumentUploadUrl.</param>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ConversationKnowledgeBaseDocumentUploadUrlResponse(ConversationKnowledgeBaseDocumentUploadUrl conversationPbxAudioUploadUrl = default(ConversationKnowledgeBaseDocumentUploadUrl), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning))
+        public ConversationKnowledgeBaseDocumentUploadUrlResponse(ConversationKnowledgeBaseDocumentUploadUrl conversationKnowledgeBaseDocumentUploadUrl = default(ConversationKnowledgeBaseDocumentUploadUrl), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning))
         {
-            this.ConversationPbxAudioUploadUrl = conversationPbxAudioUploadUrl;
+            this.ConversationKnowledgeBaseDocumentUploadUrl = conversationKnowledgeBaseDocumentUploadUrl;
             this.Error = error;
             this.Metadata = metadata;
             this.Success = success;
@@ -48,10 +48,10 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets ConversationPbxAudioUploadUrl
+        /// Gets or Sets ConversationKnowledgeBaseDocumentUploadUrl
         /// </summary>
-        [DataMember(Name="conversation_pbx_audio_upload_url", EmitDefaultValue=false)]
-        public ConversationKnowledgeBaseDocumentUploadUrl ConversationPbxAudioUploadUrl { get; set; }
+        [DataMember(Name="conversation_knowledge_base_document_upload_url", EmitDefaultValue=false)]
+        public ConversationKnowledgeBaseDocumentUploadUrl ConversationKnowledgeBaseDocumentUploadUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Error
@@ -86,7 +86,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationKnowledgeBaseDocumentUploadUrlResponse {\n");
-            sb.Append("  ConversationPbxAudioUploadUrl: ").Append(ConversationPbxAudioUploadUrl).Append("\n");
+            sb.Append("  ConversationKnowledgeBaseDocumentUploadUrl: ").Append(ConversationKnowledgeBaseDocumentUploadUrl).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
@@ -126,9 +126,9 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.ConversationPbxAudioUploadUrl == input.ConversationPbxAudioUploadUrl ||
-                    (this.ConversationPbxAudioUploadUrl != null &&
-                    this.ConversationPbxAudioUploadUrl.Equals(input.ConversationPbxAudioUploadUrl))
+                    this.ConversationKnowledgeBaseDocumentUploadUrl == input.ConversationKnowledgeBaseDocumentUploadUrl ||
+                    (this.ConversationKnowledgeBaseDocumentUploadUrl != null &&
+                    this.ConversationKnowledgeBaseDocumentUploadUrl.Equals(input.ConversationKnowledgeBaseDocumentUploadUrl))
                 ) && 
                 (
                     this.Error == input.Error ||
@@ -161,8 +161,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ConversationPbxAudioUploadUrl != null)
-                    hashCode = hashCode * 59 + this.ConversationPbxAudioUploadUrl.GetHashCode();
+                if (this.ConversationKnowledgeBaseDocumentUploadUrl != null)
+                    hashCode = hashCode * 59 + this.ConversationKnowledgeBaseDocumentUploadUrl.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Metadata != null)

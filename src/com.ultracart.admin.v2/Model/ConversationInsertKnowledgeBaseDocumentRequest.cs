@@ -33,12 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationInsertKnowledgeBaseDocumentRequest" /> class.
         /// </summary>
+        /// <param name="originalFileName">originalFileName.</param>
         /// <param name="presignedUrl">presignedUrl.</param>
-        public ConversationInsertKnowledgeBaseDocumentRequest(string presignedUrl = default(string))
+        public ConversationInsertKnowledgeBaseDocumentRequest(string originalFileName = default(string), string presignedUrl = default(string))
         {
+            this.OriginalFileName = originalFileName;
             this.PresignedUrl = presignedUrl;
         }
         
+        /// <summary>
+        /// Gets or Sets OriginalFileName
+        /// </summary>
+        [DataMember(Name="original_file_name", EmitDefaultValue=false)]
+        public string OriginalFileName { get; set; }
+
         /// <summary>
         /// Gets or Sets PresignedUrl
         /// </summary>
@@ -53,6 +61,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationInsertKnowledgeBaseDocumentRequest {\n");
+            sb.Append("  OriginalFileName: ").Append(OriginalFileName).Append("\n");
             sb.Append("  PresignedUrl: ").Append(PresignedUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -89,6 +98,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.OriginalFileName == input.OriginalFileName ||
+                    (this.OriginalFileName != null &&
+                    this.OriginalFileName.Equals(input.OriginalFileName))
+                ) && 
+                (
                     this.PresignedUrl == input.PresignedUrl ||
                     (this.PresignedUrl != null &&
                     this.PresignedUrl.Equals(input.PresignedUrl))
@@ -104,6 +118,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.OriginalFileName != null)
+                    hashCode = hashCode * 59 + this.OriginalFileName.GetHashCode();
                 if (this.PresignedUrl != null)
                     hashCode = hashCode * 59 + this.PresignedUrl.GetHashCode();
                 return hashCode;

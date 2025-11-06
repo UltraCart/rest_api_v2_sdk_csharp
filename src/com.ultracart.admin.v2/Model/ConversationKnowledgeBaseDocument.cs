@@ -40,7 +40,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="metadata">metadata.</param>
         /// <param name="mimeType">mimeType.</param>
         /// <param name="s3Key">s3Key.</param>
-        public ConversationKnowledgeBaseDocument(int? chunkCount = default(int?), string description = default(string), string documentId = default(string), string documentUuid = default(string), string metadata = default(string), string mimeType = default(string), string s3Key = default(string))
+        /// <param name="s3Url">s3Url.</param>
+        public ConversationKnowledgeBaseDocument(int? chunkCount = default(int?), string description = default(string), string documentId = default(string), string documentUuid = default(string), string metadata = default(string), string mimeType = default(string), string s3Key = default(string), string s3Url = default(string))
         {
             this.ChunkCount = chunkCount;
             this.Description = description;
@@ -49,6 +50,7 @@ namespace com.ultracart.admin.v2.Model
             this.Metadata = metadata;
             this.MimeType = mimeType;
             this.S3Key = s3Key;
+            this.S3Url = s3Url;
         }
         
         /// <summary>
@@ -95,6 +97,12 @@ namespace com.ultracart.admin.v2.Model
         public string S3Key { get; set; }
 
         /// <summary>
+        /// Gets or Sets S3Url
+        /// </summary>
+        [DataMember(Name="s3_url", EmitDefaultValue=false)]
+        public string S3Url { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -109,6 +117,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  MimeType: ").Append(MimeType).Append("\n");
             sb.Append("  S3Key: ").Append(S3Key).Append("\n");
+            sb.Append("  S3Url: ").Append(S3Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -177,6 +186,11 @@ namespace com.ultracart.admin.v2.Model
                     this.S3Key == input.S3Key ||
                     (this.S3Key != null &&
                     this.S3Key.Equals(input.S3Key))
+                ) && 
+                (
+                    this.S3Url == input.S3Url ||
+                    (this.S3Url != null &&
+                    this.S3Url.Equals(input.S3Url))
                 );
         }
 
@@ -203,6 +217,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MimeType.GetHashCode();
                 if (this.S3Key != null)
                     hashCode = hashCode * 59 + this.S3Key.GetHashCode();
+                if (this.S3Url != null)
+                    hashCode = hashCode * 59 + this.S3Url.GetHashCode();
                 return hashCode;
             }
         }

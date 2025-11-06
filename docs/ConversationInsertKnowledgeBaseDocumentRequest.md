@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**OriginalFileName** | **string** |  | [optional] 
 **PresignedUrl** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

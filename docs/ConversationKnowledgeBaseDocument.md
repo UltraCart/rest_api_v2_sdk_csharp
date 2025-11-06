@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Metadata** | **string** |  | [optional] 
 **MimeType** | **string** |  | [optional] 
 **S3Key** | **string** |  | [optional] 
+**S3Url** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

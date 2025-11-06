@@ -221,7 +221,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum PayPalFastlane for value: PayPal Fastlane
             /// </summary>
             [EnumMember(Value = "PayPal Fastlane")]
-            PayPalFastlane = 31
+            PayPalFastlane = 31,
+
+            /// <summary>
+            /// Enum Klarna for value: Klarna
+            /// </summary>
+            [EnumMember(Value = "Klarna")]
+            Klarna = 32
 
         }
 

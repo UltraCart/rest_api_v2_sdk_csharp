@@ -5,6 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AdjustOrderTotal**](OrderApi.md#adjustordertotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
+[**AssignToAffiliate**](OrderApi.md#assigntoaffiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
 [**BlockRefundOnOrder**](OrderApi.md#blockrefundonorder) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 [**CancelOrder**](OrderApi.md#cancelorder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**DeleteOrder**](OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
@@ -92,6 +93,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="assigntoaffiliate"></a>
+# **AssignToAffiliate**
+> OrderResponse AssignToAffiliate (string orderId, OrderAssignToAffiliateRequest assignToAffiliateRequest, string expand = null)
+
+Assigns an order to an affiliate
+
+Assigns an order to an affiliate. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class AssignToAffiliateExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new OrderApi(simpleKey);
+
+            var orderId = orderId_example;  // string | The order id to assign to the affiliate.
+            var assignToAffiliateRequest = new OrderAssignToAffiliateRequest(); // OrderAssignToAffiliateRequest | Assign to affiliate request
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Assigns an order to an affiliate
+                OrderResponse result = apiInstance.AssignToAffiliate(orderId, assignToAffiliateRequest, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OrderApi.AssignToAffiliate: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **string**| The order id to assign to the affiliate. | 
+ **assignToAffiliateRequest** | [**OrderAssignToAffiliateRequest**](OrderAssignToAffiliateRequest.md)| Assign to affiliate request | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
 
 ### Authorization
 

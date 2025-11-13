@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **AccessStorefrontAndItem** | **bool?** | Permission flag to allow this Agent access to the storefront and item information. | [optional] 
 **CancelSubscription** | **bool?** |  | [optional] 
 **DelaySubscription** | **bool?** |  | [optional] 
+**GenerateCoupon** | **bool?** | Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions | [optional] 
 **LookupOrderInformation** | **bool?** |  | [optional] 
 **LookupSubscriptionInformation** | **bool?** |  | [optional] 
 **OpenSupportTicket** | **bool?** |  | [optional] 

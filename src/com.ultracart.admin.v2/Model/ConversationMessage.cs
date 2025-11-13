@@ -77,11 +77,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantId">merchantId.</param>
         /// <param name="messageDts">Message date/time.</param>
         /// <param name="messageEpoch">Message epoch milliseconds.</param>
+        /// <param name="messageType">messageType.</param>
         /// <param name="translations">translations.</param>
         /// <param name="transportStatuses">transportStatuses.</param>
         /// <param name="type">Message type.</param>
         /// <param name="uploadKeys">uploadKeys.</param>
-        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), string clientMessageId = default(string), string conversationMessageUuid = default(string), string delayUntilDts = default(string), string languageIsoCode = default(string), List<string> mediaUrls = default(List<string>), string merchantId = default(string), string messageDts = default(string), long? messageEpoch = default(long?), List<ConversationMessageTranslation> translations = default(List<ConversationMessageTranslation>), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), TypeEnum? type = default(TypeEnum?), List<string> uploadKeys = default(List<string>))
+        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), string clientMessageId = default(string), string conversationMessageUuid = default(string), string delayUntilDts = default(string), string languageIsoCode = default(string), List<string> mediaUrls = default(List<string>), string merchantId = default(string), string messageDts = default(string), long? messageEpoch = default(long?), string messageType = default(string), List<ConversationMessageTranslation> translations = default(List<ConversationMessageTranslation>), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), TypeEnum? type = default(TypeEnum?), List<string> uploadKeys = default(List<string>))
         {
             this.AuthorConversationParticipantArn = authorConversationParticipantArn;
             this.AuthorConversationParticipantName = authorConversationParticipantName;
@@ -94,6 +95,7 @@ namespace com.ultracart.admin.v2.Model
             this.MerchantId = merchantId;
             this.MessageDts = messageDts;
             this.MessageEpoch = messageEpoch;
+            this.MessageType = messageType;
             this.Translations = translations;
             this.TransportStatuses = transportStatuses;
             this.Type = type;
@@ -170,6 +172,12 @@ namespace com.ultracart.admin.v2.Model
         public long? MessageEpoch { get; set; }
 
         /// <summary>
+        /// Gets or Sets MessageType
+        /// </summary>
+        [DataMember(Name="message_type", EmitDefaultValue=false)]
+        public string MessageType { get; set; }
+
+        /// <summary>
         /// Gets or Sets Translations
         /// </summary>
         [DataMember(Name="translations", EmitDefaultValue=false)]
@@ -207,6 +215,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  MessageDts: ").Append(MessageDts).Append("\n");
             sb.Append("  MessageEpoch: ").Append(MessageEpoch).Append("\n");
+            sb.Append("  MessageType: ").Append(MessageType).Append("\n");
             sb.Append("  Translations: ").Append(Translations).Append("\n");
             sb.Append("  TransportStatuses: ").Append(TransportStatuses).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -301,6 +310,11 @@ namespace com.ultracart.admin.v2.Model
                     this.MessageEpoch.Equals(input.MessageEpoch))
                 ) && 
                 (
+                    this.MessageType == input.MessageType ||
+                    (this.MessageType != null &&
+                    this.MessageType.Equals(input.MessageType))
+                ) && 
+                (
                     this.Translations == input.Translations ||
                     this.Translations != null &&
                     this.Translations.SequenceEqual(input.Translations)
@@ -353,6 +367,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MessageDts.GetHashCode();
                 if (this.MessageEpoch != null)
                     hashCode = hashCode * 59 + this.MessageEpoch.GetHashCode();
+                if (this.MessageType != null)
+                    hashCode = hashCode * 59 + this.MessageType.GetHashCode();
                 if (this.Translations != null)
                     hashCode = hashCode * 59 + this.Translations.GetHashCode();
                 if (this.TransportStatuses != null)

@@ -75,6 +75,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="accessStorefrontAndItem">Permission flag to allow this Agent access to the storefront and item information..</param>
         /// <param name="cancelSubscription">cancelSubscription.</param>
         /// <param name="delaySubscription">delaySubscription.</param>
+        /// <param name="generateCoupon">Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions.</param>
         /// <param name="lookupOrderInformation">lookupOrderInformation.</param>
         /// <param name="lookupSubscriptionInformation">lookupSubscriptionInformation.</param>
         /// <param name="openSupportTicket">openSupportTicket.</param>
@@ -87,11 +88,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="updateSubscriptionCreditCard">updateSubscriptionCreditCard.</param>
         /// <param name="zohoDeskAvailable">True if Zoho Desk is connected to UltraCart.</param>
         /// <param name="zohoDeskDepartments">Array of Zoho Desk Department if zoho desk is connected to UltraCart.</param>
-        public ConversationVirtualAgentCapabilities(bool accessStorefrontAndItem = default(bool), bool cancelSubscription = default(bool), bool delaySubscription = default(bool), bool lookupOrderInformation = default(bool), bool lookupSubscriptionInformation = default(bool), bool openSupportTicket = default(bool), OpenSupportTicketChannelEnum? openSupportTicketChannel = default(OpenSupportTicketChannelEnum?), string openSupportTicketChannelEmail = default(string), string openSupportTicketZohoDeskDepartmentId = default(string), bool pauseSubscription = default(bool), bool resumeSubscription = default(bool), bool transferChatToLiveAgent = default(bool), bool updateSubscriptionCreditCard = default(bool), bool zohoDeskAvailable = default(bool), List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments = default(List<ConversationVirtualAgentCapabilityZohoDeskDepartment>))
+        public ConversationVirtualAgentCapabilities(bool accessStorefrontAndItem = default(bool), bool cancelSubscription = default(bool), bool delaySubscription = default(bool), bool generateCoupon = default(bool), bool lookupOrderInformation = default(bool), bool lookupSubscriptionInformation = default(bool), bool openSupportTicket = default(bool), OpenSupportTicketChannelEnum? openSupportTicketChannel = default(OpenSupportTicketChannelEnum?), string openSupportTicketChannelEmail = default(string), string openSupportTicketZohoDeskDepartmentId = default(string), bool pauseSubscription = default(bool), bool resumeSubscription = default(bool), bool transferChatToLiveAgent = default(bool), bool updateSubscriptionCreditCard = default(bool), bool zohoDeskAvailable = default(bool), List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments = default(List<ConversationVirtualAgentCapabilityZohoDeskDepartment>))
         {
             this.AccessStorefrontAndItem = accessStorefrontAndItem;
             this.CancelSubscription = cancelSubscription;
             this.DelaySubscription = delaySubscription;
+            this.GenerateCoupon = generateCoupon;
             this.LookupOrderInformation = lookupOrderInformation;
             this.LookupSubscriptionInformation = lookupSubscriptionInformation;
             this.OpenSupportTicket = openSupportTicket;
@@ -124,6 +126,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="delay_subscription", EmitDefaultValue=false)]
         public bool DelaySubscription { get; set; }
+
+        /// <summary>
+        /// Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions
+        /// </summary>
+        /// <value>Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions</value>
+        [DataMember(Name="generate_coupon", EmitDefaultValue=false)]
+        public bool GenerateCoupon { get; set; }
 
         /// <summary>
         /// Gets or Sets LookupOrderInformation
@@ -207,6 +216,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AccessStorefrontAndItem: ").Append(AccessStorefrontAndItem).Append("\n");
             sb.Append("  CancelSubscription: ").Append(CancelSubscription).Append("\n");
             sb.Append("  DelaySubscription: ").Append(DelaySubscription).Append("\n");
+            sb.Append("  GenerateCoupon: ").Append(GenerateCoupon).Append("\n");
             sb.Append("  LookupOrderInformation: ").Append(LookupOrderInformation).Append("\n");
             sb.Append("  LookupSubscriptionInformation: ").Append(LookupSubscriptionInformation).Append("\n");
             sb.Append("  OpenSupportTicket: ").Append(OpenSupportTicket).Append("\n");
@@ -267,6 +277,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DelaySubscription == input.DelaySubscription ||
                     (this.DelaySubscription != null &&
                     this.DelaySubscription.Equals(input.DelaySubscription))
+                ) && 
+                (
+                    this.GenerateCoupon == input.GenerateCoupon ||
+                    (this.GenerateCoupon != null &&
+                    this.GenerateCoupon.Equals(input.GenerateCoupon))
                 ) && 
                 (
                     this.LookupOrderInformation == input.LookupOrderInformation ||
@@ -346,6 +361,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CancelSubscription.GetHashCode();
                 if (this.DelaySubscription != null)
                     hashCode = hashCode * 59 + this.DelaySubscription.GetHashCode();
+                if (this.GenerateCoupon != null)
+                    hashCode = hashCode * 59 + this.GenerateCoupon.GetHashCode();
                 if (this.LookupOrderInformation != null)
                     hashCode = hashCode * 59 + this.LookupOrderInformation.GetHashCode();
                 if (this.LookupSubscriptionInformation != null)

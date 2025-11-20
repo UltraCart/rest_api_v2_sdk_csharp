@@ -180,6 +180,7 @@ docs/ConversationLocationStateProvince.md
 docs/ConversationLocationsResponse.md
 docs/ConversationMcpServer.md
 docs/ConversationMcpServerResponse.md
+docs/ConversationMcpServerToolsResponse.md
 docs/ConversationMcpServersResponse.md
 docs/ConversationMessage.md
 docs/ConversationMessageTranslation.md
@@ -1127,6 +1128,7 @@ src/com.ultracart.admin.v2/Model/ConversationLocationStateProvince.cs
 src/com.ultracart.admin.v2/Model/ConversationLocationsResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationMcpServer.cs
 src/com.ultracart.admin.v2/Model/ConversationMcpServerResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationMcpServerToolsResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationMcpServersResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationMessage.cs
 src/com.ultracart.admin.v2/Model/ConversationMessageTranslation.cs

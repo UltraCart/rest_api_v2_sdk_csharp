@@ -1758,6 +1758,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationAgentProfileResponse</returns>
         ApiResponse<ConversationAgentProfileResponse> UpdateAgentProfileWithHttpInfo (ConversationAgentProfile profileRequest);
         /// <summary>
+        /// Update an agent MCP server
+        /// </summary>
+        /// <remarks>
+        /// Update an agent MCP server 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="mcpServerUuid"></param>
+        /// <param name="mcpServer">MCP Server</param>
+        /// <returns>ConversationMcpServerResponse</returns>
+        ConversationMcpServerResponse UpdateAgentProfileMcp (int? userId, string mcpServerUuid, ConversationMcpServer mcpServer);
+
+        /// <summary>
+        /// Update an agent MCP server
+        /// </summary>
+        /// <remarks>
+        /// Update an agent MCP server 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="mcpServerUuid"></param>
+        /// <param name="mcpServer">MCP Server</param>
+        /// <returns>ApiResponse of ConversationMcpServerResponse</returns>
+        ApiResponse<ConversationMcpServerResponse> UpdateAgentProfileMcpWithHttpInfo (int? userId, string mcpServerUuid, ConversationMcpServer mcpServer);
+        /// <summary>
         /// Update a canned message
         /// </summary>
         /// <remarks>
@@ -3811,6 +3836,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ConversationAgentProfileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationAgentProfileResponse>> UpdateAgentProfileAsyncWithHttpInfo (ConversationAgentProfile profileRequest);
         /// <summary>
+        /// Update an agent MCP server
+        /// </summary>
+        /// <remarks>
+        /// Update an agent MCP server 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="mcpServerUuid"></param>
+        /// <param name="mcpServer">MCP Server</param>
+        /// <returns>Task of ConversationMcpServerResponse</returns>
+        System.Threading.Tasks.Task<ConversationMcpServerResponse> UpdateAgentProfileMcpAsync (int? userId, string mcpServerUuid, ConversationMcpServer mcpServer);
+
+        /// <summary>
+        /// Update an agent MCP server
+        /// </summary>
+        /// <remarks>
+        /// Update an agent MCP server 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="mcpServerUuid"></param>
+        /// <param name="mcpServer">MCP Server</param>
+        /// <returns>Task of ApiResponse (ConversationMcpServerResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationMcpServerResponse>> UpdateAgentProfileMcpAsyncWithHttpInfo (int? userId, string mcpServerUuid, ConversationMcpServer mcpServer);
+        /// <summary>
         /// Update a canned message
         /// </summary>
         /// <remarks>
@@ -4471,7 +4521,7 @@ namespace com.ultracart.admin.v2.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4555,7 +4605,7 @@ namespace com.ultracart.admin.v2.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -17386,6 +17436,201 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationAgentProfileResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationAgentProfileResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationAgentProfileResponse)));
+        }
+
+        /// <summary>
+        /// Update an agent MCP server Update an agent MCP server 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="mcpServerUuid"></param>
+        /// <param name="mcpServer">MCP Server</param>
+        /// <returns>ConversationMcpServerResponse</returns>
+        public ConversationMcpServerResponse UpdateAgentProfileMcp (int? userId, string mcpServerUuid, ConversationMcpServer mcpServer)
+        {
+             ApiResponse<ConversationMcpServerResponse> localVarResponse = UpdateAgentProfileMcpWithHttpInfo(userId, mcpServerUuid, mcpServer);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update an agent MCP server Update an agent MCP server 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="mcpServerUuid"></param>
+        /// <param name="mcpServer">MCP Server</param>
+        /// <returns>ApiResponse of ConversationMcpServerResponse</returns>
+        public ApiResponse< ConversationMcpServerResponse > UpdateAgentProfileMcpWithHttpInfo (int? userId, string mcpServerUuid, ConversationMcpServer mcpServer)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->UpdateAgentProfileMcp");
+            // verify the required parameter 'mcpServerUuid' is set
+            if (mcpServerUuid == null)
+                throw new ApiException(400, "Missing required parameter 'mcpServerUuid' when calling ConversationApi->UpdateAgentProfileMcp");
+            // verify the required parameter 'mcpServer' is set
+            if (mcpServer == null)
+                throw new ApiException(400, "Missing required parameter 'mcpServer' when calling ConversationApi->UpdateAgentProfileMcp");
+
+            var localVarPath = "/conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (mcpServerUuid != null) localVarPathParams.Add("mcp_server_uuid", this.Configuration.ApiClient.ParameterToString(mcpServerUuid)); // path parameter
+            if (mcpServer != null && mcpServer.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(mcpServer); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mcpServer; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAgentProfileMcp", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationMcpServerResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationMcpServerResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationMcpServerResponse)));
+        }
+
+        /// <summary>
+        /// Update an agent MCP server Update an agent MCP server 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="mcpServerUuid"></param>
+        /// <param name="mcpServer">MCP Server</param>
+        /// <returns>Task of ConversationMcpServerResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationMcpServerResponse> UpdateAgentProfileMcpAsync (int? userId, string mcpServerUuid, ConversationMcpServer mcpServer)
+        {
+             ApiResponse<ConversationMcpServerResponse> localVarResponse = await UpdateAgentProfileMcpAsyncWithHttpInfo(userId, mcpServerUuid, mcpServer);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update an agent MCP server Update an agent MCP server 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="mcpServerUuid"></param>
+        /// <param name="mcpServer">MCP Server</param>
+        /// <returns>Task of ApiResponse (ConversationMcpServerResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationMcpServerResponse>> UpdateAgentProfileMcpAsyncWithHttpInfo (int? userId, string mcpServerUuid, ConversationMcpServer mcpServer)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->UpdateAgentProfileMcp");
+            // verify the required parameter 'mcpServerUuid' is set
+            if (mcpServerUuid == null)
+                throw new ApiException(400, "Missing required parameter 'mcpServerUuid' when calling ConversationApi->UpdateAgentProfileMcp");
+            // verify the required parameter 'mcpServer' is set
+            if (mcpServer == null)
+                throw new ApiException(400, "Missing required parameter 'mcpServer' when calling ConversationApi->UpdateAgentProfileMcp");
+
+            var localVarPath = "/conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (mcpServerUuid != null) localVarPathParams.Add("mcp_server_uuid", this.Configuration.ApiClient.ParameterToString(mcpServerUuid)); // path parameter
+            if (mcpServer != null && mcpServer.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(mcpServer); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mcpServer; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAgentProfileMcp", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationMcpServerResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationMcpServerResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationMcpServerResponse)));
         }
 
         /// <summary>

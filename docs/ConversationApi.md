@@ -5,7 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteAgentProfileKnowledgeBaseDocument**](ConversationApi.md#deleteagentprofileknowledgebasedocument) | **DELETE** /conversation/agent/profiles/{user_id}/knowledge_base/{document_uuid} | Delete a knowledge base document
-[**DeleteAgentProfileMcp**](ConversationApi.md#deleteagentprofilemcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Delete an agent MCP server
+[**DeleteAgentProfileMcp**](ConversationApi.md#deleteagentprofilemcp) | **DELETE** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Delete an agent MCP server
 [**DeleteConversationCannedMessage**](ConversationApi.md#deleteconversationcannedmessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 [**DeleteDepartment**](ConversationApi.md#deletedepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 [**DeleteEngagement**](ConversationApi.md#deleteengagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
@@ -87,6 +87,7 @@ Method | HTTP request | Description
 [**SmsUnsubscribeConversation**](ConversationApi.md#smsunsubscribeconversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 [**StartConversation**](ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
 [**UpdateAgentProfile**](ConversationApi.md#updateagentprofile) | **PUT** /conversation/agent/profile | Update agent profile
+[**UpdateAgentProfileMcp**](ConversationApi.md#updateagentprofilemcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Update an agent MCP server
 [**UpdateConversationCannedMessage**](ConversationApi.md#updateconversationcannedmessage) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
 [**UpdateConversationDepartment**](ConversationApi.md#updateconversationdepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 [**UpdateConversationEngagement**](ConversationApi.md#updateconversationengagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
@@ -5501,6 +5502,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationAgentProfileResponse**](ConversationAgentProfileResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateagentprofilemcp"></a>
+# **UpdateAgentProfileMcp**
+> ConversationMcpServerResponse UpdateAgentProfileMcp (int? userId, string mcpServerUuid, ConversationMcpServer mcpServer)
+
+Update an agent MCP server
+
+Update an agent MCP server 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateAgentProfileMcpExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var userId = 56;  // int? | 
+            var mcpServerUuid = mcpServerUuid_example;  // string | 
+            var mcpServer = new ConversationMcpServer(); // ConversationMcpServer | MCP Server
+
+            try
+            {
+                // Update an agent MCP server
+                ConversationMcpServerResponse result = apiInstance.UpdateAgentProfileMcp(userId, mcpServerUuid, mcpServer);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.UpdateAgentProfileMcp: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**|  | 
+ **mcpServerUuid** | **string**|  | 
+ **mcpServer** | [**ConversationMcpServer**](ConversationMcpServer.md)| MCP Server | 
+
+### Return type
+
+[**ConversationMcpServerResponse**](ConversationMcpServerResponse.md)
 
 ### Authorization
 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AiChatInstructions** | **string** | Additional instructions for this AI when handle web chats | [optional] 
 **AiPersona** | **string** | Persona of this AI agent | [optional] 
 **AiSmsInstructions** | **string** | Additional instructions for this AI when handle SMS messages | [optional] 
+**AiTicketInstructions** | **string** | Additional instructions for this AI when handling ticket draft replies | [optional] 
 **ChatLimit** | **int?** | The number of engagement chats that can be pushed on them at any given time. | [optional] 
 **DefaultLanguageIsoCode** | **string** | The default language the agent is chatting in | [optional] 
 **DefaultStatus** | **string** | Default status when the agent loads conversations app. | [optional] 
@@ -15,6 +16,8 @@ Name | Type | Description | Notes
 **ProfileImageUploadKey** | **string** | An upload key used to update the profile image. | [optional] 
 **ProfileImageUrl** | **string** | Their current profile image URL | [optional] 
 **UserId** | **int?** | User ID associated with the agent.  Populated by getAgentProfiles call only. | [optional] 
+**ZohodeskClassifications** | **List&lt;string&gt;** | Restrict this agent to drafting replies only to tickets with these classifications | [optional] 
+**ZohodeskDepartments** | **List&lt;string&gt;** | Restrict this agent to drafting replies only to these department ids | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

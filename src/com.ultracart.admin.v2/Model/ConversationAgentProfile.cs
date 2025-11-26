@@ -70,6 +70,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="aiChatInstructions">Additional instructions for this AI when handle web chats.</param>
         /// <param name="aiPersona">Persona of this AI agent.</param>
         /// <param name="aiSmsInstructions">Additional instructions for this AI when handle SMS messages.</param>
+        /// <param name="aiTicketInstructions">Additional instructions for this AI when handling ticket draft replies.</param>
         /// <param name="chatLimit">The number of engagement chats that can be pushed on them at any given time..</param>
         /// <param name="defaultLanguageIsoCode">The default language the agent is chatting in.</param>
         /// <param name="defaultStatus">Default status when the agent loads conversations app..</param>
@@ -78,12 +79,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="profileImageUploadKey">An upload key used to update the profile image..</param>
         /// <param name="profileImageUrl">Their current profile image URL.</param>
         /// <param name="userId">User ID associated with the agent.  Populated by getAgentProfiles call only..</param>
-        public ConversationAgentProfile(bool? ai = default(bool?), string aiChatInstructions = default(string), string aiPersona = default(string), string aiSmsInstructions = default(string), int? chatLimit = default(int?), string defaultLanguageIsoCode = default(string), DefaultStatusEnum? defaultStatus = default(DefaultStatusEnum?), string displayName = default(string), string name = default(string), string profileImageUploadKey = default(string), string profileImageUrl = default(string), int? userId = default(int?))
+        /// <param name="zohodeskClassifications">Restrict this agent to drafting replies only to tickets with these classifications.</param>
+        /// <param name="zohodeskDepartments">Restrict this agent to drafting replies only to these department ids.</param>
+        public ConversationAgentProfile(bool? ai = default(bool?), string aiChatInstructions = default(string), string aiPersona = default(string), string aiSmsInstructions = default(string), string aiTicketInstructions = default(string), int? chatLimit = default(int?), string defaultLanguageIsoCode = default(string), DefaultStatusEnum? defaultStatus = default(DefaultStatusEnum?), string displayName = default(string), string name = default(string), string profileImageUploadKey = default(string), string profileImageUrl = default(string), int? userId = default(int?), List<string> zohodeskClassifications = default(List<string>), List<string> zohodeskDepartments = default(List<string>))
         {
             this.Ai = ai;
             this.AiChatInstructions = aiChatInstructions;
             this.AiPersona = aiPersona;
             this.AiSmsInstructions = aiSmsInstructions;
+            this.AiTicketInstructions = aiTicketInstructions;
             this.ChatLimit = chatLimit;
             this.DefaultLanguageIsoCode = defaultLanguageIsoCode;
             this.DefaultStatus = defaultStatus;
@@ -92,6 +96,8 @@ namespace com.ultracart.admin.v2.Model
             this.ProfileImageUploadKey = profileImageUploadKey;
             this.ProfileImageUrl = profileImageUrl;
             this.UserId = userId;
+            this.ZohodeskClassifications = zohodeskClassifications;
+            this.ZohodeskDepartments = zohodeskDepartments;
         }
         
         /// <summary>
@@ -121,6 +127,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Additional instructions for this AI when handle SMS messages</value>
         [DataMember(Name="ai_sms_instructions", EmitDefaultValue=false)]
         public string AiSmsInstructions { get; set; }
+
+        /// <summary>
+        /// Additional instructions for this AI when handling ticket draft replies
+        /// </summary>
+        /// <value>Additional instructions for this AI when handling ticket draft replies</value>
+        [DataMember(Name="ai_ticket_instructions", EmitDefaultValue=false)]
+        public string AiTicketInstructions { get; set; }
 
         /// <summary>
         /// The number of engagement chats that can be pushed on them at any given time.
@@ -173,6 +186,20 @@ namespace com.ultracart.admin.v2.Model
         public int? UserId { get; set; }
 
         /// <summary>
+        /// Restrict this agent to drafting replies only to tickets with these classifications
+        /// </summary>
+        /// <value>Restrict this agent to drafting replies only to tickets with these classifications</value>
+        [DataMember(Name="zohodesk_classifications", EmitDefaultValue=false)]
+        public List<string> ZohodeskClassifications { get; set; }
+
+        /// <summary>
+        /// Restrict this agent to drafting replies only to these department ids
+        /// </summary>
+        /// <value>Restrict this agent to drafting replies only to these department ids</value>
+        [DataMember(Name="zohodesk_departments", EmitDefaultValue=false)]
+        public List<string> ZohodeskDepartments { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -184,6 +211,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AiChatInstructions: ").Append(AiChatInstructions).Append("\n");
             sb.Append("  AiPersona: ").Append(AiPersona).Append("\n");
             sb.Append("  AiSmsInstructions: ").Append(AiSmsInstructions).Append("\n");
+            sb.Append("  AiTicketInstructions: ").Append(AiTicketInstructions).Append("\n");
             sb.Append("  ChatLimit: ").Append(ChatLimit).Append("\n");
             sb.Append("  DefaultLanguageIsoCode: ").Append(DefaultLanguageIsoCode).Append("\n");
             sb.Append("  DefaultStatus: ").Append(DefaultStatus).Append("\n");
@@ -192,6 +220,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ProfileImageUploadKey: ").Append(ProfileImageUploadKey).Append("\n");
             sb.Append("  ProfileImageUrl: ").Append(ProfileImageUrl).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
+            sb.Append("  ZohodeskClassifications: ").Append(ZohodeskClassifications).Append("\n");
+            sb.Append("  ZohodeskDepartments: ").Append(ZohodeskDepartments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -247,6 +277,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AiSmsInstructions.Equals(input.AiSmsInstructions))
                 ) && 
                 (
+                    this.AiTicketInstructions == input.AiTicketInstructions ||
+                    (this.AiTicketInstructions != null &&
+                    this.AiTicketInstructions.Equals(input.AiTicketInstructions))
+                ) && 
+                (
                     this.ChatLimit == input.ChatLimit ||
                     (this.ChatLimit != null &&
                     this.ChatLimit.Equals(input.ChatLimit))
@@ -285,6 +320,16 @@ namespace com.ultracart.admin.v2.Model
                     this.UserId == input.UserId ||
                     (this.UserId != null &&
                     this.UserId.Equals(input.UserId))
+                ) && 
+                (
+                    this.ZohodeskClassifications == input.ZohodeskClassifications ||
+                    this.ZohodeskClassifications != null &&
+                    this.ZohodeskClassifications.SequenceEqual(input.ZohodeskClassifications)
+                ) && 
+                (
+                    this.ZohodeskDepartments == input.ZohodeskDepartments ||
+                    this.ZohodeskDepartments != null &&
+                    this.ZohodeskDepartments.SequenceEqual(input.ZohodeskDepartments)
                 );
         }
 
@@ -305,6 +350,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AiPersona.GetHashCode();
                 if (this.AiSmsInstructions != null)
                     hashCode = hashCode * 59 + this.AiSmsInstructions.GetHashCode();
+                if (this.AiTicketInstructions != null)
+                    hashCode = hashCode * 59 + this.AiTicketInstructions.GetHashCode();
                 if (this.ChatLimit != null)
                     hashCode = hashCode * 59 + this.ChatLimit.GetHashCode();
                 if (this.DefaultLanguageIsoCode != null)
@@ -321,6 +368,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ProfileImageUrl.GetHashCode();
                 if (this.UserId != null)
                     hashCode = hashCode * 59 + this.UserId.GetHashCode();
+                if (this.ZohodeskClassifications != null)
+                    hashCode = hashCode * 59 + this.ZohodeskClassifications.GetHashCode();
+                if (this.ZohodeskDepartments != null)
+                    hashCode = hashCode * 59 + this.ZohodeskDepartments.GetHashCode();
                 return hashCode;
             }
         }

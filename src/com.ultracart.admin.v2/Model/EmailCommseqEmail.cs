@@ -33,6 +33,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailCommseqEmail" /> class.
         /// </summary>
+        /// <param name="aiGeneration">aiGeneration.</param>
+        /// <param name="aiGenerationPrompt">aiGenerationPrompt.</param>
+        /// <param name="aiGenerationUserId">aiGenerationUserId.</param>
         /// <param name="deleted">Deleted.</param>
         /// <param name="editedByUser">Edited by user.</param>
         /// <param name="emailCommunicationSequenceEmailUuid">Email communication sequence email uuid.</param>
@@ -67,8 +70,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="suspendedForSpam">True if the email was suspended for too high of a spam rate..</param>
         /// <param name="transactionalEmail">Transactional email.</param>
         /// <param name="version">Version.</param>
-        public EmailCommseqEmail(bool deleted = default(bool), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), bool externalGeneration = default(bool), string externalGenerationAuthentication = default(string), string externalGenerationBasicPassword = default(string), string externalGenerationBasicUsername = default(string), string externalGenerationHeaderName = default(string), string externalGenerationHeaderValue = default(string), string externalGenerationId = default(string), string externalGenerationUrl = default(string), string filterProfileEquationJson = default(string), bool individuallyRender = default(bool), int libraryItemOid = default(int), bool magicLink = default(bool), string merchantId = default(string), bool pendingReview = default(bool), string previewText = default(string), bool rejected = default(bool), bool requiresReview = default(bool), string screenshotLargeFullUrl = default(string), string screenshotLargeViewportUrl = default(string), string screenshotSmallFullUrl = default(string), string screenshotSmallViewportUrl = default(string), bool smartSending = default(bool), int storefrontOid = default(int), string subject = default(string), bool suspendedForSpam = default(bool), bool transactionalEmail = default(bool), int version = default(int))
+        public EmailCommseqEmail(bool aiGeneration = default(bool), string aiGenerationPrompt = default(string), int aiGenerationUserId = default(int), bool deleted = default(bool), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), bool externalGeneration = default(bool), string externalGenerationAuthentication = default(string), string externalGenerationBasicPassword = default(string), string externalGenerationBasicUsername = default(string), string externalGenerationHeaderName = default(string), string externalGenerationHeaderValue = default(string), string externalGenerationId = default(string), string externalGenerationUrl = default(string), string filterProfileEquationJson = default(string), bool individuallyRender = default(bool), int libraryItemOid = default(int), bool magicLink = default(bool), string merchantId = default(string), bool pendingReview = default(bool), string previewText = default(string), bool rejected = default(bool), bool requiresReview = default(bool), string screenshotLargeFullUrl = default(string), string screenshotLargeViewportUrl = default(string), string screenshotSmallFullUrl = default(string), string screenshotSmallViewportUrl = default(string), bool smartSending = default(bool), int storefrontOid = default(int), string subject = default(string), bool suspendedForSpam = default(bool), bool transactionalEmail = default(bool), int version = default(int))
         {
+            this.AiGeneration = aiGeneration;
+            this.AiGenerationPrompt = aiGenerationPrompt;
+            this.AiGenerationUserId = aiGenerationUserId;
             this.Deleted = deleted;
             this.EditedByUser = editedByUser;
             this.EmailCommunicationSequenceEmailUuid = emailCommunicationSequenceEmailUuid;
@@ -104,6 +110,24 @@ namespace com.ultracart.admin.v2.Model
             this.TransactionalEmail = transactionalEmail;
             this._Version = version;
         }
+
+        /// <summary>
+        /// Gets or Sets AiGeneration
+        /// </summary>
+        [DataMember(Name="ai_generation", EmitDefaultValue=false)]
+        public bool AiGeneration { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AiGenerationPrompt
+        /// </summary>
+        [DataMember(Name="ai_generation_prompt", EmitDefaultValue=false)]
+        public string AiGenerationPrompt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AiGenerationUserId
+        /// </summary>
+        [DataMember(Name="ai_generation_user_id", EmitDefaultValue=false)]
+        public int AiGenerationUserId { get; set; }
 
         /// <summary>
         /// Deleted
@@ -343,6 +367,9 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class EmailCommseqEmail {\n");
+            sb.Append("  AiGeneration: ").Append(AiGeneration).Append("\n");
+            sb.Append("  AiGenerationPrompt: ").Append(AiGenerationPrompt).Append("\n");
+            sb.Append("  AiGenerationUserId: ").Append(AiGenerationUserId).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  EditedByUser: ").Append(EditedByUser).Append("\n");
             sb.Append("  EmailCommunicationSequenceEmailUuid: ").Append(EmailCommunicationSequenceEmailUuid).Append("\n");
@@ -411,6 +438,21 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.AiGeneration == input.AiGeneration ||
+                    (this.AiGeneration != null &&
+                    this.AiGeneration.Equals(input.AiGeneration))
+                ) && 
+                (
+                    this.AiGenerationPrompt == input.AiGenerationPrompt ||
+                    (this.AiGenerationPrompt != null &&
+                    this.AiGenerationPrompt.Equals(input.AiGenerationPrompt))
+                ) && 
+                (
+                    this.AiGenerationUserId == input.AiGenerationUserId ||
+                    (this.AiGenerationUserId != null &&
+                    this.AiGenerationUserId.Equals(input.AiGenerationUserId))
+                ) && 
                 (
                     this.Deleted == input.Deleted ||
                     (this.Deleted != null &&
@@ -592,6 +634,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AiGeneration != null)
+                    hashCode = hashCode * 59 + this.AiGeneration.GetHashCode();
+                if (this.AiGenerationPrompt != null)
+                    hashCode = hashCode * 59 + this.AiGenerationPrompt.GetHashCode();
+                if (this.AiGenerationUserId != null)
+                    hashCode = hashCode * 59 + this.AiGenerationUserId.GetHashCode();
                 if (this.Deleted != null)
                     hashCode = hashCode * 59 + this.Deleted.GetHashCode();
                 if (this.EditedByUser != null)

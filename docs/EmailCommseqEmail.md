@@ -5,6 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AiGeneration** | **bool** |  | [optional] 
+**AiGenerationPrompt** | **string** |  | [optional] 
+**AiGenerationUserId** | **int** |  | [optional] 
 **Deleted** | **bool** | Deleted | [optional] 
 **EditedByUser** | **string** | Edited by user | [optional] 
 **EmailCommunicationSequenceEmailUuid** | **string** | Email communication sequence email uuid | [optional] 

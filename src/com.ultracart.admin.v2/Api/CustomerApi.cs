@@ -535,6 +535,41 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of LookupResponse</returns>
         ApiResponse<LookupResponse> SearchCustomerProfileValuesWithHttpInfo (LookupRequest lookupRequest);
         /// <summary>
+        /// Search for customers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchString">Search (optional)</param>
+        /// <param name="signupDtsStart">Signup date start (optional)</param>
+        /// <param name="signupDtsEnd">Signup date end (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>CustomersResponse</returns>
+        CustomersResponse SearchCustomers (string searchString = null, string signupDtsStart = null, string signupDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+
+        /// <summary>
+        /// Search for customers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchString">Search (optional)</param>
+        /// <param name="signupDtsStart">Signup date start (optional)</param>
+        /// <param name="signupDtsEnd">Signup date end (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of CustomersResponse</returns>
+        ApiResponse<CustomersResponse> SearchCustomersWithHttpInfo (string searchString = null, string signupDtsStart = null, string signupDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        /// <summary>
         /// Update a customer
         /// </summary>
         /// <remarks>
@@ -1140,6 +1175,41 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="lookupRequest">LookupRequest</param>
         /// <returns>Task of ApiResponse (LookupResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LookupResponse>> SearchCustomerProfileValuesAsyncWithHttpInfo (LookupRequest lookupRequest);
+        /// <summary>
+        /// Search for customers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchString">Search (optional)</param>
+        /// <param name="signupDtsStart">Signup date start (optional)</param>
+        /// <param name="signupDtsEnd">Signup date end (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of CustomersResponse</returns>
+        System.Threading.Tasks.Task<CustomersResponse> SearchCustomersAsync (string searchString = null, string signupDtsStart = null, string signupDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+
+        /// <summary>
+        /// Search for customers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchString">Search (optional)</param>
+        /// <param name="signupDtsStart">Signup date start (optional)</param>
+        /// <param name="signupDtsEnd">Signup date end (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (CustomersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomersResponse>> SearchCustomersAsyncWithHttpInfo (string searchString = null, string signupDtsStart = null, string signupDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
         /// <summary>
         /// Update a customer
         /// </summary>
@@ -4883,6 +4953,199 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<LookupResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (LookupResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LookupResponse)));
+        }
+
+        /// <summary>
+        /// Search for customers Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchString">Search (optional)</param>
+        /// <param name="signupDtsStart">Signup date start (optional)</param>
+        /// <param name="signupDtsEnd">Signup date end (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>CustomersResponse</returns>
+        public CustomersResponse SearchCustomers (string searchString = null, string signupDtsStart = null, string signupDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+        {
+             ApiResponse<CustomersResponse> localVarResponse = SearchCustomersWithHttpInfo(searchString, signupDtsStart, signupDtsEnd, limit, offset, since, sort, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search for customers Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchString">Search (optional)</param>
+        /// <param name="signupDtsStart">Signup date start (optional)</param>
+        /// <param name="signupDtsEnd">Signup date end (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of CustomersResponse</returns>
+        public ApiResponse< CustomersResponse > SearchCustomersWithHttpInfo (string searchString = null, string signupDtsStart = null, string signupDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+        {
+
+            var localVarPath = "/customer/customers/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (searchString != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search_string", searchString)); // query parameter
+            if (signupDtsStart != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "signup_dts_start", signupDtsStart)); // query parameter
+            if (signupDtsEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "signup_dts_end", signupDtsEnd)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchCustomers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomersResponse)));
+        }
+
+        /// <summary>
+        /// Search for customers Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchString">Search (optional)</param>
+        /// <param name="signupDtsStart">Signup date start (optional)</param>
+        /// <param name="signupDtsEnd">Signup date end (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of CustomersResponse</returns>
+        public async System.Threading.Tasks.Task<CustomersResponse> SearchCustomersAsync (string searchString = null, string signupDtsStart = null, string signupDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+        {
+             ApiResponse<CustomersResponse> localVarResponse = await SearchCustomersAsyncWithHttpInfo(searchString, signupDtsStart, signupDtsEnd, limit, offset, since, sort, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Search for customers Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchString">Search (optional)</param>
+        /// <param name="signupDtsStart">Signup date start (optional)</param>
+        /// <param name="signupDtsEnd">Signup date end (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (CustomersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomersResponse>> SearchCustomersAsyncWithHttpInfo (string searchString = null, string signupDtsStart = null, string signupDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+        {
+
+            var localVarPath = "/customer/customers/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (searchString != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search_string", searchString)); // query parameter
+            if (signupDtsStart != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "signup_dts_start", signupDtsStart)); // query parameter
+            if (signupDtsEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "signup_dts_end", signupDtsEnd)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchCustomers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomersResponse)));
         }
 
         /// <summary>

@@ -31,6 +31,33 @@ namespace com.ultracart.admin.v2.Model
     public partial class CustomerQuery :  IEquatable<CustomerQuery>, IValidatableObject
     {
         /// <summary>
+        /// Query Target
+        /// </summary>
+        /// <value>Query Target</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum QueryTargetEnum
+        {
+            
+            /// <summary>
+            /// Enum Origin for value: origin
+            /// </summary>
+            [EnumMember(Value = "origin")]
+            Origin = 1,
+            
+            /// <summary>
+            /// Enum Cache for value: cache
+            /// </summary>
+            [EnumMember(Value = "cache")]
+            Cache = 2
+        }
+
+        /// <summary>
+        /// Query Target
+        /// </summary>
+        /// <value>Query Target</value>
+        [DataMember(Name="query_target", EmitDefaultValue=false)]
+        public QueryTargetEnum? QueryTarget { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CustomerQuery" /> class.
         /// </summary>
         /// <param name="allTags">All tags the customer must have.</param>
@@ -51,6 +78,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="pricingTierName">Pricing tier name.</param>
         /// <param name="pricingTierOid">Pricing tier oid.</param>
         /// <param name="qbClass">QuickBooks class to import this customer as.</param>
+        /// <param name="queryTarget">Query Target.</param>
         /// <param name="quickbooksCode">QuickBooks name to import this customer as.</param>
         /// <param name="shippingCity">Billing city.</param>
         /// <param name="shippingCompany">Billing company.</param>
@@ -63,7 +91,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="shippingState">Billing state.</param>
         /// <param name="signupDtsEnd">Signup date end.</param>
         /// <param name="signupDtsStart">Signup date start.</param>
-        public CustomerQuery(List<string> allTags = default(List<string>), List<string> anyTags = default(List<string>), string billingCity = default(string), string billingCompany = default(string), string billingCountryCode = default(string), string billingDayPhone = default(string), string billingEveningPhone = default(string), string billingFirstName = default(string), string billingLastName = default(string), string billingPostalCode = default(string), string billingState = default(string), string email = default(string), List<string> emails = default(List<string>), string lastModifiedDtsEnd = default(string), string lastModifiedDtsStart = default(string), string pricingTierName = default(string), int? pricingTierOid = default(int?), string qbClass = default(string), string quickbooksCode = default(string), string shippingCity = default(string), string shippingCompany = default(string), string shippingCountryCode = default(string), string shippingDayPhone = default(string), string shippingEveningPhone = default(string), string shippingFirstName = default(string), string shippingLastName = default(string), string shippingPostalCode = default(string), string shippingState = default(string), string signupDtsEnd = default(string), string signupDtsStart = default(string))
+        public CustomerQuery(List<string> allTags = default(List<string>), List<string> anyTags = default(List<string>), string billingCity = default(string), string billingCompany = default(string), string billingCountryCode = default(string), string billingDayPhone = default(string), string billingEveningPhone = default(string), string billingFirstName = default(string), string billingLastName = default(string), string billingPostalCode = default(string), string billingState = default(string), string email = default(string), List<string> emails = default(List<string>), string lastModifiedDtsEnd = default(string), string lastModifiedDtsStart = default(string), string pricingTierName = default(string), int? pricingTierOid = default(int?), string qbClass = default(string), QueryTargetEnum? queryTarget = default(QueryTargetEnum?), string quickbooksCode = default(string), string shippingCity = default(string), string shippingCompany = default(string), string shippingCountryCode = default(string), string shippingDayPhone = default(string), string shippingEveningPhone = default(string), string shippingFirstName = default(string), string shippingLastName = default(string), string shippingPostalCode = default(string), string shippingState = default(string), string signupDtsEnd = default(string), string signupDtsStart = default(string))
         {
             this.AllTags = allTags;
             this.AnyTags = anyTags;
@@ -83,6 +111,7 @@ namespace com.ultracart.admin.v2.Model
             this.PricingTierName = pricingTierName;
             this.PricingTierOid = pricingTierOid;
             this.QbClass = qbClass;
+            this.QueryTarget = queryTarget;
             this.QuickbooksCode = quickbooksCode;
             this.ShippingCity = shippingCity;
             this.ShippingCompany = shippingCompany;
@@ -223,6 +252,7 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="qb_class", EmitDefaultValue=false)]
         public string QbClass { get; set; }
 
+
         /// <summary>
         /// QuickBooks name to import this customer as
         /// </summary>
@@ -333,6 +363,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PricingTierName: ").Append(PricingTierName).Append("\n");
             sb.Append("  PricingTierOid: ").Append(PricingTierOid).Append("\n");
             sb.Append("  QbClass: ").Append(QbClass).Append("\n");
+            sb.Append("  QueryTarget: ").Append(QueryTarget).Append("\n");
             sb.Append("  QuickbooksCode: ").Append(QuickbooksCode).Append("\n");
             sb.Append("  ShippingCity: ").Append(ShippingCity).Append("\n");
             sb.Append("  ShippingCompany: ").Append(ShippingCompany).Append("\n");
@@ -470,6 +501,11 @@ namespace com.ultracart.admin.v2.Model
                     this.QbClass.Equals(input.QbClass))
                 ) && 
                 (
+                    this.QueryTarget == input.QueryTarget ||
+                    (this.QueryTarget != null &&
+                    this.QueryTarget.Equals(input.QueryTarget))
+                ) && 
+                (
                     this.QuickbooksCode == input.QuickbooksCode ||
                     (this.QuickbooksCode != null &&
                     this.QuickbooksCode.Equals(input.QuickbooksCode))
@@ -576,6 +612,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PricingTierOid.GetHashCode();
                 if (this.QbClass != null)
                     hashCode = hashCode * 59 + this.QbClass.GetHashCode();
+                if (this.QueryTarget != null)
+                    hashCode = hashCode * 59 + this.QueryTarget.GetHashCode();
                 if (this.QuickbooksCode != null)
                     hashCode = hashCode * 59 + this.QuickbooksCode.GetHashCode();
                 if (this.ShippingCity != null)

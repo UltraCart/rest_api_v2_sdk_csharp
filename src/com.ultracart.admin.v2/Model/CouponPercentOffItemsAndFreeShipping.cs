@@ -38,13 +38,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="excludedItems">A list of items which cannot be discounted..</param>
         /// <param name="itemTags">An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items..</param>
         /// <param name="items">An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items..</param>
-        public CouponPercentOffItemsAndFreeShipping(decimal discountPercent = default(decimal), List<string> excludedItemTags = default(List<string>), List<string> excludedItems = default(List<string>), List<string> itemTags = default(List<string>), List<string> items = default(List<string>))
+        /// <param name="shippingMethods">One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods.</param>
+        public CouponPercentOffItemsAndFreeShipping(decimal discountPercent = default(decimal), List<string> excludedItemTags = default(List<string>), List<string> excludedItems = default(List<string>), List<string> itemTags = default(List<string>), List<string> items = default(List<string>), List<string> shippingMethods = default(List<string>))
         {
             this.DiscountPercent = discountPercent;
             this.ExcludedItemTags = excludedItemTags;
             this.ExcludedItems = excludedItems;
             this.ItemTags = itemTags;
             this.Items = items;
+            this.ShippingMethods = shippingMethods;
         }
 
         /// <summary>
@@ -83,6 +85,13 @@ namespace com.ultracart.admin.v2.Model
         public List<string> Items { get; set; }
 
         /// <summary>
+        /// One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods
+        /// </summary>
+        /// <value>One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods</value>
+        [DataMember(Name="shipping_methods", EmitDefaultValue=false)]
+        public List<string> ShippingMethods { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +104,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ExcludedItems: ").Append(ExcludedItems).Append("\n");
             sb.Append("  ItemTags: ").Append(ItemTags).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
+            sb.Append("  ShippingMethods: ").Append(ShippingMethods).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -157,6 +167,12 @@ namespace com.ultracart.admin.v2.Model
                     this.Items != null &&
                     input.Items != null &&
                     this.Items.SequenceEqual(input.Items)
+                ) && 
+                (
+                    this.ShippingMethods == input.ShippingMethods ||
+                    this.ShippingMethods != null &&
+                    input.ShippingMethods != null &&
+                    this.ShippingMethods.SequenceEqual(input.ShippingMethods)
                 );
         }
 
@@ -179,6 +195,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ItemTags.GetHashCode();
                 if (this.Items != null)
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
+                if (this.ShippingMethods != null)
+                    hashCode = hashCode * 59 + this.ShippingMethods.GetHashCode();
                 return hashCode;
             }
         }

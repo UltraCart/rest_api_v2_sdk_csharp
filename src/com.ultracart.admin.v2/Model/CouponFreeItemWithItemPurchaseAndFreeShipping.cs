@@ -37,12 +37,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="limit">The (optional) maximum quantity of discounted items.  Free shipping will apply to all units of the free item ids though..</param>
         /// <param name="matchRequiredPurchaseItemToFreeItem">If true then the free item is matched 1:1 with the free item in the list..</param>
         /// <param name="requiredPurchaseItems">Required items (at least one from the list) that must be purchased for coupon to be valid.</param>
-        public CouponFreeItemWithItemPurchaseAndFreeShipping(List<string> items = default(List<string>), int? limit = default(int?), bool? matchRequiredPurchaseItemToFreeItem = default(bool?), List<string> requiredPurchaseItems = default(List<string>))
+        /// <param name="shippingMethods">One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods.</param>
+        public CouponFreeItemWithItemPurchaseAndFreeShipping(List<string> items = default(List<string>), int? limit = default(int?), bool? matchRequiredPurchaseItemToFreeItem = default(bool?), List<string> requiredPurchaseItems = default(List<string>), List<string> shippingMethods = default(List<string>))
         {
             this.Items = items;
             this.Limit = limit;
             this.MatchRequiredPurchaseItemToFreeItem = matchRequiredPurchaseItemToFreeItem;
             this.RequiredPurchaseItems = requiredPurchaseItems;
+            this.ShippingMethods = shippingMethods;
         }
         
         /// <summary>
@@ -74,6 +76,13 @@ namespace com.ultracart.admin.v2.Model
         public List<string> RequiredPurchaseItems { get; set; }
 
         /// <summary>
+        /// One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods
+        /// </summary>
+        /// <value>One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods</value>
+        [DataMember(Name="shipping_methods", EmitDefaultValue=false)]
+        public List<string> ShippingMethods { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +94,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  MatchRequiredPurchaseItemToFreeItem: ").Append(MatchRequiredPurchaseItemToFreeItem).Append("\n");
             sb.Append("  RequiredPurchaseItems: ").Append(RequiredPurchaseItems).Append("\n");
+            sb.Append("  ShippingMethods: ").Append(ShippingMethods).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +148,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RequiredPurchaseItems == input.RequiredPurchaseItems ||
                     this.RequiredPurchaseItems != null &&
                     this.RequiredPurchaseItems.SequenceEqual(input.RequiredPurchaseItems)
+                ) && 
+                (
+                    this.ShippingMethods == input.ShippingMethods ||
+                    this.ShippingMethods != null &&
+                    this.ShippingMethods.SequenceEqual(input.ShippingMethods)
                 );
         }
 
@@ -158,6 +173,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MatchRequiredPurchaseItemToFreeItem.GetHashCode();
                 if (this.RequiredPurchaseItems != null)
                     hashCode = hashCode * 59 + this.RequiredPurchaseItems.GetHashCode();
+                if (this.ShippingMethods != null)
+                    hashCode = hashCode * 59 + this.ShippingMethods.GetHashCode();
                 return hashCode;
             }
         }

@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Ai** | **bool** | Flag to indicate if the agent is AI | [optional] 
 **Cellphone** | **string** | Cellphone number of agent in E.164 format | [optional] 
 **ConversationPbxAgentUuid** | **string** | Conversation Pbx Agent unique identifier | [optional] 
 **Extension** | **int** | Extension | [optional] 

@@ -632,6 +632,7 @@ docs/ItemShippingCase.md
 docs/ItemShippingDestinationMarkup.md
 docs/ItemShippingDestinationRestriction.md
 docs/ItemShippingDistributionCenter.md
+docs/ItemShippingDistributionCenterResponse.md
 docs/ItemShippingMethod.md
 docs/ItemShippingPackageRequirement.md
 docs/ItemTag.md
@@ -1573,6 +1574,7 @@ src/com.ultracart.admin.v2/Model/ItemShippingCase.cs
 src/com.ultracart.admin.v2/Model/ItemShippingDestinationMarkup.cs
 src/com.ultracart.admin.v2/Model/ItemShippingDestinationRestriction.cs
 src/com.ultracart.admin.v2/Model/ItemShippingDistributionCenter.cs
+src/com.ultracart.admin.v2/Model/ItemShippingDistributionCenterResponse.cs
 src/com.ultracart.admin.v2/Model/ItemShippingMethod.cs
 src/com.ultracart.admin.v2/Model/ItemShippingPackageRequirement.cs
 src/com.ultracart.admin.v2/Model/ItemTag.cs

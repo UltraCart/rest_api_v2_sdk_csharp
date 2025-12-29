@@ -47,7 +47,19 @@ namespace com.ultracart.admin.v2.Model
             /// Enum UserDefined for value: UserDefined
             /// </summary>
             [EnumMember(Value = "UserDefined")]
-            UserDefined = 2
+            UserDefined = 2,
+
+            /// <summary>
+            /// Enum Addon for value: Addon
+            /// </summary>
+            [EnumMember(Value = "Addon")]
+            Addon = 3,
+
+            /// <summary>
+            /// Enum Complementary for value: Complementary
+            /// </summary>
+            [EnumMember(Value = "Complementary")]
+            Complementary = 4
 
         }
 

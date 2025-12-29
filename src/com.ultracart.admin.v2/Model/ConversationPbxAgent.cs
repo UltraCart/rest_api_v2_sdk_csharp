@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxAgent" /> class.
         /// </summary>
+        /// <param name="ai">Flag to indicate if the agent is AI.</param>
         /// <param name="cellphone">Cellphone number of agent in E.164 format.</param>
         /// <param name="conversationPbxAgentUuid">Conversation Pbx Agent unique identifier.</param>
         /// <param name="extension">Extension.</param>
@@ -49,8 +50,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="unavailableSayVoice">Unavailable say voice.</param>
         /// <param name="userId">User Id.</param>
         /// <param name="voicemail">True if this agent has voicemail configured.</param>
-        public ConversationPbxAgent(string cellphone = default(string), string conversationPbxAgentUuid = default(string), int extension = default(int), bool forwardCallsToCellphone = default(bool), string fullName = default(string), string login = default(string), string merchantId = default(string), string personalConversationPbxVoicemailMailboxUuid = default(string), bool recordOutgoingAutomatically = default(bool), string sharedConversationPbxVoicemailMailboxUuid = default(string), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), string unavailableSayVoice = default(string), int userId = default(int), bool voicemail = default(bool))
+        public ConversationPbxAgent(bool ai = default(bool), string cellphone = default(string), string conversationPbxAgentUuid = default(string), int extension = default(int), bool forwardCallsToCellphone = default(bool), string fullName = default(string), string login = default(string), string merchantId = default(string), string personalConversationPbxVoicemailMailboxUuid = default(string), bool recordOutgoingAutomatically = default(bool), string sharedConversationPbxVoicemailMailboxUuid = default(string), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), string unavailableSayVoice = default(string), int userId = default(int), bool voicemail = default(bool))
         {
+            this.Ai = ai;
             this.Cellphone = cellphone;
             this.ConversationPbxAgentUuid = conversationPbxAgentUuid;
             this.Extension = extension;
@@ -68,6 +70,13 @@ namespace com.ultracart.admin.v2.Model
             this.UserId = userId;
             this.Voicemail = voicemail;
         }
+
+        /// <summary>
+        /// Flag to indicate if the agent is AI
+        /// </summary>
+        /// <value>Flag to indicate if the agent is AI</value>
+        [DataMember(Name="ai", EmitDefaultValue=false)]
+        public bool Ai { get; set; }
 
         /// <summary>
         /// Cellphone number of agent in E.164 format
@@ -189,6 +198,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationPbxAgent {\n");
+            sb.Append("  Ai: ").Append(Ai).Append("\n");
             sb.Append("  Cellphone: ").Append(Cellphone).Append("\n");
             sb.Append("  ConversationPbxAgentUuid: ").Append(ConversationPbxAgentUuid).Append("\n");
             sb.Append("  Extension: ").Append(Extension).Append("\n");
@@ -239,6 +249,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.Ai == input.Ai ||
+                    (this.Ai != null &&
+                    this.Ai.Equals(input.Ai))
+                ) && 
                 (
                     this.Cellphone == input.Cellphone ||
                     (this.Cellphone != null &&
@@ -330,6 +345,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Ai != null)
+                    hashCode = hashCode * 59 + this.Ai.GetHashCode();
                 if (this.Cellphone != null)
                     hashCode = hashCode * 59 + this.Cellphone.GetHashCode();
                 if (this.ConversationPbxAgentUuid != null)

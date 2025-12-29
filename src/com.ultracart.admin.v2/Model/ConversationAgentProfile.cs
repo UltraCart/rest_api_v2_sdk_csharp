@@ -67,6 +67,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ConversationAgentProfile" /> class.
         /// </summary>
         /// <param name="ai">AI powered chat bot.</param>
+        /// <param name="aiCapabilities">aiCapabilities.</param>
         /// <param name="aiChatInstructions">Additional instructions for this AI when handle web chats.</param>
         /// <param name="aiPersona">Persona of this AI agent.</param>
         /// <param name="aiSmsInstructions">Additional instructions for this AI when handle SMS messages.</param>
@@ -81,9 +82,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="userId">User ID associated with the agent.  Populated by getAgentProfiles call only..</param>
         /// <param name="zohodeskClassifications">Restrict this agent to drafting replies only to tickets with these classifications.</param>
         /// <param name="zohodeskDepartments">Restrict this agent to drafting replies only to these department ids.</param>
-        public ConversationAgentProfile(bool? ai = default(bool?), string aiChatInstructions = default(string), string aiPersona = default(string), string aiSmsInstructions = default(string), string aiTicketInstructions = default(string), int? chatLimit = default(int?), string defaultLanguageIsoCode = default(string), DefaultStatusEnum? defaultStatus = default(DefaultStatusEnum?), string displayName = default(string), string name = default(string), string profileImageUploadKey = default(string), string profileImageUrl = default(string), int? userId = default(int?), List<string> zohodeskClassifications = default(List<string>), List<string> zohodeskDepartments = default(List<string>))
+        public ConversationAgentProfile(bool? ai = default(bool?), ConversationVirtualAgentCapabilities aiCapabilities = default(ConversationVirtualAgentCapabilities), string aiChatInstructions = default(string), string aiPersona = default(string), string aiSmsInstructions = default(string), string aiTicketInstructions = default(string), int? chatLimit = default(int?), string defaultLanguageIsoCode = default(string), DefaultStatusEnum? defaultStatus = default(DefaultStatusEnum?), string displayName = default(string), string name = default(string), string profileImageUploadKey = default(string), string profileImageUrl = default(string), int? userId = default(int?), List<string> zohodeskClassifications = default(List<string>), List<string> zohodeskDepartments = default(List<string>))
         {
             this.Ai = ai;
+            this.AiCapabilities = aiCapabilities;
             this.AiChatInstructions = aiChatInstructions;
             this.AiPersona = aiPersona;
             this.AiSmsInstructions = aiSmsInstructions;
@@ -106,6 +108,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>AI powered chat bot</value>
         [DataMember(Name="ai", EmitDefaultValue=false)]
         public bool? Ai { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AiCapabilities
+        /// </summary>
+        [DataMember(Name="ai_capabilities", EmitDefaultValue=false)]
+        public ConversationVirtualAgentCapabilities AiCapabilities { get; set; }
 
         /// <summary>
         /// Additional instructions for this AI when handle web chats
@@ -208,6 +216,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ConversationAgentProfile {\n");
             sb.Append("  Ai: ").Append(Ai).Append("\n");
+            sb.Append("  AiCapabilities: ").Append(AiCapabilities).Append("\n");
             sb.Append("  AiChatInstructions: ").Append(AiChatInstructions).Append("\n");
             sb.Append("  AiPersona: ").Append(AiPersona).Append("\n");
             sb.Append("  AiSmsInstructions: ").Append(AiSmsInstructions).Append("\n");
@@ -260,6 +269,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Ai == input.Ai ||
                     (this.Ai != null &&
                     this.Ai.Equals(input.Ai))
+                ) && 
+                (
+                    this.AiCapabilities == input.AiCapabilities ||
+                    (this.AiCapabilities != null &&
+                    this.AiCapabilities.Equals(input.AiCapabilities))
                 ) && 
                 (
                     this.AiChatInstructions == input.AiChatInstructions ||
@@ -344,6 +358,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Ai != null)
                     hashCode = hashCode * 59 + this.Ai.GetHashCode();
+                if (this.AiCapabilities != null)
+                    hashCode = hashCode * 59 + this.AiCapabilities.GetHashCode();
                 if (this.AiChatInstructions != null)
                     hashCode = hashCode * 59 + this.AiChatInstructions.GetHashCode();
                 if (this.AiPersona != null)

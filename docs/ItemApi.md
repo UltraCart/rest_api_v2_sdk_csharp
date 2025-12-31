@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**InsertUpdateItemContentAttribute**](ItemApi.md#insertupdateitemcontentattribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 [**UpdateDigitalItem**](ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**UpdateItem**](ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**UpdateItemInventories**](ItemApi.md#updateiteminventories) | **PUT** /item/items/update_item_inventories | Update item inventories for a distribution center
 [**UpdateItemShippingDistributionCenterByCode**](ItemApi.md#updateitemshippingdistributioncenterbycode) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 [**UpdateItems**](ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
 [**UpdateReview**](ItemApi.md#updatereview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
@@ -2166,6 +2167,57 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateItemInventories
+
+> void UpdateItemInventories (ItemInventoryUpdateRequest itemInventoryUpdateRequest)
+
+Update item inventories for a distribution center
+
+Update item inventories for a distribution center 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemInventoryUpdateRequest** | [**ItemInventoryUpdateRequest**](ItemInventoryUpdateRequest.md)| Item inventory updates | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |

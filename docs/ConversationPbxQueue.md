@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AiPriority** | **string** | AI Agent Priority compared to human agents | [optional] 
+**AiTimeoutSeconds** | **int** | AI timeout seconds | [optional] 
 **AnnounceQueuePosition** | **bool** | If true, the customer is told their queue position upon entering the queue | [optional] 
 **ConversationPbxQueueUuid** | **string** | Conversation Pbx Queue unique identifier | [optional] 
 **ConversationVoicemailMailboxUuid** | **string** | The voicemail mailbox associated with this queue | [optional] 

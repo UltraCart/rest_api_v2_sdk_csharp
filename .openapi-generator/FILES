@@ -601,6 +601,8 @@ docs/ItemInternal.md
 docs/ItemInventorySnapshot.md
 docs/ItemInventorySnapshotDistributionCenter.md
 docs/ItemInventorySnapshotResponse.md
+docs/ItemInventoryUpdate.md
+docs/ItemInventoryUpdateRequest.md
 docs/ItemKitComponent.md
 docs/ItemKitDefinition.md
 docs/ItemOption.md
@@ -1543,6 +1545,8 @@ src/com.ultracart.admin.v2/Model/ItemInternal.cs
 src/com.ultracart.admin.v2/Model/ItemInventorySnapshot.cs
 src/com.ultracart.admin.v2/Model/ItemInventorySnapshotDistributionCenter.cs
 src/com.ultracart.admin.v2/Model/ItemInventorySnapshotResponse.cs
+src/com.ultracart.admin.v2/Model/ItemInventoryUpdate.cs
+src/com.ultracart.admin.v2/Model/ItemInventoryUpdateRequest.cs
 src/com.ultracart.admin.v2/Model/ItemKitComponent.cs
 src/com.ultracart.admin.v2/Model/ItemKitDefinition.cs
 src/com.ultracart.admin.v2/Model/ItemOption.cs

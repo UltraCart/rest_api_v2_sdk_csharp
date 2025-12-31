@@ -532,6 +532,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ItemResponse</returns>
         ApiResponse<ItemResponse> UpdateItemWithHttpInfo (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null);
         /// <summary>
+        /// Update item inventories for a distribution center
+        /// </summary>
+        /// <remarks>
+        /// Update item inventories for a distribution center 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
+        /// <returns></returns>
+        void UpdateItemInventories (ItemInventoryUpdateRequest itemInventoryUpdateRequest);
+
+        /// <summary>
+        /// Update item inventories for a distribution center
+        /// </summary>
+        /// <remarks>
+        /// Update item inventories for a distribution center 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateItemInventoriesWithHttpInfo (ItemInventoryUpdateRequest itemInventoryUpdateRequest);
+        /// <summary>
         /// Update an item shipping distribution center
         /// </summary>
         /// <remarks>
@@ -1138,6 +1159,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemResponse>> UpdateItemAsyncWithHttpInfo (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null);
+        /// <summary>
+        /// Update item inventories for a distribution center
+        /// </summary>
+        /// <remarks>
+        /// Update item inventories for a distribution center 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateItemInventoriesAsync (ItemInventoryUpdateRequest itemInventoryUpdateRequest);
+
+        /// <summary>
+        /// Update item inventories for a distribution center
+        /// </summary>
+        /// <remarks>
+        /// Update item inventories for a distribution center 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateItemInventoriesAsyncWithHttpInfo (ItemInventoryUpdateRequest itemInventoryUpdateRequest);
         /// <summary>
         /// Update an item shipping distribution center
         /// </summary>
@@ -4924,6 +4966,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemResponse)));
+        }
+
+        /// <summary>
+        /// Update item inventories for a distribution center Update item inventories for a distribution center 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
+        /// <returns></returns>
+        public void UpdateItemInventories (ItemInventoryUpdateRequest itemInventoryUpdateRequest)
+        {
+             UpdateItemInventoriesWithHttpInfo(itemInventoryUpdateRequest);
+        }
+
+        /// <summary>
+        /// Update item inventories for a distribution center Update item inventories for a distribution center 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateItemInventoriesWithHttpInfo (ItemInventoryUpdateRequest itemInventoryUpdateRequest)
+        {
+            // verify the required parameter 'itemInventoryUpdateRequest' is set
+            if (itemInventoryUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemInventoryUpdateRequest' when calling ItemApi->UpdateItemInventories");
+
+            var localVarPath = "/item/items/update_item_inventories";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (itemInventoryUpdateRequest != null && itemInventoryUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemInventoryUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemInventoryUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateItemInventories", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update item inventories for a distribution center Update item inventories for a distribution center 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateItemInventoriesAsync (ItemInventoryUpdateRequest itemInventoryUpdateRequest)
+        {
+             await UpdateItemInventoriesAsyncWithHttpInfo(itemInventoryUpdateRequest);
+
+        }
+
+        /// <summary>
+        /// Update item inventories for a distribution center Update item inventories for a distribution center 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateItemInventoriesAsyncWithHttpInfo (ItemInventoryUpdateRequest itemInventoryUpdateRequest)
+        {
+            // verify the required parameter 'itemInventoryUpdateRequest' is set
+            if (itemInventoryUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemInventoryUpdateRequest' when calling ItemApi->UpdateItemInventories");
+
+            var localVarPath = "/item/items/update_item_inventories";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (itemInventoryUpdateRequest != null && itemInventoryUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemInventoryUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemInventoryUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateItemInventories", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>

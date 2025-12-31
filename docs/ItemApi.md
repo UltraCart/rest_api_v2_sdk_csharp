@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**InsertUpdateItemContentAttribute**](ItemApi.md#insertupdateitemcontentattribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 [**UpdateDigitalItem**](ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**UpdateItem**](ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**UpdateItemInventories**](ItemApi.md#updateiteminventories) | **PUT** /item/items/update_item_inventories | Update item inventories for a distribution center
 [**UpdateItemShippingDistributionCenterByCode**](ItemApi.md#updateitemshippingdistributioncenterbycode) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 [**UpdateItems**](ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
 [**UpdateReview**](ItemApi.md#updatereview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
@@ -1465,6 +1466,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateiteminventories"></a>
+# **UpdateItemInventories**
+> void UpdateItemInventories (ItemInventoryUpdateRequest itemInventoryUpdateRequest)
+
+Update item inventories for a distribution center
+
+Update item inventories for a distribution center 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateItemInventoriesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var itemInventoryUpdateRequest = new ItemInventoryUpdateRequest(); // ItemInventoryUpdateRequest | Item inventory updates
+
+            try
+            {
+                // Update item inventories for a distribution center
+                apiInstance.UpdateItemInventories(itemInventoryUpdateRequest);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.UpdateItemInventories: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemInventoryUpdateRequest** | [**ItemInventoryUpdateRequest**](ItemInventoryUpdateRequest.md)| Item inventory updates | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

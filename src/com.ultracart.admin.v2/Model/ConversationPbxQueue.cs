@@ -31,8 +31,43 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationPbxQueue :  IEquatable<ConversationPbxQueue>, IValidatableObject
     {
         /// <summary>
+        /// AI Agent Priority compared to human agents
+        /// </summary>
+        /// <value>AI Agent Priority compared to human agents</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AiPriorityEnum
+        {
+            
+            /// <summary>
+            /// Enum Neutral for value: neutral
+            /// </summary>
+            [EnumMember(Value = "neutral")]
+            Neutral = 1,
+            
+            /// <summary>
+            /// Enum First for value: first
+            /// </summary>
+            [EnumMember(Value = "first")]
+            First = 2,
+            
+            /// <summary>
+            /// Enum Backup for value: backup
+            /// </summary>
+            [EnumMember(Value = "backup")]
+            Backup = 3
+        }
+
+        /// <summary>
+        /// AI Agent Priority compared to human agents
+        /// </summary>
+        /// <value>AI Agent Priority compared to human agents</value>
+        [DataMember(Name="ai_priority", EmitDefaultValue=false)]
+        public AiPriorityEnum? AiPriority { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxQueue" /> class.
         /// </summary>
+        /// <param name="aiPriority">AI Agent Priority compared to human agents.</param>
+        /// <param name="aiTimeoutSeconds">AI timeout seconds.</param>
         /// <param name="announceQueuePosition">If true, the customer is told their queue position upon entering the queue.</param>
         /// <param name="conversationPbxQueueUuid">Conversation Pbx Queue unique identifier.</param>
         /// <param name="conversationVoicemailMailboxUuid">The voicemail mailbox associated with this queue.</param>
@@ -54,8 +89,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="waitCriticalSeconds">Wait time in seconds before critical.</param>
         /// <param name="waitWarningSeconds">Wait time in seconds before warning.</param>
         /// <param name="wrapUpSeconds">Wrap up time in seconds.</param>
-        public ConversationPbxQueue(bool? announceQueuePosition = default(bool?), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int? maxHoldSeconds = default(int?), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), string noAgentAvailableSayVoice = default(string), string playAudioUuid = default(string), bool? recordCall = default(bool?), string say = default(string), string sayVoice = default(string), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool? voicemail = default(bool?), int? waitCriticalSeconds = default(int?), int? waitWarningSeconds = default(int?), int? wrapUpSeconds = default(int?))
+        public ConversationPbxQueue(AiPriorityEnum? aiPriority = default(AiPriorityEnum?), int? aiTimeoutSeconds = default(int?), bool? announceQueuePosition = default(bool?), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int? maxHoldSeconds = default(int?), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), string noAgentAvailableSayVoice = default(string), string playAudioUuid = default(string), bool? recordCall = default(bool?), string say = default(string), string sayVoice = default(string), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool? voicemail = default(bool?), int? waitCriticalSeconds = default(int?), int? waitWarningSeconds = default(int?), int? wrapUpSeconds = default(int?))
         {
+            this.AiPriority = aiPriority;
+            this.AiTimeoutSeconds = aiTimeoutSeconds;
             this.AnnounceQueuePosition = announceQueuePosition;
             this.ConversationPbxQueueUuid = conversationPbxQueueUuid;
             this.ConversationVoicemailMailboxUuid = conversationVoicemailMailboxUuid;
@@ -79,6 +116,14 @@ namespace com.ultracart.admin.v2.Model
             this.WrapUpSeconds = wrapUpSeconds;
         }
         
+
+        /// <summary>
+        /// AI timeout seconds
+        /// </summary>
+        /// <value>AI timeout seconds</value>
+        [DataMember(Name="ai_timeout_seconds", EmitDefaultValue=false)]
+        public int? AiTimeoutSeconds { get; set; }
+
         /// <summary>
         /// If true, the customer is told their queue position upon entering the queue
         /// </summary>
@@ -233,6 +278,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationPbxQueue {\n");
+            sb.Append("  AiPriority: ").Append(AiPriority).Append("\n");
+            sb.Append("  AiTimeoutSeconds: ").Append(AiTimeoutSeconds).Append("\n");
             sb.Append("  AnnounceQueuePosition: ").Append(AnnounceQueuePosition).Append("\n");
             sb.Append("  ConversationPbxQueueUuid: ").Append(ConversationPbxQueueUuid).Append("\n");
             sb.Append("  ConversationVoicemailMailboxUuid: ").Append(ConversationVoicemailMailboxUuid).Append("\n");
@@ -288,6 +335,16 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.AiPriority == input.AiPriority ||
+                    (this.AiPriority != null &&
+                    this.AiPriority.Equals(input.AiPriority))
+                ) && 
+                (
+                    this.AiTimeoutSeconds == input.AiTimeoutSeconds ||
+                    (this.AiTimeoutSeconds != null &&
+                    this.AiTimeoutSeconds.Equals(input.AiTimeoutSeconds))
+                ) && 
                 (
                     this.AnnounceQueuePosition == input.AnnounceQueuePosition ||
                     (this.AnnounceQueuePosition != null &&
@@ -404,6 +461,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AiPriority != null)
+                    hashCode = hashCode * 59 + this.AiPriority.GetHashCode();
+                if (this.AiTimeoutSeconds != null)
+                    hashCode = hashCode * 59 + this.AiTimeoutSeconds.GetHashCode();
                 if (this.AnnounceQueuePosition != null)
                     hashCode = hashCode * 59 + this.AnnounceQueuePosition.GetHashCode();
                 if (this.ConversationPbxQueueUuid != null)

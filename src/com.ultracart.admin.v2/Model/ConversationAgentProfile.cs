@@ -31,6 +31,51 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationAgentProfile :  IEquatable<ConversationAgentProfile>, IValidatableObject
     {
         /// <summary>
+        /// Which AI voice personality to use when handling the call.
+        /// </summary>
+        /// <value>Which AI voice personality to use when handling the call.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AiVoicePersonalityEnum
+        {
+            /// <summary>
+            /// Enum Ara for value: Ara
+            /// </summary>
+            [EnumMember(Value = "Ara")]
+            Ara = 1,
+
+            /// <summary>
+            /// Enum Rex for value: Rex
+            /// </summary>
+            [EnumMember(Value = "Rex")]
+            Rex = 2,
+
+            /// <summary>
+            /// Enum Sal for value: Sal
+            /// </summary>
+            [EnumMember(Value = "Sal")]
+            Sal = 3,
+
+            /// <summary>
+            /// Enum Eve for value: Eve
+            /// </summary>
+            [EnumMember(Value = "Eve")]
+            Eve = 4,
+
+            /// <summary>
+            /// Enum Leo for value: Leo
+            /// </summary>
+            [EnumMember(Value = "Leo")]
+            Leo = 5
+
+        }
+
+        /// <summary>
+        /// Which AI voice personality to use when handling the call.
+        /// </summary>
+        /// <value>Which AI voice personality to use when handling the call.</value>
+        [DataMember(Name="ai_voice_personality", EmitDefaultValue=false)]
+        public AiVoicePersonalityEnum? AiVoicePersonality { get; set; }
+        /// <summary>
         /// Default status when the agent loads conversations app.
         /// </summary>
         /// <value>Default status when the agent loads conversations app.</value>
@@ -72,6 +117,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="aiPersona">Persona of this AI agent.</param>
         /// <param name="aiSmsInstructions">Additional instructions for this AI when handle SMS messages.</param>
         /// <param name="aiTicketInstructions">Additional instructions for this AI when handling ticket draft replies.</param>
+        /// <param name="aiVoiceInstructions">Additional voice instructions for this AI when handling voice calls.</param>
+        /// <param name="aiVoicePersonality">Which AI voice personality to use when handling the call..</param>
         /// <param name="chatLimit">The number of engagement chats that can be pushed on them at any given time..</param>
         /// <param name="defaultLanguageIsoCode">The default language the agent is chatting in.</param>
         /// <param name="defaultStatus">Default status when the agent loads conversations app..</param>
@@ -82,7 +129,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="userId">User ID associated with the agent.  Populated by getAgentProfiles call only..</param>
         /// <param name="zohodeskClassifications">Restrict this agent to drafting replies only to tickets with these classifications.</param>
         /// <param name="zohodeskDepartments">Restrict this agent to drafting replies only to these department ids.</param>
-        public ConversationAgentProfile(bool ai = default(bool), ConversationVirtualAgentCapabilities aiCapabilities = default(ConversationVirtualAgentCapabilities), string aiChatInstructions = default(string), string aiPersona = default(string), string aiSmsInstructions = default(string), string aiTicketInstructions = default(string), int chatLimit = default(int), string defaultLanguageIsoCode = default(string), DefaultStatusEnum? defaultStatus = default(DefaultStatusEnum?), string displayName = default(string), string name = default(string), string profileImageUploadKey = default(string), string profileImageUrl = default(string), int userId = default(int), List<string> zohodeskClassifications = default(List<string>), List<string> zohodeskDepartments = default(List<string>))
+        public ConversationAgentProfile(bool ai = default(bool), ConversationVirtualAgentCapabilities aiCapabilities = default(ConversationVirtualAgentCapabilities), string aiChatInstructions = default(string), string aiPersona = default(string), string aiSmsInstructions = default(string), string aiTicketInstructions = default(string), string aiVoiceInstructions = default(string), AiVoicePersonalityEnum? aiVoicePersonality = default(AiVoicePersonalityEnum?), int chatLimit = default(int), string defaultLanguageIsoCode = default(string), DefaultStatusEnum? defaultStatus = default(DefaultStatusEnum?), string displayName = default(string), string name = default(string), string profileImageUploadKey = default(string), string profileImageUrl = default(string), int userId = default(int), List<string> zohodeskClassifications = default(List<string>), List<string> zohodeskDepartments = default(List<string>))
         {
             this.Ai = ai;
             this.AiCapabilities = aiCapabilities;
@@ -90,6 +137,8 @@ namespace com.ultracart.admin.v2.Model
             this.AiPersona = aiPersona;
             this.AiSmsInstructions = aiSmsInstructions;
             this.AiTicketInstructions = aiTicketInstructions;
+            this.AiVoiceInstructions = aiVoiceInstructions;
+            this.AiVoicePersonality = aiVoicePersonality;
             this.ChatLimit = chatLimit;
             this.DefaultLanguageIsoCode = defaultLanguageIsoCode;
             this.DefaultStatus = defaultStatus;
@@ -142,6 +191,14 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Additional instructions for this AI when handling ticket draft replies</value>
         [DataMember(Name="ai_ticket_instructions", EmitDefaultValue=false)]
         public string AiTicketInstructions { get; set; }
+
+        /// <summary>
+        /// Additional voice instructions for this AI when handling voice calls
+        /// </summary>
+        /// <value>Additional voice instructions for this AI when handling voice calls</value>
+        [DataMember(Name="ai_voice_instructions", EmitDefaultValue=false)]
+        public string AiVoiceInstructions { get; set; }
+
 
         /// <summary>
         /// The number of engagement chats that can be pushed on them at any given time.
@@ -221,6 +278,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AiPersona: ").Append(AiPersona).Append("\n");
             sb.Append("  AiSmsInstructions: ").Append(AiSmsInstructions).Append("\n");
             sb.Append("  AiTicketInstructions: ").Append(AiTicketInstructions).Append("\n");
+            sb.Append("  AiVoiceInstructions: ").Append(AiVoiceInstructions).Append("\n");
+            sb.Append("  AiVoicePersonality: ").Append(AiVoicePersonality).Append("\n");
             sb.Append("  ChatLimit: ").Append(ChatLimit).Append("\n");
             sb.Append("  DefaultLanguageIsoCode: ").Append(DefaultLanguageIsoCode).Append("\n");
             sb.Append("  DefaultStatus: ").Append(DefaultStatus).Append("\n");
@@ -294,6 +353,16 @@ namespace com.ultracart.admin.v2.Model
                     this.AiTicketInstructions == input.AiTicketInstructions ||
                     (this.AiTicketInstructions != null &&
                     this.AiTicketInstructions.Equals(input.AiTicketInstructions))
+                ) && 
+                (
+                    this.AiVoiceInstructions == input.AiVoiceInstructions ||
+                    (this.AiVoiceInstructions != null &&
+                    this.AiVoiceInstructions.Equals(input.AiVoiceInstructions))
+                ) && 
+                (
+                    this.AiVoicePersonality == input.AiVoicePersonality ||
+                    (this.AiVoicePersonality != null &&
+                    this.AiVoicePersonality.Equals(input.AiVoicePersonality))
                 ) && 
                 (
                     this.ChatLimit == input.ChatLimit ||
@@ -370,6 +439,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AiSmsInstructions.GetHashCode();
                 if (this.AiTicketInstructions != null)
                     hashCode = hashCode * 59 + this.AiTicketInstructions.GetHashCode();
+                if (this.AiVoiceInstructions != null)
+                    hashCode = hashCode * 59 + this.AiVoiceInstructions.GetHashCode();
+                if (this.AiVoicePersonality != null)
+                    hashCode = hashCode * 59 + this.AiVoicePersonality.GetHashCode();
                 if (this.ChatLimit != null)
                     hashCode = hashCode * 59 + this.ChatLimit.GetHashCode();
                 if (this.DefaultLanguageIsoCode != null)

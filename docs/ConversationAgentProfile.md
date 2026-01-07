@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **AiPersona** | **string** | Persona of this AI agent | [optional] 
 **AiSmsInstructions** | **string** | Additional instructions for this AI when handle SMS messages | [optional] 
 **AiTicketInstructions** | **string** | Additional instructions for this AI when handling ticket draft replies | [optional] 
+**AiVoiceInstructions** | **string** | Additional voice instructions for this AI when handling voice calls | [optional] 
+**AiVoicePersonality** | **string** | Which AI voice personality to use when handling the call. | [optional] 
 **ChatLimit** | **int?** | The number of engagement chats that can be pushed on them at any given time. | [optional] 
 **DefaultLanguageIsoCode** | **string** | The default language the agent is chatting in | [optional] 
 **DefaultStatus** | **string** | Default status when the agent loads conversations app. | [optional] 

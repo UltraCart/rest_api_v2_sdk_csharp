@@ -77,17 +77,19 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="friendlyName">Friendly formatted phone number.</param>
         /// <param name="locality">City/Locality.</param>
         /// <param name="mms">MMS capability.</param>
+        /// <param name="monthlyCost">Monthly cost for this phone number.</param>
         /// <param name="phoneNumber">Phone number in E.164 format.</param>
         /// <param name="region">State/Province/Region.</param>
         /// <param name="sms">SMS capability.</param>
         /// <param name="voice">Voice capability.</param>
-        public ConversationPbxAvailablePhoneNumber(AddressRequirementsEnum? addressRequirements = default(AddressRequirementsEnum?), string country = default(string), string friendlyName = default(string), string locality = default(string), bool? mms = default(bool?), string phoneNumber = default(string), string region = default(string), bool? sms = default(bool?), bool? voice = default(bool?))
+        public ConversationPbxAvailablePhoneNumber(AddressRequirementsEnum? addressRequirements = default(AddressRequirementsEnum?), string country = default(string), string friendlyName = default(string), string locality = default(string), bool? mms = default(bool?), decimal? monthlyCost = default(decimal?), string phoneNumber = default(string), string region = default(string), bool? sms = default(bool?), bool? voice = default(bool?))
         {
             this.AddressRequirements = addressRequirements;
             this.Country = country;
             this.FriendlyName = friendlyName;
             this.Locality = locality;
             this.Mms = mms;
+            this.MonthlyCost = monthlyCost;
             this.PhoneNumber = phoneNumber;
             this.Region = region;
             this.Sms = sms;
@@ -122,6 +124,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>MMS capability</value>
         [DataMember(Name="mms", EmitDefaultValue=false)]
         public bool? Mms { get; set; }
+
+        /// <summary>
+        /// Monthly cost for this phone number
+        /// </summary>
+        /// <value>Monthly cost for this phone number</value>
+        [DataMember(Name="monthly_cost", EmitDefaultValue=false)]
+        public decimal? MonthlyCost { get; set; }
 
         /// <summary>
         /// Phone number in E.164 format
@@ -164,6 +173,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  FriendlyName: ").Append(FriendlyName).Append("\n");
             sb.Append("  Locality: ").Append(Locality).Append("\n");
             sb.Append("  Mms: ").Append(Mms).Append("\n");
+            sb.Append("  MonthlyCost: ").Append(MonthlyCost).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  Region: ").Append(Region).Append("\n");
             sb.Append("  Sms: ").Append(Sms).Append("\n");
@@ -228,6 +238,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Mms.Equals(input.Mms))
                 ) && 
                 (
+                    this.MonthlyCost == input.MonthlyCost ||
+                    (this.MonthlyCost != null &&
+                    this.MonthlyCost.Equals(input.MonthlyCost))
+                ) && 
+                (
                     this.PhoneNumber == input.PhoneNumber ||
                     (this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(input.PhoneNumber))
@@ -268,6 +283,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Locality.GetHashCode();
                 if (this.Mms != null)
                     hashCode = hashCode * 59 + this.Mms.GetHashCode();
+                if (this.MonthlyCost != null)
+                    hashCode = hashCode * 59 + this.MonthlyCost.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.Region != null)

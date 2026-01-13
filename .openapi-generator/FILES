@@ -189,6 +189,9 @@ docs/ConversationMessagesResponse.md
 docs/ConversationMultimediaUploadUrl.md
 docs/ConversationMultimediaUploadUrlResponse.md
 docs/ConversationParticipant.md
+docs/ConversationPbxAddress.md
+docs/ConversationPbxAddressResponse.md
+docs/ConversationPbxAddressesResponse.md
 docs/ConversationPbxAgent.md
 docs/ConversationPbxAgentResponse.md
 docs/ConversationPbxAgentsResponse.md
@@ -198,6 +201,8 @@ docs/ConversationPbxAudioUploadUrl.md
 docs/ConversationPbxAudioUploadUrlResponse.md
 docs/ConversationPbxAudioUsageResponse.md
 docs/ConversationPbxAudiosResponse.md
+docs/ConversationPbxAvailablePhoneNumber.md
+docs/ConversationPbxAvailablePhoneNumbersResponse.md
 docs/ConversationPbxCustomerSnapshotRequest.md
 docs/ConversationPbxCustomerSnapshotResponse.md
 docs/ConversationPbxMenu.md
@@ -205,6 +210,7 @@ docs/ConversationPbxMenuMapping.md
 docs/ConversationPbxMenuResponse.md
 docs/ConversationPbxMenusResponse.md
 docs/ConversationPbxPhoneNumber.md
+docs/ConversationPbxPhoneNumberPurchaseRequest.md
 docs/ConversationPbxPhoneNumberResponse.md
 docs/ConversationPbxPhoneNumbersResponse.md
 docs/ConversationPbxQueue.md
@@ -1140,6 +1146,9 @@ src/com.ultracart.admin.v2/Model/ConversationMessagesResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationMultimediaUploadUrl.cs
 src/com.ultracart.admin.v2/Model/ConversationMultimediaUploadUrlResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationParticipant.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxAddress.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxAddressResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxAddressesResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxAgent.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxAgentResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxAgentsResponse.cs
@@ -1149,6 +1158,8 @@ src/com.ultracart.admin.v2/Model/ConversationPbxAudioUploadUrl.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxAudioUploadUrlResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxAudioUsageResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxAudiosResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxAvailablePhoneNumber.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxAvailablePhoneNumbersResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCustomerSnapshotRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCustomerSnapshotResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxMenu.cs
@@ -1156,6 +1167,7 @@ src/com.ultracart.admin.v2/Model/ConversationPbxMenuMapping.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxMenuResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxMenusResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxPhoneNumber.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxPhoneNumberPurchaseRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxPhoneNumberResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxPhoneNumbersResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxQueue.cs

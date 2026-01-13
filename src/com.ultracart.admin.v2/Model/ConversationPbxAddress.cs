@@ -43,9 +43,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="postalCode">Postal code.</param>
         /// <param name="region">State/Province/Region.</param>
         /// <param name="street">Street address.</param>
+        /// <param name="valid">Whether the address is valid (validated or verified).</param>
         /// <param name="validated">Whether the address has been validated by Twilio.</param>
         /// <param name="verified">Whether the address has been verified by Twilio.</param>
-        public ConversationPbxAddress(string addressSid = default(string), string city = default(string), string conversationPbxAddressUuid = default(string), string countryCode = default(string), string customerName = default(string), string friendlyName = default(string), string merchantId = default(string), string postalCode = default(string), string region = default(string), string street = default(string), bool validated = default(bool), bool verified = default(bool))
+        public ConversationPbxAddress(string addressSid = default(string), string city = default(string), string conversationPbxAddressUuid = default(string), string countryCode = default(string), string customerName = default(string), string friendlyName = default(string), string merchantId = default(string), string postalCode = default(string), string region = default(string), string street = default(string), bool valid = default(bool), bool validated = default(bool), bool verified = default(bool))
         {
             this.AddressSid = addressSid;
             this.City = city;
@@ -57,6 +58,7 @@ namespace com.ultracart.admin.v2.Model
             this.PostalCode = postalCode;
             this.Region = region;
             this.Street = street;
+            this.Valid = valid;
             this.Validated = validated;
             this.Verified = verified;
         }
@@ -132,6 +134,13 @@ namespace com.ultracart.admin.v2.Model
         public string Street { get; set; }
 
         /// <summary>
+        /// Whether the address is valid (validated or verified)
+        /// </summary>
+        /// <value>Whether the address is valid (validated or verified)</value>
+        [DataMember(Name="valid", EmitDefaultValue=false)]
+        public bool Valid { get; set; }
+
+        /// <summary>
         /// Whether the address has been validated by Twilio
         /// </summary>
         /// <value>Whether the address has been validated by Twilio</value>
@@ -163,6 +172,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  Region: ").Append(Region).Append("\n");
             sb.Append("  Street: ").Append(Street).Append("\n");
+            sb.Append("  Valid: ").Append(Valid).Append("\n");
             sb.Append("  Validated: ").Append(Validated).Append("\n");
             sb.Append("  Verified: ").Append(Verified).Append("\n");
             sb.Append("}\n");
@@ -250,6 +260,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Street.Equals(input.Street))
                 ) && 
                 (
+                    this.Valid == input.Valid ||
+                    (this.Valid != null &&
+                    this.Valid.Equals(input.Valid))
+                ) && 
+                (
                     this.Validated == input.Validated ||
                     (this.Validated != null &&
                     this.Validated.Equals(input.Validated))
@@ -290,6 +305,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Region.GetHashCode();
                 if (this.Street != null)
                     hashCode = hashCode * 59 + this.Street.GetHashCode();
+                if (this.Valid != null)
+                    hashCode = hashCode * 59 + this.Valid.GetHashCode();
                 if (this.Validated != null)
                     hashCode = hashCode * 59 + this.Validated.GetHashCode();
                 if (this.Verified != null)

@@ -80,14 +80,16 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="action">Action.</param>
         /// <param name="actionTarget">Action target.  This is the UUID associated with the configuration object of that particular type..</param>
+        /// <param name="addressSid">Twilio Address SID linked to this phone number for regulatory compliance.</param>
         /// <param name="conversationPbxPhoneNumberUuid">Conversation Pbx Phone Number UUID.</param>
         /// <param name="deletionProtected">If true, this phone number cannot be deleted through the API. It must be deleted via the Twilio console..</param>
         /// <param name="merchantId">Merchant Id.</param>
         /// <param name="phoneNumber">Phone number.</param>
-        public ConversationPbxPhoneNumber(ActionEnum? action = default(ActionEnum?), string actionTarget = default(string), string conversationPbxPhoneNumberUuid = default(string), bool deletionProtected = default(bool), string merchantId = default(string), string phoneNumber = default(string))
+        public ConversationPbxPhoneNumber(ActionEnum? action = default(ActionEnum?), string actionTarget = default(string), string addressSid = default(string), string conversationPbxPhoneNumberUuid = default(string), bool deletionProtected = default(bool), string merchantId = default(string), string phoneNumber = default(string))
         {
             this.Action = action;
             this.ActionTarget = actionTarget;
+            this.AddressSid = addressSid;
             this.ConversationPbxPhoneNumberUuid = conversationPbxPhoneNumberUuid;
             this.DeletionProtected = deletionProtected;
             this.MerchantId = merchantId;
@@ -101,6 +103,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Action target.  This is the UUID associated with the configuration object of that particular type.</value>
         [DataMember(Name="action_target", EmitDefaultValue=false)]
         public string ActionTarget { get; set; }
+
+        /// <summary>
+        /// Twilio Address SID linked to this phone number for regulatory compliance
+        /// </summary>
+        /// <value>Twilio Address SID linked to this phone number for regulatory compliance</value>
+        [DataMember(Name="address_sid", EmitDefaultValue=false)]
+        public string AddressSid { get; set; }
 
         /// <summary>
         /// Conversation Pbx Phone Number UUID
@@ -140,6 +149,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ConversationPbxPhoneNumber {\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
             sb.Append("  ActionTarget: ").Append(ActionTarget).Append("\n");
+            sb.Append("  AddressSid: ").Append(AddressSid).Append("\n");
             sb.Append("  ConversationPbxPhoneNumberUuid: ").Append(ConversationPbxPhoneNumberUuid).Append("\n");
             sb.Append("  DeletionProtected: ").Append(DeletionProtected).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
@@ -189,6 +199,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ActionTarget.Equals(input.ActionTarget))
                 ) && 
                 (
+                    this.AddressSid == input.AddressSid ||
+                    (this.AddressSid != null &&
+                    this.AddressSid.Equals(input.AddressSid))
+                ) && 
+                (
                     this.ConversationPbxPhoneNumberUuid == input.ConversationPbxPhoneNumberUuid ||
                     (this.ConversationPbxPhoneNumberUuid != null &&
                     this.ConversationPbxPhoneNumberUuid.Equals(input.ConversationPbxPhoneNumberUuid))
@@ -223,6 +238,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Action.GetHashCode();
                 if (this.ActionTarget != null)
                     hashCode = hashCode * 59 + this.ActionTarget.GetHashCode();
+                if (this.AddressSid != null)
+                    hashCode = hashCode * 59 + this.AddressSid.GetHashCode();
                 if (this.ConversationPbxPhoneNumberUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxPhoneNumberUuid.GetHashCode();
                 if (this.DeletionProtected != null)
@@ -253,6 +270,13 @@ namespace com.ultracart.admin.v2.Model
             if(this.ActionTarget != null && this.ActionTarget.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ActionTarget, length must be less than 50.", new [] { "ActionTarget" });
+            }
+
+
+            // AddressSid (string) maxLength
+            if(this.AddressSid != null && this.AddressSid.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AddressSid, length must be less than 50.", new [] { "AddressSid" });
             }
 
 

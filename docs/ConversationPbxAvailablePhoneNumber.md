@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **FriendlyName** | **string** | Friendly formatted phone number | [optional] 
 **Locality** | **string** | City/Locality | [optional] 
 **Mms** | **bool** | MMS capability | [optional] 
+**MonthlyCost** | **decimal** | Monthly cost for this phone number | [optional] 
 **PhoneNumber** | **string** | Phone number in E.164 format | [optional] 
 **Region** | **string** | State/Province/Region | [optional] 
 **Sms** | **bool** | SMS capability | [optional] 

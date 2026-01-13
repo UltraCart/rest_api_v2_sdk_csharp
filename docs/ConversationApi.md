@@ -9,9 +9,11 @@ Method | HTTP request | Description
 [**DeleteConversationCannedMessage**](ConversationApi.md#deleteconversationcannedmessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 [**DeleteDepartment**](ConversationApi.md#deletedepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 [**DeleteEngagement**](ConversationApi.md#deleteengagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
+[**DeletePbxAddress**](ConversationApi.md#deletepbxaddress) | **DELETE** /conversation/pbx/address/{conversationPbxAddressUuid} | Delete pbx address
 [**DeletePbxAgentVoicemail**](ConversationApi.md#deletepbxagentvoicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
 [**DeletePbxAudio**](ConversationApi.md#deletepbxaudio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
 [**DeletePbxMenu**](ConversationApi.md#deletepbxmenu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
+[**DeletePbxPhoneNumber**](ConversationApi.md#deletepbxphonenumber) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
 [**DeletePbxQueue**](ConversationApi.md#deletepbxqueue) | **DELETE** /conversation/pbx/queue/{conversationPbxQueueUuid} | Delete pbx queue
 [**DeletePbxQueueVoicemail**](ConversationApi.md#deletepbxqueuevoicemail) | **DELETE** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid} | Delete Queue Voicemail
 [**DeletePbxTimeBased**](ConversationApi.md#deletepbxtimebased) | **DELETE** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Delete pbx timeBased
@@ -43,6 +45,8 @@ Method | HTTP request | Description
 [**GetConversationsAutocomplete**](ConversationApi.md#getconversationsautocomplete) | **POST** /conversation/conversations/autocomplete | Retrieve a list of matching terms for a search field
 [**GetConversationsSearch**](ConversationApi.md#getconversationssearch) | **POST** /conversation/conversations/search | Search conversations
 [**GetLocationsForEngagement**](ConversationApi.md#getlocationsforengagement) | **POST** /conversation/locations | Get location data for engagement configuration
+[**GetPbxAddress**](ConversationApi.md#getpbxaddress) | **GET** /conversation/pbx/address/{conversationPbxAddressUuid} | Get pbx address
+[**GetPbxAddresses**](ConversationApi.md#getpbxaddresses) | **GET** /conversation/pbx/address | Get pbx addresses
 [**GetPbxAgent**](ConversationApi.md#getpbxagent) | **GET** /conversation/pbx/agent/{conversationPbxAgentUuid} | Get pbx agent
 [**GetPbxAgentVoicemail**](ConversationApi.md#getpbxagentvoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid} | Get Agent Voicemail
 [**GetPbxAgentVoicemails**](ConversationApi.md#getpbxagentvoicemails) | **GET** /conversation/pbx/agent/voicemails | Get Agent Voicemails
@@ -71,6 +75,7 @@ Method | HTTP request | Description
 [**InsertConversationCannedMessage**](ConversationApi.md#insertconversationcannedmessage) | **POST** /conversation/canned_messages | Insert a canned message
 [**InsertConversationDepartment**](ConversationApi.md#insertconversationdepartment) | **POST** /conversation/departments | Insert a department
 [**InsertConversationEngagement**](ConversationApi.md#insertconversationengagement) | **POST** /conversation/engagements | Insert a engagement
+[**InsertPbxAddress**](ConversationApi.md#insertpbxaddress) | **POST** /conversation/pbx/address | Insert pbx address
 [**InsertPbxAudio**](ConversationApi.md#insertpbxaudio) | **POST** /conversation/pbx/audio | Insert pbx audio
 [**InsertPbxMenu**](ConversationApi.md#insertpbxmenu) | **POST** /conversation/pbx/menu | Insert pbx menu
 [**InsertPbxQueue**](ConversationApi.md#insertpbxqueue) | **POST** /conversation/pbx/queue | Insert pbx queue
@@ -82,8 +87,11 @@ Method | HTTP request | Description
 [**ListenedPbxAgentVoicemail**](ConversationApi.md#listenedpbxagentvoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
 [**ListenedPbxQueueVoicemail**](ConversationApi.md#listenedpbxqueuevoicemail) | **GET** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid}/listened | Listened Queue Voicemail
 [**MarkReadConversation**](ConversationApi.md#markreadconversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
+[**ProtectPbxPhoneNumber**](ConversationApi.md#protectpbxphonenumber) | **PUT** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid}/protect | Protect pbx phoneNumber from deletion
+[**PurchasePbxPhoneNumber**](ConversationApi.md#purchasepbxphonenumber) | **POST** /conversation/pbx/phone_number | Purchase pbx phone number
 [**ResetConversationPbxQueueStatistics**](ConversationApi.md#resetconversationpbxqueuestatistics) | **POST** /conversation/pbx/queues/{queue_uuid}/reset_statistics | reset statistics within the queue
 [**SearchConversationCannedMessages**](ConversationApi.md#searchconversationcannedmessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
+[**SearchPbxAvailablePhoneNumbers**](ConversationApi.md#searchpbxavailablephonenumbers) | **GET** /conversation/pbx/phone_number/search | Search for available phone numbers
 [**SmsUnsubscribeConversation**](ConversationApi.md#smsunsubscribeconversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 [**StartConversation**](ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
 [**UpdateAgentProfile**](ConversationApi.md#updateagentprofile) | **PUT** /conversation/agent/profile | Update agent profile
@@ -92,6 +100,7 @@ Method | HTTP request | Description
 [**UpdateConversationDepartment**](ConversationApi.md#updateconversationdepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 [**UpdateConversationEngagement**](ConversationApi.md#updateconversationengagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
 [**UpdateConversationWebchatQueueStatus**](ConversationApi.md#updateconversationwebchatqueuestatus) | **PUT** /conversation/conversations/queues/{queue_name}/status | Update status within the queue
+[**UpdatePbxAddress**](ConversationApi.md#updatepbxaddress) | **PUT** /conversation/pbx/address/{conversationPbxAddressUuid} | Update pbx address
 [**UpdatePbxAgent**](ConversationApi.md#updatepbxagent) | **PUT** /conversation/pbx/agent/{conversationPbxAgentUuid} | Update pbx agent
 [**UpdatePbxAudio**](ConversationApi.md#updatepbxaudio) | **PUT** /conversation/pbx/audio/{conversationPbxAudioUuid} | Update pbx audio
 [**UpdatePbxMenu**](ConversationApi.md#updatepbxmenu) | **PUT** /conversation/pbx/menu/{conversationPbxMenuUuid} | Update pbx menu
@@ -434,6 +443,72 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="deletepbxaddress"></a>
+# **DeletePbxAddress**
+> ConversationPbxAddressResponse DeletePbxAddress (string conversationPbxAddressUuid)
+
+Delete pbx address
+
+Delete a pbx address 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeletePbxAddressExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var conversationPbxAddressUuid = conversationPbxAddressUuid_example;  // string | 
+
+            try
+            {
+                // Delete pbx address
+                ConversationPbxAddressResponse result = apiInstance.DeletePbxAddress(conversationPbxAddressUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.DeletePbxAddress: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversationPbxAddressUuid** | **string**|  | 
+
+### Return type
+
+[**ConversationPbxAddressResponse**](ConversationPbxAddressResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="deletepbxagentvoicemail"></a>
 # **DeletePbxAgentVoicemail**
 > void DeletePbxAgentVoicemail (string recordingSid)
@@ -619,6 +694,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxMenuResponse**](ConversationPbxMenuResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletepbxphonenumber"></a>
+# **DeletePbxPhoneNumber**
+> void DeletePbxPhoneNumber (string conversationPbxPhoneNumberUuid)
+
+Delete pbx phoneNumber
+
+Delete a pbx phoneNumber. Only works if deletion_protected is false. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeletePbxPhoneNumberExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var conversationPbxPhoneNumberUuid = conversationPbxPhoneNumberUuid_example;  // string | 
+
+            try
+            {
+                // Delete pbx phoneNumber
+                apiInstance.DeletePbxPhoneNumber(conversationPbxPhoneNumberUuid);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.DeletePbxPhoneNumber: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversationPbxPhoneNumberUuid** | **string**|  | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -2651,6 +2791,134 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getpbxaddress"></a>
+# **GetPbxAddress**
+> ConversationPbxAddressResponse GetPbxAddress (string conversationPbxAddressUuid)
+
+Get pbx address
+
+Retrieve a pbx address 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetPbxAddressExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var conversationPbxAddressUuid = conversationPbxAddressUuid_example;  // string | 
+
+            try
+            {
+                // Get pbx address
+                ConversationPbxAddressResponse result = apiInstance.GetPbxAddress(conversationPbxAddressUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.GetPbxAddress: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversationPbxAddressUuid** | **string**|  | 
+
+### Return type
+
+[**ConversationPbxAddressResponse**](ConversationPbxAddressResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getpbxaddresses"></a>
+# **GetPbxAddresses**
+> ConversationPbxAddressesResponse GetPbxAddresses ()
+
+Get pbx addresses
+
+Retrieve pbx addresses 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetPbxAddressesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+
+            try
+            {
+                // Get pbx addresses
+                ConversationPbxAddressesResponse result = apiInstance.GetPbxAddresses();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.GetPbxAddresses: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationPbxAddressesResponse**](ConversationPbxAddressesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getpbxagent"></a>
 # **GetPbxAgent**
 > ConversationPbxAgentResponse GetPbxAgent (string conversationPbxAgentUuid)
@@ -4461,6 +4729,72 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="insertpbxaddress"></a>
+# **InsertPbxAddress**
+> ConversationPbxAddressResponse InsertPbxAddress (ConversationPbxAddress pbxAddress)
+
+Insert pbx address
+
+Insert a pbx address 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class InsertPbxAddressExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var pbxAddress = new ConversationPbxAddress(); // ConversationPbxAddress | Pbx Address
+
+            try
+            {
+                // Insert pbx address
+                ConversationPbxAddressResponse result = apiInstance.InsertPbxAddress(pbxAddress);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.InsertPbxAddress: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbxAddress** | [**ConversationPbxAddress**](ConversationPbxAddress.md)| Pbx Address | 
+
+### Return type
+
+[**ConversationPbxAddressResponse**](ConversationPbxAddressResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="insertpbxaudio"></a>
 # **InsertPbxAudio**
 > ConversationPbxAudioResponse InsertPbxAudio (ConversationPbxAudio pbxAudio)
@@ -5186,6 +5520,138 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="protectpbxphonenumber"></a>
+# **ProtectPbxPhoneNumber**
+> ConversationPbxPhoneNumberResponse ProtectPbxPhoneNumber (string conversationPbxPhoneNumberUuid)
+
+Protect pbx phoneNumber from deletion
+
+Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot be undone through the API. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class ProtectPbxPhoneNumberExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var conversationPbxPhoneNumberUuid = conversationPbxPhoneNumberUuid_example;  // string | 
+
+            try
+            {
+                // Protect pbx phoneNumber from deletion
+                ConversationPbxPhoneNumberResponse result = apiInstance.ProtectPbxPhoneNumber(conversationPbxPhoneNumberUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.ProtectPbxPhoneNumber: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversationPbxPhoneNumberUuid** | **string**|  | 
+
+### Return type
+
+[**ConversationPbxPhoneNumberResponse**](ConversationPbxPhoneNumberResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="purchasepbxphonenumber"></a>
+# **PurchasePbxPhoneNumber**
+> ConversationPbxPhoneNumberResponse PurchasePbxPhoneNumber (ConversationPbxPhoneNumberPurchaseRequest phoneNumberPurchaseRequest)
+
+Purchase pbx phone number
+
+Purchase a phone number from Twilio. The phone_number must be from the available phone number search results. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class PurchasePbxPhoneNumberExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var phoneNumberPurchaseRequest = new ConversationPbxPhoneNumberPurchaseRequest(); // ConversationPbxPhoneNumberPurchaseRequest | Phone number purchase request
+
+            try
+            {
+                // Purchase pbx phone number
+                ConversationPbxPhoneNumberResponse result = apiInstance.PurchasePbxPhoneNumber(phoneNumberPurchaseRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.PurchasePbxPhoneNumber: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **phoneNumberPurchaseRequest** | [**ConversationPbxPhoneNumberPurchaseRequest**](ConversationPbxPhoneNumberPurchaseRequest.md)| Phone number purchase request | 
+
+### Return type
+
+[**ConversationPbxPhoneNumberResponse**](ConversationPbxPhoneNumberResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="resetconversationpbxqueuestatistics"></a>
 # **ResetConversationPbxQueueStatistics**
 > void ResetConversationPbxQueueStatistics (string queueUuid)
@@ -5305,6 +5771,84 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationCannedMessagesResponse**](ConversationCannedMessagesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="searchpbxavailablephonenumbers"></a>
+# **SearchPbxAvailablePhoneNumbers**
+> ConversationPbxAvailablePhoneNumbersResponse SearchPbxAvailablePhoneNumbers (string country, string areaCode = null, string contains = null, bool? smsEnabled = null, bool? voiceEnabled = null, string type = null, int? limit = null)
+
+Search for available phone numbers
+
+Search for available phone numbers from Twilio that can be purchased 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class SearchPbxAvailablePhoneNumbersExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var country = country_example;  // string | ISO country code (e.g., US, CA, GB)
+            var areaCode = areaCode_example;  // string | Area code filter (e.g., 614) (optional) 
+            var contains = contains_example;  // string | Pattern to match (e.g., 555, *PIZZA) (optional) 
+            var smsEnabled = true;  // bool? | Filter for SMS capability (optional) 
+            var voiceEnabled = true;  // bool? | Filter for voice capability (optional) 
+            var type = type_example;  // string | Phone number type (optional) 
+            var limit = 56;  // int? | Max results (default 20, max 100) (optional) 
+
+            try
+            {
+                // Search for available phone numbers
+                ConversationPbxAvailablePhoneNumbersResponse result = apiInstance.SearchPbxAvailablePhoneNumbers(country, areaCode, contains, smsEnabled, voiceEnabled, type, limit);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.SearchPbxAvailablePhoneNumbers: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **country** | **string**| ISO country code (e.g., US, CA, GB) | 
+ **areaCode** | **string**| Area code filter (e.g., 614) | [optional] 
+ **contains** | **string**| Pattern to match (e.g., 555, *PIZZA) | [optional] 
+ **smsEnabled** | **bool?**| Filter for SMS capability | [optional] 
+ **voiceEnabled** | **bool?**| Filter for voice capability | [optional] 
+ **type** | **string**| Phone number type | [optional] 
+ **limit** | **int?**| Max results (default 20, max 100) | [optional] 
+
+### Return type
+
+[**ConversationPbxAvailablePhoneNumbersResponse**](ConversationPbxAvailablePhoneNumbersResponse.md)
 
 ### Authorization
 
@@ -5843,6 +6387,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatepbxaddress"></a>
+# **UpdatePbxAddress**
+> ConversationPbxAddressResponse UpdatePbxAddress (string conversationPbxAddressUuid, ConversationPbxAddress pbxAddress)
+
+Update pbx address
+
+Update a pbx address 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdatePbxAddressExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var conversationPbxAddressUuid = conversationPbxAddressUuid_example;  // string | 
+            var pbxAddress = new ConversationPbxAddress(); // ConversationPbxAddress | Pbx Address
+
+            try
+            {
+                // Update pbx address
+                ConversationPbxAddressResponse result = apiInstance.UpdatePbxAddress(conversationPbxAddressUuid, pbxAddress);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.UpdatePbxAddress: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversationPbxAddressUuid** | **string**|  | 
+ **pbxAddress** | [**ConversationPbxAddress**](ConversationPbxAddress.md)| Pbx Address | 
+
+### Return type
+
+[**ConversationPbxAddressResponse**](ConversationPbxAddressResponse.md)
 
 ### Authorization
 

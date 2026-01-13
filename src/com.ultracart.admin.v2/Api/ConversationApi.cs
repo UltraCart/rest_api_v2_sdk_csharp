@@ -134,6 +134,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteEngagementWithHttpInfo (int? conversationEngagementOid);
         /// <summary>
+        /// Delete pbx address
+        /// </summary>
+        /// <remarks>
+        /// Delete a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>ConversationPbxAddressResponse</returns>
+        ConversationPbxAddressResponse DeletePbxAddress (string conversationPbxAddressUuid);
+
+        /// <summary>
+        /// Delete pbx address
+        /// </summary>
+        /// <remarks>
+        /// Delete a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>ApiResponse of ConversationPbxAddressResponse</returns>
+        ApiResponse<ConversationPbxAddressResponse> DeletePbxAddressWithHttpInfo (string conversationPbxAddressUuid);
+        /// <summary>
         /// Delete Agent Voicemail
         /// </summary>
         /// <remarks>
@@ -196,6 +217,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="conversationPbxMenuUuid"></param>
         /// <returns>ApiResponse of ConversationPbxMenuResponse</returns>
         ApiResponse<ConversationPbxMenuResponse> DeletePbxMenuWithHttpInfo (string conversationPbxMenuUuid);
+        /// <summary>
+        /// Delete pbx phoneNumber
+        /// </summary>
+        /// <remarks>
+        /// Delete a pbx phoneNumber. Only works if deletion_protected is false. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns></returns>
+        void DeletePbxPhoneNumber (string conversationPbxPhoneNumberUuid);
+
+        /// <summary>
+        /// Delete pbx phoneNumber
+        /// </summary>
+        /// <remarks>
+        /// Delete a pbx phoneNumber. Only works if deletion_protected is false. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeletePbxPhoneNumberWithHttpInfo (string conversationPbxPhoneNumberUuid);
         /// <summary>
         /// Delete pbx queue
         /// </summary>
@@ -846,6 +888,46 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationLocationsResponse</returns>
         ApiResponse<ConversationLocationsResponse> GetLocationsForEngagementWithHttpInfo ();
         /// <summary>
+        /// Get pbx address
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>ConversationPbxAddressResponse</returns>
+        ConversationPbxAddressResponse GetPbxAddress (string conversationPbxAddressUuid);
+
+        /// <summary>
+        /// Get pbx address
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>ApiResponse of ConversationPbxAddressResponse</returns>
+        ApiResponse<ConversationPbxAddressResponse> GetPbxAddressWithHttpInfo (string conversationPbxAddressUuid);
+        /// <summary>
+        /// Get pbx addresses
+        /// </summary>
+        /// <remarks>
+        /// Retrieve pbx addresses 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationPbxAddressesResponse</returns>
+        ConversationPbxAddressesResponse GetPbxAddresses ();
+
+        /// <summary>
+        /// Get pbx addresses
+        /// </summary>
+        /// <remarks>
+        /// Retrieve pbx addresses 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationPbxAddressesResponse</returns>
+        ApiResponse<ConversationPbxAddressesResponse> GetPbxAddressesWithHttpInfo ();
+        /// <summary>
         /// Get pbx agent
         /// </summary>
         /// <remarks>
@@ -1418,6 +1500,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationEngagementResponse</returns>
         ApiResponse<ConversationEngagementResponse> InsertConversationEngagementWithHttpInfo (ConversationEngagement engagement);
         /// <summary>
+        /// Insert pbx address
+        /// </summary>
+        /// <remarks>
+        /// Insert a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>ConversationPbxAddressResponse</returns>
+        ConversationPbxAddressResponse InsertPbxAddress (ConversationPbxAddress pbxAddress);
+
+        /// <summary>
+        /// Insert pbx address
+        /// </summary>
+        /// <remarks>
+        /// Insert a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>ApiResponse of ConversationPbxAddressResponse</returns>
+        ApiResponse<ConversationPbxAddressResponse> InsertPbxAddressWithHttpInfo (ConversationPbxAddress pbxAddress);
+        /// <summary>
         /// Insert pbx audio
         /// </summary>
         /// <remarks>
@@ -1653,6 +1756,48 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> MarkReadConversationWithHttpInfo (string conversationUuid);
         /// <summary>
+        /// Protect pbx phoneNumber from deletion
+        /// </summary>
+        /// <remarks>
+        /// Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot be undone through the API. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>ConversationPbxPhoneNumberResponse</returns>
+        ConversationPbxPhoneNumberResponse ProtectPbxPhoneNumber (string conversationPbxPhoneNumberUuid);
+
+        /// <summary>
+        /// Protect pbx phoneNumber from deletion
+        /// </summary>
+        /// <remarks>
+        /// Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot be undone through the API. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>ApiResponse of ConversationPbxPhoneNumberResponse</returns>
+        ApiResponse<ConversationPbxPhoneNumberResponse> ProtectPbxPhoneNumberWithHttpInfo (string conversationPbxPhoneNumberUuid);
+        /// <summary>
+        /// Purchase pbx phone number
+        /// </summary>
+        /// <remarks>
+        /// Purchase a phone number from Twilio. The phone_number must be from the available phone number search results. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="phoneNumberPurchaseRequest">Phone number purchase request</param>
+        /// <returns>ConversationPbxPhoneNumberResponse</returns>
+        ConversationPbxPhoneNumberResponse PurchasePbxPhoneNumber (ConversationPbxPhoneNumberPurchaseRequest phoneNumberPurchaseRequest);
+
+        /// <summary>
+        /// Purchase pbx phone number
+        /// </summary>
+        /// <remarks>
+        /// Purchase a phone number from Twilio. The phone_number must be from the available phone number search results. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="phoneNumberPurchaseRequest">Phone number purchase request</param>
+        /// <returns>ApiResponse of ConversationPbxPhoneNumberResponse</returns>
+        ApiResponse<ConversationPbxPhoneNumberResponse> PurchasePbxPhoneNumberWithHttpInfo (ConversationPbxPhoneNumberPurchaseRequest phoneNumberPurchaseRequest);
+        /// <summary>
         /// reset statistics within the queue
         /// </summary>
         /// <remarks>
@@ -1694,6 +1839,39 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="searchRequest">Search request</param>
         /// <returns>ApiResponse of ConversationCannedMessagesResponse</returns>
         ApiResponse<ConversationCannedMessagesResponse> SearchConversationCannedMessagesWithHttpInfo (ConversationCannedMessagesSearch searchRequest);
+        /// <summary>
+        /// Search for available phone numbers
+        /// </summary>
+        /// <remarks>
+        /// Search for available phone numbers from Twilio that can be purchased 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="country">ISO country code (e.g., US, CA, GB)</param>
+        /// <param name="areaCode">Area code filter (e.g., 614) (optional)</param>
+        /// <param name="contains">Pattern to match (e.g., 555, *PIZZA) (optional)</param>
+        /// <param name="smsEnabled">Filter for SMS capability (optional)</param>
+        /// <param name="voiceEnabled">Filter for voice capability (optional)</param>
+        /// <param name="type">Phone number type (optional)</param>
+        /// <param name="limit">Max results (default 20, max 100) (optional)</param>
+        /// <returns>ConversationPbxAvailablePhoneNumbersResponse</returns>
+        ConversationPbxAvailablePhoneNumbersResponse SearchPbxAvailablePhoneNumbers (string country, string areaCode = null, string contains = null, bool? smsEnabled = null, bool? voiceEnabled = null, string type = null, int? limit = null);
+
+        /// <summary>
+        /// Search for available phone numbers
+        /// </summary>
+        /// <remarks>
+        /// Search for available phone numbers from Twilio that can be purchased 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="country">ISO country code (e.g., US, CA, GB)</param>
+        /// <param name="areaCode">Area code filter (e.g., 614) (optional)</param>
+        /// <param name="contains">Pattern to match (e.g., 555, *PIZZA) (optional)</param>
+        /// <param name="smsEnabled">Filter for SMS capability (optional)</param>
+        /// <param name="voiceEnabled">Filter for voice capability (optional)</param>
+        /// <param name="type">Phone number type (optional)</param>
+        /// <param name="limit">Max results (default 20, max 100) (optional)</param>
+        /// <returns>ApiResponse of ConversationPbxAvailablePhoneNumbersResponse</returns>
+        ApiResponse<ConversationPbxAvailablePhoneNumbersResponse> SearchPbxAvailablePhoneNumbersWithHttpInfo (string country, string areaCode = null, string contains = null, bool? smsEnabled = null, bool? voiceEnabled = null, string type = null, int? limit = null);
         /// <summary>
         /// Unsubscribe any SMS participants in this conversation
         /// </summary>
@@ -1874,6 +2052,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="statusRequest">Status request</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateConversationWebchatQueueStatusWithHttpInfo (string queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest);
+        /// <summary>
+        /// Update pbx address
+        /// </summary>
+        /// <remarks>
+        /// Update a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>ConversationPbxAddressResponse</returns>
+        ConversationPbxAddressResponse UpdatePbxAddress (string conversationPbxAddressUuid, ConversationPbxAddress pbxAddress);
+
+        /// <summary>
+        /// Update pbx address
+        /// </summary>
+        /// <remarks>
+        /// Update a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>ApiResponse of ConversationPbxAddressResponse</returns>
+        ApiResponse<ConversationPbxAddressResponse> UpdatePbxAddressWithHttpInfo (string conversationPbxAddressUuid, ConversationPbxAddress pbxAddress);
         /// <summary>
         /// Update pbx agent
         /// </summary>
@@ -2212,6 +2413,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEngagementAsyncWithHttpInfo (int? conversationEngagementOid);
         /// <summary>
+        /// Delete pbx address
+        /// </summary>
+        /// <remarks>
+        /// Delete a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>Task of ConversationPbxAddressResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxAddressResponse> DeletePbxAddressAsync (string conversationPbxAddressUuid);
+
+        /// <summary>
+        /// Delete pbx address
+        /// </summary>
+        /// <remarks>
+        /// Delete a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationPbxAddressResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxAddressResponse>> DeletePbxAddressAsyncWithHttpInfo (string conversationPbxAddressUuid);
+        /// <summary>
         /// Delete Agent Voicemail
         /// </summary>
         /// <remarks>
@@ -2274,6 +2496,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="conversationPbxMenuUuid"></param>
         /// <returns>Task of ApiResponse (ConversationPbxMenuResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationPbxMenuResponse>> DeletePbxMenuAsyncWithHttpInfo (string conversationPbxMenuUuid);
+        /// <summary>
+        /// Delete pbx phoneNumber
+        /// </summary>
+        /// <remarks>
+        /// Delete a pbx phoneNumber. Only works if deletion_protected is false. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeletePbxPhoneNumberAsync (string conversationPbxPhoneNumberUuid);
+
+        /// <summary>
+        /// Delete pbx phoneNumber
+        /// </summary>
+        /// <remarks>
+        /// Delete a pbx phoneNumber. Only works if deletion_protected is false. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeletePbxPhoneNumberAsyncWithHttpInfo (string conversationPbxPhoneNumberUuid);
         /// <summary>
         /// Delete pbx queue
         /// </summary>
@@ -2924,6 +3167,46 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ConversationLocationsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationLocationsResponse>> GetLocationsForEngagementAsyncWithHttpInfo ();
         /// <summary>
+        /// Get pbx address
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>Task of ConversationPbxAddressResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxAddressResponse> GetPbxAddressAsync (string conversationPbxAddressUuid);
+
+        /// <summary>
+        /// Get pbx address
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationPbxAddressResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxAddressResponse>> GetPbxAddressAsyncWithHttpInfo (string conversationPbxAddressUuid);
+        /// <summary>
+        /// Get pbx addresses
+        /// </summary>
+        /// <remarks>
+        /// Retrieve pbx addresses 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationPbxAddressesResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxAddressesResponse> GetPbxAddressesAsync ();
+
+        /// <summary>
+        /// Get pbx addresses
+        /// </summary>
+        /// <remarks>
+        /// Retrieve pbx addresses 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationPbxAddressesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxAddressesResponse>> GetPbxAddressesAsyncWithHttpInfo ();
+        /// <summary>
         /// Get pbx agent
         /// </summary>
         /// <remarks>
@@ -3496,6 +3779,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ConversationEngagementResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationEngagementResponse>> InsertConversationEngagementAsyncWithHttpInfo (ConversationEngagement engagement);
         /// <summary>
+        /// Insert pbx address
+        /// </summary>
+        /// <remarks>
+        /// Insert a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>Task of ConversationPbxAddressResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxAddressResponse> InsertPbxAddressAsync (ConversationPbxAddress pbxAddress);
+
+        /// <summary>
+        /// Insert pbx address
+        /// </summary>
+        /// <remarks>
+        /// Insert a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>Task of ApiResponse (ConversationPbxAddressResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxAddressResponse>> InsertPbxAddressAsyncWithHttpInfo (ConversationPbxAddress pbxAddress);
+        /// <summary>
         /// Insert pbx audio
         /// </summary>
         /// <remarks>
@@ -3731,6 +4035,48 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> MarkReadConversationAsyncWithHttpInfo (string conversationUuid);
         /// <summary>
+        /// Protect pbx phoneNumber from deletion
+        /// </summary>
+        /// <remarks>
+        /// Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot be undone through the API. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>Task of ConversationPbxPhoneNumberResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxPhoneNumberResponse> ProtectPbxPhoneNumberAsync (string conversationPbxPhoneNumberUuid);
+
+        /// <summary>
+        /// Protect pbx phoneNumber from deletion
+        /// </summary>
+        /// <remarks>
+        /// Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot be undone through the API. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationPbxPhoneNumberResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxPhoneNumberResponse>> ProtectPbxPhoneNumberAsyncWithHttpInfo (string conversationPbxPhoneNumberUuid);
+        /// <summary>
+        /// Purchase pbx phone number
+        /// </summary>
+        /// <remarks>
+        /// Purchase a phone number from Twilio. The phone_number must be from the available phone number search results. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="phoneNumberPurchaseRequest">Phone number purchase request</param>
+        /// <returns>Task of ConversationPbxPhoneNumberResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxPhoneNumberResponse> PurchasePbxPhoneNumberAsync (ConversationPbxPhoneNumberPurchaseRequest phoneNumberPurchaseRequest);
+
+        /// <summary>
+        /// Purchase pbx phone number
+        /// </summary>
+        /// <remarks>
+        /// Purchase a phone number from Twilio. The phone_number must be from the available phone number search results. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="phoneNumberPurchaseRequest">Phone number purchase request</param>
+        /// <returns>Task of ApiResponse (ConversationPbxPhoneNumberResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxPhoneNumberResponse>> PurchasePbxPhoneNumberAsyncWithHttpInfo (ConversationPbxPhoneNumberPurchaseRequest phoneNumberPurchaseRequest);
+        /// <summary>
         /// reset statistics within the queue
         /// </summary>
         /// <remarks>
@@ -3772,6 +4118,39 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="searchRequest">Search request</param>
         /// <returns>Task of ApiResponse (ConversationCannedMessagesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationCannedMessagesResponse>> SearchConversationCannedMessagesAsyncWithHttpInfo (ConversationCannedMessagesSearch searchRequest);
+        /// <summary>
+        /// Search for available phone numbers
+        /// </summary>
+        /// <remarks>
+        /// Search for available phone numbers from Twilio that can be purchased 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="country">ISO country code (e.g., US, CA, GB)</param>
+        /// <param name="areaCode">Area code filter (e.g., 614) (optional)</param>
+        /// <param name="contains">Pattern to match (e.g., 555, *PIZZA) (optional)</param>
+        /// <param name="smsEnabled">Filter for SMS capability (optional)</param>
+        /// <param name="voiceEnabled">Filter for voice capability (optional)</param>
+        /// <param name="type">Phone number type (optional)</param>
+        /// <param name="limit">Max results (default 20, max 100) (optional)</param>
+        /// <returns>Task of ConversationPbxAvailablePhoneNumbersResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxAvailablePhoneNumbersResponse> SearchPbxAvailablePhoneNumbersAsync (string country, string areaCode = null, string contains = null, bool? smsEnabled = null, bool? voiceEnabled = null, string type = null, int? limit = null);
+
+        /// <summary>
+        /// Search for available phone numbers
+        /// </summary>
+        /// <remarks>
+        /// Search for available phone numbers from Twilio that can be purchased 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="country">ISO country code (e.g., US, CA, GB)</param>
+        /// <param name="areaCode">Area code filter (e.g., 614) (optional)</param>
+        /// <param name="contains">Pattern to match (e.g., 555, *PIZZA) (optional)</param>
+        /// <param name="smsEnabled">Filter for SMS capability (optional)</param>
+        /// <param name="voiceEnabled">Filter for voice capability (optional)</param>
+        /// <param name="type">Phone number type (optional)</param>
+        /// <param name="limit">Max results (default 20, max 100) (optional)</param>
+        /// <returns>Task of ApiResponse (ConversationPbxAvailablePhoneNumbersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxAvailablePhoneNumbersResponse>> SearchPbxAvailablePhoneNumbersAsyncWithHttpInfo (string country, string areaCode = null, string contains = null, bool? smsEnabled = null, bool? voiceEnabled = null, string type = null, int? limit = null);
         /// <summary>
         /// Unsubscribe any SMS participants in this conversation
         /// </summary>
@@ -3952,6 +4331,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="statusRequest">Status request</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> UpdateConversationWebchatQueueStatusAsyncWithHttpInfo (string queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest);
+        /// <summary>
+        /// Update pbx address
+        /// </summary>
+        /// <remarks>
+        /// Update a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>Task of ConversationPbxAddressResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxAddressResponse> UpdatePbxAddressAsync (string conversationPbxAddressUuid, ConversationPbxAddress pbxAddress);
+
+        /// <summary>
+        /// Update pbx address
+        /// </summary>
+        /// <remarks>
+        /// Update a pbx address 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>Task of ApiResponse (ConversationPbxAddressResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxAddressResponse>> UpdatePbxAddressAsyncWithHttpInfo (string conversationPbxAddressUuid, ConversationPbxAddress pbxAddress);
         /// <summary>
         /// Update pbx agent
         /// </summary>
@@ -5087,6 +5489,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Delete pbx address Delete a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>ConversationPbxAddressResponse</returns>
+        public ConversationPbxAddressResponse DeletePbxAddress (string conversationPbxAddressUuid)
+        {
+             ApiResponse<ConversationPbxAddressResponse> localVarResponse = DeletePbxAddressWithHttpInfo(conversationPbxAddressUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete pbx address Delete a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>ApiResponse of ConversationPbxAddressResponse</returns>
+        public ApiResponse< ConversationPbxAddressResponse > DeletePbxAddressWithHttpInfo (string conversationPbxAddressUuid)
+        {
+            // verify the required parameter 'conversationPbxAddressUuid' is set
+            if (conversationPbxAddressUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxAddressUuid' when calling ConversationApi->DeletePbxAddress");
+
+            var localVarPath = "/conversation/pbx/address/{conversationPbxAddressUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxAddressUuid != null) localVarPathParams.Add("conversationPbxAddressUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxAddressUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeletePbxAddress", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxAddressResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxAddressResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAddressResponse)));
+        }
+
+        /// <summary>
+        /// Delete pbx address Delete a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>Task of ConversationPbxAddressResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxAddressResponse> DeletePbxAddressAsync (string conversationPbxAddressUuid)
+        {
+             ApiResponse<ConversationPbxAddressResponse> localVarResponse = await DeletePbxAddressAsyncWithHttpInfo(conversationPbxAddressUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete pbx address Delete a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationPbxAddressResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxAddressResponse>> DeletePbxAddressAsyncWithHttpInfo (string conversationPbxAddressUuid)
+        {
+            // verify the required parameter 'conversationPbxAddressUuid' is set
+            if (conversationPbxAddressUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxAddressUuid' when calling ConversationApi->DeletePbxAddress");
+
+            var localVarPath = "/conversation/pbx/address/{conversationPbxAddressUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxAddressUuid != null) localVarPathParams.Add("conversationPbxAddressUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxAddressUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeletePbxAddress", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxAddressResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxAddressResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAddressResponse)));
+        }
+
+        /// <summary>
         /// Delete Agent Voicemail Delete pbx agent Voicemail 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5553,6 +6112,161 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationPbxMenuResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationPbxMenuResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxMenuResponse)));
+        }
+
+        /// <summary>
+        /// Delete pbx phoneNumber Delete a pbx phoneNumber. Only works if deletion_protected is false. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns></returns>
+        public void DeletePbxPhoneNumber (string conversationPbxPhoneNumberUuid)
+        {
+             DeletePbxPhoneNumberWithHttpInfo(conversationPbxPhoneNumberUuid);
+        }
+
+        /// <summary>
+        /// Delete pbx phoneNumber Delete a pbx phoneNumber. Only works if deletion_protected is false. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeletePbxPhoneNumberWithHttpInfo (string conversationPbxPhoneNumberUuid)
+        {
+            // verify the required parameter 'conversationPbxPhoneNumberUuid' is set
+            if (conversationPbxPhoneNumberUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxPhoneNumberUuid' when calling ConversationApi->DeletePbxPhoneNumber");
+
+            var localVarPath = "/conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxPhoneNumberUuid != null) localVarPathParams.Add("conversationPbxPhoneNumberUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxPhoneNumberUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeletePbxPhoneNumber", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete pbx phoneNumber Delete a pbx phoneNumber. Only works if deletion_protected is false. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeletePbxPhoneNumberAsync (string conversationPbxPhoneNumberUuid)
+        {
+             await DeletePbxPhoneNumberAsyncWithHttpInfo(conversationPbxPhoneNumberUuid);
+
+        }
+
+        /// <summary>
+        /// Delete pbx phoneNumber Delete a pbx phoneNumber. Only works if deletion_protected is false. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeletePbxPhoneNumberAsyncWithHttpInfo (string conversationPbxPhoneNumberUuid)
+        {
+            // verify the required parameter 'conversationPbxPhoneNumberUuid' is set
+            if (conversationPbxPhoneNumberUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxPhoneNumberUuid' when calling ConversationApi->DeletePbxPhoneNumber");
+
+            var localVarPath = "/conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxPhoneNumberUuid != null) localVarPathParams.Add("conversationPbxPhoneNumberUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxPhoneNumberUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeletePbxPhoneNumber", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
@@ -10413,6 +11127,308 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get pbx address Retrieve a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>ConversationPbxAddressResponse</returns>
+        public ConversationPbxAddressResponse GetPbxAddress (string conversationPbxAddressUuid)
+        {
+             ApiResponse<ConversationPbxAddressResponse> localVarResponse = GetPbxAddressWithHttpInfo(conversationPbxAddressUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get pbx address Retrieve a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>ApiResponse of ConversationPbxAddressResponse</returns>
+        public ApiResponse< ConversationPbxAddressResponse > GetPbxAddressWithHttpInfo (string conversationPbxAddressUuid)
+        {
+            // verify the required parameter 'conversationPbxAddressUuid' is set
+            if (conversationPbxAddressUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxAddressUuid' when calling ConversationApi->GetPbxAddress");
+
+            var localVarPath = "/conversation/pbx/address/{conversationPbxAddressUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxAddressUuid != null) localVarPathParams.Add("conversationPbxAddressUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxAddressUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPbxAddress", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxAddressResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxAddressResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAddressResponse)));
+        }
+
+        /// <summary>
+        /// Get pbx address Retrieve a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>Task of ConversationPbxAddressResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxAddressResponse> GetPbxAddressAsync (string conversationPbxAddressUuid)
+        {
+             ApiResponse<ConversationPbxAddressResponse> localVarResponse = await GetPbxAddressAsyncWithHttpInfo(conversationPbxAddressUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get pbx address Retrieve a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationPbxAddressResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxAddressResponse>> GetPbxAddressAsyncWithHttpInfo (string conversationPbxAddressUuid)
+        {
+            // verify the required parameter 'conversationPbxAddressUuid' is set
+            if (conversationPbxAddressUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxAddressUuid' when calling ConversationApi->GetPbxAddress");
+
+            var localVarPath = "/conversation/pbx/address/{conversationPbxAddressUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxAddressUuid != null) localVarPathParams.Add("conversationPbxAddressUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxAddressUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPbxAddress", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxAddressResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxAddressResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAddressResponse)));
+        }
+
+        /// <summary>
+        /// Get pbx addresses Retrieve pbx addresses 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationPbxAddressesResponse</returns>
+        public ConversationPbxAddressesResponse GetPbxAddresses ()
+        {
+             ApiResponse<ConversationPbxAddressesResponse> localVarResponse = GetPbxAddressesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get pbx addresses Retrieve pbx addresses 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationPbxAddressesResponse</returns>
+        public ApiResponse< ConversationPbxAddressesResponse > GetPbxAddressesWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/pbx/address";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPbxAddresses", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxAddressesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxAddressesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAddressesResponse)));
+        }
+
+        /// <summary>
+        /// Get pbx addresses Retrieve pbx addresses 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationPbxAddressesResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxAddressesResponse> GetPbxAddressesAsync ()
+        {
+             ApiResponse<ConversationPbxAddressesResponse> localVarResponse = await GetPbxAddressesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get pbx addresses Retrieve pbx addresses 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationPbxAddressesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxAddressesResponse>> GetPbxAddressesAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/pbx/address";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPbxAddresses", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxAddressesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxAddressesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAddressesResponse)));
+        }
+
+        /// <summary>
         /// Get pbx agent Retrieve a pbx agent 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -14783,6 +15799,177 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Insert pbx address Insert a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>ConversationPbxAddressResponse</returns>
+        public ConversationPbxAddressResponse InsertPbxAddress (ConversationPbxAddress pbxAddress)
+        {
+             ApiResponse<ConversationPbxAddressResponse> localVarResponse = InsertPbxAddressWithHttpInfo(pbxAddress);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert pbx address Insert a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>ApiResponse of ConversationPbxAddressResponse</returns>
+        public ApiResponse< ConversationPbxAddressResponse > InsertPbxAddressWithHttpInfo (ConversationPbxAddress pbxAddress)
+        {
+            // verify the required parameter 'pbxAddress' is set
+            if (pbxAddress == null)
+                throw new ApiException(400, "Missing required parameter 'pbxAddress' when calling ConversationApi->InsertPbxAddress");
+
+            var localVarPath = "/conversation/pbx/address";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (pbxAddress != null && pbxAddress.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pbxAddress); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pbxAddress; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertPbxAddress", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxAddressResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxAddressResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAddressResponse)));
+        }
+
+        /// <summary>
+        /// Insert pbx address Insert a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>Task of ConversationPbxAddressResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxAddressResponse> InsertPbxAddressAsync (ConversationPbxAddress pbxAddress)
+        {
+             ApiResponse<ConversationPbxAddressResponse> localVarResponse = await InsertPbxAddressAsyncWithHttpInfo(pbxAddress);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert pbx address Insert a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>Task of ApiResponse (ConversationPbxAddressResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxAddressResponse>> InsertPbxAddressAsyncWithHttpInfo (ConversationPbxAddress pbxAddress)
+        {
+            // verify the required parameter 'pbxAddress' is set
+            if (pbxAddress == null)
+                throw new ApiException(400, "Missing required parameter 'pbxAddress' when calling ConversationApi->InsertPbxAddress");
+
+            var localVarPath = "/conversation/pbx/address";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (pbxAddress != null && pbxAddress.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pbxAddress); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pbxAddress; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertPbxAddress", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxAddressResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxAddressResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAddressResponse)));
+        }
+
+        /// <summary>
         /// Insert pbx audio Insert a pbx audio 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -16616,6 +17803,334 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Protect pbx phoneNumber from deletion Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot be undone through the API. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>ConversationPbxPhoneNumberResponse</returns>
+        public ConversationPbxPhoneNumberResponse ProtectPbxPhoneNumber (string conversationPbxPhoneNumberUuid)
+        {
+             ApiResponse<ConversationPbxPhoneNumberResponse> localVarResponse = ProtectPbxPhoneNumberWithHttpInfo(conversationPbxPhoneNumberUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Protect pbx phoneNumber from deletion Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot be undone through the API. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>ApiResponse of ConversationPbxPhoneNumberResponse</returns>
+        public ApiResponse< ConversationPbxPhoneNumberResponse > ProtectPbxPhoneNumberWithHttpInfo (string conversationPbxPhoneNumberUuid)
+        {
+            // verify the required parameter 'conversationPbxPhoneNumberUuid' is set
+            if (conversationPbxPhoneNumberUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxPhoneNumberUuid' when calling ConversationApi->ProtectPbxPhoneNumber");
+
+            var localVarPath = "/conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid}/protect";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxPhoneNumberUuid != null) localVarPathParams.Add("conversationPbxPhoneNumberUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxPhoneNumberUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ProtectPbxPhoneNumber", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxPhoneNumberResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxPhoneNumberResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxPhoneNumberResponse)));
+        }
+
+        /// <summary>
+        /// Protect pbx phoneNumber from deletion Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot be undone through the API. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>Task of ConversationPbxPhoneNumberResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxPhoneNumberResponse> ProtectPbxPhoneNumberAsync (string conversationPbxPhoneNumberUuid)
+        {
+             ApiResponse<ConversationPbxPhoneNumberResponse> localVarResponse = await ProtectPbxPhoneNumberAsyncWithHttpInfo(conversationPbxPhoneNumberUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Protect pbx phoneNumber from deletion Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot be undone through the API. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxPhoneNumberUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationPbxPhoneNumberResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxPhoneNumberResponse>> ProtectPbxPhoneNumberAsyncWithHttpInfo (string conversationPbxPhoneNumberUuid)
+        {
+            // verify the required parameter 'conversationPbxPhoneNumberUuid' is set
+            if (conversationPbxPhoneNumberUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxPhoneNumberUuid' when calling ConversationApi->ProtectPbxPhoneNumber");
+
+            var localVarPath = "/conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid}/protect";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxPhoneNumberUuid != null) localVarPathParams.Add("conversationPbxPhoneNumberUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxPhoneNumberUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ProtectPbxPhoneNumber", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxPhoneNumberResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxPhoneNumberResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxPhoneNumberResponse)));
+        }
+
+        /// <summary>
+        /// Purchase pbx phone number Purchase a phone number from Twilio. The phone_number must be from the available phone number search results. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="phoneNumberPurchaseRequest">Phone number purchase request</param>
+        /// <returns>ConversationPbxPhoneNumberResponse</returns>
+        public ConversationPbxPhoneNumberResponse PurchasePbxPhoneNumber (ConversationPbxPhoneNumberPurchaseRequest phoneNumberPurchaseRequest)
+        {
+             ApiResponse<ConversationPbxPhoneNumberResponse> localVarResponse = PurchasePbxPhoneNumberWithHttpInfo(phoneNumberPurchaseRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Purchase pbx phone number Purchase a phone number from Twilio. The phone_number must be from the available phone number search results. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="phoneNumberPurchaseRequest">Phone number purchase request</param>
+        /// <returns>ApiResponse of ConversationPbxPhoneNumberResponse</returns>
+        public ApiResponse< ConversationPbxPhoneNumberResponse > PurchasePbxPhoneNumberWithHttpInfo (ConversationPbxPhoneNumberPurchaseRequest phoneNumberPurchaseRequest)
+        {
+            // verify the required parameter 'phoneNumberPurchaseRequest' is set
+            if (phoneNumberPurchaseRequest == null)
+                throw new ApiException(400, "Missing required parameter 'phoneNumberPurchaseRequest' when calling ConversationApi->PurchasePbxPhoneNumber");
+
+            var localVarPath = "/conversation/pbx/phone_number";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (phoneNumberPurchaseRequest != null && phoneNumberPurchaseRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(phoneNumberPurchaseRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = phoneNumberPurchaseRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PurchasePbxPhoneNumber", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxPhoneNumberResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxPhoneNumberResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxPhoneNumberResponse)));
+        }
+
+        /// <summary>
+        /// Purchase pbx phone number Purchase a phone number from Twilio. The phone_number must be from the available phone number search results. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="phoneNumberPurchaseRequest">Phone number purchase request</param>
+        /// <returns>Task of ConversationPbxPhoneNumberResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxPhoneNumberResponse> PurchasePbxPhoneNumberAsync (ConversationPbxPhoneNumberPurchaseRequest phoneNumberPurchaseRequest)
+        {
+             ApiResponse<ConversationPbxPhoneNumberResponse> localVarResponse = await PurchasePbxPhoneNumberAsyncWithHttpInfo(phoneNumberPurchaseRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Purchase pbx phone number Purchase a phone number from Twilio. The phone_number must be from the available phone number search results. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="phoneNumberPurchaseRequest">Phone number purchase request</param>
+        /// <returns>Task of ApiResponse (ConversationPbxPhoneNumberResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxPhoneNumberResponse>> PurchasePbxPhoneNumberAsyncWithHttpInfo (ConversationPbxPhoneNumberPurchaseRequest phoneNumberPurchaseRequest)
+        {
+            // verify the required parameter 'phoneNumberPurchaseRequest' is set
+            if (phoneNumberPurchaseRequest == null)
+                throw new ApiException(400, "Missing required parameter 'phoneNumberPurchaseRequest' when calling ConversationApi->PurchasePbxPhoneNumber");
+
+            var localVarPath = "/conversation/pbx/phone_number";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (phoneNumberPurchaseRequest != null && phoneNumberPurchaseRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(phoneNumberPurchaseRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = phoneNumberPurchaseRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PurchasePbxPhoneNumber", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxPhoneNumberResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxPhoneNumberResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxPhoneNumberResponse)));
+        }
+
+        /// <summary>
         /// reset statistics within the queue reset statistics within the queue 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -16939,6 +18454,199 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationCannedMessagesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationCannedMessagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationCannedMessagesResponse)));
+        }
+
+        /// <summary>
+        /// Search for available phone numbers Search for available phone numbers from Twilio that can be purchased 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="country">ISO country code (e.g., US, CA, GB)</param>
+        /// <param name="areaCode">Area code filter (e.g., 614) (optional)</param>
+        /// <param name="contains">Pattern to match (e.g., 555, *PIZZA) (optional)</param>
+        /// <param name="smsEnabled">Filter for SMS capability (optional)</param>
+        /// <param name="voiceEnabled">Filter for voice capability (optional)</param>
+        /// <param name="type">Phone number type (optional)</param>
+        /// <param name="limit">Max results (default 20, max 100) (optional)</param>
+        /// <returns>ConversationPbxAvailablePhoneNumbersResponse</returns>
+        public ConversationPbxAvailablePhoneNumbersResponse SearchPbxAvailablePhoneNumbers (string country, string areaCode = null, string contains = null, bool? smsEnabled = null, bool? voiceEnabled = null, string type = null, int? limit = null)
+        {
+             ApiResponse<ConversationPbxAvailablePhoneNumbersResponse> localVarResponse = SearchPbxAvailablePhoneNumbersWithHttpInfo(country, areaCode, contains, smsEnabled, voiceEnabled, type, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search for available phone numbers Search for available phone numbers from Twilio that can be purchased 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="country">ISO country code (e.g., US, CA, GB)</param>
+        /// <param name="areaCode">Area code filter (e.g., 614) (optional)</param>
+        /// <param name="contains">Pattern to match (e.g., 555, *PIZZA) (optional)</param>
+        /// <param name="smsEnabled">Filter for SMS capability (optional)</param>
+        /// <param name="voiceEnabled">Filter for voice capability (optional)</param>
+        /// <param name="type">Phone number type (optional)</param>
+        /// <param name="limit">Max results (default 20, max 100) (optional)</param>
+        /// <returns>ApiResponse of ConversationPbxAvailablePhoneNumbersResponse</returns>
+        public ApiResponse< ConversationPbxAvailablePhoneNumbersResponse > SearchPbxAvailablePhoneNumbersWithHttpInfo (string country, string areaCode = null, string contains = null, bool? smsEnabled = null, bool? voiceEnabled = null, string type = null, int? limit = null)
+        {
+            // verify the required parameter 'country' is set
+            if (country == null)
+                throw new ApiException(400, "Missing required parameter 'country' when calling ConversationApi->SearchPbxAvailablePhoneNumbers");
+
+            var localVarPath = "/conversation/pbx/phone_number/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (country != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "country", country)); // query parameter
+            if (areaCode != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "area_code", areaCode)); // query parameter
+            if (contains != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "contains", contains)); // query parameter
+            if (smsEnabled != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sms_enabled", smsEnabled)); // query parameter
+            if (voiceEnabled != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "voice_enabled", voiceEnabled)); // query parameter
+            if (type != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "type", type)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchPbxAvailablePhoneNumbers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxAvailablePhoneNumbersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxAvailablePhoneNumbersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAvailablePhoneNumbersResponse)));
+        }
+
+        /// <summary>
+        /// Search for available phone numbers Search for available phone numbers from Twilio that can be purchased 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="country">ISO country code (e.g., US, CA, GB)</param>
+        /// <param name="areaCode">Area code filter (e.g., 614) (optional)</param>
+        /// <param name="contains">Pattern to match (e.g., 555, *PIZZA) (optional)</param>
+        /// <param name="smsEnabled">Filter for SMS capability (optional)</param>
+        /// <param name="voiceEnabled">Filter for voice capability (optional)</param>
+        /// <param name="type">Phone number type (optional)</param>
+        /// <param name="limit">Max results (default 20, max 100) (optional)</param>
+        /// <returns>Task of ConversationPbxAvailablePhoneNumbersResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxAvailablePhoneNumbersResponse> SearchPbxAvailablePhoneNumbersAsync (string country, string areaCode = null, string contains = null, bool? smsEnabled = null, bool? voiceEnabled = null, string type = null, int? limit = null)
+        {
+             ApiResponse<ConversationPbxAvailablePhoneNumbersResponse> localVarResponse = await SearchPbxAvailablePhoneNumbersAsyncWithHttpInfo(country, areaCode, contains, smsEnabled, voiceEnabled, type, limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Search for available phone numbers Search for available phone numbers from Twilio that can be purchased 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="country">ISO country code (e.g., US, CA, GB)</param>
+        /// <param name="areaCode">Area code filter (e.g., 614) (optional)</param>
+        /// <param name="contains">Pattern to match (e.g., 555, *PIZZA) (optional)</param>
+        /// <param name="smsEnabled">Filter for SMS capability (optional)</param>
+        /// <param name="voiceEnabled">Filter for voice capability (optional)</param>
+        /// <param name="type">Phone number type (optional)</param>
+        /// <param name="limit">Max results (default 20, max 100) (optional)</param>
+        /// <returns>Task of ApiResponse (ConversationPbxAvailablePhoneNumbersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxAvailablePhoneNumbersResponse>> SearchPbxAvailablePhoneNumbersAsyncWithHttpInfo (string country, string areaCode = null, string contains = null, bool? smsEnabled = null, bool? voiceEnabled = null, string type = null, int? limit = null)
+        {
+            // verify the required parameter 'country' is set
+            if (country == null)
+                throw new ApiException(400, "Missing required parameter 'country' when calling ConversationApi->SearchPbxAvailablePhoneNumbers");
+
+            var localVarPath = "/conversation/pbx/phone_number/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (country != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "country", country)); // query parameter
+            if (areaCode != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "area_code", areaCode)); // query parameter
+            if (contains != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "contains", contains)); // query parameter
+            if (smsEnabled != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sms_enabled", smsEnabled)); // query parameter
+            if (voiceEnabled != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "voice_enabled", voiceEnabled)); // query parameter
+            if (type != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "type", type)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchPbxAvailablePhoneNumbers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxAvailablePhoneNumbersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxAvailablePhoneNumbersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAvailablePhoneNumbersResponse)));
         }
 
         /// <summary>
@@ -18361,6 +20069,189 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+
+        /// <summary>
+        /// Update pbx address Update a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>ConversationPbxAddressResponse</returns>
+        public ConversationPbxAddressResponse UpdatePbxAddress (string conversationPbxAddressUuid, ConversationPbxAddress pbxAddress)
+        {
+             ApiResponse<ConversationPbxAddressResponse> localVarResponse = UpdatePbxAddressWithHttpInfo(conversationPbxAddressUuid, pbxAddress);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update pbx address Update a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>ApiResponse of ConversationPbxAddressResponse</returns>
+        public ApiResponse< ConversationPbxAddressResponse > UpdatePbxAddressWithHttpInfo (string conversationPbxAddressUuid, ConversationPbxAddress pbxAddress)
+        {
+            // verify the required parameter 'conversationPbxAddressUuid' is set
+            if (conversationPbxAddressUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxAddressUuid' when calling ConversationApi->UpdatePbxAddress");
+            // verify the required parameter 'pbxAddress' is set
+            if (pbxAddress == null)
+                throw new ApiException(400, "Missing required parameter 'pbxAddress' when calling ConversationApi->UpdatePbxAddress");
+
+            var localVarPath = "/conversation/pbx/address/{conversationPbxAddressUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxAddressUuid != null) localVarPathParams.Add("conversationPbxAddressUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxAddressUuid)); // path parameter
+            if (pbxAddress != null && pbxAddress.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pbxAddress); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pbxAddress; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdatePbxAddress", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxAddressResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxAddressResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAddressResponse)));
+        }
+
+        /// <summary>
+        /// Update pbx address Update a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>Task of ConversationPbxAddressResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxAddressResponse> UpdatePbxAddressAsync (string conversationPbxAddressUuid, ConversationPbxAddress pbxAddress)
+        {
+             ApiResponse<ConversationPbxAddressResponse> localVarResponse = await UpdatePbxAddressAsyncWithHttpInfo(conversationPbxAddressUuid, pbxAddress);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update pbx address Update a pbx address 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxAddressUuid"></param>
+        /// <param name="pbxAddress">Pbx Address</param>
+        /// <returns>Task of ApiResponse (ConversationPbxAddressResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxAddressResponse>> UpdatePbxAddressAsyncWithHttpInfo (string conversationPbxAddressUuid, ConversationPbxAddress pbxAddress)
+        {
+            // verify the required parameter 'conversationPbxAddressUuid' is set
+            if (conversationPbxAddressUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxAddressUuid' when calling ConversationApi->UpdatePbxAddress");
+            // verify the required parameter 'pbxAddress' is set
+            if (pbxAddress == null)
+                throw new ApiException(400, "Missing required parameter 'pbxAddress' when calling ConversationApi->UpdatePbxAddress");
+
+            var localVarPath = "/conversation/pbx/address/{conversationPbxAddressUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxAddressUuid != null) localVarPathParams.Add("conversationPbxAddressUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxAddressUuid)); // path parameter
+            if (pbxAddress != null && pbxAddress.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pbxAddress); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pbxAddress; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdatePbxAddress", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxAddressResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxAddressResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAddressResponse)));
         }
 
         /// <summary>

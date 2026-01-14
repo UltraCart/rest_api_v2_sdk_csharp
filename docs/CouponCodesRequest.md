@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ExpirationDts** | **string** | Expiration Date | [optional] 
 **ExpirationSeconds** | **int?** | Expiration seconds | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**Prefix** | **string** | Optional prefix for generated codes | [optional] 
 **Quantity** | **int?** | Quantity | [optional] 
 **Success** | **bool?** | Indicates if API call was successful | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 

@@ -37,15 +37,17 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="expirationDts">Expiration Date.</param>
         /// <param name="expirationSeconds">Expiration seconds.</param>
         /// <param name="metadata">metadata.</param>
+        /// <param name="prefix">Optional prefix for generated codes.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public CouponCodesRequest(Error error = default(Error), string expirationDts = default(string), int expirationSeconds = default(int), ResponseMetadata metadata = default(ResponseMetadata), int quantity = default(int), bool success = default(bool), Warning warning = default(Warning))
+        public CouponCodesRequest(Error error = default(Error), string expirationDts = default(string), int expirationSeconds = default(int), ResponseMetadata metadata = default(ResponseMetadata), string prefix = default(string), int quantity = default(int), bool success = default(bool), Warning warning = default(Warning))
         {
             this.Error = error;
             this.ExpirationDts = expirationDts;
             this.ExpirationSeconds = expirationSeconds;
             this.Metadata = metadata;
+            this.Prefix = prefix;
             this.Quantity = quantity;
             this.Success = success;
             this.Warning = warning;
@@ -76,6 +78,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public ResponseMetadata Metadata { get; set; }
+
+        /// <summary>
+        /// Optional prefix for generated codes
+        /// </summary>
+        /// <value>Optional prefix for generated codes</value>
+        [DataMember(Name="prefix", EmitDefaultValue=false)]
+        public string Prefix { get; set; }
 
         /// <summary>
         /// Quantity
@@ -109,6 +118,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ExpirationDts: ").Append(ExpirationDts).Append("\n");
             sb.Append("  ExpirationSeconds: ").Append(ExpirationSeconds).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  Prefix: ").Append(Prefix).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
@@ -167,6 +177,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Metadata.Equals(input.Metadata))
                 ) && 
                 (
+                    this.Prefix == input.Prefix ||
+                    (this.Prefix != null &&
+                    this.Prefix.Equals(input.Prefix))
+                ) && 
+                (
                     this.Quantity == input.Quantity ||
                     (this.Quantity != null &&
                     this.Quantity.Equals(input.Quantity))
@@ -200,6 +215,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ExpirationSeconds.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
+                if (this.Prefix != null)
+                    hashCode = hashCode * 59 + this.Prefix.GetHashCode();
                 if (this.Quantity != null)
                     hashCode = hashCode * 59 + this.Quantity.GetHashCode();
                 if (this.Success != null)
@@ -217,6 +234,13 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Prefix (string) maxLength
+            if(this.Prefix != null && this.Prefix.Length > 12)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Prefix, length must be less than 12.", new [] { "Prefix" });
+            }
+
+
             yield break;
         }
     }

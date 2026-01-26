@@ -33,16 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationDepartmentMember" /> class.
         /// </summary>
+        /// <param name="ai">ai.</param>
         /// <param name="member">member.</param>
         /// <param name="name">name.</param>
         /// <param name="userId">userId.</param>
-        public ConversationDepartmentMember(bool? member = default(bool?), string name = default(string), int? userId = default(int?))
+        public ConversationDepartmentMember(bool? ai = default(bool?), bool? member = default(bool?), string name = default(string), int? userId = default(int?))
         {
+            this.Ai = ai;
             this.Member = member;
             this.Name = name;
             this.UserId = userId;
         }
         
+        /// <summary>
+        /// Gets or Sets Ai
+        /// </summary>
+        [DataMember(Name="ai", EmitDefaultValue=false)]
+        public bool? Ai { get; set; }
+
         /// <summary>
         /// Gets or Sets Member
         /// </summary>
@@ -69,6 +77,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationDepartmentMember {\n");
+            sb.Append("  Ai: ").Append(Ai).Append("\n");
             sb.Append("  Member: ").Append(Member).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
@@ -107,6 +116,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Ai == input.Ai ||
+                    (this.Ai != null &&
+                    this.Ai.Equals(input.Ai))
+                ) && 
+                (
                     this.Member == input.Member ||
                     (this.Member != null &&
                     this.Member.Equals(input.Member))
@@ -132,6 +146,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Ai != null)
+                    hashCode = hashCode * 59 + this.Ai.GetHashCode();
                 if (this.Member != null)
                     hashCode = hashCode * 59 + this.Member.GetHashCode();
                 if (this.Name != null)

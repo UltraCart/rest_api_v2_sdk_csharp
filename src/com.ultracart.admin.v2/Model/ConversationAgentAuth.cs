@@ -33,6 +33,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationAgentAuth" /> class.
         /// </summary>
+        /// <param name="chatAdmin">chatAdmin.</param>
+        /// <param name="chatUser">chatUser.</param>
         /// <param name="conversationParticipantArn">conversationParticipantArn.</param>
         /// <param name="conversationParticipantName">conversationParticipantName.</param>
         /// <param name="groupIds">UltraCart Groups this user belongs to.</param>
@@ -49,8 +51,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="twilioAccounts">twilioAccounts.</param>
         /// <param name="userId">UltraCart User ID.</param>
         /// <param name="websocketUrl">websocketUrl.</param>
-        public ConversationAgentAuth(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), List<int?> groupIds = default(List<int?>), string jwt = default(string), string merchantId = default(string), bool? pbxAdmin = default(bool?), string pbxJwt = default(string), bool? pbxSupervisor = default(bool?), bool? pbxUser = default(bool?), string pbxVoiceIdentity = default(string), string pbxVoiceToken = default(string), string pbxWorkerToken = default(string), string pbxWorkerTokenV2 = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), int? userId = default(int?), string websocketUrl = default(string))
+        public ConversationAgentAuth(bool? chatAdmin = default(bool?), bool? chatUser = default(bool?), string conversationParticipantArn = default(string), string conversationParticipantName = default(string), List<int?> groupIds = default(List<int?>), string jwt = default(string), string merchantId = default(string), bool? pbxAdmin = default(bool?), string pbxJwt = default(string), bool? pbxSupervisor = default(bool?), bool? pbxUser = default(bool?), string pbxVoiceIdentity = default(string), string pbxVoiceToken = default(string), string pbxWorkerToken = default(string), string pbxWorkerTokenV2 = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), int? userId = default(int?), string websocketUrl = default(string))
         {
+            this.ChatAdmin = chatAdmin;
+            this.ChatUser = chatUser;
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
             this.GroupIds = groupIds;
@@ -69,6 +73,18 @@ namespace com.ultracart.admin.v2.Model
             this.WebsocketUrl = websocketUrl;
         }
         
+        /// <summary>
+        /// Gets or Sets ChatAdmin
+        /// </summary>
+        [DataMember(Name="chat_admin", EmitDefaultValue=false)]
+        public bool? ChatAdmin { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ChatUser
+        /// </summary>
+        [DataMember(Name="chat_user", EmitDefaultValue=false)]
+        public bool? ChatUser { get; set; }
+
         /// <summary>
         /// Gets or Sets ConversationParticipantArn
         /// </summary>
@@ -175,6 +191,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationAgentAuth {\n");
+            sb.Append("  ChatAdmin: ").Append(ChatAdmin).Append("\n");
+            sb.Append("  ChatUser: ").Append(ChatUser).Append("\n");
             sb.Append("  ConversationParticipantArn: ").Append(ConversationParticipantArn).Append("\n");
             sb.Append("  ConversationParticipantName: ").Append(ConversationParticipantName).Append("\n");
             sb.Append("  GroupIds: ").Append(GroupIds).Append("\n");
@@ -225,6 +243,16 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.ChatAdmin == input.ChatAdmin ||
+                    (this.ChatAdmin != null &&
+                    this.ChatAdmin.Equals(input.ChatAdmin))
+                ) && 
+                (
+                    this.ChatUser == input.ChatUser ||
+                    (this.ChatUser != null &&
+                    this.ChatUser.Equals(input.ChatUser))
+                ) && 
                 (
                     this.ConversationParticipantArn == input.ConversationParticipantArn ||
                     (this.ConversationParticipantArn != null &&
@@ -316,6 +344,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ChatAdmin != null)
+                    hashCode = hashCode * 59 + this.ChatAdmin.GetHashCode();
+                if (this.ChatUser != null)
+                    hashCode = hashCode * 59 + this.ChatUser.GetHashCode();
                 if (this.ConversationParticipantArn != null)
                     hashCode = hashCode * 59 + this.ConversationParticipantArn.GetHashCode();
                 if (this.ConversationParticipantName != null)

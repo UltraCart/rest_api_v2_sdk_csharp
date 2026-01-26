@@ -107,6 +107,7 @@ docs/CartShipping.md
 docs/CartSummary.md
 docs/CartTaxes.md
 docs/CartUpsellAfter.md
+docs/CartUtm.md
 docs/CartValidationRequest.md
 docs/CartValidationResponse.md
 docs/ChanelPartnerReasonCodesResponse.md
@@ -1067,6 +1068,7 @@ src/com.ultracart.admin.v2/Model/CartShipping.cs
 src/com.ultracart.admin.v2/Model/CartSummary.cs
 src/com.ultracart.admin.v2/Model/CartTaxes.cs
 src/com.ultracart.admin.v2/Model/CartUpsellAfter.cs
+src/com.ultracart.admin.v2/Model/CartUtm.cs
 src/com.ultracart.admin.v2/Model/CartValidationRequest.cs
 src/com.ultracart.admin.v2/Model/CartValidationResponse.cs
 src/com.ultracart.admin.v2/Model/ChanelPartnerReasonCodesResponse.cs

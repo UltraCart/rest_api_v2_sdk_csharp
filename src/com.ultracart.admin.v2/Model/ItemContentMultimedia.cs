@@ -88,12 +88,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantItemMultimediaOid">Item multimedia object identifier.</param>
         /// <param name="orphan">True if the multimedia is an orphan of the active StoreFront themes.</param>
         /// <param name="placeholder">True if the object is a place holder that can be populated.</param>
+        /// <param name="size">Size of the file in bytes if known.</param>
         /// <param name="tempMultimediaOid">Temporary multimedia object identifier assigned if uploading new multimedia.</param>
         /// <param name="thumbnails">Thumbnails of this image.</param>
         /// <param name="type">Type of file.</param>
         /// <param name="url">URL to download file (on new multimedia record this can be a URL for UltraCart to fetch).</param>
         /// <param name="width">Width of the image.</param>
-        public ItemContentMultimedia(string cloudUrl = default(string), string cloudUrlExpiration = default(string), string code = default(string), string description = default(string), bool? excludeFromGallery = default(bool?), string fileName = default(string), int? height = default(int?), int? merchantItemMultimediaOid = default(int?), bool? orphan = default(bool?), bool? placeholder = default(bool?), int? tempMultimediaOid = default(int?), List<ItemContentMultimediaThumbnail> thumbnails = default(List<ItemContentMultimediaThumbnail>), TypeEnum? type = default(TypeEnum?), string url = default(string), int? width = default(int?))
+        public ItemContentMultimedia(string cloudUrl = default(string), string cloudUrlExpiration = default(string), string code = default(string), string description = default(string), bool? excludeFromGallery = default(bool?), string fileName = default(string), int? height = default(int?), int? merchantItemMultimediaOid = default(int?), bool? orphan = default(bool?), bool? placeholder = default(bool?), int? size = default(int?), int? tempMultimediaOid = default(int?), List<ItemContentMultimediaThumbnail> thumbnails = default(List<ItemContentMultimediaThumbnail>), TypeEnum? type = default(TypeEnum?), string url = default(string), int? width = default(int?))
         {
             this.CloudUrl = cloudUrl;
             this.CloudUrlExpiration = cloudUrlExpiration;
@@ -105,6 +106,7 @@ namespace com.ultracart.admin.v2.Model
             this.MerchantItemMultimediaOid = merchantItemMultimediaOid;
             this.Orphan = orphan;
             this.Placeholder = placeholder;
+            this.Size = size;
             this.TempMultimediaOid = tempMultimediaOid;
             this.Thumbnails = thumbnails;
             this.Type = type;
@@ -183,6 +185,13 @@ namespace com.ultracart.admin.v2.Model
         public bool? Placeholder { get; set; }
 
         /// <summary>
+        /// Size of the file in bytes if known
+        /// </summary>
+        /// <value>Size of the file in bytes if known</value>
+        [DataMember(Name="size", EmitDefaultValue=false)]
+        public int? Size { get; set; }
+
+        /// <summary>
         /// Temporary multimedia object identifier assigned if uploading new multimedia
         /// </summary>
         /// <value>Temporary multimedia object identifier assigned if uploading new multimedia</value>
@@ -229,6 +238,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantItemMultimediaOid: ").Append(MerchantItemMultimediaOid).Append("\n");
             sb.Append("  Orphan: ").Append(Orphan).Append("\n");
             sb.Append("  Placeholder: ").Append(Placeholder).Append("\n");
+            sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  TempMultimediaOid: ").Append(TempMultimediaOid).Append("\n");
             sb.Append("  Thumbnails: ").Append(Thumbnails).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -319,6 +329,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Placeholder.Equals(input.Placeholder))
                 ) && 
                 (
+                    this.Size == input.Size ||
+                    (this.Size != null &&
+                    this.Size.Equals(input.Size))
+                ) && 
+                (
                     this.TempMultimediaOid == input.TempMultimediaOid ||
                     (this.TempMultimediaOid != null &&
                     this.TempMultimediaOid.Equals(input.TempMultimediaOid))
@@ -374,6 +389,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Orphan.GetHashCode();
                 if (this.Placeholder != null)
                     hashCode = hashCode * 59 + this.Placeholder.GetHashCode();
+                if (this.Size != null)
+                    hashCode = hashCode * 59 + this.Size.GetHashCode();
                 if (this.TempMultimediaOid != null)
                     hashCode = hashCode * 59 + this.TempMultimediaOid.GetHashCode();
                 if (this.Thumbnails != null)

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **MerchantItemMultimediaOid** | **int?** | Item multimedia object identifier | [optional] 
 **Orphan** | **bool?** | True if the multimedia is an orphan of the active StoreFront themes | [optional] 
 **Placeholder** | **bool?** | True if the object is a place holder that can be populated | [optional] 
+**Size** | **int?** | Size of the file in bytes if known | [optional] 
 **TempMultimediaOid** | **int?** | Temporary multimedia object identifier assigned if uploading new multimedia | [optional] 
 **Thumbnails** | [**List&lt;ItemContentMultimediaThumbnail&gt;**](ItemContentMultimediaThumbnail.md) | Thumbnails of this image | [optional] 
 **Type** | **string** | Type of file | [optional] 

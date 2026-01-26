@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Ai** | **bool** |  | [optional] 
 **Member** | **bool** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **UserId** | **int** |  | [optional] 

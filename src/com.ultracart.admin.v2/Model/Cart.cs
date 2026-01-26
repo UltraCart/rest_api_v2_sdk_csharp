@@ -59,7 +59,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="summary">summary.</param>
         /// <param name="taxes">taxes.</param>
         /// <param name="upsellAfter">upsellAfter.</param>
-        public Cart(CartAffiliate affiliate = default(CartAffiliate), int? affiliateNetworkPixelOid = default(int?), string baseCurrencyCode = default(string), CartBilling billing = default(CartBilling), CartBuysafe buysafe = default(CartBuysafe), string cartId = default(string), CartCheckout checkout = default(CartCheckout), List<CartCoupon> coupons = default(List<CartCoupon>), string currencyCode = default(string), CartCurrencyConversion currencyConversion = default(CartCurrencyConversion), CartCustomerProfile customerProfile = default(CartCustomerProfile), decimal? exchangeRate = default(decimal?), CartGift gift = default(CartGift), CartGiftCertificate giftCertificate = default(CartGiftCertificate), List<CartItem> items = default(List<CartItem>), string languageIsoCode = default(string), bool? loggedIn = default(bool?), CartMarketing marketing = default(CartMarketing), string merchantId = default(string), CartPayment payment = default(CartPayment), List<CartProperty> properties = default(List<CartProperty>), CartSettings settings = default(CartSettings), CartShipping shipping = default(CartShipping), CartSummary summary = default(CartSummary), CartTaxes taxes = default(CartTaxes), CartUpsellAfter upsellAfter = default(CartUpsellAfter))
+        /// <param name="utms">UTM clicks.  The zero index is the most recent (last) UTM click.  Only available in BigQuery and on an abandon webhook..</param>
+        public Cart(CartAffiliate affiliate = default(CartAffiliate), int? affiliateNetworkPixelOid = default(int?), string baseCurrencyCode = default(string), CartBilling billing = default(CartBilling), CartBuysafe buysafe = default(CartBuysafe), string cartId = default(string), CartCheckout checkout = default(CartCheckout), List<CartCoupon> coupons = default(List<CartCoupon>), string currencyCode = default(string), CartCurrencyConversion currencyConversion = default(CartCurrencyConversion), CartCustomerProfile customerProfile = default(CartCustomerProfile), decimal? exchangeRate = default(decimal?), CartGift gift = default(CartGift), CartGiftCertificate giftCertificate = default(CartGiftCertificate), List<CartItem> items = default(List<CartItem>), string languageIsoCode = default(string), bool? loggedIn = default(bool?), CartMarketing marketing = default(CartMarketing), string merchantId = default(string), CartPayment payment = default(CartPayment), List<CartProperty> properties = default(List<CartProperty>), CartSettings settings = default(CartSettings), CartShipping shipping = default(CartShipping), CartSummary summary = default(CartSummary), CartTaxes taxes = default(CartTaxes), CartUpsellAfter upsellAfter = default(CartUpsellAfter), List<CartUtm> utms = default(List<CartUtm>))
         {
             this.Affiliate = affiliate;
             this.AffiliateNetworkPixelOid = affiliateNetworkPixelOid;
@@ -87,6 +88,7 @@ namespace com.ultracart.admin.v2.Model
             this.Summary = summary;
             this.Taxes = taxes;
             this.UpsellAfter = upsellAfter;
+            this.Utms = utms;
         }
         
         /// <summary>
@@ -257,6 +259,13 @@ namespace com.ultracart.admin.v2.Model
         public CartUpsellAfter UpsellAfter { get; set; }
 
         /// <summary>
+        /// UTM clicks.  The zero index is the most recent (last) UTM click.  Only available in BigQuery and on an abandon webhook.
+        /// </summary>
+        /// <value>UTM clicks.  The zero index is the most recent (last) UTM click.  Only available in BigQuery and on an abandon webhook.</value>
+        [DataMember(Name="utms", EmitDefaultValue=false)]
+        public List<CartUtm> Utms { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -290,6 +299,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Summary: ").Append(Summary).Append("\n");
             sb.Append("  Taxes: ").Append(Taxes).Append("\n");
             sb.Append("  UpsellAfter: ").Append(UpsellAfter).Append("\n");
+            sb.Append("  Utms: ").Append(Utms).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -453,6 +463,11 @@ namespace com.ultracart.admin.v2.Model
                     this.UpsellAfter == input.UpsellAfter ||
                     (this.UpsellAfter != null &&
                     this.UpsellAfter.Equals(input.UpsellAfter))
+                ) && 
+                (
+                    this.Utms == input.Utms ||
+                    this.Utms != null &&
+                    this.Utms.SequenceEqual(input.Utms)
                 );
         }
 
@@ -517,6 +532,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Taxes.GetHashCode();
                 if (this.UpsellAfter != null)
                     hashCode = hashCode * 59 + this.UpsellAfter.GetHashCode();
+                if (this.Utms != null)
+                    hashCode = hashCode * 59 + this.Utms.GetHashCode();
                 return hashCode;
             }
         }

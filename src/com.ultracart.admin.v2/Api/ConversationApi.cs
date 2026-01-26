@@ -197,6 +197,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationPbxAudioResponse</returns>
         ApiResponse<ConversationPbxAudioResponse> DeletePbxAudioWithHttpInfo (string conversationPbxAudioUuid);
         /// <summary>
+        /// Delete pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Delete a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>ConversationPbxHardwarePhoneResponse</returns>
+        ConversationPbxHardwarePhoneResponse DeletePbxHardwarePhone (string conversationPbxHardwarePhoneUuid);
+
+        /// <summary>
+        /// Delete pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Delete a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>ApiResponse of ConversationPbxHardwarePhoneResponse</returns>
+        ApiResponse<ConversationPbxHardwarePhoneResponse> DeletePbxHardwarePhoneWithHttpInfo (string conversationPbxHardwarePhoneUuid);
+        /// <summary>
         /// Delete pbx menu
         /// </summary>
         /// <remarks>
@@ -1069,6 +1090,65 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationPbxAudiosResponse</returns>
         ApiResponse<ConversationPbxAudiosResponse> GetPbxAudiosWithHttpInfo ();
         /// <summary>
+        /// Get pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>ConversationPbxHardwarePhoneResponse</returns>
+        ConversationPbxHardwarePhoneResponse GetPbxHardwarePhone (string conversationPbxHardwarePhoneUuid);
+
+        /// <summary>
+        /// Get pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>ApiResponse of ConversationPbxHardwarePhoneResponse</returns>
+        ApiResponse<ConversationPbxHardwarePhoneResponse> GetPbxHardwarePhoneWithHttpInfo (string conversationPbxHardwarePhoneUuid);
+        /// <summary>
+        /// Get pbx hardware phone manufacturers
+        /// </summary>
+        /// <remarks>
+        /// Retrieve pbx hardware phone manufacturers and models for auto-provisioning 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationPbxPhoneManufacturersResponse</returns>
+        ConversationPbxPhoneManufacturersResponse GetPbxHardwarePhoneManufacturers ();
+
+        /// <summary>
+        /// Get pbx hardware phone manufacturers
+        /// </summary>
+        /// <remarks>
+        /// Retrieve pbx hardware phone manufacturers and models for auto-provisioning 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationPbxPhoneManufacturersResponse</returns>
+        ApiResponse<ConversationPbxPhoneManufacturersResponse> GetPbxHardwarePhoneManufacturersWithHttpInfo ();
+        /// <summary>
+        /// Get pbx hardware phones
+        /// </summary>
+        /// <remarks>
+        /// Retrieve pbx hardware phones 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationPbxHardwarePhonesResponse</returns>
+        ConversationPbxHardwarePhonesResponse GetPbxHardwarePhones ();
+
+        /// <summary>
+        /// Get pbx hardware phones
+        /// </summary>
+        /// <remarks>
+        /// Retrieve pbx hardware phones 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationPbxHardwarePhonesResponse</returns>
+        ApiResponse<ConversationPbxHardwarePhonesResponse> GetPbxHardwarePhonesWithHttpInfo ();
+        /// <summary>
         /// Get pbx menu
         /// </summary>
         /// <remarks>
@@ -1542,6 +1622,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationPbxAudioResponse</returns>
         ApiResponse<ConversationPbxAudioResponse> InsertPbxAudioWithHttpInfo (ConversationPbxAudio pbxAudio);
         /// <summary>
+        /// Insert pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Insert a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>ConversationPbxHardwarePhoneResponse</returns>
+        ConversationPbxHardwarePhoneResponse InsertPbxHardwarePhone (ConversationPbxHardwarePhone pbxHardwarePhone);
+
+        /// <summary>
+        /// Insert pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Insert a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>ApiResponse of ConversationPbxHardwarePhoneResponse</returns>
+        ApiResponse<ConversationPbxHardwarePhoneResponse> InsertPbxHardwarePhoneWithHttpInfo (ConversationPbxHardwarePhone pbxHardwarePhone);
+        /// <summary>
         /// Insert pbx menu
         /// </summary>
         /// <remarks>
@@ -1797,6 +1898,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="phoneNumberPurchaseRequest">Phone number purchase request</param>
         /// <returns>ApiResponse of ConversationPbxPhoneNumberResponse</returns>
         ApiResponse<ConversationPbxPhoneNumberResponse> PurchasePbxPhoneNumberWithHttpInfo (ConversationPbxPhoneNumberPurchaseRequest phoneNumberPurchaseRequest);
+        /// <summary>
+        /// Update pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Update a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>ConversationPbxHardwarePhoneResponse</returns>
+        ConversationPbxHardwarePhoneResponse RegeneratePasswordForPbxHardwarePhone (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone);
+
+        /// <summary>
+        /// Update pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Update a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>ApiResponse of ConversationPbxHardwarePhoneResponse</returns>
+        ApiResponse<ConversationPbxHardwarePhoneResponse> RegeneratePasswordForPbxHardwarePhoneWithHttpInfo (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone);
         /// <summary>
         /// reset statistics within the queue
         /// </summary>
@@ -2121,6 +2245,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pbxAudio">Pbx Audio</param>
         /// <returns>ApiResponse of ConversationPbxAudioResponse</returns>
         ApiResponse<ConversationPbxAudioResponse> UpdatePbxAudioWithHttpInfo (string conversationPbxAudioUuid, ConversationPbxAudio pbxAudio);
+        /// <summary>
+        /// Update pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Update a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>ConversationPbxHardwarePhoneResponse</returns>
+        ConversationPbxHardwarePhoneResponse UpdatePbxHardwarePhone (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone);
+
+        /// <summary>
+        /// Update pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Update a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>ApiResponse of ConversationPbxHardwarePhoneResponse</returns>
+        ApiResponse<ConversationPbxHardwarePhoneResponse> UpdatePbxHardwarePhoneWithHttpInfo (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone);
         /// <summary>
         /// Update pbx menu
         /// </summary>
@@ -2475,6 +2622,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="conversationPbxAudioUuid"></param>
         /// <returns>Task of ApiResponse (ConversationPbxAudioResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationPbxAudioResponse>> DeletePbxAudioAsyncWithHttpInfo (string conversationPbxAudioUuid);
+        /// <summary>
+        /// Delete pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Delete a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>Task of ConversationPbxHardwarePhoneResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxHardwarePhoneResponse> DeletePbxHardwarePhoneAsync (string conversationPbxHardwarePhoneUuid);
+
+        /// <summary>
+        /// Delete pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Delete a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationPbxHardwarePhoneResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxHardwarePhoneResponse>> DeletePbxHardwarePhoneAsyncWithHttpInfo (string conversationPbxHardwarePhoneUuid);
         /// <summary>
         /// Delete pbx menu
         /// </summary>
@@ -3348,6 +3516,65 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ConversationPbxAudiosResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationPbxAudiosResponse>> GetPbxAudiosAsyncWithHttpInfo ();
         /// <summary>
+        /// Get pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>Task of ConversationPbxHardwarePhoneResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxHardwarePhoneResponse> GetPbxHardwarePhoneAsync (string conversationPbxHardwarePhoneUuid);
+
+        /// <summary>
+        /// Get pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationPbxHardwarePhoneResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxHardwarePhoneResponse>> GetPbxHardwarePhoneAsyncWithHttpInfo (string conversationPbxHardwarePhoneUuid);
+        /// <summary>
+        /// Get pbx hardware phone manufacturers
+        /// </summary>
+        /// <remarks>
+        /// Retrieve pbx hardware phone manufacturers and models for auto-provisioning 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationPbxPhoneManufacturersResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxPhoneManufacturersResponse> GetPbxHardwarePhoneManufacturersAsync ();
+
+        /// <summary>
+        /// Get pbx hardware phone manufacturers
+        /// </summary>
+        /// <remarks>
+        /// Retrieve pbx hardware phone manufacturers and models for auto-provisioning 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationPbxPhoneManufacturersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxPhoneManufacturersResponse>> GetPbxHardwarePhoneManufacturersAsyncWithHttpInfo ();
+        /// <summary>
+        /// Get pbx hardware phones
+        /// </summary>
+        /// <remarks>
+        /// Retrieve pbx hardware phones 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationPbxHardwarePhonesResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxHardwarePhonesResponse> GetPbxHardwarePhonesAsync ();
+
+        /// <summary>
+        /// Get pbx hardware phones
+        /// </summary>
+        /// <remarks>
+        /// Retrieve pbx hardware phones 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationPbxHardwarePhonesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxHardwarePhonesResponse>> GetPbxHardwarePhonesAsyncWithHttpInfo ();
+        /// <summary>
         /// Get pbx menu
         /// </summary>
         /// <remarks>
@@ -3821,6 +4048,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ConversationPbxAudioResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationPbxAudioResponse>> InsertPbxAudioAsyncWithHttpInfo (ConversationPbxAudio pbxAudio);
         /// <summary>
+        /// Insert pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Insert a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>Task of ConversationPbxHardwarePhoneResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxHardwarePhoneResponse> InsertPbxHardwarePhoneAsync (ConversationPbxHardwarePhone pbxHardwarePhone);
+
+        /// <summary>
+        /// Insert pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Insert a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>Task of ApiResponse (ConversationPbxHardwarePhoneResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxHardwarePhoneResponse>> InsertPbxHardwarePhoneAsyncWithHttpInfo (ConversationPbxHardwarePhone pbxHardwarePhone);
+        /// <summary>
         /// Insert pbx menu
         /// </summary>
         /// <remarks>
@@ -4076,6 +4324,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="phoneNumberPurchaseRequest">Phone number purchase request</param>
         /// <returns>Task of ApiResponse (ConversationPbxPhoneNumberResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationPbxPhoneNumberResponse>> PurchasePbxPhoneNumberAsyncWithHttpInfo (ConversationPbxPhoneNumberPurchaseRequest phoneNumberPurchaseRequest);
+        /// <summary>
+        /// Update pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Update a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>Task of ConversationPbxHardwarePhoneResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxHardwarePhoneResponse> RegeneratePasswordForPbxHardwarePhoneAsync (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone);
+
+        /// <summary>
+        /// Update pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Update a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>Task of ApiResponse (ConversationPbxHardwarePhoneResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxHardwarePhoneResponse>> RegeneratePasswordForPbxHardwarePhoneAsyncWithHttpInfo (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone);
         /// <summary>
         /// reset statistics within the queue
         /// </summary>
@@ -4400,6 +4671,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pbxAudio">Pbx Audio</param>
         /// <returns>Task of ApiResponse (ConversationPbxAudioResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationPbxAudioResponse>> UpdatePbxAudioAsyncWithHttpInfo (string conversationPbxAudioUuid, ConversationPbxAudio pbxAudio);
+        /// <summary>
+        /// Update pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Update a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>Task of ConversationPbxHardwarePhoneResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxHardwarePhoneResponse> UpdatePbxHardwarePhoneAsync (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone);
+
+        /// <summary>
+        /// Update pbx hardware phone
+        /// </summary>
+        /// <remarks>
+        /// Update a pbx hardware phone 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>Task of ApiResponse (ConversationPbxHardwarePhoneResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxHardwarePhoneResponse>> UpdatePbxHardwarePhoneAsyncWithHttpInfo (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone);
         /// <summary>
         /// Update pbx menu
         /// </summary>
@@ -5955,6 +6249,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationPbxAudioResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationPbxAudioResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAudioResponse)));
+        }
+
+        /// <summary>
+        /// Delete pbx hardware phone Delete a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>ConversationPbxHardwarePhoneResponse</returns>
+        public ConversationPbxHardwarePhoneResponse DeletePbxHardwarePhone (string conversationPbxHardwarePhoneUuid)
+        {
+             ApiResponse<ConversationPbxHardwarePhoneResponse> localVarResponse = DeletePbxHardwarePhoneWithHttpInfo(conversationPbxHardwarePhoneUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete pbx hardware phone Delete a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>ApiResponse of ConversationPbxHardwarePhoneResponse</returns>
+        public ApiResponse< ConversationPbxHardwarePhoneResponse > DeletePbxHardwarePhoneWithHttpInfo (string conversationPbxHardwarePhoneUuid)
+        {
+            // verify the required parameter 'conversationPbxHardwarePhoneUuid' is set
+            if (conversationPbxHardwarePhoneUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxHardwarePhoneUuid' when calling ConversationApi->DeletePbxHardwarePhone");
+
+            var localVarPath = "/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxHardwarePhoneUuid != null) localVarPathParams.Add("conversationPbxHardwarePhoneUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxHardwarePhoneUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeletePbxHardwarePhone", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxHardwarePhoneResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxHardwarePhoneResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxHardwarePhoneResponse)));
+        }
+
+        /// <summary>
+        /// Delete pbx hardware phone Delete a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>Task of ConversationPbxHardwarePhoneResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxHardwarePhoneResponse> DeletePbxHardwarePhoneAsync (string conversationPbxHardwarePhoneUuid)
+        {
+             ApiResponse<ConversationPbxHardwarePhoneResponse> localVarResponse = await DeletePbxHardwarePhoneAsyncWithHttpInfo(conversationPbxHardwarePhoneUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete pbx hardware phone Delete a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationPbxHardwarePhoneResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxHardwarePhoneResponse>> DeletePbxHardwarePhoneAsyncWithHttpInfo (string conversationPbxHardwarePhoneUuid)
+        {
+            // verify the required parameter 'conversationPbxHardwarePhoneUuid' is set
+            if (conversationPbxHardwarePhoneUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxHardwarePhoneUuid' when calling ConversationApi->DeletePbxHardwarePhone");
+
+            var localVarPath = "/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxHardwarePhoneUuid != null) localVarPathParams.Add("conversationPbxHardwarePhoneUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxHardwarePhoneUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeletePbxHardwarePhone", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxHardwarePhoneResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxHardwarePhoneResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxHardwarePhoneResponse)));
         }
 
         /// <summary>
@@ -12492,6 +12943,453 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get pbx hardware phone Retrieve a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>ConversationPbxHardwarePhoneResponse</returns>
+        public ConversationPbxHardwarePhoneResponse GetPbxHardwarePhone (string conversationPbxHardwarePhoneUuid)
+        {
+             ApiResponse<ConversationPbxHardwarePhoneResponse> localVarResponse = GetPbxHardwarePhoneWithHttpInfo(conversationPbxHardwarePhoneUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get pbx hardware phone Retrieve a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>ApiResponse of ConversationPbxHardwarePhoneResponse</returns>
+        public ApiResponse< ConversationPbxHardwarePhoneResponse > GetPbxHardwarePhoneWithHttpInfo (string conversationPbxHardwarePhoneUuid)
+        {
+            // verify the required parameter 'conversationPbxHardwarePhoneUuid' is set
+            if (conversationPbxHardwarePhoneUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxHardwarePhoneUuid' when calling ConversationApi->GetPbxHardwarePhone");
+
+            var localVarPath = "/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxHardwarePhoneUuid != null) localVarPathParams.Add("conversationPbxHardwarePhoneUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxHardwarePhoneUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPbxHardwarePhone", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxHardwarePhoneResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxHardwarePhoneResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxHardwarePhoneResponse)));
+        }
+
+        /// <summary>
+        /// Get pbx hardware phone Retrieve a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>Task of ConversationPbxHardwarePhoneResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxHardwarePhoneResponse> GetPbxHardwarePhoneAsync (string conversationPbxHardwarePhoneUuid)
+        {
+             ApiResponse<ConversationPbxHardwarePhoneResponse> localVarResponse = await GetPbxHardwarePhoneAsyncWithHttpInfo(conversationPbxHardwarePhoneUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get pbx hardware phone Retrieve a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationPbxHardwarePhoneResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxHardwarePhoneResponse>> GetPbxHardwarePhoneAsyncWithHttpInfo (string conversationPbxHardwarePhoneUuid)
+        {
+            // verify the required parameter 'conversationPbxHardwarePhoneUuid' is set
+            if (conversationPbxHardwarePhoneUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxHardwarePhoneUuid' when calling ConversationApi->GetPbxHardwarePhone");
+
+            var localVarPath = "/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxHardwarePhoneUuid != null) localVarPathParams.Add("conversationPbxHardwarePhoneUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxHardwarePhoneUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPbxHardwarePhone", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxHardwarePhoneResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxHardwarePhoneResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxHardwarePhoneResponse)));
+        }
+
+        /// <summary>
+        /// Get pbx hardware phone manufacturers Retrieve pbx hardware phone manufacturers and models for auto-provisioning 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationPbxPhoneManufacturersResponse</returns>
+        public ConversationPbxPhoneManufacturersResponse GetPbxHardwarePhoneManufacturers ()
+        {
+             ApiResponse<ConversationPbxPhoneManufacturersResponse> localVarResponse = GetPbxHardwarePhoneManufacturersWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get pbx hardware phone manufacturers Retrieve pbx hardware phone manufacturers and models for auto-provisioning 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationPbxPhoneManufacturersResponse</returns>
+        public ApiResponse< ConversationPbxPhoneManufacturersResponse > GetPbxHardwarePhoneManufacturersWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/pbx/hardware_phone/manufacturers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPbxHardwarePhoneManufacturers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxPhoneManufacturersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxPhoneManufacturersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxPhoneManufacturersResponse)));
+        }
+
+        /// <summary>
+        /// Get pbx hardware phone manufacturers Retrieve pbx hardware phone manufacturers and models for auto-provisioning 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationPbxPhoneManufacturersResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxPhoneManufacturersResponse> GetPbxHardwarePhoneManufacturersAsync ()
+        {
+             ApiResponse<ConversationPbxPhoneManufacturersResponse> localVarResponse = await GetPbxHardwarePhoneManufacturersAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get pbx hardware phone manufacturers Retrieve pbx hardware phone manufacturers and models for auto-provisioning 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationPbxPhoneManufacturersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxPhoneManufacturersResponse>> GetPbxHardwarePhoneManufacturersAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/pbx/hardware_phone/manufacturers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPbxHardwarePhoneManufacturers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxPhoneManufacturersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxPhoneManufacturersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxPhoneManufacturersResponse)));
+        }
+
+        /// <summary>
+        /// Get pbx hardware phones Retrieve pbx hardware phones 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationPbxHardwarePhonesResponse</returns>
+        public ConversationPbxHardwarePhonesResponse GetPbxHardwarePhones ()
+        {
+             ApiResponse<ConversationPbxHardwarePhonesResponse> localVarResponse = GetPbxHardwarePhonesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get pbx hardware phones Retrieve pbx hardware phones 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationPbxHardwarePhonesResponse</returns>
+        public ApiResponse< ConversationPbxHardwarePhonesResponse > GetPbxHardwarePhonesWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/pbx/hardware_phone";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPbxHardwarePhones", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxHardwarePhonesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxHardwarePhonesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxHardwarePhonesResponse)));
+        }
+
+        /// <summary>
+        /// Get pbx hardware phones Retrieve pbx hardware phones 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationPbxHardwarePhonesResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxHardwarePhonesResponse> GetPbxHardwarePhonesAsync ()
+        {
+             ApiResponse<ConversationPbxHardwarePhonesResponse> localVarResponse = await GetPbxHardwarePhonesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get pbx hardware phones Retrieve pbx hardware phones 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationPbxHardwarePhonesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxHardwarePhonesResponse>> GetPbxHardwarePhonesAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/pbx/hardware_phone";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPbxHardwarePhones", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxHardwarePhonesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxHardwarePhonesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxHardwarePhonesResponse)));
+        }
+
+        /// <summary>
         /// Get pbx menu Retrieve a pbx menu 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -16141,6 +17039,177 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Insert pbx hardware phone Insert a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>ConversationPbxHardwarePhoneResponse</returns>
+        public ConversationPbxHardwarePhoneResponse InsertPbxHardwarePhone (ConversationPbxHardwarePhone pbxHardwarePhone)
+        {
+             ApiResponse<ConversationPbxHardwarePhoneResponse> localVarResponse = InsertPbxHardwarePhoneWithHttpInfo(pbxHardwarePhone);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert pbx hardware phone Insert a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>ApiResponse of ConversationPbxHardwarePhoneResponse</returns>
+        public ApiResponse< ConversationPbxHardwarePhoneResponse > InsertPbxHardwarePhoneWithHttpInfo (ConversationPbxHardwarePhone pbxHardwarePhone)
+        {
+            // verify the required parameter 'pbxHardwarePhone' is set
+            if (pbxHardwarePhone == null)
+                throw new ApiException(400, "Missing required parameter 'pbxHardwarePhone' when calling ConversationApi->InsertPbxHardwarePhone");
+
+            var localVarPath = "/conversation/pbx/hardware_phone";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (pbxHardwarePhone != null && pbxHardwarePhone.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pbxHardwarePhone); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pbxHardwarePhone; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertPbxHardwarePhone", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxHardwarePhoneResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxHardwarePhoneResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxHardwarePhoneResponse)));
+        }
+
+        /// <summary>
+        /// Insert pbx hardware phone Insert a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>Task of ConversationPbxHardwarePhoneResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxHardwarePhoneResponse> InsertPbxHardwarePhoneAsync (ConversationPbxHardwarePhone pbxHardwarePhone)
+        {
+             ApiResponse<ConversationPbxHardwarePhoneResponse> localVarResponse = await InsertPbxHardwarePhoneAsyncWithHttpInfo(pbxHardwarePhone);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert pbx hardware phone Insert a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>Task of ApiResponse (ConversationPbxHardwarePhoneResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxHardwarePhoneResponse>> InsertPbxHardwarePhoneAsyncWithHttpInfo (ConversationPbxHardwarePhone pbxHardwarePhone)
+        {
+            // verify the required parameter 'pbxHardwarePhone' is set
+            if (pbxHardwarePhone == null)
+                throw new ApiException(400, "Missing required parameter 'pbxHardwarePhone' when calling ConversationApi->InsertPbxHardwarePhone");
+
+            var localVarPath = "/conversation/pbx/hardware_phone";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (pbxHardwarePhone != null && pbxHardwarePhone.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pbxHardwarePhone); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pbxHardwarePhone; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertPbxHardwarePhone", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxHardwarePhoneResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxHardwarePhoneResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxHardwarePhoneResponse)));
+        }
+
+        /// <summary>
         /// Insert pbx menu Insert a pbx menu 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -18128,6 +19197,189 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationPbxPhoneNumberResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationPbxPhoneNumberResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxPhoneNumberResponse)));
+        }
+
+        /// <summary>
+        /// Update pbx hardware phone Update a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>ConversationPbxHardwarePhoneResponse</returns>
+        public ConversationPbxHardwarePhoneResponse RegeneratePasswordForPbxHardwarePhone (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone)
+        {
+             ApiResponse<ConversationPbxHardwarePhoneResponse> localVarResponse = RegeneratePasswordForPbxHardwarePhoneWithHttpInfo(conversationPbxHardwarePhoneUuid, pbxHardwarePhone);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update pbx hardware phone Update a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>ApiResponse of ConversationPbxHardwarePhoneResponse</returns>
+        public ApiResponse< ConversationPbxHardwarePhoneResponse > RegeneratePasswordForPbxHardwarePhoneWithHttpInfo (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone)
+        {
+            // verify the required parameter 'conversationPbxHardwarePhoneUuid' is set
+            if (conversationPbxHardwarePhoneUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxHardwarePhoneUuid' when calling ConversationApi->RegeneratePasswordForPbxHardwarePhone");
+            // verify the required parameter 'pbxHardwarePhone' is set
+            if (pbxHardwarePhone == null)
+                throw new ApiException(400, "Missing required parameter 'pbxHardwarePhone' when calling ConversationApi->RegeneratePasswordForPbxHardwarePhone");
+
+            var localVarPath = "/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}/regenerate_password";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxHardwarePhoneUuid != null) localVarPathParams.Add("conversationPbxHardwarePhoneUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxHardwarePhoneUuid)); // path parameter
+            if (pbxHardwarePhone != null && pbxHardwarePhone.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pbxHardwarePhone); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pbxHardwarePhone; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RegeneratePasswordForPbxHardwarePhone", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxHardwarePhoneResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxHardwarePhoneResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxHardwarePhoneResponse)));
+        }
+
+        /// <summary>
+        /// Update pbx hardware phone Update a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>Task of ConversationPbxHardwarePhoneResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxHardwarePhoneResponse> RegeneratePasswordForPbxHardwarePhoneAsync (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone)
+        {
+             ApiResponse<ConversationPbxHardwarePhoneResponse> localVarResponse = await RegeneratePasswordForPbxHardwarePhoneAsyncWithHttpInfo(conversationPbxHardwarePhoneUuid, pbxHardwarePhone);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update pbx hardware phone Update a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>Task of ApiResponse (ConversationPbxHardwarePhoneResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxHardwarePhoneResponse>> RegeneratePasswordForPbxHardwarePhoneAsyncWithHttpInfo (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone)
+        {
+            // verify the required parameter 'conversationPbxHardwarePhoneUuid' is set
+            if (conversationPbxHardwarePhoneUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxHardwarePhoneUuid' when calling ConversationApi->RegeneratePasswordForPbxHardwarePhone");
+            // verify the required parameter 'pbxHardwarePhone' is set
+            if (pbxHardwarePhone == null)
+                throw new ApiException(400, "Missing required parameter 'pbxHardwarePhone' when calling ConversationApi->RegeneratePasswordForPbxHardwarePhone");
+
+            var localVarPath = "/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}/regenerate_password";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxHardwarePhoneUuid != null) localVarPathParams.Add("conversationPbxHardwarePhoneUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxHardwarePhoneUuid)); // path parameter
+            if (pbxHardwarePhone != null && pbxHardwarePhone.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pbxHardwarePhone); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pbxHardwarePhone; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RegeneratePasswordForPbxHardwarePhone", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxHardwarePhoneResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxHardwarePhoneResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxHardwarePhoneResponse)));
         }
 
         /// <summary>
@@ -20618,6 +21870,189 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationPbxAudioResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationPbxAudioResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAudioResponse)));
+        }
+
+        /// <summary>
+        /// Update pbx hardware phone Update a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>ConversationPbxHardwarePhoneResponse</returns>
+        public ConversationPbxHardwarePhoneResponse UpdatePbxHardwarePhone (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone)
+        {
+             ApiResponse<ConversationPbxHardwarePhoneResponse> localVarResponse = UpdatePbxHardwarePhoneWithHttpInfo(conversationPbxHardwarePhoneUuid, pbxHardwarePhone);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update pbx hardware phone Update a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>ApiResponse of ConversationPbxHardwarePhoneResponse</returns>
+        public ApiResponse< ConversationPbxHardwarePhoneResponse > UpdatePbxHardwarePhoneWithHttpInfo (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone)
+        {
+            // verify the required parameter 'conversationPbxHardwarePhoneUuid' is set
+            if (conversationPbxHardwarePhoneUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxHardwarePhoneUuid' when calling ConversationApi->UpdatePbxHardwarePhone");
+            // verify the required parameter 'pbxHardwarePhone' is set
+            if (pbxHardwarePhone == null)
+                throw new ApiException(400, "Missing required parameter 'pbxHardwarePhone' when calling ConversationApi->UpdatePbxHardwarePhone");
+
+            var localVarPath = "/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxHardwarePhoneUuid != null) localVarPathParams.Add("conversationPbxHardwarePhoneUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxHardwarePhoneUuid)); // path parameter
+            if (pbxHardwarePhone != null && pbxHardwarePhone.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pbxHardwarePhone); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pbxHardwarePhone; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdatePbxHardwarePhone", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxHardwarePhoneResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxHardwarePhoneResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxHardwarePhoneResponse)));
+        }
+
+        /// <summary>
+        /// Update pbx hardware phone Update a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>Task of ConversationPbxHardwarePhoneResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxHardwarePhoneResponse> UpdatePbxHardwarePhoneAsync (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone)
+        {
+             ApiResponse<ConversationPbxHardwarePhoneResponse> localVarResponse = await UpdatePbxHardwarePhoneAsyncWithHttpInfo(conversationPbxHardwarePhoneUuid, pbxHardwarePhone);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update pbx hardware phone Update a pbx hardware phone 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationPbxHardwarePhoneUuid"></param>
+        /// <param name="pbxHardwarePhone">Pbx Hardware Phone</param>
+        /// <returns>Task of ApiResponse (ConversationPbxHardwarePhoneResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxHardwarePhoneResponse>> UpdatePbxHardwarePhoneAsyncWithHttpInfo (string conversationPbxHardwarePhoneUuid, ConversationPbxHardwarePhone pbxHardwarePhone)
+        {
+            // verify the required parameter 'conversationPbxHardwarePhoneUuid' is set
+            if (conversationPbxHardwarePhoneUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationPbxHardwarePhoneUuid' when calling ConversationApi->UpdatePbxHardwarePhone");
+            // verify the required parameter 'pbxHardwarePhone' is set
+            if (pbxHardwarePhone == null)
+                throw new ApiException(400, "Missing required parameter 'pbxHardwarePhone' when calling ConversationApi->UpdatePbxHardwarePhone");
+
+            var localVarPath = "/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationPbxHardwarePhoneUuid != null) localVarPathParams.Add("conversationPbxHardwarePhoneUuid", this.Configuration.ApiClient.ParameterToString(conversationPbxHardwarePhoneUuid)); // path parameter
+            if (pbxHardwarePhone != null && pbxHardwarePhone.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pbxHardwarePhone); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pbxHardwarePhone; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdatePbxHardwarePhone", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxHardwarePhoneResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPbxHardwarePhoneResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxHardwarePhoneResponse)));
         }
 
         /// <summary>

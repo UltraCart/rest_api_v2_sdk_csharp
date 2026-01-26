@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ChatAdmin** | **bool** |  | [optional] 
+**ChatUser** | **bool** |  | [optional] 
 **ConversationParticipantArn** | **string** |  | [optional] 
 **ConversationParticipantName** | **string** |  | [optional] 
 **GroupIds** | **List&lt;int&gt;** | UltraCart Groups this user belongs to | [optional] 

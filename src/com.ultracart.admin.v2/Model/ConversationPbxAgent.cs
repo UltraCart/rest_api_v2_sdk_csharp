@@ -31,17 +31,52 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationPbxAgent :  IEquatable<ConversationPbxAgent>, IValidatableObject
     {
         /// <summary>
+        /// The call routing preference
+        /// </summary>
+        /// <value>The call routing preference</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CallRoutingPreferenceEnum
+        {
+            /// <summary>
+            /// Enum Softphone for value: softphone
+            /// </summary>
+            [EnumMember(Value = "softphone")]
+            Softphone = 1,
+
+            /// <summary>
+            /// Enum Hardwarephone for value: hardware_phone
+            /// </summary>
+            [EnumMember(Value = "hardware_phone")]
+            Hardwarephone = 2,
+
+            /// <summary>
+            /// Enum Cellphone for value: cellphone
+            /// </summary>
+            [EnumMember(Value = "cellphone")]
+            Cellphone = 3
+
+        }
+
+        /// <summary>
+        /// The call routing preference
+        /// </summary>
+        /// <value>The call routing preference</value>
+        [DataMember(Name="call_routing_preference", EmitDefaultValue=false)]
+        public CallRoutingPreferenceEnum? CallRoutingPreference { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxAgent" /> class.
         /// </summary>
         /// <param name="ai">Flag to indicate if the agent is AI.</param>
+        /// <param name="callRoutingPreference">The call routing preference.</param>
         /// <param name="cellphone">Cellphone number of agent in E.164 format.</param>
         /// <param name="conversationPbxAgentUuid">Conversation Pbx Agent unique identifier.</param>
         /// <param name="extension">Extension.</param>
-        /// <param name="forwardCallsToCellphone">True if calls to this agent should be forwarded to their cellphone.</param>
         /// <param name="fullName">Full name.</param>
+        /// <param name="hardwarePhoneUuids">Array of hardware phones UUIDs associated with this agent.</param>
         /// <param name="login">Agent login.</param>
         /// <param name="merchantId">Merchant Id.</param>
         /// <param name="personalConversationPbxVoicemailMailboxUuid">Personal Conversation Pbx Voicemail Mailbox UUID.</param>
+        /// <param name="preferredHardwarePhoneUuid">The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone.</param>
         /// <param name="recordOutgoingAutomatically">True if outgoing calls should be automatically recorded.</param>
         /// <param name="sharedConversationPbxVoicemailMailboxUuid">Shared Conversation Pbx Voicemail Mailbox UUID.</param>
         /// <param name="twilioTaskrouterWorkerId">Twilio taskrouter worker Id.</param>
@@ -50,17 +85,19 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="unavailableSayVoice">Unavailable say voice.</param>
         /// <param name="userId">User Id.</param>
         /// <param name="voicemail">True if this agent has voicemail configured.</param>
-        public ConversationPbxAgent(bool ai = default(bool), string cellphone = default(string), string conversationPbxAgentUuid = default(string), int extension = default(int), bool forwardCallsToCellphone = default(bool), string fullName = default(string), string login = default(string), string merchantId = default(string), string personalConversationPbxVoicemailMailboxUuid = default(string), bool recordOutgoingAutomatically = default(bool), string sharedConversationPbxVoicemailMailboxUuid = default(string), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), string unavailableSayVoice = default(string), int userId = default(int), bool voicemail = default(bool))
+        public ConversationPbxAgent(bool ai = default(bool), CallRoutingPreferenceEnum? callRoutingPreference = default(CallRoutingPreferenceEnum?), string cellphone = default(string), string conversationPbxAgentUuid = default(string), int extension = default(int), string fullName = default(string), List<string> hardwarePhoneUuids = default(List<string>), string login = default(string), string merchantId = default(string), string personalConversationPbxVoicemailMailboxUuid = default(string), string preferredHardwarePhoneUuid = default(string), bool recordOutgoingAutomatically = default(bool), string sharedConversationPbxVoicemailMailboxUuid = default(string), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), string unavailableSayVoice = default(string), int userId = default(int), bool voicemail = default(bool))
         {
             this.Ai = ai;
+            this.CallRoutingPreference = callRoutingPreference;
             this.Cellphone = cellphone;
             this.ConversationPbxAgentUuid = conversationPbxAgentUuid;
             this.Extension = extension;
-            this.ForwardCallsToCellphone = forwardCallsToCellphone;
             this.FullName = fullName;
+            this.HardwarePhoneUuids = hardwarePhoneUuids;
             this.Login = login;
             this.MerchantId = merchantId;
             this.PersonalConversationPbxVoicemailMailboxUuid = personalConversationPbxVoicemailMailboxUuid;
+            this.PreferredHardwarePhoneUuid = preferredHardwarePhoneUuid;
             this.RecordOutgoingAutomatically = recordOutgoingAutomatically;
             this.SharedConversationPbxVoicemailMailboxUuid = sharedConversationPbxVoicemailMailboxUuid;
             this.TwilioTaskrouterWorkerId = twilioTaskrouterWorkerId;
@@ -77,6 +114,7 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Flag to indicate if the agent is AI</value>
         [DataMember(Name="ai", EmitDefaultValue=false)]
         public bool Ai { get; set; }
+
 
         /// <summary>
         /// Cellphone number of agent in E.164 format
@@ -100,18 +138,18 @@ namespace com.ultracart.admin.v2.Model
         public int Extension { get; set; }
 
         /// <summary>
-        /// True if calls to this agent should be forwarded to their cellphone
-        /// </summary>
-        /// <value>True if calls to this agent should be forwarded to their cellphone</value>
-        [DataMember(Name="forward_calls_to_cellphone", EmitDefaultValue=false)]
-        public bool ForwardCallsToCellphone { get; set; }
-
-        /// <summary>
         /// Full name
         /// </summary>
         /// <value>Full name</value>
         [DataMember(Name="full_name", EmitDefaultValue=false)]
         public string FullName { get; set; }
+
+        /// <summary>
+        /// Array of hardware phones UUIDs associated with this agent
+        /// </summary>
+        /// <value>Array of hardware phones UUIDs associated with this agent</value>
+        [DataMember(Name="hardware_phone_uuids", EmitDefaultValue=false)]
+        public List<string> HardwarePhoneUuids { get; set; }
 
         /// <summary>
         /// Agent login
@@ -133,6 +171,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Personal Conversation Pbx Voicemail Mailbox UUID</value>
         [DataMember(Name="personal_conversation_pbx_voicemail_mailbox_uuid", EmitDefaultValue=false)]
         public string PersonalConversationPbxVoicemailMailboxUuid { get; set; }
+
+        /// <summary>
+        /// The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone
+        /// </summary>
+        /// <value>The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone</value>
+        [DataMember(Name="preferred_hardware_phone_uuid", EmitDefaultValue=false)]
+        public string PreferredHardwarePhoneUuid { get; set; }
 
         /// <summary>
         /// True if outgoing calls should be automatically recorded
@@ -199,14 +244,16 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ConversationPbxAgent {\n");
             sb.Append("  Ai: ").Append(Ai).Append("\n");
+            sb.Append("  CallRoutingPreference: ").Append(CallRoutingPreference).Append("\n");
             sb.Append("  Cellphone: ").Append(Cellphone).Append("\n");
             sb.Append("  ConversationPbxAgentUuid: ").Append(ConversationPbxAgentUuid).Append("\n");
             sb.Append("  Extension: ").Append(Extension).Append("\n");
-            sb.Append("  ForwardCallsToCellphone: ").Append(ForwardCallsToCellphone).Append("\n");
             sb.Append("  FullName: ").Append(FullName).Append("\n");
+            sb.Append("  HardwarePhoneUuids: ").Append(HardwarePhoneUuids).Append("\n");
             sb.Append("  Login: ").Append(Login).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  PersonalConversationPbxVoicemailMailboxUuid: ").Append(PersonalConversationPbxVoicemailMailboxUuid).Append("\n");
+            sb.Append("  PreferredHardwarePhoneUuid: ").Append(PreferredHardwarePhoneUuid).Append("\n");
             sb.Append("  RecordOutgoingAutomatically: ").Append(RecordOutgoingAutomatically).Append("\n");
             sb.Append("  SharedConversationPbxVoicemailMailboxUuid: ").Append(SharedConversationPbxVoicemailMailboxUuid).Append("\n");
             sb.Append("  TwilioTaskrouterWorkerId: ").Append(TwilioTaskrouterWorkerId).Append("\n");
@@ -255,6 +302,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Ai.Equals(input.Ai))
                 ) && 
                 (
+                    this.CallRoutingPreference == input.CallRoutingPreference ||
+                    (this.CallRoutingPreference != null &&
+                    this.CallRoutingPreference.Equals(input.CallRoutingPreference))
+                ) && 
+                (
                     this.Cellphone == input.Cellphone ||
                     (this.Cellphone != null &&
                     this.Cellphone.Equals(input.Cellphone))
@@ -270,14 +322,15 @@ namespace com.ultracart.admin.v2.Model
                     this.Extension.Equals(input.Extension))
                 ) && 
                 (
-                    this.ForwardCallsToCellphone == input.ForwardCallsToCellphone ||
-                    (this.ForwardCallsToCellphone != null &&
-                    this.ForwardCallsToCellphone.Equals(input.ForwardCallsToCellphone))
-                ) && 
-                (
                     this.FullName == input.FullName ||
                     (this.FullName != null &&
                     this.FullName.Equals(input.FullName))
+                ) && 
+                (
+                    this.HardwarePhoneUuids == input.HardwarePhoneUuids ||
+                    this.HardwarePhoneUuids != null &&
+                    input.HardwarePhoneUuids != null &&
+                    this.HardwarePhoneUuids.SequenceEqual(input.HardwarePhoneUuids)
                 ) && 
                 (
                     this.Login == input.Login ||
@@ -293,6 +346,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PersonalConversationPbxVoicemailMailboxUuid == input.PersonalConversationPbxVoicemailMailboxUuid ||
                     (this.PersonalConversationPbxVoicemailMailboxUuid != null &&
                     this.PersonalConversationPbxVoicemailMailboxUuid.Equals(input.PersonalConversationPbxVoicemailMailboxUuid))
+                ) && 
+                (
+                    this.PreferredHardwarePhoneUuid == input.PreferredHardwarePhoneUuid ||
+                    (this.PreferredHardwarePhoneUuid != null &&
+                    this.PreferredHardwarePhoneUuid.Equals(input.PreferredHardwarePhoneUuid))
                 ) && 
                 (
                     this.RecordOutgoingAutomatically == input.RecordOutgoingAutomatically ||
@@ -347,22 +405,26 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Ai != null)
                     hashCode = hashCode * 59 + this.Ai.GetHashCode();
+                if (this.CallRoutingPreference != null)
+                    hashCode = hashCode * 59 + this.CallRoutingPreference.GetHashCode();
                 if (this.Cellphone != null)
                     hashCode = hashCode * 59 + this.Cellphone.GetHashCode();
                 if (this.ConversationPbxAgentUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxAgentUuid.GetHashCode();
                 if (this.Extension != null)
                     hashCode = hashCode * 59 + this.Extension.GetHashCode();
-                if (this.ForwardCallsToCellphone != null)
-                    hashCode = hashCode * 59 + this.ForwardCallsToCellphone.GetHashCode();
                 if (this.FullName != null)
                     hashCode = hashCode * 59 + this.FullName.GetHashCode();
+                if (this.HardwarePhoneUuids != null)
+                    hashCode = hashCode * 59 + this.HardwarePhoneUuids.GetHashCode();
                 if (this.Login != null)
                     hashCode = hashCode * 59 + this.Login.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.PersonalConversationPbxVoicemailMailboxUuid != null)
                     hashCode = hashCode * 59 + this.PersonalConversationPbxVoicemailMailboxUuid.GetHashCode();
+                if (this.PreferredHardwarePhoneUuid != null)
+                    hashCode = hashCode * 59 + this.PreferredHardwarePhoneUuid.GetHashCode();
                 if (this.RecordOutgoingAutomatically != null)
                     hashCode = hashCode * 59 + this.RecordOutgoingAutomatically.GetHashCode();
                 if (this.SharedConversationPbxVoicemailMailboxUuid != null)

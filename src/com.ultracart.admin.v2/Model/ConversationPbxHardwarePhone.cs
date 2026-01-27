@@ -33,6 +33,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxHardwarePhone" /> class.
         /// </summary>
+        /// <param name="adminUsername">Admin Username.</param>
+        /// <param name="conversationPbxAgentUuid">Associated Agent UUID.</param>
         /// <param name="conversationPbxHardwarePhoneUuid">Conversation Pbx Hardware Phone UUID.</param>
         /// <param name="createdAt">Created At.</param>
         /// <param name="description">Description.</param>
@@ -43,11 +45,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="name">Name.</param>
         /// <param name="provisioningUrl">Auto-provisioning URL for phone configuration.</param>
         /// <param name="sipDomain">SIP Domain.</param>
-        /// <param name="sipPassword">SIP Password.</param>
+        /// <param name="sipEdgeLocation">SIP Edge Location.</param>
+        /// <param name="sipPassword">SIP Password (only on create or regenerate password requests).</param>
         /// <param name="sipUsername">SIP Username.</param>
+        /// <param name="twilioCredentialSid">Twilio Credential SID.</param>
         /// <param name="updatedAt">Updated At.</param>
-        public ConversationPbxHardwarePhone(string conversationPbxHardwarePhoneUuid = default(string), Object createdAt = default(Object), string description = default(string), string macAddress = default(string), string manufacturer = default(string), string merchantId = default(string), string model = default(string), string name = default(string), string provisioningUrl = default(string), string sipDomain = default(string), string sipPassword = default(string), string sipUsername = default(string), Object updatedAt = default(Object))
+        public ConversationPbxHardwarePhone(string adminUsername = default(string), string conversationPbxAgentUuid = default(string), string conversationPbxHardwarePhoneUuid = default(string), Object createdAt = default(Object), string description = default(string), string macAddress = default(string), string manufacturer = default(string), string merchantId = default(string), string model = default(string), string name = default(string), string provisioningUrl = default(string), string sipDomain = default(string), string sipEdgeLocation = default(string), string sipPassword = default(string), string sipUsername = default(string), string twilioCredentialSid = default(string), Object updatedAt = default(Object))
         {
+            this.AdminUsername = adminUsername;
+            this.ConversationPbxAgentUuid = conversationPbxAgentUuid;
             this.ConversationPbxHardwarePhoneUuid = conversationPbxHardwarePhoneUuid;
             this.CreatedAt = createdAt;
             this.Description = description;
@@ -58,10 +64,26 @@ namespace com.ultracart.admin.v2.Model
             this.Name = name;
             this.ProvisioningUrl = provisioningUrl;
             this.SipDomain = sipDomain;
+            this.SipEdgeLocation = sipEdgeLocation;
             this.SipPassword = sipPassword;
             this.SipUsername = sipUsername;
+            this.TwilioCredentialSid = twilioCredentialSid;
             this.UpdatedAt = updatedAt;
         }
+
+        /// <summary>
+        /// Admin Username
+        /// </summary>
+        /// <value>Admin Username</value>
+        [DataMember(Name="admin_username", EmitDefaultValue=false)]
+        public string AdminUsername { get; set; }
+
+        /// <summary>
+        /// Associated Agent UUID
+        /// </summary>
+        /// <value>Associated Agent UUID</value>
+        [DataMember(Name="conversation_pbx_agent_uuid", EmitDefaultValue=false)]
+        public string ConversationPbxAgentUuid { get; set; }
 
         /// <summary>
         /// Conversation Pbx Hardware Phone UUID
@@ -134,9 +156,16 @@ namespace com.ultracart.admin.v2.Model
         public string SipDomain { get; set; }
 
         /// <summary>
-        /// SIP Password
+        /// SIP Edge Location
         /// </summary>
-        /// <value>SIP Password</value>
+        /// <value>SIP Edge Location</value>
+        [DataMember(Name="sip_edge_location", EmitDefaultValue=false)]
+        public string SipEdgeLocation { get; set; }
+
+        /// <summary>
+        /// SIP Password (only on create or regenerate password requests)
+        /// </summary>
+        /// <value>SIP Password (only on create or regenerate password requests)</value>
         [DataMember(Name="sip_password", EmitDefaultValue=false)]
         public string SipPassword { get; set; }
 
@@ -146,6 +175,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>SIP Username</value>
         [DataMember(Name="sip_username", EmitDefaultValue=false)]
         public string SipUsername { get; set; }
+
+        /// <summary>
+        /// Twilio Credential SID
+        /// </summary>
+        /// <value>Twilio Credential SID</value>
+        [DataMember(Name="twilio_credential_sid", EmitDefaultValue=false)]
+        public string TwilioCredentialSid { get; set; }
 
         /// <summary>
         /// Updated At
@@ -162,6 +198,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationPbxHardwarePhone {\n");
+            sb.Append("  AdminUsername: ").Append(AdminUsername).Append("\n");
+            sb.Append("  ConversationPbxAgentUuid: ").Append(ConversationPbxAgentUuid).Append("\n");
             sb.Append("  ConversationPbxHardwarePhoneUuid: ").Append(ConversationPbxHardwarePhoneUuid).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -172,8 +210,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ProvisioningUrl: ").Append(ProvisioningUrl).Append("\n");
             sb.Append("  SipDomain: ").Append(SipDomain).Append("\n");
+            sb.Append("  SipEdgeLocation: ").Append(SipEdgeLocation).Append("\n");
             sb.Append("  SipPassword: ").Append(SipPassword).Append("\n");
             sb.Append("  SipUsername: ").Append(SipUsername).Append("\n");
+            sb.Append("  TwilioCredentialSid: ").Append(TwilioCredentialSid).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -209,6 +249,16 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.AdminUsername == input.AdminUsername ||
+                    (this.AdminUsername != null &&
+                    this.AdminUsername.Equals(input.AdminUsername))
+                ) && 
+                (
+                    this.ConversationPbxAgentUuid == input.ConversationPbxAgentUuid ||
+                    (this.ConversationPbxAgentUuid != null &&
+                    this.ConversationPbxAgentUuid.Equals(input.ConversationPbxAgentUuid))
+                ) && 
                 (
                     this.ConversationPbxHardwarePhoneUuid == input.ConversationPbxHardwarePhoneUuid ||
                     (this.ConversationPbxHardwarePhoneUuid != null &&
@@ -260,6 +310,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SipDomain.Equals(input.SipDomain))
                 ) && 
                 (
+                    this.SipEdgeLocation == input.SipEdgeLocation ||
+                    (this.SipEdgeLocation != null &&
+                    this.SipEdgeLocation.Equals(input.SipEdgeLocation))
+                ) && 
+                (
                     this.SipPassword == input.SipPassword ||
                     (this.SipPassword != null &&
                     this.SipPassword.Equals(input.SipPassword))
@@ -268,6 +323,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SipUsername == input.SipUsername ||
                     (this.SipUsername != null &&
                     this.SipUsername.Equals(input.SipUsername))
+                ) && 
+                (
+                    this.TwilioCredentialSid == input.TwilioCredentialSid ||
+                    (this.TwilioCredentialSid != null &&
+                    this.TwilioCredentialSid.Equals(input.TwilioCredentialSid))
                 ) && 
                 (
                     this.UpdatedAt == input.UpdatedAt ||
@@ -285,6 +345,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AdminUsername != null)
+                    hashCode = hashCode * 59 + this.AdminUsername.GetHashCode();
+                if (this.ConversationPbxAgentUuid != null)
+                    hashCode = hashCode * 59 + this.ConversationPbxAgentUuid.GetHashCode();
                 if (this.ConversationPbxHardwarePhoneUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxHardwarePhoneUuid.GetHashCode();
                 if (this.CreatedAt != null)
@@ -305,10 +369,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ProvisioningUrl.GetHashCode();
                 if (this.SipDomain != null)
                     hashCode = hashCode * 59 + this.SipDomain.GetHashCode();
+                if (this.SipEdgeLocation != null)
+                    hashCode = hashCode * 59 + this.SipEdgeLocation.GetHashCode();
                 if (this.SipPassword != null)
                     hashCode = hashCode * 59 + this.SipPassword.GetHashCode();
                 if (this.SipUsername != null)
                     hashCode = hashCode * 59 + this.SipUsername.GetHashCode();
+                if (this.TwilioCredentialSid != null)
+                    hashCode = hashCode * 59 + this.TwilioCredentialSid.GetHashCode();
                 if (this.UpdatedAt != null)
                     hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
                 return hashCode;
@@ -375,6 +443,13 @@ namespace com.ultracart.admin.v2.Model
             if(this.SipDomain != null && this.SipDomain.Length > 200)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SipDomain, length must be less than 200.", new [] { "SipDomain" });
+            }
+
+
+            // SipEdgeLocation (string) maxLength
+            if(this.SipEdgeLocation != null && this.SipEdgeLocation.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SipEdgeLocation, length must be less than 50.", new [] { "SipEdgeLocation" });
             }
 
 

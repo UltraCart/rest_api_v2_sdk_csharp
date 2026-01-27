@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AdminUsername** | **string** | Admin Username | [optional] 
+**ConversationPbxAgentUuid** | **string** | Associated Agent UUID | [optional] 
 **ConversationPbxHardwarePhoneUuid** | **string** | Conversation Pbx Hardware Phone UUID | [optional] 
 **CreatedAt** | **Object** | Created At | [optional] 
 **Description** | **string** | Description | [optional] 
@@ -13,8 +15,10 @@ Name | Type | Description | Notes
 **Name** | **string** | Name | [optional] 
 **ProvisioningUrl** | **string** | Auto-provisioning URL for phone configuration | [optional] 
 **SipDomain** | **string** | SIP Domain | [optional] 
-**SipPassword** | **string** | SIP Password | [optional] 
+**SipEdgeLocation** | **string** | SIP Edge Location | [optional] 
+**SipPassword** | **string** | SIP Password (only on create or regenerate password requests) | [optional] 
 **SipUsername** | **string** | SIP Username | [optional] 
+**TwilioCredentialSid** | **string** | Twilio Credential SID | [optional] 
 **UpdatedAt** | **Object** | Updated At | [optional] 
 
 

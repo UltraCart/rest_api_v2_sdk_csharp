@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **AiPriority** | **string** | AI Agent Priority compared to human agents | [optional] 
 **AiTimeoutSeconds** | **int?** | AI timeout seconds | [optional] 
 **AnnounceQueuePosition** | **bool?** | If true, the customer is told their queue position upon entering the queue | [optional] 
+**AutomaticCoachAgentUuid** | **string** | AI Agent UUID to automatically engage to provide coaching | [optional] 
 **ConversationPbxQueueUuid** | **string** | Conversation Pbx Queue unique identifier | [optional] 
 **ConversationVoicemailMailboxUuid** | **string** | The voicemail mailbox associated with this queue | [optional] 
 **HoldConversationPbxAudioUuid** | **string** | The audio to play while holding in a queue | [optional] 

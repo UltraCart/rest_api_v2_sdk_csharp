@@ -69,6 +69,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="aiPriority">AI Agent Priority compared to human agents.</param>
         /// <param name="aiTimeoutSeconds">AI timeout seconds.</param>
         /// <param name="announceQueuePosition">If true, the customer is told their queue position upon entering the queue.</param>
+        /// <param name="automaticCoachAgentUuid">AI Agent UUID to automatically engage to provide coaching.</param>
         /// <param name="conversationPbxQueueUuid">Conversation Pbx Queue unique identifier.</param>
         /// <param name="conversationVoicemailMailboxUuid">The voicemail mailbox associated with this queue.</param>
         /// <param name="holdConversationPbxAudioUuid">The audio to play while holding in a queue.</param>
@@ -89,11 +90,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="waitCriticalSeconds">Wait time in seconds before critical.</param>
         /// <param name="waitWarningSeconds">Wait time in seconds before warning.</param>
         /// <param name="wrapUpSeconds">Wrap up time in seconds.</param>
-        public ConversationPbxQueue(AiPriorityEnum? aiPriority = default(AiPriorityEnum?), int? aiTimeoutSeconds = default(int?), bool? announceQueuePosition = default(bool?), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int? maxHoldSeconds = default(int?), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), string noAgentAvailableSayVoice = default(string), string playAudioUuid = default(string), bool? recordCall = default(bool?), string say = default(string), string sayVoice = default(string), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool? voicemail = default(bool?), int? waitCriticalSeconds = default(int?), int? waitWarningSeconds = default(int?), int? wrapUpSeconds = default(int?))
+        public ConversationPbxQueue(AiPriorityEnum? aiPriority = default(AiPriorityEnum?), int? aiTimeoutSeconds = default(int?), bool? announceQueuePosition = default(bool?), string automaticCoachAgentUuid = default(string), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int? maxHoldSeconds = default(int?), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), string noAgentAvailableSayVoice = default(string), string playAudioUuid = default(string), bool? recordCall = default(bool?), string say = default(string), string sayVoice = default(string), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool? voicemail = default(bool?), int? waitCriticalSeconds = default(int?), int? waitWarningSeconds = default(int?), int? wrapUpSeconds = default(int?))
         {
             this.AiPriority = aiPriority;
             this.AiTimeoutSeconds = aiTimeoutSeconds;
             this.AnnounceQueuePosition = announceQueuePosition;
+            this.AutomaticCoachAgentUuid = automaticCoachAgentUuid;
             this.ConversationPbxQueueUuid = conversationPbxQueueUuid;
             this.ConversationVoicemailMailboxUuid = conversationVoicemailMailboxUuid;
             this.HoldConversationPbxAudioUuid = holdConversationPbxAudioUuid;
@@ -130,6 +132,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>If true, the customer is told their queue position upon entering the queue</value>
         [DataMember(Name="announce_queue_position", EmitDefaultValue=false)]
         public bool? AnnounceQueuePosition { get; set; }
+
+        /// <summary>
+        /// AI Agent UUID to automatically engage to provide coaching
+        /// </summary>
+        /// <value>AI Agent UUID to automatically engage to provide coaching</value>
+        [DataMember(Name="automatic_coach_agent_uuid", EmitDefaultValue=false)]
+        public string AutomaticCoachAgentUuid { get; set; }
 
         /// <summary>
         /// Conversation Pbx Queue unique identifier
@@ -281,6 +290,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AiPriority: ").Append(AiPriority).Append("\n");
             sb.Append("  AiTimeoutSeconds: ").Append(AiTimeoutSeconds).Append("\n");
             sb.Append("  AnnounceQueuePosition: ").Append(AnnounceQueuePosition).Append("\n");
+            sb.Append("  AutomaticCoachAgentUuid: ").Append(AutomaticCoachAgentUuid).Append("\n");
             sb.Append("  ConversationPbxQueueUuid: ").Append(ConversationPbxQueueUuid).Append("\n");
             sb.Append("  ConversationVoicemailMailboxUuid: ").Append(ConversationVoicemailMailboxUuid).Append("\n");
             sb.Append("  HoldConversationPbxAudioUuid: ").Append(HoldConversationPbxAudioUuid).Append("\n");
@@ -349,6 +359,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AnnounceQueuePosition == input.AnnounceQueuePosition ||
                     (this.AnnounceQueuePosition != null &&
                     this.AnnounceQueuePosition.Equals(input.AnnounceQueuePosition))
+                ) && 
+                (
+                    this.AutomaticCoachAgentUuid == input.AutomaticCoachAgentUuid ||
+                    (this.AutomaticCoachAgentUuid != null &&
+                    this.AutomaticCoachAgentUuid.Equals(input.AutomaticCoachAgentUuid))
                 ) && 
                 (
                     this.ConversationPbxQueueUuid == input.ConversationPbxQueueUuid ||
@@ -467,6 +482,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AiTimeoutSeconds.GetHashCode();
                 if (this.AnnounceQueuePosition != null)
                     hashCode = hashCode * 59 + this.AnnounceQueuePosition.GetHashCode();
+                if (this.AutomaticCoachAgentUuid != null)
+                    hashCode = hashCode * 59 + this.AutomaticCoachAgentUuid.GetHashCode();
                 if (this.ConversationPbxQueueUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxQueueUuid.GetHashCode();
                 if (this.ConversationVoicemailMailboxUuid != null)

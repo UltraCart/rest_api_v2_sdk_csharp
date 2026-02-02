@@ -1,0 +1,10 @@
+# com.ultracart.admin.v2.Model.ConversationPbxAddressesResponse
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Addresses** | [**List&lt;ConversationPbxAddress&gt;**](ConversationPbxAddress.md) |  | [optional] 
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

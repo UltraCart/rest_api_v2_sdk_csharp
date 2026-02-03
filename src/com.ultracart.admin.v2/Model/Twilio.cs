@@ -34,6 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="Twilio" /> class.
         /// </summary>
         /// <param name="accountSid">accountSid.</param>
+        /// <param name="aiTwimlAppSid">aiTwimlAppSid.</param>
         /// <param name="apiKeyId">apiKeyId.</param>
         /// <param name="apiKeyName">apiKeyName.</param>
         /// <param name="authToken">authToken.</param>
@@ -42,9 +43,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="outboundTwimlAppSid">outboundTwimlAppSid.</param>
         /// <param name="phoneNumbers">phoneNumbers.</param>
         /// <param name="twilioWorkspaceSid">twilioWorkspaceSid.</param>
-        public Twilio(string accountSid = default(string), string apiKeyId = default(string), string apiKeyName = default(string), string authToken = default(string), string espTwilioUuid = default(string), string inboundTwimlAppSid = default(string), string outboundTwimlAppSid = default(string), List<string> phoneNumbers = default(List<string>), string twilioWorkspaceSid = default(string))
+        public Twilio(string accountSid = default(string), string aiTwimlAppSid = default(string), string apiKeyId = default(string), string apiKeyName = default(string), string authToken = default(string), string espTwilioUuid = default(string), string inboundTwimlAppSid = default(string), string outboundTwimlAppSid = default(string), List<string> phoneNumbers = default(List<string>), string twilioWorkspaceSid = default(string))
         {
             this.AccountSid = accountSid;
+            this.AiTwimlAppSid = aiTwimlAppSid;
             this.ApiKeyId = apiKeyId;
             this.ApiKeyName = apiKeyName;
             this.AuthToken = authToken;
@@ -60,6 +62,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="account_sid", EmitDefaultValue=false)]
         public string AccountSid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AiTwimlAppSid
+        /// </summary>
+        [DataMember(Name="ai_twiml_app_sid", EmitDefaultValue=false)]
+        public string AiTwimlAppSid { get; set; }
 
         /// <summary>
         /// Gets or Sets ApiKeyId
@@ -118,6 +126,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class Twilio {\n");
             sb.Append("  AccountSid: ").Append(AccountSid).Append("\n");
+            sb.Append("  AiTwimlAppSid: ").Append(AiTwimlAppSid).Append("\n");
             sb.Append("  ApiKeyId: ").Append(ApiKeyId).Append("\n");
             sb.Append("  ApiKeyName: ").Append(ApiKeyName).Append("\n");
             sb.Append("  AuthToken: ").Append(AuthToken).Append("\n");
@@ -164,6 +173,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AccountSid == input.AccountSid ||
                     (this.AccountSid != null &&
                     this.AccountSid.Equals(input.AccountSid))
+                ) && 
+                (
+                    this.AiTwimlAppSid == input.AiTwimlAppSid ||
+                    (this.AiTwimlAppSid != null &&
+                    this.AiTwimlAppSid.Equals(input.AiTwimlAppSid))
                 ) && 
                 (
                     this.ApiKeyId == input.ApiKeyId ||
@@ -218,6 +232,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AccountSid != null)
                     hashCode = hashCode * 59 + this.AccountSid.GetHashCode();
+                if (this.AiTwimlAppSid != null)
+                    hashCode = hashCode * 59 + this.AiTwimlAppSid.GetHashCode();
                 if (this.ApiKeyId != null)
                     hashCode = hashCode * 59 + this.ApiKeyId.GetHashCode();
                 if (this.ApiKeyName != null)

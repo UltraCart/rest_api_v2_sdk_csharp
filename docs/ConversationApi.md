@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**DeletePbxAddress**](ConversationApi.md#deletepbxaddress) | **DELETE** /conversation/pbx/address/{conversationPbxAddressUuid} | Delete pbx address
 [**DeletePbxAgentVoicemail**](ConversationApi.md#deletepbxagentvoicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
 [**DeletePbxAudio**](ConversationApi.md#deletepbxaudio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
+[**DeletePbxClassOfService**](ConversationApi.md#deletepbxclassofservice) | **DELETE** /conversation/pbx/class_of_service/{classOfServiceUuid} | Delete pbx class of service
 [**DeletePbxHardwarePhone**](ConversationApi.md#deletepbxhardwarephone) | **DELETE** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Delete pbx hardware phone
 [**DeletePbxMenu**](ConversationApi.md#deletepbxmenu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
 [**DeletePbxPhoneNumber**](ConversationApi.md#deletepbxphonenumber) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
@@ -56,6 +57,9 @@ Method | HTTP request | Description
 [**GetPbxAudioUsage**](ConversationApi.md#getpbxaudiousage) | **GET** /conversation/pbx/audio/{conversationPbxAudioUuid}/usage | Get pbx audio usage
 [**GetPbxAudios**](ConversationApi.md#getpbxaudios) | **GET** /conversation/pbx/audio | Get pbx audios
 [**GetPbxCall**](ConversationApi.md#getpbxcall) | **GET** /conversation/pbx/call/{callUuid} | Get pbx call record
+[**GetPbxClassOfService**](ConversationApi.md#getpbxclassofservice) | **GET** /conversation/pbx/class_of_service/{classOfServiceUuid} | Get pbx class of service
+[**GetPbxClassesOfService**](ConversationApi.md#getpbxclassesofservice) | **GET** /conversation/pbx/class_of_service | Get pbx classes of service
+[**GetPbxCosAuditLogs**](ConversationApi.md#getpbxcosauditlogs) | **GET** /conversation/pbx/class_of_service/audit_log | Get pbx class of service audit logs
 [**GetPbxHardwarePhone**](ConversationApi.md#getpbxhardwarephone) | **GET** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Get pbx hardware phone
 [**GetPbxHardwarePhoneManufacturers**](ConversationApi.md#getpbxhardwarephonemanufacturers) | **GET** /conversation/pbx/hardware_phone/manufacturers | Get pbx hardware phone manufacturers
 [**GetPbxHardwarePhones**](ConversationApi.md#getpbxhardwarephones) | **GET** /conversation/pbx/hardware_phone | Get pbx hardware phones
@@ -82,6 +86,7 @@ Method | HTTP request | Description
 [**InsertConversationEngagement**](ConversationApi.md#insertconversationengagement) | **POST** /conversation/engagements | Insert a engagement
 [**InsertPbxAddress**](ConversationApi.md#insertpbxaddress) | **POST** /conversation/pbx/address | Insert pbx address
 [**InsertPbxAudio**](ConversationApi.md#insertpbxaudio) | **POST** /conversation/pbx/audio | Insert pbx audio
+[**InsertPbxClassOfService**](ConversationApi.md#insertpbxclassofservice) | **POST** /conversation/pbx/class_of_service | Insert pbx class of service
 [**InsertPbxHardwarePhone**](ConversationApi.md#insertpbxhardwarephone) | **POST** /conversation/pbx/hardware_phone | Insert pbx hardware phone
 [**InsertPbxMenu**](ConversationApi.md#insertpbxmenu) | **POST** /conversation/pbx/menu | Insert pbx menu
 [**InsertPbxQueue**](ConversationApi.md#insertpbxqueue) | **POST** /conversation/pbx/queue | Insert pbx queue
@@ -111,6 +116,7 @@ Method | HTTP request | Description
 [**UpdatePbxAddress**](ConversationApi.md#updatepbxaddress) | **PUT** /conversation/pbx/address/{conversationPbxAddressUuid} | Update pbx address
 [**UpdatePbxAgent**](ConversationApi.md#updatepbxagent) | **PUT** /conversation/pbx/agent/{conversationPbxAgentUuid} | Update pbx agent
 [**UpdatePbxAudio**](ConversationApi.md#updatepbxaudio) | **PUT** /conversation/pbx/audio/{conversationPbxAudioUuid} | Update pbx audio
+[**UpdatePbxClassOfService**](ConversationApi.md#updatepbxclassofservice) | **PUT** /conversation/pbx/class_of_service/{classOfServiceUuid} | Update pbx class of service
 [**UpdatePbxHardwarePhone**](ConversationApi.md#updatepbxhardwarephone) | **PUT** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Update pbx hardware phone
 [**UpdatePbxMenu**](ConversationApi.md#updatepbxmenu) | **PUT** /conversation/pbx/menu/{conversationPbxMenuUuid} | Update pbx menu
 [**UpdatePbxPhoneNumber**](ConversationApi.md#updatepbxphonenumber) | **PUT** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Update pbx phoneNumber
@@ -637,6 +643,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxAudioResponse**](ConversationPbxAudioResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletepbxclassofservice"></a>
+# **DeletePbxClassOfService**
+> BaseResponse DeletePbxClassOfService (string classOfServiceUuid)
+
+Delete pbx class of service
+
+Delete a class of service 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeletePbxClassOfServiceExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var classOfServiceUuid = classOfServiceUuid_example;  // string | 
+
+            try
+            {
+                // Delete pbx class of service
+                BaseResponse result = apiInstance.DeletePbxClassOfService(classOfServiceUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.DeletePbxClassOfService: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **classOfServiceUuid** | **string**|  | 
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
 
 ### Authorization
 
@@ -3510,6 +3582,204 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getpbxclassofservice"></a>
+# **GetPbxClassOfService**
+> ConversationPbxClassOfServiceResponse GetPbxClassOfService (string classOfServiceUuid)
+
+Get pbx class of service
+
+Retrieve a single class of service 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetPbxClassOfServiceExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var classOfServiceUuid = classOfServiceUuid_example;  // string | 
+
+            try
+            {
+                // Get pbx class of service
+                ConversationPbxClassOfServiceResponse result = apiInstance.GetPbxClassOfService(classOfServiceUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.GetPbxClassOfService: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **classOfServiceUuid** | **string**|  | 
+
+### Return type
+
+[**ConversationPbxClassOfServiceResponse**](ConversationPbxClassOfServiceResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getpbxclassesofservice"></a>
+# **GetPbxClassesOfService**
+> ConversationPbxClassOfServicesResponse GetPbxClassesOfService ()
+
+Get pbx classes of service
+
+Retrieve all classes of service for the merchant 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetPbxClassesOfServiceExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+
+            try
+            {
+                // Get pbx classes of service
+                ConversationPbxClassOfServicesResponse result = apiInstance.GetPbxClassesOfService();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.GetPbxClassesOfService: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationPbxClassOfServicesResponse**](ConversationPbxClassOfServicesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getpbxcosauditlogs"></a>
+# **GetPbxCosAuditLogs**
+> ConversationPbxCosAuditLogsResponse GetPbxCosAuditLogs (string since = null, string agentLogin = null, int? limit = null)
+
+Get pbx class of service audit logs
+
+Retrieve audit log entries for class of service enforcement 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetPbxCosAuditLogsExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var since = since_example;  // string | ISO timestamp to filter entries since (optional) 
+            var agentLogin = agentLogin_example;  // string | Filter by agent login (optional) 
+            var limit = 56;  // int? | Maximum number of entries to return (default 100) (optional) 
+
+            try
+            {
+                // Get pbx class of service audit logs
+                ConversationPbxCosAuditLogsResponse result = apiInstance.GetPbxCosAuditLogs(since, agentLogin, limit);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.GetPbxCosAuditLogs: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **since** | **string**| ISO timestamp to filter entries since | [optional] 
+ **agentLogin** | **string**| Filter by agent login | [optional] 
+ **limit** | **int?**| Maximum number of entries to return (default 100) | [optional] 
+
+### Return type
+
+[**ConversationPbxCosAuditLogsResponse**](ConversationPbxCosAuditLogsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getpbxhardwarephone"></a>
 # **GetPbxHardwarePhone**
 > ConversationPbxHardwarePhoneResponse GetPbxHardwarePhone (string conversationPbxHardwarePhoneUuid)
@@ -5188,6 +5458,72 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="insertpbxclassofservice"></a>
+# **InsertPbxClassOfService**
+> ConversationPbxClassOfServiceResponse InsertPbxClassOfService (ConversationPbxClassOfService classOfService)
+
+Insert pbx class of service
+
+Create a new class of service 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class InsertPbxClassOfServiceExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var classOfService = new ConversationPbxClassOfService(); // ConversationPbxClassOfService | Class of service
+
+            try
+            {
+                // Insert pbx class of service
+                ConversationPbxClassOfServiceResponse result = apiInstance.InsertPbxClassOfService(classOfService);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.InsertPbxClassOfService: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **classOfService** | [**ConversationPbxClassOfService**](ConversationPbxClassOfService.md)| Class of service | 
+
+### Return type
+
+[**ConversationPbxClassOfServiceResponse**](ConversationPbxClassOfServiceResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -7136,6 +7472,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatepbxclassofservice"></a>
+# **UpdatePbxClassOfService**
+> ConversationPbxClassOfServiceResponse UpdatePbxClassOfService (string classOfServiceUuid, ConversationPbxClassOfService classOfService)
+
+Update pbx class of service
+
+Update an existing class of service 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdatePbxClassOfServiceExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var classOfServiceUuid = classOfServiceUuid_example;  // string | 
+            var classOfService = new ConversationPbxClassOfService(); // ConversationPbxClassOfService | Class of service
+
+            try
+            {
+                // Update pbx class of service
+                ConversationPbxClassOfServiceResponse result = apiInstance.UpdatePbxClassOfService(classOfServiceUuid, classOfService);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.UpdatePbxClassOfService: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **classOfServiceUuid** | **string**|  | 
+ **classOfService** | [**ConversationPbxClassOfService**](ConversationPbxClassOfService.md)| Class of service | 
+
+### Return type
+
+[**ConversationPbxClassOfServiceResponse**](ConversationPbxClassOfServiceResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

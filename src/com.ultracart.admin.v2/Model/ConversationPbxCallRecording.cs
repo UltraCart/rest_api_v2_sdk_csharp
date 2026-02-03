@@ -36,15 +36,17 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="channels">Number of audio channels in the recording (1 for mono, 2 for stereo/dual-channel).</param>
         /// <param name="durationSeconds">Duration of the recording in seconds.</param>
         /// <param name="isPrimary">Whether this is the primary recording for the call.</param>
+        /// <param name="recordingS3Key">S3 key for the recording audio file.</param>
         /// <param name="recordingSid">Twilio recording SID.</param>
         /// <param name="recordingUrl">URL to access the recording.</param>
         /// <param name="status">Status of the recording.</param>
         /// <param name="transcript">transcript.</param>
-        public ConversationPbxCallRecording(int channels = default(int), int durationSeconds = default(int), bool isPrimary = default(bool), string recordingSid = default(string), string recordingUrl = default(string), string status = default(string), ConversationPbxCallTranscript transcript = default(ConversationPbxCallTranscript))
+        public ConversationPbxCallRecording(int channels = default(int), int durationSeconds = default(int), bool isPrimary = default(bool), string recordingS3Key = default(string), string recordingSid = default(string), string recordingUrl = default(string), string status = default(string), ConversationPbxCallTranscript transcript = default(ConversationPbxCallTranscript))
         {
             this.Channels = channels;
             this.DurationSeconds = durationSeconds;
             this.IsPrimary = isPrimary;
+            this.RecordingS3Key = recordingS3Key;
             this.RecordingSid = recordingSid;
             this.RecordingUrl = recordingUrl;
             this.Status = status;
@@ -71,6 +73,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Whether this is the primary recording for the call</value>
         [DataMember(Name="is_primary", EmitDefaultValue=false)]
         public bool IsPrimary { get; set; }
+
+        /// <summary>
+        /// S3 key for the recording audio file
+        /// </summary>
+        /// <value>S3 key for the recording audio file</value>
+        [DataMember(Name="recording_s3_key", EmitDefaultValue=false)]
+        public string RecordingS3Key { get; set; }
 
         /// <summary>
         /// Twilio recording SID
@@ -110,6 +119,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Channels: ").Append(Channels).Append("\n");
             sb.Append("  DurationSeconds: ").Append(DurationSeconds).Append("\n");
             sb.Append("  IsPrimary: ").Append(IsPrimary).Append("\n");
+            sb.Append("  RecordingS3Key: ").Append(RecordingS3Key).Append("\n");
             sb.Append("  RecordingSid: ").Append(RecordingSid).Append("\n");
             sb.Append("  RecordingUrl: ").Append(RecordingUrl).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -164,6 +174,11 @@ namespace com.ultracart.admin.v2.Model
                     this.IsPrimary.Equals(input.IsPrimary))
                 ) && 
                 (
+                    this.RecordingS3Key == input.RecordingS3Key ||
+                    (this.RecordingS3Key != null &&
+                    this.RecordingS3Key.Equals(input.RecordingS3Key))
+                ) && 
+                (
                     this.RecordingSid == input.RecordingSid ||
                     (this.RecordingSid != null &&
                     this.RecordingSid.Equals(input.RecordingSid))
@@ -200,6 +215,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DurationSeconds.GetHashCode();
                 if (this.IsPrimary != null)
                     hashCode = hashCode * 59 + this.IsPrimary.GetHashCode();
+                if (this.RecordingS3Key != null)
+                    hashCode = hashCode * 59 + this.RecordingS3Key.GetHashCode();
                 if (this.RecordingSid != null)
                     hashCode = hashCode * 59 + this.RecordingSid.GetHashCode();
                 if (this.RecordingUrl != null)

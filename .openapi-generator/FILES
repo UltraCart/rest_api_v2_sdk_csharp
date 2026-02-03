@@ -223,6 +223,11 @@ docs/ConversationPbxCallTimeline.md
 docs/ConversationPbxCallTranscript.md
 docs/ConversationPbxCallTranscriptSegment.md
 docs/ConversationPbxCallTransfer.md
+docs/ConversationPbxClassOfService.md
+docs/ConversationPbxClassOfServiceResponse.md
+docs/ConversationPbxClassOfServicesResponse.md
+docs/ConversationPbxCosAuditLog.md
+docs/ConversationPbxCosAuditLogsResponse.md
 docs/ConversationPbxCustomerSnapshotRequest.md
 docs/ConversationPbxCustomerSnapshotResponse.md
 docs/ConversationPbxHardwarePhone.md
@@ -1206,6 +1211,11 @@ src/com.ultracart.admin.v2/Model/ConversationPbxCallTimeline.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCallTranscript.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCallTranscriptSegment.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCallTransfer.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxClassOfService.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxClassOfServiceResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxClassOfServicesResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxCosAuditLog.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxCosAuditLogsResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCustomerSnapshotRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCustomerSnapshotResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxHardwarePhone.cs

@@ -64,6 +64,60 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="ai_priority", EmitDefaultValue=false)]
         public AiPriorityEnum? AiPriority { get; set; }
         /// <summary>
+        /// The type of voice used to say text when no agent is available
+        /// </summary>
+        /// <value>The type of voice used to say text when no agent is available</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum NoAgentAvailableSayVoiceEnum
+        {
+            /// <summary>
+            /// Enum Man for value: man
+            /// </summary>
+            [EnumMember(Value = "man")]
+            Man = 1,
+
+            /// <summary>
+            /// Enum Woman for value: woman
+            /// </summary>
+            [EnumMember(Value = "woman")]
+            Woman = 2
+
+        }
+
+        /// <summary>
+        /// The type of voice used to say text when no agent is available
+        /// </summary>
+        /// <value>The type of voice used to say text when no agent is available</value>
+        [DataMember(Name="no_agent_available_say_voice", EmitDefaultValue=false)]
+        public NoAgentAvailableSayVoiceEnum? NoAgentAvailableSayVoice { get; set; }
+        /// <summary>
+        /// The type of voice to use when say text is spoken
+        /// </summary>
+        /// <value>The type of voice to use when say text is spoken</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SayVoiceEnum
+        {
+            /// <summary>
+            /// Enum Man for value: man
+            /// </summary>
+            [EnumMember(Value = "man")]
+            Man = 1,
+
+            /// <summary>
+            /// Enum Woman for value: woman
+            /// </summary>
+            [EnumMember(Value = "woman")]
+            Woman = 2
+
+        }
+
+        /// <summary>
+        /// The type of voice to use when say text is spoken
+        /// </summary>
+        /// <value>The type of voice to use when say text is spoken</value>
+        [DataMember(Name="say_voice", EmitDefaultValue=false)]
+        public SayVoiceEnum? SayVoice { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxQueue" /> class.
         /// </summary>
         /// <param name="aiPriority">AI Agent Priority compared to human agents.</param>
@@ -90,7 +144,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="waitCriticalSeconds">Wait time in seconds before critical.</param>
         /// <param name="waitWarningSeconds">Wait time in seconds before warning.</param>
         /// <param name="wrapUpSeconds">Wrap up time in seconds.</param>
-        public ConversationPbxQueue(AiPriorityEnum? aiPriority = default(AiPriorityEnum?), int aiTimeoutSeconds = default(int), bool announceQueuePosition = default(bool), string automaticCoachAgentUuid = default(string), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int maxHoldSeconds = default(int), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), string noAgentAvailableSayVoice = default(string), string playAudioUuid = default(string), bool recordCall = default(bool), string say = default(string), string sayVoice = default(string), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool voicemail = default(bool), int waitCriticalSeconds = default(int), int waitWarningSeconds = default(int), int wrapUpSeconds = default(int))
+        public ConversationPbxQueue(AiPriorityEnum? aiPriority = default(AiPriorityEnum?), int aiTimeoutSeconds = default(int), bool announceQueuePosition = default(bool), string automaticCoachAgentUuid = default(string), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int maxHoldSeconds = default(int), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), NoAgentAvailableSayVoiceEnum? noAgentAvailableSayVoice = default(NoAgentAvailableSayVoiceEnum?), string playAudioUuid = default(string), bool recordCall = default(bool), string say = default(string), SayVoiceEnum? sayVoice = default(SayVoiceEnum?), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool voicemail = default(bool), int waitCriticalSeconds = default(int), int waitWarningSeconds = default(int), int wrapUpSeconds = default(int))
         {
             this.AiPriority = aiPriority;
             this.AiTimeoutSeconds = aiTimeoutSeconds;
@@ -202,12 +256,6 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="no_agent_available_say", EmitDefaultValue=false)]
         public string NoAgentAvailableSay { get; set; }
 
-        /// <summary>
-        /// The type of voice used to say text when no agent is available
-        /// </summary>
-        /// <value>The type of voice used to say text when no agent is available</value>
-        [DataMember(Name="no_agent_available_say_voice", EmitDefaultValue=false)]
-        public string NoAgentAvailableSayVoice { get; set; }
 
         /// <summary>
         /// Audio played when customer enters a queue
@@ -230,12 +278,6 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="say", EmitDefaultValue=false)]
         public string Say { get; set; }
 
-        /// <summary>
-        /// The type of voice to use when say text is spoken
-        /// </summary>
-        /// <value>The type of voice to use when say text is spoken</value>
-        [DataMember(Name="say_voice", EmitDefaultValue=false)]
-        public string SayVoice { get; set; }
 
         /// <summary>
         /// Twilio taskrouter workflow sid
@@ -571,7 +613,7 @@ namespace com.ultracart.admin.v2.Model
 
 
             // NoAgentAvailableSayVoice (string) maxLength
-            if(this.NoAgentAvailableSayVoice != null && this.NoAgentAvailableSayVoice.Length > 50)
+            if(this.NoAgentAvailableSayVoice != null && this.NoAgentAvailableSayVoice.ToString().Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NoAgentAvailableSayVoice, length must be less than 50.", new [] { "NoAgentAvailableSayVoice" });
             }
@@ -585,7 +627,7 @@ namespace com.ultracart.admin.v2.Model
 
 
             // SayVoice (string) maxLength
-            if(this.SayVoice != null && this.SayVoice.Length > 50)
+            if(this.SayVoice != null && this.SayVoice.ToString().Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SayVoice, length must be less than 50.", new [] { "SayVoice" });
             }

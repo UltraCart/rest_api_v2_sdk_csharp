@@ -64,12 +64,40 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="call_routing_preference", EmitDefaultValue=false)]
         public CallRoutingPreferenceEnum? CallRoutingPreference { get; set; }
         /// <summary>
+        /// Unavailable say voice
+        /// </summary>
+        /// <value>Unavailable say voice</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum UnavailableSayVoiceEnum
+        {
+            /// <summary>
+            /// Enum Man for value: man
+            /// </summary>
+            [EnumMember(Value = "man")]
+            Man = 1,
+
+            /// <summary>
+            /// Enum Woman for value: woman
+            /// </summary>
+            [EnumMember(Value = "woman")]
+            Woman = 2
+
+        }
+
+        /// <summary>
+        /// Unavailable say voice
+        /// </summary>
+        /// <value>Unavailable say voice</value>
+        [DataMember(Name="unavailable_say_voice", EmitDefaultValue=false)]
+        public UnavailableSayVoiceEnum? UnavailableSayVoice { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxAgent" /> class.
         /// </summary>
         /// <param name="ai">Flag to indicate if the agent is AI.</param>
         /// <param name="callRoutingPreference">The call routing preference.</param>
         /// <param name="cellphone">Cellphone number of agent in E.164 format.</param>
         /// <param name="conversationPbxAgentUuid">Conversation Pbx Agent unique identifier.</param>
+        /// <param name="cosUuid">Class of Service UUID. If null, the merchant default CoS applies..</param>
         /// <param name="defaultPhoneNumberUuid">The default phone number that this agent should dial out to the PSTN with..</param>
         /// <param name="extension">Extension.</param>
         /// <param name="fullName">Full name.</param>
@@ -86,12 +114,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="unavailableSayVoice">Unavailable say voice.</param>
         /// <param name="userId">User Id.</param>
         /// <param name="voicemail">True if this agent has voicemail configured.</param>
-        public ConversationPbxAgent(bool ai = default(bool), CallRoutingPreferenceEnum? callRoutingPreference = default(CallRoutingPreferenceEnum?), string cellphone = default(string), string conversationPbxAgentUuid = default(string), string defaultPhoneNumberUuid = default(string), int extension = default(int), string fullName = default(string), List<string> hardwarePhoneUuids = default(List<string>), string login = default(string), string merchantId = default(string), string personalConversationPbxVoicemailMailboxUuid = default(string), string preferredHardwarePhoneUuid = default(string), bool recordOutgoingAutomatically = default(bool), string sharedConversationPbxVoicemailMailboxUuid = default(string), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), string unavailableSayVoice = default(string), int userId = default(int), bool voicemail = default(bool))
+        public ConversationPbxAgent(bool ai = default(bool), CallRoutingPreferenceEnum? callRoutingPreference = default(CallRoutingPreferenceEnum?), string cellphone = default(string), string conversationPbxAgentUuid = default(string), string cosUuid = default(string), string defaultPhoneNumberUuid = default(string), int extension = default(int), string fullName = default(string), List<string> hardwarePhoneUuids = default(List<string>), string login = default(string), string merchantId = default(string), string personalConversationPbxVoicemailMailboxUuid = default(string), string preferredHardwarePhoneUuid = default(string), bool recordOutgoingAutomatically = default(bool), string sharedConversationPbxVoicemailMailboxUuid = default(string), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), UnavailableSayVoiceEnum? unavailableSayVoice = default(UnavailableSayVoiceEnum?), int userId = default(int), bool voicemail = default(bool))
         {
             this.Ai = ai;
             this.CallRoutingPreference = callRoutingPreference;
             this.Cellphone = cellphone;
             this.ConversationPbxAgentUuid = conversationPbxAgentUuid;
+            this.CosUuid = cosUuid;
             this.DefaultPhoneNumberUuid = defaultPhoneNumberUuid;
             this.Extension = extension;
             this.FullName = fullName;
@@ -131,6 +160,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Conversation Pbx Agent unique identifier</value>
         [DataMember(Name="conversation_pbx_agent_uuid", EmitDefaultValue=false)]
         public string ConversationPbxAgentUuid { get; set; }
+
+        /// <summary>
+        /// Class of Service UUID. If null, the merchant default CoS applies.
+        /// </summary>
+        /// <value>Class of Service UUID. If null, the merchant default CoS applies.</value>
+        [DataMember(Name="cos_uuid", EmitDefaultValue=false)]
+        public string CosUuid { get; set; }
 
         /// <summary>
         /// The default phone number that this agent should dial out to the PSTN with.
@@ -223,12 +259,6 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="unavailable_say", EmitDefaultValue=false)]
         public string UnavailableSay { get; set; }
 
-        /// <summary>
-        /// Unavailable say voice
-        /// </summary>
-        /// <value>Unavailable say voice</value>
-        [DataMember(Name="unavailable_say_voice", EmitDefaultValue=false)]
-        public string UnavailableSayVoice { get; set; }
 
         /// <summary>
         /// User Id
@@ -256,6 +286,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CallRoutingPreference: ").Append(CallRoutingPreference).Append("\n");
             sb.Append("  Cellphone: ").Append(Cellphone).Append("\n");
             sb.Append("  ConversationPbxAgentUuid: ").Append(ConversationPbxAgentUuid).Append("\n");
+            sb.Append("  CosUuid: ").Append(CosUuid).Append("\n");
             sb.Append("  DefaultPhoneNumberUuid: ").Append(DefaultPhoneNumberUuid).Append("\n");
             sb.Append("  Extension: ").Append(Extension).Append("\n");
             sb.Append("  FullName: ").Append(FullName).Append("\n");
@@ -325,6 +356,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationPbxAgentUuid == input.ConversationPbxAgentUuid ||
                     (this.ConversationPbxAgentUuid != null &&
                     this.ConversationPbxAgentUuid.Equals(input.ConversationPbxAgentUuid))
+                ) && 
+                (
+                    this.CosUuid == input.CosUuid ||
+                    (this.CosUuid != null &&
+                    this.CosUuid.Equals(input.CosUuid))
                 ) && 
                 (
                     this.DefaultPhoneNumberUuid == input.DefaultPhoneNumberUuid ||
@@ -426,6 +462,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Cellphone.GetHashCode();
                 if (this.ConversationPbxAgentUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxAgentUuid.GetHashCode();
+                if (this.CosUuid != null)
+                    hashCode = hashCode * 59 + this.CosUuid.GetHashCode();
                 if (this.DefaultPhoneNumberUuid != null)
                     hashCode = hashCode * 59 + this.DefaultPhoneNumberUuid.GetHashCode();
                 if (this.Extension != null)
@@ -512,7 +550,7 @@ namespace com.ultracart.admin.v2.Model
 
 
             // UnavailableSayVoice (string) maxLength
-            if(this.UnavailableSayVoice != null && this.UnavailableSayVoice.Length > 50)
+            if(this.UnavailableSayVoice != null && this.UnavailableSayVoice.ToString().Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnavailableSayVoice, length must be less than 50.", new [] { "UnavailableSayVoice" });
             }

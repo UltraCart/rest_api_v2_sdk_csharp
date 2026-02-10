@@ -2986,7 +2986,7 @@ This endpoint does not need any parameter.
 
 ## GetPbxCosAuditLogs
 
-> ConversationPbxCosAuditLogsResponse GetPbxCosAuditLogs (string since = null, string agentLogin = null, int? limit = null)
+> ConversationPbxCosAuditLogsResponse GetPbxCosAuditLogs (string since = null, string agentLogin = null, string action = null, int? limit = null)
 
 Get pbx class of service audit logs
 
@@ -3006,6 +3006,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **since** | **string**| ISO timestamp to filter entries since | [optional] 
  **agentLogin** | **string**| Filter by agent login | [optional] 
+ **action** | **string**| Action | [optional] 
  **limit** | **int?**| Maximum number of entries to return (default 100) | [optional] 
 
 ### Return type

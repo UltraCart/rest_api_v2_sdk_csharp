@@ -1181,9 +1181,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">ISO timestamp to filter entries since (optional)</param>
         /// <param name="agentLogin">Filter by agent login (optional)</param>
+        /// <param name="action">Action (optional)</param>
         /// <param name="limit">Maximum number of entries to return (default 100) (optional)</param>
         /// <returns>ConversationPbxCosAuditLogsResponse</returns>
-        ConversationPbxCosAuditLogsResponse GetPbxCosAuditLogs (string since = default(string), string agentLogin = default(string), int? limit = default(int?));
+        ConversationPbxCosAuditLogsResponse GetPbxCosAuditLogs (string since = default(string), string agentLogin = default(string), string action = default(string), int? limit = default(int?));
 
         /// <summary>
         /// Get pbx class of service audit logs
@@ -1194,9 +1195,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">ISO timestamp to filter entries since (optional)</param>
         /// <param name="agentLogin">Filter by agent login (optional)</param>
+        /// <param name="action">Action (optional)</param>
         /// <param name="limit">Maximum number of entries to return (default 100) (optional)</param>
         /// <returns>ApiResponse of ConversationPbxCosAuditLogsResponse</returns>
-        ApiResponse<ConversationPbxCosAuditLogsResponse> GetPbxCosAuditLogsWithHttpInfo (string since = default(string), string agentLogin = default(string), int? limit = default(int?));
+        ApiResponse<ConversationPbxCosAuditLogsResponse> GetPbxCosAuditLogsWithHttpInfo (string since = default(string), string agentLogin = default(string), string action = default(string), int? limit = default(int?));
         /// <summary>
         /// Get pbx hardware phone
         /// </summary>
@@ -3895,10 +3897,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">ISO timestamp to filter entries since (optional)</param>
         /// <param name="agentLogin">Filter by agent login (optional)</param>
+        /// <param name="action">Action (optional)</param>
         /// <param name="limit">Maximum number of entries to return (default 100) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ConversationPbxCosAuditLogsResponse</returns>
-        System.Threading.Tasks.Task<ConversationPbxCosAuditLogsResponse> GetPbxCosAuditLogsAsync (string since = default(string), string agentLogin = default(string), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ConversationPbxCosAuditLogsResponse> GetPbxCosAuditLogsAsync (string since = default(string), string agentLogin = default(string), string action = default(string), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get pbx class of service audit logs
@@ -3909,10 +3912,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">ISO timestamp to filter entries since (optional)</param>
         /// <param name="agentLogin">Filter by agent login (optional)</param>
+        /// <param name="action">Action (optional)</param>
         /// <param name="limit">Maximum number of entries to return (default 100) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ConversationPbxCosAuditLogsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationPbxCosAuditLogsResponse>> GetPbxCosAuditLogsWithHttpInfoAsync (string since = default(string), string agentLogin = default(string), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxCosAuditLogsResponse>> GetPbxCosAuditLogsWithHttpInfoAsync (string since = default(string), string agentLogin = default(string), string action = default(string), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get pbx hardware phone
         /// </summary>
@@ -14193,11 +14197,12 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">ISO timestamp to filter entries since (optional)</param>
         /// <param name="agentLogin">Filter by agent login (optional)</param>
+        /// <param name="action">Action (optional)</param>
         /// <param name="limit">Maximum number of entries to return (default 100) (optional)</param>
         /// <returns>ConversationPbxCosAuditLogsResponse</returns>
-        public ConversationPbxCosAuditLogsResponse GetPbxCosAuditLogs (string since = default(string), string agentLogin = default(string), int? limit = default(int?))
+        public ConversationPbxCosAuditLogsResponse GetPbxCosAuditLogs (string since = default(string), string agentLogin = default(string), string action = default(string), int? limit = default(int?))
         {
-             ApiResponse<ConversationPbxCosAuditLogsResponse> localVarResponse = GetPbxCosAuditLogsWithHttpInfo(since, agentLogin, limit);
+             ApiResponse<ConversationPbxCosAuditLogsResponse> localVarResponse = GetPbxCosAuditLogsWithHttpInfo(since, agentLogin, action, limit);
              return localVarResponse.Data;
         }
 
@@ -14207,9 +14212,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">ISO timestamp to filter entries since (optional)</param>
         /// <param name="agentLogin">Filter by agent login (optional)</param>
+        /// <param name="action">Action (optional)</param>
         /// <param name="limit">Maximum number of entries to return (default 100) (optional)</param>
         /// <returns>ApiResponse of ConversationPbxCosAuditLogsResponse</returns>
-        public ApiResponse<ConversationPbxCosAuditLogsResponse> GetPbxCosAuditLogsWithHttpInfo (string since = default(string), string agentLogin = default(string), int? limit = default(int?))
+        public ApiResponse<ConversationPbxCosAuditLogsResponse> GetPbxCosAuditLogsWithHttpInfo (string since = default(string), string agentLogin = default(string), string action = default(string), int? limit = default(int?))
         {
 
             var localVarPath = "/conversation/pbx/class_of_service/audit_log";
@@ -14235,6 +14241,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (agentLogin != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "agent_login", agentLogin)); // query parameter
+            if (action != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "action", action)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
             // authentication (ultraCartOauth) required
@@ -14273,12 +14280,13 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">ISO timestamp to filter entries since (optional)</param>
         /// <param name="agentLogin">Filter by agent login (optional)</param>
+        /// <param name="action">Action (optional)</param>
         /// <param name="limit">Maximum number of entries to return (default 100) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ConversationPbxCosAuditLogsResponse</returns>
-        public async System.Threading.Tasks.Task<ConversationPbxCosAuditLogsResponse> GetPbxCosAuditLogsAsync (string since = default(string), string agentLogin = default(string), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ConversationPbxCosAuditLogsResponse> GetPbxCosAuditLogsAsync (string since = default(string), string agentLogin = default(string), string action = default(string), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<ConversationPbxCosAuditLogsResponse> localVarResponse = await GetPbxCosAuditLogsWithHttpInfoAsync(since, agentLogin, limit, cancellationToken);
+             ApiResponse<ConversationPbxCosAuditLogsResponse> localVarResponse = await GetPbxCosAuditLogsWithHttpInfoAsync(since, agentLogin, action, limit, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -14289,10 +14297,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">ISO timestamp to filter entries since (optional)</param>
         /// <param name="agentLogin">Filter by agent login (optional)</param>
+        /// <param name="action">Action (optional)</param>
         /// <param name="limit">Maximum number of entries to return (default 100) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ConversationPbxCosAuditLogsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxCosAuditLogsResponse>> GetPbxCosAuditLogsWithHttpInfoAsync (string since = default(string), string agentLogin = default(string), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxCosAuditLogsResponse>> GetPbxCosAuditLogsWithHttpInfoAsync (string since = default(string), string agentLogin = default(string), string action = default(string), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/conversation/pbx/class_of_service/audit_log";
@@ -14318,6 +14327,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (agentLogin != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "agent_login", agentLogin)); // query parameter
+            if (action != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "action", action)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
             // authentication (ultraCartOauth) required

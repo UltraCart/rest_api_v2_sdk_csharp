@@ -638,8 +638,6 @@ docs/ItemInternal.md
 docs/ItemInventorySnapshot.md
 docs/ItemInventorySnapshotDistributionCenter.md
 docs/ItemInventorySnapshotResponse.md
-docs/ItemInventoryUpdate.md
-docs/ItemInventoryUpdateRequest.md
 docs/ItemKitComponent.md
 docs/ItemKitDefinition.md
 docs/ItemOption.md
@@ -671,7 +669,6 @@ docs/ItemShippingCase.md
 docs/ItemShippingDestinationMarkup.md
 docs/ItemShippingDestinationRestriction.md
 docs/ItemShippingDistributionCenter.md
-docs/ItemShippingDistributionCenterResponse.md
 docs/ItemShippingMethod.md
 docs/ItemShippingPackageRequirement.md
 docs/ItemTag.md
@@ -779,6 +776,7 @@ docs/OrderTokenResponse.md
 docs/OrderTrackingNumberDetail.md
 docs/OrderTrackingNumberDetails.md
 docs/OrderTransactionalMerchantNote.md
+docs/OrderUpsellCartRequest.md
 docs/OrderUtm.md
 docs/OrderValidationRequest.md
 docs/OrderValidationResponse.md
@@ -1619,8 +1617,6 @@ src/com.ultracart.admin.v2/Model/ItemInternal.cs
 src/com.ultracart.admin.v2/Model/ItemInventorySnapshot.cs
 src/com.ultracart.admin.v2/Model/ItemInventorySnapshotDistributionCenter.cs
 src/com.ultracart.admin.v2/Model/ItemInventorySnapshotResponse.cs
-src/com.ultracart.admin.v2/Model/ItemInventoryUpdate.cs
-src/com.ultracart.admin.v2/Model/ItemInventoryUpdateRequest.cs
 src/com.ultracart.admin.v2/Model/ItemKitComponent.cs
 src/com.ultracart.admin.v2/Model/ItemKitDefinition.cs
 src/com.ultracart.admin.v2/Model/ItemOption.cs
@@ -1652,7 +1648,6 @@ src/com.ultracart.admin.v2/Model/ItemShippingCase.cs
 src/com.ultracart.admin.v2/Model/ItemShippingDestinationMarkup.cs
 src/com.ultracart.admin.v2/Model/ItemShippingDestinationRestriction.cs
 src/com.ultracart.admin.v2/Model/ItemShippingDistributionCenter.cs
-src/com.ultracart.admin.v2/Model/ItemShippingDistributionCenterResponse.cs
 src/com.ultracart.admin.v2/Model/ItemShippingMethod.cs
 src/com.ultracart.admin.v2/Model/ItemShippingPackageRequirement.cs
 src/com.ultracart.admin.v2/Model/ItemTag.cs
@@ -1758,6 +1753,7 @@ src/com.ultracart.admin.v2/Model/OrderTokenResponse.cs
 src/com.ultracart.admin.v2/Model/OrderTrackingNumberDetail.cs
 src/com.ultracart.admin.v2/Model/OrderTrackingNumberDetails.cs
 src/com.ultracart.admin.v2/Model/OrderTransactionalMerchantNote.cs
+src/com.ultracart.admin.v2/Model/OrderUpsellCartRequest.cs
 src/com.ultracart.admin.v2/Model/OrderUtm.cs
 src/com.ultracart.admin.v2/Model/OrderValidationRequest.cs
 src/com.ultracart.admin.v2/Model/OrderValidationResponse.cs

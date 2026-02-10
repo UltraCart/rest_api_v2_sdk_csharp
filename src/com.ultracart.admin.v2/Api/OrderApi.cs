@@ -384,6 +384,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrderEdiDocumentsResponse</returns>
         ApiResponse<OrderEdiDocumentsResponse> GetOrderEdiDocumentsWithHttpInfo (string orderId);
         /// <summary>
+        /// Get Order Upsell Cart
+        /// </summary>
+        /// <remarks>
+        /// Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to base things on.</param>
+        /// <param name="upsellCartRequest">Request for the upsell cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        OrderResponse GetOrderUpsellCart (string orderId, OrderUpsellCartRequest upsellCartRequest, string expand = default(string));
+
+        /// <summary>
+        /// Get Order Upsell Cart
+        /// </summary>
+        /// <remarks>
+        /// Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to base things on.</param>
+        /// <param name="upsellCartRequest">Request for the upsell cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        ApiResponse<OrderResponse> GetOrderUpsellCartWithHttpInfo (string orderId, OrderUpsellCartRequest upsellCartRequest, string expand = default(string));
+        /// <summary>
         /// Retrieve orders
         /// </summary>
         /// <remarks>
@@ -1192,6 +1217,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OrderEdiDocumentsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderEdiDocumentsResponse>> GetOrderEdiDocumentsWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get Order Upsell Cart
+        /// </summary>
+        /// <remarks>
+        /// Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to base things on.</param>
+        /// <param name="upsellCartRequest">Request for the upsell cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderResponse</returns>
+        System.Threading.Tasks.Task<OrderResponse> GetOrderUpsellCartAsync (string orderId, OrderUpsellCartRequest upsellCartRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get Order Upsell Cart
+        /// </summary>
+        /// <remarks>
+        /// Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to base things on.</param>
+        /// <param name="upsellCartRequest">Request for the upsell cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> GetOrderUpsellCartWithHttpInfoAsync (string orderId, OrderUpsellCartRequest upsellCartRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve orders
         /// </summary>
@@ -4400,6 +4452,197 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<OrderEdiDocumentsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (OrderEdiDocumentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderEdiDocumentsResponse)));
+        }
+
+        /// <summary>
+        /// Get Order Upsell Cart Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to base things on.</param>
+        /// <param name="upsellCartRequest">Request for the upsell cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        public OrderResponse GetOrderUpsellCart (string orderId, OrderUpsellCartRequest upsellCartRequest, string expand = default(string))
+        {
+             ApiResponse<OrderResponse> localVarResponse = GetOrderUpsellCartWithHttpInfo(orderId, upsellCartRequest, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Order Upsell Cart Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to base things on.</param>
+        /// <param name="upsellCartRequest">Request for the upsell cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        public ApiResponse<OrderResponse> GetOrderUpsellCartWithHttpInfo (string orderId, OrderUpsellCartRequest upsellCartRequest, string expand = default(string))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GetOrderUpsellCart");
+            // verify the required parameter 'upsellCartRequest' is set
+            if (upsellCartRequest == null)
+                throw new ApiException(400, "Missing required parameter 'upsellCartRequest' when calling OrderApi->GetOrderUpsellCart");
+
+            var localVarPath = "/order/orders/{order_id}/upsell_with_cart";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (upsellCartRequest != null && upsellCartRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(upsellCartRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = upsellCartRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetOrderUpsellCart", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Get Order Upsell Cart Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to base things on.</param>
+        /// <param name="upsellCartRequest">Request for the upsell cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderResponse</returns>
+        public async System.Threading.Tasks.Task<OrderResponse> GetOrderUpsellCartAsync (string orderId, OrderUpsellCartRequest upsellCartRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<OrderResponse> localVarResponse = await GetOrderUpsellCartWithHttpInfoAsync(orderId, upsellCartRequest, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Order Upsell Cart Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to base things on.</param>
+        /// <param name="upsellCartRequest">Request for the upsell cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> GetOrderUpsellCartWithHttpInfoAsync (string orderId, OrderUpsellCartRequest upsellCartRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GetOrderUpsellCart");
+            // verify the required parameter 'upsellCartRequest' is set
+            if (upsellCartRequest == null)
+                throw new ApiException(400, "Missing required parameter 'upsellCartRequest' when calling OrderApi->GetOrderUpsellCart");
+
+            var localVarPath = "/order/orders/{order_id}/upsell_with_cart";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (upsellCartRequest != null && upsellCartRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(upsellCartRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = upsellCartRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetOrderUpsellCart", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
         }
 
         /// <summary>

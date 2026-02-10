@@ -1,11 +1,11 @@
-# com.ultracart.admin.v2.Model.ItemInventoryUpdate
+# com.ultracart.admin.v2.Model.OrderUpsellCartRequest
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DistributionCenterCode** | **string** | Distribution center code | [optional] 
-**InventoryLevel** | **decimal?** | Inventory level | [optional] 
-**MerchantItemId** | **string** | Merchant Item ID | [optional] 
+**CheckoutUrl** | **string** |  | [optional] 
+**CouponCodes** | **List&lt;string&gt;** |  | [optional] 
+**Items** | [**List&lt;CartItem&gt;**](CartItem.md) |  | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

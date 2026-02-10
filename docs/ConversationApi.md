@@ -3712,7 +3712,7 @@ This endpoint does not need any parameter.
 
 <a name="getpbxcosauditlogs"></a>
 # **GetPbxCosAuditLogs**
-> ConversationPbxCosAuditLogsResponse GetPbxCosAuditLogs (string since = null, string agentLogin = null, int? limit = null)
+> ConversationPbxCosAuditLogsResponse GetPbxCosAuditLogs (string since = null, string agentLogin = null, string action = null, int? limit = null)
 
 Get pbx class of service audit logs
 
@@ -3739,12 +3739,13 @@ namespace Example
 
             var since = since_example;  // string | ISO timestamp to filter entries since (optional) 
             var agentLogin = agentLogin_example;  // string | Filter by agent login (optional) 
+            var action = action_example;  // string | Action (optional) 
             var limit = 56;  // int? | Maximum number of entries to return (default 100) (optional) 
 
             try
             {
                 // Get pbx class of service audit logs
-                ConversationPbxCosAuditLogsResponse result = apiInstance.GetPbxCosAuditLogs(since, agentLogin, limit);
+                ConversationPbxCosAuditLogsResponse result = apiInstance.GetPbxCosAuditLogs(since, agentLogin, action, limit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3763,6 +3764,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **since** | **string**| ISO timestamp to filter entries since | [optional] 
  **agentLogin** | **string**| Filter by agent login | [optional] 
+ **action** | **string**| Action | [optional] 
  **limit** | **int?**| Maximum number of entries to return (default 100) | [optional] 
 
 ### Return type

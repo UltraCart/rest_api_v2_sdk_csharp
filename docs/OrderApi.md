@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**GetOrder**](OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
 [**GetOrderByToken**](OrderApi.md#getorderbytoken) | **POST** /order/orders/token | Retrieve an order using a token
 [**GetOrderEdiDocuments**](OrderApi.md#getorderedidocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
+[**GetOrderUpsellCart**](OrderApi.md#getorderupsellcart) | **PUT** /order/orders/{order_id}/upsell_with_cart | Get Order Upsell Cart
 [**GetOrders**](OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
 [**GetOrdersBatch**](OrderApi.md#getordersbatch) | **POST** /order/orders/batch | Retrieve order batch
 [**GetOrdersByQuery**](OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders by query
@@ -1107,6 +1108,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getorderupsellcart"></a>
+# **GetOrderUpsellCart**
+> OrderResponse GetOrderUpsellCart (OrderUpsellCartRequest upsellCartRequest, string orderId, string expand = null)
+
+Get Order Upsell Cart
+
+Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetOrderUpsellCartExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new OrderApi(simpleKey);
+
+            var upsellCartRequest = new OrderUpsellCartRequest(); // OrderUpsellCartRequest | Request for the upsell cart
+            var orderId = orderId_example;  // string | The order id to base things on.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Get Order Upsell Cart
+                OrderResponse result = apiInstance.GetOrderUpsellCart(upsellCartRequest, orderId, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OrderApi.GetOrderUpsellCart: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upsellCartRequest** | [**OrderUpsellCartRequest**](OrderUpsellCartRequest.md)| Request for the upsell cart | 
+ **orderId** | **string**| The order id to base things on. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

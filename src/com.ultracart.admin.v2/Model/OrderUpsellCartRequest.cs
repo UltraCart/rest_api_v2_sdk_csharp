@@ -25,26 +25,41 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ItemInventoryUpdateRequest
+    /// OrderUpsellCartRequest
     /// </summary>
     [DataContract]
-    public partial class ItemInventoryUpdateRequest :  IEquatable<ItemInventoryUpdateRequest>, IValidatableObject
+    public partial class OrderUpsellCartRequest :  IEquatable<OrderUpsellCartRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ItemInventoryUpdateRequest" /> class.
+        /// Initializes a new instance of the <see cref="OrderUpsellCartRequest" /> class.
         /// </summary>
-        /// <param name="inventoryUpdates">Inventory updates array.</param>
-        public ItemInventoryUpdateRequest(List<ItemInventoryUpdate> inventoryUpdates = default(List<ItemInventoryUpdate>))
+        /// <param name="checkoutUrl">checkoutUrl.</param>
+        /// <param name="couponCodes">couponCodes.</param>
+        /// <param name="items">items.</param>
+        public OrderUpsellCartRequest(string checkoutUrl = default(string), List<string> couponCodes = default(List<string>), List<CartItem> items = default(List<CartItem>))
         {
-            this.InventoryUpdates = inventoryUpdates;
+            this.CheckoutUrl = checkoutUrl;
+            this.CouponCodes = couponCodes;
+            this.Items = items;
         }
         
         /// <summary>
-        /// Inventory updates array
+        /// Gets or Sets CheckoutUrl
         /// </summary>
-        /// <value>Inventory updates array</value>
-        [DataMember(Name="inventory_updates", EmitDefaultValue=false)]
-        public List<ItemInventoryUpdate> InventoryUpdates { get; set; }
+        [DataMember(Name="checkout_url", EmitDefaultValue=false)]
+        public string CheckoutUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CouponCodes
+        /// </summary>
+        [DataMember(Name="coupon_codes", EmitDefaultValue=false)]
+        public List<string> CouponCodes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Items
+        /// </summary>
+        [DataMember(Name="items", EmitDefaultValue=false)]
+        public List<CartItem> Items { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +68,10 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ItemInventoryUpdateRequest {\n");
-            sb.Append("  InventoryUpdates: ").Append(InventoryUpdates).Append("\n");
+            sb.Append("class OrderUpsellCartRequest {\n");
+            sb.Append("  CheckoutUrl: ").Append(CheckoutUrl).Append("\n");
+            sb.Append("  CouponCodes: ").Append(CouponCodes).Append("\n");
+            sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,24 +92,34 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ItemInventoryUpdateRequest);
+            return this.Equals(input as OrderUpsellCartRequest);
         }
 
         /// <summary>
-        /// Returns true if ItemInventoryUpdateRequest instances are equal
+        /// Returns true if OrderUpsellCartRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ItemInventoryUpdateRequest to be compared</param>
+        /// <param name="input">Instance of OrderUpsellCartRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemInventoryUpdateRequest input)
+        public bool Equals(OrderUpsellCartRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.InventoryUpdates == input.InventoryUpdates ||
-                    this.InventoryUpdates != null &&
-                    this.InventoryUpdates.SequenceEqual(input.InventoryUpdates)
+                    this.CheckoutUrl == input.CheckoutUrl ||
+                    (this.CheckoutUrl != null &&
+                    this.CheckoutUrl.Equals(input.CheckoutUrl))
+                ) && 
+                (
+                    this.CouponCodes == input.CouponCodes ||
+                    this.CouponCodes != null &&
+                    this.CouponCodes.SequenceEqual(input.CouponCodes)
+                ) && 
+                (
+                    this.Items == input.Items ||
+                    this.Items != null &&
+                    this.Items.SequenceEqual(input.Items)
                 );
         }
 
@@ -105,8 +132,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.InventoryUpdates != null)
-                    hashCode = hashCode * 59 + this.InventoryUpdates.GetHashCode();
+                if (this.CheckoutUrl != null)
+                    hashCode = hashCode * 59 + this.CheckoutUrl.GetHashCode();
+                if (this.CouponCodes != null)
+                    hashCode = hashCode * 59 + this.CouponCodes.GetHashCode();
+                if (this.Items != null)
+                    hashCode = hashCode * 59 + this.Items.GetHashCode();
                 return hashCode;
             }
         }

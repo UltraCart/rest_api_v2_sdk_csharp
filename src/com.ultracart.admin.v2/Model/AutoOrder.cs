@@ -96,10 +96,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="originalOrder">originalOrder.</param>
         /// <param name="originalOrderId">The original order id that this auto order is associated with..</param>
         /// <param name="overrideAffiliateId">Override the affiliate id given credit for rebills of this auto order.</param>
+        /// <param name="properties">Array of property objects.</param>
         /// <param name="rebillOrders">Rebill orders that have taken place on this auto order.</param>
         /// <param name="rotatingTransactionGatewayCode">The RTG code associated with this order for future rebills.</param>
         /// <param name="status">The status of the auto order.</param>
-        public AutoOrder(List<AutoOrderAddonItem> addOns = default(List<AutoOrderAddonItem>), string autoOrderCode = default(string), int autoOrderOid = default(int), int cancelAfterNextXOrders = default(int), bool cancelDowngrade = default(bool), string cancelReason = default(string), bool cancelUpgrade = default(bool), string canceledByUser = default(string), string canceledDts = default(string), bool completed = default(bool), int creditCardAttempt = default(int), string disabledDts = default(string), bool enabled = default(bool), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), List<AutoOrderLog> logs = default(List<AutoOrderLog>), AutoOrderManagement management = default(AutoOrderManagement), string merchantId = default(string), string mergedDts = default(string), int mergedIntoAutoOrderOid = default(int), string nextAttempt = default(string), Order originalOrder = default(Order), string originalOrderId = default(string), int overrideAffiliateId = default(int), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
+        public AutoOrder(List<AutoOrderAddonItem> addOns = default(List<AutoOrderAddonItem>), string autoOrderCode = default(string), int autoOrderOid = default(int), int cancelAfterNextXOrders = default(int), bool cancelDowngrade = default(bool), string cancelReason = default(string), bool cancelUpgrade = default(bool), string canceledByUser = default(string), string canceledDts = default(string), bool completed = default(bool), int creditCardAttempt = default(int), string disabledDts = default(string), bool enabled = default(bool), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), List<AutoOrderLog> logs = default(List<AutoOrderLog>), AutoOrderManagement management = default(AutoOrderManagement), string merchantId = default(string), string mergedDts = default(string), int mergedIntoAutoOrderOid = default(int), string nextAttempt = default(string), Order originalOrder = default(Order), string originalOrderId = default(string), int overrideAffiliateId = default(int), List<AutoOrderProperty> properties = default(List<AutoOrderProperty>), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
         {
             this.AddOns = addOns;
             this.AutoOrderCode = autoOrderCode;
@@ -125,6 +126,7 @@ namespace com.ultracart.admin.v2.Model
             this.OriginalOrder = originalOrder;
             this.OriginalOrderId = originalOrderId;
             this.OverrideAffiliateId = overrideAffiliateId;
+            this.Properties = properties;
             this.RebillOrders = rebillOrders;
             this.RotatingTransactionGatewayCode = rotatingTransactionGatewayCode;
             this.Status = status;
@@ -297,6 +299,13 @@ namespace com.ultracart.admin.v2.Model
         public int OverrideAffiliateId { get; set; }
 
         /// <summary>
+        /// Array of property objects
+        /// </summary>
+        /// <value>Array of property objects</value>
+        [DataMember(Name="properties", EmitDefaultValue=false)]
+        public List<AutoOrderProperty> Properties { get; set; }
+
+        /// <summary>
         /// Rebill orders that have taken place on this auto order
         /// </summary>
         /// <value>Rebill orders that have taken place on this auto order</value>
@@ -343,6 +352,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  OriginalOrder: ").Append(OriginalOrder).Append("\n");
             sb.Append("  OriginalOrderId: ").Append(OriginalOrderId).Append("\n");
             sb.Append("  OverrideAffiliateId: ").Append(OverrideAffiliateId).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  RebillOrders: ").Append(RebillOrders).Append("\n");
             sb.Append("  RotatingTransactionGatewayCode: ").Append(RotatingTransactionGatewayCode).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -504,6 +514,12 @@ namespace com.ultracart.admin.v2.Model
                     this.OverrideAffiliateId.Equals(input.OverrideAffiliateId))
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.RebillOrders == input.RebillOrders ||
                     this.RebillOrders != null &&
                     input.RebillOrders != null &&
@@ -578,6 +594,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OriginalOrderId.GetHashCode();
                 if (this.OverrideAffiliateId != null)
                     hashCode = hashCode * 59 + this.OverrideAffiliateId.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 if (this.RebillOrders != null)
                     hashCode = hashCode * 59 + this.RebillOrders.GetHashCode();
                 if (this.RotatingTransactionGatewayCode != null)

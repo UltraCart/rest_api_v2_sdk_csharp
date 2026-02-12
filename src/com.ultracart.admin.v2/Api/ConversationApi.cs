@@ -694,6 +694,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationEngagementsResponse</returns>
         ApiResponse<ConversationEngagementsResponse> GetConversationEngagementsWithHttpInfo ();
         /// <summary>
+        /// Retrieve an item with sparse variations populated
+        /// </summary>
+        /// <remarks>
+        /// Retrieve an item with sparse variations populated 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId"></param>
+        /// <returns>ItemResponse</returns>
+        ItemResponse GetConversationItemVariations (string merchantItemId);
+
+        /// <summary>
+        /// Retrieve an item with sparse variations populated
+        /// </summary>
+        /// <remarks>
+        /// Retrieve an item with sparse variations populated 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId"></param>
+        /// <returns>ApiResponse of ItemResponse</returns>
+        ApiResponse<ItemResponse> GetConversationItemVariationsWithHttpInfo (string merchantItemId);
+        /// <summary>
         /// Get a pre-signed conversation knowledge base document upload URL
         /// </summary>
         /// <remarks>
@@ -3363,6 +3384,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ConversationEngagementsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationEngagementsResponse>> GetConversationEngagementsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve an item with sparse variations populated
+        /// </summary>
+        /// <remarks>
+        /// Retrieve an item with sparse variations populated 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemResponse</returns>
+        System.Threading.Tasks.Task<ItemResponse> GetConversationItemVariationsAsync (string merchantItemId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve an item with sparse variations populated
+        /// </summary>
+        /// <remarks>
+        /// Retrieve an item with sparse variations populated 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemResponse>> GetConversationItemVariationsWithHttpInfoAsync (string merchantItemId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a pre-signed conversation knowledge base document upload URL
         /// </summary>
@@ -10584,6 +10628,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationEngagementsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ConversationEngagementsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationEngagementsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve an item with sparse variations populated Retrieve an item with sparse variations populated 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId"></param>
+        /// <returns>ItemResponse</returns>
+        public ItemResponse GetConversationItemVariations (string merchantItemId)
+        {
+             ApiResponse<ItemResponse> localVarResponse = GetConversationItemVariationsWithHttpInfo(merchantItemId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve an item with sparse variations populated Retrieve an item with sparse variations populated 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId"></param>
+        /// <returns>ApiResponse of ItemResponse</returns>
+        public ApiResponse<ItemResponse> GetConversationItemVariationsWithHttpInfo (string merchantItemId)
+        {
+            // verify the required parameter 'merchantItemId' is set
+            if (merchantItemId == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemId' when calling ConversationApi->GetConversationItemVariations");
+
+            var localVarPath = "/conversation/items/{merchant_item_id}/variations";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemId != null) localVarPathParams.Add("merchant_item_id", this.Configuration.ApiClient.ParameterToString(merchantItemId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationItemVariations", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve an item with sparse variations populated Retrieve an item with sparse variations populated 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemResponse</returns>
+        public async System.Threading.Tasks.Task<ItemResponse> GetConversationItemVariationsAsync (string merchantItemId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ItemResponse> localVarResponse = await GetConversationItemVariationsWithHttpInfoAsync(merchantItemId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve an item with sparse variations populated Retrieve an item with sparse variations populated 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemResponse>> GetConversationItemVariationsWithHttpInfoAsync (string merchantItemId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'merchantItemId' is set
+            if (merchantItemId == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemId' when calling ConversationApi->GetConversationItemVariations");
+
+            var localVarPath = "/conversation/items/{merchant_item_id}/variations";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemId != null) localVarPathParams.Add("merchant_item_id", this.Configuration.ApiClient.ParameterToString(merchantItemId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationItemVariations", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemResponse)));
         }
 
         /// <summary>

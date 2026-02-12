@@ -542,6 +542,54 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrdersResponse</returns>
         ApiResponse<OrdersResponse> GetOrdersByQueryWithHttpInfo (OrderQuery orderQuery, int? limit = default(int?), int? offset = default(int?), string sort = default(string), string expand = default(string));
         /// <summary>
+        /// Add items and release a held order
+        /// </summary>
+        /// <remarks>
+        /// This method adds items to an order in the hold stage and releases it 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="addItemsAndReleaseRequest">Add items and release request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        OrderResponse HeldOrderAddItemsAndRelease (string orderId, OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, string expand = default(string));
+
+        /// <summary>
+        /// Add items and release a held order
+        /// </summary>
+        /// <remarks>
+        /// This method adds items to an order in the hold stage and releases it 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="addItemsAndReleaseRequest">Add items and release request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        ApiResponse<OrderResponse> HeldOrderAddItemsAndReleaseWithHttpInfo (string orderId, OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, string expand = default(string));
+        /// <summary>
+        /// Release a held order
+        /// </summary>
+        /// <remarks>
+        /// This method releases an order from the hold stage 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        OrderResponse HeldOrderRelease (string orderId, string expand = default(string));
+
+        /// <summary>
+        /// Release a held order
+        /// </summary>
+        /// <remarks>
+        /// This method releases an order from the hold stage 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        ApiResponse<OrderResponse> HeldOrderReleaseWithHttpInfo (string orderId, string expand = default(string));
+        /// <summary>
         /// Insert an order
         /// </summary>
         /// <remarks>
@@ -1383,6 +1431,58 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OrdersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersByQueryWithHttpInfoAsync (OrderQuery orderQuery, int? limit = default(int?), int? offset = default(int?), string sort = default(string), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Add items and release a held order
+        /// </summary>
+        /// <remarks>
+        /// This method adds items to an order in the hold stage and releases it 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="addItemsAndReleaseRequest">Add items and release request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderResponse</returns>
+        System.Threading.Tasks.Task<OrderResponse> HeldOrderAddItemsAndReleaseAsync (string orderId, OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Add items and release a held order
+        /// </summary>
+        /// <remarks>
+        /// This method adds items to an order in the hold stage and releases it 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="addItemsAndReleaseRequest">Add items and release request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> HeldOrderAddItemsAndReleaseWithHttpInfoAsync (string orderId, OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Release a held order
+        /// </summary>
+        /// <remarks>
+        /// This method releases an order from the hold stage 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderResponse</returns>
+        System.Threading.Tasks.Task<OrderResponse> HeldOrderReleaseAsync (string orderId, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Release a held order
+        /// </summary>
+        /// <remarks>
+        /// This method releases an order from the hold stage 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> HeldOrderReleaseWithHttpInfoAsync (string orderId, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Insert an order
         /// </summary>
@@ -5350,6 +5450,360 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<OrdersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+        }
+
+        /// <summary>
+        /// Add items and release a held order This method adds items to an order in the hold stage and releases it 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="addItemsAndReleaseRequest">Add items and release request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        public OrderResponse HeldOrderAddItemsAndRelease (string orderId, OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, string expand = default(string))
+        {
+             ApiResponse<OrderResponse> localVarResponse = HeldOrderAddItemsAndReleaseWithHttpInfo(orderId, addItemsAndReleaseRequest, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add items and release a held order This method adds items to an order in the hold stage and releases it 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="addItemsAndReleaseRequest">Add items and release request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        public ApiResponse<OrderResponse> HeldOrderAddItemsAndReleaseWithHttpInfo (string orderId, OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, string expand = default(string))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->HeldOrderAddItemsAndRelease");
+            // verify the required parameter 'addItemsAndReleaseRequest' is set
+            if (addItemsAndReleaseRequest == null)
+                throw new ApiException(400, "Missing required parameter 'addItemsAndReleaseRequest' when calling OrderApi->HeldOrderAddItemsAndRelease");
+
+            var localVarPath = "/order/orders/{order_id}/hold/add_items_and_release";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (addItemsAndReleaseRequest != null && addItemsAndReleaseRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(addItemsAndReleaseRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = addItemsAndReleaseRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("HeldOrderAddItemsAndRelease", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Add items and release a held order This method adds items to an order in the hold stage and releases it 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="addItemsAndReleaseRequest">Add items and release request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderResponse</returns>
+        public async System.Threading.Tasks.Task<OrderResponse> HeldOrderAddItemsAndReleaseAsync (string orderId, OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<OrderResponse> localVarResponse = await HeldOrderAddItemsAndReleaseWithHttpInfoAsync(orderId, addItemsAndReleaseRequest, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Add items and release a held order This method adds items to an order in the hold stage and releases it 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="addItemsAndReleaseRequest">Add items and release request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> HeldOrderAddItemsAndReleaseWithHttpInfoAsync (string orderId, OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->HeldOrderAddItemsAndRelease");
+            // verify the required parameter 'addItemsAndReleaseRequest' is set
+            if (addItemsAndReleaseRequest == null)
+                throw new ApiException(400, "Missing required parameter 'addItemsAndReleaseRequest' when calling OrderApi->HeldOrderAddItemsAndRelease");
+
+            var localVarPath = "/order/orders/{order_id}/hold/add_items_and_release";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (addItemsAndReleaseRequest != null && addItemsAndReleaseRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(addItemsAndReleaseRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = addItemsAndReleaseRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("HeldOrderAddItemsAndRelease", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Release a held order This method releases an order from the hold stage 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        public OrderResponse HeldOrderRelease (string orderId, string expand = default(string))
+        {
+             ApiResponse<OrderResponse> localVarResponse = HeldOrderReleaseWithHttpInfo(orderId, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Release a held order This method releases an order from the hold stage 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        public ApiResponse<OrderResponse> HeldOrderReleaseWithHttpInfo (string orderId, string expand = default(string))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->HeldOrderRelease");
+
+            var localVarPath = "/order/orders/{order_id}/hold/release";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("HeldOrderRelease", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Release a held order This method releases an order from the hold stage 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderResponse</returns>
+        public async System.Threading.Tasks.Task<OrderResponse> HeldOrderReleaseAsync (string orderId, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<OrderResponse> localVarResponse = await HeldOrderReleaseWithHttpInfoAsync(orderId, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Release a held order This method releases an order from the hold stage 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to release.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> HeldOrderReleaseWithHttpInfoAsync (string orderId, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->HeldOrderRelease");
+
+            var localVarPath = "/order/orders/{order_id}/hold/release";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("HeldOrderRelease", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
         }
 
         /// <summary>

@@ -312,6 +312,85 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of AutoOrderResponse</returns>
         ApiResponse<AutoOrderResponse> UpdateAutoOrderWithHttpInfo (int autoOrderOid, AutoOrder autoOrder, string validateOriginalOrder = default(string), string expand = default(string));
         /// <summary>
+        /// Update an auto order item add ons
+        /// </summary>
+        /// <remarks>
+        /// Update an auto order item add ons.  Returns the auto order based upon expansion 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderAddOnsUpdateRequest">Auto order add ons update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderResponse</returns>
+        AutoOrderResponse UpdateAutoOrderItemAddOns (int autoOrderOid, int autoOrderItemOid, AutoOrderAddonItemsUpdateRequest autoOrderAddOnsUpdateRequest, string expand = default(string));
+
+        /// <summary>
+        /// Update an auto order item add ons
+        /// </summary>
+        /// <remarks>
+        /// Update an auto order item add ons.  Returns the auto order based upon expansion 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderAddOnsUpdateRequest">Auto order add ons update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderResponse</returns>
+        ApiResponse<AutoOrderResponse> UpdateAutoOrderItemAddOnsWithHttpInfo (int autoOrderOid, int autoOrderItemOid, AutoOrderAddonItemsUpdateRequest autoOrderAddOnsUpdateRequest, string expand = default(string));
+        /// <summary>
+        /// Update an auto order item properties
+        /// </summary>
+        /// <remarks>
+        /// Update an auto order item properties.  Returns the auto order based upon expansion 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderResponse</returns>
+        AutoOrderResponse UpdateAutoOrderItemProperties (int autoOrderOid, int autoOrderItemOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string));
+
+        /// <summary>
+        /// Update an auto order item properties
+        /// </summary>
+        /// <remarks>
+        /// Update an auto order item properties.  Returns the auto order based upon expansion 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderResponse</returns>
+        ApiResponse<AutoOrderResponse> UpdateAutoOrderItemPropertiesWithHttpInfo (int autoOrderOid, int autoOrderItemOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string));
+        /// <summary>
+        /// Update an auto order properties
+        /// </summary>
+        /// <remarks>
+        /// Update an auto order properties.  Returns the auto order based upon expansion 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderResponse</returns>
+        AutoOrderResponse UpdateAutoOrderProperties (int autoOrderOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string));
+
+        /// <summary>
+        /// Update an auto order properties
+        /// </summary>
+        /// <remarks>
+        /// Update an auto order properties.  Returns the auto order based upon expansion 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderResponse</returns>
+        ApiResponse<AutoOrderResponse> UpdateAutoOrderPropertiesWithHttpInfo (int autoOrderOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string));
+        /// <summary>
         /// Update multiple auto orders
         /// </summary>
         /// <remarks>
@@ -646,6 +725,91 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> UpdateAutoOrderWithHttpInfoAsync (int autoOrderOid, AutoOrder autoOrder, string validateOriginalOrder = default(string), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update an auto order item add ons
+        /// </summary>
+        /// <remarks>
+        /// Update an auto order item add ons.  Returns the auto order based upon expansion 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderAddOnsUpdateRequest">Auto order add ons update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AutoOrderResponse</returns>
+        System.Threading.Tasks.Task<AutoOrderResponse> UpdateAutoOrderItemAddOnsAsync (int autoOrderOid, int autoOrderItemOid, AutoOrderAddonItemsUpdateRequest autoOrderAddOnsUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update an auto order item add ons
+        /// </summary>
+        /// <remarks>
+        /// Update an auto order item add ons.  Returns the auto order based upon expansion 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderAddOnsUpdateRequest">Auto order add ons update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> UpdateAutoOrderItemAddOnsWithHttpInfoAsync (int autoOrderOid, int autoOrderItemOid, AutoOrderAddonItemsUpdateRequest autoOrderAddOnsUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update an auto order item properties
+        /// </summary>
+        /// <remarks>
+        /// Update an auto order item properties.  Returns the auto order based upon expansion 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AutoOrderResponse</returns>
+        System.Threading.Tasks.Task<AutoOrderResponse> UpdateAutoOrderItemPropertiesAsync (int autoOrderOid, int autoOrderItemOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update an auto order item properties
+        /// </summary>
+        /// <remarks>
+        /// Update an auto order item properties.  Returns the auto order based upon expansion 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> UpdateAutoOrderItemPropertiesWithHttpInfoAsync (int autoOrderOid, int autoOrderItemOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update an auto order properties
+        /// </summary>
+        /// <remarks>
+        /// Update an auto order properties.  Returns the auto order based upon expansion 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AutoOrderResponse</returns>
+        System.Threading.Tasks.Task<AutoOrderResponse> UpdateAutoOrderPropertiesAsync (int autoOrderOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update an auto order properties
+        /// </summary>
+        /// <remarks>
+        /// Update an auto order properties.  Returns the auto order based upon expansion 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> UpdateAutoOrderPropertiesWithHttpInfoAsync (int autoOrderOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update multiple auto orders
         /// </summary>
@@ -2686,6 +2850,603 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("UpdateAutoOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
+        }
+
+        /// <summary>
+        /// Update an auto order item add ons Update an auto order item add ons.  Returns the auto order based upon expansion 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderAddOnsUpdateRequest">Auto order add ons update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderResponse</returns>
+        public AutoOrderResponse UpdateAutoOrderItemAddOns (int autoOrderOid, int autoOrderItemOid, AutoOrderAddonItemsUpdateRequest autoOrderAddOnsUpdateRequest, string expand = default(string))
+        {
+             ApiResponse<AutoOrderResponse> localVarResponse = UpdateAutoOrderItemAddOnsWithHttpInfo(autoOrderOid, autoOrderItemOid, autoOrderAddOnsUpdateRequest, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update an auto order item add ons Update an auto order item add ons.  Returns the auto order based upon expansion 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderAddOnsUpdateRequest">Auto order add ons update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderResponse</returns>
+        public ApiResponse<AutoOrderResponse> UpdateAutoOrderItemAddOnsWithHttpInfo (int autoOrderOid, int autoOrderItemOid, AutoOrderAddonItemsUpdateRequest autoOrderAddOnsUpdateRequest, string expand = default(string))
+        {
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->UpdateAutoOrderItemAddOns");
+            // verify the required parameter 'autoOrderItemOid' is set
+            if (autoOrderItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderItemOid' when calling AutoOrderApi->UpdateAutoOrderItemAddOns");
+            // verify the required parameter 'autoOrderAddOnsUpdateRequest' is set
+            if (autoOrderAddOnsUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderAddOnsUpdateRequest' when calling AutoOrderApi->UpdateAutoOrderItemAddOns");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/add_ons";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (autoOrderItemOid != null) localVarPathParams.Add("auto_order_item_oid", this.Configuration.ApiClient.ParameterToString(autoOrderItemOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderAddOnsUpdateRequest != null && autoOrderAddOnsUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autoOrderAddOnsUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderAddOnsUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAutoOrderItemAddOns", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
+        }
+
+        /// <summary>
+        /// Update an auto order item add ons Update an auto order item add ons.  Returns the auto order based upon expansion 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderAddOnsUpdateRequest">Auto order add ons update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AutoOrderResponse</returns>
+        public async System.Threading.Tasks.Task<AutoOrderResponse> UpdateAutoOrderItemAddOnsAsync (int autoOrderOid, int autoOrderItemOid, AutoOrderAddonItemsUpdateRequest autoOrderAddOnsUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<AutoOrderResponse> localVarResponse = await UpdateAutoOrderItemAddOnsWithHttpInfoAsync(autoOrderOid, autoOrderItemOid, autoOrderAddOnsUpdateRequest, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update an auto order item add ons Update an auto order item add ons.  Returns the auto order based upon expansion 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderAddOnsUpdateRequest">Auto order add ons update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> UpdateAutoOrderItemAddOnsWithHttpInfoAsync (int autoOrderOid, int autoOrderItemOid, AutoOrderAddonItemsUpdateRequest autoOrderAddOnsUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->UpdateAutoOrderItemAddOns");
+            // verify the required parameter 'autoOrderItemOid' is set
+            if (autoOrderItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderItemOid' when calling AutoOrderApi->UpdateAutoOrderItemAddOns");
+            // verify the required parameter 'autoOrderAddOnsUpdateRequest' is set
+            if (autoOrderAddOnsUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderAddOnsUpdateRequest' when calling AutoOrderApi->UpdateAutoOrderItemAddOns");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/add_ons";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (autoOrderItemOid != null) localVarPathParams.Add("auto_order_item_oid", this.Configuration.ApiClient.ParameterToString(autoOrderItemOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderAddOnsUpdateRequest != null && autoOrderAddOnsUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autoOrderAddOnsUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderAddOnsUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAutoOrderItemAddOns", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
+        }
+
+        /// <summary>
+        /// Update an auto order item properties Update an auto order item properties.  Returns the auto order based upon expansion 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderResponse</returns>
+        public AutoOrderResponse UpdateAutoOrderItemProperties (int autoOrderOid, int autoOrderItemOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string))
+        {
+             ApiResponse<AutoOrderResponse> localVarResponse = UpdateAutoOrderItemPropertiesWithHttpInfo(autoOrderOid, autoOrderItemOid, autoOrderPropertiesUpdateRequest, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update an auto order item properties Update an auto order item properties.  Returns the auto order based upon expansion 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderResponse</returns>
+        public ApiResponse<AutoOrderResponse> UpdateAutoOrderItemPropertiesWithHttpInfo (int autoOrderOid, int autoOrderItemOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string))
+        {
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->UpdateAutoOrderItemProperties");
+            // verify the required parameter 'autoOrderItemOid' is set
+            if (autoOrderItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderItemOid' when calling AutoOrderApi->UpdateAutoOrderItemProperties");
+            // verify the required parameter 'autoOrderPropertiesUpdateRequest' is set
+            if (autoOrderPropertiesUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderPropertiesUpdateRequest' when calling AutoOrderApi->UpdateAutoOrderItemProperties");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/properties";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (autoOrderItemOid != null) localVarPathParams.Add("auto_order_item_oid", this.Configuration.ApiClient.ParameterToString(autoOrderItemOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderPropertiesUpdateRequest != null && autoOrderPropertiesUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autoOrderPropertiesUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderPropertiesUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAutoOrderItemProperties", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
+        }
+
+        /// <summary>
+        /// Update an auto order item properties Update an auto order item properties.  Returns the auto order based upon expansion 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AutoOrderResponse</returns>
+        public async System.Threading.Tasks.Task<AutoOrderResponse> UpdateAutoOrderItemPropertiesAsync (int autoOrderOid, int autoOrderItemOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<AutoOrderResponse> localVarResponse = await UpdateAutoOrderItemPropertiesWithHttpInfoAsync(autoOrderOid, autoOrderItemOid, autoOrderPropertiesUpdateRequest, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update an auto order item properties Update an auto order item properties.  Returns the auto order based upon expansion 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderItemOid">The auto order item oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> UpdateAutoOrderItemPropertiesWithHttpInfoAsync (int autoOrderOid, int autoOrderItemOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->UpdateAutoOrderItemProperties");
+            // verify the required parameter 'autoOrderItemOid' is set
+            if (autoOrderItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderItemOid' when calling AutoOrderApi->UpdateAutoOrderItemProperties");
+            // verify the required parameter 'autoOrderPropertiesUpdateRequest' is set
+            if (autoOrderPropertiesUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderPropertiesUpdateRequest' when calling AutoOrderApi->UpdateAutoOrderItemProperties");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/properties";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (autoOrderItemOid != null) localVarPathParams.Add("auto_order_item_oid", this.Configuration.ApiClient.ParameterToString(autoOrderItemOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderPropertiesUpdateRequest != null && autoOrderPropertiesUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autoOrderPropertiesUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderPropertiesUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAutoOrderItemProperties", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
+        }
+
+        /// <summary>
+        /// Update an auto order properties Update an auto order properties.  Returns the auto order based upon expansion 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderResponse</returns>
+        public AutoOrderResponse UpdateAutoOrderProperties (int autoOrderOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string))
+        {
+             ApiResponse<AutoOrderResponse> localVarResponse = UpdateAutoOrderPropertiesWithHttpInfo(autoOrderOid, autoOrderPropertiesUpdateRequest, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update an auto order properties Update an auto order properties.  Returns the auto order based upon expansion 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderResponse</returns>
+        public ApiResponse<AutoOrderResponse> UpdateAutoOrderPropertiesWithHttpInfo (int autoOrderOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string))
+        {
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->UpdateAutoOrderProperties");
+            // verify the required parameter 'autoOrderPropertiesUpdateRequest' is set
+            if (autoOrderPropertiesUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderPropertiesUpdateRequest' when calling AutoOrderApi->UpdateAutoOrderProperties");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/properties";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderPropertiesUpdateRequest != null && autoOrderPropertiesUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autoOrderPropertiesUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderPropertiesUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAutoOrderProperties", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
+        }
+
+        /// <summary>
+        /// Update an auto order properties Update an auto order properties.  Returns the auto order based upon expansion 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AutoOrderResponse</returns>
+        public async System.Threading.Tasks.Task<AutoOrderResponse> UpdateAutoOrderPropertiesAsync (int autoOrderOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<AutoOrderResponse> localVarResponse = await UpdateAutoOrderPropertiesWithHttpInfoAsync(autoOrderOid, autoOrderPropertiesUpdateRequest, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update an auto order properties Update an auto order properties.  Returns the auto order based upon expansion 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="autoOrderPropertiesUpdateRequest">Auto order property update request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> UpdateAutoOrderPropertiesWithHttpInfoAsync (int autoOrderOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->UpdateAutoOrderProperties");
+            // verify the required parameter 'autoOrderPropertiesUpdateRequest' is set
+            if (autoOrderPropertiesUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderPropertiesUpdateRequest' when calling AutoOrderApi->UpdateAutoOrderProperties");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/properties";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderPropertiesUpdateRequest != null && autoOrderPropertiesUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autoOrderPropertiesUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderPropertiesUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAutoOrderProperties", localVarResponse);
                 if (exception != null) throw exception;
             }
 

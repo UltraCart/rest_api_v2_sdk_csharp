@@ -45,6 +45,7 @@ Name | Type | Description | Notes
 **RestrictShipmentOnThursday** | **bool?** | Restrict shipment on Thursday | [optional] 
 **RestrictShipmentOnTuesday** | **bool?** | Restrict shipment on Tuesday | [optional] 
 **RestrictShipmentOnWednesday** | **bool?** | Restrict shipment on Wednesday | [optional] 
+**SendToHoldBeforeFulfillment** | **bool?** | Send order to hold stage before fulfillment | [optional] 
 **ShipSeparately** | **bool?** | Ship this item in a separate box | [optional] 
 **ShipSeparatelyAdditionalWeight** | [**Weight**](Weight.md) |  | [optional] 
 **ShipSeparatelyHeight** | [**Distance**](Distance.md) |  | [optional] 

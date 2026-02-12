@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**GetInventorySnapshot**](ItemApi.md#getinventorysnapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**GetItem**](ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**GetItemByMerchantItemId**](ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
+[**GetItemShippingDistributionCenterByCode**](ItemApi.md#getitemshippingdistributioncenterbycode) | **GET** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Retrieve an item shipping distribution center
 [**GetItems**](ItemApi.md#getitems) | **GET** /item/items | Retrieve items
 [**GetPricingTiers**](ItemApi.md#getpricingtiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
 [**GetReview**](ItemApi.md#getreview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | Get a review
@@ -24,6 +25,8 @@ Method | HTTP request | Description
 [**InsertUpdateItemContentAttribute**](ItemApi.md#insertupdateitemcontentattribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 [**UpdateDigitalItem**](ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**UpdateItem**](ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**UpdateItemInventories**](ItemApi.md#updateiteminventories) | **PUT** /item/items/update_item_inventories | Update item inventories for a distribution center
+[**UpdateItemShippingDistributionCenterByCode**](ItemApi.md#updateitemshippingdistributioncenterbycode) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 [**UpdateItems**](ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
 [**UpdateReview**](ItemApi.md#updatereview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 [**UploadTemporaryMultimedia**](ItemApi.md#uploadtemporarymultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
@@ -624,6 +627,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getitemshippingdistributioncenterbycode"></a>
+# **GetItemShippingDistributionCenterByCode**
+> ItemShippingDistributionCenterResponse GetItemShippingDistributionCenterByCode (int? merchantItemOid, string distributionCenterCode, string expand = null, bool? placeholders = null)
+
+Retrieve an item shipping distribution center
+
+Retrieve an item shipping distribution center. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetItemShippingDistributionCenterByCodeExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var merchantItemOid = 56;  // int? | The item oid to retrieve.
+            var distributionCenterCode = distributionCenterCode_example;  // string | 
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
+
+            try
+            {
+                // Retrieve an item shipping distribution center
+                ItemShippingDistributionCenterResponse result = apiInstance.GetItemShippingDistributionCenterByCode(merchantItemOid, distributionCenterCode, expand, placeholders);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.GetItemShippingDistributionCenterByCode: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantItemOid** | **int?**| The item oid to retrieve. | 
+ **distributionCenterCode** | **string**|  | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
+
+### Return type
+
+[**ItemShippingDistributionCenterResponse**](ItemShippingDistributionCenterResponse.md)
 
 ### Authorization
 
@@ -1391,6 +1466,140 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateiteminventories"></a>
+# **UpdateItemInventories**
+> void UpdateItemInventories (ItemInventoryUpdateRequest itemInventoryUpdateRequest)
+
+Update item inventories for a distribution center
+
+Update item inventories for a distribution center 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateItemInventoriesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var itemInventoryUpdateRequest = new ItemInventoryUpdateRequest(); // ItemInventoryUpdateRequest | Item inventory updates
+
+            try
+            {
+                // Update item inventories for a distribution center
+                apiInstance.UpdateItemInventories(itemInventoryUpdateRequest);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.UpdateItemInventories: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemInventoryUpdateRequest** | [**ItemInventoryUpdateRequest**](ItemInventoryUpdateRequest.md)| Item inventory updates | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateitemshippingdistributioncenterbycode"></a>
+# **UpdateItemShippingDistributionCenterByCode**
+> void UpdateItemShippingDistributionCenterByCode (ItemShippingDistributionCenter itemShippingDistributionCenter, int? merchantItemOid, string distributionCenterCode)
+
+Update an item shipping distribution center
+
+Update an item shipping distribution center 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateItemShippingDistributionCenterByCodeExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var itemShippingDistributionCenter = new ItemShippingDistributionCenter(); // ItemShippingDistributionCenter | Item shipping distribution center
+            var merchantItemOid = 56;  // int? | The item oid to update.
+            var distributionCenterCode = distributionCenterCode_example;  // string | 
+
+            try
+            {
+                // Update an item shipping distribution center
+                apiInstance.UpdateItemShippingDistributionCenterByCode(itemShippingDistributionCenter, merchantItemOid, distributionCenterCode);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.UpdateItemShippingDistributionCenterByCode: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemShippingDistributionCenter** | [**ItemShippingDistributionCenter**](ItemShippingDistributionCenter.md)| Item shipping distribution center | 
+ **merchantItemOid** | **int?**| The item oid to update. | 
+ **distributionCenterCode** | **string**|  | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

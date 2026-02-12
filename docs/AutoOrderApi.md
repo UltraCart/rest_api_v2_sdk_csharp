@@ -14,6 +14,9 @@ Method | HTTP request | Description
 [**GetAutoOrdersByQuery**](AutoOrderApi.md#getautoordersbyquery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
 [**PauseAutoOrder**](AutoOrderApi.md#pauseautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid}/pause | Pause auto order
 [**UpdateAutoOrder**](AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
+[**UpdateAutoOrderItemAddOns**](AutoOrderApi.md#updateautoorderitemaddons) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/add_ons | Update an auto order item add ons
+[**UpdateAutoOrderItemProperties**](AutoOrderApi.md#updateautoorderitemproperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/properties | Update an auto order item properties
+[**UpdateAutoOrderProperties**](AutoOrderApi.md#updateautoorderproperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/properties | Update an auto order properties
 [**UpdateAutoOrdersBatch**](AutoOrderApi.md#updateautoordersbatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
 
@@ -736,6 +739,220 @@ Name | Type | Description  | Notes
  **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to update | 
  **autoOrderOid** | **int?**| The auto order oid to update. | 
  **validateOriginalOrder** | **string**| Validate original order before updating | [optional] 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateautoorderitemaddons"></a>
+# **UpdateAutoOrderItemAddOns**
+> AutoOrderResponse UpdateAutoOrderItemAddOns (AutoOrderAddonItemsUpdateRequest autoOrderAddOnsUpdateRequest, int? autoOrderOid, int? autoOrderItemOid, string expand = null)
+
+Update an auto order item add ons
+
+Update an auto order item add ons.  Returns the auto order based upon expansion 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateAutoOrderItemAddOnsExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new AutoOrderApi(simpleKey);
+
+            var autoOrderAddOnsUpdateRequest = new AutoOrderAddonItemsUpdateRequest(); // AutoOrderAddonItemsUpdateRequest | Auto order add ons update request
+            var autoOrderOid = 56;  // int? | The auto order oid to update.
+            var autoOrderItemOid = 56;  // int? | The auto order item oid to update.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Update an auto order item add ons
+                AutoOrderResponse result = apiInstance.UpdateAutoOrderItemAddOns(autoOrderAddOnsUpdateRequest, autoOrderOid, autoOrderItemOid, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AutoOrderApi.UpdateAutoOrderItemAddOns: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autoOrderAddOnsUpdateRequest** | [**AutoOrderAddonItemsUpdateRequest**](AutoOrderAddonItemsUpdateRequest.md)| Auto order add ons update request | 
+ **autoOrderOid** | **int?**| The auto order oid to update. | 
+ **autoOrderItemOid** | **int?**| The auto order item oid to update. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateautoorderitemproperties"></a>
+# **UpdateAutoOrderItemProperties**
+> AutoOrderResponse UpdateAutoOrderItemProperties (AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, int? autoOrderOid, int? autoOrderItemOid, string expand = null)
+
+Update an auto order item properties
+
+Update an auto order item properties.  Returns the auto order based upon expansion 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateAutoOrderItemPropertiesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new AutoOrderApi(simpleKey);
+
+            var autoOrderPropertiesUpdateRequest = new AutoOrderPropertiesUpdateRequest(); // AutoOrderPropertiesUpdateRequest | Auto order property update request
+            var autoOrderOid = 56;  // int? | The auto order oid to update.
+            var autoOrderItemOid = 56;  // int? | The auto order item oid to update.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Update an auto order item properties
+                AutoOrderResponse result = apiInstance.UpdateAutoOrderItemProperties(autoOrderPropertiesUpdateRequest, autoOrderOid, autoOrderItemOid, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AutoOrderApi.UpdateAutoOrderItemProperties: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autoOrderPropertiesUpdateRequest** | [**AutoOrderPropertiesUpdateRequest**](AutoOrderPropertiesUpdateRequest.md)| Auto order property update request | 
+ **autoOrderOid** | **int?**| The auto order oid to update. | 
+ **autoOrderItemOid** | **int?**| The auto order item oid to update. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateautoorderproperties"></a>
+# **UpdateAutoOrderProperties**
+> AutoOrderResponse UpdateAutoOrderProperties (AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, int? autoOrderOid, string expand = null)
+
+Update an auto order properties
+
+Update an auto order properties.  Returns the auto order based upon expansion 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateAutoOrderPropertiesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new AutoOrderApi(simpleKey);
+
+            var autoOrderPropertiesUpdateRequest = new AutoOrderPropertiesUpdateRequest(); // AutoOrderPropertiesUpdateRequest | Auto order property update request
+            var autoOrderOid = 56;  // int? | The auto order oid to update.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Update an auto order properties
+                AutoOrderResponse result = apiInstance.UpdateAutoOrderProperties(autoOrderPropertiesUpdateRequest, autoOrderOid, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AutoOrderApi.UpdateAutoOrderProperties: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autoOrderPropertiesUpdateRequest** | [**AutoOrderPropertiesUpdateRequest**](AutoOrderPropertiesUpdateRequest.md)| Auto order property update request | 
+ **autoOrderOid** | **int?**| The auto order oid to update. | 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type

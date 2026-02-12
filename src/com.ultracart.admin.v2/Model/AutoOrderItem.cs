@@ -150,6 +150,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoOrderItem" /> class.
         /// </summary>
+        /// <param name="addOns">Array of addon objects instructing which items to add to auto order and how many times they should be added..</param>
         /// <param name="arbitraryItemId">Arbitrary item id that should be rebilled instead of the normal schedule.</param>
         /// <param name="arbitraryPercentageDiscount">An arbitrary percentage discount to provide on future rebills.</param>
         /// <param name="arbitraryQuantity">Arbitrary quantity to rebill.</param>
@@ -175,11 +176,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="paypalPayerId">The PayPal Payer ID tied to this item.</param>
         /// <param name="paypalRecurringPaymentProfileId">The PayPal Profile ID tied to this item.</param>
         /// <param name="preshipmentNoticeSent">True if the preshipment notice associated with the next rebill has been sent.</param>
+        /// <param name="properties">Array of property objects.</param>
         /// <param name="rebillValue">The value of the rebills of this item.</param>
         /// <param name="remainingRepeatCount">The number of rebills remaining before this item is complete.</param>
         /// <param name="simpleSchedule">simpleSchedule.</param>
-        public AutoOrderItem(string arbitraryItemId = default(string), decimal? arbitraryPercentageDiscount = default(decimal?), decimal? arbitraryQuantity = default(decimal?), int? arbitraryScheduleDays = default(int?), decimal? arbitraryUnitCost = default(decimal?), int? arbitraryUnitCostRemainingOrders = default(int?), int? autoOrderItemOid = default(int?), string calculatedNextShipmentDts = default(string), string firstOrderDts = default(string), FrequencyEnum? frequency = default(FrequencyEnum?), List<AutoOrderItemFutureSchedule> futureSchedules = default(List<AutoOrderItemFutureSchedule>), string lastOrderDts = default(string), decimal? lifeTimeValue = default(decimal?), string nextItemId = default(string), string nextPreshipmentNoticeDts = default(string), string nextShipmentDts = default(string), string noOrderAfterDts = default(string), int? numberOfRebills = default(int?), List<AutoOrderItemOption> options = default(List<AutoOrderItemOption>), string originalItemId = default(string), decimal? originalQuantity = default(decimal?), bool? paused = default(bool?), string paypalPayerId = default(string), string paypalRecurringPaymentProfileId = default(string), bool? preshipmentNoticeSent = default(bool?), decimal? rebillValue = default(decimal?), int? remainingRepeatCount = default(int?), AutoOrderItemSimpleSchedule simpleSchedule = default(AutoOrderItemSimpleSchedule))
+        public AutoOrderItem(List<AutoOrderAddonItem> addOns = default(List<AutoOrderAddonItem>), string arbitraryItemId = default(string), decimal? arbitraryPercentageDiscount = default(decimal?), decimal? arbitraryQuantity = default(decimal?), int? arbitraryScheduleDays = default(int?), decimal? arbitraryUnitCost = default(decimal?), int? arbitraryUnitCostRemainingOrders = default(int?), int? autoOrderItemOid = default(int?), string calculatedNextShipmentDts = default(string), string firstOrderDts = default(string), FrequencyEnum? frequency = default(FrequencyEnum?), List<AutoOrderItemFutureSchedule> futureSchedules = default(List<AutoOrderItemFutureSchedule>), string lastOrderDts = default(string), decimal? lifeTimeValue = default(decimal?), string nextItemId = default(string), string nextPreshipmentNoticeDts = default(string), string nextShipmentDts = default(string), string noOrderAfterDts = default(string), int? numberOfRebills = default(int?), List<AutoOrderItemOption> options = default(List<AutoOrderItemOption>), string originalItemId = default(string), decimal? originalQuantity = default(decimal?), bool? paused = default(bool?), string paypalPayerId = default(string), string paypalRecurringPaymentProfileId = default(string), bool? preshipmentNoticeSent = default(bool?), List<AutoOrderProperty> properties = default(List<AutoOrderProperty>), decimal? rebillValue = default(decimal?), int? remainingRepeatCount = default(int?), AutoOrderItemSimpleSchedule simpleSchedule = default(AutoOrderItemSimpleSchedule))
         {
+            this.AddOns = addOns;
             this.ArbitraryItemId = arbitraryItemId;
             this.ArbitraryPercentageDiscount = arbitraryPercentageDiscount;
             this.ArbitraryQuantity = arbitraryQuantity;
@@ -205,11 +208,19 @@ namespace com.ultracart.admin.v2.Model
             this.PaypalPayerId = paypalPayerId;
             this.PaypalRecurringPaymentProfileId = paypalRecurringPaymentProfileId;
             this.PreshipmentNoticeSent = preshipmentNoticeSent;
+            this.Properties = properties;
             this.RebillValue = rebillValue;
             this.RemainingRepeatCount = remainingRepeatCount;
             this.SimpleSchedule = simpleSchedule;
         }
         
+        /// <summary>
+        /// Array of addon objects instructing which items to add to auto order and how many times they should be added.
+        /// </summary>
+        /// <value>Array of addon objects instructing which items to add to auto order and how many times they should be added.</value>
+        [DataMember(Name="add_ons", EmitDefaultValue=false)]
+        public List<AutoOrderAddonItem> AddOns { get; set; }
+
         /// <summary>
         /// Arbitrary item id that should be rebilled instead of the normal schedule
         /// </summary>
@@ -380,6 +391,13 @@ namespace com.ultracart.admin.v2.Model
         public bool? PreshipmentNoticeSent { get; set; }
 
         /// <summary>
+        /// Array of property objects
+        /// </summary>
+        /// <value>Array of property objects</value>
+        [DataMember(Name="properties", EmitDefaultValue=false)]
+        public List<AutoOrderProperty> Properties { get; set; }
+
+        /// <summary>
         /// The value of the rebills of this item
         /// </summary>
         /// <value>The value of the rebills of this item</value>
@@ -407,6 +425,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AutoOrderItem {\n");
+            sb.Append("  AddOns: ").Append(AddOns).Append("\n");
             sb.Append("  ArbitraryItemId: ").Append(ArbitraryItemId).Append("\n");
             sb.Append("  ArbitraryPercentageDiscount: ").Append(ArbitraryPercentageDiscount).Append("\n");
             sb.Append("  ArbitraryQuantity: ").Append(ArbitraryQuantity).Append("\n");
@@ -432,6 +451,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PaypalPayerId: ").Append(PaypalPayerId).Append("\n");
             sb.Append("  PaypalRecurringPaymentProfileId: ").Append(PaypalRecurringPaymentProfileId).Append("\n");
             sb.Append("  PreshipmentNoticeSent: ").Append(PreshipmentNoticeSent).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  RebillValue: ").Append(RebillValue).Append("\n");
             sb.Append("  RemainingRepeatCount: ").Append(RemainingRepeatCount).Append("\n");
             sb.Append("  SimpleSchedule: ").Append(SimpleSchedule).Append("\n");
@@ -469,6 +489,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.AddOns == input.AddOns ||
+                    this.AddOns != null &&
+                    this.AddOns.SequenceEqual(input.AddOns)
+                ) && 
                 (
                     this.ArbitraryItemId == input.ArbitraryItemId ||
                     (this.ArbitraryItemId != null &&
@@ -595,6 +620,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PreshipmentNoticeSent.Equals(input.PreshipmentNoticeSent))
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.RebillValue == input.RebillValue ||
                     (this.RebillValue != null &&
                     this.RebillValue.Equals(input.RebillValue))
@@ -620,6 +650,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AddOns != null)
+                    hashCode = hashCode * 59 + this.AddOns.GetHashCode();
                 if (this.ArbitraryItemId != null)
                     hashCode = hashCode * 59 + this.ArbitraryItemId.GetHashCode();
                 if (this.ArbitraryPercentageDiscount != null)
@@ -670,6 +702,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PaypalRecurringPaymentProfileId.GetHashCode();
                 if (this.PreshipmentNoticeSent != null)
                     hashCode = hashCode * 59 + this.PreshipmentNoticeSent.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 if (this.RebillValue != null)
                     hashCode = hashCode * 59 + this.RebillValue.GetHashCode();
                 if (this.RemainingRepeatCount != null)

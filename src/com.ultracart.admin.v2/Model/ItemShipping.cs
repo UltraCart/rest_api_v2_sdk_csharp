@@ -75,6 +75,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="restrictShipmentOnThursday">Restrict shipment on Thursday.</param>
         /// <param name="restrictShipmentOnTuesday">Restrict shipment on Tuesday.</param>
         /// <param name="restrictShipmentOnWednesday">Restrict shipment on Wednesday.</param>
+        /// <param name="sendToHoldBeforeFulfillment">Send order to hold stage before fulfillment.</param>
         /// <param name="shipSeparately">Ship this item in a separate box.</param>
         /// <param name="shipSeparatelyAdditionalWeight">shipSeparatelyAdditionalWeight.</param>
         /// <param name="shipSeparatelyHeight">shipSeparatelyHeight.</param>
@@ -83,7 +84,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="shipSeparatelyWidth">shipSeparatelyWidth.</param>
         /// <param name="specialProductType">Special product type (USPS Media Mail).</param>
         /// <param name="trackInventory">Track inventory.</param>
-        public ItemShipping(bool? allowBackOrder = default(bool?), bool? amazonFba = default(bool?), int? caseInnerPacks = default(int?), int? caseUnits = default(int?), List<ItemShippingCase> cases = default(List<ItemShippingCase>), bool? collectSerialNumbers = default(bool?), string countryCodeOfOrigin = default(string), string customsDescription = default(string), decimal? customsValue = default(decimal?), bool? deliveryOnFriday = default(bool?), bool? deliveryOnMonday = default(bool?), bool? deliveryOnSaturday = default(bool?), bool? deliveryOnSunday = default(bool?), bool? deliveryOnThursday = default(bool?), bool? deliveryOnTuesday = default(bool?), bool? deliveryOnWednesday = default(bool?), List<ItemShippingDestinationMarkup> destinationMarkups = default(List<ItemShippingDestinationMarkup>), List<ItemShippingDestinationRestriction> destinationRestrictions = default(List<ItemShippingDestinationRestriction>), List<ItemShippingDistributionCenter> distributionCenters = default(List<ItemShippingDistributionCenter>), string eta = default(string), bool? freeShipping = default(bool?), string freightClass = default(string), bool? hazmat = default(bool?), bool? holdForTransmission = default(bool?), bool? includeOnPackingSlip = default(bool?), bool? madeToOrder = default(bool?), int? madeToOrderLeadTime = default(int?), int? maxDaysTimeInTransit = default(int?), List<ItemShippingMethod> methods = default(List<ItemShippingMethod>), bool? noShippingDiscount = default(bool?), List<ItemShippingPackageRequirement> packageRequirements = default(List<ItemShippingPackageRequirement>), string perishableClassName = default(string), int? perishableClassOid = default(int?), bool? preorder = default(bool?), bool? requireDeliveryDate = default(bool?), bool? restrictShipmentOnFriday = default(bool?), bool? restrictShipmentOnMonday = default(bool?), bool? restrictShipmentOnSaturday = default(bool?), bool? restrictShipmentOnSunday = default(bool?), bool? restrictShipmentOnThursday = default(bool?), bool? restrictShipmentOnTuesday = default(bool?), bool? restrictShipmentOnWednesday = default(bool?), bool? shipSeparately = default(bool?), Weight shipSeparatelyAdditionalWeight = default(Weight), Distance shipSeparatelyHeight = default(Distance), Distance shipSeparatelyLength = default(Distance), string shipSeparatelyPackageSpecialType = default(string), Distance shipSeparatelyWidth = default(Distance), string specialProductType = default(string), bool? trackInventory = default(bool?))
+        public ItemShipping(bool? allowBackOrder = default(bool?), bool? amazonFba = default(bool?), int? caseInnerPacks = default(int?), int? caseUnits = default(int?), List<ItemShippingCase> cases = default(List<ItemShippingCase>), bool? collectSerialNumbers = default(bool?), string countryCodeOfOrigin = default(string), string customsDescription = default(string), decimal? customsValue = default(decimal?), bool? deliveryOnFriday = default(bool?), bool? deliveryOnMonday = default(bool?), bool? deliveryOnSaturday = default(bool?), bool? deliveryOnSunday = default(bool?), bool? deliveryOnThursday = default(bool?), bool? deliveryOnTuesday = default(bool?), bool? deliveryOnWednesday = default(bool?), List<ItemShippingDestinationMarkup> destinationMarkups = default(List<ItemShippingDestinationMarkup>), List<ItemShippingDestinationRestriction> destinationRestrictions = default(List<ItemShippingDestinationRestriction>), List<ItemShippingDistributionCenter> distributionCenters = default(List<ItemShippingDistributionCenter>), string eta = default(string), bool? freeShipping = default(bool?), string freightClass = default(string), bool? hazmat = default(bool?), bool? holdForTransmission = default(bool?), bool? includeOnPackingSlip = default(bool?), bool? madeToOrder = default(bool?), int? madeToOrderLeadTime = default(int?), int? maxDaysTimeInTransit = default(int?), List<ItemShippingMethod> methods = default(List<ItemShippingMethod>), bool? noShippingDiscount = default(bool?), List<ItemShippingPackageRequirement> packageRequirements = default(List<ItemShippingPackageRequirement>), string perishableClassName = default(string), int? perishableClassOid = default(int?), bool? preorder = default(bool?), bool? requireDeliveryDate = default(bool?), bool? restrictShipmentOnFriday = default(bool?), bool? restrictShipmentOnMonday = default(bool?), bool? restrictShipmentOnSaturday = default(bool?), bool? restrictShipmentOnSunday = default(bool?), bool? restrictShipmentOnThursday = default(bool?), bool? restrictShipmentOnTuesday = default(bool?), bool? restrictShipmentOnWednesday = default(bool?), bool? sendToHoldBeforeFulfillment = default(bool?), bool? shipSeparately = default(bool?), Weight shipSeparatelyAdditionalWeight = default(Weight), Distance shipSeparatelyHeight = default(Distance), Distance shipSeparatelyLength = default(Distance), string shipSeparatelyPackageSpecialType = default(string), Distance shipSeparatelyWidth = default(Distance), string specialProductType = default(string), bool? trackInventory = default(bool?))
         {
             this.AllowBackOrder = allowBackOrder;
             this.AmazonFba = amazonFba;
@@ -127,6 +128,7 @@ namespace com.ultracart.admin.v2.Model
             this.RestrictShipmentOnThursday = restrictShipmentOnThursday;
             this.RestrictShipmentOnTuesday = restrictShipmentOnTuesday;
             this.RestrictShipmentOnWednesday = restrictShipmentOnWednesday;
+            this.SendToHoldBeforeFulfillment = sendToHoldBeforeFulfillment;
             this.ShipSeparately = shipSeparately;
             this.ShipSeparatelyAdditionalWeight = shipSeparatelyAdditionalWeight;
             this.ShipSeparatelyHeight = shipSeparatelyHeight;
@@ -432,6 +434,13 @@ namespace com.ultracart.admin.v2.Model
         public bool? RestrictShipmentOnWednesday { get; set; }
 
         /// <summary>
+        /// Send order to hold stage before fulfillment
+        /// </summary>
+        /// <value>Send order to hold stage before fulfillment</value>
+        [DataMember(Name="send_to_hold_before_fulfillment", EmitDefaultValue=false)]
+        public bool? SendToHoldBeforeFulfillment { get; set; }
+
+        /// <summary>
         /// Ship this item in a separate box
         /// </summary>
         /// <value>Ship this item in a separate box</value>
@@ -533,6 +542,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  RestrictShipmentOnThursday: ").Append(RestrictShipmentOnThursday).Append("\n");
             sb.Append("  RestrictShipmentOnTuesday: ").Append(RestrictShipmentOnTuesday).Append("\n");
             sb.Append("  RestrictShipmentOnWednesday: ").Append(RestrictShipmentOnWednesday).Append("\n");
+            sb.Append("  SendToHoldBeforeFulfillment: ").Append(SendToHoldBeforeFulfillment).Append("\n");
             sb.Append("  ShipSeparately: ").Append(ShipSeparately).Append("\n");
             sb.Append("  ShipSeparatelyAdditionalWeight: ").Append(ShipSeparatelyAdditionalWeight).Append("\n");
             sb.Append("  ShipSeparatelyHeight: ").Append(ShipSeparatelyHeight).Append("\n");
@@ -786,6 +796,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RestrictShipmentOnWednesday.Equals(input.RestrictShipmentOnWednesday))
                 ) && 
                 (
+                    this.SendToHoldBeforeFulfillment == input.SendToHoldBeforeFulfillment ||
+                    (this.SendToHoldBeforeFulfillment != null &&
+                    this.SendToHoldBeforeFulfillment.Equals(input.SendToHoldBeforeFulfillment))
+                ) && 
+                (
                     this.ShipSeparately == input.ShipSeparately ||
                     (this.ShipSeparately != null &&
                     this.ShipSeparately.Equals(input.ShipSeparately))
@@ -920,6 +935,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RestrictShipmentOnTuesday.GetHashCode();
                 if (this.RestrictShipmentOnWednesday != null)
                     hashCode = hashCode * 59 + this.RestrictShipmentOnWednesday.GetHashCode();
+                if (this.SendToHoldBeforeFulfillment != null)
+                    hashCode = hashCode * 59 + this.SendToHoldBeforeFulfillment.GetHashCode();
                 if (this.ShipSeparately != null)
                     hashCode = hashCode * 59 + this.ShipSeparately.GetHashCode();
                 if (this.ShipSeparatelyAdditionalWeight != null)

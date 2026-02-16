@@ -35,14 +35,16 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="description">Description.</param>
         /// <param name="merchantItemMultimediaOid">Multimedia object identifier.</param>
+        /// <param name="variantDefaultMultimedia">variantDefaultMultimedia.</param>
         /// <param name="variantMerchantItemId">Variant item id.</param>
         /// <param name="variantMerchantItemOid">Variant item object identifier.</param>
         /// <param name="variationOptions">Variation options.</param>
         /// <param name="variations">Variations.</param>
-        public ItemVariantItem(string description = default(string), int? merchantItemMultimediaOid = default(int?), string variantMerchantItemId = default(string), int? variantMerchantItemOid = default(int?), List<string> variationOptions = default(List<string>), List<string> variations = default(List<string>))
+        public ItemVariantItem(string description = default(string), int? merchantItemMultimediaOid = default(int?), ItemContentMultimedia variantDefaultMultimedia = default(ItemContentMultimedia), string variantMerchantItemId = default(string), int? variantMerchantItemOid = default(int?), List<string> variationOptions = default(List<string>), List<string> variations = default(List<string>))
         {
             this.Description = description;
             this.MerchantItemMultimediaOid = merchantItemMultimediaOid;
+            this.VariantDefaultMultimedia = variantDefaultMultimedia;
             this.VariantMerchantItemId = variantMerchantItemId;
             this.VariantMerchantItemOid = variantMerchantItemOid;
             this.VariationOptions = variationOptions;
@@ -62,6 +64,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Multimedia object identifier</value>
         [DataMember(Name="merchant_item_multimedia_oid", EmitDefaultValue=false)]
         public int? MerchantItemMultimediaOid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VariantDefaultMultimedia
+        /// </summary>
+        [DataMember(Name="variant_default_multimedia", EmitDefaultValue=false)]
+        public ItemContentMultimedia VariantDefaultMultimedia { get; set; }
 
         /// <summary>
         /// Variant item id
@@ -101,6 +109,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ItemVariantItem {\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  MerchantItemMultimediaOid: ").Append(MerchantItemMultimediaOid).Append("\n");
+            sb.Append("  VariantDefaultMultimedia: ").Append(VariantDefaultMultimedia).Append("\n");
             sb.Append("  VariantMerchantItemId: ").Append(VariantMerchantItemId).Append("\n");
             sb.Append("  VariantMerchantItemOid: ").Append(VariantMerchantItemOid).Append("\n");
             sb.Append("  VariationOptions: ").Append(VariationOptions).Append("\n");
@@ -150,6 +159,11 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantItemMultimediaOid.Equals(input.MerchantItemMultimediaOid))
                 ) && 
                 (
+                    this.VariantDefaultMultimedia == input.VariantDefaultMultimedia ||
+                    (this.VariantDefaultMultimedia != null &&
+                    this.VariantDefaultMultimedia.Equals(input.VariantDefaultMultimedia))
+                ) && 
+                (
                     this.VariantMerchantItemId == input.VariantMerchantItemId ||
                     (this.VariantMerchantItemId != null &&
                     this.VariantMerchantItemId.Equals(input.VariantMerchantItemId))
@@ -184,6 +198,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.MerchantItemMultimediaOid != null)
                     hashCode = hashCode * 59 + this.MerchantItemMultimediaOid.GetHashCode();
+                if (this.VariantDefaultMultimedia != null)
+                    hashCode = hashCode * 59 + this.VariantDefaultMultimedia.GetHashCode();
                 if (this.VariantMerchantItemId != null)
                     hashCode = hashCode * 59 + this.VariantMerchantItemId.GetHashCode();
                 if (this.VariantMerchantItemOid != null)

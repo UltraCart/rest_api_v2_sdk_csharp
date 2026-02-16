@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** | Description | [optional] 
 **MerchantItemMultimediaOid** | **int?** | Multimedia object identifier | [optional] 
+**VariantDefaultMultimedia** | [**ItemContentMultimedia**](ItemContentMultimedia.md) |  | [optional] 
 **VariantMerchantItemId** | **string** | Variant item id | [optional] 
 **VariantMerchantItemOid** | **int?** | Variant item object identifier | [optional] 
 **VariationOptions** | **List&lt;string&gt;** | Variation options | [optional] 

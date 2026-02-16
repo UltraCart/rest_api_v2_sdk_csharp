@@ -45,9 +45,9 @@ namespace com.ultracart.admin.v2.Model
             Customer = 1,
             
             /// <summary>
-            /// Enum Agent for value:  agent
+            /// Enum Agent for value: agent
             /// </summary>
-            [EnumMember(Value = " agent")]
+            [EnumMember(Value = "agent")]
             Agent = 2
         }
 

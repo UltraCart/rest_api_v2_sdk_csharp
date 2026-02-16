@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **VariantDefaultMultimedia** | [**ItemContentMultimedia**](ItemContentMultimedia.md) |  | [optional] 
 **VariantMerchantItemId** | **string** | Variant item id | [optional] 
 **VariantMerchantItemOid** | **int** | Variant item object identifier | [optional] 
+**VariantPricing** | [**ItemPricing**](ItemPricing.md) |  | [optional] 
 **VariationOptions** | **List&lt;string&gt;** | Variation options | [optional] 
 **Variations** | **List&lt;string&gt;** | Variations | [optional] 
 

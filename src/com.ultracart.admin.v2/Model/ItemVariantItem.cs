@@ -38,15 +38,17 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="variantDefaultMultimedia">variantDefaultMultimedia.</param>
         /// <param name="variantMerchantItemId">Variant item id.</param>
         /// <param name="variantMerchantItemOid">Variant item object identifier.</param>
+        /// <param name="variantPricing">variantPricing.</param>
         /// <param name="variationOptions">Variation options.</param>
         /// <param name="variations">Variations.</param>
-        public ItemVariantItem(string description = default(string), int merchantItemMultimediaOid = default(int), ItemContentMultimedia variantDefaultMultimedia = default(ItemContentMultimedia), string variantMerchantItemId = default(string), int variantMerchantItemOid = default(int), List<string> variationOptions = default(List<string>), List<string> variations = default(List<string>))
+        public ItemVariantItem(string description = default(string), int merchantItemMultimediaOid = default(int), ItemContentMultimedia variantDefaultMultimedia = default(ItemContentMultimedia), string variantMerchantItemId = default(string), int variantMerchantItemOid = default(int), ItemPricing variantPricing = default(ItemPricing), List<string> variationOptions = default(List<string>), List<string> variations = default(List<string>))
         {
             this.Description = description;
             this.MerchantItemMultimediaOid = merchantItemMultimediaOid;
             this.VariantDefaultMultimedia = variantDefaultMultimedia;
             this.VariantMerchantItemId = variantMerchantItemId;
             this.VariantMerchantItemOid = variantMerchantItemOid;
+            this.VariantPricing = variantPricing;
             this.VariationOptions = variationOptions;
             this.Variations = variations;
         }
@@ -86,6 +88,12 @@ namespace com.ultracart.admin.v2.Model
         public int VariantMerchantItemOid { get; set; }
 
         /// <summary>
+        /// Gets or Sets VariantPricing
+        /// </summary>
+        [DataMember(Name="variant_pricing", EmitDefaultValue=false)]
+        public ItemPricing VariantPricing { get; set; }
+
+        /// <summary>
         /// Variation options
         /// </summary>
         /// <value>Variation options</value>
@@ -112,6 +120,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  VariantDefaultMultimedia: ").Append(VariantDefaultMultimedia).Append("\n");
             sb.Append("  VariantMerchantItemId: ").Append(VariantMerchantItemId).Append("\n");
             sb.Append("  VariantMerchantItemOid: ").Append(VariantMerchantItemOid).Append("\n");
+            sb.Append("  VariantPricing: ").Append(VariantPricing).Append("\n");
             sb.Append("  VariationOptions: ").Append(VariationOptions).Append("\n");
             sb.Append("  Variations: ").Append(Variations).Append("\n");
             sb.Append("}\n");
@@ -174,6 +183,11 @@ namespace com.ultracart.admin.v2.Model
                     this.VariantMerchantItemOid.Equals(input.VariantMerchantItemOid))
                 ) && 
                 (
+                    this.VariantPricing == input.VariantPricing ||
+                    (this.VariantPricing != null &&
+                    this.VariantPricing.Equals(input.VariantPricing))
+                ) && 
+                (
                     this.VariationOptions == input.VariationOptions ||
                     this.VariationOptions != null &&
                     input.VariationOptions != null &&
@@ -206,6 +220,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.VariantMerchantItemId.GetHashCode();
                 if (this.VariantMerchantItemOid != null)
                     hashCode = hashCode * 59 + this.VariantMerchantItemOid.GetHashCode();
+                if (this.VariantPricing != null)
+                    hashCode = hashCode * 59 + this.VariantPricing.GetHashCode();
                 if (this.VariationOptions != null)
                     hashCode = hashCode * 59 + this.VariationOptions.GetHashCode();
                 if (this.Variations != null)

@@ -37,6 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="chatUser">chatUser.</param>
         /// <param name="conversationParticipantArn">conversationParticipantArn.</param>
         /// <param name="conversationParticipantName">conversationParticipantName.</param>
+        /// <param name="customerProfile">customerProfile.</param>
         /// <param name="defaultPhoneNumber">The default phone number this agent should use when making an outbound call..</param>
         /// <param name="groupIds">UltraCart Groups this user belongs to.</param>
         /// <param name="jwt">jwt.</param>
@@ -52,12 +53,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="twilioAccounts">twilioAccounts.</param>
         /// <param name="userId">UltraCart User ID.</param>
         /// <param name="websocketUrl">websocketUrl.</param>
-        public ConversationAgentAuth(bool chatAdmin = default(bool), bool chatUser = default(bool), string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string defaultPhoneNumber = default(string), List<int> groupIds = default(List<int>), string jwt = default(string), string merchantId = default(string), bool pbxAdmin = default(bool), string pbxJwt = default(string), bool pbxSupervisor = default(bool), bool pbxUser = default(bool), string pbxVoiceIdentity = default(string), string pbxVoiceToken = default(string), string pbxWorkerToken = default(string), string pbxWorkerTokenV2 = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), int userId = default(int), string websocketUrl = default(string))
+        public ConversationAgentAuth(bool chatAdmin = default(bool), bool chatUser = default(bool), string conversationParticipantArn = default(string), string conversationParticipantName = default(string), bool customerProfile = default(bool), string defaultPhoneNumber = default(string), List<int> groupIds = default(List<int>), string jwt = default(string), string merchantId = default(string), bool pbxAdmin = default(bool), string pbxJwt = default(string), bool pbxSupervisor = default(bool), bool pbxUser = default(bool), string pbxVoiceIdentity = default(string), string pbxVoiceToken = default(string), string pbxWorkerToken = default(string), string pbxWorkerTokenV2 = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), int userId = default(int), string websocketUrl = default(string))
         {
             this.ChatAdmin = chatAdmin;
             this.ChatUser = chatUser;
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
+            this.CustomerProfile = customerProfile;
             this.DefaultPhoneNumber = defaultPhoneNumber;
             this.GroupIds = groupIds;
             this.Jwt = jwt;
@@ -98,6 +100,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="conversation_participant_name", EmitDefaultValue=false)]
         public string ConversationParticipantName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CustomerProfile
+        /// </summary>
+        [DataMember(Name="customer_profile", EmitDefaultValue=false)]
+        public bool CustomerProfile { get; set; }
 
         /// <summary>
         /// The default phone number this agent should use when making an outbound call.
@@ -204,6 +212,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ChatUser: ").Append(ChatUser).Append("\n");
             sb.Append("  ConversationParticipantArn: ").Append(ConversationParticipantArn).Append("\n");
             sb.Append("  ConversationParticipantName: ").Append(ConversationParticipantName).Append("\n");
+            sb.Append("  CustomerProfile: ").Append(CustomerProfile).Append("\n");
             sb.Append("  DefaultPhoneNumber: ").Append(DefaultPhoneNumber).Append("\n");
             sb.Append("  GroupIds: ").Append(GroupIds).Append("\n");
             sb.Append("  Jwt: ").Append(Jwt).Append("\n");
@@ -272,6 +281,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationParticipantName == input.ConversationParticipantName ||
                     (this.ConversationParticipantName != null &&
                     this.ConversationParticipantName.Equals(input.ConversationParticipantName))
+                ) && 
+                (
+                    this.CustomerProfile == input.CustomerProfile ||
+                    (this.CustomerProfile != null &&
+                    this.CustomerProfile.Equals(input.CustomerProfile))
                 ) && 
                 (
                     this.DefaultPhoneNumber == input.DefaultPhoneNumber ||
@@ -369,6 +383,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationParticipantArn.GetHashCode();
                 if (this.ConversationParticipantName != null)
                     hashCode = hashCode * 59 + this.ConversationParticipantName.GetHashCode();
+                if (this.CustomerProfile != null)
+                    hashCode = hashCode * 59 + this.CustomerProfile.GetHashCode();
                 if (this.DefaultPhoneNumber != null)
                     hashCode = hashCode * 59 + this.DefaultPhoneNumber.GetHashCode();
                 if (this.GroupIds != null)

@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **Memberships** | [**List&lt;ListSegmentMembership&gt;**](ListSegmentMembership.md) |  | [optional] 
 **Metrics** | [**List&lt;Metric&gt;**](Metric.md) |  | [optional] 
 **PropertiesList** | [**List&lt;Property&gt;**](Property.md) |  | [optional] 
+**Sms** | **string** |  | [optional] 
+**SmsStop** | **bool** |  | [optional] 
 **SpamComplaint** | **bool** |  | [optional] 
 **SpamComplaintDts** | **string** |  | [optional] 
 

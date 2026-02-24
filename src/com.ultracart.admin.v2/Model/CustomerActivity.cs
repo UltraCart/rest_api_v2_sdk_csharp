@@ -39,9 +39,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="memberships">memberships.</param>
         /// <param name="metrics">metrics.</param>
         /// <param name="propertiesList">propertiesList.</param>
+        /// <param name="sms">sms.</param>
+        /// <param name="smsStop">smsStop.</param>
         /// <param name="spamComplaint">spamComplaint.</param>
         /// <param name="spamComplaintDts">spamComplaintDts.</param>
-        public CustomerActivity(List<Activity> activities = default(List<Activity>), bool? globalUnsubscribed = default(bool?), string globalUnsubscribedDts = default(string), List<ListSegmentMembership> memberships = default(List<ListSegmentMembership>), List<Metric> metrics = default(List<Metric>), List<Property> propertiesList = default(List<Property>), bool? spamComplaint = default(bool?), string spamComplaintDts = default(string))
+        public CustomerActivity(List<Activity> activities = default(List<Activity>), bool? globalUnsubscribed = default(bool?), string globalUnsubscribedDts = default(string), List<ListSegmentMembership> memberships = default(List<ListSegmentMembership>), List<Metric> metrics = default(List<Metric>), List<Property> propertiesList = default(List<Property>), string sms = default(string), bool? smsStop = default(bool?), bool? spamComplaint = default(bool?), string spamComplaintDts = default(string))
         {
             this.Activities = activities;
             this.GlobalUnsubscribed = globalUnsubscribed;
@@ -49,6 +51,8 @@ namespace com.ultracart.admin.v2.Model
             this.Memberships = memberships;
             this.Metrics = metrics;
             this.PropertiesList = propertiesList;
+            this.Sms = sms;
+            this.SmsStop = smsStop;
             this.SpamComplaint = spamComplaint;
             this.SpamComplaintDts = spamComplaintDts;
         }
@@ -90,6 +94,18 @@ namespace com.ultracart.admin.v2.Model
         public List<Property> PropertiesList { get; set; }
 
         /// <summary>
+        /// Gets or Sets Sms
+        /// </summary>
+        [DataMember(Name="sms", EmitDefaultValue=false)]
+        public string Sms { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SmsStop
+        /// </summary>
+        [DataMember(Name="sms_stop", EmitDefaultValue=false)]
+        public bool? SmsStop { get; set; }
+
+        /// <summary>
         /// Gets or Sets SpamComplaint
         /// </summary>
         [DataMember(Name="spam_complaint", EmitDefaultValue=false)]
@@ -115,6 +131,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Memberships: ").Append(Memberships).Append("\n");
             sb.Append("  Metrics: ").Append(Metrics).Append("\n");
             sb.Append("  PropertiesList: ").Append(PropertiesList).Append("\n");
+            sb.Append("  Sms: ").Append(Sms).Append("\n");
+            sb.Append("  SmsStop: ").Append(SmsStop).Append("\n");
             sb.Append("  SpamComplaint: ").Append(SpamComplaint).Append("\n");
             sb.Append("  SpamComplaintDts: ").Append(SpamComplaintDts).Append("\n");
             sb.Append("}\n");
@@ -182,6 +200,16 @@ namespace com.ultracart.admin.v2.Model
                     this.PropertiesList.SequenceEqual(input.PropertiesList)
                 ) && 
                 (
+                    this.Sms == input.Sms ||
+                    (this.Sms != null &&
+                    this.Sms.Equals(input.Sms))
+                ) && 
+                (
+                    this.SmsStop == input.SmsStop ||
+                    (this.SmsStop != null &&
+                    this.SmsStop.Equals(input.SmsStop))
+                ) && 
+                (
                     this.SpamComplaint == input.SpamComplaint ||
                     (this.SpamComplaint != null &&
                     this.SpamComplaint.Equals(input.SpamComplaint))
@@ -214,6 +242,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Metrics.GetHashCode();
                 if (this.PropertiesList != null)
                     hashCode = hashCode * 59 + this.PropertiesList.GetHashCode();
+                if (this.Sms != null)
+                    hashCode = hashCode * 59 + this.Sms.GetHashCode();
+                if (this.SmsStop != null)
+                    hashCode = hashCode * 59 + this.SmsStop.GetHashCode();
                 if (this.SpamComplaint != null)
                     hashCode = hashCode * 59 + this.SpamComplaint.GetHashCode();
                 if (this.SpamComplaintDts != null)

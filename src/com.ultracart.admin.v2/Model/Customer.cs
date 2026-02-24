@@ -81,7 +81,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="qbTaxExemptionReasonCode">QuickBooks tax exemption reason code.</param>
         /// <param name="quotes">Quotes associated with this customer profile.</param>
         /// <param name="quotesSummary">quotesSummary.</param>
-        /// <param name="referralSource">Referral Source.</param>
+        /// <param name="referralSource">Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow..</param>
         /// <param name="reviewer">reviewer.</param>
         /// <param name="salesRepCode">Sales rep code.</param>
         /// <param name="sendSignupNotification">Send signup notification, if true during customer creation, will send a notification..</param>
@@ -498,9 +498,9 @@ namespace com.ultracart.admin.v2.Model
         public CustomerQuotesSummary QuotesSummary { get; set; }
 
         /// <summary>
-        /// Referral Source
+        /// Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow.
         /// </summary>
-        /// <value>Referral Source</value>
+        /// <value>Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow.</value>
         [DataMember(Name="referral_source", EmitDefaultValue=false)]
         public string ReferralSource { get; set; }
 

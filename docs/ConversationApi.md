@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**DeletePbxTimeBased**](ConversationApi.md#deletepbxtimebased) | **DELETE** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Delete pbx timeBased
 [**DeletePbxTimeRange**](ConversationApi.md#deletepbxtimerange) | **DELETE** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Delete pbx timeRange
 [**DeletePbxVoicemailMailbox**](ConversationApi.md#deletepbxvoicemailmailbox) | **DELETE** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Delete pbx voicemailMailbox
+[**DeleteUserPbxAudio**](ConversationApi.md#deleteuserpbxaudio) | **DELETE** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Delete user pbx audio
 [**GetAgentKeepAlive**](ConversationApi.md#getagentkeepalive) | **GET** /conversation/agent/keepalive | Agent keep alive
 [**GetAgentProfile**](ConversationApi.md#getagentprofile) | **GET** /conversation/agent/profile | Get agent profile
 [**GetAgentProfileKnowledgeBase**](ConversationApi.md#getagentprofileknowledgebase) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base | Get the list of knowledge base documents associated with this agent profile
@@ -78,6 +79,8 @@ Method | HTTP request | Description
 [**GetPbxTimeRanges**](ConversationApi.md#getpbxtimeranges) | **GET** /conversation/pbx/time_range | Get pbx timeRanges
 [**GetPbxVoicemailMailbox**](ConversationApi.md#getpbxvoicemailmailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
 [**GetPbxVoicemailMailboxes**](ConversationApi.md#getpbxvoicemailmailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
+[**GetUserPbxAudio**](ConversationApi.md#getuserpbxaudio) | **GET** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Get user pbx audio
+[**GetUserPbxAudios**](ConversationApi.md#getuserpbxaudios) | **GET** /conversation/pbx/audio/user | Get user pbx audios
 [**GetVirtualAgentBudget**](ConversationApi.md#getvirtualagentbudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
 [**GetVirtualAgentCapabilities**](ConversationApi.md#getvirtualagentcapabilities) | **GET** /conversation/virtualagent/capabilities | Get virtual agent capabilities
 [**InsertAgentProfileKnowledgeBaseDocument**](ConversationApi.md#insertagentprofileknowledgebasedocument) | **POST** /conversation/agent/profiles/{user_id}/knowledge_base | Insert a knowledge base document
@@ -94,6 +97,7 @@ Method | HTTP request | Description
 [**InsertPbxTimeBased**](ConversationApi.md#insertpbxtimebased) | **POST** /conversation/pbx/time_based | Insert pbx timeBased
 [**InsertPbxTimeRange**](ConversationApi.md#insertpbxtimerange) | **POST** /conversation/pbx/time_range | Insert pbx timeRange
 [**InsertPbxVoicemailMailbox**](ConversationApi.md#insertpbxvoicemailmailbox) | **POST** /conversation/pbx/voicemail_mailbox | Insert pbx voicemailMailbox
+[**InsertUserPbxAudio**](ConversationApi.md#insertuserpbxaudio) | **POST** /conversation/pbx/audio/user | Insert user pbx audio
 [**JoinConversation**](ConversationApi.md#joinconversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 [**LeaveConversation**](ConversationApi.md#leaveconversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 [**ListenedPbxAgentVoicemail**](ConversationApi.md#listenedpbxagentvoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
@@ -125,6 +129,7 @@ Method | HTTP request | Description
 [**UpdatePbxTimeBased**](ConversationApi.md#updatepbxtimebased) | **PUT** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Update pbx timeBased
 [**UpdatePbxTimeRange**](ConversationApi.md#updatepbxtimerange) | **PUT** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Update pbx timeRange
 [**UpdatePbxVoicemailMailbox**](ConversationApi.md#updatepbxvoicemailmailbox) | **PUT** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Update pbx voicemailMailbox
+[**UpdateUserPbxAudio**](ConversationApi.md#updateuserpbxaudio) | **PUT** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Update user pbx audio
 [**UpdateVirtualAgentBudget**](ConversationApi.md#updatevirtualagentbudget) | **PUT** /conversation/virtualagent/budget | Update virtual agent budget
 [**UpdateVirtualAgentCapabilities**](ConversationApi.md#updatevirtualagentcapabilities) | **PUT** /conversation/virtualagent/capabilities | Update virtual agent capabilities
 
@@ -995,6 +1000,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxVoicemailMailboxResponse**](ConversationPbxVoicemailMailboxResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteUserPbxAudio
+
+> ConversationPbxAudioResponse DeleteUserPbxAudio (string conversationPbxAudioUuid)
+
+Delete user pbx audio
+
+Delete a pbx audio file owned by the authenticated user 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversationPbxAudioUuid** | **string**|  | 
+
+### Return type
+
+[**ConversationPbxAudioResponse**](ConversationPbxAudioResponse.md)
 
 ### Authorization
 
@@ -3966,6 +4023,107 @@ This endpoint does not need any parameter.
 [[Back to README]](../README.md)
 
 
+## GetUserPbxAudio
+
+> ConversationPbxAudioResponse GetUserPbxAudio (string conversationPbxAudioUuid)
+
+Get user pbx audio
+
+Retrieve a pbx audio file owned by the authenticated user 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversationPbxAudioUuid** | **string**|  | 
+
+### Return type
+
+[**ConversationPbxAudioResponse**](ConversationPbxAudioResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetUserPbxAudios
+
+> ConversationPbxAudiosResponse GetUserPbxAudios ()
+
+Get user pbx audios
+
+Retrieve pbx audio files owned by the authenticated user 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationPbxAudiosResponse**](ConversationPbxAudiosResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetVirtualAgentBudget
 
 > ConversationVirtualAgentBudgetResponse GetVirtualAgentBudget ()
@@ -4776,6 +4934,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxVoicemailMailboxResponse**](ConversationPbxVoicemailMailboxResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InsertUserPbxAudio
+
+> ConversationPbxAudioResponse InsertUserPbxAudio (ConversationPbxAudio pbxAudio)
+
+Insert user pbx audio
+
+Insert a pbx audio file for the authenticated user 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbxAudio** | [**ConversationPbxAudio**](ConversationPbxAudio.md)| Pbx Audio | 
+
+### Return type
+
+[**ConversationPbxAudioResponse**](ConversationPbxAudioResponse.md)
 
 ### Authorization
 
@@ -6428,6 +6638,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxVoicemailMailboxResponse**](ConversationPbxVoicemailMailboxResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateUserPbxAudio
+
+> ConversationPbxAudioResponse UpdateUserPbxAudio (string conversationPbxAudioUuid, ConversationPbxAudio pbxAudio)
+
+Update user pbx audio
+
+Update a pbx audio file owned by the authenticated user 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversationPbxAudioUuid** | **string**|  | 
+ **pbxAudio** | [**ConversationPbxAudio**](ConversationPbxAudio.md)| Pbx Audio | 
+
+### Return type
+
+[**ConversationPbxAudioResponse**](ConversationPbxAudioResponse.md)
 
 ### Authorization
 

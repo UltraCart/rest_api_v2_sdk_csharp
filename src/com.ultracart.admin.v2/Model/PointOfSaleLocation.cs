@@ -43,7 +43,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="posLocationOid">Object identifier of the point of sale location..</param>
         /// <param name="postalCode">Postal code.</param>
         /// <param name="stateProvince">State/province.</param>
-        public PointOfSaleLocation(string adddress2 = default(string), string address1 = default(string), string city = default(string), string country = default(string), string distributionCenterCode = default(string), string externalId = default(string), string merchantId = default(string), int posLocationOid = default(int), string postalCode = default(string), string stateProvince = default(string))
+        /// <param name="taxCounty">Tax county associated with this address.  Need when a self managed tax configuration is being used..</param>
+        public PointOfSaleLocation(string adddress2 = default(string), string address1 = default(string), string city = default(string), string country = default(string), string distributionCenterCode = default(string), string externalId = default(string), string merchantId = default(string), int posLocationOid = default(int), string postalCode = default(string), string stateProvince = default(string), string taxCounty = default(string))
         {
             this.Adddress2 = adddress2;
             this.Address1 = address1;
@@ -55,6 +56,7 @@ namespace com.ultracart.admin.v2.Model
             this.PosLocationOid = posLocationOid;
             this.PostalCode = postalCode;
             this.StateProvince = stateProvince;
+            this.TaxCounty = taxCounty;
         }
 
         /// <summary>
@@ -128,6 +130,13 @@ namespace com.ultracart.admin.v2.Model
         public string StateProvince { get; set; }
 
         /// <summary>
+        /// Tax county associated with this address.  Need when a self managed tax configuration is being used.
+        /// </summary>
+        /// <value>Tax county associated with this address.  Need when a self managed tax configuration is being used.</value>
+        [DataMember(Name="tax_county", EmitDefaultValue=false)]
+        public string TaxCounty { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,6 +154,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PosLocationOid: ").Append(PosLocationOid).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  StateProvince: ").Append(StateProvince).Append("\n");
+            sb.Append("  TaxCounty: ").Append(TaxCounty).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -228,6 +238,11 @@ namespace com.ultracart.admin.v2.Model
                     this.StateProvince == input.StateProvince ||
                     (this.StateProvince != null &&
                     this.StateProvince.Equals(input.StateProvince))
+                ) && 
+                (
+                    this.TaxCounty == input.TaxCounty ||
+                    (this.TaxCounty != null &&
+                    this.TaxCounty.Equals(input.TaxCounty))
                 );
         }
 
@@ -260,6 +275,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.StateProvince != null)
                     hashCode = hashCode * 59 + this.StateProvince.GetHashCode();
+                if (this.TaxCounty != null)
+                    hashCode = hashCode * 59 + this.TaxCounty.GetHashCode();
                 return hashCode;
             }
         }
@@ -275,6 +292,13 @@ namespace com.ultracart.admin.v2.Model
             if(this.ExternalId != null && this.ExternalId.Length > 100)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExternalId, length must be less than 100.", new [] { "ExternalId" });
+            }
+
+
+            // TaxCounty (string) maxLength
+            if(this.TaxCounty != null && this.TaxCounty.Length > 32)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxCounty, length must be less than 32.", new [] { "TaxCounty" });
             }
 
 

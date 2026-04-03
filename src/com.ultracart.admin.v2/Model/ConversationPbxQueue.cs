@@ -124,6 +124,18 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="aiTimeoutSeconds">AI timeout seconds.</param>
         /// <param name="announceQueuePosition">If true, the customer is told their queue position upon entering the queue.</param>
         /// <param name="automaticCoachAgentUuid">AI Agent UUID to automatically engage to provide coaching.</param>
+        /// <param name="callbackAnnounceAudioUuid">Custom audio file UUID for the callback offer prompt.</param>
+        /// <param name="callbackAnnounceSay">Custom TTS text for the callback offer prompt.</param>
+        /// <param name="callbackConfirmAudioUuid">Custom audio file UUID for the callback confirmation message.</param>
+        /// <param name="callbackConfirmSay">Custom TTS text for the callback confirmation message.</param>
+        /// <param name="callbackEnabled">If true, the callback option is enabled for this queue.</param>
+        /// <param name="callbackHoursOnly">When true, only offer callbacks during business hours.</param>
+        /// <param name="callbackMaxAttempts">Maximum number of times the system will attempt to call the customer back.</param>
+        /// <param name="callbackMaxOffers">Maximum number of times the callback option is offered to a caller per call.</param>
+        /// <param name="callbackMaxPending">Maximum number of pending callbacks allowed per queue.</param>
+        /// <param name="callbackOfferAfterSeconds">Seconds a caller must wait in queue before the callback option is offered.</param>
+        /// <param name="callbackOfferIntervalSeconds">Seconds between repeat callback offers to the same caller.</param>
+        /// <param name="callbackRetryDelaySeconds">Delay in seconds between callback retry attempts.</param>
         /// <param name="conversationPbxQueueUuid">Conversation Pbx Queue unique identifier.</param>
         /// <param name="conversationVoicemailMailboxUuid">The voicemail mailbox associated with this queue.</param>
         /// <param name="holdConversationPbxAudioUuid">The audio to play while holding in a queue.</param>
@@ -144,12 +156,24 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="waitCriticalSeconds">Wait time in seconds before critical.</param>
         /// <param name="waitWarningSeconds">Wait time in seconds before warning.</param>
         /// <param name="wrapUpSeconds">Wrap up time in seconds.</param>
-        public ConversationPbxQueue(AiPriorityEnum? aiPriority = default(AiPriorityEnum?), int aiTimeoutSeconds = default(int), bool announceQueuePosition = default(bool), string automaticCoachAgentUuid = default(string), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int maxHoldSeconds = default(int), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), NoAgentAvailableSayVoiceEnum? noAgentAvailableSayVoice = default(NoAgentAvailableSayVoiceEnum?), string playAudioUuid = default(string), bool recordCall = default(bool), string say = default(string), SayVoiceEnum? sayVoice = default(SayVoiceEnum?), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool voicemail = default(bool), int waitCriticalSeconds = default(int), int waitWarningSeconds = default(int), int wrapUpSeconds = default(int))
+        public ConversationPbxQueue(AiPriorityEnum? aiPriority = default(AiPriorityEnum?), int aiTimeoutSeconds = default(int), bool announceQueuePosition = default(bool), string automaticCoachAgentUuid = default(string), string callbackAnnounceAudioUuid = default(string), string callbackAnnounceSay = default(string), string callbackConfirmAudioUuid = default(string), string callbackConfirmSay = default(string), bool callbackEnabled = default(bool), bool callbackHoursOnly = default(bool), int callbackMaxAttempts = default(int), int callbackMaxOffers = default(int), int callbackMaxPending = default(int), int callbackOfferAfterSeconds = default(int), int callbackOfferIntervalSeconds = default(int), int callbackRetryDelaySeconds = default(int), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int maxHoldSeconds = default(int), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), NoAgentAvailableSayVoiceEnum? noAgentAvailableSayVoice = default(NoAgentAvailableSayVoiceEnum?), string playAudioUuid = default(string), bool recordCall = default(bool), string say = default(string), SayVoiceEnum? sayVoice = default(SayVoiceEnum?), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool voicemail = default(bool), int waitCriticalSeconds = default(int), int waitWarningSeconds = default(int), int wrapUpSeconds = default(int))
         {
             this.AiPriority = aiPriority;
             this.AiTimeoutSeconds = aiTimeoutSeconds;
             this.AnnounceQueuePosition = announceQueuePosition;
             this.AutomaticCoachAgentUuid = automaticCoachAgentUuid;
+            this.CallbackAnnounceAudioUuid = callbackAnnounceAudioUuid;
+            this.CallbackAnnounceSay = callbackAnnounceSay;
+            this.CallbackConfirmAudioUuid = callbackConfirmAudioUuid;
+            this.CallbackConfirmSay = callbackConfirmSay;
+            this.CallbackEnabled = callbackEnabled;
+            this.CallbackHoursOnly = callbackHoursOnly;
+            this.CallbackMaxAttempts = callbackMaxAttempts;
+            this.CallbackMaxOffers = callbackMaxOffers;
+            this.CallbackMaxPending = callbackMaxPending;
+            this.CallbackOfferAfterSeconds = callbackOfferAfterSeconds;
+            this.CallbackOfferIntervalSeconds = callbackOfferIntervalSeconds;
+            this.CallbackRetryDelaySeconds = callbackRetryDelaySeconds;
             this.ConversationPbxQueueUuid = conversationPbxQueueUuid;
             this.ConversationVoicemailMailboxUuid = conversationVoicemailMailboxUuid;
             this.HoldConversationPbxAudioUuid = holdConversationPbxAudioUuid;
@@ -193,6 +217,90 @@ namespace com.ultracart.admin.v2.Model
         /// <value>AI Agent UUID to automatically engage to provide coaching</value>
         [DataMember(Name="automatic_coach_agent_uuid", EmitDefaultValue=false)]
         public string AutomaticCoachAgentUuid { get; set; }
+
+        /// <summary>
+        /// Custom audio file UUID for the callback offer prompt
+        /// </summary>
+        /// <value>Custom audio file UUID for the callback offer prompt</value>
+        [DataMember(Name="callback_announce_audio_uuid", EmitDefaultValue=false)]
+        public string CallbackAnnounceAudioUuid { get; set; }
+
+        /// <summary>
+        /// Custom TTS text for the callback offer prompt
+        /// </summary>
+        /// <value>Custom TTS text for the callback offer prompt</value>
+        [DataMember(Name="callback_announce_say", EmitDefaultValue=false)]
+        public string CallbackAnnounceSay { get; set; }
+
+        /// <summary>
+        /// Custom audio file UUID for the callback confirmation message
+        /// </summary>
+        /// <value>Custom audio file UUID for the callback confirmation message</value>
+        [DataMember(Name="callback_confirm_audio_uuid", EmitDefaultValue=false)]
+        public string CallbackConfirmAudioUuid { get; set; }
+
+        /// <summary>
+        /// Custom TTS text for the callback confirmation message
+        /// </summary>
+        /// <value>Custom TTS text for the callback confirmation message</value>
+        [DataMember(Name="callback_confirm_say", EmitDefaultValue=false)]
+        public string CallbackConfirmSay { get; set; }
+
+        /// <summary>
+        /// If true, the callback option is enabled for this queue
+        /// </summary>
+        /// <value>If true, the callback option is enabled for this queue</value>
+        [DataMember(Name="callback_enabled", EmitDefaultValue=false)]
+        public bool CallbackEnabled { get; set; }
+
+        /// <summary>
+        /// When true, only offer callbacks during business hours
+        /// </summary>
+        /// <value>When true, only offer callbacks during business hours</value>
+        [DataMember(Name="callback_hours_only", EmitDefaultValue=false)]
+        public bool CallbackHoursOnly { get; set; }
+
+        /// <summary>
+        /// Maximum number of times the system will attempt to call the customer back
+        /// </summary>
+        /// <value>Maximum number of times the system will attempt to call the customer back</value>
+        [DataMember(Name="callback_max_attempts", EmitDefaultValue=false)]
+        public int CallbackMaxAttempts { get; set; }
+
+        /// <summary>
+        /// Maximum number of times the callback option is offered to a caller per call
+        /// </summary>
+        /// <value>Maximum number of times the callback option is offered to a caller per call</value>
+        [DataMember(Name="callback_max_offers", EmitDefaultValue=false)]
+        public int CallbackMaxOffers { get; set; }
+
+        /// <summary>
+        /// Maximum number of pending callbacks allowed per queue
+        /// </summary>
+        /// <value>Maximum number of pending callbacks allowed per queue</value>
+        [DataMember(Name="callback_max_pending", EmitDefaultValue=false)]
+        public int CallbackMaxPending { get; set; }
+
+        /// <summary>
+        /// Seconds a caller must wait in queue before the callback option is offered
+        /// </summary>
+        /// <value>Seconds a caller must wait in queue before the callback option is offered</value>
+        [DataMember(Name="callback_offer_after_seconds", EmitDefaultValue=false)]
+        public int CallbackOfferAfterSeconds { get; set; }
+
+        /// <summary>
+        /// Seconds between repeat callback offers to the same caller
+        /// </summary>
+        /// <value>Seconds between repeat callback offers to the same caller</value>
+        [DataMember(Name="callback_offer_interval_seconds", EmitDefaultValue=false)]
+        public int CallbackOfferIntervalSeconds { get; set; }
+
+        /// <summary>
+        /// Delay in seconds between callback retry attempts
+        /// </summary>
+        /// <value>Delay in seconds between callback retry attempts</value>
+        [DataMember(Name="callback_retry_delay_seconds", EmitDefaultValue=false)]
+        public int CallbackRetryDelaySeconds { get; set; }
 
         /// <summary>
         /// Conversation Pbx Queue unique identifier
@@ -333,6 +441,18 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AiTimeoutSeconds: ").Append(AiTimeoutSeconds).Append("\n");
             sb.Append("  AnnounceQueuePosition: ").Append(AnnounceQueuePosition).Append("\n");
             sb.Append("  AutomaticCoachAgentUuid: ").Append(AutomaticCoachAgentUuid).Append("\n");
+            sb.Append("  CallbackAnnounceAudioUuid: ").Append(CallbackAnnounceAudioUuid).Append("\n");
+            sb.Append("  CallbackAnnounceSay: ").Append(CallbackAnnounceSay).Append("\n");
+            sb.Append("  CallbackConfirmAudioUuid: ").Append(CallbackConfirmAudioUuid).Append("\n");
+            sb.Append("  CallbackConfirmSay: ").Append(CallbackConfirmSay).Append("\n");
+            sb.Append("  CallbackEnabled: ").Append(CallbackEnabled).Append("\n");
+            sb.Append("  CallbackHoursOnly: ").Append(CallbackHoursOnly).Append("\n");
+            sb.Append("  CallbackMaxAttempts: ").Append(CallbackMaxAttempts).Append("\n");
+            sb.Append("  CallbackMaxOffers: ").Append(CallbackMaxOffers).Append("\n");
+            sb.Append("  CallbackMaxPending: ").Append(CallbackMaxPending).Append("\n");
+            sb.Append("  CallbackOfferAfterSeconds: ").Append(CallbackOfferAfterSeconds).Append("\n");
+            sb.Append("  CallbackOfferIntervalSeconds: ").Append(CallbackOfferIntervalSeconds).Append("\n");
+            sb.Append("  CallbackRetryDelaySeconds: ").Append(CallbackRetryDelaySeconds).Append("\n");
             sb.Append("  ConversationPbxQueueUuid: ").Append(ConversationPbxQueueUuid).Append("\n");
             sb.Append("  ConversationVoicemailMailboxUuid: ").Append(ConversationVoicemailMailboxUuid).Append("\n");
             sb.Append("  HoldConversationPbxAudioUuid: ").Append(HoldConversationPbxAudioUuid).Append("\n");
@@ -406,6 +526,66 @@ namespace com.ultracart.admin.v2.Model
                     this.AutomaticCoachAgentUuid == input.AutomaticCoachAgentUuid ||
                     (this.AutomaticCoachAgentUuid != null &&
                     this.AutomaticCoachAgentUuid.Equals(input.AutomaticCoachAgentUuid))
+                ) && 
+                (
+                    this.CallbackAnnounceAudioUuid == input.CallbackAnnounceAudioUuid ||
+                    (this.CallbackAnnounceAudioUuid != null &&
+                    this.CallbackAnnounceAudioUuid.Equals(input.CallbackAnnounceAudioUuid))
+                ) && 
+                (
+                    this.CallbackAnnounceSay == input.CallbackAnnounceSay ||
+                    (this.CallbackAnnounceSay != null &&
+                    this.CallbackAnnounceSay.Equals(input.CallbackAnnounceSay))
+                ) && 
+                (
+                    this.CallbackConfirmAudioUuid == input.CallbackConfirmAudioUuid ||
+                    (this.CallbackConfirmAudioUuid != null &&
+                    this.CallbackConfirmAudioUuid.Equals(input.CallbackConfirmAudioUuid))
+                ) && 
+                (
+                    this.CallbackConfirmSay == input.CallbackConfirmSay ||
+                    (this.CallbackConfirmSay != null &&
+                    this.CallbackConfirmSay.Equals(input.CallbackConfirmSay))
+                ) && 
+                (
+                    this.CallbackEnabled == input.CallbackEnabled ||
+                    (this.CallbackEnabled != null &&
+                    this.CallbackEnabled.Equals(input.CallbackEnabled))
+                ) && 
+                (
+                    this.CallbackHoursOnly == input.CallbackHoursOnly ||
+                    (this.CallbackHoursOnly != null &&
+                    this.CallbackHoursOnly.Equals(input.CallbackHoursOnly))
+                ) && 
+                (
+                    this.CallbackMaxAttempts == input.CallbackMaxAttempts ||
+                    (this.CallbackMaxAttempts != null &&
+                    this.CallbackMaxAttempts.Equals(input.CallbackMaxAttempts))
+                ) && 
+                (
+                    this.CallbackMaxOffers == input.CallbackMaxOffers ||
+                    (this.CallbackMaxOffers != null &&
+                    this.CallbackMaxOffers.Equals(input.CallbackMaxOffers))
+                ) && 
+                (
+                    this.CallbackMaxPending == input.CallbackMaxPending ||
+                    (this.CallbackMaxPending != null &&
+                    this.CallbackMaxPending.Equals(input.CallbackMaxPending))
+                ) && 
+                (
+                    this.CallbackOfferAfterSeconds == input.CallbackOfferAfterSeconds ||
+                    (this.CallbackOfferAfterSeconds != null &&
+                    this.CallbackOfferAfterSeconds.Equals(input.CallbackOfferAfterSeconds))
+                ) && 
+                (
+                    this.CallbackOfferIntervalSeconds == input.CallbackOfferIntervalSeconds ||
+                    (this.CallbackOfferIntervalSeconds != null &&
+                    this.CallbackOfferIntervalSeconds.Equals(input.CallbackOfferIntervalSeconds))
+                ) && 
+                (
+                    this.CallbackRetryDelaySeconds == input.CallbackRetryDelaySeconds ||
+                    (this.CallbackRetryDelaySeconds != null &&
+                    this.CallbackRetryDelaySeconds.Equals(input.CallbackRetryDelaySeconds))
                 ) && 
                 (
                     this.ConversationPbxQueueUuid == input.ConversationPbxQueueUuid ||
@@ -526,6 +706,30 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AnnounceQueuePosition.GetHashCode();
                 if (this.AutomaticCoachAgentUuid != null)
                     hashCode = hashCode * 59 + this.AutomaticCoachAgentUuid.GetHashCode();
+                if (this.CallbackAnnounceAudioUuid != null)
+                    hashCode = hashCode * 59 + this.CallbackAnnounceAudioUuid.GetHashCode();
+                if (this.CallbackAnnounceSay != null)
+                    hashCode = hashCode * 59 + this.CallbackAnnounceSay.GetHashCode();
+                if (this.CallbackConfirmAudioUuid != null)
+                    hashCode = hashCode * 59 + this.CallbackConfirmAudioUuid.GetHashCode();
+                if (this.CallbackConfirmSay != null)
+                    hashCode = hashCode * 59 + this.CallbackConfirmSay.GetHashCode();
+                if (this.CallbackEnabled != null)
+                    hashCode = hashCode * 59 + this.CallbackEnabled.GetHashCode();
+                if (this.CallbackHoursOnly != null)
+                    hashCode = hashCode * 59 + this.CallbackHoursOnly.GetHashCode();
+                if (this.CallbackMaxAttempts != null)
+                    hashCode = hashCode * 59 + this.CallbackMaxAttempts.GetHashCode();
+                if (this.CallbackMaxOffers != null)
+                    hashCode = hashCode * 59 + this.CallbackMaxOffers.GetHashCode();
+                if (this.CallbackMaxPending != null)
+                    hashCode = hashCode * 59 + this.CallbackMaxPending.GetHashCode();
+                if (this.CallbackOfferAfterSeconds != null)
+                    hashCode = hashCode * 59 + this.CallbackOfferAfterSeconds.GetHashCode();
+                if (this.CallbackOfferIntervalSeconds != null)
+                    hashCode = hashCode * 59 + this.CallbackOfferIntervalSeconds.GetHashCode();
+                if (this.CallbackRetryDelaySeconds != null)
+                    hashCode = hashCode * 59 + this.CallbackRetryDelaySeconds.GetHashCode();
                 if (this.ConversationPbxQueueUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxQueueUuid.GetHashCode();
                 if (this.ConversationVoicemailMailboxUuid != null)
@@ -577,6 +781,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CallbackAnnounceAudioUuid (string) maxLength
+            if(this.CallbackAnnounceAudioUuid != null && this.CallbackAnnounceAudioUuid.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CallbackAnnounceAudioUuid, length must be less than 50.", new [] { "CallbackAnnounceAudioUuid" });
+            }
+
+
+            // CallbackConfirmAudioUuid (string) maxLength
+            if(this.CallbackConfirmAudioUuid != null && this.CallbackConfirmAudioUuid.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CallbackConfirmAudioUuid, length must be less than 50.", new [] { "CallbackConfirmAudioUuid" });
+            }
+
+
             // ConversationVoicemailMailboxUuid (string) maxLength
             if(this.ConversationVoicemailMailboxUuid != null && this.ConversationVoicemailMailboxUuid.Length > 50)
             {

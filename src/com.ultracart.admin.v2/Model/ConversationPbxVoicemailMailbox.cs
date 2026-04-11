@@ -31,6 +31,45 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationPbxVoicemailMailbox :  IEquatable<ConversationPbxVoicemailMailbox>, IValidatableObject
     {
         /// <summary>
+        /// Send notices to channel
+        /// </summary>
+        /// <value>Send notices to channel</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SendNoticesToChannelEnum
+        {
+            /// <summary>
+            /// Enum None for value: none
+            /// </summary>
+            [EnumMember(Value = "none")]
+            None = 1,
+
+            /// <summary>
+            /// Enum Email for value: email
+            /// </summary>
+            [EnumMember(Value = "email")]
+            Email = 2,
+
+            /// <summary>
+            /// Enum Zohodeskticket for value: zoho_desk_ticket
+            /// </summary>
+            [EnumMember(Value = "zoho_desk_ticket")]
+            Zohodeskticket = 3,
+
+            /// <summary>
+            /// Enum Ultracarttask for value: ultracart_task
+            /// </summary>
+            [EnumMember(Value = "ultracart_task")]
+            Ultracarttask = 4
+
+        }
+
+        /// <summary>
+        /// Send notices to channel
+        /// </summary>
+        /// <value>Send notices to channel</value>
+        [DataMember(Name="send_notices_to_channel", EmitDefaultValue=false)]
+        public SendNoticesToChannelEnum? SendNoticesToChannel { get; set; }
+        /// <summary>
         /// Voicemail followup say voice
         /// </summary>
         /// <value>Voicemail followup say voice</value>
@@ -116,7 +155,9 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="conversationPbxVoicemailMailboxUuid">Conversation Pbx Voicemail Mailbox UUID.</param>
         /// <param name="merchantId">Merchant Id.</param>
+        /// <param name="sendNoticesToChannel">Send notices to channel.</param>
         /// <param name="sendNoticesToEmail">Send notices to email.</param>
+        /// <param name="sendNoticesToZohoDeskDepartmentId">Send notices to Zoho Desk department id.</param>
         /// <param name="userId">User Id.</param>
         /// <param name="voicemailFollowupPlayAudioUuid">Voicemail follow play audio UUID.</param>
         /// <param name="voicemailFollowupSay">Voicemail followup say.</param>
@@ -126,11 +167,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="voicemailPromptPlayAudioUuid">Voicemail prompt play audio UUID.</param>
         /// <param name="voicemailPromptSay">Voicemail prompt say.</param>
         /// <param name="voicemailPromptSayVoice">Voicemail prompt say voice.</param>
-        public ConversationPbxVoicemailMailbox(string conversationPbxVoicemailMailboxUuid = default(string), string merchantId = default(string), string sendNoticesToEmail = default(string), int userId = default(int), string voicemailFollowupPlayAudioUuid = default(string), string voicemailFollowupSay = default(string), VoicemailFollowupSayVoiceEnum? voicemailFollowupSayVoice = default(VoicemailFollowupSayVoiceEnum?), string voicemailMailboxId = default(string), VoicemailMailboxTypeEnum? voicemailMailboxType = default(VoicemailMailboxTypeEnum?), string voicemailPromptPlayAudioUuid = default(string), string voicemailPromptSay = default(string), VoicemailPromptSayVoiceEnum? voicemailPromptSayVoice = default(VoicemailPromptSayVoiceEnum?))
+        public ConversationPbxVoicemailMailbox(string conversationPbxVoicemailMailboxUuid = default(string), string merchantId = default(string), SendNoticesToChannelEnum? sendNoticesToChannel = default(SendNoticesToChannelEnum?), string sendNoticesToEmail = default(string), string sendNoticesToZohoDeskDepartmentId = default(string), int userId = default(int), string voicemailFollowupPlayAudioUuid = default(string), string voicemailFollowupSay = default(string), VoicemailFollowupSayVoiceEnum? voicemailFollowupSayVoice = default(VoicemailFollowupSayVoiceEnum?), string voicemailMailboxId = default(string), VoicemailMailboxTypeEnum? voicemailMailboxType = default(VoicemailMailboxTypeEnum?), string voicemailPromptPlayAudioUuid = default(string), string voicemailPromptSay = default(string), VoicemailPromptSayVoiceEnum? voicemailPromptSayVoice = default(VoicemailPromptSayVoiceEnum?))
         {
             this.ConversationPbxVoicemailMailboxUuid = conversationPbxVoicemailMailboxUuid;
             this.MerchantId = merchantId;
+            this.SendNoticesToChannel = sendNoticesToChannel;
             this.SendNoticesToEmail = sendNoticesToEmail;
+            this.SendNoticesToZohoDeskDepartmentId = sendNoticesToZohoDeskDepartmentId;
             this.UserId = userId;
             this.VoicemailFollowupPlayAudioUuid = voicemailFollowupPlayAudioUuid;
             this.VoicemailFollowupSay = voicemailFollowupSay;
@@ -156,12 +199,20 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="merchant_id", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
 
+
         /// <summary>
         /// Send notices to email
         /// </summary>
         /// <value>Send notices to email</value>
         [DataMember(Name="send_notices_to_email", EmitDefaultValue=false)]
         public string SendNoticesToEmail { get; set; }
+
+        /// <summary>
+        /// Send notices to Zoho Desk department id
+        /// </summary>
+        /// <value>Send notices to Zoho Desk department id</value>
+        [DataMember(Name="send_notices_to_zoho_desk_department_id", EmitDefaultValue=false)]
+        public string SendNoticesToZohoDeskDepartmentId { get; set; }
 
         /// <summary>
         /// User Id
@@ -218,7 +269,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ConversationPbxVoicemailMailbox {\n");
             sb.Append("  ConversationPbxVoicemailMailboxUuid: ").Append(ConversationPbxVoicemailMailboxUuid).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  SendNoticesToChannel: ").Append(SendNoticesToChannel).Append("\n");
             sb.Append("  SendNoticesToEmail: ").Append(SendNoticesToEmail).Append("\n");
+            sb.Append("  SendNoticesToZohoDeskDepartmentId: ").Append(SendNoticesToZohoDeskDepartmentId).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  VoicemailFollowupPlayAudioUuid: ").Append(VoicemailFollowupPlayAudioUuid).Append("\n");
             sb.Append("  VoicemailFollowupSay: ").Append(VoicemailFollowupSay).Append("\n");
@@ -273,9 +326,19 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
+                    this.SendNoticesToChannel == input.SendNoticesToChannel ||
+                    (this.SendNoticesToChannel != null &&
+                    this.SendNoticesToChannel.Equals(input.SendNoticesToChannel))
+                ) && 
+                (
                     this.SendNoticesToEmail == input.SendNoticesToEmail ||
                     (this.SendNoticesToEmail != null &&
                     this.SendNoticesToEmail.Equals(input.SendNoticesToEmail))
+                ) && 
+                (
+                    this.SendNoticesToZohoDeskDepartmentId == input.SendNoticesToZohoDeskDepartmentId ||
+                    (this.SendNoticesToZohoDeskDepartmentId != null &&
+                    this.SendNoticesToZohoDeskDepartmentId.Equals(input.SendNoticesToZohoDeskDepartmentId))
                 ) && 
                 (
                     this.UserId == input.UserId ||
@@ -337,8 +400,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationPbxVoicemailMailboxUuid.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.SendNoticesToChannel != null)
+                    hashCode = hashCode * 59 + this.SendNoticesToChannel.GetHashCode();
                 if (this.SendNoticesToEmail != null)
                     hashCode = hashCode * 59 + this.SendNoticesToEmail.GetHashCode();
+                if (this.SendNoticesToZohoDeskDepartmentId != null)
+                    hashCode = hashCode * 59 + this.SendNoticesToZohoDeskDepartmentId.GetHashCode();
                 if (this.UserId != null)
                     hashCode = hashCode * 59 + this.UserId.GetHashCode();
                 if (this.VoicemailFollowupPlayAudioUuid != null)
@@ -382,10 +449,24 @@ namespace com.ultracart.admin.v2.Model
             }
 
 
+            // SendNoticesToChannel (string) maxLength
+            if(this.SendNoticesToChannel != null && this.SendNoticesToChannel.ToString().Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SendNoticesToChannel, length must be less than 50.", new [] { "SendNoticesToChannel" });
+            }
+
+
             // SendNoticesToEmail (string) maxLength
             if(this.SendNoticesToEmail != null && this.SendNoticesToEmail.Length > 250)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SendNoticesToEmail, length must be less than 250.", new [] { "SendNoticesToEmail" });
+            }
+
+
+            // SendNoticesToZohoDeskDepartmentId (string) maxLength
+            if(this.SendNoticesToZohoDeskDepartmentId != null && this.SendNoticesToZohoDeskDepartmentId.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SendNoticesToZohoDeskDepartmentId, length must be less than 50.", new [] { "SendNoticesToZohoDeskDepartmentId" });
             }
 
 

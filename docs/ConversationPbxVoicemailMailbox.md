@@ -7,7 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConversationPbxVoicemailMailboxUuid** | **string** | Conversation Pbx Voicemail Mailbox UUID | [optional] 
 **MerchantId** | **string** | Merchant Id | [optional] 
+**SendNoticesToChannel** | **string** | Send notices to channel | [optional] 
 **SendNoticesToEmail** | **string** | Send notices to email | [optional] 
+**SendNoticesToZohoDeskDepartmentId** | **string** | Send notices to Zoho Desk department id | [optional] 
 **UserId** | **int** | User Id | [optional] 
 **VoicemailFollowupPlayAudioUuid** | **string** | Voicemail follow play audio UUID | [optional] 
 **VoicemailFollowupSay** | **string** | Voicemail followup say | [optional] 

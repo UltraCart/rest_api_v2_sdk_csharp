@@ -1545,6 +1545,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationPbxTimeRangesResponse</returns>
         ApiResponse<ConversationPbxTimeRangesResponse> GetPbxTimeRangesWithHttpInfo ();
         /// <summary>
+        /// Get pbx voicemail capabilities
+        /// </summary>
+        /// <remarks>
+        /// Retrieve voicemail notification capabilities including available channels 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationPbxVoicemailCapabilitiesResponse</returns>
+        ConversationPbxVoicemailCapabilitiesResponse GetPbxVoicemailCapabilities ();
+
+        /// <summary>
+        /// Get pbx voicemail capabilities
+        /// </summary>
+        /// <remarks>
+        /// Retrieve voicemail notification capabilities including available channels 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationPbxVoicemailCapabilitiesResponse</returns>
+        ApiResponse<ConversationPbxVoicemailCapabilitiesResponse> GetPbxVoicemailCapabilitiesWithHttpInfo ();
+        /// <summary>
         /// Get pbx voicemailMailbox
         /// </summary>
         /// <remarks>
@@ -4422,6 +4441,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ConversationPbxTimeRangesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationPbxTimeRangesResponse>> GetPbxTimeRangesWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get pbx voicemail capabilities
+        /// </summary>
+        /// <remarks>
+        /// Retrieve voicemail notification capabilities including available channels 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ConversationPbxVoicemailCapabilitiesResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxVoicemailCapabilitiesResponse> GetPbxVoicemailCapabilitiesAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get pbx voicemail capabilities
+        /// </summary>
+        /// <remarks>
+        /// Retrieve voicemail notification capabilities including available channels 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ConversationPbxVoicemailCapabilitiesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxVoicemailCapabilitiesResponse>> GetPbxVoicemailCapabilitiesWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get pbx voicemailMailbox
         /// </summary>
@@ -17219,6 +17259,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationPbxTimeRangesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ConversationPbxTimeRangesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxTimeRangesResponse)));
+        }
+
+        /// <summary>
+        /// Get pbx voicemail capabilities Retrieve voicemail notification capabilities including available channels 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationPbxVoicemailCapabilitiesResponse</returns>
+        public ConversationPbxVoicemailCapabilitiesResponse GetPbxVoicemailCapabilities ()
+        {
+             ApiResponse<ConversationPbxVoicemailCapabilitiesResponse> localVarResponse = GetPbxVoicemailCapabilitiesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get pbx voicemail capabilities Retrieve voicemail notification capabilities including available channels 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationPbxVoicemailCapabilitiesResponse</returns>
+        public ApiResponse<ConversationPbxVoicemailCapabilitiesResponse> GetPbxVoicemailCapabilitiesWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/pbx/voicemail/capabilities";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPbxVoicemailCapabilities", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxVoicemailCapabilitiesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ConversationPbxVoicemailCapabilitiesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxVoicemailCapabilitiesResponse)));
+        }
+
+        /// <summary>
+        /// Get pbx voicemail capabilities Retrieve voicemail notification capabilities including available channels 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ConversationPbxVoicemailCapabilitiesResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxVoicemailCapabilitiesResponse> GetPbxVoicemailCapabilitiesAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ConversationPbxVoicemailCapabilitiesResponse> localVarResponse = await GetPbxVoicemailCapabilitiesWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get pbx voicemail capabilities Retrieve voicemail notification capabilities including available channels 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ConversationPbxVoicemailCapabilitiesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxVoicemailCapabilitiesResponse>> GetPbxVoicemailCapabilitiesWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/conversation/pbx/voicemail/capabilities";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPbxVoicemailCapabilities", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxVoicemailCapabilitiesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ConversationPbxVoicemailCapabilitiesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxVoicemailCapabilitiesResponse)));
         }
 
         /// <summary>

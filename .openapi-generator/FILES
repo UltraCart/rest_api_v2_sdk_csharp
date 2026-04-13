@@ -211,6 +211,7 @@ docs/ConversationPbxCall.md
 docs/ConversationPbxCallAgent.md
 docs/ConversationPbxCallAiCost.md
 docs/ConversationPbxCallAiEngagement.md
+docs/ConversationPbxCallAiSummary.md
 docs/ConversationPbxCallAiToolCall.md
 docs/ConversationPbxCallAiWhisper.md
 docs/ConversationPbxCallCaller.md
@@ -1207,6 +1208,7 @@ src/com.ultracart.admin.v2/Model/ConversationPbxCall.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCallAgent.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCallAiCost.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCallAiEngagement.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxCallAiSummary.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCallAiToolCall.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCallAiWhisper.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCallCaller.cs

@@ -36,6 +36,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="accountSid">Twilio account SID.</param>
         /// <param name="agents">List of agents who participated in this call.</param>
         /// <param name="aiAgentEngagements">List of AI agent engagements during the call.</param>
+        /// <param name="aiSummary">aiSummary.</param>
         /// <param name="callSid">Twilio call SID for the primary (customer) call leg.</param>
         /// <param name="callUuid">Unique identifier for this call record.</param>
         /// <param name="caller">caller.</param>
@@ -55,11 +56,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="timeline">timeline.</param>
         /// <param name="transfers">List of transfer events during the call.</param>
         /// <param name="updatedAtDts">Timestamp when the call record was last updated.</param>
-        public ConversationPbxCall(string accountSid = default(string), List<ConversationPbxCallAgent> agents = default(List<ConversationPbxCallAgent>), List<ConversationPbxCallAiEngagement> aiAgentEngagements = default(List<ConversationPbxCallAiEngagement>), string callSid = default(string), string callUuid = default(string), ConversationPbxCallCaller caller = default(ConversationPbxCallCaller), string conferenceSid = default(string), string createdAtDts = default(string), string customerName = default(string), string customerProfileOid = default(string), string disposition = default(string), string email = default(string), ConversationPbxCallFinancial financial = default(ConversationPbxCallFinancial), List<ConversationPbxCallHold> holds = default(List<ConversationPbxCallHold>), string merchantId = default(string), List<string> recordingSids = default(List<string>), List<ConversationPbxCallRecording> recordings = default(List<ConversationPbxCallRecording>), ConversationPbxCallRouting routing = default(ConversationPbxCallRouting), string status = default(string), ConversationPbxCallTimeline timeline = default(ConversationPbxCallTimeline), List<ConversationPbxCallTransfer> transfers = default(List<ConversationPbxCallTransfer>), string updatedAtDts = default(string))
+        /// <param name="zohoDeskTicketId">Zoho Desk ticket ID if a ticket was created for this call.</param>
+        /// <param name="zohoDeskTicketUrl">URL to the Zoho Desk ticket if a ticket was created for this call.</param>
+        public ConversationPbxCall(string accountSid = default(string), List<ConversationPbxCallAgent> agents = default(List<ConversationPbxCallAgent>), List<ConversationPbxCallAiEngagement> aiAgentEngagements = default(List<ConversationPbxCallAiEngagement>), ConversationPbxCallAiSummary aiSummary = default(ConversationPbxCallAiSummary), string callSid = default(string), string callUuid = default(string), ConversationPbxCallCaller caller = default(ConversationPbxCallCaller), string conferenceSid = default(string), string createdAtDts = default(string), string customerName = default(string), string customerProfileOid = default(string), string disposition = default(string), string email = default(string), ConversationPbxCallFinancial financial = default(ConversationPbxCallFinancial), List<ConversationPbxCallHold> holds = default(List<ConversationPbxCallHold>), string merchantId = default(string), List<string> recordingSids = default(List<string>), List<ConversationPbxCallRecording> recordings = default(List<ConversationPbxCallRecording>), ConversationPbxCallRouting routing = default(ConversationPbxCallRouting), string status = default(string), ConversationPbxCallTimeline timeline = default(ConversationPbxCallTimeline), List<ConversationPbxCallTransfer> transfers = default(List<ConversationPbxCallTransfer>), string updatedAtDts = default(string), string zohoDeskTicketId = default(string), string zohoDeskTicketUrl = default(string))
         {
             this.AccountSid = accountSid;
             this.Agents = agents;
             this.AiAgentEngagements = aiAgentEngagements;
+            this.AiSummary = aiSummary;
             this.CallSid = callSid;
             this.CallUuid = callUuid;
             this.Caller = caller;
@@ -79,6 +83,8 @@ namespace com.ultracart.admin.v2.Model
             this.Timeline = timeline;
             this.Transfers = transfers;
             this.UpdatedAtDts = updatedAtDts;
+            this.ZohoDeskTicketId = zohoDeskTicketId;
+            this.ZohoDeskTicketUrl = zohoDeskTicketUrl;
         }
 
         /// <summary>
@@ -101,6 +107,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>List of AI agent engagements during the call</value>
         [DataMember(Name="ai_agent_engagements", EmitDefaultValue=false)]
         public List<ConversationPbxCallAiEngagement> AiAgentEngagements { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AiSummary
+        /// </summary>
+        [DataMember(Name="ai_summary", EmitDefaultValue=false)]
+        public ConversationPbxCallAiSummary AiSummary { get; set; }
 
         /// <summary>
         /// Twilio call SID for the primary (customer) call leg
@@ -232,6 +244,20 @@ namespace com.ultracart.admin.v2.Model
         public string UpdatedAtDts { get; set; }
 
         /// <summary>
+        /// Zoho Desk ticket ID if a ticket was created for this call
+        /// </summary>
+        /// <value>Zoho Desk ticket ID if a ticket was created for this call</value>
+        [DataMember(Name="zoho_desk_ticket_id", EmitDefaultValue=false)]
+        public string ZohoDeskTicketId { get; set; }
+
+        /// <summary>
+        /// URL to the Zoho Desk ticket if a ticket was created for this call
+        /// </summary>
+        /// <value>URL to the Zoho Desk ticket if a ticket was created for this call</value>
+        [DataMember(Name="zoho_desk_ticket_url", EmitDefaultValue=false)]
+        public string ZohoDeskTicketUrl { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -242,6 +268,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AccountSid: ").Append(AccountSid).Append("\n");
             sb.Append("  Agents: ").Append(Agents).Append("\n");
             sb.Append("  AiAgentEngagements: ").Append(AiAgentEngagements).Append("\n");
+            sb.Append("  AiSummary: ").Append(AiSummary).Append("\n");
             sb.Append("  CallSid: ").Append(CallSid).Append("\n");
             sb.Append("  CallUuid: ").Append(CallUuid).Append("\n");
             sb.Append("  Caller: ").Append(Caller).Append("\n");
@@ -261,6 +288,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Timeline: ").Append(Timeline).Append("\n");
             sb.Append("  Transfers: ").Append(Transfers).Append("\n");
             sb.Append("  UpdatedAtDts: ").Append(UpdatedAtDts).Append("\n");
+            sb.Append("  ZohoDeskTicketId: ").Append(ZohoDeskTicketId).Append("\n");
+            sb.Append("  ZohoDeskTicketUrl: ").Append(ZohoDeskTicketUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -311,6 +340,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AiAgentEngagements != null &&
                     input.AiAgentEngagements != null &&
                     this.AiAgentEngagements.SequenceEqual(input.AiAgentEngagements)
+                ) && 
+                (
+                    this.AiSummary == input.AiSummary ||
+                    (this.AiSummary != null &&
+                    this.AiSummary.Equals(input.AiSummary))
                 ) && 
                 (
                     this.CallSid == input.CallSid ||
@@ -410,6 +444,16 @@ namespace com.ultracart.admin.v2.Model
                     this.UpdatedAtDts == input.UpdatedAtDts ||
                     (this.UpdatedAtDts != null &&
                     this.UpdatedAtDts.Equals(input.UpdatedAtDts))
+                ) && 
+                (
+                    this.ZohoDeskTicketId == input.ZohoDeskTicketId ||
+                    (this.ZohoDeskTicketId != null &&
+                    this.ZohoDeskTicketId.Equals(input.ZohoDeskTicketId))
+                ) && 
+                (
+                    this.ZohoDeskTicketUrl == input.ZohoDeskTicketUrl ||
+                    (this.ZohoDeskTicketUrl != null &&
+                    this.ZohoDeskTicketUrl.Equals(input.ZohoDeskTicketUrl))
                 );
         }
 
@@ -428,6 +472,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Agents.GetHashCode();
                 if (this.AiAgentEngagements != null)
                     hashCode = hashCode * 59 + this.AiAgentEngagements.GetHashCode();
+                if (this.AiSummary != null)
+                    hashCode = hashCode * 59 + this.AiSummary.GetHashCode();
                 if (this.CallSid != null)
                     hashCode = hashCode * 59 + this.CallSid.GetHashCode();
                 if (this.CallUuid != null)
@@ -466,6 +512,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Transfers.GetHashCode();
                 if (this.UpdatedAtDts != null)
                     hashCode = hashCode * 59 + this.UpdatedAtDts.GetHashCode();
+                if (this.ZohoDeskTicketId != null)
+                    hashCode = hashCode * 59 + this.ZohoDeskTicketId.GetHashCode();
+                if (this.ZohoDeskTicketUrl != null)
+                    hashCode = hashCode * 59 + this.ZohoDeskTicketUrl.GetHashCode();
                 return hashCode;
             }
         }

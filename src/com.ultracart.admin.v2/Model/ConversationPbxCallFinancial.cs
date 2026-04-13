@@ -36,15 +36,17 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="aiAgentBilledMinutes">Total AI agent billed minutes for this call.</param>
         /// <param name="aiAgentCost">Total AI agent cost for this call.</param>
         /// <param name="aiAgentCostCurrency">Currency for AI agent cost.</param>
+        /// <param name="aiSummaryCost">AI summary generation cost (LLM call made by pbx-transcript-formatter after the call ends).</param>
         /// <param name="callCurrency">Currency for call price (default USD).</param>
         /// <param name="callPrice">Twilio call cost.</param>
         /// <param name="callPriceEstimated">True if call price is a fallback-rate estimate, false if Twilio-confirmed.</param>
         /// <param name="transcriptionCost">AWS Transcribe transcription cost.</param>
-        public ConversationPbxCallFinancial(decimal aiAgentBilledMinutes = default(decimal), decimal aiAgentCost = default(decimal), string aiAgentCostCurrency = default(string), string callCurrency = default(string), decimal callPrice = default(decimal), bool callPriceEstimated = default(bool), decimal transcriptionCost = default(decimal))
+        public ConversationPbxCallFinancial(decimal aiAgentBilledMinutes = default(decimal), decimal aiAgentCost = default(decimal), string aiAgentCostCurrency = default(string), decimal aiSummaryCost = default(decimal), string callCurrency = default(string), decimal callPrice = default(decimal), bool callPriceEstimated = default(bool), decimal transcriptionCost = default(decimal))
         {
             this.AiAgentBilledMinutes = aiAgentBilledMinutes;
             this.AiAgentCost = aiAgentCost;
             this.AiAgentCostCurrency = aiAgentCostCurrency;
+            this.AiSummaryCost = aiSummaryCost;
             this.CallCurrency = callCurrency;
             this.CallPrice = callPrice;
             this.CallPriceEstimated = callPriceEstimated;
@@ -71,6 +73,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Currency for AI agent cost</value>
         [DataMember(Name="ai_agent_cost_currency", EmitDefaultValue=false)]
         public string AiAgentCostCurrency { get; set; }
+
+        /// <summary>
+        /// AI summary generation cost (LLM call made by pbx-transcript-formatter after the call ends)
+        /// </summary>
+        /// <value>AI summary generation cost (LLM call made by pbx-transcript-formatter after the call ends)</value>
+        [DataMember(Name="ai_summary_cost", EmitDefaultValue=false)]
+        public decimal AiSummaryCost { get; set; }
 
         /// <summary>
         /// Currency for call price (default USD)
@@ -111,6 +120,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AiAgentBilledMinutes: ").Append(AiAgentBilledMinutes).Append("\n");
             sb.Append("  AiAgentCost: ").Append(AiAgentCost).Append("\n");
             sb.Append("  AiAgentCostCurrency: ").Append(AiAgentCostCurrency).Append("\n");
+            sb.Append("  AiSummaryCost: ").Append(AiSummaryCost).Append("\n");
             sb.Append("  CallCurrency: ").Append(CallCurrency).Append("\n");
             sb.Append("  CallPrice: ").Append(CallPrice).Append("\n");
             sb.Append("  CallPriceEstimated: ").Append(CallPriceEstimated).Append("\n");
@@ -165,6 +175,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AiAgentCostCurrency.Equals(input.AiAgentCostCurrency))
                 ) && 
                 (
+                    this.AiSummaryCost == input.AiSummaryCost ||
+                    (this.AiSummaryCost != null &&
+                    this.AiSummaryCost.Equals(input.AiSummaryCost))
+                ) && 
+                (
                     this.CallCurrency == input.CallCurrency ||
                     (this.CallCurrency != null &&
                     this.CallCurrency.Equals(input.CallCurrency))
@@ -201,6 +216,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AiAgentCost.GetHashCode();
                 if (this.AiAgentCostCurrency != null)
                     hashCode = hashCode * 59 + this.AiAgentCostCurrency.GetHashCode();
+                if (this.AiSummaryCost != null)
+                    hashCode = hashCode * 59 + this.AiSummaryCost.GetHashCode();
                 if (this.CallCurrency != null)
                     hashCode = hashCode * 59 + this.CallCurrency.GetHashCode();
                 if (this.CallPrice != null)

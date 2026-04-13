@@ -121,6 +121,8 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ConversationPbxQueue" /> class.
         /// </summary>
         /// <param name="aiPriority">AI Agent Priority compared to human agents.</param>
+        /// <param name="aiSummaryEnabled">If true, AI summaries are generated for answered calls in this queue.</param>
+        /// <param name="aiSummaryInstructions">Custom instructions injected into the AI summary system prompt for this queue.</param>
         /// <param name="aiTimeoutSeconds">AI timeout seconds.</param>
         /// <param name="announceQueuePosition">If true, the customer is told their queue position upon entering the queue.</param>
         /// <param name="automaticCoachAgentUuid">AI Agent UUID to automatically engage to provide coaching.</param>
@@ -156,9 +158,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="waitCriticalSeconds">Wait time in seconds before critical.</param>
         /// <param name="waitWarningSeconds">Wait time in seconds before warning.</param>
         /// <param name="wrapUpSeconds">Wrap up time in seconds.</param>
-        public ConversationPbxQueue(AiPriorityEnum? aiPriority = default(AiPriorityEnum?), int aiTimeoutSeconds = default(int), bool announceQueuePosition = default(bool), string automaticCoachAgentUuid = default(string), string callbackAnnounceAudioUuid = default(string), string callbackAnnounceSay = default(string), string callbackConfirmAudioUuid = default(string), string callbackConfirmSay = default(string), bool callbackEnabled = default(bool), bool callbackHoursOnly = default(bool), int callbackMaxAttempts = default(int), int callbackMaxOffers = default(int), int callbackMaxPending = default(int), int callbackOfferAfterSeconds = default(int), int callbackOfferIntervalSeconds = default(int), int callbackRetryDelaySeconds = default(int), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int maxHoldSeconds = default(int), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), NoAgentAvailableSayVoiceEnum? noAgentAvailableSayVoice = default(NoAgentAvailableSayVoiceEnum?), string playAudioUuid = default(string), bool recordCall = default(bool), string say = default(string), SayVoiceEnum? sayVoice = default(SayVoiceEnum?), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool voicemail = default(bool), int waitCriticalSeconds = default(int), int waitWarningSeconds = default(int), int wrapUpSeconds = default(int))
+        /// <param name="zohoDeskDepartmentId">Zoho Desk department ID to create tickets in.</param>
+        /// <param name="zohoDeskTicketEnabled">If true, a Zoho Desk ticket is automatically created for answered calls in this queue.</param>
+        public ConversationPbxQueue(AiPriorityEnum? aiPriority = default(AiPriorityEnum?), bool aiSummaryEnabled = default(bool), string aiSummaryInstructions = default(string), int aiTimeoutSeconds = default(int), bool announceQueuePosition = default(bool), string automaticCoachAgentUuid = default(string), string callbackAnnounceAudioUuid = default(string), string callbackAnnounceSay = default(string), string callbackConfirmAudioUuid = default(string), string callbackConfirmSay = default(string), bool callbackEnabled = default(bool), bool callbackHoursOnly = default(bool), int callbackMaxAttempts = default(int), int callbackMaxOffers = default(int), int callbackMaxPending = default(int), int callbackOfferAfterSeconds = default(int), int callbackOfferIntervalSeconds = default(int), int callbackRetryDelaySeconds = default(int), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int maxHoldSeconds = default(int), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), NoAgentAvailableSayVoiceEnum? noAgentAvailableSayVoice = default(NoAgentAvailableSayVoiceEnum?), string playAudioUuid = default(string), bool recordCall = default(bool), string say = default(string), SayVoiceEnum? sayVoice = default(SayVoiceEnum?), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool voicemail = default(bool), int waitCriticalSeconds = default(int), int waitWarningSeconds = default(int), int wrapUpSeconds = default(int), string zohoDeskDepartmentId = default(string), bool zohoDeskTicketEnabled = default(bool))
         {
             this.AiPriority = aiPriority;
+            this.AiSummaryEnabled = aiSummaryEnabled;
+            this.AiSummaryInstructions = aiSummaryInstructions;
             this.AiTimeoutSeconds = aiTimeoutSeconds;
             this.AnnounceQueuePosition = announceQueuePosition;
             this.AutomaticCoachAgentUuid = automaticCoachAgentUuid;
@@ -194,8 +200,24 @@ namespace com.ultracart.admin.v2.Model
             this.WaitCriticalSeconds = waitCriticalSeconds;
             this.WaitWarningSeconds = waitWarningSeconds;
             this.WrapUpSeconds = wrapUpSeconds;
+            this.ZohoDeskDepartmentId = zohoDeskDepartmentId;
+            this.ZohoDeskTicketEnabled = zohoDeskTicketEnabled;
         }
 
+
+        /// <summary>
+        /// If true, AI summaries are generated for answered calls in this queue
+        /// </summary>
+        /// <value>If true, AI summaries are generated for answered calls in this queue</value>
+        [DataMember(Name="ai_summary_enabled", EmitDefaultValue=false)]
+        public bool AiSummaryEnabled { get; set; }
+
+        /// <summary>
+        /// Custom instructions injected into the AI summary system prompt for this queue
+        /// </summary>
+        /// <value>Custom instructions injected into the AI summary system prompt for this queue</value>
+        [DataMember(Name="ai_summary_instructions", EmitDefaultValue=false)]
+        public string AiSummaryInstructions { get; set; }
 
         /// <summary>
         /// AI timeout seconds
@@ -430,6 +452,20 @@ namespace com.ultracart.admin.v2.Model
         public int WrapUpSeconds { get; set; }
 
         /// <summary>
+        /// Zoho Desk department ID to create tickets in
+        /// </summary>
+        /// <value>Zoho Desk department ID to create tickets in</value>
+        [DataMember(Name="zoho_desk_department_id", EmitDefaultValue=false)]
+        public string ZohoDeskDepartmentId { get; set; }
+
+        /// <summary>
+        /// If true, a Zoho Desk ticket is automatically created for answered calls in this queue
+        /// </summary>
+        /// <value>If true, a Zoho Desk ticket is automatically created for answered calls in this queue</value>
+        [DataMember(Name="zoho_desk_ticket_enabled", EmitDefaultValue=false)]
+        public bool ZohoDeskTicketEnabled { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -438,6 +474,8 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ConversationPbxQueue {\n");
             sb.Append("  AiPriority: ").Append(AiPriority).Append("\n");
+            sb.Append("  AiSummaryEnabled: ").Append(AiSummaryEnabled).Append("\n");
+            sb.Append("  AiSummaryInstructions: ").Append(AiSummaryInstructions).Append("\n");
             sb.Append("  AiTimeoutSeconds: ").Append(AiTimeoutSeconds).Append("\n");
             sb.Append("  AnnounceQueuePosition: ").Append(AnnounceQueuePosition).Append("\n");
             sb.Append("  AutomaticCoachAgentUuid: ").Append(AutomaticCoachAgentUuid).Append("\n");
@@ -473,6 +511,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  WaitCriticalSeconds: ").Append(WaitCriticalSeconds).Append("\n");
             sb.Append("  WaitWarningSeconds: ").Append(WaitWarningSeconds).Append("\n");
             sb.Append("  WrapUpSeconds: ").Append(WrapUpSeconds).Append("\n");
+            sb.Append("  ZohoDeskDepartmentId: ").Append(ZohoDeskDepartmentId).Append("\n");
+            sb.Append("  ZohoDeskTicketEnabled: ").Append(ZohoDeskTicketEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -511,6 +551,16 @@ namespace com.ultracart.admin.v2.Model
                     this.AiPriority == input.AiPriority ||
                     (this.AiPriority != null &&
                     this.AiPriority.Equals(input.AiPriority))
+                ) && 
+                (
+                    this.AiSummaryEnabled == input.AiSummaryEnabled ||
+                    (this.AiSummaryEnabled != null &&
+                    this.AiSummaryEnabled.Equals(input.AiSummaryEnabled))
+                ) && 
+                (
+                    this.AiSummaryInstructions == input.AiSummaryInstructions ||
+                    (this.AiSummaryInstructions != null &&
+                    this.AiSummaryInstructions.Equals(input.AiSummaryInstructions))
                 ) && 
                 (
                     this.AiTimeoutSeconds == input.AiTimeoutSeconds ||
@@ -686,6 +736,16 @@ namespace com.ultracart.admin.v2.Model
                     this.WrapUpSeconds == input.WrapUpSeconds ||
                     (this.WrapUpSeconds != null &&
                     this.WrapUpSeconds.Equals(input.WrapUpSeconds))
+                ) && 
+                (
+                    this.ZohoDeskDepartmentId == input.ZohoDeskDepartmentId ||
+                    (this.ZohoDeskDepartmentId != null &&
+                    this.ZohoDeskDepartmentId.Equals(input.ZohoDeskDepartmentId))
+                ) && 
+                (
+                    this.ZohoDeskTicketEnabled == input.ZohoDeskTicketEnabled ||
+                    (this.ZohoDeskTicketEnabled != null &&
+                    this.ZohoDeskTicketEnabled.Equals(input.ZohoDeskTicketEnabled))
                 );
         }
 
@@ -700,6 +760,10 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AiPriority != null)
                     hashCode = hashCode * 59 + this.AiPriority.GetHashCode();
+                if (this.AiSummaryEnabled != null)
+                    hashCode = hashCode * 59 + this.AiSummaryEnabled.GetHashCode();
+                if (this.AiSummaryInstructions != null)
+                    hashCode = hashCode * 59 + this.AiSummaryInstructions.GetHashCode();
                 if (this.AiTimeoutSeconds != null)
                     hashCode = hashCode * 59 + this.AiTimeoutSeconds.GetHashCode();
                 if (this.AnnounceQueuePosition != null)
@@ -770,6 +834,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.WaitWarningSeconds.GetHashCode();
                 if (this.WrapUpSeconds != null)
                     hashCode = hashCode * 59 + this.WrapUpSeconds.GetHashCode();
+                if (this.ZohoDeskDepartmentId != null)
+                    hashCode = hashCode * 59 + this.ZohoDeskDepartmentId.GetHashCode();
+                if (this.ZohoDeskTicketEnabled != null)
+                    hashCode = hashCode * 59 + this.ZohoDeskTicketEnabled.GetHashCode();
                 return hashCode;
             }
         }
@@ -781,6 +849,13 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AiSummaryInstructions (string) maxLength
+            if(this.AiSummaryInstructions != null && this.AiSummaryInstructions.Length > 100000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AiSummaryInstructions, length must be less than 100000.", new [] { "AiSummaryInstructions" });
+            }
+
+
             // CallbackAnnounceAudioUuid (string) maxLength
             if(this.CallbackAnnounceAudioUuid != null && this.CallbackAnnounceAudioUuid.Length > 50)
             {
@@ -862,6 +937,13 @@ namespace com.ultracart.admin.v2.Model
             if(this.TwilioWorkspaceQueueSid != null && this.TwilioWorkspaceQueueSid.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TwilioWorkspaceQueueSid, length must be less than 50.", new [] { "TwilioWorkspaceQueueSid" });
+            }
+
+
+            // ZohoDeskDepartmentId (string) maxLength
+            if(this.ZohoDeskDepartmentId != null && this.ZohoDeskDepartmentId.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ZohoDeskDepartmentId, length must be less than 50.", new [] { "ZohoDeskDepartmentId" });
             }
 
 

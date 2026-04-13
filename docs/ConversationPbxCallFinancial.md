@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **AiAgentBilledMinutes** | **decimal** | Total AI agent billed minutes for this call | [optional] 
 **AiAgentCost** | **decimal** | Total AI agent cost for this call | [optional] 
 **AiAgentCostCurrency** | **string** | Currency for AI agent cost | [optional] 
+**AiSummaryCost** | **decimal** | AI summary generation cost (LLM call made by pbx-transcript-formatter after the call ends) | [optional] 
 **CallCurrency** | **string** | Currency for call price (default USD) | [optional] 
 **CallPrice** | **decimal** | Twilio call cost | [optional] 
 **CallPriceEstimated** | **bool** | True if call price is a fallback-rate estimate, false if Twilio-confirmed | [optional] 

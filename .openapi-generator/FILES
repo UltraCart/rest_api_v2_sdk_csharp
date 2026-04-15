@@ -34,6 +34,7 @@ docs/AutoOrderAddonItemsUpdateRequest.md
 docs/AutoOrderApi.md
 docs/AutoOrderConsolidate.md
 docs/AutoOrderItem.md
+docs/AutoOrderItemCancelRequest.md
 docs/AutoOrderItemFutureSchedule.md
 docs/AutoOrderItemOption.md
 docs/AutoOrderItemSimpleSchedule.md
@@ -1034,6 +1035,7 @@ src/com.ultracart.admin.v2/Model/AutoOrderAddonItemOption.cs
 src/com.ultracart.admin.v2/Model/AutoOrderAddonItemsUpdateRequest.cs
 src/com.ultracart.admin.v2/Model/AutoOrderConsolidate.cs
 src/com.ultracart.admin.v2/Model/AutoOrderItem.cs
+src/com.ultracart.admin.v2/Model/AutoOrderItemCancelRequest.cs
 src/com.ultracart.admin.v2/Model/AutoOrderItemFutureSchedule.cs
 src/com.ultracart.admin.v2/Model/AutoOrderItemOption.cs
 src/com.ultracart.admin.v2/Model/AutoOrderItemSimpleSchedule.cs

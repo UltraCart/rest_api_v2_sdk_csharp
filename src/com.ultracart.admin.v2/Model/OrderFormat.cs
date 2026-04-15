@@ -88,7 +88,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="showNonSensitivePaymentInfo">True to show non-sensitive payment information.</param>
         /// <param name="showPaymentInfo">True to show payment information.</param>
         /// <param name="translate">True to translate the order into the native language of the customer.</param>
-        public OrderFormat(string context = default(string), bool dontLinkEmailToSearch = default(bool), bool emailAsLink = default(bool), int filterDistributionCenterOid = default(int), int filterToItemsInContainerOid = default(int), FormatEnum? format = default(FormatEnum?), bool hideBillToAddress = default(bool), bool hidePriceInformation = default(bool), bool linkFileAttachments = default(bool), bool showContactInfo = default(bool), bool showInMerchantCurrency = default(bool), bool showInternalInformation = default(bool), bool showMerchantNotes = default(bool), bool showNonSensitivePaymentInfo = default(bool), bool showPaymentInfo = default(bool), bool translate = default(bool))
+        /// <param name="usePhoneNumberWebComponent">True to render phone numbers as &lt;phone-number-format&gt; web components in the HTML output. Only honored by the div format. Default false preserves legacy scalar rendering for receipts and unauthenticated consumers..</param>
+        public OrderFormat(string context = default(string), bool dontLinkEmailToSearch = default(bool), bool emailAsLink = default(bool), int filterDistributionCenterOid = default(int), int filterToItemsInContainerOid = default(int), FormatEnum? format = default(FormatEnum?), bool hideBillToAddress = default(bool), bool hidePriceInformation = default(bool), bool linkFileAttachments = default(bool), bool showContactInfo = default(bool), bool showInMerchantCurrency = default(bool), bool showInternalInformation = default(bool), bool showMerchantNotes = default(bool), bool showNonSensitivePaymentInfo = default(bool), bool showPaymentInfo = default(bool), bool translate = default(bool), bool usePhoneNumberWebComponent = default(bool))
         {
             this.Context = context;
             this.DontLinkEmailToSearch = dontLinkEmailToSearch;
@@ -106,6 +107,7 @@ namespace com.ultracart.admin.v2.Model
             this.ShowNonSensitivePaymentInfo = showNonSensitivePaymentInfo;
             this.ShowPaymentInfo = showPaymentInfo;
             this.Translate = translate;
+            this.UsePhoneNumberWebComponent = usePhoneNumberWebComponent;
         }
 
         /// <summary>
@@ -215,6 +217,13 @@ namespace com.ultracart.admin.v2.Model
         public bool Translate { get; set; }
 
         /// <summary>
+        /// True to render phone numbers as &lt;phone-number-format&gt; web components in the HTML output. Only honored by the div format. Default false preserves legacy scalar rendering for receipts and unauthenticated consumers.
+        /// </summary>
+        /// <value>True to render phone numbers as &lt;phone-number-format&gt; web components in the HTML output. Only honored by the div format. Default false preserves legacy scalar rendering for receipts and unauthenticated consumers.</value>
+        [DataMember(Name="use_phone_number_web_component", EmitDefaultValue=false)]
+        public bool UsePhoneNumberWebComponent { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -238,6 +247,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ShowNonSensitivePaymentInfo: ").Append(ShowNonSensitivePaymentInfo).Append("\n");
             sb.Append("  ShowPaymentInfo: ").Append(ShowPaymentInfo).Append("\n");
             sb.Append("  Translate: ").Append(Translate).Append("\n");
+            sb.Append("  UsePhoneNumberWebComponent: ").Append(UsePhoneNumberWebComponent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -351,6 +361,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Translate == input.Translate ||
                     (this.Translate != null &&
                     this.Translate.Equals(input.Translate))
+                ) && 
+                (
+                    this.UsePhoneNumberWebComponent == input.UsePhoneNumberWebComponent ||
+                    (this.UsePhoneNumberWebComponent != null &&
+                    this.UsePhoneNumberWebComponent.Equals(input.UsePhoneNumberWebComponent))
                 );
         }
 
@@ -395,6 +410,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ShowPaymentInfo.GetHashCode();
                 if (this.Translate != null)
                     hashCode = hashCode * 59 + this.Translate.GetHashCode();
+                if (this.UsePhoneNumberWebComponent != null)
+                    hashCode = hashCode * 59 + this.UsePhoneNumberWebComponent.GetHashCode();
                 return hashCode;
             }
         }

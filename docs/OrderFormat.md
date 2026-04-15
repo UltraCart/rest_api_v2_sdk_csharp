@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **ShowNonSensitivePaymentInfo** | **bool** | True to show non-sensitive payment information | [optional] 
 **ShowPaymentInfo** | **bool** | True to show payment information | [optional] 
 **Translate** | **bool** | True to translate the order into the native language of the customer | [optional] 
+**UsePhoneNumberWebComponent** | **bool** | True to render phone numbers as &lt;phone-number-format&gt; web components in the HTML output. Only honored by the div format. Default false preserves legacy scalar rendering for receipts and unauthenticated consumers. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -26,6 +26,33 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Cancel a single item on an auto order
+        /// </summary>
+        /// <remarks>
+        /// Cancels a single item on an auto order identified by the original order id and the item's original_item_id.  The request body may specify mode=end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode=remove (hard delete).  Returns the updated auto order based upon expansion. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The reference order id (original_order_id) of the auto order.</param>
+        /// <param name="originalItemId">The original_item_id (SKU) of the item to cancel.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="autoOrderItemCancelRequest">Cancel request.  Body is optional; omit for default mode&#x3D;end. (optional)</param>
+        /// <returns>AutoOrderResponse</returns>
+        AutoOrderResponse CancelAutoOrderItemByReferenceOrderId (string referenceOrderId, string originalItemId, string expand = default(string), AutoOrderItemCancelRequest autoOrderItemCancelRequest = default(AutoOrderItemCancelRequest));
+
+        /// <summary>
+        /// Cancel a single item on an auto order
+        /// </summary>
+        /// <remarks>
+        /// Cancels a single item on an auto order identified by the original order id and the item's original_item_id.  The request body may specify mode=end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode=remove (hard delete).  Returns the updated auto order based upon expansion. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The reference order id (original_order_id) of the auto order.</param>
+        /// <param name="originalItemId">The original_item_id (SKU) of the item to cancel.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="autoOrderItemCancelRequest">Cancel request.  Body is optional; omit for default mode&#x3D;end. (optional)</param>
+        /// <returns>ApiResponse of AutoOrderResponse</returns>
+        ApiResponse<AutoOrderResponse> CancelAutoOrderItemByReferenceOrderIdWithHttpInfo (string referenceOrderId, string originalItemId, string expand = default(string), AutoOrderItemCancelRequest autoOrderItemCancelRequest = default(AutoOrderItemCancelRequest));
+        /// <summary>
         /// Consolidates multiple auto orders
         /// </summary>
         /// <remarks>
@@ -419,6 +446,35 @@ namespace com.ultracart.admin.v2.Api
         ApiResponse<AutoOrdersResponse> UpdateAutoOrdersBatchWithHttpInfo (AutoOrdersRequest autoOrdersRequest, string expand = default(string), bool? placeholders = default(bool?), bool? async = default(bool?));
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Cancel a single item on an auto order
+        /// </summary>
+        /// <remarks>
+        /// Cancels a single item on an auto order identified by the original order id and the item's original_item_id.  The request body may specify mode=end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode=remove (hard delete).  Returns the updated auto order based upon expansion. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The reference order id (original_order_id) of the auto order.</param>
+        /// <param name="originalItemId">The original_item_id (SKU) of the item to cancel.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="autoOrderItemCancelRequest">Cancel request.  Body is optional; omit for default mode&#x3D;end. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AutoOrderResponse</returns>
+        System.Threading.Tasks.Task<AutoOrderResponse> CancelAutoOrderItemByReferenceOrderIdAsync (string referenceOrderId, string originalItemId, string expand = default(string), AutoOrderItemCancelRequest autoOrderItemCancelRequest = default(AutoOrderItemCancelRequest), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Cancel a single item on an auto order
+        /// </summary>
+        /// <remarks>
+        /// Cancels a single item on an auto order identified by the original order id and the item's original_item_id.  The request body may specify mode=end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode=remove (hard delete).  Returns the updated auto order based upon expansion. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The reference order id (original_order_id) of the auto order.</param>
+        /// <param name="originalItemId">The original_item_id (SKU) of the item to cancel.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="autoOrderItemCancelRequest">Cancel request.  Body is optional; omit for default mode&#x3D;end. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> CancelAutoOrderItemByReferenceOrderIdWithHttpInfoAsync (string referenceOrderId, string originalItemId, string expand = default(string), AutoOrderItemCancelRequest autoOrderItemCancelRequest = default(AutoOrderItemCancelRequest), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Consolidates multiple auto orders
         /// </summary>
@@ -966,6 +1022,203 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Cancel a single item on an auto order Cancels a single item on an auto order identified by the original order id and the item's original_item_id.  The request body may specify mode=end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode=remove (hard delete).  Returns the updated auto order based upon expansion. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The reference order id (original_order_id) of the auto order.</param>
+        /// <param name="originalItemId">The original_item_id (SKU) of the item to cancel.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="autoOrderItemCancelRequest">Cancel request.  Body is optional; omit for default mode&#x3D;end. (optional)</param>
+        /// <returns>AutoOrderResponse</returns>
+        public AutoOrderResponse CancelAutoOrderItemByReferenceOrderId (string referenceOrderId, string originalItemId, string expand = default(string), AutoOrderItemCancelRequest autoOrderItemCancelRequest = default(AutoOrderItemCancelRequest))
+        {
+             ApiResponse<AutoOrderResponse> localVarResponse = CancelAutoOrderItemByReferenceOrderIdWithHttpInfo(referenceOrderId, originalItemId, expand, autoOrderItemCancelRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Cancel a single item on an auto order Cancels a single item on an auto order identified by the original order id and the item's original_item_id.  The request body may specify mode=end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode=remove (hard delete).  Returns the updated auto order based upon expansion. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The reference order id (original_order_id) of the auto order.</param>
+        /// <param name="originalItemId">The original_item_id (SKU) of the item to cancel.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="autoOrderItemCancelRequest">Cancel request.  Body is optional; omit for default mode&#x3D;end. (optional)</param>
+        /// <returns>ApiResponse of AutoOrderResponse</returns>
+        public ApiResponse<AutoOrderResponse> CancelAutoOrderItemByReferenceOrderIdWithHttpInfo (string referenceOrderId, string originalItemId, string expand = default(string), AutoOrderItemCancelRequest autoOrderItemCancelRequest = default(AutoOrderItemCancelRequest))
+        {
+            // verify the required parameter 'referenceOrderId' is set
+            if (referenceOrderId == null)
+                throw new ApiException(400, "Missing required parameter 'referenceOrderId' when calling AutoOrderApi->CancelAutoOrderItemByReferenceOrderId");
+            // verify the required parameter 'originalItemId' is set
+            if (originalItemId == null)
+                throw new ApiException(400, "Missing required parameter 'originalItemId' when calling AutoOrderApi->CancelAutoOrderItemByReferenceOrderId");
+
+            var localVarPath = "/auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (referenceOrderId != null) localVarPathParams.Add("reference_order_id", this.Configuration.ApiClient.ParameterToString(referenceOrderId)); // path parameter
+            if (originalItemId != null) localVarPathParams.Add("original_item_id", this.Configuration.ApiClient.ParameterToString(originalItemId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderItemCancelRequest != null && autoOrderItemCancelRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autoOrderItemCancelRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderItemCancelRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CancelAutoOrderItemByReferenceOrderId", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
+        }
+
+        /// <summary>
+        /// Cancel a single item on an auto order Cancels a single item on an auto order identified by the original order id and the item's original_item_id.  The request body may specify mode=end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode=remove (hard delete).  Returns the updated auto order based upon expansion. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The reference order id (original_order_id) of the auto order.</param>
+        /// <param name="originalItemId">The original_item_id (SKU) of the item to cancel.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="autoOrderItemCancelRequest">Cancel request.  Body is optional; omit for default mode&#x3D;end. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AutoOrderResponse</returns>
+        public async System.Threading.Tasks.Task<AutoOrderResponse> CancelAutoOrderItemByReferenceOrderIdAsync (string referenceOrderId, string originalItemId, string expand = default(string), AutoOrderItemCancelRequest autoOrderItemCancelRequest = default(AutoOrderItemCancelRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<AutoOrderResponse> localVarResponse = await CancelAutoOrderItemByReferenceOrderIdWithHttpInfoAsync(referenceOrderId, originalItemId, expand, autoOrderItemCancelRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Cancel a single item on an auto order Cancels a single item on an auto order identified by the original order id and the item's original_item_id.  The request body may specify mode=end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode=remove (hard delete).  Returns the updated auto order based upon expansion. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The reference order id (original_order_id) of the auto order.</param>
+        /// <param name="originalItemId">The original_item_id (SKU) of the item to cancel.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="autoOrderItemCancelRequest">Cancel request.  Body is optional; omit for default mode&#x3D;end. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> CancelAutoOrderItemByReferenceOrderIdWithHttpInfoAsync (string referenceOrderId, string originalItemId, string expand = default(string), AutoOrderItemCancelRequest autoOrderItemCancelRequest = default(AutoOrderItemCancelRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'referenceOrderId' is set
+            if (referenceOrderId == null)
+                throw new ApiException(400, "Missing required parameter 'referenceOrderId' when calling AutoOrderApi->CancelAutoOrderItemByReferenceOrderId");
+            // verify the required parameter 'originalItemId' is set
+            if (originalItemId == null)
+                throw new ApiException(400, "Missing required parameter 'originalItemId' when calling AutoOrderApi->CancelAutoOrderItemByReferenceOrderId");
+
+            var localVarPath = "/auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (referenceOrderId != null) localVarPathParams.Add("reference_order_id", this.Configuration.ApiClient.ParameterToString(referenceOrderId)); // path parameter
+            if (originalItemId != null) localVarPathParams.Add("original_item_id", this.Configuration.ApiClient.ParameterToString(originalItemId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderItemCancelRequest != null && autoOrderItemCancelRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autoOrderItemCancelRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderItemCancelRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CancelAutoOrderItemByReferenceOrderId", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
         }
 
         /// <summary>

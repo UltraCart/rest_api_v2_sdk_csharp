@@ -29,7 +29,7 @@ namespace com.ultracart.admin.v2.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "4.1.76";
+        public const string Version = "4.1.77";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -114,7 +114,7 @@ namespace com.ultracart.admin.v2.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "OpenAPI-Generator/4.1.76/csharp";
+            UserAgent = "OpenAPI-Generator/4.1.77/csharp";
             BasePath = "https://secure.ultracart.com/rest/v2";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -187,7 +187,7 @@ namespace com.ultracart.admin.v2.Client
             string tempFolderPath = null,
             string dateTimeFormat = null,
             int timeout = 100000,
-            string userAgent = "OpenAPI-Generator/4.1.76/csharp"
+            string userAgent = "OpenAPI-Generator/4.1.77/csharp"
             // ReSharper restore UnusedParameter.Local
             )
         {
@@ -421,7 +421,7 @@ namespace com.ultracart.admin.v2.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2.0.0\n";
-            report += "    SDK Package Version: 4.1.76\n";
+            report += "    SDK Package Version: 4.1.77\n";
 
             return report;
         }

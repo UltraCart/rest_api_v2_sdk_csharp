@@ -160,6 +160,8 @@ docs/ConversationDepartmentMember.md
 docs/ConversationDepartmentMembersResponse.md
 docs/ConversationDepartmentResponse.md
 docs/ConversationDepartmentsResponse.md
+docs/ConversationEmbedApi.md
+docs/ConversationEmbedPbxAuthResponse.md
 docs/ConversationEngagement.md
 docs/ConversationEngagementEquation.md
 docs/ConversationEngagementEquationFunction.md
@@ -983,6 +985,7 @@ src/com.ultracart.admin.v2/Api/AutoOrderApi.cs
 src/com.ultracart.admin.v2/Api/ChannelPartnerApi.cs
 src/com.ultracart.admin.v2/Api/CheckoutApi.cs
 src/com.ultracart.admin.v2/Api/ConversationApi.cs
+src/com.ultracart.admin.v2/Api/ConversationEmbedApi.cs
 src/com.ultracart.admin.v2/Api/CouponApi.cs
 src/com.ultracart.admin.v2/Api/CustomerApi.cs
 src/com.ultracart.admin.v2/Api/DatawarehouseApi.cs
@@ -1158,6 +1161,7 @@ src/com.ultracart.admin.v2/Model/ConversationDepartmentMember.cs
 src/com.ultracart.admin.v2/Model/ConversationDepartmentMembersResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationDepartmentResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationDepartmentsResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationEmbedPbxAuthResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationEngagement.cs
 src/com.ultracart.admin.v2/Model/ConversationEngagementEquation.cs
 src/com.ultracart.admin.v2/Model/ConversationEngagementEquationFunction.cs

@@ -41,6 +41,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="callUuid">Unique identifier for this call record.</param>
         /// <param name="caller">caller.</param>
         /// <param name="conferenceSid">Twilio conference SID if this call used conferencing.</param>
+        /// <param name="contextMerchantId">Optional child merchant ID this call is attributed to. Null &#x3D; no child attribution (parent-level call)..</param>
         /// <param name="createdAtDts">Timestamp when the call record was created.</param>
         /// <param name="customerName">Customer name associated with this call.</param>
         /// <param name="customerProfileOid">UltraCart customer profile OID if the caller was matched to a customer.</param>
@@ -58,7 +59,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="updatedAtDts">Timestamp when the call record was last updated.</param>
         /// <param name="zohoDeskTicketId">Zoho Desk ticket ID if a ticket was created for this call.</param>
         /// <param name="zohoDeskTicketUrl">URL to the Zoho Desk ticket if a ticket was created for this call.</param>
-        public ConversationPbxCall(string accountSid = default(string), List<ConversationPbxCallAgent> agents = default(List<ConversationPbxCallAgent>), List<ConversationPbxCallAiEngagement> aiAgentEngagements = default(List<ConversationPbxCallAiEngagement>), ConversationPbxCallAiSummary aiSummary = default(ConversationPbxCallAiSummary), string callSid = default(string), string callUuid = default(string), ConversationPbxCallCaller caller = default(ConversationPbxCallCaller), string conferenceSid = default(string), string createdAtDts = default(string), string customerName = default(string), string customerProfileOid = default(string), string disposition = default(string), string email = default(string), ConversationPbxCallFinancial financial = default(ConversationPbxCallFinancial), List<ConversationPbxCallHold> holds = default(List<ConversationPbxCallHold>), string merchantId = default(string), List<string> recordingSids = default(List<string>), List<ConversationPbxCallRecording> recordings = default(List<ConversationPbxCallRecording>), ConversationPbxCallRouting routing = default(ConversationPbxCallRouting), string status = default(string), ConversationPbxCallTimeline timeline = default(ConversationPbxCallTimeline), List<ConversationPbxCallTransfer> transfers = default(List<ConversationPbxCallTransfer>), string updatedAtDts = default(string), string zohoDeskTicketId = default(string), string zohoDeskTicketUrl = default(string))
+        public ConversationPbxCall(string accountSid = default(string), List<ConversationPbxCallAgent> agents = default(List<ConversationPbxCallAgent>), List<ConversationPbxCallAiEngagement> aiAgentEngagements = default(List<ConversationPbxCallAiEngagement>), ConversationPbxCallAiSummary aiSummary = default(ConversationPbxCallAiSummary), string callSid = default(string), string callUuid = default(string), ConversationPbxCallCaller caller = default(ConversationPbxCallCaller), string conferenceSid = default(string), string contextMerchantId = default(string), string createdAtDts = default(string), string customerName = default(string), string customerProfileOid = default(string), string disposition = default(string), string email = default(string), ConversationPbxCallFinancial financial = default(ConversationPbxCallFinancial), List<ConversationPbxCallHold> holds = default(List<ConversationPbxCallHold>), string merchantId = default(string), List<string> recordingSids = default(List<string>), List<ConversationPbxCallRecording> recordings = default(List<ConversationPbxCallRecording>), ConversationPbxCallRouting routing = default(ConversationPbxCallRouting), string status = default(string), ConversationPbxCallTimeline timeline = default(ConversationPbxCallTimeline), List<ConversationPbxCallTransfer> transfers = default(List<ConversationPbxCallTransfer>), string updatedAtDts = default(string), string zohoDeskTicketId = default(string), string zohoDeskTicketUrl = default(string))
         {
             this.AccountSid = accountSid;
             this.Agents = agents;
@@ -68,6 +69,7 @@ namespace com.ultracart.admin.v2.Model
             this.CallUuid = callUuid;
             this.Caller = caller;
             this.ConferenceSid = conferenceSid;
+            this.ContextMerchantId = contextMerchantId;
             this.CreatedAtDts = createdAtDts;
             this.CustomerName = customerName;
             this.CustomerProfileOid = customerProfileOid;
@@ -140,6 +142,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Twilio conference SID if this call used conferencing</value>
         [DataMember(Name="conference_sid", EmitDefaultValue=false)]
         public string ConferenceSid { get; set; }
+
+        /// <summary>
+        /// Optional child merchant ID this call is attributed to. Null &#x3D; no child attribution (parent-level call).
+        /// </summary>
+        /// <value>Optional child merchant ID this call is attributed to. Null &#x3D; no child attribution (parent-level call).</value>
+        [DataMember(Name="context_merchant_id", EmitDefaultValue=false)]
+        public string ContextMerchantId { get; set; }
 
         /// <summary>
         /// Timestamp when the call record was created
@@ -273,6 +282,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CallUuid: ").Append(CallUuid).Append("\n");
             sb.Append("  Caller: ").Append(Caller).Append("\n");
             sb.Append("  ConferenceSid: ").Append(ConferenceSid).Append("\n");
+            sb.Append("  ContextMerchantId: ").Append(ContextMerchantId).Append("\n");
             sb.Append("  CreatedAtDts: ").Append(CreatedAtDts).Append("\n");
             sb.Append("  CustomerName: ").Append(CustomerName).Append("\n");
             sb.Append("  CustomerProfileOid: ").Append(CustomerProfileOid).Append("\n");
@@ -365,6 +375,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ConferenceSid == input.ConferenceSid ||
                     (this.ConferenceSid != null &&
                     this.ConferenceSid.Equals(input.ConferenceSid))
+                ) && 
+                (
+                    this.ContextMerchantId == input.ContextMerchantId ||
+                    (this.ContextMerchantId != null &&
+                    this.ContextMerchantId.Equals(input.ContextMerchantId))
                 ) && 
                 (
                     this.CreatedAtDts == input.CreatedAtDts ||
@@ -482,6 +497,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Caller.GetHashCode();
                 if (this.ConferenceSid != null)
                     hashCode = hashCode * 59 + this.ConferenceSid.GetHashCode();
+                if (this.ContextMerchantId != null)
+                    hashCode = hashCode * 59 + this.ContextMerchantId.GetHashCode();
                 if (this.CreatedAtDts != null)
                     hashCode = hashCode * 59 + this.CreatedAtDts.GetHashCode();
                 if (this.CustomerName != null)

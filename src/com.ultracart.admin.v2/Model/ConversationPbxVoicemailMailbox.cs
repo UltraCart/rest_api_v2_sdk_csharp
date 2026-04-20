@@ -153,6 +153,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxVoicemailMailbox" /> class.
         /// </summary>
+        /// <param name="contextMerchantId">Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group..</param>
         /// <param name="conversationPbxVoicemailMailboxUuid">Conversation Pbx Voicemail Mailbox UUID.</param>
         /// <param name="merchantId">Merchant Id.</param>
         /// <param name="sendNoticesToChannel">Send notices to channel.</param>
@@ -167,8 +168,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="voicemailPromptPlayAudioUuid">Voicemail prompt play audio UUID.</param>
         /// <param name="voicemailPromptSay">Voicemail prompt say.</param>
         /// <param name="voicemailPromptSayVoice">Voicemail prompt say voice.</param>
-        public ConversationPbxVoicemailMailbox(string conversationPbxVoicemailMailboxUuid = default(string), string merchantId = default(string), SendNoticesToChannelEnum? sendNoticesToChannel = default(SendNoticesToChannelEnum?), string sendNoticesToEmail = default(string), string sendNoticesToZohoDeskDepartmentId = default(string), int userId = default(int), string voicemailFollowupPlayAudioUuid = default(string), string voicemailFollowupSay = default(string), VoicemailFollowupSayVoiceEnum? voicemailFollowupSayVoice = default(VoicemailFollowupSayVoiceEnum?), string voicemailMailboxId = default(string), VoicemailMailboxTypeEnum? voicemailMailboxType = default(VoicemailMailboxTypeEnum?), string voicemailPromptPlayAudioUuid = default(string), string voicemailPromptSay = default(string), VoicemailPromptSayVoiceEnum? voicemailPromptSayVoice = default(VoicemailPromptSayVoiceEnum?))
+        public ConversationPbxVoicemailMailbox(string contextMerchantId = default(string), string conversationPbxVoicemailMailboxUuid = default(string), string merchantId = default(string), SendNoticesToChannelEnum? sendNoticesToChannel = default(SendNoticesToChannelEnum?), string sendNoticesToEmail = default(string), string sendNoticesToZohoDeskDepartmentId = default(string), int userId = default(int), string voicemailFollowupPlayAudioUuid = default(string), string voicemailFollowupSay = default(string), VoicemailFollowupSayVoiceEnum? voicemailFollowupSayVoice = default(VoicemailFollowupSayVoiceEnum?), string voicemailMailboxId = default(string), VoicemailMailboxTypeEnum? voicemailMailboxType = default(VoicemailMailboxTypeEnum?), string voicemailPromptPlayAudioUuid = default(string), string voicemailPromptSay = default(string), VoicemailPromptSayVoiceEnum? voicemailPromptSayVoice = default(VoicemailPromptSayVoiceEnum?))
         {
+            this.ContextMerchantId = contextMerchantId;
             this.ConversationPbxVoicemailMailboxUuid = conversationPbxVoicemailMailboxUuid;
             this.MerchantId = merchantId;
             this.SendNoticesToChannel = sendNoticesToChannel;
@@ -184,6 +186,13 @@ namespace com.ultracart.admin.v2.Model
             this.VoicemailPromptSay = voicemailPromptSay;
             this.VoicemailPromptSayVoice = voicemailPromptSayVoice;
         }
+
+        /// <summary>
+        /// Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+        /// </summary>
+        /// <value>Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.</value>
+        [DataMember(Name="context_merchant_id", EmitDefaultValue=false)]
+        public string ContextMerchantId { get; set; }
 
         /// <summary>
         /// Conversation Pbx Voicemail Mailbox UUID
@@ -267,6 +276,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationPbxVoicemailMailbox {\n");
+            sb.Append("  ContextMerchantId: ").Append(ContextMerchantId).Append("\n");
             sb.Append("  ConversationPbxVoicemailMailboxUuid: ").Append(ConversationPbxVoicemailMailboxUuid).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  SendNoticesToChannel: ").Append(SendNoticesToChannel).Append("\n");
@@ -315,6 +325,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.ContextMerchantId == input.ContextMerchantId ||
+                    (this.ContextMerchantId != null &&
+                    this.ContextMerchantId.Equals(input.ContextMerchantId))
+                ) && 
                 (
                     this.ConversationPbxVoicemailMailboxUuid == input.ConversationPbxVoicemailMailboxUuid ||
                     (this.ConversationPbxVoicemailMailboxUuid != null &&
@@ -396,6 +411,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ContextMerchantId != null)
+                    hashCode = hashCode * 59 + this.ContextMerchantId.GetHashCode();
                 if (this.ConversationPbxVoicemailMailboxUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxVoicemailMailboxUuid.GetHashCode();
                 if (this.MerchantId != null)
@@ -435,6 +452,13 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ContextMerchantId (string) maxLength
+            if(this.ContextMerchantId != null && this.ContextMerchantId.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContextMerchantId, length must be less than 20.", new [] { "ContextMerchantId" });
+            }
+
+
             // ConversationPbxVoicemailMailboxUuid (string) maxLength
             if(this.ConversationPbxVoicemailMailboxUuid != null && this.ConversationPbxVoicemailMailboxUuid.Length > 50)
             {

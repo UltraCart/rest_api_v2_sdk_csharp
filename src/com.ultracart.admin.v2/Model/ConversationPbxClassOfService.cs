@@ -35,6 +35,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="allowedCountries">E.164 country calling codes (e.g. 1 for US/Canada, 44 for UK). Empty means domestic only..</param>
         /// <param name="blockPremiumNumbers">Block calls to 900, 976, premium-rate, and shortcode destinations.</param>
+        /// <param name="contextMerchantId">Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group..</param>
         /// <param name="conversationPbxClassOfServiceUuid">Class of Service unique identifier.</param>
         /// <param name="defaultFlag">If true, this CoS applies to all agents without an explicit cos_uuid. Only one per merchant..</param>
         /// <param name="description">Description of the class of service.</param>
@@ -42,10 +43,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="name">Display name for the class of service.</param>
         /// <param name="outboundEnabled">Whether agents with this CoS can make outbound calls.</param>
         /// <param name="timeRangeUuid">UUID of a time range. If set, outbound calls only permitted during those time windows..</param>
-        public ConversationPbxClassOfService(List<string> allowedCountries = default(List<string>), bool blockPremiumNumbers = default(bool), string conversationPbxClassOfServiceUuid = default(string), bool defaultFlag = default(bool), string description = default(string), string merchantId = default(string), string name = default(string), bool outboundEnabled = default(bool), string timeRangeUuid = default(string))
+        public ConversationPbxClassOfService(List<string> allowedCountries = default(List<string>), bool blockPremiumNumbers = default(bool), string contextMerchantId = default(string), string conversationPbxClassOfServiceUuid = default(string), bool defaultFlag = default(bool), string description = default(string), string merchantId = default(string), string name = default(string), bool outboundEnabled = default(bool), string timeRangeUuid = default(string))
         {
             this.AllowedCountries = allowedCountries;
             this.BlockPremiumNumbers = blockPremiumNumbers;
+            this.ContextMerchantId = contextMerchantId;
             this.ConversationPbxClassOfServiceUuid = conversationPbxClassOfServiceUuid;
             this.DefaultFlag = defaultFlag;
             this.Description = description;
@@ -68,6 +70,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Block calls to 900, 976, premium-rate, and shortcode destinations</value>
         [DataMember(Name="block_premium_numbers", EmitDefaultValue=false)]
         public bool BlockPremiumNumbers { get; set; }
+
+        /// <summary>
+        /// Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+        /// </summary>
+        /// <value>Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.</value>
+        [DataMember(Name="context_merchant_id", EmitDefaultValue=false)]
+        public string ContextMerchantId { get; set; }
 
         /// <summary>
         /// Class of Service unique identifier
@@ -128,6 +137,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ConversationPbxClassOfService {\n");
             sb.Append("  AllowedCountries: ").Append(AllowedCountries).Append("\n");
             sb.Append("  BlockPremiumNumbers: ").Append(BlockPremiumNumbers).Append("\n");
+            sb.Append("  ContextMerchantId: ").Append(ContextMerchantId).Append("\n");
             sb.Append("  ConversationPbxClassOfServiceUuid: ").Append(ConversationPbxClassOfServiceUuid).Append("\n");
             sb.Append("  DefaultFlag: ").Append(DefaultFlag).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -181,6 +191,11 @@ namespace com.ultracart.admin.v2.Model
                     this.BlockPremiumNumbers.Equals(input.BlockPremiumNumbers))
                 ) && 
                 (
+                    this.ContextMerchantId == input.ContextMerchantId ||
+                    (this.ContextMerchantId != null &&
+                    this.ContextMerchantId.Equals(input.ContextMerchantId))
+                ) && 
+                (
                     this.ConversationPbxClassOfServiceUuid == input.ConversationPbxClassOfServiceUuid ||
                     (this.ConversationPbxClassOfServiceUuid != null &&
                     this.ConversationPbxClassOfServiceUuid.Equals(input.ConversationPbxClassOfServiceUuid))
@@ -230,6 +245,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AllowedCountries.GetHashCode();
                 if (this.BlockPremiumNumbers != null)
                     hashCode = hashCode * 59 + this.BlockPremiumNumbers.GetHashCode();
+                if (this.ContextMerchantId != null)
+                    hashCode = hashCode * 59 + this.ContextMerchantId.GetHashCode();
                 if (this.ConversationPbxClassOfServiceUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxClassOfServiceUuid.GetHashCode();
                 if (this.DefaultFlag != null)
@@ -255,6 +272,13 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ContextMerchantId (string) maxLength
+            if(this.ContextMerchantId != null && this.ContextMerchantId.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContextMerchantId, length must be less than 20.", new [] { "ContextMerchantId" });
+            }
+
+
             // Description (string) maxLength
             if(this.Description != null && this.Description.Length > 500)
             {

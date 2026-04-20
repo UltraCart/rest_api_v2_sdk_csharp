@@ -34,6 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ConversationPbxAudio" /> class.
         /// </summary>
         /// <param name="audioS3ListingKey">Audio S3 Listing Key.</param>
+        /// <param name="contextMerchantId">Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group..</param>
         /// <param name="conversationPbxAudioUuid">Conversation Pbx Audio UUID.</param>
         /// <param name="defaultHoldMusic">If true, this will be the default hold music.</param>
         /// <param name="description">Description of this audio.</param>
@@ -43,9 +44,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="url">URL.</param>
         /// <param name="userId">User Id.</param>
         /// <param name="version">Version.</param>
-        public ConversationPbxAudio(string audioS3ListingKey = default(string), string conversationPbxAudioUuid = default(string), bool defaultHoldMusic = default(bool), string description = default(string), string filename = default(string), string merchantId = default(string), string mimeType = default(string), string url = default(string), int userId = default(int), int version = default(int))
+        public ConversationPbxAudio(string audioS3ListingKey = default(string), string contextMerchantId = default(string), string conversationPbxAudioUuid = default(string), bool defaultHoldMusic = default(bool), string description = default(string), string filename = default(string), string merchantId = default(string), string mimeType = default(string), string url = default(string), int userId = default(int), int version = default(int))
         {
             this.AudioS3ListingKey = audioS3ListingKey;
+            this.ContextMerchantId = contextMerchantId;
             this.ConversationPbxAudioUuid = conversationPbxAudioUuid;
             this.DefaultHoldMusic = defaultHoldMusic;
             this.Description = description;
@@ -63,6 +65,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Audio S3 Listing Key</value>
         [DataMember(Name="audio_s3_listing_key", EmitDefaultValue=false)]
         public string AudioS3ListingKey { get; set; }
+
+        /// <summary>
+        /// Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+        /// </summary>
+        /// <value>Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.</value>
+        [DataMember(Name="context_merchant_id", EmitDefaultValue=false)]
+        public string ContextMerchantId { get; set; }
 
         /// <summary>
         /// Conversation Pbx Audio UUID
@@ -136,6 +145,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ConversationPbxAudio {\n");
             sb.Append("  AudioS3ListingKey: ").Append(AudioS3ListingKey).Append("\n");
+            sb.Append("  ContextMerchantId: ").Append(ContextMerchantId).Append("\n");
             sb.Append("  ConversationPbxAudioUuid: ").Append(ConversationPbxAudioUuid).Append("\n");
             sb.Append("  DefaultHoldMusic: ").Append(DefaultHoldMusic).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -183,6 +193,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AudioS3ListingKey == input.AudioS3ListingKey ||
                     (this.AudioS3ListingKey != null &&
                     this.AudioS3ListingKey.Equals(input.AudioS3ListingKey))
+                ) && 
+                (
+                    this.ContextMerchantId == input.ContextMerchantId ||
+                    (this.ContextMerchantId != null &&
+                    this.ContextMerchantId.Equals(input.ContextMerchantId))
                 ) && 
                 (
                     this.ConversationPbxAudioUuid == input.ConversationPbxAudioUuid ||
@@ -242,6 +257,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AudioS3ListingKey != null)
                     hashCode = hashCode * 59 + this.AudioS3ListingKey.GetHashCode();
+                if (this.ContextMerchantId != null)
+                    hashCode = hashCode * 59 + this.ContextMerchantId.GetHashCode();
                 if (this.ConversationPbxAudioUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxAudioUuid.GetHashCode();
                 if (this.DefaultHoldMusic != null)
@@ -275,6 +292,13 @@ namespace com.ultracart.admin.v2.Model
             if(this.AudioS3ListingKey != null && this.AudioS3ListingKey.Length > 250)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AudioS3ListingKey, length must be less than 250.", new [] { "AudioS3ListingKey" });
+            }
+
+
+            // ContextMerchantId (string) maxLength
+            if(this.ContextMerchantId != null && this.ContextMerchantId.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContextMerchantId, length must be less than 20.", new [] { "ContextMerchantId" });
             }
 
 

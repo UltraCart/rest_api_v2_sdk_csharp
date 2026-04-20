@@ -138,6 +138,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="callbackOfferAfterSeconds">Seconds a caller must wait in queue before the callback option is offered.</param>
         /// <param name="callbackOfferIntervalSeconds">Seconds between repeat callback offers to the same caller.</param>
         /// <param name="callbackRetryDelaySeconds">Delay in seconds between callback retry attempts.</param>
+        /// <param name="contextMerchantId">Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group..</param>
         /// <param name="conversationPbxQueueUuid">Conversation Pbx Queue unique identifier.</param>
         /// <param name="conversationVoicemailMailboxUuid">The voicemail mailbox associated with this queue.</param>
         /// <param name="holdConversationPbxAudioUuid">The audio to play while holding in a queue.</param>
@@ -160,7 +161,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="wrapUpSeconds">Wrap up time in seconds.</param>
         /// <param name="zohoDeskDepartmentId">Zoho Desk department ID to create tickets in.</param>
         /// <param name="zohoDeskTicketEnabled">If true, a Zoho Desk ticket is automatically created for answered calls in this queue.</param>
-        public ConversationPbxQueue(AiPriorityEnum? aiPriority = default(AiPriorityEnum?), bool aiSummaryEnabled = default(bool), string aiSummaryInstructions = default(string), int aiTimeoutSeconds = default(int), bool announceQueuePosition = default(bool), string automaticCoachAgentUuid = default(string), string callbackAnnounceAudioUuid = default(string), string callbackAnnounceSay = default(string), string callbackConfirmAudioUuid = default(string), string callbackConfirmSay = default(string), bool callbackEnabled = default(bool), bool callbackHoursOnly = default(bool), int callbackMaxAttempts = default(int), int callbackMaxOffers = default(int), int callbackMaxPending = default(int), int callbackOfferAfterSeconds = default(int), int callbackOfferIntervalSeconds = default(int), int callbackRetryDelaySeconds = default(int), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int maxHoldSeconds = default(int), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), NoAgentAvailableSayVoiceEnum? noAgentAvailableSayVoice = default(NoAgentAvailableSayVoiceEnum?), string playAudioUuid = default(string), bool recordCall = default(bool), string say = default(string), SayVoiceEnum? sayVoice = default(SayVoiceEnum?), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool voicemail = default(bool), int waitCriticalSeconds = default(int), int waitWarningSeconds = default(int), int wrapUpSeconds = default(int), string zohoDeskDepartmentId = default(string), bool zohoDeskTicketEnabled = default(bool))
+        public ConversationPbxQueue(AiPriorityEnum? aiPriority = default(AiPriorityEnum?), bool aiSummaryEnabled = default(bool), string aiSummaryInstructions = default(string), int aiTimeoutSeconds = default(int), bool announceQueuePosition = default(bool), string automaticCoachAgentUuid = default(string), string callbackAnnounceAudioUuid = default(string), string callbackAnnounceSay = default(string), string callbackConfirmAudioUuid = default(string), string callbackConfirmSay = default(string), bool callbackEnabled = default(bool), bool callbackHoursOnly = default(bool), int callbackMaxAttempts = default(int), int callbackMaxOffers = default(int), int callbackMaxPending = default(int), int callbackOfferAfterSeconds = default(int), int callbackOfferIntervalSeconds = default(int), int callbackRetryDelaySeconds = default(int), string contextMerchantId = default(string), string conversationPbxQueueUuid = default(string), string conversationVoicemailMailboxUuid = default(string), string holdConversationPbxAudioUuid = default(string), int maxHoldSeconds = default(int), ConversationPbxQueueMembers members = default(ConversationPbxQueueMembers), string merchantId = default(string), string name = default(string), string noAgentAvailablePlayAudioUuid = default(string), string noAgentAvailableSay = default(string), NoAgentAvailableSayVoiceEnum? noAgentAvailableSayVoice = default(NoAgentAvailableSayVoiceEnum?), string playAudioUuid = default(string), bool recordCall = default(bool), string say = default(string), SayVoiceEnum? sayVoice = default(SayVoiceEnum?), string twilioTaskrouterWorkflowSid = default(string), string twilioWorkspaceQueueSid = default(string), bool voicemail = default(bool), int waitCriticalSeconds = default(int), int waitWarningSeconds = default(int), int wrapUpSeconds = default(int), string zohoDeskDepartmentId = default(string), bool zohoDeskTicketEnabled = default(bool))
         {
             this.AiPriority = aiPriority;
             this.AiSummaryEnabled = aiSummaryEnabled;
@@ -180,6 +181,7 @@ namespace com.ultracart.admin.v2.Model
             this.CallbackOfferAfterSeconds = callbackOfferAfterSeconds;
             this.CallbackOfferIntervalSeconds = callbackOfferIntervalSeconds;
             this.CallbackRetryDelaySeconds = callbackRetryDelaySeconds;
+            this.ContextMerchantId = contextMerchantId;
             this.ConversationPbxQueueUuid = conversationPbxQueueUuid;
             this.ConversationVoicemailMailboxUuid = conversationVoicemailMailboxUuid;
             this.HoldConversationPbxAudioUuid = holdConversationPbxAudioUuid;
@@ -323,6 +325,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Delay in seconds between callback retry attempts</value>
         [DataMember(Name="callback_retry_delay_seconds", EmitDefaultValue=false)]
         public int CallbackRetryDelaySeconds { get; set; }
+
+        /// <summary>
+        /// Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+        /// </summary>
+        /// <value>Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.</value>
+        [DataMember(Name="context_merchant_id", EmitDefaultValue=false)]
+        public string ContextMerchantId { get; set; }
 
         /// <summary>
         /// Conversation Pbx Queue unique identifier
@@ -491,6 +500,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CallbackOfferAfterSeconds: ").Append(CallbackOfferAfterSeconds).Append("\n");
             sb.Append("  CallbackOfferIntervalSeconds: ").Append(CallbackOfferIntervalSeconds).Append("\n");
             sb.Append("  CallbackRetryDelaySeconds: ").Append(CallbackRetryDelaySeconds).Append("\n");
+            sb.Append("  ContextMerchantId: ").Append(ContextMerchantId).Append("\n");
             sb.Append("  ConversationPbxQueueUuid: ").Append(ConversationPbxQueueUuid).Append("\n");
             sb.Append("  ConversationVoicemailMailboxUuid: ").Append(ConversationVoicemailMailboxUuid).Append("\n");
             sb.Append("  HoldConversationPbxAudioUuid: ").Append(HoldConversationPbxAudioUuid).Append("\n");
@@ -636,6 +646,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CallbackRetryDelaySeconds == input.CallbackRetryDelaySeconds ||
                     (this.CallbackRetryDelaySeconds != null &&
                     this.CallbackRetryDelaySeconds.Equals(input.CallbackRetryDelaySeconds))
+                ) && 
+                (
+                    this.ContextMerchantId == input.ContextMerchantId ||
+                    (this.ContextMerchantId != null &&
+                    this.ContextMerchantId.Equals(input.ContextMerchantId))
                 ) && 
                 (
                     this.ConversationPbxQueueUuid == input.ConversationPbxQueueUuid ||
@@ -794,6 +809,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CallbackOfferIntervalSeconds.GetHashCode();
                 if (this.CallbackRetryDelaySeconds != null)
                     hashCode = hashCode * 59 + this.CallbackRetryDelaySeconds.GetHashCode();
+                if (this.ContextMerchantId != null)
+                    hashCode = hashCode * 59 + this.ContextMerchantId.GetHashCode();
                 if (this.ConversationPbxQueueUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxQueueUuid.GetHashCode();
                 if (this.ConversationVoicemailMailboxUuid != null)
@@ -867,6 +884,13 @@ namespace com.ultracart.admin.v2.Model
             if(this.CallbackConfirmAudioUuid != null && this.CallbackConfirmAudioUuid.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CallbackConfirmAudioUuid, length must be less than 50.", new [] { "CallbackConfirmAudioUuid" });
+            }
+
+
+            // ContextMerchantId (string) maxLength
+            if(this.ContextMerchantId != null && this.ContextMerchantId.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContextMerchantId, length must be less than 20.", new [] { "ContextMerchantId" });
             }
 
 

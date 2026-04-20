@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AllowedCountries** | **List&lt;string&gt;** | E.164 country calling codes (e.g. 1 for US/Canada, 44 for UK). Empty means domestic only. | [optional] 
 **BlockPremiumNumbers** | **bool** | Block calls to 900, 976, premium-rate, and shortcode destinations | [optional] 
+**ContextMerchantId** | **string** | Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group. | [optional] 
 **ConversationPbxClassOfServiceUuid** | **string** | Class of Service unique identifier | [optional] 
 **DefaultFlag** | **bool** | If true, this CoS applies to all agents without an explicit cos_uuid. Only one per merchant. | [optional] 
 **Description** | **string** | Description of the class of service | [optional] 

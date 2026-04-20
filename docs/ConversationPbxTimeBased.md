@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ContextMerchantId** | **string** |  | [optional] 
 **ConversationPbxTimeBasedUuid** | **string** |  | [optional] 
 **MappingConfig** | [**ConversationPbxTimeBasedMappingConfig**](ConversationPbxTimeBasedMappingConfig.md) |  | [optional] 
 **MerchantId** | **string** |  | [optional] 

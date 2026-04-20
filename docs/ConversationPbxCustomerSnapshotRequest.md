@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **OrderExpand** | **string** |  | [optional] 
 **PhoneNumber** | **string** |  | [optional] 
+**SearchLinkedAccounts** | **bool** |  | [optional] 
 **Success** | **bool** | Indicates if API call was successful | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 
 

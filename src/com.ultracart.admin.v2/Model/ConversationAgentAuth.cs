@@ -42,6 +42,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="groupIds">UltraCart Groups this user belongs to.</param>
         /// <param name="jwt">jwt.</param>
         /// <param name="merchantId">merchantId.</param>
+        /// <param name="merchants">List of merchants in this linked merchant group.</param>
+        /// <param name="parentMerchantId">The parent merchant ID for PBX. For non-linked merchants, equals merchant_id..</param>
         /// <param name="pbxAdmin">pbxAdmin.</param>
         /// <param name="pbxJwt">pbxJwt.</param>
         /// <param name="pbxSupervisor">pbxSupervisor.</param>
@@ -53,7 +55,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="twilioAccounts">twilioAccounts.</param>
         /// <param name="userId">UltraCart User ID.</param>
         /// <param name="websocketUrl">websocketUrl.</param>
-        public ConversationAgentAuth(bool chatAdmin = default(bool), bool chatUser = default(bool), string conversationParticipantArn = default(string), string conversationParticipantName = default(string), bool customerProfile = default(bool), string defaultPhoneNumber = default(string), List<int> groupIds = default(List<int>), string jwt = default(string), string merchantId = default(string), bool pbxAdmin = default(bool), string pbxJwt = default(string), bool pbxSupervisor = default(bool), bool pbxUser = default(bool), string pbxVoiceIdentity = default(string), string pbxVoiceToken = default(string), string pbxWorkerToken = default(string), string pbxWorkerTokenV2 = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), int userId = default(int), string websocketUrl = default(string))
+        public ConversationAgentAuth(bool chatAdmin = default(bool), bool chatUser = default(bool), string conversationParticipantArn = default(string), string conversationParticipantName = default(string), bool customerProfile = default(bool), string defaultPhoneNumber = default(string), List<int> groupIds = default(List<int>), string jwt = default(string), string merchantId = default(string), List<ConversationAgentAuthMerchant> merchants = default(List<ConversationAgentAuthMerchant>), string parentMerchantId = default(string), bool pbxAdmin = default(bool), string pbxJwt = default(string), bool pbxSupervisor = default(bool), bool pbxUser = default(bool), string pbxVoiceIdentity = default(string), string pbxVoiceToken = default(string), string pbxWorkerToken = default(string), string pbxWorkerTokenV2 = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), int userId = default(int), string websocketUrl = default(string))
         {
             this.ChatAdmin = chatAdmin;
             this.ChatUser = chatUser;
@@ -64,6 +66,8 @@ namespace com.ultracart.admin.v2.Model
             this.GroupIds = groupIds;
             this.Jwt = jwt;
             this.MerchantId = merchantId;
+            this.Merchants = merchants;
+            this.ParentMerchantId = parentMerchantId;
             this.PbxAdmin = pbxAdmin;
             this.PbxJwt = pbxJwt;
             this.PbxSupervisor = pbxSupervisor;
@@ -132,6 +136,20 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="merchant_id", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
+
+        /// <summary>
+        /// List of merchants in this linked merchant group
+        /// </summary>
+        /// <value>List of merchants in this linked merchant group</value>
+        [DataMember(Name="merchants", EmitDefaultValue=false)]
+        public List<ConversationAgentAuthMerchant> Merchants { get; set; }
+
+        /// <summary>
+        /// The parent merchant ID for PBX. For non-linked merchants, equals merchant_id.
+        /// </summary>
+        /// <value>The parent merchant ID for PBX. For non-linked merchants, equals merchant_id.</value>
+        [DataMember(Name="parent_merchant_id", EmitDefaultValue=false)]
+        public string ParentMerchantId { get; set; }
 
         /// <summary>
         /// Gets or Sets PbxAdmin
@@ -217,6 +235,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  GroupIds: ").Append(GroupIds).Append("\n");
             sb.Append("  Jwt: ").Append(Jwt).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  Merchants: ").Append(Merchants).Append("\n");
+            sb.Append("  ParentMerchantId: ").Append(ParentMerchantId).Append("\n");
             sb.Append("  PbxAdmin: ").Append(PbxAdmin).Append("\n");
             sb.Append("  PbxJwt: ").Append(PbxJwt).Append("\n");
             sb.Append("  PbxSupervisor: ").Append(PbxSupervisor).Append("\n");
@@ -309,6 +329,17 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
+                    this.Merchants == input.Merchants ||
+                    this.Merchants != null &&
+                    input.Merchants != null &&
+                    this.Merchants.SequenceEqual(input.Merchants)
+                ) && 
+                (
+                    this.ParentMerchantId == input.ParentMerchantId ||
+                    (this.ParentMerchantId != null &&
+                    this.ParentMerchantId.Equals(input.ParentMerchantId))
+                ) && 
+                (
                     this.PbxAdmin == input.PbxAdmin ||
                     (this.PbxAdmin != null &&
                     this.PbxAdmin.Equals(input.PbxAdmin))
@@ -393,6 +424,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Jwt.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.Merchants != null)
+                    hashCode = hashCode * 59 + this.Merchants.GetHashCode();
+                if (this.ParentMerchantId != null)
+                    hashCode = hashCode * 59 + this.ParentMerchantId.GetHashCode();
                 if (this.PbxAdmin != null)
                     hashCode = hashCode * 59 + this.PbxAdmin.GetHashCode();
                 if (this.PbxJwt != null)

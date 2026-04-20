@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AudioS3ListingKey** | **string** | Audio S3 Listing Key | [optional] 
+**ContextMerchantId** | **string** | Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group. | [optional] 
 **ConversationPbxAudioUuid** | **string** | Conversation Pbx Audio UUID | [optional] 
 **DefaultHoldMusic** | **bool** | If true, this will be the default hold music | [optional] 
 **Description** | **string** | Description of this audio | [optional] 

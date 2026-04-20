@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **CallbackOfferAfterSeconds** | **int** | Seconds a caller must wait in queue before the callback option is offered | [optional] 
 **CallbackOfferIntervalSeconds** | **int** | Seconds between repeat callback offers to the same caller | [optional] 
 **CallbackRetryDelaySeconds** | **int** | Delay in seconds between callback retry attempts | [optional] 
+**ContextMerchantId** | **string** | Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group. | [optional] 
 **ConversationPbxQueueUuid** | **string** | Conversation Pbx Queue unique identifier | [optional] 
 **ConversationVoicemailMailboxUuid** | **string** | The voicemail mailbox associated with this queue | [optional] 
 **HoldConversationPbxAudioUuid** | **string** | The audio to play while holding in a queue | [optional] 

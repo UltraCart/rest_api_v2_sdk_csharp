@@ -39,9 +39,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="metadata">metadata.</param>
         /// <param name="orderExpand">orderExpand.</param>
         /// <param name="phoneNumber">phoneNumber.</param>
+        /// <param name="searchLinkedAccounts">searchLinkedAccounts.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ConversationPbxCustomerSnapshotRequest(string autoOrderExpand = default(string), string customerExpand = default(string), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), string orderExpand = default(string), string phoneNumber = default(string), bool success = default(bool), Warning warning = default(Warning))
+        public ConversationPbxCustomerSnapshotRequest(string autoOrderExpand = default(string), string customerExpand = default(string), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), string orderExpand = default(string), string phoneNumber = default(string), bool searchLinkedAccounts = default(bool), bool success = default(bool), Warning warning = default(Warning))
         {
             this.AutoOrderExpand = autoOrderExpand;
             this.CustomerExpand = customerExpand;
@@ -49,6 +50,7 @@ namespace com.ultracart.admin.v2.Model
             this.Metadata = metadata;
             this.OrderExpand = orderExpand;
             this.PhoneNumber = phoneNumber;
+            this.SearchLinkedAccounts = searchLinkedAccounts;
             this.Success = success;
             this.Warning = warning;
         }
@@ -90,6 +92,12 @@ namespace com.ultracart.admin.v2.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
+        /// Gets or Sets SearchLinkedAccounts
+        /// </summary>
+        [DataMember(Name="search_linked_accounts", EmitDefaultValue=false)]
+        public bool SearchLinkedAccounts { get; set; }
+
+        /// <summary>
         /// Indicates if API call was successful
         /// </summary>
         /// <value>Indicates if API call was successful</value>
@@ -116,6 +124,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  OrderExpand: ").Append(OrderExpand).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  SearchLinkedAccounts: ").Append(SearchLinkedAccounts).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
@@ -183,6 +192,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PhoneNumber.Equals(input.PhoneNumber))
                 ) && 
                 (
+                    this.SearchLinkedAccounts == input.SearchLinkedAccounts ||
+                    (this.SearchLinkedAccounts != null &&
+                    this.SearchLinkedAccounts.Equals(input.SearchLinkedAccounts))
+                ) && 
+                (
                     this.Success == input.Success ||
                     (this.Success != null &&
                     this.Success.Equals(input.Success))
@@ -215,6 +229,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OrderExpand.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.SearchLinkedAccounts != null)
+                    hashCode = hashCode * 59 + this.SearchLinkedAccounts.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Warning != null)

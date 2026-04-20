@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ContextMerchantId** | **string** | Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group. | [optional] 
 **ConversationPbxVoicemailMailboxUuid** | **string** | Conversation Pbx Voicemail Mailbox UUID | [optional] 
 **MerchantId** | **string** | Merchant Id | [optional] 
 **SendNoticesToChannel** | **string** | Send notices to channel | [optional] 

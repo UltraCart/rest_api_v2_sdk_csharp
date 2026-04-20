@@ -34,13 +34,15 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ConversationPbxTimeRange" /> class.
         /// </summary>
         /// <param name="configs">Configurations for all ranges in this time range.</param>
+        /// <param name="contextMerchantId">Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group..</param>
         /// <param name="conversationPbxTimeRangeUuid">Conversation Pbx Time Range UUID.</param>
         /// <param name="merchantId">Merchant Id.</param>
         /// <param name="timeRangeName">Time range name.</param>
         /// <param name="timezone">Timezone.</param>
-        public ConversationPbxTimeRange(List<ConversationPbxTimeRangeConfig> configs = default(List<ConversationPbxTimeRangeConfig>), string conversationPbxTimeRangeUuid = default(string), string merchantId = default(string), string timeRangeName = default(string), string timezone = default(string))
+        public ConversationPbxTimeRange(List<ConversationPbxTimeRangeConfig> configs = default(List<ConversationPbxTimeRangeConfig>), string contextMerchantId = default(string), string conversationPbxTimeRangeUuid = default(string), string merchantId = default(string), string timeRangeName = default(string), string timezone = default(string))
         {
             this.Configs = configs;
+            this.ContextMerchantId = contextMerchantId;
             this.ConversationPbxTimeRangeUuid = conversationPbxTimeRangeUuid;
             this.MerchantId = merchantId;
             this.TimeRangeName = timeRangeName;
@@ -53,6 +55,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Configurations for all ranges in this time range</value>
         [DataMember(Name="configs", EmitDefaultValue=false)]
         public List<ConversationPbxTimeRangeConfig> Configs { get; set; }
+
+        /// <summary>
+        /// Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+        /// </summary>
+        /// <value>Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.</value>
+        [DataMember(Name="context_merchant_id", EmitDefaultValue=false)]
+        public string ContextMerchantId { get; set; }
 
         /// <summary>
         /// Conversation Pbx Time Range UUID
@@ -91,6 +100,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ConversationPbxTimeRange {\n");
             sb.Append("  Configs: ").Append(Configs).Append("\n");
+            sb.Append("  ContextMerchantId: ").Append(ContextMerchantId).Append("\n");
             sb.Append("  ConversationPbxTimeRangeUuid: ").Append(ConversationPbxTimeRangeUuid).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  TimeRangeName: ").Append(TimeRangeName).Append("\n");
@@ -136,6 +146,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Configs.SequenceEqual(input.Configs)
                 ) && 
                 (
+                    this.ContextMerchantId == input.ContextMerchantId ||
+                    (this.ContextMerchantId != null &&
+                    this.ContextMerchantId.Equals(input.ContextMerchantId))
+                ) && 
+                (
                     this.ConversationPbxTimeRangeUuid == input.ConversationPbxTimeRangeUuid ||
                     (this.ConversationPbxTimeRangeUuid != null &&
                     this.ConversationPbxTimeRangeUuid.Equals(input.ConversationPbxTimeRangeUuid))
@@ -168,6 +183,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Configs != null)
                     hashCode = hashCode * 59 + this.Configs.GetHashCode();
+                if (this.ContextMerchantId != null)
+                    hashCode = hashCode * 59 + this.ContextMerchantId.GetHashCode();
                 if (this.ConversationPbxTimeRangeUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxTimeRangeUuid.GetHashCode();
                 if (this.MerchantId != null)
@@ -187,6 +204,13 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ContextMerchantId (string) maxLength
+            if(this.ContextMerchantId != null && this.ContextMerchantId.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContextMerchantId, length must be less than 20.", new [] { "ContextMerchantId" });
+            }
+
+
             // ConversationPbxTimeRangeUuid (string) maxLength
             if(this.ConversationPbxTimeRangeUuid != null && this.ConversationPbxTimeRangeUuid.Length > 50)
             {

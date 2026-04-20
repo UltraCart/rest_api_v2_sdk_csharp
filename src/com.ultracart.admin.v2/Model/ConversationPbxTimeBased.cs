@@ -33,17 +33,25 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationPbxTimeBased" /> class.
         /// </summary>
+        /// <param name="contextMerchantId">contextMerchantId.</param>
         /// <param name="conversationPbxTimeBasedUuid">conversationPbxTimeBasedUuid.</param>
         /// <param name="mappingConfig">mappingConfig.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="timeBasedName">timeBasedName.</param>
-        public ConversationPbxTimeBased(string conversationPbxTimeBasedUuid = default(string), ConversationPbxTimeBasedMappingConfig mappingConfig = default(ConversationPbxTimeBasedMappingConfig), string merchantId = default(string), string timeBasedName = default(string))
+        public ConversationPbxTimeBased(string contextMerchantId = default(string), string conversationPbxTimeBasedUuid = default(string), ConversationPbxTimeBasedMappingConfig mappingConfig = default(ConversationPbxTimeBasedMappingConfig), string merchantId = default(string), string timeBasedName = default(string))
         {
+            this.ContextMerchantId = contextMerchantId;
             this.ConversationPbxTimeBasedUuid = conversationPbxTimeBasedUuid;
             this.MappingConfig = mappingConfig;
             this.MerchantId = merchantId;
             this.TimeBasedName = timeBasedName;
         }
+
+        /// <summary>
+        /// Gets or Sets ContextMerchantId
+        /// </summary>
+        [DataMember(Name="context_merchant_id", EmitDefaultValue=false)]
+        public string ContextMerchantId { get; set; }
 
         /// <summary>
         /// Gets or Sets ConversationPbxTimeBasedUuid
@@ -77,6 +85,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationPbxTimeBased {\n");
+            sb.Append("  ContextMerchantId: ").Append(ContextMerchantId).Append("\n");
             sb.Append("  ConversationPbxTimeBasedUuid: ").Append(ConversationPbxTimeBasedUuid).Append("\n");
             sb.Append("  MappingConfig: ").Append(MappingConfig).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
@@ -116,6 +125,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.ContextMerchantId == input.ContextMerchantId ||
+                    (this.ContextMerchantId != null &&
+                    this.ContextMerchantId.Equals(input.ContextMerchantId))
+                ) && 
+                (
                     this.ConversationPbxTimeBasedUuid == input.ConversationPbxTimeBasedUuid ||
                     (this.ConversationPbxTimeBasedUuid != null &&
                     this.ConversationPbxTimeBasedUuid.Equals(input.ConversationPbxTimeBasedUuid))
@@ -146,6 +160,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ContextMerchantId != null)
+                    hashCode = hashCode * 59 + this.ContextMerchantId.GetHashCode();
                 if (this.ConversationPbxTimeBasedUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxTimeBasedUuid.GetHashCode();
                 if (this.MappingConfig != null)

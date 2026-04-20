@@ -61,6 +61,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ConversationPbxMenu" /> class.
         /// </summary>
         /// <param name="allowDirectExtensions">If true, the customer is allowed to input direct extensions within this menu.</param>
+        /// <param name="contextMerchantId">Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group..</param>
         /// <param name="conversationPbxMenuUuid">Conversation Pbx Menu UUID.</param>
         /// <param name="defaultAction">The default action for this menu.</param>
         /// <param name="defaultActionTarget">The default action target for this menu.</param>
@@ -71,9 +72,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="say">An optional saying that plays when a customer enters this menu.</param>
         /// <param name="sayVoice">say voice.</param>
         /// <param name="timeout">The idle seconds before this menu times out.</param>
-        public ConversationPbxMenu(bool allowDirectExtensions = default(bool), string conversationPbxMenuUuid = default(string), string defaultAction = default(string), string defaultActionTarget = default(string), List<ConversationPbxMenuMapping> mappings = default(List<ConversationPbxMenuMapping>), string merchantId = default(string), string name = default(string), string playAudioUuid = default(string), string say = default(string), SayVoiceEnum? sayVoice = default(SayVoiceEnum?), int timeout = default(int))
+        public ConversationPbxMenu(bool allowDirectExtensions = default(bool), string contextMerchantId = default(string), string conversationPbxMenuUuid = default(string), string defaultAction = default(string), string defaultActionTarget = default(string), List<ConversationPbxMenuMapping> mappings = default(List<ConversationPbxMenuMapping>), string merchantId = default(string), string name = default(string), string playAudioUuid = default(string), string say = default(string), SayVoiceEnum? sayVoice = default(SayVoiceEnum?), int timeout = default(int))
         {
             this.AllowDirectExtensions = allowDirectExtensions;
+            this.ContextMerchantId = contextMerchantId;
             this.ConversationPbxMenuUuid = conversationPbxMenuUuid;
             this.DefaultAction = defaultAction;
             this.DefaultActionTarget = defaultActionTarget;
@@ -92,6 +94,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>If true, the customer is allowed to input direct extensions within this menu</value>
         [DataMember(Name="allow_direct_extensions", EmitDefaultValue=false)]
         public bool AllowDirectExtensions { get; set; }
+
+        /// <summary>
+        /// Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+        /// </summary>
+        /// <value>Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.</value>
+        [DataMember(Name="context_merchant_id", EmitDefaultValue=false)]
+        public string ContextMerchantId { get; set; }
 
         /// <summary>
         /// Conversation Pbx Menu UUID
@@ -166,6 +175,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ConversationPbxMenu {\n");
             sb.Append("  AllowDirectExtensions: ").Append(AllowDirectExtensions).Append("\n");
+            sb.Append("  ContextMerchantId: ").Append(ContextMerchantId).Append("\n");
             sb.Append("  ConversationPbxMenuUuid: ").Append(ConversationPbxMenuUuid).Append("\n");
             sb.Append("  DefaultAction: ").Append(DefaultAction).Append("\n");
             sb.Append("  DefaultActionTarget: ").Append(DefaultActionTarget).Append("\n");
@@ -214,6 +224,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AllowDirectExtensions == input.AllowDirectExtensions ||
                     (this.AllowDirectExtensions != null &&
                     this.AllowDirectExtensions.Equals(input.AllowDirectExtensions))
+                ) && 
+                (
+                    this.ContextMerchantId == input.ContextMerchantId ||
+                    (this.ContextMerchantId != null &&
+                    this.ContextMerchantId.Equals(input.ContextMerchantId))
                 ) && 
                 (
                     this.ConversationPbxMenuUuid == input.ConversationPbxMenuUuid ||
@@ -279,6 +294,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AllowDirectExtensions != null)
                     hashCode = hashCode * 59 + this.AllowDirectExtensions.GetHashCode();
+                if (this.ContextMerchantId != null)
+                    hashCode = hashCode * 59 + this.ContextMerchantId.GetHashCode();
                 if (this.ConversationPbxMenuUuid != null)
                     hashCode = hashCode * 59 + this.ConversationPbxMenuUuid.GetHashCode();
                 if (this.DefaultAction != null)
@@ -310,6 +327,13 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ContextMerchantId (string) maxLength
+            if(this.ContextMerchantId != null && this.ContextMerchantId.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContextMerchantId, length must be less than 20.", new [] { "ContextMerchantId" });
+            }
+
+
             // ConversationPbxMenuUuid (string) maxLength
             if(this.ConversationPbxMenuUuid != null && this.ConversationPbxMenuUuid.Length > 50)
             {

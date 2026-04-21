@@ -63,6 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="maxDaysTimeInTransit">Maximum days allowed in transit.</param>
         /// <param name="methods">Methods.</param>
         /// <param name="noShippingDiscount">No shipping discounts.</param>
+        /// <param name="oneLinePerUnit">Split cart line items with quantity greater than one into individual lines of quantity one on the order.</param>
         /// <param name="packageRequirements">Package requirements.</param>
         /// <param name="perishableClassName">Perishable class name.</param>
         /// <param name="perishableClassOid">Perishable class object identifier.</param>
@@ -84,7 +85,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="shipSeparatelyWidth">shipSeparatelyWidth.</param>
         /// <param name="specialProductType">Special product type (USPS Media Mail).</param>
         /// <param name="trackInventory">Track inventory.</param>
-        public ItemShipping(bool allowBackOrder = default(bool), bool amazonFba = default(bool), int caseInnerPacks = default(int), int caseUnits = default(int), List<ItemShippingCase> cases = default(List<ItemShippingCase>), bool collectSerialNumbers = default(bool), string countryCodeOfOrigin = default(string), string customsDescription = default(string), decimal customsValue = default(decimal), bool deliveryOnFriday = default(bool), bool deliveryOnMonday = default(bool), bool deliveryOnSaturday = default(bool), bool deliveryOnSunday = default(bool), bool deliveryOnThursday = default(bool), bool deliveryOnTuesday = default(bool), bool deliveryOnWednesday = default(bool), List<ItemShippingDestinationMarkup> destinationMarkups = default(List<ItemShippingDestinationMarkup>), List<ItemShippingDestinationRestriction> destinationRestrictions = default(List<ItemShippingDestinationRestriction>), List<ItemShippingDistributionCenter> distributionCenters = default(List<ItemShippingDistributionCenter>), string eta = default(string), bool freeShipping = default(bool), string freightClass = default(string), bool hazmat = default(bool), bool holdForTransmission = default(bool), bool includeOnPackingSlip = default(bool), bool madeToOrder = default(bool), int madeToOrderLeadTime = default(int), int maxDaysTimeInTransit = default(int), List<ItemShippingMethod> methods = default(List<ItemShippingMethod>), bool noShippingDiscount = default(bool), List<ItemShippingPackageRequirement> packageRequirements = default(List<ItemShippingPackageRequirement>), string perishableClassName = default(string), int perishableClassOid = default(int), bool preorder = default(bool), bool requireDeliveryDate = default(bool), bool restrictShipmentOnFriday = default(bool), bool restrictShipmentOnMonday = default(bool), bool restrictShipmentOnSaturday = default(bool), bool restrictShipmentOnSunday = default(bool), bool restrictShipmentOnThursday = default(bool), bool restrictShipmentOnTuesday = default(bool), bool restrictShipmentOnWednesday = default(bool), bool sendToHoldBeforeFulfillment = default(bool), bool shipSeparately = default(bool), Weight shipSeparatelyAdditionalWeight = default(Weight), Distance shipSeparatelyHeight = default(Distance), Distance shipSeparatelyLength = default(Distance), string shipSeparatelyPackageSpecialType = default(string), Distance shipSeparatelyWidth = default(Distance), string specialProductType = default(string), bool trackInventory = default(bool))
+        public ItemShipping(bool allowBackOrder = default(bool), bool amazonFba = default(bool), int caseInnerPacks = default(int), int caseUnits = default(int), List<ItemShippingCase> cases = default(List<ItemShippingCase>), bool collectSerialNumbers = default(bool), string countryCodeOfOrigin = default(string), string customsDescription = default(string), decimal customsValue = default(decimal), bool deliveryOnFriday = default(bool), bool deliveryOnMonday = default(bool), bool deliveryOnSaturday = default(bool), bool deliveryOnSunday = default(bool), bool deliveryOnThursday = default(bool), bool deliveryOnTuesday = default(bool), bool deliveryOnWednesday = default(bool), List<ItemShippingDestinationMarkup> destinationMarkups = default(List<ItemShippingDestinationMarkup>), List<ItemShippingDestinationRestriction> destinationRestrictions = default(List<ItemShippingDestinationRestriction>), List<ItemShippingDistributionCenter> distributionCenters = default(List<ItemShippingDistributionCenter>), string eta = default(string), bool freeShipping = default(bool), string freightClass = default(string), bool hazmat = default(bool), bool holdForTransmission = default(bool), bool includeOnPackingSlip = default(bool), bool madeToOrder = default(bool), int madeToOrderLeadTime = default(int), int maxDaysTimeInTransit = default(int), List<ItemShippingMethod> methods = default(List<ItemShippingMethod>), bool noShippingDiscount = default(bool), bool oneLinePerUnit = default(bool), List<ItemShippingPackageRequirement> packageRequirements = default(List<ItemShippingPackageRequirement>), string perishableClassName = default(string), int perishableClassOid = default(int), bool preorder = default(bool), bool requireDeliveryDate = default(bool), bool restrictShipmentOnFriday = default(bool), bool restrictShipmentOnMonday = default(bool), bool restrictShipmentOnSaturday = default(bool), bool restrictShipmentOnSunday = default(bool), bool restrictShipmentOnThursday = default(bool), bool restrictShipmentOnTuesday = default(bool), bool restrictShipmentOnWednesday = default(bool), bool sendToHoldBeforeFulfillment = default(bool), bool shipSeparately = default(bool), Weight shipSeparatelyAdditionalWeight = default(Weight), Distance shipSeparatelyHeight = default(Distance), Distance shipSeparatelyLength = default(Distance), string shipSeparatelyPackageSpecialType = default(string), Distance shipSeparatelyWidth = default(Distance), string specialProductType = default(string), bool trackInventory = default(bool))
         {
             this.AllowBackOrder = allowBackOrder;
             this.AmazonFba = amazonFba;
@@ -116,6 +117,7 @@ namespace com.ultracart.admin.v2.Model
             this.MaxDaysTimeInTransit = maxDaysTimeInTransit;
             this.Methods = methods;
             this.NoShippingDiscount = noShippingDiscount;
+            this.OneLinePerUnit = oneLinePerUnit;
             this.PackageRequirements = packageRequirements;
             this.PerishableClassName = perishableClassName;
             this.PerishableClassOid = perishableClassOid;
@@ -350,6 +352,13 @@ namespace com.ultracart.admin.v2.Model
         public bool NoShippingDiscount { get; set; }
 
         /// <summary>
+        /// Split cart line items with quantity greater than one into individual lines of quantity one on the order
+        /// </summary>
+        /// <value>Split cart line items with quantity greater than one into individual lines of quantity one on the order</value>
+        [DataMember(Name="one_line_per_unit", EmitDefaultValue=false)]
+        public bool OneLinePerUnit { get; set; }
+
+        /// <summary>
         /// Package requirements
         /// </summary>
         /// <value>Package requirements</value>
@@ -530,6 +539,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MaxDaysTimeInTransit: ").Append(MaxDaysTimeInTransit).Append("\n");
             sb.Append("  Methods: ").Append(Methods).Append("\n");
             sb.Append("  NoShippingDiscount: ").Append(NoShippingDiscount).Append("\n");
+            sb.Append("  OneLinePerUnit: ").Append(OneLinePerUnit).Append("\n");
             sb.Append("  PackageRequirements: ").Append(PackageRequirements).Append("\n");
             sb.Append("  PerishableClassName: ").Append(PerishableClassName).Append("\n");
             sb.Append("  PerishableClassOid: ").Append(PerishableClassOid).Append("\n");
@@ -741,6 +751,11 @@ namespace com.ultracart.admin.v2.Model
                     this.NoShippingDiscount.Equals(input.NoShippingDiscount))
                 ) && 
                 (
+                    this.OneLinePerUnit == input.OneLinePerUnit ||
+                    (this.OneLinePerUnit != null &&
+                    this.OneLinePerUnit.Equals(input.OneLinePerUnit))
+                ) && 
+                (
                     this.PackageRequirements == input.PackageRequirements ||
                     this.PackageRequirements != null &&
                     input.PackageRequirements != null &&
@@ -917,6 +932,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Methods.GetHashCode();
                 if (this.NoShippingDiscount != null)
                     hashCode = hashCode * 59 + this.NoShippingDiscount.GetHashCode();
+                if (this.OneLinePerUnit != null)
+                    hashCode = hashCode * 59 + this.OneLinePerUnit.GetHashCode();
                 if (this.PackageRequirements != null)
                     hashCode = hashCode * 59 + this.PackageRequirements.GetHashCode();
                 if (this.PerishableClassName != null)

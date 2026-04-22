@@ -41,8 +41,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="customerProfileOid">Customer profile object identifier.</param>
         /// <param name="customerShippingOid">Customer profile shipping object identifier.</param>
         /// <param name="dayPhone">Day phone.</param>
+        /// <param name="dayPhoneE164">Day phone in E.164 format (derived â€” read only).</param>
         /// <param name="defaultShipping">Default shipping.</param>
         /// <param name="eveningPhone">Evening phone.</param>
+        /// <param name="eveningPhoneE164">Evening phone in E.164 format (derived â€” read only).</param>
         /// <param name="firstName">First name.</param>
         /// <param name="lastName">Last name.</param>
         /// <param name="lastUsedDts">Last used date.</param>
@@ -50,7 +52,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="stateRegion">State for United States otherwise region or province for other countries.</param>
         /// <param name="taxCounty">Tax County.</param>
         /// <param name="title">Title.</param>
-        public CustomerShipping(string address1 = default(string), string address2 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), int customerProfileOid = default(int), int customerShippingOid = default(int), string dayPhone = default(string), bool defaultShipping = default(bool), string eveningPhone = default(string), string firstName = default(string), string lastName = default(string), string lastUsedDts = default(string), string postalCode = default(string), string stateRegion = default(string), string taxCounty = default(string), string title = default(string))
+        public CustomerShipping(string address1 = default(string), string address2 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), int customerProfileOid = default(int), int customerShippingOid = default(int), string dayPhone = default(string), string dayPhoneE164 = default(string), bool defaultShipping = default(bool), string eveningPhone = default(string), string eveningPhoneE164 = default(string), string firstName = default(string), string lastName = default(string), string lastUsedDts = default(string), string postalCode = default(string), string stateRegion = default(string), string taxCounty = default(string), string title = default(string))
         {
             this.Address1 = address1;
             this.Address2 = address2;
@@ -60,8 +62,10 @@ namespace com.ultracart.admin.v2.Model
             this.CustomerProfileOid = customerProfileOid;
             this.CustomerShippingOid = customerShippingOid;
             this.DayPhone = dayPhone;
+            this.DayPhoneE164 = dayPhoneE164;
             this.DefaultShipping = defaultShipping;
             this.EveningPhone = eveningPhone;
+            this.EveningPhoneE164 = eveningPhoneE164;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.LastUsedDts = lastUsedDts;
@@ -128,6 +132,13 @@ namespace com.ultracart.admin.v2.Model
         public string DayPhone { get; set; }
 
         /// <summary>
+        /// Day phone in E.164 format (derived â€” read only)
+        /// </summary>
+        /// <value>Day phone in E.164 format (derived â€” read only)</value>
+        [DataMember(Name="day_phone_e164", EmitDefaultValue=false)]
+        public string DayPhoneE164 { get; set; }
+
+        /// <summary>
         /// Default shipping
         /// </summary>
         /// <value>Default shipping</value>
@@ -140,6 +151,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Evening phone</value>
         [DataMember(Name="evening_phone", EmitDefaultValue=false)]
         public string EveningPhone { get; set; }
+
+        /// <summary>
+        /// Evening phone in E.164 format (derived â€” read only)
+        /// </summary>
+        /// <value>Evening phone in E.164 format (derived â€” read only)</value>
+        [DataMember(Name="evening_phone_e164", EmitDefaultValue=false)]
+        public string EveningPhoneE164 { get; set; }
 
         /// <summary>
         /// First name
@@ -206,8 +224,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CustomerProfileOid: ").Append(CustomerProfileOid).Append("\n");
             sb.Append("  CustomerShippingOid: ").Append(CustomerShippingOid).Append("\n");
             sb.Append("  DayPhone: ").Append(DayPhone).Append("\n");
+            sb.Append("  DayPhoneE164: ").Append(DayPhoneE164).Append("\n");
             sb.Append("  DefaultShipping: ").Append(DefaultShipping).Append("\n");
             sb.Append("  EveningPhone: ").Append(EveningPhone).Append("\n");
+            sb.Append("  EveningPhoneE164: ").Append(EveningPhoneE164).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  LastUsedDts: ").Append(LastUsedDts).Append("\n");
@@ -290,6 +310,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DayPhone.Equals(input.DayPhone))
                 ) && 
                 (
+                    this.DayPhoneE164 == input.DayPhoneE164 ||
+                    (this.DayPhoneE164 != null &&
+                    this.DayPhoneE164.Equals(input.DayPhoneE164))
+                ) && 
+                (
                     this.DefaultShipping == input.DefaultShipping ||
                     (this.DefaultShipping != null &&
                     this.DefaultShipping.Equals(input.DefaultShipping))
@@ -298,6 +323,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EveningPhone == input.EveningPhone ||
                     (this.EveningPhone != null &&
                     this.EveningPhone.Equals(input.EveningPhone))
+                ) && 
+                (
+                    this.EveningPhoneE164 == input.EveningPhoneE164 ||
+                    (this.EveningPhoneE164 != null &&
+                    this.EveningPhoneE164.Equals(input.EveningPhoneE164))
                 ) && 
                 (
                     this.FirstName == input.FirstName ||
@@ -361,10 +391,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CustomerShippingOid.GetHashCode();
                 if (this.DayPhone != null)
                     hashCode = hashCode * 59 + this.DayPhone.GetHashCode();
+                if (this.DayPhoneE164 != null)
+                    hashCode = hashCode * 59 + this.DayPhoneE164.GetHashCode();
                 if (this.DefaultShipping != null)
                     hashCode = hashCode * 59 + this.DefaultShipping.GetHashCode();
                 if (this.EveningPhone != null)
                     hashCode = hashCode * 59 + this.EveningPhone.GetHashCode();
+                if (this.EveningPhoneE164 != null)
+                    hashCode = hashCode * 59 + this.EveningPhoneE164.GetHashCode();
                 if (this.FirstName != null)
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)

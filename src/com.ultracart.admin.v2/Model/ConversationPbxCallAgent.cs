@@ -36,17 +36,19 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="agentExtension">Agent&#39;s phone extension.</param>
         /// <param name="agentId">Unique identifier for the agent.</param>
         /// <param name="agentName">Display name of the agent.</param>
+        /// <param name="agentUserId">UltraCart user id for the agent (denormalized at index time so reporting endpoints can join on agent_user_id without translating from the agent_id login)..</param>
         /// <param name="answered">Whether the agent answered the call.</param>
         /// <param name="callSid">Twilio call SID for the agent&#39;s call leg.</param>
         /// <param name="joinedAtDts">Timestamp when the agent joined the call.</param>
         /// <param name="leftAtDts">Timestamp when the agent left the call.</param>
         /// <param name="role">Role of the agent in the call.</param>
         /// <param name="workerSid">Twilio TaskRouter worker SID.</param>
-        public ConversationPbxCallAgent(string agentExtension = default(string), string agentId = default(string), string agentName = default(string), bool answered = default(bool), string callSid = default(string), string joinedAtDts = default(string), string leftAtDts = default(string), string role = default(string), string workerSid = default(string))
+        public ConversationPbxCallAgent(string agentExtension = default(string), string agentId = default(string), string agentName = default(string), string agentUserId = default(string), bool answered = default(bool), string callSid = default(string), string joinedAtDts = default(string), string leftAtDts = default(string), string role = default(string), string workerSid = default(string))
         {
             this.AgentExtension = agentExtension;
             this.AgentId = agentId;
             this.AgentName = agentName;
+            this.AgentUserId = agentUserId;
             this.Answered = answered;
             this.CallSid = callSid;
             this.JoinedAtDts = joinedAtDts;
@@ -75,6 +77,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Display name of the agent</value>
         [DataMember(Name="agent_name", EmitDefaultValue=false)]
         public string AgentName { get; set; }
+
+        /// <summary>
+        /// UltraCart user id for the agent (denormalized at index time so reporting endpoints can join on agent_user_id without translating from the agent_id login).
+        /// </summary>
+        /// <value>UltraCart user id for the agent (denormalized at index time so reporting endpoints can join on agent_user_id without translating from the agent_id login).</value>
+        [DataMember(Name="agent_user_id", EmitDefaultValue=false)]
+        public string AgentUserId { get; set; }
 
         /// <summary>
         /// Whether the agent answered the call
@@ -129,6 +138,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AgentExtension: ").Append(AgentExtension).Append("\n");
             sb.Append("  AgentId: ").Append(AgentId).Append("\n");
             sb.Append("  AgentName: ").Append(AgentName).Append("\n");
+            sb.Append("  AgentUserId: ").Append(AgentUserId).Append("\n");
             sb.Append("  Answered: ").Append(Answered).Append("\n");
             sb.Append("  CallSid: ").Append(CallSid).Append("\n");
             sb.Append("  JoinedAtDts: ").Append(JoinedAtDts).Append("\n");
@@ -185,6 +195,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AgentName.Equals(input.AgentName))
                 ) && 
                 (
+                    this.AgentUserId == input.AgentUserId ||
+                    (this.AgentUserId != null &&
+                    this.AgentUserId.Equals(input.AgentUserId))
+                ) && 
+                (
                     this.Answered == input.Answered ||
                     (this.Answered != null &&
                     this.Answered.Equals(input.Answered))
@@ -231,6 +246,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AgentId.GetHashCode();
                 if (this.AgentName != null)
                     hashCode = hashCode * 59 + this.AgentName.GetHashCode();
+                if (this.AgentUserId != null)
+                    hashCode = hashCode * 59 + this.AgentUserId.GetHashCode();
                 if (this.Answered != null)
                     hashCode = hashCode * 59 + this.Answered.GetHashCode();
                 if (this.CallSid != null)

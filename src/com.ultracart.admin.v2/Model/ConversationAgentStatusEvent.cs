@@ -186,6 +186,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationAgentStatusEvent" /> class.
         /// </summary>
+        /// <param name="agentIdentifier">Agent identifier â€” voice_identity for PBX (e.g. &#39;client:login&#39;), participant_arn for chat, synthetic &#39;ai:&lt;user_id&gt;&#39; for AI flag events. Stable across an agent&#39;s events; participates in DDB pk and GSI1 sk..</param>
         /// <param name="agentName">Agent display name at the time of the event.</param>
         /// <param name="agentType">Agent type.</param>
         /// <param name="agentUserId">Agent user id (links across channels).</param>
@@ -202,8 +203,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="previousRoutingEffect">Canonical previous routing semantic.</param>
         /// <param name="previousStatus">Channel-native previous status name.</param>
         /// <param name="trigger">What triggered the transition.</param>
-        public ConversationAgentStatusEvent(string agentName = default(string), AgentTypeEnum? agentType = default(AgentTypeEnum?), string agentUserId = default(string), ChannelEnum? channel = default(ChannelEnum?), string customStatusName = default(string), string customStatusUuid = default(string), long durationInPreviousSeconds = default(long), string eventDts = default(string), string eventUuid = default(string), string merchantId = default(string), NewRoutingEffectEnum? newRoutingEffect = default(NewRoutingEffectEnum?), string newStatus = default(string), string parentMerchantId = default(string), PreviousRoutingEffectEnum? previousRoutingEffect = default(PreviousRoutingEffectEnum?), string previousStatus = default(string), TriggerEnum? trigger = default(TriggerEnum?))
+        public ConversationAgentStatusEvent(string agentIdentifier = default(string), string agentName = default(string), AgentTypeEnum? agentType = default(AgentTypeEnum?), string agentUserId = default(string), ChannelEnum? channel = default(ChannelEnum?), string customStatusName = default(string), string customStatusUuid = default(string), long durationInPreviousSeconds = default(long), string eventDts = default(string), string eventUuid = default(string), string merchantId = default(string), NewRoutingEffectEnum? newRoutingEffect = default(NewRoutingEffectEnum?), string newStatus = default(string), string parentMerchantId = default(string), PreviousRoutingEffectEnum? previousRoutingEffect = default(PreviousRoutingEffectEnum?), string previousStatus = default(string), TriggerEnum? trigger = default(TriggerEnum?))
         {
+            this.AgentIdentifier = agentIdentifier;
             this.AgentName = agentName;
             this.AgentType = agentType;
             this.AgentUserId = agentUserId;
@@ -221,6 +223,13 @@ namespace com.ultracart.admin.v2.Model
             this.PreviousStatus = previousStatus;
             this.Trigger = trigger;
         }
+
+        /// <summary>
+        /// Agent identifier â€” voice_identity for PBX (e.g. &#39;client:login&#39;), participant_arn for chat, synthetic &#39;ai:&lt;user_id&gt;&#39; for AI flag events. Stable across an agent&#39;s events; participates in DDB pk and GSI1 sk.
+        /// </summary>
+        /// <value>Agent identifier â€” voice_identity for PBX (e.g. &#39;client:login&#39;), participant_arn for chat, synthetic &#39;ai:&lt;user_id&gt;&#39; for AI flag events. Stable across an agent&#39;s events; participates in DDB pk and GSI1 sk.</value>
+        [DataMember(Name="agent_identifier", EmitDefaultValue=false)]
+        public string AgentIdentifier { get; set; }
 
         /// <summary>
         /// Agent display name at the time of the event
@@ -312,6 +321,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationAgentStatusEvent {\n");
+            sb.Append("  AgentIdentifier: ").Append(AgentIdentifier).Append("\n");
             sb.Append("  AgentName: ").Append(AgentName).Append("\n");
             sb.Append("  AgentType: ").Append(AgentType).Append("\n");
             sb.Append("  AgentUserId: ").Append(AgentUserId).Append("\n");
@@ -362,6 +372,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.AgentIdentifier == input.AgentIdentifier ||
+                    (this.AgentIdentifier != null &&
+                    this.AgentIdentifier.Equals(input.AgentIdentifier))
+                ) && 
                 (
                     this.AgentName == input.AgentName ||
                     (this.AgentName != null &&
@@ -453,6 +468,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AgentIdentifier != null)
+                    hashCode = hashCode * 59 + this.AgentIdentifier.GetHashCode();
                 if (this.AgentName != null)
                     hashCode = hashCode * 59 + this.AgentName.GetHashCode();
                 if (this.AgentType != null)

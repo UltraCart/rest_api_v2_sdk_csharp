@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AgentIdentifier** | **string** | Agent identifier â€” voice_identity for PBX (e.g. &#39;client:login&#39;), participant_arn for chat, synthetic &#39;ai:&lt;user_id&gt;&#39; for AI flag events. Stable across an agent&#39;s events; participates in DDB pk and GSI1 sk. | [optional] 
 **AgentName** | **string** | Agent display name at the time of the event | [optional] 
 **AgentType** | **string** | Agent type | [optional] 
 **AgentUserId** | **string** | Agent user id (links across channels) | [optional] 

@@ -60,18 +60,27 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoOrderItemCancelRequest" /> class.
         /// </summary>
-        /// <param name="autoOrderItemOid">Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id..</param>
+        /// <param name="appendItems">Specifying these items allows for an easier immutable item contact.  Validation will occur before any operations take place.  After the end/remove operation is successful, append these additional item(s) to the auto order.  The changes will be available in the response if the expansion includes items..</param>
+        /// <param name="autoOrderItemOid">Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id.  For reference the order_item.item_reference_oid is the same value as auto_order_item.auto_order_item_oid UNLESS the a manual edit took place AFTER the original order was placed..</param>
         /// <param name="mode">Cancellation mode.  &#39;end&#39; soft-cancels the item by setting no_order_after_dts to the current time, preserving the row for reporting.  &#39;remove&#39; hard-deletes the item from the auto order.  Defaults to &#39;end&#39; (the less destructive option) when omitted..</param>
-        public AutoOrderItemCancelRequest(int autoOrderItemOid = default(int), ModeEnum? mode = default(ModeEnum?))
+        public AutoOrderItemCancelRequest(List<AutoOrderItem> appendItems = default(List<AutoOrderItem>), int autoOrderItemOid = default(int), ModeEnum? mode = default(ModeEnum?))
         {
+            this.AppendItems = appendItems;
             this.AutoOrderItemOid = autoOrderItemOid;
             this.Mode = mode;
         }
 
         /// <summary>
-        /// Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id.
+        /// Specifying these items allows for an easier immutable item contact.  Validation will occur before any operations take place.  After the end/remove operation is successful, append these additional item(s) to the auto order.  The changes will be available in the response if the expansion includes items.
         /// </summary>
-        /// <value>Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id.</value>
+        /// <value>Specifying these items allows for an easier immutable item contact.  Validation will occur before any operations take place.  After the end/remove operation is successful, append these additional item(s) to the auto order.  The changes will be available in the response if the expansion includes items.</value>
+        [DataMember(Name="append_items", EmitDefaultValue=false)]
+        public List<AutoOrderItem> AppendItems { get; set; }
+
+        /// <summary>
+        /// Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id.  For reference the order_item.item_reference_oid is the same value as auto_order_item.auto_order_item_oid UNLESS the a manual edit took place AFTER the original order was placed.
+        /// </summary>
+        /// <value>Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id.  For reference the order_item.item_reference_oid is the same value as auto_order_item.auto_order_item_oid UNLESS the a manual edit took place AFTER the original order was placed.</value>
         [DataMember(Name="auto_order_item_oid", EmitDefaultValue=false)]
         public int AutoOrderItemOid { get; set; }
 
@@ -84,6 +93,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AutoOrderItemCancelRequest {\n");
+            sb.Append("  AppendItems: ").Append(AppendItems).Append("\n");
             sb.Append("  AutoOrderItemOid: ").Append(AutoOrderItemOid).Append("\n");
             sb.Append("  Mode: ").Append(Mode).Append("\n");
             sb.Append("}\n");
@@ -121,6 +131,12 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AppendItems == input.AppendItems ||
+                    this.AppendItems != null &&
+                    input.AppendItems != null &&
+                    this.AppendItems.SequenceEqual(input.AppendItems)
+                ) && 
+                (
                     this.AutoOrderItemOid == input.AutoOrderItemOid ||
                     (this.AutoOrderItemOid != null &&
                     this.AutoOrderItemOid.Equals(input.AutoOrderItemOid))
@@ -141,6 +157,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AppendItems != null)
+                    hashCode = hashCode * 59 + this.AppendItems.GetHashCode();
                 if (this.AutoOrderItemOid != null)
                     hashCode = hashCode * 59 + this.AutoOrderItemOid.GetHashCode();
                 if (this.Mode != null)

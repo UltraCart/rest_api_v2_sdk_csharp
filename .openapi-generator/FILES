@@ -657,6 +657,11 @@ docs/ItemEbayMarketPlaceAnalysis.md
 docs/ItemEmailNotifications.md
 docs/ItemEnrollment123.md
 docs/ItemFulfillmentAddon.md
+docs/ItemGatedCode.md
+docs/ItemGatedCodeResponse.md
+docs/ItemGatedCodesRequest.md
+docs/ItemGatedCodesResponse.md
+docs/ItemGenerateGatedCodesRequest.md
 docs/ItemGiftCertificate.md
 docs/ItemGoogleProductSearch.md
 docs/ItemIdentifiers.md
@@ -666,8 +671,6 @@ docs/ItemInternal.md
 docs/ItemInventorySnapshot.md
 docs/ItemInventorySnapshotDistributionCenter.md
 docs/ItemInventorySnapshotResponse.md
-docs/ItemInventoryUpdate.md
-docs/ItemInventoryUpdateRequest.md
 docs/ItemKitComponent.md
 docs/ItemKitDefinition.md
 docs/ItemOption.md
@@ -699,7 +702,6 @@ docs/ItemShippingCase.md
 docs/ItemShippingDestinationMarkup.md
 docs/ItemShippingDestinationRestriction.md
 docs/ItemShippingDistributionCenter.md
-docs/ItemShippingDistributionCenterResponse.md
 docs/ItemShippingMethod.md
 docs/ItemShippingPackageRequirement.md
 docs/ItemTag.md
@@ -1670,6 +1672,11 @@ src/com.ultracart.admin.v2/Model/ItemEbayMarketPlaceAnalysis.cs
 src/com.ultracart.admin.v2/Model/ItemEmailNotifications.cs
 src/com.ultracart.admin.v2/Model/ItemEnrollment123.cs
 src/com.ultracart.admin.v2/Model/ItemFulfillmentAddon.cs
+src/com.ultracart.admin.v2/Model/ItemGatedCode.cs
+src/com.ultracart.admin.v2/Model/ItemGatedCodeResponse.cs
+src/com.ultracart.admin.v2/Model/ItemGatedCodesRequest.cs
+src/com.ultracart.admin.v2/Model/ItemGatedCodesResponse.cs
+src/com.ultracart.admin.v2/Model/ItemGenerateGatedCodesRequest.cs
 src/com.ultracart.admin.v2/Model/ItemGiftCertificate.cs
 src/com.ultracart.admin.v2/Model/ItemGoogleProductSearch.cs
 src/com.ultracart.admin.v2/Model/ItemIdentifiers.cs
@@ -1679,8 +1686,6 @@ src/com.ultracart.admin.v2/Model/ItemInternal.cs
 src/com.ultracart.admin.v2/Model/ItemInventorySnapshot.cs
 src/com.ultracart.admin.v2/Model/ItemInventorySnapshotDistributionCenter.cs
 src/com.ultracart.admin.v2/Model/ItemInventorySnapshotResponse.cs
-src/com.ultracart.admin.v2/Model/ItemInventoryUpdate.cs
-src/com.ultracart.admin.v2/Model/ItemInventoryUpdateRequest.cs
 src/com.ultracart.admin.v2/Model/ItemKitComponent.cs
 src/com.ultracart.admin.v2/Model/ItemKitDefinition.cs
 src/com.ultracart.admin.v2/Model/ItemOption.cs
@@ -1712,7 +1717,6 @@ src/com.ultracart.admin.v2/Model/ItemShippingCase.cs
 src/com.ultracart.admin.v2/Model/ItemShippingDestinationMarkup.cs
 src/com.ultracart.admin.v2/Model/ItemShippingDestinationRestriction.cs
 src/com.ultracart.admin.v2/Model/ItemShippingDistributionCenter.cs
-src/com.ultracart.admin.v2/Model/ItemShippingDistributionCenterResponse.cs
 src/com.ultracart.admin.v2/Model/ItemShippingMethod.cs
 src/com.ultracart.admin.v2/Model/ItemShippingPackageRequirement.cs
 src/com.ultracart.admin.v2/Model/ItemTag.cs

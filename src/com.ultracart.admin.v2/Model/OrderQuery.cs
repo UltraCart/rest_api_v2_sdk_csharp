@@ -95,7 +95,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Unknown for value: Unknown
             /// </summary>
             [EnumMember(Value = "Unknown")]
-            Unknown = 10
+            Unknown = 10,
+
+            /// <summary>
+            /// Enum Hold for value: Hold
+            /// </summary>
+            [EnumMember(Value = "Hold")]
+            Hold = 11
 
         }
 

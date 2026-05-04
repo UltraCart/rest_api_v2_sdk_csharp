@@ -25,26 +25,26 @@ using OpenAPIDateConverter = com.ultracart.admin.v2.Client.OpenAPIDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ItemInventoryUpdateRequest
+    /// ItemGatedCodesRequest
     /// </summary>
     [DataContract]
-    public partial class ItemInventoryUpdateRequest :  IEquatable<ItemInventoryUpdateRequest>, IValidatableObject
+    public partial class ItemGatedCodesRequest :  IEquatable<ItemGatedCodesRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ItemInventoryUpdateRequest" /> class.
+        /// Initializes a new instance of the <see cref="ItemGatedCodesRequest" /> class.
         /// </summary>
-        /// <param name="inventoryUpdates">Inventory updates array.</param>
-        public ItemInventoryUpdateRequest(List<ItemInventoryUpdate> inventoryUpdates = default(List<ItemInventoryUpdate>))
+        /// <param name="gatedCodes">gated_codes.</param>
+        public ItemGatedCodesRequest(List<ItemGatedCode> gatedCodes = default(List<ItemGatedCode>))
         {
-            this.InventoryUpdates = inventoryUpdates;
+            this.GatedCodes = gatedCodes;
         }
 
         /// <summary>
-        /// Inventory updates array
+        /// gated_codes
         /// </summary>
-        /// <value>Inventory updates array</value>
-        [DataMember(Name="inventory_updates", EmitDefaultValue=false)]
-        public List<ItemInventoryUpdate> InventoryUpdates { get; set; }
+        /// <value>gated_codes</value>
+        [DataMember(Name="gatedCodes", EmitDefaultValue=false)]
+        public List<ItemGatedCode> GatedCodes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +53,8 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ItemInventoryUpdateRequest {\n");
-            sb.Append("  InventoryUpdates: ").Append(InventoryUpdates).Append("\n");
+            sb.Append("class ItemGatedCodesRequest {\n");
+            sb.Append("  GatedCodes: ").Append(GatedCodes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,25 +75,25 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ItemInventoryUpdateRequest);
+            return this.Equals(input as ItemGatedCodesRequest);
         }
 
         /// <summary>
-        /// Returns true if ItemInventoryUpdateRequest instances are equal
+        /// Returns true if ItemGatedCodesRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ItemInventoryUpdateRequest to be compared</param>
+        /// <param name="input">Instance of ItemGatedCodesRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemInventoryUpdateRequest input)
+        public bool Equals(ItemGatedCodesRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.InventoryUpdates == input.InventoryUpdates ||
-                    this.InventoryUpdates != null &&
-                    input.InventoryUpdates != null &&
-                    this.InventoryUpdates.SequenceEqual(input.InventoryUpdates)
+                    this.GatedCodes == input.GatedCodes ||
+                    this.GatedCodes != null &&
+                    input.GatedCodes != null &&
+                    this.GatedCodes.SequenceEqual(input.GatedCodes)
                 );
         }
 
@@ -106,8 +106,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.InventoryUpdates != null)
-                    hashCode = hashCode * 59 + this.InventoryUpdates.GetHashCode();
+                if (this.GatedCodes != null)
+                    hashCode = hashCode * 59 + this.GatedCodes.GetHashCode();
                 return hashCode;
             }
         }

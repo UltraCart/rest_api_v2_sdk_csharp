@@ -49,6 +49,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="emailNotifications">emailNotifications.</param>
         /// <param name="enrollment123">enrollment123.</param>
         /// <param name="fulfillmentAddons">Fulfillment Add-ons.</param>
+        /// <param name="gatedCodes">Gated access codes for this item. Read-only on this object. Use the /items/{merchant_item_oid}/gated_codes endpoints to manage..</param>
         /// <param name="giftCertificate">giftCertificate.</param>
         /// <param name="googleProductSearch">googleProductSearch.</param>
         /// <param name="identifiers">identifiers.</param>
@@ -84,7 +85,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="variantItems">Variant Items.</param>
         /// <param name="variations">Variations.</param>
         /// <param name="wishlistMember">wishlistMember.</param>
-        public Item(ItemAccounting accounting = default(ItemAccounting), ItemAmember amember = default(ItemAmember), ItemAutoOrder autoOrder = default(ItemAutoOrder), ItemCCBill ccbill = default(ItemCCBill), List<ItemChannelPartnerMapping> channelPartnerItemMappings = default(List<ItemChannelPartnerMapping>), ItemChargeback chargeback = default(ItemChargeback), ItemCheckout checkout = default(ItemCheckout), ItemContent content = default(ItemContent), string creationDts = default(string), string description = default(string), int descriptionTranslatedTextInstanceOid = default(int), ItemDigitalDelivery digitalDelivery = default(ItemDigitalDelivery), ItemEbay ebay = default(ItemEbay), ItemEmailNotifications emailNotifications = default(ItemEmailNotifications), ItemEnrollment123 enrollment123 = default(ItemEnrollment123), List<ItemFulfillmentAddon> fulfillmentAddons = default(List<ItemFulfillmentAddon>), ItemGiftCertificate giftCertificate = default(ItemGiftCertificate), ItemGoogleProductSearch googleProductSearch = default(ItemGoogleProductSearch), ItemIdentifiers identifiers = default(ItemIdentifiers), bool inactive = default(bool), ItemInstantPaymentNotifications instantPaymentNotifications = default(ItemInstantPaymentNotifications), ItemInternal _internal = default(ItemInternal), bool kit = default(bool), bool kitComponentOnly = default(bool), ItemKitDefinition kitDefinition = default(ItemKitDefinition), string lastModifiedDts = default(string), string merchantId = default(string), string merchantItemId = default(string), int merchantItemOid = default(int), List<ItemOption> options = default(List<ItemOption>), int parentCategoryId = default(int), string parentCategoryPath = default(string), ItemPaymentProcessing paymentProcessing = default(ItemPaymentProcessing), ItemPhysical physical = default(ItemPhysical), ItemPricing pricing = default(ItemPricing), List<ItemProperty> properties = default(List<ItemProperty>), ItemRealtimePricing realtimePricing = default(ItemRealtimePricing), int recommendReplenishmentDays = default(int), ItemRelated related = default(ItemRelated), ItemReporting reporting = default(ItemReporting), ItemRestriction restriction = default(ItemRestriction), ItemRevguard revguard = default(ItemRevguard), ItemReviews reviews = default(ItemReviews), ItemSalesforce salesforce = default(ItemSalesforce), ItemShipping shipping = default(ItemShipping), ItemTags tags = default(ItemTags), ItemTax tax = default(ItemTax), List<ItemThirdPartyEmailMarketing> thirdPartyEmailMarketing = default(List<ItemThirdPartyEmailMarketing>), List<ItemVariantItem> variantItems = default(List<ItemVariantItem>), List<ItemVariation> variations = default(List<ItemVariation>), ItemWishlistMember wishlistMember = default(ItemWishlistMember))
+        public Item(ItemAccounting accounting = default(ItemAccounting), ItemAmember amember = default(ItemAmember), ItemAutoOrder autoOrder = default(ItemAutoOrder), ItemCCBill ccbill = default(ItemCCBill), List<ItemChannelPartnerMapping> channelPartnerItemMappings = default(List<ItemChannelPartnerMapping>), ItemChargeback chargeback = default(ItemChargeback), ItemCheckout checkout = default(ItemCheckout), ItemContent content = default(ItemContent), string creationDts = default(string), string description = default(string), int descriptionTranslatedTextInstanceOid = default(int), ItemDigitalDelivery digitalDelivery = default(ItemDigitalDelivery), ItemEbay ebay = default(ItemEbay), ItemEmailNotifications emailNotifications = default(ItemEmailNotifications), ItemEnrollment123 enrollment123 = default(ItemEnrollment123), List<ItemFulfillmentAddon> fulfillmentAddons = default(List<ItemFulfillmentAddon>), List<ItemGatedCode> gatedCodes = default(List<ItemGatedCode>), ItemGiftCertificate giftCertificate = default(ItemGiftCertificate), ItemGoogleProductSearch googleProductSearch = default(ItemGoogleProductSearch), ItemIdentifiers identifiers = default(ItemIdentifiers), bool inactive = default(bool), ItemInstantPaymentNotifications instantPaymentNotifications = default(ItemInstantPaymentNotifications), ItemInternal _internal = default(ItemInternal), bool kit = default(bool), bool kitComponentOnly = default(bool), ItemKitDefinition kitDefinition = default(ItemKitDefinition), string lastModifiedDts = default(string), string merchantId = default(string), string merchantItemId = default(string), int merchantItemOid = default(int), List<ItemOption> options = default(List<ItemOption>), int parentCategoryId = default(int), string parentCategoryPath = default(string), ItemPaymentProcessing paymentProcessing = default(ItemPaymentProcessing), ItemPhysical physical = default(ItemPhysical), ItemPricing pricing = default(ItemPricing), List<ItemProperty> properties = default(List<ItemProperty>), ItemRealtimePricing realtimePricing = default(ItemRealtimePricing), int recommendReplenishmentDays = default(int), ItemRelated related = default(ItemRelated), ItemReporting reporting = default(ItemReporting), ItemRestriction restriction = default(ItemRestriction), ItemRevguard revguard = default(ItemRevguard), ItemReviews reviews = default(ItemReviews), ItemSalesforce salesforce = default(ItemSalesforce), ItemShipping shipping = default(ItemShipping), ItemTags tags = default(ItemTags), ItemTax tax = default(ItemTax), List<ItemThirdPartyEmailMarketing> thirdPartyEmailMarketing = default(List<ItemThirdPartyEmailMarketing>), List<ItemVariantItem> variantItems = default(List<ItemVariantItem>), List<ItemVariation> variations = default(List<ItemVariation>), ItemWishlistMember wishlistMember = default(ItemWishlistMember))
         {
             this.Accounting = accounting;
             this.Amember = amember;
@@ -102,6 +103,7 @@ namespace com.ultracart.admin.v2.Model
             this.EmailNotifications = emailNotifications;
             this.Enrollment123 = enrollment123;
             this.FulfillmentAddons = fulfillmentAddons;
+            this.GatedCodes = gatedCodes;
             this.GiftCertificate = giftCertificate;
             this.GoogleProductSearch = googleProductSearch;
             this.Identifiers = identifiers;
@@ -239,6 +241,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Fulfillment Add-ons</value>
         [DataMember(Name="fulfillment_addons", EmitDefaultValue=false)]
         public List<ItemFulfillmentAddon> FulfillmentAddons { get; set; }
+
+        /// <summary>
+        /// Gated access codes for this item. Read-only on this object. Use the /items/{merchant_item_oid}/gated_codes endpoints to manage.
+        /// </summary>
+        /// <value>Gated access codes for this item. Read-only on this object. Use the /items/{merchant_item_oid}/gated_codes endpoints to manage.</value>
+        [DataMember(Name="gated_codes", EmitDefaultValue=false)]
+        public List<ItemGatedCode> GatedCodes { get; set; }
 
         /// <summary>
         /// Gets or Sets GiftCertificate
@@ -489,6 +498,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EmailNotifications: ").Append(EmailNotifications).Append("\n");
             sb.Append("  Enrollment123: ").Append(Enrollment123).Append("\n");
             sb.Append("  FulfillmentAddons: ").Append(FulfillmentAddons).Append("\n");
+            sb.Append("  GatedCodes: ").Append(GatedCodes).Append("\n");
             sb.Append("  GiftCertificate: ").Append(GiftCertificate).Append("\n");
             sb.Append("  GoogleProductSearch: ").Append(GoogleProductSearch).Append("\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
@@ -639,6 +649,12 @@ namespace com.ultracart.admin.v2.Model
                     this.FulfillmentAddons != null &&
                     input.FulfillmentAddons != null &&
                     this.FulfillmentAddons.SequenceEqual(input.FulfillmentAddons)
+                ) && 
+                (
+                    this.GatedCodes == input.GatedCodes ||
+                    this.GatedCodes != null &&
+                    input.GatedCodes != null &&
+                    this.GatedCodes.SequenceEqual(input.GatedCodes)
                 ) && 
                 (
                     this.GiftCertificate == input.GiftCertificate ||
@@ -863,6 +879,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Enrollment123.GetHashCode();
                 if (this.FulfillmentAddons != null)
                     hashCode = hashCode * 59 + this.FulfillmentAddons.GetHashCode();
+                if (this.GatedCodes != null)
+                    hashCode = hashCode * 59 + this.GatedCodes.GetHashCode();
                 if (this.GiftCertificate != null)
                     hashCode = hashCode * 59 + this.GiftCertificate.GetHashCode();
                 if (this.GoogleProductSearch != null)

@@ -1,11 +1,11 @@
 
-# com.ultracart.admin.v2.Model.ItemInventoryUpdateRequest
+# com.ultracart.admin.v2.Model.ItemGatedCodesRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InventoryUpdates** | [**List&lt;ItemInventoryUpdate&gt;**](ItemInventoryUpdate.md) | Inventory updates array | [optional] 
+**GatedCodes** | [**List&lt;ItemGatedCode&gt;**](ItemGatedCode.md) | gated_codes | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

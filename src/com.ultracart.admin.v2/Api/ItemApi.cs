@@ -26,6 +26,27 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Delete all gated access codes for an item
+        /// </summary>
+        /// <remarks>
+        /// Removes every gated access code currently configured for the item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <returns>BaseResponse</returns>
+        BaseResponse DeleteAllGatedCodes (int merchantItemOid);
+
+        /// <summary>
+        /// Delete all gated access codes for an item
+        /// </summary>
+        /// <remarks>
+        /// Removes every gated access code currently configured for the item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        ApiResponse<BaseResponse> DeleteAllGatedCodesWithHttpInfo (int merchantItemOid);
+        /// <summary>
         /// Delete a digital item, which is a file within the digital library, not an actual merchant item
         /// </summary>
         /// <remarks>
@@ -46,6 +67,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="digitalItemOid">The digital item oid to delete.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteDigitalItemWithHttpInfo (int digitalItemOid);
+        /// <summary>
+        /// Delete a gated access code by OID
+        /// </summary>
+        /// <remarks>
+        /// Delete a specific gated access code by its OID. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="merchantItemGatedCodeOid">The gated code oid.</param>
+        /// <returns>BaseResponse</returns>
+        BaseResponse DeleteGatedCode (int merchantItemOid, int merchantItemGatedCodeOid);
+
+        /// <summary>
+        /// Delete a gated access code by OID
+        /// </summary>
+        /// <remarks>
+        /// Delete a specific gated access code by its OID. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="merchantItemGatedCodeOid">The gated code oid.</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        ApiResponse<BaseResponse> DeleteGatedCodeWithHttpInfo (int merchantItemOid, int merchantItemGatedCodeOid);
         /// <summary>
         /// Delete an item
         /// </summary>
@@ -90,6 +134,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="merchantItemOid">The item oid the review is associated with.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteReviewWithHttpInfo (int reviewOid, int merchantItemOid);
+        /// <summary>
+        /// Generate a batch of gated access codes
+        /// </summary>
+        /// <remarks>
+        /// Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1 removed). Codes are NOT persisted; submit them via PUT or POST to commit. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="generateRequest">Generate request.</param>
+        /// <returns>ItemGatedCodesResponse</returns>
+        ItemGatedCodesResponse GenerateGatedCodes (int merchantItemOid, ItemGenerateGatedCodesRequest generateRequest);
+
+        /// <summary>
+        /// Generate a batch of gated access codes
+        /// </summary>
+        /// <remarks>
+        /// Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1 removed). Codes are NOT persisted; submit them via PUT or POST to commit. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="generateRequest">Generate request.</param>
+        /// <returns>ApiResponse of ItemGatedCodesResponse</returns>
+        ApiResponse<ItemGatedCodesResponse> GenerateGatedCodesWithHttpInfo (int merchantItemOid, ItemGenerateGatedCodesRequest generateRequest);
         /// <summary>
         /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
         /// </summary>
@@ -164,6 +231,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ItemDigitalItemsResponse</returns>
         ApiResponse<ItemDigitalItemsResponse> GetDigitalItemsByExternalIdWithHttpInfo (string externalId);
         /// <summary>
+        /// Get gated access codes for an item
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all unredeemed gated access codes configured for an item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <returns>ItemGatedCodesResponse</returns>
+        ItemGatedCodesResponse GetGatedCodes (int merchantItemOid);
+
+        /// <summary>
+        /// Get gated access codes for an item
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all unredeemed gated access codes configured for an item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <returns>ApiResponse of ItemGatedCodesResponse</returns>
+        ApiResponse<ItemGatedCodesResponse> GetGatedCodesWithHttpInfo (int merchantItemOid);
+        /// <summary>
         /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
         /// </summary>
         /// <remarks>
@@ -232,33 +320,6 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of ItemResponse</returns>
         ApiResponse<ItemResponse> GetItemByMerchantItemIdWithHttpInfo (string merchantItemId, string expand = default(string), bool? placeholders = default(bool?));
-        /// <summary>
-        /// Retrieve an item shipping distribution center
-        /// </summary>
-        /// <remarks>
-        /// Retrieve an item shipping distribution center. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to retrieve.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>ItemShippingDistributionCenterResponse</returns>
-        ItemShippingDistributionCenterResponse GetItemShippingDistributionCenterByCode (int merchantItemOid, string distributionCenterCode, string expand = default(string), bool? placeholders = default(bool?));
-
-        /// <summary>
-        /// Retrieve an item shipping distribution center
-        /// </summary>
-        /// <remarks>
-        /// Retrieve an item shipping distribution center. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to retrieve.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>ApiResponse of ItemShippingDistributionCenterResponse</returns>
-        ApiResponse<ItemShippingDistributionCenterResponse> GetItemShippingDistributionCenterByCodeWithHttpInfo (int merchantItemOid, string distributionCenterCode, string expand = default(string), bool? placeholders = default(bool?));
         /// <summary>
         /// Retrieve items
         /// </summary>
@@ -412,6 +473,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ItemDigitalItemResponse</returns>
         ApiResponse<ItemDigitalItemResponse> InsertDigitalItemWithHttpInfo (ItemDigitalItem digitalItem);
         /// <summary>
+        /// Add a single gated access code to an item
+        /// </summary>
+        /// <remarks>
+        /// Insert a single gated access code; the server assigns the OID and created_dts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCode">Gated code to insert.</param>
+        /// <returns>ItemGatedCodeResponse</returns>
+        ItemGatedCodeResponse InsertGatedCode (int merchantItemOid, ItemGatedCode gatedCode);
+
+        /// <summary>
+        /// Add a single gated access code to an item
+        /// </summary>
+        /// <remarks>
+        /// Insert a single gated access code; the server assigns the OID and created_dts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCode">Gated code to insert.</param>
+        /// <returns>ApiResponse of ItemGatedCodeResponse</returns>
+        ApiResponse<ItemGatedCodeResponse> InsertGatedCodeWithHttpInfo (int merchantItemOid, ItemGatedCode gatedCode);
+        /// <summary>
         /// Create an item
         /// </summary>
         /// <remarks>
@@ -483,6 +567,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> InsertUpdateItemContentAttributeWithHttpInfo (int merchantItemOid, ItemContentAttribute itemAttribute);
         /// <summary>
+        /// Replace the full list of gated access codes for an item
+        /// </summary>
+        /// <remarks>
+        /// Existing codes not present in the request body are deleted. New codes are inserted. Unchanged codes preserve their OID and created_dts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCodesRequest">Codes to replace the existing list with.</param>
+        /// <returns>ItemGatedCodesResponse</returns>
+        ItemGatedCodesResponse ReplaceGatedCodes (int merchantItemOid, ItemGatedCodesRequest gatedCodesRequest);
+
+        /// <summary>
+        /// Replace the full list of gated access codes for an item
+        /// </summary>
+        /// <remarks>
+        /// Existing codes not present in the request body are deleted. New codes are inserted. Unchanged codes preserve their OID and created_dts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCodesRequest">Codes to replace the existing list with.</param>
+        /// <returns>ApiResponse of ItemGatedCodesResponse</returns>
+        ApiResponse<ItemGatedCodesResponse> ReplaceGatedCodesWithHttpInfo (int merchantItemOid, ItemGatedCodesRequest gatedCodesRequest);
+        /// <summary>
         /// Updates a file within the digital library
         /// </summary>
         /// <remarks>
@@ -532,52 +639,6 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of ItemResponse</returns>
         ApiResponse<ItemResponse> UpdateItemWithHttpInfo (int merchantItemOid, Item item, string expand = default(string), bool? placeholders = default(bool?));
-        /// <summary>
-        /// Update item inventories for a distribution center
-        /// </summary>
-        /// <remarks>
-        /// Update item inventories for a distribution center 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
-        /// <returns></returns>
-        void UpdateItemInventories (ItemInventoryUpdateRequest itemInventoryUpdateRequest);
-
-        /// <summary>
-        /// Update item inventories for a distribution center
-        /// </summary>
-        /// <remarks>
-        /// Update item inventories for a distribution center 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateItemInventoriesWithHttpInfo (ItemInventoryUpdateRequest itemInventoryUpdateRequest);
-        /// <summary>
-        /// Update an item shipping distribution center
-        /// </summary>
-        /// <remarks>
-        /// Update an item shipping distribution center 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to update.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="itemShippingDistributionCenter">Item shipping distribution center</param>
-        /// <returns></returns>
-        void UpdateItemShippingDistributionCenterByCode (int merchantItemOid, string distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter);
-
-        /// <summary>
-        /// Update an item shipping distribution center
-        /// </summary>
-        /// <remarks>
-        /// Update an item shipping distribution center 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to update.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="itemShippingDistributionCenter">Item shipping distribution center</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateItemShippingDistributionCenterByCodeWithHttpInfo (int merchantItemOid, string distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter);
         /// <summary>
         /// Update multiple items
         /// </summary>
@@ -654,6 +715,29 @@ namespace com.ultracart.admin.v2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// Delete all gated access codes for an item
+        /// </summary>
+        /// <remarks>
+        /// Removes every gated access code currently configured for the item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of BaseResponse</returns>
+        System.Threading.Tasks.Task<BaseResponse> DeleteAllGatedCodesAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete all gated access codes for an item
+        /// </summary>
+        /// <remarks>
+        /// Removes every gated access code currently configured for the item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteAllGatedCodesWithHttpInfoAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Delete a digital item, which is a file within the digital library, not an actual merchant item
         /// </summary>
         /// <remarks>
@@ -676,6 +760,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDigitalItemWithHttpInfoAsync (int digitalItemOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Delete a gated access code by OID
+        /// </summary>
+        /// <remarks>
+        /// Delete a specific gated access code by its OID. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="merchantItemGatedCodeOid">The gated code oid.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of BaseResponse</returns>
+        System.Threading.Tasks.Task<BaseResponse> DeleteGatedCodeAsync (int merchantItemOid, int merchantItemGatedCodeOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete a gated access code by OID
+        /// </summary>
+        /// <remarks>
+        /// Delete a specific gated access code by its OID. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="merchantItemGatedCodeOid">The gated code oid.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteGatedCodeWithHttpInfoAsync (int merchantItemOid, int merchantItemGatedCodeOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete an item
         /// </summary>
@@ -724,6 +833,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteReviewWithHttpInfoAsync (int reviewOid, int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Generate a batch of gated access codes
+        /// </summary>
+        /// <remarks>
+        /// Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1 removed). Codes are NOT persisted; submit them via PUT or POST to commit. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="generateRequest">Generate request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemGatedCodesResponse</returns>
+        System.Threading.Tasks.Task<ItemGatedCodesResponse> GenerateGatedCodesAsync (int merchantItemOid, ItemGenerateGatedCodesRequest generateRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Generate a batch of gated access codes
+        /// </summary>
+        /// <remarks>
+        /// Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1 removed). Codes are NOT persisted; submit them via PUT or POST to commit. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="generateRequest">Generate request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemGatedCodesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemGatedCodesResponse>> GenerateGatedCodesWithHttpInfoAsync (int merchantItemOid, ItemGenerateGatedCodesRequest generateRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
         /// </summary>
@@ -804,6 +938,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ItemDigitalItemsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemsResponse>> GetDigitalItemsByExternalIdWithHttpInfoAsync (string externalId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Get gated access codes for an item
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all unredeemed gated access codes configured for an item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemGatedCodesResponse</returns>
+        System.Threading.Tasks.Task<ItemGatedCodesResponse> GetGatedCodesAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get gated access codes for an item
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all unredeemed gated access codes configured for an item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemGatedCodesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemGatedCodesResponse>> GetGatedCodesWithHttpInfoAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
         /// </summary>
         /// <remarks>
@@ -878,35 +1035,6 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemResponse>> GetItemByMerchantItemIdWithHttpInfoAsync (string merchantItemId, string expand = default(string), bool? placeholders = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Retrieve an item shipping distribution center
-        /// </summary>
-        /// <remarks>
-        /// Retrieve an item shipping distribution center. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to retrieve.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ItemShippingDistributionCenterResponse</returns>
-        System.Threading.Tasks.Task<ItemShippingDistributionCenterResponse> GetItemShippingDistributionCenterByCodeAsync (int merchantItemOid, string distributionCenterCode, string expand = default(string), bool? placeholders = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Retrieve an item shipping distribution center
-        /// </summary>
-        /// <remarks>
-        /// Retrieve an item shipping distribution center. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to retrieve.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (ItemShippingDistributionCenterResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ItemShippingDistributionCenterResponse>> GetItemShippingDistributionCenterByCodeWithHttpInfoAsync (int merchantItemOid, string distributionCenterCode, string expand = default(string), bool? placeholders = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve items
         /// </summary>
@@ -1072,6 +1200,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ItemDigitalItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemResponse>> InsertDigitalItemWithHttpInfoAsync (ItemDigitalItem digitalItem, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Add a single gated access code to an item
+        /// </summary>
+        /// <remarks>
+        /// Insert a single gated access code; the server assigns the OID and created_dts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCode">Gated code to insert.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemGatedCodeResponse</returns>
+        System.Threading.Tasks.Task<ItemGatedCodeResponse> InsertGatedCodeAsync (int merchantItemOid, ItemGatedCode gatedCode, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Add a single gated access code to an item
+        /// </summary>
+        /// <remarks>
+        /// Insert a single gated access code; the server assigns the OID and created_dts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCode">Gated code to insert.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemGatedCodeResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemGatedCodeResponse>> InsertGatedCodeWithHttpInfoAsync (int merchantItemOid, ItemGatedCode gatedCode, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Create an item
         /// </summary>
         /// <remarks>
@@ -1149,6 +1302,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> InsertUpdateItemContentAttributeWithHttpInfoAsync (int merchantItemOid, ItemContentAttribute itemAttribute, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Replace the full list of gated access codes for an item
+        /// </summary>
+        /// <remarks>
+        /// Existing codes not present in the request body are deleted. New codes are inserted. Unchanged codes preserve their OID and created_dts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCodesRequest">Codes to replace the existing list with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemGatedCodesResponse</returns>
+        System.Threading.Tasks.Task<ItemGatedCodesResponse> ReplaceGatedCodesAsync (int merchantItemOid, ItemGatedCodesRequest gatedCodesRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Replace the full list of gated access codes for an item
+        /// </summary>
+        /// <remarks>
+        /// Existing codes not present in the request body are deleted. New codes are inserted. Unchanged codes preserve their OID and created_dts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCodesRequest">Codes to replace the existing list with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemGatedCodesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemGatedCodesResponse>> ReplaceGatedCodesWithHttpInfoAsync (int merchantItemOid, ItemGatedCodesRequest gatedCodesRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Updates a file within the digital library
         /// </summary>
         /// <remarks>
@@ -1202,56 +1380,6 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemResponse>> UpdateItemWithHttpInfoAsync (int merchantItemOid, Item item, string expand = default(string), bool? placeholders = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Update item inventories for a distribution center
-        /// </summary>
-        /// <remarks>
-        /// Update item inventories for a distribution center 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateItemInventoriesAsync (ItemInventoryUpdateRequest itemInventoryUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Update item inventories for a distribution center
-        /// </summary>
-        /// <remarks>
-        /// Update item inventories for a distribution center 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateItemInventoriesWithHttpInfoAsync (ItemInventoryUpdateRequest itemInventoryUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Update an item shipping distribution center
-        /// </summary>
-        /// <remarks>
-        /// Update an item shipping distribution center 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to update.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="itemShippingDistributionCenter">Item shipping distribution center</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateItemShippingDistributionCenterByCodeAsync (int merchantItemOid, string distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Update an item shipping distribution center
-        /// </summary>
-        /// <remarks>
-        /// Update an item shipping distribution center 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to update.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="itemShippingDistributionCenter">Item shipping distribution center</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateItemShippingDistributionCenterByCodeWithHttpInfoAsync (int merchantItemOid, string distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update multiple items
         /// </summary>
@@ -1461,6 +1589,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Delete all gated access codes for an item Removes every gated access code currently configured for the item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <returns>BaseResponse</returns>
+        public BaseResponse DeleteAllGatedCodes (int merchantItemOid)
+        {
+             ApiResponse<BaseResponse> localVarResponse = DeleteAllGatedCodesWithHttpInfo(merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete all gated access codes for an item Removes every gated access code currently configured for the item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        public ApiResponse<BaseResponse> DeleteAllGatedCodesWithHttpInfo (int merchantItemOid)
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->DeleteAllGatedCodes");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/gated_codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteAllGatedCodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Delete all gated access codes for an item Removes every gated access code currently configured for the item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of BaseResponse</returns>
+        public async System.Threading.Tasks.Task<BaseResponse> DeleteAllGatedCodesAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<BaseResponse> localVarResponse = await DeleteAllGatedCodesWithHttpInfoAsync(merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete all gated access codes for an item Removes every gated access code currently configured for the item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteAllGatedCodesWithHttpInfoAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->DeleteAllGatedCodes");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/gated_codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteAllGatedCodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
         /// Delete a digital item, which is a file within the digital library, not an actual merchant item Delete a digital item on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1613,6 +1898,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Delete a gated access code by OID Delete a specific gated access code by its OID. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="merchantItemGatedCodeOid">The gated code oid.</param>
+        /// <returns>BaseResponse</returns>
+        public BaseResponse DeleteGatedCode (int merchantItemOid, int merchantItemGatedCodeOid)
+        {
+             ApiResponse<BaseResponse> localVarResponse = DeleteGatedCodeWithHttpInfo(merchantItemOid, merchantItemGatedCodeOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete a gated access code by OID Delete a specific gated access code by its OID. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="merchantItemGatedCodeOid">The gated code oid.</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        public ApiResponse<BaseResponse> DeleteGatedCodeWithHttpInfo (int merchantItemOid, int merchantItemGatedCodeOid)
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->DeleteGatedCode");
+            // verify the required parameter 'merchantItemGatedCodeOid' is set
+            if (merchantItemGatedCodeOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemGatedCodeOid' when calling ItemApi->DeleteGatedCode");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/gated_codes/{merchant_item_gated_code_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (merchantItemGatedCodeOid != null) localVarPathParams.Add("merchant_item_gated_code_oid", this.Configuration.ApiClient.ParameterToString(merchantItemGatedCodeOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteGatedCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Delete a gated access code by OID Delete a specific gated access code by its OID. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="merchantItemGatedCodeOid">The gated code oid.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of BaseResponse</returns>
+        public async System.Threading.Tasks.Task<BaseResponse> DeleteGatedCodeAsync (int merchantItemOid, int merchantItemGatedCodeOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<BaseResponse> localVarResponse = await DeleteGatedCodeWithHttpInfoAsync(merchantItemOid, merchantItemGatedCodeOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete a gated access code by OID Delete a specific gated access code by its OID. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="merchantItemGatedCodeOid">The gated code oid.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteGatedCodeWithHttpInfoAsync (int merchantItemOid, int merchantItemGatedCodeOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->DeleteGatedCode");
+            // verify the required parameter 'merchantItemGatedCodeOid' is set
+            if (merchantItemGatedCodeOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemGatedCodeOid' when calling ItemApi->DeleteGatedCode");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/gated_codes/{merchant_item_gated_code_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (merchantItemGatedCodeOid != null) localVarPathParams.Add("merchant_item_gated_code_oid", this.Configuration.ApiClient.ParameterToString(merchantItemGatedCodeOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteGatedCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
         }
 
         /// <summary>
@@ -1935,6 +2389,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Generate a batch of gated access codes Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1 removed). Codes are NOT persisted; submit them via PUT or POST to commit. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="generateRequest">Generate request.</param>
+        /// <returns>ItemGatedCodesResponse</returns>
+        public ItemGatedCodesResponse GenerateGatedCodes (int merchantItemOid, ItemGenerateGatedCodesRequest generateRequest)
+        {
+             ApiResponse<ItemGatedCodesResponse> localVarResponse = GenerateGatedCodesWithHttpInfo(merchantItemOid, generateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate a batch of gated access codes Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1 removed). Codes are NOT persisted; submit them via PUT or POST to commit. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="generateRequest">Generate request.</param>
+        /// <returns>ApiResponse of ItemGatedCodesResponse</returns>
+        public ApiResponse<ItemGatedCodesResponse> GenerateGatedCodesWithHttpInfo (int merchantItemOid, ItemGenerateGatedCodesRequest generateRequest)
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->GenerateGatedCodes");
+            // verify the required parameter 'generateRequest' is set
+            if (generateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'generateRequest' when calling ItemApi->GenerateGatedCodes");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/gated_codes/generate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (generateRequest != null && generateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(generateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = generateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GenerateGatedCodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemGatedCodesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemGatedCodesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemGatedCodesResponse)));
+        }
+
+        /// <summary>
+        /// Generate a batch of gated access codes Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1 removed). Codes are NOT persisted; submit them via PUT or POST to commit. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="generateRequest">Generate request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemGatedCodesResponse</returns>
+        public async System.Threading.Tasks.Task<ItemGatedCodesResponse> GenerateGatedCodesAsync (int merchantItemOid, ItemGenerateGatedCodesRequest generateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ItemGatedCodesResponse> localVarResponse = await GenerateGatedCodesWithHttpInfoAsync(merchantItemOid, generateRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generate a batch of gated access codes Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1 removed). Codes are NOT persisted; submit them via PUT or POST to commit. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="generateRequest">Generate request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemGatedCodesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemGatedCodesResponse>> GenerateGatedCodesWithHttpInfoAsync (int merchantItemOid, ItemGenerateGatedCodesRequest generateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->GenerateGatedCodes");
+            // verify the required parameter 'generateRequest' is set
+            if (generateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'generateRequest' when calling ItemApi->GenerateGatedCodes");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/gated_codes/generate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (generateRequest != null && generateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(generateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = generateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GenerateGatedCodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemGatedCodesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemGatedCodesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemGatedCodesResponse)));
         }
 
         /// <summary>
@@ -2433,6 +3072,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get gated access codes for an item Retrieve all unredeemed gated access codes configured for an item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <returns>ItemGatedCodesResponse</returns>
+        public ItemGatedCodesResponse GetGatedCodes (int merchantItemOid)
+        {
+             ApiResponse<ItemGatedCodesResponse> localVarResponse = GetGatedCodesWithHttpInfo(merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get gated access codes for an item Retrieve all unredeemed gated access codes configured for an item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <returns>ApiResponse of ItemGatedCodesResponse</returns>
+        public ApiResponse<ItemGatedCodesResponse> GetGatedCodesWithHttpInfo (int merchantItemOid)
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->GetGatedCodes");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/gated_codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetGatedCodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemGatedCodesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemGatedCodesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemGatedCodesResponse)));
+        }
+
+        /// <summary>
+        /// Get gated access codes for an item Retrieve all unredeemed gated access codes configured for an item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemGatedCodesResponse</returns>
+        public async System.Threading.Tasks.Task<ItemGatedCodesResponse> GetGatedCodesAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ItemGatedCodesResponse> localVarResponse = await GetGatedCodesWithHttpInfoAsync(merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get gated access codes for an item Retrieve all unredeemed gated access codes configured for an item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemGatedCodesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemGatedCodesResponse>> GetGatedCodesWithHttpInfoAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->GetGatedCodes");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/gated_codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetGatedCodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemGatedCodesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemGatedCodesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemGatedCodesResponse)));
+        }
+
+        /// <summary>
         /// Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2913,187 +3709,6 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemResponse)));
-        }
-
-        /// <summary>
-        /// Retrieve an item shipping distribution center Retrieve an item shipping distribution center. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to retrieve.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>ItemShippingDistributionCenterResponse</returns>
-        public ItemShippingDistributionCenterResponse GetItemShippingDistributionCenterByCode (int merchantItemOid, string distributionCenterCode, string expand = default(string), bool? placeholders = default(bool?))
-        {
-             ApiResponse<ItemShippingDistributionCenterResponse> localVarResponse = GetItemShippingDistributionCenterByCodeWithHttpInfo(merchantItemOid, distributionCenterCode, expand, placeholders);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve an item shipping distribution center Retrieve an item shipping distribution center. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to retrieve.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>ApiResponse of ItemShippingDistributionCenterResponse</returns>
-        public ApiResponse<ItemShippingDistributionCenterResponse> GetItemShippingDistributionCenterByCodeWithHttpInfo (int merchantItemOid, string distributionCenterCode, string expand = default(string), bool? placeholders = default(bool?))
-        {
-            // verify the required parameter 'merchantItemOid' is set
-            if (merchantItemOid == null)
-                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->GetItemShippingDistributionCenterByCode");
-            // verify the required parameter 'distributionCenterCode' is set
-            if (distributionCenterCode == null)
-                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling ItemApi->GetItemShippingDistributionCenterByCode");
-
-            var localVarPath = "/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
-            if (distributionCenterCode != null) localVarPathParams.Add("distribution_center_code", this.Configuration.ApiClient.ParameterToString(distributionCenterCode)); // path parameter
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
-            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetItemShippingDistributionCenterByCode", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ItemShippingDistributionCenterResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ItemShippingDistributionCenterResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemShippingDistributionCenterResponse)));
-        }
-
-        /// <summary>
-        /// Retrieve an item shipping distribution center Retrieve an item shipping distribution center. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to retrieve.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ItemShippingDistributionCenterResponse</returns>
-        public async System.Threading.Tasks.Task<ItemShippingDistributionCenterResponse> GetItemShippingDistributionCenterByCodeAsync (int merchantItemOid, string distributionCenterCode, string expand = default(string), bool? placeholders = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
-        {
-             ApiResponse<ItemShippingDistributionCenterResponse> localVarResponse = await GetItemShippingDistributionCenterByCodeWithHttpInfoAsync(merchantItemOid, distributionCenterCode, expand, placeholders, cancellationToken);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Retrieve an item shipping distribution center Retrieve an item shipping distribution center. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to retrieve.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (ItemShippingDistributionCenterResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ItemShippingDistributionCenterResponse>> GetItemShippingDistributionCenterByCodeWithHttpInfoAsync (int merchantItemOid, string distributionCenterCode, string expand = default(string), bool? placeholders = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // verify the required parameter 'merchantItemOid' is set
-            if (merchantItemOid == null)
-                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->GetItemShippingDistributionCenterByCode");
-            // verify the required parameter 'distributionCenterCode' is set
-            if (distributionCenterCode == null)
-                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling ItemApi->GetItemShippingDistributionCenterByCode");
-
-            var localVarPath = "/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
-            if (distributionCenterCode != null) localVarPathParams.Add("distribution_center_code", this.Configuration.ApiClient.ParameterToString(distributionCenterCode)); // path parameter
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
-            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetItemShippingDistributionCenterByCode", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ItemShippingDistributionCenterResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ItemShippingDistributionCenterResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemShippingDistributionCenterResponse)));
         }
 
         /// <summary>
@@ -4121,6 +4736,191 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Add a single gated access code to an item Insert a single gated access code; the server assigns the OID and created_dts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCode">Gated code to insert.</param>
+        /// <returns>ItemGatedCodeResponse</returns>
+        public ItemGatedCodeResponse InsertGatedCode (int merchantItemOid, ItemGatedCode gatedCode)
+        {
+             ApiResponse<ItemGatedCodeResponse> localVarResponse = InsertGatedCodeWithHttpInfo(merchantItemOid, gatedCode);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add a single gated access code to an item Insert a single gated access code; the server assigns the OID and created_dts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCode">Gated code to insert.</param>
+        /// <returns>ApiResponse of ItemGatedCodeResponse</returns>
+        public ApiResponse<ItemGatedCodeResponse> InsertGatedCodeWithHttpInfo (int merchantItemOid, ItemGatedCode gatedCode)
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->InsertGatedCode");
+            // verify the required parameter 'gatedCode' is set
+            if (gatedCode == null)
+                throw new ApiException(400, "Missing required parameter 'gatedCode' when calling ItemApi->InsertGatedCode");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/gated_codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (gatedCode != null && gatedCode.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(gatedCode); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = gatedCode; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertGatedCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemGatedCodeResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemGatedCodeResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemGatedCodeResponse)));
+        }
+
+        /// <summary>
+        /// Add a single gated access code to an item Insert a single gated access code; the server assigns the OID and created_dts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCode">Gated code to insert.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemGatedCodeResponse</returns>
+        public async System.Threading.Tasks.Task<ItemGatedCodeResponse> InsertGatedCodeAsync (int merchantItemOid, ItemGatedCode gatedCode, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ItemGatedCodeResponse> localVarResponse = await InsertGatedCodeWithHttpInfoAsync(merchantItemOid, gatedCode, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Add a single gated access code to an item Insert a single gated access code; the server assigns the OID and created_dts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCode">Gated code to insert.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemGatedCodeResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemGatedCodeResponse>> InsertGatedCodeWithHttpInfoAsync (int merchantItemOid, ItemGatedCode gatedCode, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->InsertGatedCode");
+            // verify the required parameter 'gatedCode' is set
+            if (gatedCode == null)
+                throw new ApiException(400, "Missing required parameter 'gatedCode' when calling ItemApi->InsertGatedCode");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/gated_codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (gatedCode != null && gatedCode.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(gatedCode); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = gatedCode; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertGatedCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemGatedCodeResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemGatedCodeResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemGatedCodeResponse)));
+        }
+
+        /// <summary>
         /// Create an item Create a new item on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4674,6 +5474,191 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Replace the full list of gated access codes for an item Existing codes not present in the request body are deleted. New codes are inserted. Unchanged codes preserve their OID and created_dts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCodesRequest">Codes to replace the existing list with.</param>
+        /// <returns>ItemGatedCodesResponse</returns>
+        public ItemGatedCodesResponse ReplaceGatedCodes (int merchantItemOid, ItemGatedCodesRequest gatedCodesRequest)
+        {
+             ApiResponse<ItemGatedCodesResponse> localVarResponse = ReplaceGatedCodesWithHttpInfo(merchantItemOid, gatedCodesRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Replace the full list of gated access codes for an item Existing codes not present in the request body are deleted. New codes are inserted. Unchanged codes preserve their OID and created_dts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCodesRequest">Codes to replace the existing list with.</param>
+        /// <returns>ApiResponse of ItemGatedCodesResponse</returns>
+        public ApiResponse<ItemGatedCodesResponse> ReplaceGatedCodesWithHttpInfo (int merchantItemOid, ItemGatedCodesRequest gatedCodesRequest)
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->ReplaceGatedCodes");
+            // verify the required parameter 'gatedCodesRequest' is set
+            if (gatedCodesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'gatedCodesRequest' when calling ItemApi->ReplaceGatedCodes");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/gated_codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (gatedCodesRequest != null && gatedCodesRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(gatedCodesRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = gatedCodesRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ReplaceGatedCodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemGatedCodesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemGatedCodesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemGatedCodesResponse)));
+        }
+
+        /// <summary>
+        /// Replace the full list of gated access codes for an item Existing codes not present in the request body are deleted. New codes are inserted. Unchanged codes preserve their OID and created_dts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCodesRequest">Codes to replace the existing list with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemGatedCodesResponse</returns>
+        public async System.Threading.Tasks.Task<ItemGatedCodesResponse> ReplaceGatedCodesAsync (int merchantItemOid, ItemGatedCodesRequest gatedCodesRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ItemGatedCodesResponse> localVarResponse = await ReplaceGatedCodesWithHttpInfoAsync(merchantItemOid, gatedCodesRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Replace the full list of gated access codes for an item Existing codes not present in the request body are deleted. New codes are inserted. Unchanged codes preserve their OID and created_dts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid.</param>
+        /// <param name="gatedCodesRequest">Codes to replace the existing list with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemGatedCodesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemGatedCodesResponse>> ReplaceGatedCodesWithHttpInfoAsync (int merchantItemOid, ItemGatedCodesRequest gatedCodesRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->ReplaceGatedCodes");
+            // verify the required parameter 'gatedCodesRequest' is set
+            if (gatedCodesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'gatedCodesRequest' when calling ItemApi->ReplaceGatedCodes");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/gated_codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (gatedCodesRequest != null && gatedCodesRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(gatedCodesRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = gatedCodesRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ReplaceGatedCodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemGatedCodesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemGatedCodesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemGatedCodesResponse)));
+        }
+
+        /// <summary>
         /// Updates a file within the digital library Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5053,372 +6038,6 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemResponse)));
-        }
-
-        /// <summary>
-        /// Update item inventories for a distribution center Update item inventories for a distribution center 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
-        /// <returns></returns>
-        public void UpdateItemInventories (ItemInventoryUpdateRequest itemInventoryUpdateRequest)
-        {
-             UpdateItemInventoriesWithHttpInfo(itemInventoryUpdateRequest);
-        }
-
-        /// <summary>
-        /// Update item inventories for a distribution center Update item inventories for a distribution center 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateItemInventoriesWithHttpInfo (ItemInventoryUpdateRequest itemInventoryUpdateRequest)
-        {
-            // verify the required parameter 'itemInventoryUpdateRequest' is set
-            if (itemInventoryUpdateRequest == null)
-                throw new ApiException(400, "Missing required parameter 'itemInventoryUpdateRequest' when calling ItemApi->UpdateItemInventories");
-
-            var localVarPath = "/item/items/update_item_inventories";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json; charset=UTF-8"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (itemInventoryUpdateRequest != null && itemInventoryUpdateRequest.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(itemInventoryUpdateRequest); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = itemInventoryUpdateRequest; // byte array
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("UpdateItemInventories", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        /// Update item inventories for a distribution center Update item inventories for a distribution center 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateItemInventoriesAsync (ItemInventoryUpdateRequest itemInventoryUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
-        {
-             await UpdateItemInventoriesWithHttpInfoAsync(itemInventoryUpdateRequest, cancellationToken);
-
-        }
-
-        /// <summary>
-        /// Update item inventories for a distribution center Update item inventories for a distribution center 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemInventoryUpdateRequest">Item inventory updates</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateItemInventoriesWithHttpInfoAsync (ItemInventoryUpdateRequest itemInventoryUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // verify the required parameter 'itemInventoryUpdateRequest' is set
-            if (itemInventoryUpdateRequest == null)
-                throw new ApiException(400, "Missing required parameter 'itemInventoryUpdateRequest' when calling ItemApi->UpdateItemInventories");
-
-            var localVarPath = "/item/items/update_item_inventories";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json; charset=UTF-8"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (itemInventoryUpdateRequest != null && itemInventoryUpdateRequest.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(itemInventoryUpdateRequest); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = itemInventoryUpdateRequest; // byte array
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("UpdateItemInventories", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        /// Update an item shipping distribution center Update an item shipping distribution center 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to update.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="itemShippingDistributionCenter">Item shipping distribution center</param>
-        /// <returns></returns>
-        public void UpdateItemShippingDistributionCenterByCode (int merchantItemOid, string distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter)
-        {
-             UpdateItemShippingDistributionCenterByCodeWithHttpInfo(merchantItemOid, distributionCenterCode, itemShippingDistributionCenter);
-        }
-
-        /// <summary>
-        /// Update an item shipping distribution center Update an item shipping distribution center 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to update.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="itemShippingDistributionCenter">Item shipping distribution center</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateItemShippingDistributionCenterByCodeWithHttpInfo (int merchantItemOid, string distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter)
-        {
-            // verify the required parameter 'merchantItemOid' is set
-            if (merchantItemOid == null)
-                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->UpdateItemShippingDistributionCenterByCode");
-            // verify the required parameter 'distributionCenterCode' is set
-            if (distributionCenterCode == null)
-                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling ItemApi->UpdateItemShippingDistributionCenterByCode");
-            // verify the required parameter 'itemShippingDistributionCenter' is set
-            if (itemShippingDistributionCenter == null)
-                throw new ApiException(400, "Missing required parameter 'itemShippingDistributionCenter' when calling ItemApi->UpdateItemShippingDistributionCenterByCode");
-
-            var localVarPath = "/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json; charset=UTF-8"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
-            if (distributionCenterCode != null) localVarPathParams.Add("distribution_center_code", this.Configuration.ApiClient.ParameterToString(distributionCenterCode)); // path parameter
-            if (itemShippingDistributionCenter != null && itemShippingDistributionCenter.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(itemShippingDistributionCenter); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = itemShippingDistributionCenter; // byte array
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("UpdateItemShippingDistributionCenterByCode", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        /// Update an item shipping distribution center Update an item shipping distribution center 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to update.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="itemShippingDistributionCenter">Item shipping distribution center</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateItemShippingDistributionCenterByCodeAsync (int merchantItemOid, string distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter, CancellationToken cancellationToken = default(CancellationToken))
-        {
-             await UpdateItemShippingDistributionCenterByCodeWithHttpInfoAsync(merchantItemOid, distributionCenterCode, itemShippingDistributionCenter, cancellationToken);
-
-        }
-
-        /// <summary>
-        /// Update an item shipping distribution center Update an item shipping distribution center 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantItemOid">The item oid to update.</param>
-        /// <param name="distributionCenterCode"></param>
-        /// <param name="itemShippingDistributionCenter">Item shipping distribution center</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateItemShippingDistributionCenterByCodeWithHttpInfoAsync (int merchantItemOid, string distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // verify the required parameter 'merchantItemOid' is set
-            if (merchantItemOid == null)
-                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->UpdateItemShippingDistributionCenterByCode");
-            // verify the required parameter 'distributionCenterCode' is set
-            if (distributionCenterCode == null)
-                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling ItemApi->UpdateItemShippingDistributionCenterByCode");
-            // verify the required parameter 'itemShippingDistributionCenter' is set
-            if (itemShippingDistributionCenter == null)
-                throw new ApiException(400, "Missing required parameter 'itemShippingDistributionCenter' when calling ItemApi->UpdateItemShippingDistributionCenterByCode");
-
-            var localVarPath = "/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json; charset=UTF-8"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
-            if (distributionCenterCode != null) localVarPathParams.Add("distribution_center_code", this.Configuration.ApiClient.ParameterToString(distributionCenterCode)); // path parameter
-            if (itemShippingDistributionCenter != null && itemShippingDistributionCenter.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(itemShippingDistributionCenter); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = itemShippingDistributionCenter; // byte array
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("UpdateItemShippingDistributionCenterByCode", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
         }
 
         /// <summary>

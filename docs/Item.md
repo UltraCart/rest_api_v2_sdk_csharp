@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **EmailNotifications** | [**ItemEmailNotifications**](ItemEmailNotifications.md) |  | [optional] 
 **Enrollment123** | [**ItemEnrollment123**](ItemEnrollment123.md) |  | [optional] 
 **FulfillmentAddons** | [**List&lt;ItemFulfillmentAddon&gt;**](ItemFulfillmentAddon.md) | Fulfillment Add-ons | [optional] 
+**GatedCodes** | [**List&lt;ItemGatedCode&gt;**](ItemGatedCode.md) | Gated access codes for this item. Read-only on this object. Use the /items/{merchant_item_oid}/gated_codes endpoints to manage. | [optional] 
 **GiftCertificate** | [**ItemGiftCertificate**](ItemGiftCertificate.md) |  | [optional] 
 **GoogleProductSearch** | [**ItemGoogleProductSearch**](ItemGoogleProductSearch.md) |  | [optional] 
 **Identifiers** | [**ItemIdentifiers**](ItemIdentifiers.md) |  | [optional] 

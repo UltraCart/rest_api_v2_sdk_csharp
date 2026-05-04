@@ -25,23 +25,23 @@ using OpenAPIDateConverter = com.ultracart.admin.v2.Client.OpenAPIDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ItemShippingDistributionCenterResponse
+    /// ItemGatedCodesResponse
     /// </summary>
     [DataContract]
-    public partial class ItemShippingDistributionCenterResponse :  IEquatable<ItemShippingDistributionCenterResponse>, IValidatableObject
+    public partial class ItemGatedCodesResponse :  IEquatable<ItemGatedCodesResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ItemShippingDistributionCenterResponse" /> class.
+        /// Initializes a new instance of the <see cref="ItemGatedCodesResponse" /> class.
         /// </summary>
         /// <param name="error">error.</param>
-        /// <param name="itemShippingDistributionCenter">itemShippingDistributionCenter.</param>
+        /// <param name="gatedCodes">gated_codes.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ItemShippingDistributionCenterResponse(Error error = default(Error), ItemShippingDistributionCenter itemShippingDistributionCenter = default(ItemShippingDistributionCenter), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), Warning warning = default(Warning))
+        public ItemGatedCodesResponse(Error error = default(Error), List<ItemGatedCode> gatedCodes = default(List<ItemGatedCode>), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), Warning warning = default(Warning))
         {
             this.Error = error;
-            this.ItemShippingDistributionCenter = itemShippingDistributionCenter;
+            this.GatedCodes = gatedCodes;
             this.Metadata = metadata;
             this.Success = success;
             this.Warning = warning;
@@ -54,10 +54,11 @@ namespace com.ultracart.admin.v2.Model
         public Error Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets ItemShippingDistributionCenter
+        /// gated_codes
         /// </summary>
-        [DataMember(Name="itemShippingDistributionCenter", EmitDefaultValue=false)]
-        public ItemShippingDistributionCenter ItemShippingDistributionCenter { get; set; }
+        /// <value>gated_codes</value>
+        [DataMember(Name="gatedCodes", EmitDefaultValue=false)]
+        public List<ItemGatedCode> GatedCodes { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
@@ -85,9 +86,9 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ItemShippingDistributionCenterResponse {\n");
+            sb.Append("class ItemGatedCodesResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  ItemShippingDistributionCenter: ").Append(ItemShippingDistributionCenter).Append("\n");
+            sb.Append("  GatedCodes: ").Append(GatedCodes).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
@@ -111,15 +112,15 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ItemShippingDistributionCenterResponse);
+            return this.Equals(input as ItemGatedCodesResponse);
         }
 
         /// <summary>
-        /// Returns true if ItemShippingDistributionCenterResponse instances are equal
+        /// Returns true if ItemGatedCodesResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ItemShippingDistributionCenterResponse to be compared</param>
+        /// <param name="input">Instance of ItemGatedCodesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemShippingDistributionCenterResponse input)
+        public bool Equals(ItemGatedCodesResponse input)
         {
             if (input == null)
                 return false;
@@ -131,9 +132,10 @@ namespace com.ultracart.admin.v2.Model
                     this.Error.Equals(input.Error))
                 ) && 
                 (
-                    this.ItemShippingDistributionCenter == input.ItemShippingDistributionCenter ||
-                    (this.ItemShippingDistributionCenter != null &&
-                    this.ItemShippingDistributionCenter.Equals(input.ItemShippingDistributionCenter))
+                    this.GatedCodes == input.GatedCodes ||
+                    this.GatedCodes != null &&
+                    input.GatedCodes != null &&
+                    this.GatedCodes.SequenceEqual(input.GatedCodes)
                 ) && 
                 (
                     this.Metadata == input.Metadata ||
@@ -163,8 +165,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.ItemShippingDistributionCenter != null)
-                    hashCode = hashCode * 59 + this.ItemShippingDistributionCenter.GetHashCode();
+                if (this.GatedCodes != null)
+                    hashCode = hashCode * 59 + this.GatedCodes.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Success != null)

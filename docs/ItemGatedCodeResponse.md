@@ -1,12 +1,12 @@
 
-# com.ultracart.admin.v2.Model.ItemShippingDistributionCenterResponse
+# com.ultracart.admin.v2.Model.ItemGatedCodeResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Error** | [**Error**](Error.md) |  | [optional] 
-**ItemShippingDistributionCenter** | [**ItemShippingDistributionCenter**](ItemShippingDistributionCenter.md) |  | [optional] 
+**GatedCode** | [**ItemGatedCode**](ItemGatedCode.md) |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **Success** | **bool** | Indicates if API call was successful | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 

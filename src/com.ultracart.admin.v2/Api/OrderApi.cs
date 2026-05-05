@@ -275,6 +275,48 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrderPackingSlipResponse</returns>
         ApiResponse<OrderPackingSlipResponse> GeneratePackingSlipSpecificDCWithHttpInfo (string distributionCenterCode, string orderId);
         /// <summary>
+        /// Retrieve a value histogram for a given AR transaction-detail name
+        /// </summary>
+        /// <remarks>
+        /// For the calling merchant's Accounts Receivable orders, returns a value -> document-count histogram for the named transaction detail, optionally scoped to transactions on the named gateway. Drives the AR filter modal's autocomplete on the detail-value input. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detail">The transaction-detail name to histogram.</param>
+        /// <param name="gateway">The gateway name to scope to (optional). (optional)</param>
+        /// <returns></returns>
+        void GetAccountsReceivableDetailValueHistogram (string detail, string gateway = default(string));
+
+        /// <summary>
+        /// Retrieve a value histogram for a given AR transaction-detail name
+        /// </summary>
+        /// <remarks>
+        /// For the calling merchant's Accounts Receivable orders, returns a value -> document-count histogram for the named transaction detail, optionally scoped to transactions on the named gateway. Drives the AR filter modal's autocomplete on the detail-value input. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detail">The transaction-detail name to histogram.</param>
+        /// <param name="gateway">The gateway name to scope to (optional). (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> GetAccountsReceivableDetailValueHistogramWithHttpInfo (string detail, string gateway = default(string));
+        /// <summary>
+        /// Retrieve gateway / detail-name picker data for the AR filter modal
+        /// </summary>
+        /// <remarks>
+        /// For the calling merchant's Accounts Receivable orders, returns the distinct payment gateway names paired with the set of transaction-detail names observed on those gateways. Drives the cascading gateway / detail-name pickers in the AR filter modal. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        void GetAccountsReceivableGatewayDetailNames ();
+
+        /// <summary>
+        /// Retrieve gateway / detail-name picker data for the AR filter modal
+        /// </summary>
+        /// <remarks>
+        /// For the calling merchant's Accounts Receivable orders, returns the distinct payment gateway names paired with the set of transaction-detail names observed on those gateways. Drives the cascading gateway / detail-name pickers in the AR filter modal. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> GetAccountsReceivableGatewayDetailNamesWithHttpInfo ();
+        /// <summary>
         /// Retrieve A/R Retry Configuration
         /// </summary>
         /// <remarks>
@@ -1146,6 +1188,52 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OrderPackingSlipResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderPackingSlipResponse>> GeneratePackingSlipSpecificDCWithHttpInfoAsync (string distributionCenterCode, string orderId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve a value histogram for a given AR transaction-detail name
+        /// </summary>
+        /// <remarks>
+        /// For the calling merchant's Accounts Receivable orders, returns a value -> document-count histogram for the named transaction detail, optionally scoped to transactions on the named gateway. Drives the AR filter modal's autocomplete on the detail-value input. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detail">The transaction-detail name to histogram.</param>
+        /// <param name="gateway">The gateway name to scope to (optional). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task GetAccountsReceivableDetailValueHistogramAsync (string detail, string gateway = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve a value histogram for a given AR transaction-detail name
+        /// </summary>
+        /// <remarks>
+        /// For the calling merchant's Accounts Receivable orders, returns a value -> document-count histogram for the named transaction detail, optionally scoped to transactions on the named gateway. Drives the AR filter modal's autocomplete on the detail-value input. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detail">The transaction-detail name to histogram.</param>
+        /// <param name="gateway">The gateway name to scope to (optional). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetAccountsReceivableDetailValueHistogramWithHttpInfoAsync (string detail, string gateway = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve gateway / detail-name picker data for the AR filter modal
+        /// </summary>
+        /// <remarks>
+        /// For the calling merchant's Accounts Receivable orders, returns the distinct payment gateway names paired with the set of transaction-detail names observed on those gateways. Drives the cascading gateway / detail-name pickers in the AR filter modal. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task GetAccountsReceivableGatewayDetailNamesAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve gateway / detail-name picker data for the AR filter modal
+        /// </summary>
+        /// <remarks>
+        /// For the calling merchant's Accounts Receivable orders, returns the distinct payment gateway names paired with the set of transaction-detail names observed on those gateways. Drives the cascading gateway / detail-name pickers in the AR filter modal. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetAccountsReceivableGatewayDetailNamesWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve A/R Retry Configuration
         /// </summary>
@@ -3751,6 +3839,310 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<OrderPackingSlipResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (OrderPackingSlipResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderPackingSlipResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a value histogram for a given AR transaction-detail name For the calling merchant's Accounts Receivable orders, returns a value -> document-count histogram for the named transaction detail, optionally scoped to transactions on the named gateway. Drives the AR filter modal's autocomplete on the detail-value input. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detail">The transaction-detail name to histogram.</param>
+        /// <param name="gateway">The gateway name to scope to (optional). (optional)</param>
+        /// <returns></returns>
+        public void GetAccountsReceivableDetailValueHistogram (string detail, string gateway = default(string))
+        {
+             GetAccountsReceivableDetailValueHistogramWithHttpInfo(detail, gateway);
+        }
+
+        /// <summary>
+        /// Retrieve a value histogram for a given AR transaction-detail name For the calling merchant's Accounts Receivable orders, returns a value -> document-count histogram for the named transaction detail, optionally scoped to transactions on the named gateway. Drives the AR filter modal's autocomplete on the detail-value input. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detail">The transaction-detail name to histogram.</param>
+        /// <param name="gateway">The gateway name to scope to (optional). (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> GetAccountsReceivableDetailValueHistogramWithHttpInfo (string detail, string gateway = default(string))
+        {
+            // verify the required parameter 'detail' is set
+            if (detail == null)
+                throw new ApiException(400, "Missing required parameter 'detail' when calling OrderApi->GetAccountsReceivableDetailValueHistogram");
+
+            var localVarPath = "/order/accounts_receivable/detail_value_histogram";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (gateway != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "gateway", gateway)); // query parameter
+            if (detail != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "detail", detail)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAccountsReceivableDetailValueHistogram", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Retrieve a value histogram for a given AR transaction-detail name For the calling merchant's Accounts Receivable orders, returns a value -> document-count histogram for the named transaction detail, optionally scoped to transactions on the named gateway. Drives the AR filter modal's autocomplete on the detail-value input. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detail">The transaction-detail name to histogram.</param>
+        /// <param name="gateway">The gateway name to scope to (optional). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task GetAccountsReceivableDetailValueHistogramAsync (string detail, string gateway = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await GetAccountsReceivableDetailValueHistogramWithHttpInfoAsync(detail, gateway, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Retrieve a value histogram for a given AR transaction-detail name For the calling merchant's Accounts Receivable orders, returns a value -> document-count histogram for the named transaction detail, optionally scoped to transactions on the named gateway. Drives the AR filter modal's autocomplete on the detail-value input. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detail">The transaction-detail name to histogram.</param>
+        /// <param name="gateway">The gateway name to scope to (optional). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetAccountsReceivableDetailValueHistogramWithHttpInfoAsync (string detail, string gateway = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'detail' is set
+            if (detail == null)
+                throw new ApiException(400, "Missing required parameter 'detail' when calling OrderApi->GetAccountsReceivableDetailValueHistogram");
+
+            var localVarPath = "/order/accounts_receivable/detail_value_histogram";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (gateway != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "gateway", gateway)); // query parameter
+            if (detail != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "detail", detail)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAccountsReceivableDetailValueHistogram", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Retrieve gateway / detail-name picker data for the AR filter modal For the calling merchant's Accounts Receivable orders, returns the distinct payment gateway names paired with the set of transaction-detail names observed on those gateways. Drives the cascading gateway / detail-name pickers in the AR filter modal. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        public void GetAccountsReceivableGatewayDetailNames ()
+        {
+             GetAccountsReceivableGatewayDetailNamesWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Retrieve gateway / detail-name picker data for the AR filter modal For the calling merchant's Accounts Receivable orders, returns the distinct payment gateway names paired with the set of transaction-detail names observed on those gateways. Drives the cascading gateway / detail-name pickers in the AR filter modal. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> GetAccountsReceivableGatewayDetailNamesWithHttpInfo ()
+        {
+
+            var localVarPath = "/order/accounts_receivable/gateway_detail_names";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAccountsReceivableGatewayDetailNames", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Retrieve gateway / detail-name picker data for the AR filter modal For the calling merchant's Accounts Receivable orders, returns the distinct payment gateway names paired with the set of transaction-detail names observed on those gateways. Drives the cascading gateway / detail-name pickers in the AR filter modal. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task GetAccountsReceivableGatewayDetailNamesAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await GetAccountsReceivableGatewayDetailNamesWithHttpInfoAsync(cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Retrieve gateway / detail-name picker data for the AR filter modal For the calling merchant's Accounts Receivable orders, returns the distinct payment gateway names paired with the set of transaction-detail names observed on those gateways. Drives the cascading gateway / detail-name pickers in the AR filter modal. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetAccountsReceivableGatewayDetailNamesWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/order/accounts_receivable/gateway_detail_names";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAccountsReceivableGatewayDetailNames", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>

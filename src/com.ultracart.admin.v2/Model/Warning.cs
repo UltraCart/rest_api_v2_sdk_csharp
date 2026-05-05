@@ -34,10 +34,12 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="Warning" /> class.
         /// </summary>
         /// <param name="moreInfo">Additional information often a link to additional documentation.</param>
+        /// <param name="warningCode">A stable machine-readable code identifying the warning. See API docs for known values..</param>
         /// <param name="warningMessage">A technical message meant to be read by a developer.</param>
-        public Warning(string moreInfo = default(string), string warningMessage = default(string))
+        public Warning(string moreInfo = default(string), string warningCode = default(string), string warningMessage = default(string))
         {
             this.MoreInfo = moreInfo;
+            this.WarningCode = warningCode;
             this.WarningMessage = warningMessage;
         }
 
@@ -47,6 +49,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Additional information often a link to additional documentation</value>
         [DataMember(Name="more_info", EmitDefaultValue=false)]
         public string MoreInfo { get; set; }
+
+        /// <summary>
+        /// A stable machine-readable code identifying the warning. See API docs for known values.
+        /// </summary>
+        /// <value>A stable machine-readable code identifying the warning. See API docs for known values.</value>
+        [DataMember(Name="warning_code", EmitDefaultValue=false)]
+        public string WarningCode { get; set; }
 
         /// <summary>
         /// A technical message meant to be read by a developer
@@ -64,6 +73,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class Warning {\n");
             sb.Append("  MoreInfo: ").Append(MoreInfo).Append("\n");
+            sb.Append("  WarningCode: ").Append(WarningCode).Append("\n");
             sb.Append("  WarningMessage: ").Append(WarningMessage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -105,6 +115,11 @@ namespace com.ultracart.admin.v2.Model
                     this.MoreInfo.Equals(input.MoreInfo))
                 ) && 
                 (
+                    this.WarningCode == input.WarningCode ||
+                    (this.WarningCode != null &&
+                    this.WarningCode.Equals(input.WarningCode))
+                ) && 
+                (
                     this.WarningMessage == input.WarningMessage ||
                     (this.WarningMessage != null &&
                     this.WarningMessage.Equals(input.WarningMessage))
@@ -122,6 +137,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.MoreInfo != null)
                     hashCode = hashCode * 59 + this.MoreInfo.GetHashCode();
+                if (this.WarningCode != null)
+                    hashCode = hashCode * 59 + this.WarningCode.GetHashCode();
                 if (this.WarningMessage != null)
                     hashCode = hashCode * 59 + this.WarningMessage.GetHashCode();
                 return hashCode;

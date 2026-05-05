@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MoreInfo** | **string** | Additional information often a link to additional documentation | [optional] 
+**WarningCode** | **string** | A stable machine-readable code identifying the warning. See API docs for known values. | [optional] 
 **WarningMessage** | **string** | A technical message meant to be read by a developer | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

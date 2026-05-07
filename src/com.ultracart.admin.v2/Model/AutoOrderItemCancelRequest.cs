@@ -63,11 +63,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="appendItems">Specifying these items allows for an easier immutable item contact.  Validation will occur before any operations take place.  After the end/remove operation is successful, append these additional item(s) to the auto order.  The changes will be available in the response if the expansion includes items..</param>
         /// <param name="autoOrderItemOid">Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id.  For reference the order_item.item_reference_oid is the same value as auto_order_item.auto_order_item_oid UNLESS the a manual edit took place AFTER the original order was placed..</param>
         /// <param name="mode">Cancellation mode.  &#39;end&#39; soft-cancels the item by setting no_order_after_dts to the current time, preserving the row for reporting.  &#39;remove&#39; hard-deletes the item from the auto order.  Defaults to &#39;end&#39; (the less destructive option) when omitted..</param>
-        public AutoOrderItemCancelRequest(List<AutoOrderItem> appendItems = default(List<AutoOrderItem>), int autoOrderItemOid = default(int), ModeEnum? mode = default(ModeEnum?))
+        /// <param name="noOrdersAfterDts">Date/time that will be used in an END mode (optional).</param>
+        public AutoOrderItemCancelRequest(List<AutoOrderItem> appendItems = default(List<AutoOrderItem>), int autoOrderItemOid = default(int), ModeEnum? mode = default(ModeEnum?), string noOrdersAfterDts = default(string))
         {
             this.AppendItems = appendItems;
             this.AutoOrderItemOid = autoOrderItemOid;
             this.Mode = mode;
+            this.NoOrdersAfterDts = noOrdersAfterDts;
         }
 
         /// <summary>
@@ -86,6 +88,13 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
+        /// Date/time that will be used in an END mode (optional)
+        /// </summary>
+        /// <value>Date/time that will be used in an END mode (optional)</value>
+        [DataMember(Name="no_orders_after_dts", EmitDefaultValue=false)]
+        public string NoOrdersAfterDts { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -96,6 +105,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AppendItems: ").Append(AppendItems).Append("\n");
             sb.Append("  AutoOrderItemOid: ").Append(AutoOrderItemOid).Append("\n");
             sb.Append("  Mode: ").Append(Mode).Append("\n");
+            sb.Append("  NoOrdersAfterDts: ").Append(NoOrdersAfterDts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,6 +155,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Mode == input.Mode ||
                     (this.Mode != null &&
                     this.Mode.Equals(input.Mode))
+                ) && 
+                (
+                    this.NoOrdersAfterDts == input.NoOrdersAfterDts ||
+                    (this.NoOrdersAfterDts != null &&
+                    this.NoOrdersAfterDts.Equals(input.NoOrdersAfterDts))
                 );
         }
 
@@ -163,6 +178,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AutoOrderItemOid.GetHashCode();
                 if (this.Mode != null)
                     hashCode = hashCode * 59 + this.Mode.GetHashCode();
+                if (this.NoOrdersAfterDts != null)
+                    hashCode = hashCode * 59 + this.NoOrdersAfterDts.GetHashCode();
                 return hashCode;
             }
         }

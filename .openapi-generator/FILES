@@ -781,6 +781,10 @@ docs/OrderItemTag.md
 docs/OrderLinkedShipment.md
 docs/OrderMarketing.md
 docs/OrderPackingSlipResponse.md
+docs/OrderPageView.md
+docs/OrderPageViewHistoryResponse.md
+docs/OrderPageViewMetaData.md
+docs/OrderPageViewParam.md
 docs/OrderPayment.md
 docs/OrderPaymentCheck.md
 docs/OrderPaymentCreditCard.md
@@ -1798,6 +1802,10 @@ src/com.ultracart.admin.v2/Model/OrderItemTag.cs
 src/com.ultracart.admin.v2/Model/OrderLinkedShipment.cs
 src/com.ultracart.admin.v2/Model/OrderMarketing.cs
 src/com.ultracart.admin.v2/Model/OrderPackingSlipResponse.cs
+src/com.ultracart.admin.v2/Model/OrderPageView.cs
+src/com.ultracart.admin.v2/Model/OrderPageViewHistoryResponse.cs
+src/com.ultracart.admin.v2/Model/OrderPageViewMetaData.cs
+src/com.ultracart.admin.v2/Model/OrderPageViewParam.cs
 src/com.ultracart.admin.v2/Model/OrderPayment.cs
 src/com.ultracart.admin.v2/Model/OrderPaymentCheck.cs
 src/com.ultracart.admin.v2/Model/OrderPaymentCreditCard.cs

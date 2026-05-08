@@ -447,6 +447,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrderEmailsResponse</returns>
         ApiResponse<OrderEmailsResponse> GetOrderEmailsWithHttpInfo (string orderId);
         /// <summary>
+        /// Retrieve page view history for this order.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the page views captured during the session that placed this order. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve page view history for.</param>
+        /// <returns>OrderPageViewHistoryResponse</returns>
+        OrderPageViewHistoryResponse GetOrderPageViewHistory (string orderId);
+
+        /// <summary>
+        /// Retrieve page view history for this order.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the page views captured during the session that placed this order. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve page view history for.</param>
+        /// <returns>ApiResponse of OrderPageViewHistoryResponse</returns>
+        ApiResponse<OrderPageViewHistoryResponse> GetOrderPageViewHistoryWithHttpInfo (string orderId);
+        /// <summary>
         /// Get Order Upsell Cart
         /// </summary>
         /// <remarks>
@@ -1397,6 +1418,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OrderEmailsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderEmailsResponse>> GetOrderEmailsWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve page view history for this order.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the page views captured during the session that placed this order. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve page view history for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderPageViewHistoryResponse</returns>
+        System.Threading.Tasks.Task<OrderPageViewHistoryResponse> GetOrderPageViewHistoryAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve page view history for this order.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the page views captured during the session that placed this order. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve page view history for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderPageViewHistoryResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderPageViewHistoryResponse>> GetOrderPageViewHistoryWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get Order Upsell Cart
         /// </summary>
@@ -5145,6 +5189,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<OrderEmailsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (OrderEmailsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderEmailsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve page view history for this order. Retrieves the page views captured during the session that placed this order. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve page view history for.</param>
+        /// <returns>OrderPageViewHistoryResponse</returns>
+        public OrderPageViewHistoryResponse GetOrderPageViewHistory (string orderId)
+        {
+             ApiResponse<OrderPageViewHistoryResponse> localVarResponse = GetOrderPageViewHistoryWithHttpInfo(orderId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve page view history for this order. Retrieves the page views captured during the session that placed this order. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve page view history for.</param>
+        /// <returns>ApiResponse of OrderPageViewHistoryResponse</returns>
+        public ApiResponse<OrderPageViewHistoryResponse> GetOrderPageViewHistoryWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GetOrderPageViewHistory");
+
+            var localVarPath = "/order/orders/{order_id}/page_view_history";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetOrderPageViewHistory", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderPageViewHistoryResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderPageViewHistoryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderPageViewHistoryResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve page view history for this order. Retrieves the page views captured during the session that placed this order. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve page view history for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderPageViewHistoryResponse</returns>
+        public async System.Threading.Tasks.Task<OrderPageViewHistoryResponse> GetOrderPageViewHistoryAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<OrderPageViewHistoryResponse> localVarResponse = await GetOrderPageViewHistoryWithHttpInfoAsync(orderId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve page view history for this order. Retrieves the page views captured during the session that placed this order. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve page view history for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderPageViewHistoryResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderPageViewHistoryResponse>> GetOrderPageViewHistoryWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GetOrderPageViewHistory");
+
+            var localVarPath = "/order/orders/{order_id}/page_view_history";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetOrderPageViewHistory", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderPageViewHistoryResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderPageViewHistoryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderPageViewHistoryResponse)));
         }
 
         /// <summary>

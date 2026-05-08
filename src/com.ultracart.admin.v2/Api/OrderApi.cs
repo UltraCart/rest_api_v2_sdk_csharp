@@ -426,6 +426,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrderEdiDocumentsResponse</returns>
         ApiResponse<OrderEdiDocumentsResponse> GetOrderEdiDocumentsWithHttpInfo (string orderId);
         /// <summary>
+        /// Retrieve email delivery information for this order.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves email delivery records associated with the specified order id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve email delivery information for.</param>
+        /// <returns>OrderEmailsResponse</returns>
+        OrderEmailsResponse GetOrderEmails (string orderId);
+
+        /// <summary>
+        /// Retrieve email delivery information for this order.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves email delivery records associated with the specified order id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve email delivery information for.</param>
+        /// <returns>ApiResponse of OrderEmailsResponse</returns>
+        ApiResponse<OrderEmailsResponse> GetOrderEmailsWithHttpInfo (string orderId);
+        /// <summary>
         /// Get Order Upsell Cart
         /// </summary>
         /// <remarks>
@@ -1353,6 +1374,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OrderEdiDocumentsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderEdiDocumentsResponse>> GetOrderEdiDocumentsWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve email delivery information for this order.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves email delivery records associated with the specified order id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve email delivery information for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderEmailsResponse</returns>
+        System.Threading.Tasks.Task<OrderEmailsResponse> GetOrderEmailsAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve email delivery information for this order.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves email delivery records associated with the specified order id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve email delivery information for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderEmailsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderEmailsResponse>> GetOrderEmailsWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get Order Upsell Cart
         /// </summary>
@@ -4944,6 +4988,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<OrderEdiDocumentsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (OrderEdiDocumentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderEdiDocumentsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve email delivery information for this order. Retrieves email delivery records associated with the specified order id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve email delivery information for.</param>
+        /// <returns>OrderEmailsResponse</returns>
+        public OrderEmailsResponse GetOrderEmails (string orderId)
+        {
+             ApiResponse<OrderEmailsResponse> localVarResponse = GetOrderEmailsWithHttpInfo(orderId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve email delivery information for this order. Retrieves email delivery records associated with the specified order id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve email delivery information for.</param>
+        /// <returns>ApiResponse of OrderEmailsResponse</returns>
+        public ApiResponse<OrderEmailsResponse> GetOrderEmailsWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GetOrderEmails");
+
+            var localVarPath = "/order/orders/{order_id}/emails";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetOrderEmails", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderEmailsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderEmailsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderEmailsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve email delivery information for this order. Retrieves email delivery records associated with the specified order id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve email delivery information for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderEmailsResponse</returns>
+        public async System.Threading.Tasks.Task<OrderEmailsResponse> GetOrderEmailsAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<OrderEmailsResponse> localVarResponse = await GetOrderEmailsWithHttpInfoAsync(orderId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve email delivery information for this order. Retrieves email delivery records associated with the specified order id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve email delivery information for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderEmailsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderEmailsResponse>> GetOrderEmailsWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GetOrderEmails");
+
+            var localVarPath = "/order/orders/{order_id}/emails";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetOrderEmails", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderEmailsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderEmailsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderEmailsResponse)));
         }
 
         /// <summary>

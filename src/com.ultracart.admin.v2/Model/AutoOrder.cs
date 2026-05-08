@@ -84,6 +84,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="completed">True if the auto order ran successfully to completion.</param>
         /// <param name="creditCardAttempt">The number of credit card attempts that have taken place.</param>
         /// <param name="disabledDts">The date/time the auto order was disabled due to failed rebills.</param>
+        /// <param name="emails">Email delivery records associated with this auto order..</param>
         /// <param name="enabled">True if this auto order is enabled.</param>
         /// <param name="failureReason">The reason this auto order failed during the last rebill attempt.</param>
         /// <param name="items">The items that are setup to rebill.</param>
@@ -100,7 +101,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rebillOrders">Rebill orders that have taken place on this auto order.</param>
         /// <param name="rotatingTransactionGatewayCode">The RTG code associated with this order for future rebills.</param>
         /// <param name="status">The status of the auto order.</param>
-        public AutoOrder(List<AutoOrderAddonItem> addOns = default(List<AutoOrderAddonItem>), string autoOrderCode = default(string), int autoOrderOid = default(int), int cancelAfterNextXOrders = default(int), bool cancelDowngrade = default(bool), string cancelReason = default(string), bool cancelUpgrade = default(bool), string canceledByUser = default(string), string canceledDts = default(string), bool completed = default(bool), int creditCardAttempt = default(int), string disabledDts = default(string), bool enabled = default(bool), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), List<AutoOrderLog> logs = default(List<AutoOrderLog>), AutoOrderManagement management = default(AutoOrderManagement), string merchantId = default(string), string mergedDts = default(string), int mergedIntoAutoOrderOid = default(int), string nextAttempt = default(string), Order originalOrder = default(Order), string originalOrderId = default(string), int overrideAffiliateId = default(int), List<AutoOrderProperty> properties = default(List<AutoOrderProperty>), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
+        public AutoOrder(List<AutoOrderAddonItem> addOns = default(List<AutoOrderAddonItem>), string autoOrderCode = default(string), int autoOrderOid = default(int), int cancelAfterNextXOrders = default(int), bool cancelDowngrade = default(bool), string cancelReason = default(string), bool cancelUpgrade = default(bool), string canceledByUser = default(string), string canceledDts = default(string), bool completed = default(bool), int creditCardAttempt = default(int), string disabledDts = default(string), List<AutoOrderEmail> emails = default(List<AutoOrderEmail>), bool enabled = default(bool), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), List<AutoOrderLog> logs = default(List<AutoOrderLog>), AutoOrderManagement management = default(AutoOrderManagement), string merchantId = default(string), string mergedDts = default(string), int mergedIntoAutoOrderOid = default(int), string nextAttempt = default(string), Order originalOrder = default(Order), string originalOrderId = default(string), int overrideAffiliateId = default(int), List<AutoOrderProperty> properties = default(List<AutoOrderProperty>), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
         {
             this.AddOns = addOns;
             this.AutoOrderCode = autoOrderCode;
@@ -114,6 +115,7 @@ namespace com.ultracart.admin.v2.Model
             this.Completed = completed;
             this.CreditCardAttempt = creditCardAttempt;
             this.DisabledDts = disabledDts;
+            this.Emails = emails;
             this.Enabled = enabled;
             this.FailureReason = failureReason;
             this.Items = items;
@@ -215,6 +217,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The date/time the auto order was disabled due to failed rebills</value>
         [DataMember(Name="disabled_dts", EmitDefaultValue=false)]
         public string DisabledDts { get; set; }
+
+        /// <summary>
+        /// Email delivery records associated with this auto order.
+        /// </summary>
+        /// <value>Email delivery records associated with this auto order.</value>
+        [DataMember(Name="emails", EmitDefaultValue=false)]
+        public List<AutoOrderEmail> Emails { get; set; }
 
         /// <summary>
         /// True if this auto order is enabled
@@ -340,6 +349,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Completed: ").Append(Completed).Append("\n");
             sb.Append("  CreditCardAttempt: ").Append(CreditCardAttempt).Append("\n");
             sb.Append("  DisabledDts: ").Append(DisabledDts).Append("\n");
+            sb.Append("  Emails: ").Append(Emails).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  FailureReason: ").Append(FailureReason).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
@@ -450,6 +460,12 @@ namespace com.ultracart.admin.v2.Model
                     this.DisabledDts == input.DisabledDts ||
                     (this.DisabledDts != null &&
                     this.DisabledDts.Equals(input.DisabledDts))
+                ) && 
+                (
+                    this.Emails == input.Emails ||
+                    this.Emails != null &&
+                    input.Emails != null &&
+                    this.Emails.SequenceEqual(input.Emails)
                 ) && 
                 (
                     this.Enabled == input.Enabled ||
@@ -570,6 +586,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CreditCardAttempt.GetHashCode();
                 if (this.DisabledDts != null)
                     hashCode = hashCode * 59 + this.DisabledDts.GetHashCode();
+                if (this.Emails != null)
+                    hashCode = hashCode * 59 + this.Emails.GetHashCode();
                 if (this.Enabled != null)
                     hashCode = hashCode * 59 + this.Enabled.GetHashCode();
                 if (this.FailureReason != null)

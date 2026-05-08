@@ -34,6 +34,8 @@ docs/AutoOrderAddonItemOption.md
 docs/AutoOrderAddonItemsUpdateRequest.md
 docs/AutoOrderApi.md
 docs/AutoOrderConsolidate.md
+docs/AutoOrderEmail.md
+docs/AutoOrderEmailsResponse.md
 docs/AutoOrderItem.md
 docs/AutoOrderItemCancelRequest.md
 docs/AutoOrderItemFutureSchedule.md
@@ -759,6 +761,8 @@ docs/OrderDigitalOrder.md
 docs/OrderEdi.md
 docs/OrderEdiDocument.md
 docs/OrderEdiDocumentsResponse.md
+docs/OrderEmail.md
+docs/OrderEmailsResponse.md
 docs/OrderFormat.md
 docs/OrderFormatResponse.md
 docs/OrderFraudScore.md
@@ -1060,6 +1064,8 @@ src/com.ultracart.admin.v2/Model/AutoOrderAddonItem.cs
 src/com.ultracart.admin.v2/Model/AutoOrderAddonItemOption.cs
 src/com.ultracart.admin.v2/Model/AutoOrderAddonItemsUpdateRequest.cs
 src/com.ultracart.admin.v2/Model/AutoOrderConsolidate.cs
+src/com.ultracart.admin.v2/Model/AutoOrderEmail.cs
+src/com.ultracart.admin.v2/Model/AutoOrderEmailsResponse.cs
 src/com.ultracart.admin.v2/Model/AutoOrderItem.cs
 src/com.ultracart.admin.v2/Model/AutoOrderItemCancelRequest.cs
 src/com.ultracart.admin.v2/Model/AutoOrderItemFutureSchedule.cs
@@ -1772,6 +1778,8 @@ src/com.ultracart.admin.v2/Model/OrderDigitalOrder.cs
 src/com.ultracart.admin.v2/Model/OrderEdi.cs
 src/com.ultracart.admin.v2/Model/OrderEdiDocument.cs
 src/com.ultracart.admin.v2/Model/OrderEdiDocumentsResponse.cs
+src/com.ultracart.admin.v2/Model/OrderEmail.cs
+src/com.ultracart.admin.v2/Model/OrderEmailsResponse.cs
 src/com.ultracart.admin.v2/Model/OrderFormat.cs
 src/com.ultracart.admin.v2/Model/OrderFormatResponse.cs
 src/com.ultracart.admin.v2/Model/OrderFraudScore.cs

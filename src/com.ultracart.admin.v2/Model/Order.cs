@@ -140,6 +140,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="customerProfile">customerProfile.</param>
         /// <param name="digitalOrder">digitalOrder.</param>
         /// <param name="edi">edi.</param>
+        /// <param name="emails">Email delivery records associated with this order..</param>
         /// <param name="exchangeRate">Exchange rate at the time the order was placed if currency code is different than the base currency.</param>
         /// <param name="fraudScore">fraudScore.</param>
         /// <param name="gift">gift.</param>
@@ -165,7 +166,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="tags">tags, available only through update, not through insert due to the nature of how tags are handled internally.</param>
         /// <param name="taxes">taxes.</param>
         /// <param name="utms">UTM clicks.  The zero index is the most recent (last) UTM click.</param>
-        public Order(List<OrderAffiliate> affiliates = default(List<OrderAffiliate>), OrderAutoOrder autoOrder = default(OrderAutoOrder), OrderBilling billing = default(OrderBilling), OrderBuysafe buysafe = default(OrderBuysafe), OrderChannelPartner channelPartner = default(OrderChannelPartner), OrderCheckout checkout = default(OrderCheckout), List<OrderCoupon> coupons = default(List<OrderCoupon>), string creationDts = default(string), string currencyCode = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), List<OrderCurrentStageHistory> currentStageHistories = default(List<OrderCurrentStageHistory>), Customer customerProfile = default(Customer), OrderDigitalOrder digitalOrder = default(OrderDigitalOrder), OrderEdi edi = default(OrderEdi), decimal exchangeRate = default(decimal), OrderFraudScore fraudScore = default(OrderFraudScore), OrderGift gift = default(OrderGift), OrderGiftCertificate giftCertificate = default(OrderGiftCertificate), OrderInternal _internal = default(OrderInternal), List<OrderItem> items = default(List<OrderItem>), string languageIsoCode = default(string), OrderLinkedShipment linkedShipment = default(OrderLinkedShipment), OrderMarketing marketing = default(OrderMarketing), string merchantId = default(string), string orderId = default(string), OrderPayment payment = default(OrderPayment), OrderPointOfSale pointOfSale = default(OrderPointOfSale), List<OrderProperty> properties = default(List<OrderProperty>), OrderQuote quote = default(OrderQuote), string refundDts = default(string), string refundReason = default(string), string rejectDts = default(string), string rejectReason = default(string), OrderSalesforce salesforce = default(OrderSalesforce), OrderShipping shipping = default(OrderShipping), OrderSummary summary = default(OrderSummary), List<OrderTag> tags = default(List<OrderTag>), OrderTaxes taxes = default(OrderTaxes), List<OrderUtm> utms = default(List<OrderUtm>))
+        public Order(List<OrderAffiliate> affiliates = default(List<OrderAffiliate>), OrderAutoOrder autoOrder = default(OrderAutoOrder), OrderBilling billing = default(OrderBilling), OrderBuysafe buysafe = default(OrderBuysafe), OrderChannelPartner channelPartner = default(OrderChannelPartner), OrderCheckout checkout = default(OrderCheckout), List<OrderCoupon> coupons = default(List<OrderCoupon>), string creationDts = default(string), string currencyCode = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), List<OrderCurrentStageHistory> currentStageHistories = default(List<OrderCurrentStageHistory>), Customer customerProfile = default(Customer), OrderDigitalOrder digitalOrder = default(OrderDigitalOrder), OrderEdi edi = default(OrderEdi), List<OrderEmail> emails = default(List<OrderEmail>), decimal exchangeRate = default(decimal), OrderFraudScore fraudScore = default(OrderFraudScore), OrderGift gift = default(OrderGift), OrderGiftCertificate giftCertificate = default(OrderGiftCertificate), OrderInternal _internal = default(OrderInternal), List<OrderItem> items = default(List<OrderItem>), string languageIsoCode = default(string), OrderLinkedShipment linkedShipment = default(OrderLinkedShipment), OrderMarketing marketing = default(OrderMarketing), string merchantId = default(string), string orderId = default(string), OrderPayment payment = default(OrderPayment), OrderPointOfSale pointOfSale = default(OrderPointOfSale), List<OrderProperty> properties = default(List<OrderProperty>), OrderQuote quote = default(OrderQuote), string refundDts = default(string), string refundReason = default(string), string rejectDts = default(string), string rejectReason = default(string), OrderSalesforce salesforce = default(OrderSalesforce), OrderShipping shipping = default(OrderShipping), OrderSummary summary = default(OrderSummary), List<OrderTag> tags = default(List<OrderTag>), OrderTaxes taxes = default(OrderTaxes), List<OrderUtm> utms = default(List<OrderUtm>))
         {
             this.Affiliates = affiliates;
             this.AutoOrder = autoOrder;
@@ -181,6 +182,7 @@ namespace com.ultracart.admin.v2.Model
             this.CustomerProfile = customerProfile;
             this.DigitalOrder = digitalOrder;
             this.Edi = edi;
+            this.Emails = emails;
             this.ExchangeRate = exchangeRate;
             this.FraudScore = fraudScore;
             this.Gift = gift;
@@ -291,6 +293,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="edi", EmitDefaultValue=false)]
         public OrderEdi Edi { get; set; }
+
+        /// <summary>
+        /// Email delivery records associated with this order.
+        /// </summary>
+        /// <value>Email delivery records associated with this order.</value>
+        [DataMember(Name="emails", EmitDefaultValue=false)]
+        public List<OrderEmail> Emails { get; set; }
 
         /// <summary>
         /// Exchange rate at the time the order was placed if currency code is different than the base currency
@@ -476,6 +485,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CustomerProfile: ").Append(CustomerProfile).Append("\n");
             sb.Append("  DigitalOrder: ").Append(DigitalOrder).Append("\n");
             sb.Append("  Edi: ").Append(Edi).Append("\n");
+            sb.Append("  Emails: ").Append(Emails).Append("\n");
             sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
             sb.Append("  FraudScore: ").Append(FraudScore).Append("\n");
             sb.Append("  Gift: ").Append(Gift).Append("\n");
@@ -607,6 +617,12 @@ namespace com.ultracart.admin.v2.Model
                     this.Edi == input.Edi ||
                     (this.Edi != null &&
                     this.Edi.Equals(input.Edi))
+                ) && 
+                (
+                    this.Emails == input.Emails ||
+                    this.Emails != null &&
+                    input.Emails != null &&
+                    this.Emails.SequenceEqual(input.Emails)
                 ) && 
                 (
                     this.ExchangeRate == input.ExchangeRate ||
@@ -776,6 +792,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DigitalOrder.GetHashCode();
                 if (this.Edi != null)
                     hashCode = hashCode * 59 + this.Edi.GetHashCode();
+                if (this.Emails != null)
+                    hashCode = hashCode * 59 + this.Emails.GetHashCode();
                 if (this.ExchangeRate != null)
                     hashCode = hashCode * 59 + this.ExchangeRate.GetHashCode();
                 if (this.FraudScore != null)

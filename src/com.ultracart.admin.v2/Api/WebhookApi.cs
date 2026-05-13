@@ -68,6 +68,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of WebhookResponse</returns>
         ApiResponse<WebhookResponse> DeleteWebhookByUrlWithHttpInfo (Webhook webhook);
         /// <summary>
+        /// Retrieve webhook event categories
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the available webhook event categories and events with backend-owned metadata (OIDs, names, descriptions, available expansions, flags) independent of whether any webhooks are saved.  Used by the New Webhook editor so a merchant with zero webhooks can still see the catalog. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>WebhookEventCategoriesResponse</returns>
+        WebhookEventCategoriesResponse GetWebhookEventCategories ();
+
+        /// <summary>
+        /// Retrieve webhook event categories
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the available webhook event categories and events with backend-owned metadata (OIDs, names, descriptions, available expansions, flags) independent of whether any webhooks are saved.  Used by the New Webhook editor so a merchant with zero webhooks can still see the catalog. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of WebhookEventCategoriesResponse</returns>
+        ApiResponse<WebhookEventCategoriesResponse> GetWebhookEventCategoriesWithHttpInfo ();
+        /// <summary>
         /// Retrieve an individual log
         /// </summary>
         /// <remarks>
@@ -263,6 +282,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (WebhookResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> DeleteWebhookByUrlWithHttpInfoAsync (Webhook webhook, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve webhook event categories
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the available webhook event categories and events with backend-owned metadata (OIDs, names, descriptions, available expansions, flags) independent of whether any webhooks are saved.  Used by the New Webhook editor so a merchant with zero webhooks can still see the catalog. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of WebhookEventCategoriesResponse</returns>
+        System.Threading.Tasks.Task<WebhookEventCategoriesResponse> GetWebhookEventCategoriesAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve webhook event categories
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the available webhook event categories and events with backend-owned metadata (OIDs, names, descriptions, available expansions, flags) independent of whether any webhooks are saved.  Used by the New Webhook editor so a merchant with zero webhooks can still see the catalog. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (WebhookEventCategoriesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WebhookEventCategoriesResponse>> GetWebhookEventCategoriesWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve an individual log
         /// </summary>
@@ -878,6 +918,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<WebhookResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (WebhookResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve webhook event categories Retrieves the available webhook event categories and events with backend-owned metadata (OIDs, names, descriptions, available expansions, flags) independent of whether any webhooks are saved.  Used by the New Webhook editor so a merchant with zero webhooks can still see the catalog. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>WebhookEventCategoriesResponse</returns>
+        public WebhookEventCategoriesResponse GetWebhookEventCategories ()
+        {
+             ApiResponse<WebhookEventCategoriesResponse> localVarResponse = GetWebhookEventCategoriesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve webhook event categories Retrieves the available webhook event categories and events with backend-owned metadata (OIDs, names, descriptions, available expansions, flags) independent of whether any webhooks are saved.  Used by the New Webhook editor so a merchant with zero webhooks can still see the catalog. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of WebhookEventCategoriesResponse</returns>
+        public ApiResponse<WebhookEventCategoriesResponse> GetWebhookEventCategoriesWithHttpInfo ()
+        {
+
+            var localVarPath = "/webhook/webhook_event_categories";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWebhookEventCategories", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WebhookEventCategoriesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (WebhookEventCategoriesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookEventCategoriesResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve webhook event categories Retrieves the available webhook event categories and events with backend-owned metadata (OIDs, names, descriptions, available expansions, flags) independent of whether any webhooks are saved.  Used by the New Webhook editor so a merchant with zero webhooks can still see the catalog. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of WebhookEventCategoriesResponse</returns>
+        public async System.Threading.Tasks.Task<WebhookEventCategoriesResponse> GetWebhookEventCategoriesAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<WebhookEventCategoriesResponse> localVarResponse = await GetWebhookEventCategoriesWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve webhook event categories Retrieves the available webhook event categories and events with backend-owned metadata (OIDs, names, descriptions, available expansions, flags) independent of whether any webhooks are saved.  Used by the New Webhook editor so a merchant with zero webhooks can still see the catalog. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (WebhookEventCategoriesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<WebhookEventCategoriesResponse>> GetWebhookEventCategoriesWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/webhook/webhook_event_categories";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWebhookEventCategories", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WebhookEventCategoriesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (WebhookEventCategoriesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookEventCategoriesResponse)));
         }
 
         /// <summary>

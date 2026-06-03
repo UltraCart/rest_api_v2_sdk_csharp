@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ## OauthDeviceAuthorize
 
-> void OauthDeviceAuthorize (string clientId, string scope)
+> OauthDeviceAuthorizationResponse OauthDeviceAuthorize (string clientId, string scope)
 
 Initiate a device authorization flow.
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**OauthDeviceAuthorizationResponse**](OauthDeviceAuthorizationResponse.md)
 
 ### Authorization
 
@@ -168,7 +168,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 

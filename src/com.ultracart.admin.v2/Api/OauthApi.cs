@@ -65,8 +65,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="scope">The application-level scope (e.g., crm, ultraship).</param>
-        /// <returns></returns>
-        void OauthDeviceAuthorize (string clientId, string scope);
+        /// <returns>OauthDeviceAuthorizationResponse</returns>
+        OauthDeviceAuthorizationResponse OauthDeviceAuthorize (string clientId, string scope);
 
         /// <summary>
         /// Initiate a device authorization flow.
@@ -77,8 +77,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="scope">The application-level scope (e.g., crm, ultraship).</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> OauthDeviceAuthorizeWithHttpInfo (string clientId, string scope);
+        /// <returns>ApiResponse of OauthDeviceAuthorizationResponse</returns>
+        ApiResponse<OauthDeviceAuthorizationResponse> OauthDeviceAuthorizeWithHttpInfo (string clientId, string scope);
         /// <summary>
         /// Revoke this OAuth application.
         /// </summary>
@@ -147,8 +147,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="scope">The application-level scope (e.g., crm, ultraship).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task OauthDeviceAuthorizeAsync (string clientId, string scope, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of OauthDeviceAuthorizationResponse</returns>
+        System.Threading.Tasks.Task<OauthDeviceAuthorizationResponse> OauthDeviceAuthorizeAsync (string clientId, string scope, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Initiate a device authorization flow.
@@ -160,8 +160,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="scope">The application-level scope (e.g., crm, ultraship).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> OauthDeviceAuthorizeWithHttpInfoAsync (string clientId, string scope, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (OauthDeviceAuthorizationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OauthDeviceAuthorizationResponse>> OauthDeviceAuthorizeWithHttpInfoAsync (string clientId, string scope, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Revoke this OAuth application.
         /// </summary>
@@ -527,10 +527,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="scope">The application-level scope (e.g., crm, ultraship).</param>
-        /// <returns></returns>
-        public void OauthDeviceAuthorize (string clientId, string scope)
+        /// <returns>OauthDeviceAuthorizationResponse</returns>
+        public OauthDeviceAuthorizationResponse OauthDeviceAuthorize (string clientId, string scope)
         {
-             OauthDeviceAuthorizeWithHttpInfo(clientId, scope);
+             ApiResponse<OauthDeviceAuthorizationResponse> localVarResponse = OauthDeviceAuthorizeWithHttpInfo(clientId, scope);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -539,8 +540,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="scope">The application-level scope (e.g., crm, ultraship).</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> OauthDeviceAuthorizeWithHttpInfo (string clientId, string scope)
+        /// <returns>ApiResponse of OauthDeviceAuthorizationResponse</returns>
+        public ApiResponse<OauthDeviceAuthorizationResponse> OauthDeviceAuthorizeWithHttpInfo (string clientId, string scope)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
@@ -604,9 +605,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<OauthDeviceAuthorizationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (OauthDeviceAuthorizationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OauthDeviceAuthorizationResponse)));
         }
 
         /// <summary>
@@ -616,10 +617,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="scope">The application-level scope (e.g., crm, ultraship).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task OauthDeviceAuthorizeAsync (string clientId, string scope, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of OauthDeviceAuthorizationResponse</returns>
+        public async System.Threading.Tasks.Task<OauthDeviceAuthorizationResponse> OauthDeviceAuthorizeAsync (string clientId, string scope, CancellationToken cancellationToken = default(CancellationToken))
         {
-             await OauthDeviceAuthorizeWithHttpInfoAsync(clientId, scope, cancellationToken);
+             ApiResponse<OauthDeviceAuthorizationResponse> localVarResponse = await OauthDeviceAuthorizeWithHttpInfoAsync(clientId, scope, cancellationToken);
+             return localVarResponse.Data;
 
         }
 
@@ -630,8 +632,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="scope">The application-level scope (e.g., crm, ultraship).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> OauthDeviceAuthorizeWithHttpInfoAsync (string clientId, string scope, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (OauthDeviceAuthorizationResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OauthDeviceAuthorizationResponse>> OauthDeviceAuthorizeWithHttpInfoAsync (string clientId, string scope, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
@@ -695,9 +697,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<OauthDeviceAuthorizationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (OauthDeviceAuthorizationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OauthDeviceAuthorizationResponse)));
         }
 
         /// <summary>

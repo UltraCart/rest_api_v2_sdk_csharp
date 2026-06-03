@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 **ModifySkipAffiliate** | **bool** |  | [optional] 
 **ModifySkipAffiliateNetworkPixel** | **bool** |  | [optional] 
 **RotatingTransactionGatewayFilters** | [**List&lt;FraudRuleRotatingTransactionGatewayFilter&gt;**](FraudRuleRotatingTransactionGatewayFilter.md) |  | [optional] 
-**RuleGroup** | **string** | Group containing this rule type (eg &#39;creditCardRules&#39;) | [optional] 
+**RuleGroup** | **string** | Group containing this rule type (eg &#39;creditCardRules&#39;). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set. | [optional] 
 **RuleType** | **string** | Rule type. | [optional] 
 **StorefrontFilters** | [**List&lt;FraudRuleStorefrontFilter&gt;**](FraudRuleStorefrontFilter.md) |  | [optional] 
 **UserAction** | **string** |  | [optional] 

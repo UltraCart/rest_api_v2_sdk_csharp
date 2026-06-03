@@ -132,69 +132,6 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="ip_range_type", EmitDefaultValue=false)]
         public IpRangeTypeEnum? IpRangeType { get; set; }
         /// <summary>
-        /// Group containing this rule type (eg &#39;creditCardRules&#39;)
-        /// </summary>
-        /// <value>Group containing this rule type (eg &#39;creditCardRules&#39;)</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum RuleGroupEnum
-        {
-            /// <summary>
-            /// Enum ExemptRules for value: exemptRules
-            /// </summary>
-            [EnumMember(Value = "exemptRules")]
-            ExemptRules = 1,
-
-            /// <summary>
-            /// Enum CreditCardRules for value: creditCardRules
-            /// </summary>
-            [EnumMember(Value = "creditCardRules")]
-            CreditCardRules = 2,
-
-            /// <summary>
-            /// Enum IpRules for value: ipRules
-            /// </summary>
-            [EnumMember(Value = "ipRules")]
-            IpRules = 3,
-
-            /// <summary>
-            /// Enum AddressRules for value: addressRules
-            /// </summary>
-            [EnumMember(Value = "addressRules")]
-            AddressRules = 4,
-
-            /// <summary>
-            /// Enum AffiliateRules for value: affiliateRules
-            /// </summary>
-            [EnumMember(Value = "affiliateRules")]
-            AffiliateRules = 5,
-
-            /// <summary>
-            /// Enum ItemRules for value: itemRules
-            /// </summary>
-            [EnumMember(Value = "itemRules")]
-            ItemRules = 6,
-
-            /// <summary>
-            /// Enum OrderRules for value: orderRules
-            /// </summary>
-            [EnumMember(Value = "orderRules")]
-            OrderRules = 7,
-
-            /// <summary>
-            /// Enum BrowserRules for value: browserRules
-            /// </summary>
-            [EnumMember(Value = "browserRules")]
-            BrowserRules = 8
-
-        }
-
-        /// <summary>
-        /// Group containing this rule type (eg &#39;creditCardRules&#39;)
-        /// </summary>
-        /// <value>Group containing this rule type (eg &#39;creditCardRules&#39;)</value>
-        [DataMember(Name="rule_group", EmitDefaultValue=false)]
-        public RuleGroupEnum? RuleGroup { get; set; }
-        /// <summary>
         /// Rule type.
         /// </summary>
         /// <value>Rule type.</value>
@@ -534,11 +471,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="modifySkipAffiliate">modifySkipAffiliate.</param>
         /// <param name="modifySkipAffiliateNetworkPixel">modifySkipAffiliateNetworkPixel.</param>
         /// <param name="rotatingTransactionGatewayFilters">rotatingTransactionGatewayFilters.</param>
-        /// <param name="ruleGroup">Group containing this rule type (eg &#39;creditCardRules&#39;).</param>
+        /// <param name="ruleGroup">Group containing this rule type (eg &#39;creditCardRules&#39;). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set..</param>
         /// <param name="ruleType">Rule type..</param>
         /// <param name="storefrontFilters">storefrontFilters.</param>
         /// <param name="userAction">userAction.</param>
-        public FraudRulePublic(int affiliateOid = default(int), decimal amountThreshold = default(decimal), string autoNote = default(string), AvsMatchTypeEnum? avsMatchType = default(AvsMatchTypeEnum?), string avsResponseCodes = default(string), string cardNumber = default(string), int countThreshold = default(int), string countryCode = default(string), string createdBy = default(string), string createdDts = default(string), Object creditCardBins = default(Object), string declineMessage = default(string), string description = default(string), string descriptionHtml = default(string), string email = default(string), FailureActionEnum? failureAction = default(FailureActionEnum?), int fraudRuleOid = default(int), string gatewayResponseCodes = default(string), string gatewayResponseValue = default(string), string ipAddress = default(string), IpRangeTypeEnum? ipRangeType = default(IpRangeTypeEnum?), List<FraudRuleItemFilter> itemFilters = default(List<FraudRuleItemFilter>), string merchantItemId = default(string), string modifyCustomField1 = default(string), string modifyCustomField2 = default(string), string modifyCustomField3 = default(string), string modifyCustomField4 = default(string), string modifyCustomField5 = default(string), string modifyCustomField6 = default(string), string modifyCustomField7 = default(string), bool modifySkipAffiliate = default(bool), bool modifySkipAffiliateNetworkPixel = default(bool), List<FraudRuleRotatingTransactionGatewayFilter> rotatingTransactionGatewayFilters = default(List<FraudRuleRotatingTransactionGatewayFilter>), RuleGroupEnum? ruleGroup = default(RuleGroupEnum?), RuleTypeEnum? ruleType = default(RuleTypeEnum?), List<FraudRuleStorefrontFilter> storefrontFilters = default(List<FraudRuleStorefrontFilter>), UserActionEnum? userAction = default(UserActionEnum?))
+        public FraudRulePublic(int affiliateOid = default(int), decimal amountThreshold = default(decimal), string autoNote = default(string), AvsMatchTypeEnum? avsMatchType = default(AvsMatchTypeEnum?), string avsResponseCodes = default(string), string cardNumber = default(string), int countThreshold = default(int), string countryCode = default(string), string createdBy = default(string), string createdDts = default(string), Object creditCardBins = default(Object), string declineMessage = default(string), string description = default(string), string descriptionHtml = default(string), string email = default(string), FailureActionEnum? failureAction = default(FailureActionEnum?), int fraudRuleOid = default(int), string gatewayResponseCodes = default(string), string gatewayResponseValue = default(string), string ipAddress = default(string), IpRangeTypeEnum? ipRangeType = default(IpRangeTypeEnum?), List<FraudRuleItemFilter> itemFilters = default(List<FraudRuleItemFilter>), string merchantItemId = default(string), string modifyCustomField1 = default(string), string modifyCustomField2 = default(string), string modifyCustomField3 = default(string), string modifyCustomField4 = default(string), string modifyCustomField5 = default(string), string modifyCustomField6 = default(string), string modifyCustomField7 = default(string), bool modifySkipAffiliate = default(bool), bool modifySkipAffiliateNetworkPixel = default(bool), List<FraudRuleRotatingTransactionGatewayFilter> rotatingTransactionGatewayFilters = default(List<FraudRuleRotatingTransactionGatewayFilter>), string ruleGroup = default(string), RuleTypeEnum? ruleType = default(RuleTypeEnum?), List<FraudRuleStorefrontFilter> storefrontFilters = default(List<FraudRuleStorefrontFilter>), UserActionEnum? userAction = default(UserActionEnum?))
         {
             this.AffiliateOid = affiliateOid;
             this.AmountThreshold = amountThreshold;
@@ -768,6 +705,12 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="rotating_transaction_gateway_filters", EmitDefaultValue=false)]
         public List<FraudRuleRotatingTransactionGatewayFilter> RotatingTransactionGatewayFilters { get; set; }
 
+        /// <summary>
+        /// Group containing this rule type (eg &#39;creditCardRules&#39;). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set.
+        /// </summary>
+        /// <value>Group containing this rule type (eg &#39;creditCardRules&#39;). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set.</value>
+        [DataMember(Name="rule_group", EmitDefaultValue=false)]
+        public string RuleGroup { get; set; }
 
 
         /// <summary>

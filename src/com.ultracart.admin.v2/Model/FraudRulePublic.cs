@@ -438,44 +438,44 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FraudRulePublic" /> class.
         /// </summary>
-        /// <param name="affiliateOid">affiliateOid.</param>
-        /// <param name="amountThreshold">amountThreshold.</param>
-        /// <param name="autoNote">autoNote.</param>
+        /// <param name="affiliateOid">Affiliate oid for the &#39;affiliate matches&#39; rule type..</param>
+        /// <param name="amountThreshold">Monetary or score threshold for amount/score/percentage rule types..</param>
+        /// <param name="autoNote">Note automatically appended to the order&#39;s merchant note when this rule fires..</param>
         /// <param name="avsMatchType">avsMatchType.</param>
-        /// <param name="avsResponseCodes">avsResponseCodes.</param>
+        /// <param name="avsResponseCodes">AVS response codes for the &#39;address street and zip avs&#39; rule type..</param>
         /// <param name="cardNumber">Masked credit card number for rules tied to a specific card.</param>
-        /// <param name="countThreshold">countThreshold.</param>
-        /// <param name="countryCode">countryCode.</param>
+        /// <param name="countThreshold">Integer count threshold for count/quantity/hours rule types..</param>
+        /// <param name="countryCode">ISO country code for the &#39;address not in country&#39; rule type..</param>
         /// <param name="createdBy">createdBy.</param>
         /// <param name="createdDts">Created date.</param>
         /// <param name="creditCardBins">Credit card BINs blocked by the &#39;credit card block bin&#39; rule type..</param>
-        /// <param name="declineMessage">declineMessage.</param>
+        /// <param name="declineMessage">Message shown in the A/R review screen when this rule fires..</param>
         /// <param name="description">Human-readable description of the rule.</param>
         /// <param name="descriptionHtml">HTML version of the rule description.</param>
-        /// <param name="email">email.</param>
+        /// <param name="email">Email address for the &#39;address email&#39; rule type..</param>
         /// <param name="failureAction">Action taken when this rule fires..</param>
         /// <param name="fraudRuleOid">UltraCart unique identifier for this fraud rule.</param>
-        /// <param name="gatewayResponseCodes">gatewayResponseCodes.</param>
-        /// <param name="gatewayResponseValue">gatewayResponseValue.</param>
-        /// <param name="ipAddress">ipAddress.</param>
+        /// <param name="gatewayResponseCodes">Gateway response code key for the &#39;gateway response&#39; rule type..</param>
+        /// <param name="gatewayResponseValue">Gateway response code value for the &#39;gateway response&#39; rule type..</param>
+        /// <param name="ipAddress">IP address or subnet for &#39;exempt ip&#39; and &#39;ip matches&#39; rule types..</param>
         /// <param name="ipRangeType">ipRangeType.</param>
-        /// <param name="itemFilters">itemFilters.</param>
-        /// <param name="merchantItemId">merchantItemId.</param>
-        /// <param name="modifyCustomField1">modifyCustomField1.</param>
-        /// <param name="modifyCustomField2">modifyCustomField2.</param>
-        /// <param name="modifyCustomField3">modifyCustomField3.</param>
-        /// <param name="modifyCustomField4">modifyCustomField4.</param>
-        /// <param name="modifyCustomField5">modifyCustomField5.</param>
-        /// <param name="modifyCustomField6">modifyCustomField6.</param>
-        /// <param name="modifyCustomField7">modifyCustomField7.</param>
-        /// <param name="modifySkipAffiliate">modifySkipAffiliate.</param>
-        /// <param name="modifySkipAffiliateNetworkPixel">modifySkipAffiliateNetworkPixel.</param>
-        /// <param name="rotatingTransactionGatewayFilters">rotatingTransactionGatewayFilters.</param>
+        /// <param name="itemFilters">Item filters restricting this rule to orders containing one or more of these items..</param>
+        /// <param name="merchantItemId">Merchant item id for the &#39;item matches&#39; rule type..</param>
+        /// <param name="modifyCustomField1">Value the rule sets on order custom field 1 (only meaningful for &#39;Process Payment and Modify&#39;)..</param>
+        /// <param name="modifyCustomField2">Value the rule sets on order custom field 2 (only meaningful for &#39;Process Payment and Modify&#39;)..</param>
+        /// <param name="modifyCustomField3">Value the rule sets on order custom field 3 (only meaningful for &#39;Process Payment and Modify&#39;)..</param>
+        /// <param name="modifyCustomField4">Value the rule sets on order custom field 4 (only meaningful for &#39;Process Payment and Modify&#39;)..</param>
+        /// <param name="modifyCustomField5">Value the rule sets on order custom field 5 (only meaningful for &#39;Process Payment and Modify&#39;)..</param>
+        /// <param name="modifyCustomField6">Value the rule sets on order custom field 6 (only meaningful for &#39;Process Payment and Modify&#39;)..</param>
+        /// <param name="modifyCustomField7">Value the rule sets on order custom field 7 (only meaningful for &#39;Process Payment and Modify&#39;)..</param>
+        /// <param name="modifySkipAffiliate">When true, the rule strips the affiliate from the order (only meaningful for &#39;Process Payment and Modify&#39;)..</param>
+        /// <param name="modifySkipAffiliateNetworkPixel">When true, the rule suppresses the affiliate network pixel (only meaningful for &#39;Process Payment and Modify&#39;)..</param>
+        /// <param name="rotatingTransactionGatewayFilters">Gateway filters restricting this rule to orders processed by one of these rotating transaction gateways..</param>
         /// <param name="ruleGroup">Group containing this rule type (eg &#39;creditCardRules&#39;). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set..</param>
         /// <param name="ruleType">Rule type..</param>
-        /// <param name="storefrontFilters">storefrontFilters.</param>
+        /// <param name="storefrontFilters">Storefront filters restricting this rule to orders placed on one of these storefronts..</param>
         /// <param name="userAction">userAction.</param>
-        public FraudRulePublic(int affiliateOid = default(int), decimal amountThreshold = default(decimal), string autoNote = default(string), AvsMatchTypeEnum? avsMatchType = default(AvsMatchTypeEnum?), string avsResponseCodes = default(string), string cardNumber = default(string), int countThreshold = default(int), string countryCode = default(string), string createdBy = default(string), string createdDts = default(string), Object creditCardBins = default(Object), string declineMessage = default(string), string description = default(string), string descriptionHtml = default(string), string email = default(string), FailureActionEnum? failureAction = default(FailureActionEnum?), int fraudRuleOid = default(int), string gatewayResponseCodes = default(string), string gatewayResponseValue = default(string), string ipAddress = default(string), IpRangeTypeEnum? ipRangeType = default(IpRangeTypeEnum?), List<FraudRuleItemFilter> itemFilters = default(List<FraudRuleItemFilter>), string merchantItemId = default(string), string modifyCustomField1 = default(string), string modifyCustomField2 = default(string), string modifyCustomField3 = default(string), string modifyCustomField4 = default(string), string modifyCustomField5 = default(string), string modifyCustomField6 = default(string), string modifyCustomField7 = default(string), bool modifySkipAffiliate = default(bool), bool modifySkipAffiliateNetworkPixel = default(bool), List<FraudRuleRotatingTransactionGatewayFilter> rotatingTransactionGatewayFilters = default(List<FraudRuleRotatingTransactionGatewayFilter>), string ruleGroup = default(string), RuleTypeEnum? ruleType = default(RuleTypeEnum?), List<FraudRuleStorefrontFilter> storefrontFilters = default(List<FraudRuleStorefrontFilter>), UserActionEnum? userAction = default(UserActionEnum?))
+        public FraudRulePublic(int affiliateOid = default(int), decimal amountThreshold = default(decimal), string autoNote = default(string), AvsMatchTypeEnum? avsMatchType = default(AvsMatchTypeEnum?), string avsResponseCodes = default(string), string cardNumber = default(string), int countThreshold = default(int), string countryCode = default(string), string createdBy = default(string), string createdDts = default(string), List<string> creditCardBins = default(List<string>), string declineMessage = default(string), string description = default(string), string descriptionHtml = default(string), string email = default(string), FailureActionEnum? failureAction = default(FailureActionEnum?), int fraudRuleOid = default(int), string gatewayResponseCodes = default(string), string gatewayResponseValue = default(string), string ipAddress = default(string), IpRangeTypeEnum? ipRangeType = default(IpRangeTypeEnum?), List<FraudRuleItemFilter> itemFilters = default(List<FraudRuleItemFilter>), string merchantItemId = default(string), string modifyCustomField1 = default(string), string modifyCustomField2 = default(string), string modifyCustomField3 = default(string), string modifyCustomField4 = default(string), string modifyCustomField5 = default(string), string modifyCustomField6 = default(string), string modifyCustomField7 = default(string), bool modifySkipAffiliate = default(bool), bool modifySkipAffiliateNetworkPixel = default(bool), List<FraudRuleRotatingTransactionGatewayFilter> rotatingTransactionGatewayFilters = default(List<FraudRuleRotatingTransactionGatewayFilter>), string ruleGroup = default(string), RuleTypeEnum? ruleType = default(RuleTypeEnum?), List<FraudRuleStorefrontFilter> storefrontFilters = default(List<FraudRuleStorefrontFilter>), UserActionEnum? userAction = default(UserActionEnum?))
         {
             this.AffiliateOid = affiliateOid;
             this.AmountThreshold = amountThreshold;
@@ -517,27 +517,31 @@ namespace com.ultracart.admin.v2.Model
         }
 
         /// <summary>
-        /// Gets or Sets AffiliateOid
+        /// Affiliate oid for the &#39;affiliate matches&#39; rule type.
         /// </summary>
+        /// <value>Affiliate oid for the &#39;affiliate matches&#39; rule type.</value>
         [DataMember(Name="affiliate_oid", EmitDefaultValue=false)]
         public int AffiliateOid { get; set; }
 
         /// <summary>
-        /// Gets or Sets AmountThreshold
+        /// Monetary or score threshold for amount/score/percentage rule types.
         /// </summary>
+        /// <value>Monetary or score threshold for amount/score/percentage rule types.</value>
         [DataMember(Name="amount_threshold", EmitDefaultValue=false)]
         public decimal AmountThreshold { get; set; }
 
         /// <summary>
-        /// Gets or Sets AutoNote
+        /// Note automatically appended to the order&#39;s merchant note when this rule fires.
         /// </summary>
+        /// <value>Note automatically appended to the order&#39;s merchant note when this rule fires.</value>
         [DataMember(Name="auto_note", EmitDefaultValue=false)]
         public string AutoNote { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets AvsResponseCodes
+        /// AVS response codes for the &#39;address street and zip avs&#39; rule type.
         /// </summary>
+        /// <value>AVS response codes for the &#39;address street and zip avs&#39; rule type.</value>
         [DataMember(Name="avs_response_codes", EmitDefaultValue=false)]
         public string AvsResponseCodes { get; set; }
 
@@ -549,14 +553,16 @@ namespace com.ultracart.admin.v2.Model
         public string CardNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets CountThreshold
+        /// Integer count threshold for count/quantity/hours rule types.
         /// </summary>
+        /// <value>Integer count threshold for count/quantity/hours rule types.</value>
         [DataMember(Name="count_threshold", EmitDefaultValue=false)]
         public int CountThreshold { get; set; }
 
         /// <summary>
-        /// Gets or Sets CountryCode
+        /// ISO country code for the &#39;address not in country&#39; rule type.
         /// </summary>
+        /// <value>ISO country code for the &#39;address not in country&#39; rule type.</value>
         [DataMember(Name="country_code", EmitDefaultValue=false)]
         public string CountryCode { get; set; }
 
@@ -578,11 +584,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Credit card BINs blocked by the &#39;credit card block bin&#39; rule type.</value>
         [DataMember(Name="credit_card_bins", EmitDefaultValue=false)]
-        public Object CreditCardBins { get; set; }
+        public List<string> CreditCardBins { get; set; }
 
         /// <summary>
-        /// Gets or Sets DeclineMessage
+        /// Message shown in the A/R review screen when this rule fires.
         /// </summary>
+        /// <value>Message shown in the A/R review screen when this rule fires.</value>
         [DataMember(Name="decline_message", EmitDefaultValue=false)]
         public string DeclineMessage { get; set; }
 
@@ -601,8 +608,9 @@ namespace com.ultracart.admin.v2.Model
         public string DescriptionHtml { get; set; }
 
         /// <summary>
-        /// Gets or Sets Email
+        /// Email address for the &#39;address email&#39; rule type.
         /// </summary>
+        /// <value>Email address for the &#39;address email&#39; rule type.</value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
@@ -615,93 +623,108 @@ namespace com.ultracart.admin.v2.Model
         public int FraudRuleOid { get; set; }
 
         /// <summary>
-        /// Gets or Sets GatewayResponseCodes
+        /// Gateway response code key for the &#39;gateway response&#39; rule type.
         /// </summary>
+        /// <value>Gateway response code key for the &#39;gateway response&#39; rule type.</value>
         [DataMember(Name="gateway_response_codes", EmitDefaultValue=false)]
         public string GatewayResponseCodes { get; set; }
 
         /// <summary>
-        /// Gets or Sets GatewayResponseValue
+        /// Gateway response code value for the &#39;gateway response&#39; rule type.
         /// </summary>
+        /// <value>Gateway response code value for the &#39;gateway response&#39; rule type.</value>
         [DataMember(Name="gateway_response_value", EmitDefaultValue=false)]
         public string GatewayResponseValue { get; set; }
 
         /// <summary>
-        /// Gets or Sets IpAddress
+        /// IP address or subnet for &#39;exempt ip&#39; and &#39;ip matches&#39; rule types.
         /// </summary>
+        /// <value>IP address or subnet for &#39;exempt ip&#39; and &#39;ip matches&#39; rule types.</value>
         [DataMember(Name="ip_address", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets ItemFilters
+        /// Item filters restricting this rule to orders containing one or more of these items.
         /// </summary>
+        /// <value>Item filters restricting this rule to orders containing one or more of these items.</value>
         [DataMember(Name="item_filters", EmitDefaultValue=false)]
         public List<FraudRuleItemFilter> ItemFilters { get; set; }
 
         /// <summary>
-        /// Gets or Sets MerchantItemId
+        /// Merchant item id for the &#39;item matches&#39; rule type.
         /// </summary>
+        /// <value>Merchant item id for the &#39;item matches&#39; rule type.</value>
         [DataMember(Name="merchant_item_id", EmitDefaultValue=false)]
         public string MerchantItemId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField1
+        /// Value the rule sets on order custom field 1 (only meaningful for &#39;Process Payment and Modify&#39;).
         /// </summary>
+        /// <value>Value the rule sets on order custom field 1 (only meaningful for &#39;Process Payment and Modify&#39;).</value>
         [DataMember(Name="modify_custom_field1", EmitDefaultValue=false)]
         public string ModifyCustomField1 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField2
+        /// Value the rule sets on order custom field 2 (only meaningful for &#39;Process Payment and Modify&#39;).
         /// </summary>
+        /// <value>Value the rule sets on order custom field 2 (only meaningful for &#39;Process Payment and Modify&#39;).</value>
         [DataMember(Name="modify_custom_field2", EmitDefaultValue=false)]
         public string ModifyCustomField2 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField3
+        /// Value the rule sets on order custom field 3 (only meaningful for &#39;Process Payment and Modify&#39;).
         /// </summary>
+        /// <value>Value the rule sets on order custom field 3 (only meaningful for &#39;Process Payment and Modify&#39;).</value>
         [DataMember(Name="modify_custom_field3", EmitDefaultValue=false)]
         public string ModifyCustomField3 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField4
+        /// Value the rule sets on order custom field 4 (only meaningful for &#39;Process Payment and Modify&#39;).
         /// </summary>
+        /// <value>Value the rule sets on order custom field 4 (only meaningful for &#39;Process Payment and Modify&#39;).</value>
         [DataMember(Name="modify_custom_field4", EmitDefaultValue=false)]
         public string ModifyCustomField4 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField5
+        /// Value the rule sets on order custom field 5 (only meaningful for &#39;Process Payment and Modify&#39;).
         /// </summary>
+        /// <value>Value the rule sets on order custom field 5 (only meaningful for &#39;Process Payment and Modify&#39;).</value>
         [DataMember(Name="modify_custom_field5", EmitDefaultValue=false)]
         public string ModifyCustomField5 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField6
+        /// Value the rule sets on order custom field 6 (only meaningful for &#39;Process Payment and Modify&#39;).
         /// </summary>
+        /// <value>Value the rule sets on order custom field 6 (only meaningful for &#39;Process Payment and Modify&#39;).</value>
         [DataMember(Name="modify_custom_field6", EmitDefaultValue=false)]
         public string ModifyCustomField6 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField7
+        /// Value the rule sets on order custom field 7 (only meaningful for &#39;Process Payment and Modify&#39;).
         /// </summary>
+        /// <value>Value the rule sets on order custom field 7 (only meaningful for &#39;Process Payment and Modify&#39;).</value>
         [DataMember(Name="modify_custom_field7", EmitDefaultValue=false)]
         public string ModifyCustomField7 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifySkipAffiliate
+        /// When true, the rule strips the affiliate from the order (only meaningful for &#39;Process Payment and Modify&#39;).
         /// </summary>
+        /// <value>When true, the rule strips the affiliate from the order (only meaningful for &#39;Process Payment and Modify&#39;).</value>
         [DataMember(Name="modify_skip_affiliate", EmitDefaultValue=false)]
         public bool ModifySkipAffiliate { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifySkipAffiliateNetworkPixel
+        /// When true, the rule suppresses the affiliate network pixel (only meaningful for &#39;Process Payment and Modify&#39;).
         /// </summary>
+        /// <value>When true, the rule suppresses the affiliate network pixel (only meaningful for &#39;Process Payment and Modify&#39;).</value>
         [DataMember(Name="modify_skip_affiliate_network_pixel", EmitDefaultValue=false)]
         public bool ModifySkipAffiliateNetworkPixel { get; set; }
 
         /// <summary>
-        /// Gets or Sets RotatingTransactionGatewayFilters
+        /// Gateway filters restricting this rule to orders processed by one of these rotating transaction gateways.
         /// </summary>
+        /// <value>Gateway filters restricting this rule to orders processed by one of these rotating transaction gateways.</value>
         [DataMember(Name="rotating_transaction_gateway_filters", EmitDefaultValue=false)]
         public List<FraudRuleRotatingTransactionGatewayFilter> RotatingTransactionGatewayFilters { get; set; }
 
@@ -714,8 +737,9 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
-        /// Gets or Sets StorefrontFilters
+        /// Storefront filters restricting this rule to orders placed on one of these storefronts.
         /// </summary>
+        /// <value>Storefront filters restricting this rule to orders placed on one of these storefronts.</value>
         [DataMember(Name="storefront_filters", EmitDefaultValue=false)]
         public List<FraudRuleStorefrontFilter> StorefrontFilters { get; set; }
 
@@ -851,8 +875,9 @@ namespace com.ultracart.admin.v2.Model
                 ) && 
                 (
                     this.CreditCardBins == input.CreditCardBins ||
-                    (this.CreditCardBins != null &&
-                    this.CreditCardBins.Equals(input.CreditCardBins))
+                    this.CreditCardBins != null &&
+                    input.CreditCardBins != null &&
+                    this.CreditCardBins.SequenceEqual(input.CreditCardBins)
                 ) && 
                 (
                     this.DeclineMessage == input.DeclineMessage ||

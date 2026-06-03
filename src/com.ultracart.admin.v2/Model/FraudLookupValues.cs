@@ -34,19 +34,29 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="FraudLookupValues" /> class.
         /// </summary>
         /// <param name="affiliates">Affiliates with non-empty email, sorted by email..</param>
+        /// <param name="avsMatchTypes">Valid values for avs_match_type on the &#39;address street and zip avs&#39; rule type..</param>
         /// <param name="countries">ISO country codes available to this merchant..</param>
+        /// <param name="failureActions">Valid values for failure_action on insert and search requests..</param>
         /// <param name="ipRangeTypes">Valid values for ip_range_type on IP-based rules..</param>
         /// <param name="linkedAccounts">True when this merchant has at least one linked merchant account..</param>
+        /// <param name="rotatingTransactionGateways">Rotating transaction gateways configured for this merchant. Use the oid as a value in rotating_transaction_gateway_filters on insert..</param>
         /// <param name="ruleGroups">Valid values for rule_group on search requests..</param>
         /// <param name="ruleTypes">Valid values for rule_type on insert and search requests..</param>
-        public FraudLookupValues(Object affiliates = default(Object), Object countries = default(Object), Object ipRangeTypes = default(Object), bool linkedAccounts = default(bool), Object ruleGroups = default(Object), Object ruleTypes = default(Object))
+        /// <param name="screenBrandingThemes">Screen branding themes configured for this merchant. Use the oid as a value in screen_branding_theme_filters on insert..</param>
+        /// <param name="userActions">Valid values for user_action on rule types that distinguish between attempted and approved transactions..</param>
+        public FraudLookupValues(List<FraudLookupAffiliate> affiliates = default(List<FraudLookupAffiliate>), List<string> avsMatchTypes = default(List<string>), List<string> countries = default(List<string>), List<string> failureActions = default(List<string>), List<string> ipRangeTypes = default(List<string>), bool linkedAccounts = default(bool), List<FraudLookupGateway> rotatingTransactionGateways = default(List<FraudLookupGateway>), List<string> ruleGroups = default(List<string>), List<string> ruleTypes = default(List<string>), List<FraudLookupTheme> screenBrandingThemes = default(List<FraudLookupTheme>), List<string> userActions = default(List<string>))
         {
             this.Affiliates = affiliates;
+            this.AvsMatchTypes = avsMatchTypes;
             this.Countries = countries;
+            this.FailureActions = failureActions;
             this.IpRangeTypes = ipRangeTypes;
             this.LinkedAccounts = linkedAccounts;
+            this.RotatingTransactionGateways = rotatingTransactionGateways;
             this.RuleGroups = ruleGroups;
             this.RuleTypes = ruleTypes;
+            this.ScreenBrandingThemes = screenBrandingThemes;
+            this.UserActions = userActions;
         }
 
         /// <summary>
@@ -54,21 +64,35 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Affiliates with non-empty email, sorted by email.</value>
         [DataMember(Name="affiliates", EmitDefaultValue=false)]
-        public Object Affiliates { get; set; }
+        public List<FraudLookupAffiliate> Affiliates { get; set; }
+
+        /// <summary>
+        /// Valid values for avs_match_type on the &#39;address street and zip avs&#39; rule type.
+        /// </summary>
+        /// <value>Valid values for avs_match_type on the &#39;address street and zip avs&#39; rule type.</value>
+        [DataMember(Name="avs_match_types", EmitDefaultValue=false)]
+        public List<string> AvsMatchTypes { get; set; }
 
         /// <summary>
         /// ISO country codes available to this merchant.
         /// </summary>
         /// <value>ISO country codes available to this merchant.</value>
         [DataMember(Name="countries", EmitDefaultValue=false)]
-        public Object Countries { get; set; }
+        public List<string> Countries { get; set; }
+
+        /// <summary>
+        /// Valid values for failure_action on insert and search requests.
+        /// </summary>
+        /// <value>Valid values for failure_action on insert and search requests.</value>
+        [DataMember(Name="failure_actions", EmitDefaultValue=false)]
+        public List<string> FailureActions { get; set; }
 
         /// <summary>
         /// Valid values for ip_range_type on IP-based rules.
         /// </summary>
         /// <value>Valid values for ip_range_type on IP-based rules.</value>
         [DataMember(Name="ip_range_types", EmitDefaultValue=false)]
-        public Object IpRangeTypes { get; set; }
+        public List<string> IpRangeTypes { get; set; }
 
         /// <summary>
         /// True when this merchant has at least one linked merchant account.
@@ -78,18 +102,39 @@ namespace com.ultracart.admin.v2.Model
         public bool LinkedAccounts { get; set; }
 
         /// <summary>
+        /// Rotating transaction gateways configured for this merchant. Use the oid as a value in rotating_transaction_gateway_filters on insert.
+        /// </summary>
+        /// <value>Rotating transaction gateways configured for this merchant. Use the oid as a value in rotating_transaction_gateway_filters on insert.</value>
+        [DataMember(Name="rotating_transaction_gateways", EmitDefaultValue=false)]
+        public List<FraudLookupGateway> RotatingTransactionGateways { get; set; }
+
+        /// <summary>
         /// Valid values for rule_group on search requests.
         /// </summary>
         /// <value>Valid values for rule_group on search requests.</value>
         [DataMember(Name="rule_groups", EmitDefaultValue=false)]
-        public Object RuleGroups { get; set; }
+        public List<string> RuleGroups { get; set; }
 
         /// <summary>
         /// Valid values for rule_type on insert and search requests.
         /// </summary>
         /// <value>Valid values for rule_type on insert and search requests.</value>
         [DataMember(Name="rule_types", EmitDefaultValue=false)]
-        public Object RuleTypes { get; set; }
+        public List<string> RuleTypes { get; set; }
+
+        /// <summary>
+        /// Screen branding themes configured for this merchant. Use the oid as a value in screen_branding_theme_filters on insert.
+        /// </summary>
+        /// <value>Screen branding themes configured for this merchant. Use the oid as a value in screen_branding_theme_filters on insert.</value>
+        [DataMember(Name="screen_branding_themes", EmitDefaultValue=false)]
+        public List<FraudLookupTheme> ScreenBrandingThemes { get; set; }
+
+        /// <summary>
+        /// Valid values for user_action on rule types that distinguish between attempted and approved transactions.
+        /// </summary>
+        /// <value>Valid values for user_action on rule types that distinguish between attempted and approved transactions.</value>
+        [DataMember(Name="user_actions", EmitDefaultValue=false)]
+        public List<string> UserActions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -100,11 +145,16 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class FraudLookupValues {\n");
             sb.Append("  Affiliates: ").Append(Affiliates).Append("\n");
+            sb.Append("  AvsMatchTypes: ").Append(AvsMatchTypes).Append("\n");
             sb.Append("  Countries: ").Append(Countries).Append("\n");
+            sb.Append("  FailureActions: ").Append(FailureActions).Append("\n");
             sb.Append("  IpRangeTypes: ").Append(IpRangeTypes).Append("\n");
             sb.Append("  LinkedAccounts: ").Append(LinkedAccounts).Append("\n");
+            sb.Append("  RotatingTransactionGateways: ").Append(RotatingTransactionGateways).Append("\n");
             sb.Append("  RuleGroups: ").Append(RuleGroups).Append("\n");
             sb.Append("  RuleTypes: ").Append(RuleTypes).Append("\n");
+            sb.Append("  ScreenBrandingThemes: ").Append(ScreenBrandingThemes).Append("\n");
+            sb.Append("  UserActions: ").Append(UserActions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -141,18 +191,33 @@ namespace com.ultracart.admin.v2.Model
             return 
                 (
                     this.Affiliates == input.Affiliates ||
-                    (this.Affiliates != null &&
-                    this.Affiliates.Equals(input.Affiliates))
+                    this.Affiliates != null &&
+                    input.Affiliates != null &&
+                    this.Affiliates.SequenceEqual(input.Affiliates)
+                ) && 
+                (
+                    this.AvsMatchTypes == input.AvsMatchTypes ||
+                    this.AvsMatchTypes != null &&
+                    input.AvsMatchTypes != null &&
+                    this.AvsMatchTypes.SequenceEqual(input.AvsMatchTypes)
                 ) && 
                 (
                     this.Countries == input.Countries ||
-                    (this.Countries != null &&
-                    this.Countries.Equals(input.Countries))
+                    this.Countries != null &&
+                    input.Countries != null &&
+                    this.Countries.SequenceEqual(input.Countries)
+                ) && 
+                (
+                    this.FailureActions == input.FailureActions ||
+                    this.FailureActions != null &&
+                    input.FailureActions != null &&
+                    this.FailureActions.SequenceEqual(input.FailureActions)
                 ) && 
                 (
                     this.IpRangeTypes == input.IpRangeTypes ||
-                    (this.IpRangeTypes != null &&
-                    this.IpRangeTypes.Equals(input.IpRangeTypes))
+                    this.IpRangeTypes != null &&
+                    input.IpRangeTypes != null &&
+                    this.IpRangeTypes.SequenceEqual(input.IpRangeTypes)
                 ) && 
                 (
                     this.LinkedAccounts == input.LinkedAccounts ||
@@ -160,14 +225,34 @@ namespace com.ultracart.admin.v2.Model
                     this.LinkedAccounts.Equals(input.LinkedAccounts))
                 ) && 
                 (
+                    this.RotatingTransactionGateways == input.RotatingTransactionGateways ||
+                    this.RotatingTransactionGateways != null &&
+                    input.RotatingTransactionGateways != null &&
+                    this.RotatingTransactionGateways.SequenceEqual(input.RotatingTransactionGateways)
+                ) && 
+                (
                     this.RuleGroups == input.RuleGroups ||
-                    (this.RuleGroups != null &&
-                    this.RuleGroups.Equals(input.RuleGroups))
+                    this.RuleGroups != null &&
+                    input.RuleGroups != null &&
+                    this.RuleGroups.SequenceEqual(input.RuleGroups)
                 ) && 
                 (
                     this.RuleTypes == input.RuleTypes ||
-                    (this.RuleTypes != null &&
-                    this.RuleTypes.Equals(input.RuleTypes))
+                    this.RuleTypes != null &&
+                    input.RuleTypes != null &&
+                    this.RuleTypes.SequenceEqual(input.RuleTypes)
+                ) && 
+                (
+                    this.ScreenBrandingThemes == input.ScreenBrandingThemes ||
+                    this.ScreenBrandingThemes != null &&
+                    input.ScreenBrandingThemes != null &&
+                    this.ScreenBrandingThemes.SequenceEqual(input.ScreenBrandingThemes)
+                ) && 
+                (
+                    this.UserActions == input.UserActions ||
+                    this.UserActions != null &&
+                    input.UserActions != null &&
+                    this.UserActions.SequenceEqual(input.UserActions)
                 );
         }
 
@@ -182,16 +267,26 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Affiliates != null)
                     hashCode = hashCode * 59 + this.Affiliates.GetHashCode();
+                if (this.AvsMatchTypes != null)
+                    hashCode = hashCode * 59 + this.AvsMatchTypes.GetHashCode();
                 if (this.Countries != null)
                     hashCode = hashCode * 59 + this.Countries.GetHashCode();
+                if (this.FailureActions != null)
+                    hashCode = hashCode * 59 + this.FailureActions.GetHashCode();
                 if (this.IpRangeTypes != null)
                     hashCode = hashCode * 59 + this.IpRangeTypes.GetHashCode();
                 if (this.LinkedAccounts != null)
                     hashCode = hashCode * 59 + this.LinkedAccounts.GetHashCode();
+                if (this.RotatingTransactionGateways != null)
+                    hashCode = hashCode * 59 + this.RotatingTransactionGateways.GetHashCode();
                 if (this.RuleGroups != null)
                     hashCode = hashCode * 59 + this.RuleGroups.GetHashCode();
                 if (this.RuleTypes != null)
                     hashCode = hashCode * 59 + this.RuleTypes.GetHashCode();
+                if (this.ScreenBrandingThemes != null)
+                    hashCode = hashCode * 59 + this.ScreenBrandingThemes.GetHashCode();
+                if (this.UserActions != null)
+                    hashCode = hashCode * 59 + this.UserActions.GetHashCode();
                 return hashCode;
             }
         }

@@ -445,34 +445,34 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="affiliateOidOrEmail">Affiliate oid (integer) or affiliate email. Email is resolved to oid before searching..</param>
         /// <param name="amountThresholdBegin">Lower bound on amount/score/percentage thresholds (rules backed by the same numeric column)..</param>
-        /// <param name="amountThresholdEnd">amountThresholdEnd.</param>
+        /// <param name="amountThresholdEnd">Upper bound on amount/score/percentage thresholds (rules backed by the same numeric column)..</param>
         /// <param name="autoNote">Wildcard search on the rule&#39;s auto_note. Use &#39;*&#39; for wildcards..</param>
         /// <param name="countThresholdBegin">Lower bound on count thresholds (rules backed by the same integer count column)..</param>
-        /// <param name="countThresholdEnd">countThresholdEnd.</param>
-        /// <param name="createdBy">createdBy.</param>
+        /// <param name="countThresholdEnd">Upper bound on count thresholds (rules backed by the same integer count column)..</param>
+        /// <param name="createdBy">Filter to rules created by this user login..</param>
         /// <param name="createdDateBegin">Rule creation date begin (MM/dd/yyyy).</param>
         /// <param name="createdDateEnd">Rule creation date end (MM/dd/yyyy).</param>
         /// <param name="creditCardPartial">Partial credit card number for matching &#39;credit card matches&#39; rules. Use &#39;*&#39; wildcards..</param>
         /// <param name="declineMessage">Wildcard search on the rule&#39;s decline_message. Use &#39;*&#39; for wildcards..</param>
         /// <param name="failureAction">failureAction.</param>
-        /// <param name="gatewayCode">gatewayCode.</param>
-        /// <param name="merchantItemId">merchantItemId.</param>
+        /// <param name="gatewayCode">Filter to rules with this rotating transaction gateway code in their rotating_transaction_gateway_filters list..</param>
+        /// <param name="merchantItemId">Filter to rules with this merchant item id in their item_filters list..</param>
         /// <param name="modifierValue">Wildcard search on the rule&#39;s secondary modifier (eg &#39;address&#39;/&#39;subnet&#39;, gateway codes, avs match types)..</param>
-        /// <param name="modifyCustomField1">modifyCustomField1.</param>
-        /// <param name="modifyCustomField2">modifyCustomField2.</param>
-        /// <param name="modifyCustomField3">modifyCustomField3.</param>
-        /// <param name="modifyCustomField4">modifyCustomField4.</param>
-        /// <param name="modifyCustomField5">modifyCustomField5.</param>
-        /// <param name="modifyCustomField6">modifyCustomField6.</param>
-        /// <param name="modifyCustomField7">modifyCustomField7.</param>
-        /// <param name="modifySkipAffiliate">modifySkipAffiliate.</param>
-        /// <param name="modifySkipAffiliateNetworkPixel">modifySkipAffiliateNetworkPixel.</param>
+        /// <param name="modifyCustomField1">Wildcard search on rules&#39; modify_custom_field1 value..</param>
+        /// <param name="modifyCustomField2">Wildcard search on rules&#39; modify_custom_field2 value..</param>
+        /// <param name="modifyCustomField3">Wildcard search on rules&#39; modify_custom_field3 value..</param>
+        /// <param name="modifyCustomField4">Wildcard search on rules&#39; modify_custom_field4 value..</param>
+        /// <param name="modifyCustomField5">Wildcard search on rules&#39; modify_custom_field5 value..</param>
+        /// <param name="modifyCustomField6">Wildcard search on rules&#39; modify_custom_field6 value..</param>
+        /// <param name="modifyCustomField7">Wildcard search on rules&#39; modify_custom_field7 value..</param>
+        /// <param name="modifySkipAffiliate">Filter to rules whose modify_skip_affiliate flag matches this value..</param>
+        /// <param name="modifySkipAffiliateNetworkPixel">Filter to rules whose modify_skip_affiliate_network_pixel flag matches this value..</param>
         /// <param name="ruleGroup">Rule group to filter by..</param>
         /// <param name="ruleType">Rule type to filter by..</param>
         /// <param name="searchLinkedAccounts">Include rules from accounts linked to this merchant. Defaults to false..</param>
-        /// <param name="storefrontHostname">storefrontHostname.</param>
+        /// <param name="storefrontHostname">Filter to rules with this storefront hostname in their screen_branding_theme_filters list..</param>
         /// <param name="textValue">Wildcard search on the rule&#39;s text parameter (email / ip / bin / country / item id / avs codes - the backend disambiguates by rule_type)..</param>
-        /// <param name="themeCode">themeCode.</param>
+        /// <param name="themeCode">Filter to rules with this screen branding theme code in their screen_branding_theme_filters list..</param>
         /// <param name="userAction">userAction.</param>
         public FraudRuleSearchRequest(string affiliateOidOrEmail = default(string), decimal amountThresholdBegin = default(decimal), decimal amountThresholdEnd = default(decimal), string autoNote = default(string), int countThresholdBegin = default(int), int countThresholdEnd = default(int), string createdBy = default(string), string createdDateBegin = default(string), string createdDateEnd = default(string), string creditCardPartial = default(string), string declineMessage = default(string), FailureActionEnum? failureAction = default(FailureActionEnum?), string gatewayCode = default(string), string merchantItemId = default(string), string modifierValue = default(string), string modifyCustomField1 = default(string), string modifyCustomField2 = default(string), string modifyCustomField3 = default(string), string modifyCustomField4 = default(string), string modifyCustomField5 = default(string), string modifyCustomField6 = default(string), string modifyCustomField7 = default(string), bool modifySkipAffiliate = default(bool), bool modifySkipAffiliateNetworkPixel = default(bool), RuleGroupEnum? ruleGroup = default(RuleGroupEnum?), RuleTypeEnum? ruleType = default(RuleTypeEnum?), bool searchLinkedAccounts = default(bool), string storefrontHostname = default(string), string textValue = default(string), string themeCode = default(string), UserActionEnum? userAction = default(UserActionEnum?))
         {
@@ -524,8 +524,9 @@ namespace com.ultracart.admin.v2.Model
         public decimal AmountThresholdBegin { get; set; }
 
         /// <summary>
-        /// Gets or Sets AmountThresholdEnd
+        /// Upper bound on amount/score/percentage thresholds (rules backed by the same numeric column).
         /// </summary>
+        /// <value>Upper bound on amount/score/percentage thresholds (rules backed by the same numeric column).</value>
         [DataMember(Name="amount_threshold_end", EmitDefaultValue=false)]
         public decimal AmountThresholdEnd { get; set; }
 
@@ -544,14 +545,16 @@ namespace com.ultracart.admin.v2.Model
         public int CountThresholdBegin { get; set; }
 
         /// <summary>
-        /// Gets or Sets CountThresholdEnd
+        /// Upper bound on count thresholds (rules backed by the same integer count column).
         /// </summary>
+        /// <value>Upper bound on count thresholds (rules backed by the same integer count column).</value>
         [DataMember(Name="count_threshold_end", EmitDefaultValue=false)]
         public int CountThresholdEnd { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreatedBy
+        /// Filter to rules created by this user login.
         /// </summary>
+        /// <value>Filter to rules created by this user login.</value>
         [DataMember(Name="created_by", EmitDefaultValue=false)]
         public string CreatedBy { get; set; }
 
@@ -585,14 +588,16 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
-        /// Gets or Sets GatewayCode
+        /// Filter to rules with this rotating transaction gateway code in their rotating_transaction_gateway_filters list.
         /// </summary>
+        /// <value>Filter to rules with this rotating transaction gateway code in their rotating_transaction_gateway_filters list.</value>
         [DataMember(Name="gateway_code", EmitDefaultValue=false)]
         public string GatewayCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets MerchantItemId
+        /// Filter to rules with this merchant item id in their item_filters list.
         /// </summary>
+        /// <value>Filter to rules with this merchant item id in their item_filters list.</value>
         [DataMember(Name="merchant_item_id", EmitDefaultValue=false)]
         public string MerchantItemId { get; set; }
 
@@ -604,56 +609,65 @@ namespace com.ultracart.admin.v2.Model
         public string ModifierValue { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField1
+        /// Wildcard search on rules&#39; modify_custom_field1 value.
         /// </summary>
+        /// <value>Wildcard search on rules&#39; modify_custom_field1 value.</value>
         [DataMember(Name="modify_custom_field1", EmitDefaultValue=false)]
         public string ModifyCustomField1 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField2
+        /// Wildcard search on rules&#39; modify_custom_field2 value.
         /// </summary>
+        /// <value>Wildcard search on rules&#39; modify_custom_field2 value.</value>
         [DataMember(Name="modify_custom_field2", EmitDefaultValue=false)]
         public string ModifyCustomField2 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField3
+        /// Wildcard search on rules&#39; modify_custom_field3 value.
         /// </summary>
+        /// <value>Wildcard search on rules&#39; modify_custom_field3 value.</value>
         [DataMember(Name="modify_custom_field3", EmitDefaultValue=false)]
         public string ModifyCustomField3 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField4
+        /// Wildcard search on rules&#39; modify_custom_field4 value.
         /// </summary>
+        /// <value>Wildcard search on rules&#39; modify_custom_field4 value.</value>
         [DataMember(Name="modify_custom_field4", EmitDefaultValue=false)]
         public string ModifyCustomField4 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField5
+        /// Wildcard search on rules&#39; modify_custom_field5 value.
         /// </summary>
+        /// <value>Wildcard search on rules&#39; modify_custom_field5 value.</value>
         [DataMember(Name="modify_custom_field5", EmitDefaultValue=false)]
         public string ModifyCustomField5 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField6
+        /// Wildcard search on rules&#39; modify_custom_field6 value.
         /// </summary>
+        /// <value>Wildcard search on rules&#39; modify_custom_field6 value.</value>
         [DataMember(Name="modify_custom_field6", EmitDefaultValue=false)]
         public string ModifyCustomField6 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField7
+        /// Wildcard search on rules&#39; modify_custom_field7 value.
         /// </summary>
+        /// <value>Wildcard search on rules&#39; modify_custom_field7 value.</value>
         [DataMember(Name="modify_custom_field7", EmitDefaultValue=false)]
         public string ModifyCustomField7 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifySkipAffiliate
+        /// Filter to rules whose modify_skip_affiliate flag matches this value.
         /// </summary>
+        /// <value>Filter to rules whose modify_skip_affiliate flag matches this value.</value>
         [DataMember(Name="modify_skip_affiliate", EmitDefaultValue=false)]
         public bool ModifySkipAffiliate { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifySkipAffiliateNetworkPixel
+        /// Filter to rules whose modify_skip_affiliate_network_pixel flag matches this value.
         /// </summary>
+        /// <value>Filter to rules whose modify_skip_affiliate_network_pixel flag matches this value.</value>
         [DataMember(Name="modify_skip_affiliate_network_pixel", EmitDefaultValue=false)]
         public bool ModifySkipAffiliateNetworkPixel { get; set; }
 
@@ -667,8 +681,9 @@ namespace com.ultracart.admin.v2.Model
         public bool SearchLinkedAccounts { get; set; }
 
         /// <summary>
-        /// Gets or Sets StorefrontHostname
+        /// Filter to rules with this storefront hostname in their screen_branding_theme_filters list.
         /// </summary>
+        /// <value>Filter to rules with this storefront hostname in their screen_branding_theme_filters list.</value>
         [DataMember(Name="storefront_hostname", EmitDefaultValue=false)]
         public string StorefrontHostname { get; set; }
 
@@ -680,8 +695,9 @@ namespace com.ultracart.admin.v2.Model
         public string TextValue { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThemeCode
+        /// Filter to rules with this screen branding theme code in their screen_branding_theme_filters list.
         /// </summary>
+        /// <value>Filter to rules with this screen branding theme code in their screen_branding_theme_filters list.</value>
         [DataMember(Name="theme_code", EmitDefaultValue=false)]
         public string ThemeCode { get; set; }
 

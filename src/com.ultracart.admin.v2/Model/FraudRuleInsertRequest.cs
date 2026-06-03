@@ -461,20 +461,20 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ipRangeType">Specifies whether an IP rule applies to a single address or a subnet..</param>
         /// <param name="itemFilters">Optional list of merchant item ids restricting this rule to orders containing one or more of these items..</param>
         /// <param name="merchantItemId">Merchant item id. Used by the &#39;item matches&#39; rule type..</param>
-        /// <param name="modifyCustomField1">modifyCustomField1.</param>
-        /// <param name="modifyCustomField2">modifyCustomField2.</param>
-        /// <param name="modifyCustomField3">modifyCustomField3.</param>
-        /// <param name="modifyCustomField4">modifyCustomField4.</param>
-        /// <param name="modifyCustomField5">modifyCustomField5.</param>
-        /// <param name="modifyCustomField6">modifyCustomField6.</param>
-        /// <param name="modifyCustomField7">modifyCustomField7.</param>
-        /// <param name="modifySkipAffiliate">modifySkipAffiliate.</param>
-        /// <param name="modifySkipAffiliateNetworkPixel">modifySkipAffiliateNetworkPixel.</param>
+        /// <param name="modifyCustomField1">When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 1 to this value..</param>
+        /// <param name="modifyCustomField2">When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 2 to this value..</param>
+        /// <param name="modifyCustomField3">When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 3 to this value..</param>
+        /// <param name="modifyCustomField4">When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 4 to this value..</param>
+        /// <param name="modifyCustomField5">When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 5 to this value..</param>
+        /// <param name="modifyCustomField6">When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 6 to this value..</param>
+        /// <param name="modifyCustomField7">When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 7 to this value..</param>
+        /// <param name="modifySkipAffiliate">When failure_action is &#39;Process Payment and Modify&#39;, strip the affiliate from the order..</param>
+        /// <param name="modifySkipAffiliateNetworkPixel">When failure_action is &#39;Process Payment and Modify&#39;, skip firing the affiliate network pixel..</param>
         /// <param name="rotatingTransactionGatewayFilters">Optional list of rotating transaction gateway oids restricting this rule to orders processed by one of these gateways..</param>
         /// <param name="ruleType">Rule type. Also returned by GET /v2/fraud/lookup_values..</param>
         /// <param name="screenBrandingThemeFilters">Optional list of screen branding theme oids restricting this rule to orders associated with one or more storefronts..</param>
         /// <param name="userAction">Only used by rule types that distinguish between attempted and approved transactions..</param>
-        public FraudRuleInsertRequest(string affiliateEmail = default(string), int affiliateOid = default(int), decimal amountThreshold = default(decimal), string autoNote = default(string), AvsMatchTypeEnum? avsMatchType = default(AvsMatchTypeEnum?), string avsResponseCodes = default(string), int countThreshold = default(int), string countryCode = default(string), Object creditCardBins = default(Object), string email = default(string), FailureActionEnum? failureAction = default(FailureActionEnum?), string gatewayResponseCodes = default(string), string gatewayResponseValue = default(string), string ipAddress = default(string), IpRangeTypeEnum? ipRangeType = default(IpRangeTypeEnum?), Object itemFilters = default(Object), string merchantItemId = default(string), string modifyCustomField1 = default(string), string modifyCustomField2 = default(string), string modifyCustomField3 = default(string), string modifyCustomField4 = default(string), string modifyCustomField5 = default(string), string modifyCustomField6 = default(string), string modifyCustomField7 = default(string), bool modifySkipAffiliate = default(bool), bool modifySkipAffiliateNetworkPixel = default(bool), Object rotatingTransactionGatewayFilters = default(Object), RuleTypeEnum? ruleType = default(RuleTypeEnum?), Object screenBrandingThemeFilters = default(Object), UserActionEnum? userAction = default(UserActionEnum?))
+        public FraudRuleInsertRequest(string affiliateEmail = default(string), int affiliateOid = default(int), decimal amountThreshold = default(decimal), string autoNote = default(string), AvsMatchTypeEnum? avsMatchType = default(AvsMatchTypeEnum?), string avsResponseCodes = default(string), int countThreshold = default(int), string countryCode = default(string), List<string> creditCardBins = default(List<string>), string email = default(string), FailureActionEnum? failureAction = default(FailureActionEnum?), string gatewayResponseCodes = default(string), string gatewayResponseValue = default(string), string ipAddress = default(string), IpRangeTypeEnum? ipRangeType = default(IpRangeTypeEnum?), List<string> itemFilters = default(List<string>), string merchantItemId = default(string), string modifyCustomField1 = default(string), string modifyCustomField2 = default(string), string modifyCustomField3 = default(string), string modifyCustomField4 = default(string), string modifyCustomField5 = default(string), string modifyCustomField6 = default(string), string modifyCustomField7 = default(string), bool modifySkipAffiliate = default(bool), bool modifySkipAffiliateNetworkPixel = default(bool), List<int> rotatingTransactionGatewayFilters = default(List<int>), RuleTypeEnum? ruleType = default(RuleTypeEnum?), List<int> screenBrandingThemeFilters = default(List<int>), UserActionEnum? userAction = default(UserActionEnum?))
         {
             this.AffiliateEmail = affiliateEmail;
             this.AffiliateOid = affiliateOid;
@@ -563,7 +563,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Credit card BINs to block (max 20). Used by the &#39;credit card block bin&#39; rule type.</value>
         [DataMember(Name="credit_card_bins", EmitDefaultValue=false)]
-        public Object CreditCardBins { get; set; }
+        public List<string> CreditCardBins { get; set; }
 
         /// <summary>
         /// Email address. Used by the &#39;address email&#39; rule type.
@@ -600,7 +600,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Optional list of merchant item ids restricting this rule to orders containing one or more of these items.</value>
         [DataMember(Name="item_filters", EmitDefaultValue=false)]
-        public Object ItemFilters { get; set; }
+        public List<string> ItemFilters { get; set; }
 
         /// <summary>
         /// Merchant item id. Used by the &#39;item matches&#39; rule type.
@@ -610,56 +610,65 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantItemId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField1
+        /// When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 1 to this value.
         /// </summary>
+        /// <value>When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 1 to this value.</value>
         [DataMember(Name="modify_custom_field1", EmitDefaultValue=false)]
         public string ModifyCustomField1 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField2
+        /// When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 2 to this value.
         /// </summary>
+        /// <value>When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 2 to this value.</value>
         [DataMember(Name="modify_custom_field2", EmitDefaultValue=false)]
         public string ModifyCustomField2 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField3
+        /// When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 3 to this value.
         /// </summary>
+        /// <value>When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 3 to this value.</value>
         [DataMember(Name="modify_custom_field3", EmitDefaultValue=false)]
         public string ModifyCustomField3 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField4
+        /// When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 4 to this value.
         /// </summary>
+        /// <value>When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 4 to this value.</value>
         [DataMember(Name="modify_custom_field4", EmitDefaultValue=false)]
         public string ModifyCustomField4 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField5
+        /// When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 5 to this value.
         /// </summary>
+        /// <value>When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 5 to this value.</value>
         [DataMember(Name="modify_custom_field5", EmitDefaultValue=false)]
         public string ModifyCustomField5 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField6
+        /// When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 6 to this value.
         /// </summary>
+        /// <value>When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 6 to this value.</value>
         [DataMember(Name="modify_custom_field6", EmitDefaultValue=false)]
         public string ModifyCustomField6 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifyCustomField7
+        /// When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 7 to this value.
         /// </summary>
+        /// <value>When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 7 to this value.</value>
         [DataMember(Name="modify_custom_field7", EmitDefaultValue=false)]
         public string ModifyCustomField7 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifySkipAffiliate
+        /// When failure_action is &#39;Process Payment and Modify&#39;, strip the affiliate from the order.
         /// </summary>
+        /// <value>When failure_action is &#39;Process Payment and Modify&#39;, strip the affiliate from the order.</value>
         [DataMember(Name="modify_skip_affiliate", EmitDefaultValue=false)]
         public bool ModifySkipAffiliate { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifySkipAffiliateNetworkPixel
+        /// When failure_action is &#39;Process Payment and Modify&#39;, skip firing the affiliate network pixel.
         /// </summary>
+        /// <value>When failure_action is &#39;Process Payment and Modify&#39;, skip firing the affiliate network pixel.</value>
         [DataMember(Name="modify_skip_affiliate_network_pixel", EmitDefaultValue=false)]
         public bool ModifySkipAffiliateNetworkPixel { get; set; }
 
@@ -668,7 +677,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Optional list of rotating transaction gateway oids restricting this rule to orders processed by one of these gateways.</value>
         [DataMember(Name="rotating_transaction_gateway_filters", EmitDefaultValue=false)]
-        public Object RotatingTransactionGatewayFilters { get; set; }
+        public List<int> RotatingTransactionGatewayFilters { get; set; }
 
 
         /// <summary>
@@ -676,7 +685,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Optional list of screen branding theme oids restricting this rule to orders associated with one or more storefronts.</value>
         [DataMember(Name="screen_branding_theme_filters", EmitDefaultValue=false)]
-        public Object ScreenBrandingThemeFilters { get; set; }
+        public List<int> ScreenBrandingThemeFilters { get; set; }
 
 
         /// <summary>
@@ -793,8 +802,9 @@ namespace com.ultracart.admin.v2.Model
                 ) && 
                 (
                     this.CreditCardBins == input.CreditCardBins ||
-                    (this.CreditCardBins != null &&
-                    this.CreditCardBins.Equals(input.CreditCardBins))
+                    this.CreditCardBins != null &&
+                    input.CreditCardBins != null &&
+                    this.CreditCardBins.SequenceEqual(input.CreditCardBins)
                 ) && 
                 (
                     this.Email == input.Email ||
@@ -828,8 +838,9 @@ namespace com.ultracart.admin.v2.Model
                 ) && 
                 (
                     this.ItemFilters == input.ItemFilters ||
-                    (this.ItemFilters != null &&
-                    this.ItemFilters.Equals(input.ItemFilters))
+                    this.ItemFilters != null &&
+                    input.ItemFilters != null &&
+                    this.ItemFilters.SequenceEqual(input.ItemFilters)
                 ) && 
                 (
                     this.MerchantItemId == input.MerchantItemId ||
@@ -883,8 +894,9 @@ namespace com.ultracart.admin.v2.Model
                 ) && 
                 (
                     this.RotatingTransactionGatewayFilters == input.RotatingTransactionGatewayFilters ||
-                    (this.RotatingTransactionGatewayFilters != null &&
-                    this.RotatingTransactionGatewayFilters.Equals(input.RotatingTransactionGatewayFilters))
+                    this.RotatingTransactionGatewayFilters != null &&
+                    input.RotatingTransactionGatewayFilters != null &&
+                    this.RotatingTransactionGatewayFilters.SequenceEqual(input.RotatingTransactionGatewayFilters)
                 ) && 
                 (
                     this.RuleType == input.RuleType ||
@@ -893,8 +905,9 @@ namespace com.ultracart.admin.v2.Model
                 ) && 
                 (
                     this.ScreenBrandingThemeFilters == input.ScreenBrandingThemeFilters ||
-                    (this.ScreenBrandingThemeFilters != null &&
-                    this.ScreenBrandingThemeFilters.Equals(input.ScreenBrandingThemeFilters))
+                    this.ScreenBrandingThemeFilters != null &&
+                    input.ScreenBrandingThemeFilters != null &&
+                    this.ScreenBrandingThemeFilters.SequenceEqual(input.ScreenBrandingThemeFilters)
                 ) && 
                 (
                     this.UserAction == input.UserAction ||

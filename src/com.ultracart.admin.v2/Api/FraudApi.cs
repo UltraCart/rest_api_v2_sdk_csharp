@@ -26,10 +26,10 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Decline emails during checkout fraud review
+        /// Decline email during checkout fraud review
         /// </summary>
         /// <remarks>
-        /// Adds one or more email addresses to the fraud decline list for this merchant account. 
+        /// Adds one email address to the fraud decline list for this merchant account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fraudDeclineEmailsRequest">Fraud decline emails request</param>
@@ -37,10 +37,10 @@ namespace com.ultracart.admin.v2.Api
         void DeclineEmail (FraudDeclineEmailRequest fraudDeclineEmailsRequest);
 
         /// <summary>
-        /// Decline emails during checkout fraud review
+        /// Decline email during checkout fraud review
         /// </summary>
         /// <remarks>
-        /// Adds one or more email addresses to the fraud decline list for this merchant account. 
+        /// Adds one email address to the fraud decline list for this merchant account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fraudDeclineEmailsRequest">Fraud decline emails request</param>
@@ -67,6 +67,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="fraudRuleOid"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteFraudRuleWithHttpInfo (int fraudRuleOid);
+        /// <summary>
+        /// Establish fraud rules from an order
+        /// </summary>
+        /// <remarks>
+        /// Creates one or more fraud rules for this merchant account derived from an existing order, mirroring the 'establish fraud filter' action in the order processing screen. Select which filters to establish; all values are taken from the order. The IP rule is created against the order's /24 subnet (last octet masked). The credit card filter duplicates the order's stored card vault token, so no card number is sent through the API. Filters whose order data is missing (no stored card, no email, no usable IP, or no numeric street) are skipped and reported in the warning slot rather than failing the request. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fraudRuleFromOrderRequest">Fraud rule from order request</param>
+        /// <returns>FraudRulesResponse</returns>
+        FraudRulesResponse EstablishFraudRulesFromOrder (FraudRuleFromOrderRequest fraudRuleFromOrderRequest);
+
+        /// <summary>
+        /// Establish fraud rules from an order
+        /// </summary>
+        /// <remarks>
+        /// Creates one or more fraud rules for this merchant account derived from an existing order, mirroring the 'establish fraud filter' action in the order processing screen. Select which filters to establish; all values are taken from the order. The IP rule is created against the order's /24 subnet (last octet masked). The credit card filter duplicates the order's stored card vault token, so no card number is sent through the API. Filters whose order data is missing (no stored card, no email, no usable IP, or no numeric street) are skipped and reported in the warning slot rather than failing the request. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fraudRuleFromOrderRequest">Fraud rule from order request</param>
+        /// <returns>ApiResponse of FraudRulesResponse</returns>
+        ApiResponse<FraudRulesResponse> EstablishFraudRulesFromOrderWithHttpInfo (FraudRuleFromOrderRequest fraudRuleFromOrderRequest);
         /// <summary>
         /// Retrieve fraud rule lookup values
         /// </summary>
@@ -137,10 +158,10 @@ namespace com.ultracart.admin.v2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Decline emails during checkout fraud review
+        /// Decline email during checkout fraud review
         /// </summary>
         /// <remarks>
-        /// Adds one or more email addresses to the fraud decline list for this merchant account. 
+        /// Adds one email address to the fraud decline list for this merchant account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fraudDeclineEmailsRequest">Fraud decline emails request</param>
@@ -149,10 +170,10 @@ namespace com.ultracart.admin.v2.Api
         System.Threading.Tasks.Task DeclineEmailAsync (FraudDeclineEmailRequest fraudDeclineEmailsRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Decline emails during checkout fraud review
+        /// Decline email during checkout fraud review
         /// </summary>
         /// <remarks>
-        /// Adds one or more email addresses to the fraud decline list for this merchant account. 
+        /// Adds one email address to the fraud decline list for this merchant account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fraudDeclineEmailsRequest">Fraud decline emails request</param>
@@ -182,6 +203,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFraudRuleWithHttpInfoAsync (int fraudRuleOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Establish fraud rules from an order
+        /// </summary>
+        /// <remarks>
+        /// Creates one or more fraud rules for this merchant account derived from an existing order, mirroring the 'establish fraud filter' action in the order processing screen. Select which filters to establish; all values are taken from the order. The IP rule is created against the order's /24 subnet (last octet masked). The credit card filter duplicates the order's stored card vault token, so no card number is sent through the API. Filters whose order data is missing (no stored card, no email, no usable IP, or no numeric street) are skipped and reported in the warning slot rather than failing the request. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fraudRuleFromOrderRequest">Fraud rule from order request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of FraudRulesResponse</returns>
+        System.Threading.Tasks.Task<FraudRulesResponse> EstablishFraudRulesFromOrderAsync (FraudRuleFromOrderRequest fraudRuleFromOrderRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Establish fraud rules from an order
+        /// </summary>
+        /// <remarks>
+        /// Creates one or more fraud rules for this merchant account derived from an existing order, mirroring the 'establish fraud filter' action in the order processing screen. Select which filters to establish; all values are taken from the order. The IP rule is created against the order's /24 subnet (last octet masked). The credit card filter duplicates the order's stored card vault token, so no card number is sent through the API. Filters whose order data is missing (no stored card, no email, no usable IP, or no numeric street) are skipped and reported in the warning slot rather than failing the request. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fraudRuleFromOrderRequest">Fraud rule from order request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (FraudRulesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FraudRulesResponse>> EstablishFraudRulesFromOrderWithHttpInfoAsync (FraudRuleFromOrderRequest fraudRuleFromOrderRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve fraud rule lookup values
         /// </summary>
@@ -385,7 +429,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Decline emails during checkout fraud review Adds one or more email addresses to the fraud decline list for this merchant account. 
+        /// Decline email during checkout fraud review Adds one email address to the fraud decline list for this merchant account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fraudDeclineEmailsRequest">Fraud decline emails request</param>
@@ -396,7 +440,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Decline emails during checkout fraud review Adds one or more email addresses to the fraud decline list for this merchant account. 
+        /// Decline email during checkout fraud review Adds one email address to the fraud decline list for this merchant account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fraudDeclineEmailsRequest">Fraud decline emails request</param>
@@ -469,7 +513,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Decline emails during checkout fraud review Adds one or more email addresses to the fraud decline list for this merchant account. 
+        /// Decline email during checkout fraud review Adds one email address to the fraud decline list for this merchant account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fraudDeclineEmailsRequest">Fraud decline emails request</param>
@@ -482,7 +526,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Decline emails during checkout fraud review Adds one or more email addresses to the fraud decline list for this merchant account. 
+        /// Decline email during checkout fraud review Adds one email address to the fraud decline list for this merchant account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fraudDeclineEmailsRequest">Fraud decline emails request</param>
@@ -708,6 +752,179 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Establish fraud rules from an order Creates one or more fraud rules for this merchant account derived from an existing order, mirroring the 'establish fraud filter' action in the order processing screen. Select which filters to establish; all values are taken from the order. The IP rule is created against the order's /24 subnet (last octet masked). The credit card filter duplicates the order's stored card vault token, so no card number is sent through the API. Filters whose order data is missing (no stored card, no email, no usable IP, or no numeric street) are skipped and reported in the warning slot rather than failing the request. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fraudRuleFromOrderRequest">Fraud rule from order request</param>
+        /// <returns>FraudRulesResponse</returns>
+        public FraudRulesResponse EstablishFraudRulesFromOrder (FraudRuleFromOrderRequest fraudRuleFromOrderRequest)
+        {
+             ApiResponse<FraudRulesResponse> localVarResponse = EstablishFraudRulesFromOrderWithHttpInfo(fraudRuleFromOrderRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Establish fraud rules from an order Creates one or more fraud rules for this merchant account derived from an existing order, mirroring the 'establish fraud filter' action in the order processing screen. Select which filters to establish; all values are taken from the order. The IP rule is created against the order's /24 subnet (last octet masked). The credit card filter duplicates the order's stored card vault token, so no card number is sent through the API. Filters whose order data is missing (no stored card, no email, no usable IP, or no numeric street) are skipped and reported in the warning slot rather than failing the request. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fraudRuleFromOrderRequest">Fraud rule from order request</param>
+        /// <returns>ApiResponse of FraudRulesResponse</returns>
+        public ApiResponse<FraudRulesResponse> EstablishFraudRulesFromOrderWithHttpInfo (FraudRuleFromOrderRequest fraudRuleFromOrderRequest)
+        {
+            // verify the required parameter 'fraudRuleFromOrderRequest' is set
+            if (fraudRuleFromOrderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'fraudRuleFromOrderRequest' when calling FraudApi->EstablishFraudRulesFromOrder");
+
+            var localVarPath = "/fraud/rules/from_order";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fraudRuleFromOrderRequest != null && fraudRuleFromOrderRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(fraudRuleFromOrderRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = fraudRuleFromOrderRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EstablishFraudRulesFromOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FraudRulesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (FraudRulesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FraudRulesResponse)));
+        }
+
+        /// <summary>
+        /// Establish fraud rules from an order Creates one or more fraud rules for this merchant account derived from an existing order, mirroring the 'establish fraud filter' action in the order processing screen. Select which filters to establish; all values are taken from the order. The IP rule is created against the order's /24 subnet (last octet masked). The credit card filter duplicates the order's stored card vault token, so no card number is sent through the API. Filters whose order data is missing (no stored card, no email, no usable IP, or no numeric street) are skipped and reported in the warning slot rather than failing the request. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fraudRuleFromOrderRequest">Fraud rule from order request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of FraudRulesResponse</returns>
+        public async System.Threading.Tasks.Task<FraudRulesResponse> EstablishFraudRulesFromOrderAsync (FraudRuleFromOrderRequest fraudRuleFromOrderRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<FraudRulesResponse> localVarResponse = await EstablishFraudRulesFromOrderWithHttpInfoAsync(fraudRuleFromOrderRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Establish fraud rules from an order Creates one or more fraud rules for this merchant account derived from an existing order, mirroring the 'establish fraud filter' action in the order processing screen. Select which filters to establish; all values are taken from the order. The IP rule is created against the order's /24 subnet (last octet masked). The credit card filter duplicates the order's stored card vault token, so no card number is sent through the API. Filters whose order data is missing (no stored card, no email, no usable IP, or no numeric street) are skipped and reported in the warning slot rather than failing the request. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fraudRuleFromOrderRequest">Fraud rule from order request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (FraudRulesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FraudRulesResponse>> EstablishFraudRulesFromOrderWithHttpInfoAsync (FraudRuleFromOrderRequest fraudRuleFromOrderRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'fraudRuleFromOrderRequest' is set
+            if (fraudRuleFromOrderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'fraudRuleFromOrderRequest' when calling FraudApi->EstablishFraudRulesFromOrder");
+
+            var localVarPath = "/fraud/rules/from_order";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fraudRuleFromOrderRequest != null && fraudRuleFromOrderRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(fraudRuleFromOrderRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = fraudRuleFromOrderRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EstablishFraudRulesFromOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FraudRulesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (FraudRulesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FraudRulesResponse)));
         }
 
         /// <summary>

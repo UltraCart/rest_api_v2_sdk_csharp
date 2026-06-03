@@ -599,8 +599,12 @@ docs/FileManagerUploadRequest.md
 docs/FileManagerUploadUrlResponse.md
 docs/FraudApi.md
 docs/FraudDeclineEmailRequest.md
+docs/FraudLookupAffiliate.md
+docs/FraudLookupGateway.md
+docs/FraudLookupTheme.md
 docs/FraudLookupValues.md
 docs/FraudLookupValuesResponse.md
+docs/FraudRuleFromOrderRequest.md
 docs/FraudRuleInsertRequest.md
 docs/FraudRuleItemFilter.md
 docs/FraudRulePublic.md
@@ -1641,8 +1645,12 @@ src/com.ultracart.admin.v2/Model/FileManagerPageResponse.cs
 src/com.ultracart.admin.v2/Model/FileManagerUploadRequest.cs
 src/com.ultracart.admin.v2/Model/FileManagerUploadUrlResponse.cs
 src/com.ultracart.admin.v2/Model/FraudDeclineEmailRequest.cs
+src/com.ultracart.admin.v2/Model/FraudLookupAffiliate.cs
+src/com.ultracart.admin.v2/Model/FraudLookupGateway.cs
+src/com.ultracart.admin.v2/Model/FraudLookupTheme.cs
 src/com.ultracart.admin.v2/Model/FraudLookupValues.cs
 src/com.ultracart.admin.v2/Model/FraudLookupValuesResponse.cs
+src/com.ultracart.admin.v2/Model/FraudRuleFromOrderRequest.cs
 src/com.ultracart.admin.v2/Model/FraudRuleInsertRequest.cs
 src/com.ultracart.admin.v2/Model/FraudRuleItemFilter.cs
 src/com.ultracart.admin.v2/Model/FraudRulePublic.cs

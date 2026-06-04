@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **AffiliateOid** | **int** | Associates an order with an affiliate when this value is set. | [optional] 
 **AllowMultipleOneTimeCodes** | **bool** | True if multiple one time codes for this coupon can be used on a cart at the same time. | [optional] 
 **AmountOffItems** | [**CouponAmountOffItems**](CouponAmountOffItems.md) |  | [optional] 
+**AmountOffItemsAndFreeShipping** | [**CouponAmountOffItemsAndFreeShipping**](CouponAmountOffItemsAndFreeShipping.md) |  | [optional] 
 **AmountOffShipping** | [**CouponAmountOffShipping**](CouponAmountOffShipping.md) |  | [optional] 
 **AmountOffShippingWithItemsPurchase** | [**CouponAmountOffShippingWithItemsPurchase**](CouponAmountOffShippingWithItemsPurchase.md) |  | [optional] 
 **AmountOffSubtotal** | [**CouponAmountOffSubtotal**](CouponAmountOffSubtotal.md) |  | [optional] 

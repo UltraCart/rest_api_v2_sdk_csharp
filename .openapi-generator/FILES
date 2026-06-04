@@ -322,6 +322,7 @@ docs/CountriesResponse.md
 docs/Country.md
 docs/Coupon.md
 docs/CouponAmountOffItems.md
+docs/CouponAmountOffItemsAndFreeShipping.md
 docs/CouponAmountOffShipping.md
 docs/CouponAmountOffShippingWithItemsPurchase.md
 docs/CouponAmountOffSubtotal.md
@@ -1372,6 +1373,7 @@ src/com.ultracart.admin.v2/Model/CountriesResponse.cs
 src/com.ultracart.admin.v2/Model/Country.cs
 src/com.ultracart.admin.v2/Model/Coupon.cs
 src/com.ultracart.admin.v2/Model/CouponAmountOffItems.cs
+src/com.ultracart.admin.v2/Model/CouponAmountOffItemsAndFreeShipping.cs
 src/com.ultracart.admin.v2/Model/CouponAmountOffShipping.cs
 src/com.ultracart.admin.v2/Model/CouponAmountOffShippingWithItemsPurchase.cs
 src/com.ultracart.admin.v2/Model/CouponAmountOffSubtotal.cs

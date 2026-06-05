@@ -34,12 +34,20 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="WebhookLogSummary" /> class.
         /// </summary>
         /// <param name="deliveryDts">Date/time of the delivery.</param>
+        /// <param name="duration">Number of milliseconds to process the notification.</param>
+        /// <param name="eventNames">Event names contained in this delivery.</param>
+        /// <param name="orderIds">Order ids contained in this delivery.</param>
         /// <param name="requestId">Request id.</param>
+        /// <param name="statusCode">HTTP status code received from the server.</param>
         /// <param name="success">True if the notification was successful.</param>
-        public WebhookLogSummary(string deliveryDts = default(string), string requestId = default(string), bool success = default(bool))
+        public WebhookLogSummary(string deliveryDts = default(string), int duration = default(int), List<string> eventNames = default(List<string>), List<string> orderIds = default(List<string>), string requestId = default(string), int statusCode = default(int), bool success = default(bool))
         {
             this.DeliveryDts = deliveryDts;
+            this.Duration = duration;
+            this.EventNames = eventNames;
+            this.OrderIds = orderIds;
             this.RequestId = requestId;
+            this.StatusCode = statusCode;
             this.Success = success;
         }
 
@@ -51,11 +59,39 @@ namespace com.ultracart.admin.v2.Model
         public string DeliveryDts { get; set; }
 
         /// <summary>
+        /// Number of milliseconds to process the notification
+        /// </summary>
+        /// <value>Number of milliseconds to process the notification</value>
+        [DataMember(Name="duration", EmitDefaultValue=false)]
+        public int Duration { get; set; }
+
+        /// <summary>
+        /// Event names contained in this delivery
+        /// </summary>
+        /// <value>Event names contained in this delivery</value>
+        [DataMember(Name="event_names", EmitDefaultValue=false)]
+        public List<string> EventNames { get; set; }
+
+        /// <summary>
+        /// Order ids contained in this delivery
+        /// </summary>
+        /// <value>Order ids contained in this delivery</value>
+        [DataMember(Name="order_ids", EmitDefaultValue=false)]
+        public List<string> OrderIds { get; set; }
+
+        /// <summary>
         /// Request id
         /// </summary>
         /// <value>Request id</value>
         [DataMember(Name="request_id", EmitDefaultValue=false)]
         public string RequestId { get; set; }
+
+        /// <summary>
+        /// HTTP status code received from the server
+        /// </summary>
+        /// <value>HTTP status code received from the server</value>
+        [DataMember(Name="status_code", EmitDefaultValue=false)]
+        public int StatusCode { get; set; }
 
         /// <summary>
         /// True if the notification was successful
@@ -73,7 +109,11 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class WebhookLogSummary {\n");
             sb.Append("  DeliveryDts: ").Append(DeliveryDts).Append("\n");
+            sb.Append("  Duration: ").Append(Duration).Append("\n");
+            sb.Append("  EventNames: ").Append(EventNames).Append("\n");
+            sb.Append("  OrderIds: ").Append(OrderIds).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
+            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -115,9 +155,31 @@ namespace com.ultracart.admin.v2.Model
                     this.DeliveryDts.Equals(input.DeliveryDts))
                 ) && 
                 (
+                    this.Duration == input.Duration ||
+                    (this.Duration != null &&
+                    this.Duration.Equals(input.Duration))
+                ) && 
+                (
+                    this.EventNames == input.EventNames ||
+                    this.EventNames != null &&
+                    input.EventNames != null &&
+                    this.EventNames.SequenceEqual(input.EventNames)
+                ) && 
+                (
+                    this.OrderIds == input.OrderIds ||
+                    this.OrderIds != null &&
+                    input.OrderIds != null &&
+                    this.OrderIds.SequenceEqual(input.OrderIds)
+                ) && 
+                (
                     this.RequestId == input.RequestId ||
                     (this.RequestId != null &&
                     this.RequestId.Equals(input.RequestId))
+                ) && 
+                (
+                    this.StatusCode == input.StatusCode ||
+                    (this.StatusCode != null &&
+                    this.StatusCode.Equals(input.StatusCode))
                 ) && 
                 (
                     this.Success == input.Success ||
@@ -137,8 +199,16 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.DeliveryDts != null)
                     hashCode = hashCode * 59 + this.DeliveryDts.GetHashCode();
+                if (this.Duration != null)
+                    hashCode = hashCode * 59 + this.Duration.GetHashCode();
+                if (this.EventNames != null)
+                    hashCode = hashCode * 59 + this.EventNames.GetHashCode();
+                if (this.OrderIds != null)
+                    hashCode = hashCode * 59 + this.OrderIds.GetHashCode();
                 if (this.RequestId != null)
                     hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                if (this.StatusCode != null)
+                    hashCode = hashCode * 59 + this.StatusCode.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 return hashCode;

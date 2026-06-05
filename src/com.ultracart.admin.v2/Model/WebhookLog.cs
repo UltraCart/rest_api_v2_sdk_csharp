@@ -35,6 +35,8 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="deliveryDts">Date/time of delivery.</param>
         /// <param name="duration">Number of milliseconds to process the notification.</param>
+        /// <param name="eventNames">Event names contained in this delivery.</param>
+        /// <param name="orderIds">Order ids contained in this delivery.</param>
         /// <param name="queueDelay">Number of milliseconds of delay caused by queuing.</param>
         /// <param name="request">Request payload (first 100,000 characters).</param>
         /// <param name="requestHeaders">Request headers sent to the server.</param>
@@ -45,10 +47,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="success">True if the delivery was successful.</param>
         /// <param name="uri">URI of the webhook delivered to.</param>
         /// <param name="webhookOid">webhook oid.</param>
-        public WebhookLog(string deliveryDts = default(string), int duration = default(int), long queueDelay = default(long), string request = default(string), List<HTTPHeader> requestHeaders = default(List<HTTPHeader>), string requestId = default(string), string response = default(string), List<HTTPHeader> responseHeaders = default(List<HTTPHeader>), int statusCode = default(int), bool success = default(bool), string uri = default(string), int webhookOid = default(int))
+        public WebhookLog(string deliveryDts = default(string), int duration = default(int), List<string> eventNames = default(List<string>), List<string> orderIds = default(List<string>), long queueDelay = default(long), string request = default(string), List<HTTPHeader> requestHeaders = default(List<HTTPHeader>), string requestId = default(string), string response = default(string), List<HTTPHeader> responseHeaders = default(List<HTTPHeader>), int statusCode = default(int), bool success = default(bool), string uri = default(string), int webhookOid = default(int))
         {
             this.DeliveryDts = deliveryDts;
             this.Duration = duration;
+            this.EventNames = eventNames;
+            this.OrderIds = orderIds;
             this.QueueDelay = queueDelay;
             this.Request = request;
             this.RequestHeaders = requestHeaders;
@@ -74,6 +78,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Number of milliseconds to process the notification</value>
         [DataMember(Name="duration", EmitDefaultValue=false)]
         public int Duration { get; set; }
+
+        /// <summary>
+        /// Event names contained in this delivery
+        /// </summary>
+        /// <value>Event names contained in this delivery</value>
+        [DataMember(Name="event_names", EmitDefaultValue=false)]
+        public List<string> EventNames { get; set; }
+
+        /// <summary>
+        /// Order ids contained in this delivery
+        /// </summary>
+        /// <value>Order ids contained in this delivery</value>
+        [DataMember(Name="order_ids", EmitDefaultValue=false)]
+        public List<string> OrderIds { get; set; }
 
         /// <summary>
         /// Number of milliseconds of delay caused by queuing
@@ -155,6 +173,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class WebhookLog {\n");
             sb.Append("  DeliveryDts: ").Append(DeliveryDts).Append("\n");
             sb.Append("  Duration: ").Append(Duration).Append("\n");
+            sb.Append("  EventNames: ").Append(EventNames).Append("\n");
+            sb.Append("  OrderIds: ").Append(OrderIds).Append("\n");
             sb.Append("  QueueDelay: ").Append(QueueDelay).Append("\n");
             sb.Append("  Request: ").Append(Request).Append("\n");
             sb.Append("  RequestHeaders: ").Append(RequestHeaders).Append("\n");
@@ -208,6 +228,18 @@ namespace com.ultracart.admin.v2.Model
                     this.Duration == input.Duration ||
                     (this.Duration != null &&
                     this.Duration.Equals(input.Duration))
+                ) && 
+                (
+                    this.EventNames == input.EventNames ||
+                    this.EventNames != null &&
+                    input.EventNames != null &&
+                    this.EventNames.SequenceEqual(input.EventNames)
+                ) && 
+                (
+                    this.OrderIds == input.OrderIds ||
+                    this.OrderIds != null &&
+                    input.OrderIds != null &&
+                    this.OrderIds.SequenceEqual(input.OrderIds)
                 ) && 
                 (
                     this.QueueDelay == input.QueueDelay ||
@@ -276,6 +308,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DeliveryDts.GetHashCode();
                 if (this.Duration != null)
                     hashCode = hashCode * 59 + this.Duration.GetHashCode();
+                if (this.EventNames != null)
+                    hashCode = hashCode * 59 + this.EventNames.GetHashCode();
+                if (this.OrderIds != null)
+                    hashCode = hashCode * 59 + this.OrderIds.GetHashCode();
                 if (this.QueueDelay != null)
                     hashCode = hashCode * 59 + this.QueueDelay.GetHashCode();
                 if (this.Request != null)

@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 
 ## GetWebhookLogSummaries
 
-> WebhookLogSummariesResponse GetWebhookLogSummaries (int webhookOid, int? limit = null, int? offset = null, string since = null)
+> WebhookLogSummariesResponse GetWebhookLogSummaries (int webhookOid, string requestId = null, string beginDate = null, string endDate = null, string status = null, bool? success = null, string _event = null, string orderId = null, string request = null, int? duration = null, int? limit = null, int? offset = null, string since = null)
 
 Retrieve the log summaries
 
@@ -413,6 +413,15 @@ namespace SdkSample.webhook
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhookOid** | **int**| The webhook oid to retrieve log summaries for. | 
+ **requestId** | **string**| Filter by request id | [optional] 
+ **beginDate** | **string**| Filter to deliveries on or after this date/time | [optional] 
+ **endDate** | **string**| Filter to deliveries on or before this date/time | [optional] 
+ **status** | **string**| Filter by HTTP status code | [optional] 
+ **success** | **bool?**| Filter by success (true) or failure (false) | [optional] 
+ **_event** | **string**| Filter by an event name contained in the delivery | [optional] 
+ **orderId** | **string**| Filter by an order id contained in the delivery | [optional] 
+ **request** | **string**| Filter by text contained in the request payload | [optional] 
+ **duration** | **int?**| Filter to deliveries that took at least this many milliseconds | [optional] 
  **limit** | **int?**| The maximum number of records to return on this one API call. | [optional] [default to 100]
  **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **since** | **string**| Fetch log summaries that have been delivered since this date/time. | [optional] 

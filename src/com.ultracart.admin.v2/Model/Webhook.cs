@@ -107,12 +107,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="iamSecretKey">IAM Secret Key for AWS SQS Delivery.</param>
         /// <param name="maximumEvents">The maximum number of events in the payload that UltraCart will deliver.</param>
         /// <param name="maximumSize">The maximum size of the payload that UltraCart will deliver.</param>
+        /// <param name="merchantComments">Merchant comments about this webhook.</param>
         /// <param name="merchantId">The UltraCart merchant ID that owns this webhook.</param>
+        /// <param name="name">Friendly name to help identify this webhook.</param>
         /// <param name="nextRetryAfter">The next time UltraCart will attempt delivery if failures have been occurring.</param>
         /// <param name="pending">The number of pending events for this webhook.</param>
         /// <param name="webhookOid">The object identifier for this webhook.</param>
         /// <param name="webhookUrl">The URL to deliver events to.  Must be HTTPS for customer related information..</param>
-        public Webhook(int apiUserOid = default(int), ApiVersionEnum? apiVersion = default(ApiVersionEnum?), ApiUserApplicationProfile applicationProfile = default(ApiUserApplicationProfile), AuthenticationTypeEnum? authenticationType = default(AuthenticationTypeEnum?), string basicPassword = default(string), string basicUsername = default(string), bool compressEvents = default(bool), int consecutiveFailures = default(int), bool disabled = default(bool), List<WebhookEventCategory> eventCategories = default(List<WebhookEventCategory>), string iamAccessKey = default(string), string iamSecretKey = default(string), int maximumEvents = default(int), int maximumSize = default(int), string merchantId = default(string), string nextRetryAfter = default(string), int pending = default(int), int webhookOid = default(int), string webhookUrl = default(string))
+        public Webhook(int apiUserOid = default(int), ApiVersionEnum? apiVersion = default(ApiVersionEnum?), ApiUserApplicationProfile applicationProfile = default(ApiUserApplicationProfile), AuthenticationTypeEnum? authenticationType = default(AuthenticationTypeEnum?), string basicPassword = default(string), string basicUsername = default(string), bool compressEvents = default(bool), int consecutiveFailures = default(int), bool disabled = default(bool), List<WebhookEventCategory> eventCategories = default(List<WebhookEventCategory>), string iamAccessKey = default(string), string iamSecretKey = default(string), int maximumEvents = default(int), int maximumSize = default(int), string merchantComments = default(string), string merchantId = default(string), string name = default(string), string nextRetryAfter = default(string), int pending = default(int), int webhookOid = default(int), string webhookUrl = default(string))
         {
             this.ApiUserOid = apiUserOid;
             this.ApiVersion = apiVersion;
@@ -128,7 +130,9 @@ namespace com.ultracart.admin.v2.Model
             this.IamSecretKey = iamSecretKey;
             this.MaximumEvents = maximumEvents;
             this.MaximumSize = maximumSize;
+            this.MerchantComments = merchantComments;
             this.MerchantId = merchantId;
+            this.Name = name;
             this.NextRetryAfter = nextRetryAfter;
             this.Pending = pending;
             this.WebhookOid = webhookOid;
@@ -221,11 +225,25 @@ namespace com.ultracart.admin.v2.Model
         public int MaximumSize { get; set; }
 
         /// <summary>
+        /// Merchant comments about this webhook
+        /// </summary>
+        /// <value>Merchant comments about this webhook</value>
+        [DataMember(Name="merchant_comments", EmitDefaultValue=false)]
+        public string MerchantComments { get; set; }
+
+        /// <summary>
         /// The UltraCart merchant ID that owns this webhook
         /// </summary>
         /// <value>The UltraCart merchant ID that owns this webhook</value>
         [DataMember(Name="merchant_id", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
+
+        /// <summary>
+        /// Friendly name to help identify this webhook
+        /// </summary>
+        /// <value>Friendly name to help identify this webhook</value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// The next time UltraCart will attempt delivery if failures have been occurring
@@ -277,7 +295,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  IamSecretKey: ").Append(IamSecretKey).Append("\n");
             sb.Append("  MaximumEvents: ").Append(MaximumEvents).Append("\n");
             sb.Append("  MaximumSize: ").Append(MaximumSize).Append("\n");
+            sb.Append("  MerchantComments: ").Append(MerchantComments).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  NextRetryAfter: ").Append(NextRetryAfter).Append("\n");
             sb.Append("  Pending: ").Append(Pending).Append("\n");
             sb.Append("  WebhookOid: ").Append(WebhookOid).Append("\n");
@@ -388,9 +408,19 @@ namespace com.ultracart.admin.v2.Model
                     this.MaximumSize.Equals(input.MaximumSize))
                 ) && 
                 (
+                    this.MerchantComments == input.MerchantComments ||
+                    (this.MerchantComments != null &&
+                    this.MerchantComments.Equals(input.MerchantComments))
+                ) && 
+                (
                     this.MerchantId == input.MerchantId ||
                     (this.MerchantId != null &&
                     this.MerchantId.Equals(input.MerchantId))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
                     this.NextRetryAfter == input.NextRetryAfter ||
@@ -451,8 +481,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MaximumEvents.GetHashCode();
                 if (this.MaximumSize != null)
                     hashCode = hashCode * 59 + this.MaximumSize.GetHashCode();
+                if (this.MerchantComments != null)
+                    hashCode = hashCode * 59 + this.MerchantComments.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.NextRetryAfter != null)
                     hashCode = hashCode * 59 + this.NextRetryAfter.GetHashCode();
                 if (this.Pending != null)

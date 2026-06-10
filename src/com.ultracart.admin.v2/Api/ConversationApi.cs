@@ -2752,6 +2752,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationPbxAudioResponse</returns>
         ApiResponse<ConversationPbxAudioResponse> UpdatePbxAudioWithHttpInfo (string conversationPbxAudioUuid, ConversationPbxAudio pbxAudio);
         /// <summary>
+        /// Update pbx call record
+        /// </summary>
+        /// <remarks>
+        /// Update the agent-authored fields (notes, finalize) on a PBX call record 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callUuid"></param>
+        /// <param name="updateRequest">Update Request</param>
+        /// <returns>ConversationPbxCallResponse</returns>
+        ConversationPbxCallResponse UpdatePbxCall (string callUuid, ConversationPbxCallUpdateRequest updateRequest);
+
+        /// <summary>
+        /// Update pbx call record
+        /// </summary>
+        /// <remarks>
+        /// Update the agent-authored fields (notes, finalize) on a PBX call record 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callUuid"></param>
+        /// <param name="updateRequest">Update Request</param>
+        /// <returns>ApiResponse of ConversationPbxCallResponse</returns>
+        ApiResponse<ConversationPbxCallResponse> UpdatePbxCallWithHttpInfo (string callUuid, ConversationPbxCallUpdateRequest updateRequest);
+        /// <summary>
         /// Update pbx class of service
         /// </summary>
         /// <remarks>
@@ -6005,6 +6028,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ConversationPbxAudioResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationPbxAudioResponse>> UpdatePbxAudioWithHttpInfoAsync (string conversationPbxAudioUuid, ConversationPbxAudio pbxAudio, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update pbx call record
+        /// </summary>
+        /// <remarks>
+        /// Update the agent-authored fields (notes, finalize) on a PBX call record 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callUuid"></param>
+        /// <param name="updateRequest">Update Request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ConversationPbxCallResponse</returns>
+        System.Threading.Tasks.Task<ConversationPbxCallResponse> UpdatePbxCallAsync (string callUuid, ConversationPbxCallUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update pbx call record
+        /// </summary>
+        /// <remarks>
+        /// Update the agent-authored fields (notes, finalize) on a PBX call record 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callUuid"></param>
+        /// <param name="updateRequest">Update Request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ConversationPbxCallResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPbxCallResponse>> UpdatePbxCallWithHttpInfoAsync (string callUuid, ConversationPbxCallUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update pbx class of service
         /// </summary>
@@ -27162,6 +27210,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationPbxAudioResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ConversationPbxAudioResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxAudioResponse)));
+        }
+
+        /// <summary>
+        /// Update pbx call record Update the agent-authored fields (notes, finalize) on a PBX call record 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callUuid"></param>
+        /// <param name="updateRequest">Update Request</param>
+        /// <returns>ConversationPbxCallResponse</returns>
+        public ConversationPbxCallResponse UpdatePbxCall (string callUuid, ConversationPbxCallUpdateRequest updateRequest)
+        {
+             ApiResponse<ConversationPbxCallResponse> localVarResponse = UpdatePbxCallWithHttpInfo(callUuid, updateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update pbx call record Update the agent-authored fields (notes, finalize) on a PBX call record 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callUuid"></param>
+        /// <param name="updateRequest">Update Request</param>
+        /// <returns>ApiResponse of ConversationPbxCallResponse</returns>
+        public ApiResponse<ConversationPbxCallResponse> UpdatePbxCallWithHttpInfo (string callUuid, ConversationPbxCallUpdateRequest updateRequest)
+        {
+            // verify the required parameter 'callUuid' is set
+            if (callUuid == null)
+                throw new ApiException(400, "Missing required parameter 'callUuid' when calling ConversationApi->UpdatePbxCall");
+            // verify the required parameter 'updateRequest' is set
+            if (updateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updateRequest' when calling ConversationApi->UpdatePbxCall");
+
+            var localVarPath = "/conversation/pbx/call/{callUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (callUuid != null) localVarPathParams.Add("callUuid", this.Configuration.ApiClient.ParameterToString(callUuid)); // path parameter
+            if (updateRequest != null && updateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(updateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = updateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdatePbxCall", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxCallResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ConversationPbxCallResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxCallResponse)));
+        }
+
+        /// <summary>
+        /// Update pbx call record Update the agent-authored fields (notes, finalize) on a PBX call record 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callUuid"></param>
+        /// <param name="updateRequest">Update Request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ConversationPbxCallResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPbxCallResponse> UpdatePbxCallAsync (string callUuid, ConversationPbxCallUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ConversationPbxCallResponse> localVarResponse = await UpdatePbxCallWithHttpInfoAsync(callUuid, updateRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update pbx call record Update the agent-authored fields (notes, finalize) on a PBX call record 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callUuid"></param>
+        /// <param name="updateRequest">Update Request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ConversationPbxCallResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPbxCallResponse>> UpdatePbxCallWithHttpInfoAsync (string callUuid, ConversationPbxCallUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'callUuid' is set
+            if (callUuid == null)
+                throw new ApiException(400, "Missing required parameter 'callUuid' when calling ConversationApi->UpdatePbxCall");
+            // verify the required parameter 'updateRequest' is set
+            if (updateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updateRequest' when calling ConversationApi->UpdatePbxCall");
+
+            var localVarPath = "/conversation/pbx/call/{callUuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (callUuid != null) localVarPathParams.Add("callUuid", this.Configuration.ApiClient.ParameterToString(callUuid)); // path parameter
+            if (updateRequest != null && updateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(updateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = updateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdatePbxCall", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPbxCallResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ConversationPbxCallResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPbxCallResponse)));
         }
 
         /// <summary>

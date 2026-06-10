@@ -50,6 +50,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="financial">financial.</param>
         /// <param name="holds">List of hold events during the call.</param>
         /// <param name="merchantId">Merchant identifier.</param>
+        /// <param name="notes">Agent-authored notes for this call, captured during the call and after-call work.</param>
+        /// <param name="notesFinalizedDts">Timestamp when the agent finalized notes via Save &amp; finish; gates Zoho Desk ticket creation.</param>
         /// <param name="recordingSids">List of all Twilio recording SIDs associated with this call.</param>
         /// <param name="recordings">List of recordings made during the call.</param>
         /// <param name="routing">routing.</param>
@@ -59,7 +61,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="updatedAtDts">Timestamp when the call record was last updated.</param>
         /// <param name="zohoDeskTicketId">Zoho Desk ticket ID if a ticket was created for this call.</param>
         /// <param name="zohoDeskTicketUrl">URL to the Zoho Desk ticket if a ticket was created for this call.</param>
-        public ConversationPbxCall(string accountSid = default(string), List<ConversationPbxCallAgent> agents = default(List<ConversationPbxCallAgent>), List<ConversationPbxCallAiEngagement> aiAgentEngagements = default(List<ConversationPbxCallAiEngagement>), ConversationPbxCallAiSummary aiSummary = default(ConversationPbxCallAiSummary), string callSid = default(string), string callUuid = default(string), ConversationPbxCallCaller caller = default(ConversationPbxCallCaller), string conferenceSid = default(string), string contextMerchantId = default(string), string createdAtDts = default(string), string customerName = default(string), string customerProfileOid = default(string), string disposition = default(string), string email = default(string), ConversationPbxCallFinancial financial = default(ConversationPbxCallFinancial), List<ConversationPbxCallHold> holds = default(List<ConversationPbxCallHold>), string merchantId = default(string), List<string> recordingSids = default(List<string>), List<ConversationPbxCallRecording> recordings = default(List<ConversationPbxCallRecording>), ConversationPbxCallRouting routing = default(ConversationPbxCallRouting), string status = default(string), ConversationPbxCallTimeline timeline = default(ConversationPbxCallTimeline), List<ConversationPbxCallTransfer> transfers = default(List<ConversationPbxCallTransfer>), string updatedAtDts = default(string), string zohoDeskTicketId = default(string), string zohoDeskTicketUrl = default(string))
+        public ConversationPbxCall(string accountSid = default(string), List<ConversationPbxCallAgent> agents = default(List<ConversationPbxCallAgent>), List<ConversationPbxCallAiEngagement> aiAgentEngagements = default(List<ConversationPbxCallAiEngagement>), ConversationPbxCallAiSummary aiSummary = default(ConversationPbxCallAiSummary), string callSid = default(string), string callUuid = default(string), ConversationPbxCallCaller caller = default(ConversationPbxCallCaller), string conferenceSid = default(string), string contextMerchantId = default(string), string createdAtDts = default(string), string customerName = default(string), string customerProfileOid = default(string), string disposition = default(string), string email = default(string), ConversationPbxCallFinancial financial = default(ConversationPbxCallFinancial), List<ConversationPbxCallHold> holds = default(List<ConversationPbxCallHold>), string merchantId = default(string), string notes = default(string), string notesFinalizedDts = default(string), List<string> recordingSids = default(List<string>), List<ConversationPbxCallRecording> recordings = default(List<ConversationPbxCallRecording>), ConversationPbxCallRouting routing = default(ConversationPbxCallRouting), string status = default(string), ConversationPbxCallTimeline timeline = default(ConversationPbxCallTimeline), List<ConversationPbxCallTransfer> transfers = default(List<ConversationPbxCallTransfer>), string updatedAtDts = default(string), string zohoDeskTicketId = default(string), string zohoDeskTicketUrl = default(string))
         {
             this.AccountSid = accountSid;
             this.Agents = agents;
@@ -78,6 +80,8 @@ namespace com.ultracart.admin.v2.Model
             this.Financial = financial;
             this.Holds = holds;
             this.MerchantId = merchantId;
+            this.Notes = notes;
+            this.NotesFinalizedDts = notesFinalizedDts;
             this.RecordingSids = recordingSids;
             this.Recordings = recordings;
             this.Routing = routing;
@@ -206,6 +210,20 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantId { get; set; }
 
         /// <summary>
+        /// Agent-authored notes for this call, captured during the call and after-call work
+        /// </summary>
+        /// <value>Agent-authored notes for this call, captured during the call and after-call work</value>
+        [DataMember(Name="notes", EmitDefaultValue=false)]
+        public string Notes { get; set; }
+
+        /// <summary>
+        /// Timestamp when the agent finalized notes via Save &amp; finish; gates Zoho Desk ticket creation
+        /// </summary>
+        /// <value>Timestamp when the agent finalized notes via Save &amp; finish; gates Zoho Desk ticket creation</value>
+        [DataMember(Name="notes_finalized_dts", EmitDefaultValue=false)]
+        public string NotesFinalizedDts { get; set; }
+
+        /// <summary>
         /// List of all Twilio recording SIDs associated with this call
         /// </summary>
         /// <value>List of all Twilio recording SIDs associated with this call</value>
@@ -291,6 +309,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Financial: ").Append(Financial).Append("\n");
             sb.Append("  Holds: ").Append(Holds).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  Notes: ").Append(Notes).Append("\n");
+            sb.Append("  NotesFinalizedDts: ").Append(NotesFinalizedDts).Append("\n");
             sb.Append("  RecordingSids: ").Append(RecordingSids).Append("\n");
             sb.Append("  Recordings: ").Append(Recordings).Append("\n");
             sb.Append("  Routing: ").Append(Routing).Append("\n");
@@ -423,6 +443,16 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
+                    this.Notes == input.Notes ||
+                    (this.Notes != null &&
+                    this.Notes.Equals(input.Notes))
+                ) && 
+                (
+                    this.NotesFinalizedDts == input.NotesFinalizedDts ||
+                    (this.NotesFinalizedDts != null &&
+                    this.NotesFinalizedDts.Equals(input.NotesFinalizedDts))
+                ) && 
+                (
                     this.RecordingSids == input.RecordingSids ||
                     this.RecordingSids != null &&
                     input.RecordingSids != null &&
@@ -515,6 +545,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Holds.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.Notes != null)
+                    hashCode = hashCode * 59 + this.Notes.GetHashCode();
+                if (this.NotesFinalizedDts != null)
+                    hashCode = hashCode * 59 + this.NotesFinalizedDts.GetHashCode();
                 if (this.RecordingSids != null)
                     hashCode = hashCode * 59 + this.RecordingSids.GetHashCode();
                 if (this.Recordings != null)

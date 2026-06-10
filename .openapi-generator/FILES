@@ -251,6 +251,7 @@ docs/ConversationPbxCallTimeline.md
 docs/ConversationPbxCallTranscript.md
 docs/ConversationPbxCallTranscriptSegment.md
 docs/ConversationPbxCallTransfer.md
+docs/ConversationPbxCallUpdateRequest.md
 docs/ConversationPbxClassOfService.md
 docs/ConversationPbxClassOfServiceResponse.md
 docs/ConversationPbxClassOfServicesResponse.md
@@ -1302,6 +1303,7 @@ src/com.ultracart.admin.v2/Model/ConversationPbxCallTimeline.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCallTranscript.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCallTranscriptSegment.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxCallTransfer.cs
+src/com.ultracart.admin.v2/Model/ConversationPbxCallUpdateRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxClassOfService.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxClassOfServiceResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationPbxClassOfServicesResponse.cs

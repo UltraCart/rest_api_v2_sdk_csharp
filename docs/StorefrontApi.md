@@ -32,6 +32,7 @@ Method | HTTP request | Description
 [**DeleteScreenRecordingSegment**](StorefrontApi.md#deletescreenrecordingsegment) | **DELETE** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Delete screen recording segment
 [**DeleteTwilioAccount**](StorefrontApi.md#deletetwilioaccount) | **DELETE** /storefront/twilio/accounts/{esp_twilio_uuid} | delete Twilio account
 [**DuplicateLibraryItem**](StorefrontApi.md#duplicatelibraryitem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
+[**EnrollCommseqCustomer**](StorefrontApi.md#enrollcommseqcustomer) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/enroll | Enroll a customer into a communication sequence
 [**FavoriteScreenRecording**](StorefrontApi.md#favoritescreenrecording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 [**GeocodeAddress**](StorefrontApi.md#geocodeaddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
 [**GetCountries**](StorefrontApi.md#getcountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
@@ -1616,6 +1617,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EnrollCommseqCustomer
+
+> EmailCommseqEnrollmentResponse EnrollCommseqCustomer (int storefrontOid, string commseqUuid, EmailCommseqEnrollmentRequest emailCommseqEnrollmentRequest)
+
+Enroll a customer into a communication sequence
+
+Enrolls a single real customer (by email) into the communication sequence.  A customer who is already enrolled will not be enrolled a second time. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **commseqUuid** | **string**|  | 
+ **emailCommseqEnrollmentRequest** | [**EmailCommseqEnrollmentRequest**](EmailCommseqEnrollmentRequest.md)| Commseq enrollment request | 
+
+### Return type
+
+[**EmailCommseqEnrollmentResponse**](EmailCommseqEnrollmentResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

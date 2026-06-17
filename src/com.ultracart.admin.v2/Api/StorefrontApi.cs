@@ -664,6 +664,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of LibraryItemResponse</returns>
         ApiResponse<LibraryItemResponse> DuplicateLibraryItemWithHttpInfo (int libraryItemOid);
         /// <summary>
+        /// Enroll a customer into a communication sequence
+        /// </summary>
+        /// <remarks>
+        /// Enrolls a single real customer (by email) into the communication sequence.  A customer who is already enrolled will not be enrolled a second time. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailCommseqEnrollmentRequest">Commseq enrollment request</param>
+        /// <returns>EmailCommseqEnrollmentResponse</returns>
+        EmailCommseqEnrollmentResponse EnrollCommseqCustomer (int storefrontOid, string commseqUuid, EmailCommseqEnrollmentRequest emailCommseqEnrollmentRequest);
+
+        /// <summary>
+        /// Enroll a customer into a communication sequence
+        /// </summary>
+        /// <remarks>
+        /// Enrolls a single real customer (by email) into the communication sequence.  A customer who is already enrolled will not be enrolled a second time. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailCommseqEnrollmentRequest">Commseq enrollment request</param>
+        /// <returns>ApiResponse of EmailCommseqEnrollmentResponse</returns>
+        ApiResponse<EmailCommseqEnrollmentResponse> EnrollCommseqCustomerWithHttpInfo (int storefrontOid, string commseqUuid, EmailCommseqEnrollmentRequest emailCommseqEnrollmentRequest);
+        /// <summary>
         /// Update favorite flag on screen recording
         /// </summary>
         /// <remarks>
@@ -4896,6 +4921,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> DuplicateLibraryItemWithHttpInfoAsync (int libraryItemOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Enroll a customer into a communication sequence
+        /// </summary>
+        /// <remarks>
+        /// Enrolls a single real customer (by email) into the communication sequence.  A customer who is already enrolled will not be enrolled a second time. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailCommseqEnrollmentRequest">Commseq enrollment request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailCommseqEnrollmentResponse</returns>
+        System.Threading.Tasks.Task<EmailCommseqEnrollmentResponse> EnrollCommseqCustomerAsync (int storefrontOid, string commseqUuid, EmailCommseqEnrollmentRequest emailCommseqEnrollmentRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Enroll a customer into a communication sequence
+        /// </summary>
+        /// <remarks>
+        /// Enrolls a single real customer (by email) into the communication sequence.  A customer who is already enrolled will not be enrolled a second time. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailCommseqEnrollmentRequest">Commseq enrollment request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailCommseqEnrollmentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailCommseqEnrollmentResponse>> EnrollCommseqCustomerWithHttpInfoAsync (int storefrontOid, string commseqUuid, EmailCommseqEnrollmentRequest emailCommseqEnrollmentRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update favorite flag on screen recording
         /// </summary>
@@ -13876,6 +13928,213 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<LibraryItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (LibraryItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemResponse)));
+        }
+
+        /// <summary>
+        /// Enroll a customer into a communication sequence Enrolls a single real customer (by email) into the communication sequence.  A customer who is already enrolled will not be enrolled a second time. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailCommseqEnrollmentRequest">Commseq enrollment request</param>
+        /// <returns>EmailCommseqEnrollmentResponse</returns>
+        public EmailCommseqEnrollmentResponse EnrollCommseqCustomer (int storefrontOid, string commseqUuid, EmailCommseqEnrollmentRequest emailCommseqEnrollmentRequest)
+        {
+             ApiResponse<EmailCommseqEnrollmentResponse> localVarResponse = EnrollCommseqCustomerWithHttpInfo(storefrontOid, commseqUuid, emailCommseqEnrollmentRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Enroll a customer into a communication sequence Enrolls a single real customer (by email) into the communication sequence.  A customer who is already enrolled will not be enrolled a second time. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailCommseqEnrollmentRequest">Commseq enrollment request</param>
+        /// <returns>ApiResponse of EmailCommseqEnrollmentResponse</returns>
+        public ApiResponse<EmailCommseqEnrollmentResponse> EnrollCommseqCustomerWithHttpInfo (int storefrontOid, string commseqUuid, EmailCommseqEnrollmentRequest emailCommseqEnrollmentRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->EnrollCommseqCustomer");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->EnrollCommseqCustomer");
+            // verify the required parameter 'emailCommseqEnrollmentRequest' is set
+            if (emailCommseqEnrollmentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailCommseqEnrollmentRequest' when calling StorefrontApi->EnrollCommseqCustomer");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/enroll";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (emailCommseqEnrollmentRequest != null && emailCommseqEnrollmentRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailCommseqEnrollmentRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailCommseqEnrollmentRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EnrollCommseqCustomer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCommseqEnrollmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailCommseqEnrollmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqEnrollmentResponse)));
+        }
+
+        /// <summary>
+        /// Enroll a customer into a communication sequence Enrolls a single real customer (by email) into the communication sequence.  A customer who is already enrolled will not be enrolled a second time. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailCommseqEnrollmentRequest">Commseq enrollment request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailCommseqEnrollmentResponse</returns>
+        public async System.Threading.Tasks.Task<EmailCommseqEnrollmentResponse> EnrollCommseqCustomerAsync (int storefrontOid, string commseqUuid, EmailCommseqEnrollmentRequest emailCommseqEnrollmentRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<EmailCommseqEnrollmentResponse> localVarResponse = await EnrollCommseqCustomerWithHttpInfoAsync(storefrontOid, commseqUuid, emailCommseqEnrollmentRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Enroll a customer into a communication sequence Enrolls a single real customer (by email) into the communication sequence.  A customer who is already enrolled will not be enrolled a second time. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailCommseqEnrollmentRequest">Commseq enrollment request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailCommseqEnrollmentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailCommseqEnrollmentResponse>> EnrollCommseqCustomerWithHttpInfoAsync (int storefrontOid, string commseqUuid, EmailCommseqEnrollmentRequest emailCommseqEnrollmentRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->EnrollCommseqCustomer");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->EnrollCommseqCustomer");
+            // verify the required parameter 'emailCommseqEnrollmentRequest' is set
+            if (emailCommseqEnrollmentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailCommseqEnrollmentRequest' when calling StorefrontApi->EnrollCommseqCustomer");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/enroll";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (emailCommseqEnrollmentRequest != null && emailCommseqEnrollmentRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailCommseqEnrollmentRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailCommseqEnrollmentRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EnrollCommseqCustomer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCommseqEnrollmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailCommseqEnrollmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqEnrollmentResponse)));
         }
 
         /// <summary>

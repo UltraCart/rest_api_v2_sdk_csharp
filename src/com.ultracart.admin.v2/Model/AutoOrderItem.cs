@@ -159,6 +159,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="arbitraryUnitCostRemainingOrders">The number of rebills to give the arbitrary unit cost on before reverting to normal pricing..</param>
         /// <param name="autoOrderItemOid">Primary key of AutoOrderItem.</param>
         /// <param name="calculatedNextShipmentDts">Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item.</param>
+        /// <param name="cancelDts">Date/time this item was cancelled (companion to cancel_reason).  On update, null leaves the existing value unchanged; pass an empty string to clear it..</param>
+        /// <param name="cancelReason">Reason this item was cancelled, captured when the item was cancelled by the customer or merchant.  On update, null leaves the existing value unchanged; pass an empty string to clear it..</param>
         /// <param name="firstOrderDts">Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet..</param>
         /// <param name="frequency">Frequency of the rebill if not a fixed schedule.</param>
         /// <param name="futureSchedules">The future rebill schedule for this item up to the next ten rebills.</param>
@@ -180,7 +182,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rebillValue">The value of the rebills of this item.</param>
         /// <param name="remainingRepeatCount">The number of rebills remaining before this item is complete.</param>
         /// <param name="simpleSchedule">simpleSchedule.</param>
-        public AutoOrderItem(List<AutoOrderAddonItem> addOns = default(List<AutoOrderAddonItem>), string arbitraryItemId = default(string), decimal arbitraryPercentageDiscount = default(decimal), decimal arbitraryQuantity = default(decimal), int arbitraryScheduleDays = default(int), decimal arbitraryUnitCost = default(decimal), int arbitraryUnitCostRemainingOrders = default(int), int autoOrderItemOid = default(int), string calculatedNextShipmentDts = default(string), string firstOrderDts = default(string), FrequencyEnum? frequency = default(FrequencyEnum?), List<AutoOrderItemFutureSchedule> futureSchedules = default(List<AutoOrderItemFutureSchedule>), string lastOrderDts = default(string), decimal lifeTimeValue = default(decimal), string nextItemId = default(string), string nextPreshipmentNoticeDts = default(string), string nextShipmentDts = default(string), string noOrderAfterDts = default(string), int numberOfRebills = default(int), List<AutoOrderItemOption> options = default(List<AutoOrderItemOption>), string originalItemId = default(string), decimal originalQuantity = default(decimal), bool paused = default(bool), string paypalPayerId = default(string), string paypalRecurringPaymentProfileId = default(string), bool preshipmentNoticeSent = default(bool), List<AutoOrderProperty> properties = default(List<AutoOrderProperty>), decimal rebillValue = default(decimal), int remainingRepeatCount = default(int), AutoOrderItemSimpleSchedule simpleSchedule = default(AutoOrderItemSimpleSchedule))
+        public AutoOrderItem(List<AutoOrderAddonItem> addOns = default(List<AutoOrderAddonItem>), string arbitraryItemId = default(string), decimal arbitraryPercentageDiscount = default(decimal), decimal arbitraryQuantity = default(decimal), int arbitraryScheduleDays = default(int), decimal arbitraryUnitCost = default(decimal), int arbitraryUnitCostRemainingOrders = default(int), int autoOrderItemOid = default(int), string calculatedNextShipmentDts = default(string), string cancelDts = default(string), string cancelReason = default(string), string firstOrderDts = default(string), FrequencyEnum? frequency = default(FrequencyEnum?), List<AutoOrderItemFutureSchedule> futureSchedules = default(List<AutoOrderItemFutureSchedule>), string lastOrderDts = default(string), decimal lifeTimeValue = default(decimal), string nextItemId = default(string), string nextPreshipmentNoticeDts = default(string), string nextShipmentDts = default(string), string noOrderAfterDts = default(string), int numberOfRebills = default(int), List<AutoOrderItemOption> options = default(List<AutoOrderItemOption>), string originalItemId = default(string), decimal originalQuantity = default(decimal), bool paused = default(bool), string paypalPayerId = default(string), string paypalRecurringPaymentProfileId = default(string), bool preshipmentNoticeSent = default(bool), List<AutoOrderProperty> properties = default(List<AutoOrderProperty>), decimal rebillValue = default(decimal), int remainingRepeatCount = default(int), AutoOrderItemSimpleSchedule simpleSchedule = default(AutoOrderItemSimpleSchedule))
         {
             this.AddOns = addOns;
             this.ArbitraryItemId = arbitraryItemId;
@@ -191,6 +193,8 @@ namespace com.ultracart.admin.v2.Model
             this.ArbitraryUnitCostRemainingOrders = arbitraryUnitCostRemainingOrders;
             this.AutoOrderItemOid = autoOrderItemOid;
             this.CalculatedNextShipmentDts = calculatedNextShipmentDts;
+            this.CancelDts = cancelDts;
+            this.CancelReason = cancelReason;
             this.FirstOrderDts = firstOrderDts;
             this.Frequency = frequency;
             this.FutureSchedules = futureSchedules;
@@ -276,6 +280,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item</value>
         [DataMember(Name="calculated_next_shipment_dts", EmitDefaultValue=false)]
         public string CalculatedNextShipmentDts { get; set; }
+
+        /// <summary>
+        /// Date/time this item was cancelled (companion to cancel_reason).  On update, null leaves the existing value unchanged; pass an empty string to clear it.
+        /// </summary>
+        /// <value>Date/time this item was cancelled (companion to cancel_reason).  On update, null leaves the existing value unchanged; pass an empty string to clear it.</value>
+        [DataMember(Name="cancel_dts", EmitDefaultValue=false)]
+        public string CancelDts { get; set; }
+
+        /// <summary>
+        /// Reason this item was cancelled, captured when the item was cancelled by the customer or merchant.  On update, null leaves the existing value unchanged; pass an empty string to clear it.
+        /// </summary>
+        /// <value>Reason this item was cancelled, captured when the item was cancelled by the customer or merchant.  On update, null leaves the existing value unchanged; pass an empty string to clear it.</value>
+        [DataMember(Name="cancel_reason", EmitDefaultValue=false)]
+        public string CancelReason { get; set; }
 
         /// <summary>
         /// Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet.
@@ -434,6 +452,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ArbitraryUnitCostRemainingOrders: ").Append(ArbitraryUnitCostRemainingOrders).Append("\n");
             sb.Append("  AutoOrderItemOid: ").Append(AutoOrderItemOid).Append("\n");
             sb.Append("  CalculatedNextShipmentDts: ").Append(CalculatedNextShipmentDts).Append("\n");
+            sb.Append("  CancelDts: ").Append(CancelDts).Append("\n");
+            sb.Append("  CancelReason: ").Append(CancelReason).Append("\n");
             sb.Append("  FirstOrderDts: ").Append(FirstOrderDts).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             sb.Append("  FutureSchedules: ").Append(FutureSchedules).Append("\n");
@@ -534,6 +554,16 @@ namespace com.ultracart.admin.v2.Model
                     this.CalculatedNextShipmentDts == input.CalculatedNextShipmentDts ||
                     (this.CalculatedNextShipmentDts != null &&
                     this.CalculatedNextShipmentDts.Equals(input.CalculatedNextShipmentDts))
+                ) && 
+                (
+                    this.CancelDts == input.CancelDts ||
+                    (this.CancelDts != null &&
+                    this.CancelDts.Equals(input.CancelDts))
+                ) && 
+                (
+                    this.CancelReason == input.CancelReason ||
+                    (this.CancelReason != null &&
+                    this.CancelReason.Equals(input.CancelReason))
                 ) && 
                 (
                     this.FirstOrderDts == input.FirstOrderDts ||
@@ -672,6 +702,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AutoOrderItemOid.GetHashCode();
                 if (this.CalculatedNextShipmentDts != null)
                     hashCode = hashCode * 59 + this.CalculatedNextShipmentDts.GetHashCode();
+                if (this.CancelDts != null)
+                    hashCode = hashCode * 59 + this.CancelDts.GetHashCode();
+                if (this.CancelReason != null)
+                    hashCode = hashCode * 59 + this.CancelReason.GetHashCode();
                 if (this.FirstOrderDts != null)
                     hashCode = hashCode * 59 + this.FirstOrderDts.GetHashCode();
                 if (this.Frequency != null)

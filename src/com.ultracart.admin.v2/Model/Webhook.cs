@@ -506,6 +506,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // MerchantComments (string) maxLength
+            if(this.MerchantComments != null && this.MerchantComments.Length > 2000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantComments, length must be less than 2000.", new [] { "MerchantComments" });
+            }
+
+
+            // Name (string) maxLength
+            if(this.Name != null && this.Name.Length > 80)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 80.", new [] { "Name" });
+            }
+
+
             yield break;
         }
     }

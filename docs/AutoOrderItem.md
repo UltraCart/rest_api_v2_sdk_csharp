@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **ArbitraryUnitCostRemainingOrders** | **int** | The number of rebills to give the arbitrary unit cost on before reverting to normal pricing. | [optional] 
 **AutoOrderItemOid** | **int** | Primary key of AutoOrderItem | [optional] 
 **CalculatedNextShipmentDts** | **string** | Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item | [optional] 
+**CancelDts** | **string** | Date/time this item was cancelled (companion to cancel_reason).  On update, null leaves the existing value unchanged; pass an empty string to clear it. | [optional] 
+**CancelReason** | **string** | Reason this item was cancelled, captured when the item was cancelled by the customer or merchant.  On update, null leaves the existing value unchanged; pass an empty string to clear it. | [optional] 
 **FirstOrderDts** | **string** | Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet. | [optional] 
 **Frequency** | **string** | Frequency of the rebill if not a fixed schedule | [optional] 
 **FutureSchedules** | [**List&lt;AutoOrderItemFutureSchedule&gt;**](AutoOrderItemFutureSchedule.md) | The future rebill schedule for this item up to the next ten rebills | [optional] 

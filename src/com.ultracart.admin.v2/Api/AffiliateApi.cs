@@ -26,6 +26,77 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Delete an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Delete an affiliate on the UltraCart account.  The affiliate is disabled within the active affiliate program; their ledger and click history is preserved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to delete.</param>
+        /// <returns></returns>
+        void DeleteAffiliate (int affiliateOid);
+
+        /// <summary>
+        /// Delete an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Delete an affiliate on the UltraCart account.  The affiliate is disabled within the active affiliate program; their ledger and click history is preserved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to delete.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteAffiliateWithHttpInfo (int affiliateOid);
+        /// <summary>
+        /// Retrieve an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single affiliate using the specified affiliate oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AffiliateResponse</returns>
+        AffiliateResponse GetAffiliate (int affiliateOid, string expand = default(string));
+
+        /// <summary>
+        /// Retrieve an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single affiliate using the specified affiliate oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AffiliateResponse</returns>
+        ApiResponse<AffiliateResponse> GetAffiliateWithHttpInfo (int affiliateOid, string expand = default(string));
+        /// <summary>
+        /// Retrieve affiliates
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of affiliates from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the affiliates returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateQuery">Affiliate query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the affiliates.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>AffiliatesResponse</returns>
+        AffiliatesResponse GetAffiliatesByQuery (AffiliateQuery affiliateQuery, int? limit = default(int?), int? offset = default(int?), string sort = default(string));
+
+        /// <summary>
+        /// Retrieve affiliates
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of affiliates from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the affiliates returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateQuery">Affiliate query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the affiliates.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of AffiliatesResponse</returns>
+        ApiResponse<AffiliatesResponse> GetAffiliatesByQueryWithHttpInfo (AffiliateQuery affiliateQuery, int? limit = default(int?), int? offset = default(int?), string sort = default(string));
+        /// <summary>
         /// Retrieve clicks
         /// </summary>
         /// <remarks>
@@ -79,8 +150,133 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  Only option is link. (optional)</param>
         /// <returns>ApiResponse of AffiliateLedgersResponse</returns>
         ApiResponse<AffiliateLedgersResponse> GetLedgersByQueryWithHttpInfo (AffiliateLedgerQuery ledgerQuery, int? limit = default(int?), int? offset = default(int?), string expand = default(string));
+        /// <summary>
+        /// Insert an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Insert an affiliate on the UltraCart account.  The affiliate is created within the merchant's active affiliate program. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AffiliateResponse</returns>
+        AffiliateResponse InsertAffiliate (Affiliate affiliate, string expand = default(string));
+
+        /// <summary>
+        /// Insert an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Insert an affiliate on the UltraCart account.  The affiliate is created within the merchant's active affiliate program. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AffiliateResponse</returns>
+        ApiResponse<AffiliateResponse> InsertAffiliateWithHttpInfo (Affiliate affiliate, string expand = default(string));
+        /// <summary>
+        /// Update an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Update an affiliate on the UltraCart account.  This is a full replacement of the affiliate; omitted fields are reset to their defaults, with the exception of password which is only changed when supplied. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to update.</param>
+        /// <param name="affiliate">Affiliate to update</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AffiliateResponse</returns>
+        AffiliateResponse UpdateAffiliate (int affiliateOid, Affiliate affiliate, string expand = default(string));
+
+        /// <summary>
+        /// Update an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Update an affiliate on the UltraCart account.  This is a full replacement of the affiliate; omitted fields are reset to their defaults, with the exception of password which is only changed when supplied. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to update.</param>
+        /// <param name="affiliate">Affiliate to update</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AffiliateResponse</returns>
+        ApiResponse<AffiliateResponse> UpdateAffiliateWithHttpInfo (int affiliateOid, Affiliate affiliate, string expand = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Delete an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Delete an affiliate on the UltraCart account.  The affiliate is disabled within the active affiliate program; their ledger and click history is preserved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to delete.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteAffiliateAsync (int affiliateOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Delete an affiliate on the UltraCart account.  The affiliate is disabled within the active affiliate program; their ledger and click history is preserved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to delete.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAffiliateWithHttpInfoAsync (int affiliateOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single affiliate using the specified affiliate oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AffiliateResponse</returns>
+        System.Threading.Tasks.Task<AffiliateResponse> GetAffiliateAsync (int affiliateOid, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single affiliate using the specified affiliate oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AffiliateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AffiliateResponse>> GetAffiliateWithHttpInfoAsync (int affiliateOid, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve affiliates
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of affiliates from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the affiliates returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateQuery">Affiliate query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the affiliates.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AffiliatesResponse</returns>
+        System.Threading.Tasks.Task<AffiliatesResponse> GetAffiliatesByQueryAsync (AffiliateQuery affiliateQuery, int? limit = default(int?), int? offset = default(int?), string sort = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve affiliates
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of affiliates from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the affiliates returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateQuery">Affiliate query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the affiliates.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AffiliatesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AffiliatesResponse>> GetAffiliatesByQueryWithHttpInfoAsync (AffiliateQuery affiliateQuery, int? limit = default(int?), int? offset = default(int?), string sort = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve clicks
         /// </summary>
@@ -139,6 +335,58 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AffiliateLedgersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AffiliateLedgersResponse>> GetLedgersByQueryWithHttpInfoAsync (AffiliateLedgerQuery ledgerQuery, int? limit = default(int?), int? offset = default(int?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Insert an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Insert an affiliate on the UltraCart account.  The affiliate is created within the merchant's active affiliate program. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AffiliateResponse</returns>
+        System.Threading.Tasks.Task<AffiliateResponse> InsertAffiliateAsync (Affiliate affiliate, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Insert an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Insert an affiliate on the UltraCart account.  The affiliate is created within the merchant's active affiliate program. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AffiliateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AffiliateResponse>> InsertAffiliateWithHttpInfoAsync (Affiliate affiliate, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Update an affiliate on the UltraCart account.  This is a full replacement of the affiliate; omitted fields are reset to their defaults, with the exception of password which is only changed when supplied. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to update.</param>
+        /// <param name="affiliate">Affiliate to update</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AffiliateResponse</returns>
+        System.Threading.Tasks.Task<AffiliateResponse> UpdateAffiliateAsync (int affiliateOid, Affiliate affiliate, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Update an affiliate on the UltraCart account.  This is a full replacement of the affiliate; omitted fields are reset to their defaults, with the exception of password which is only changed when supplied. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to update.</param>
+        /// <param name="affiliate">Affiliate to update</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AffiliateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AffiliateResponse>> UpdateAffiliateWithHttpInfoAsync (int affiliateOid, Affiliate affiliate, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -266,6 +514,515 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Delete an affiliate Delete an affiliate on the UltraCart account.  The affiliate is disabled within the active affiliate program; their ledger and click history is preserved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to delete.</param>
+        /// <returns></returns>
+        public void DeleteAffiliate (int affiliateOid)
+        {
+             DeleteAffiliateWithHttpInfo(affiliateOid);
+        }
+
+        /// <summary>
+        /// Delete an affiliate Delete an affiliate on the UltraCart account.  The affiliate is disabled within the active affiliate program; their ledger and click history is preserved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to delete.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteAffiliateWithHttpInfo (int affiliateOid)
+        {
+            // verify the required parameter 'affiliateOid' is set
+            if (affiliateOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateOid' when calling AffiliateApi->DeleteAffiliate");
+
+            var localVarPath = "/affiliate/affiliates/{affiliate_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (affiliateOid != null) localVarPathParams.Add("affiliate_oid", this.Configuration.ApiClient.ParameterToString(affiliateOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteAffiliate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Delete an affiliate Delete an affiliate on the UltraCart account.  The affiliate is disabled within the active affiliate program; their ledger and click history is preserved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to delete.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteAffiliateAsync (int affiliateOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteAffiliateWithHttpInfoAsync(affiliateOid, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Delete an affiliate Delete an affiliate on the UltraCart account.  The affiliate is disabled within the active affiliate program; their ledger and click history is preserved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to delete.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAffiliateWithHttpInfoAsync (int affiliateOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'affiliateOid' is set
+            if (affiliateOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateOid' when calling AffiliateApi->DeleteAffiliate");
+
+            var localVarPath = "/affiliate/affiliates/{affiliate_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (affiliateOid != null) localVarPathParams.Add("affiliate_oid", this.Configuration.ApiClient.ParameterToString(affiliateOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteAffiliate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Retrieve an affiliate Retrieves a single affiliate using the specified affiliate oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AffiliateResponse</returns>
+        public AffiliateResponse GetAffiliate (int affiliateOid, string expand = default(string))
+        {
+             ApiResponse<AffiliateResponse> localVarResponse = GetAffiliateWithHttpInfo(affiliateOid, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve an affiliate Retrieves a single affiliate using the specified affiliate oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AffiliateResponse</returns>
+        public ApiResponse<AffiliateResponse> GetAffiliateWithHttpInfo (int affiliateOid, string expand = default(string))
+        {
+            // verify the required parameter 'affiliateOid' is set
+            if (affiliateOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateOid' when calling AffiliateApi->GetAffiliate");
+
+            var localVarPath = "/affiliate/affiliates/{affiliate_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (affiliateOid != null) localVarPathParams.Add("affiliate_oid", this.Configuration.ApiClient.ParameterToString(affiliateOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAffiliate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AffiliateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AffiliateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AffiliateResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve an affiliate Retrieves a single affiliate using the specified affiliate oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AffiliateResponse</returns>
+        public async System.Threading.Tasks.Task<AffiliateResponse> GetAffiliateAsync (int affiliateOid, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<AffiliateResponse> localVarResponse = await GetAffiliateWithHttpInfoAsync(affiliateOid, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve an affiliate Retrieves a single affiliate using the specified affiliate oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AffiliateResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AffiliateResponse>> GetAffiliateWithHttpInfoAsync (int affiliateOid, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'affiliateOid' is set
+            if (affiliateOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateOid' when calling AffiliateApi->GetAffiliate");
+
+            var localVarPath = "/affiliate/affiliates/{affiliate_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (affiliateOid != null) localVarPathParams.Add("affiliate_oid", this.Configuration.ApiClient.ParameterToString(affiliateOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAffiliate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AffiliateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AffiliateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AffiliateResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve affiliates Retrieves a group of affiliates from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the affiliates returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateQuery">Affiliate query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the affiliates.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>AffiliatesResponse</returns>
+        public AffiliatesResponse GetAffiliatesByQuery (AffiliateQuery affiliateQuery, int? limit = default(int?), int? offset = default(int?), string sort = default(string))
+        {
+             ApiResponse<AffiliatesResponse> localVarResponse = GetAffiliatesByQueryWithHttpInfo(affiliateQuery, limit, offset, sort);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve affiliates Retrieves a group of affiliates from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the affiliates returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateQuery">Affiliate query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the affiliates.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of AffiliatesResponse</returns>
+        public ApiResponse<AffiliatesResponse> GetAffiliatesByQueryWithHttpInfo (AffiliateQuery affiliateQuery, int? limit = default(int?), int? offset = default(int?), string sort = default(string))
+        {
+            // verify the required parameter 'affiliateQuery' is set
+            if (affiliateQuery == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateQuery' when calling AffiliateApi->GetAffiliatesByQuery");
+
+            var localVarPath = "/affiliate/affiliates/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (affiliateQuery != null && affiliateQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(affiliateQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = affiliateQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAffiliatesByQuery", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AffiliatesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AffiliatesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AffiliatesResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve affiliates Retrieves a group of affiliates from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the affiliates returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateQuery">Affiliate query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the affiliates.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AffiliatesResponse</returns>
+        public async System.Threading.Tasks.Task<AffiliatesResponse> GetAffiliatesByQueryAsync (AffiliateQuery affiliateQuery, int? limit = default(int?), int? offset = default(int?), string sort = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<AffiliatesResponse> localVarResponse = await GetAffiliatesByQueryWithHttpInfoAsync(affiliateQuery, limit, offset, sort, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve affiliates Retrieves a group of affiliates from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the affiliates returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateQuery">Affiliate query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the affiliates.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AffiliatesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AffiliatesResponse>> GetAffiliatesByQueryWithHttpInfoAsync (AffiliateQuery affiliateQuery, int? limit = default(int?), int? offset = default(int?), string sort = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'affiliateQuery' is set
+            if (affiliateQuery == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateQuery' when calling AffiliateApi->GetAffiliatesByQuery");
+
+            var localVarPath = "/affiliate/affiliates/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (affiliateQuery != null && affiliateQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(affiliateQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = affiliateQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAffiliatesByQuery", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AffiliatesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AffiliatesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AffiliatesResponse)));
         }
 
         /// <summary>
@@ -648,6 +1405,376 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<AffiliateLedgersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AffiliateLedgersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AffiliateLedgersResponse)));
+        }
+
+        /// <summary>
+        /// Insert an affiliate Insert an affiliate on the UltraCart account.  The affiliate is created within the merchant's active affiliate program. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AffiliateResponse</returns>
+        public AffiliateResponse InsertAffiliate (Affiliate affiliate, string expand = default(string))
+        {
+             ApiResponse<AffiliateResponse> localVarResponse = InsertAffiliateWithHttpInfo(affiliate, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert an affiliate Insert an affiliate on the UltraCart account.  The affiliate is created within the merchant's active affiliate program. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AffiliateResponse</returns>
+        public ApiResponse<AffiliateResponse> InsertAffiliateWithHttpInfo (Affiliate affiliate, string expand = default(string))
+        {
+            // verify the required parameter 'affiliate' is set
+            if (affiliate == null)
+                throw new ApiException(400, "Missing required parameter 'affiliate' when calling AffiliateApi->InsertAffiliate");
+
+            var localVarPath = "/affiliate/affiliates";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (affiliate != null && affiliate.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(affiliate); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = affiliate; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertAffiliate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AffiliateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AffiliateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AffiliateResponse)));
+        }
+
+        /// <summary>
+        /// Insert an affiliate Insert an affiliate on the UltraCart account.  The affiliate is created within the merchant's active affiliate program. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AffiliateResponse</returns>
+        public async System.Threading.Tasks.Task<AffiliateResponse> InsertAffiliateAsync (Affiliate affiliate, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<AffiliateResponse> localVarResponse = await InsertAffiliateWithHttpInfoAsync(affiliate, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert an affiliate Insert an affiliate on the UltraCart account.  The affiliate is created within the merchant's active affiliate program. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AffiliateResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AffiliateResponse>> InsertAffiliateWithHttpInfoAsync (Affiliate affiliate, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'affiliate' is set
+            if (affiliate == null)
+                throw new ApiException(400, "Missing required parameter 'affiliate' when calling AffiliateApi->InsertAffiliate");
+
+            var localVarPath = "/affiliate/affiliates";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (affiliate != null && affiliate.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(affiliate); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = affiliate; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertAffiliate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AffiliateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AffiliateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AffiliateResponse)));
+        }
+
+        /// <summary>
+        /// Update an affiliate Update an affiliate on the UltraCart account.  This is a full replacement of the affiliate; omitted fields are reset to their defaults, with the exception of password which is only changed when supplied. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to update.</param>
+        /// <param name="affiliate">Affiliate to update</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AffiliateResponse</returns>
+        public AffiliateResponse UpdateAffiliate (int affiliateOid, Affiliate affiliate, string expand = default(string))
+        {
+             ApiResponse<AffiliateResponse> localVarResponse = UpdateAffiliateWithHttpInfo(affiliateOid, affiliate, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update an affiliate Update an affiliate on the UltraCart account.  This is a full replacement of the affiliate; omitted fields are reset to their defaults, with the exception of password which is only changed when supplied. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to update.</param>
+        /// <param name="affiliate">Affiliate to update</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AffiliateResponse</returns>
+        public ApiResponse<AffiliateResponse> UpdateAffiliateWithHttpInfo (int affiliateOid, Affiliate affiliate, string expand = default(string))
+        {
+            // verify the required parameter 'affiliateOid' is set
+            if (affiliateOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateOid' when calling AffiliateApi->UpdateAffiliate");
+            // verify the required parameter 'affiliate' is set
+            if (affiliate == null)
+                throw new ApiException(400, "Missing required parameter 'affiliate' when calling AffiliateApi->UpdateAffiliate");
+
+            var localVarPath = "/affiliate/affiliates/{affiliate_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (affiliateOid != null) localVarPathParams.Add("affiliate_oid", this.Configuration.ApiClient.ParameterToString(affiliateOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (affiliate != null && affiliate.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(affiliate); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = affiliate; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAffiliate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AffiliateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AffiliateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AffiliateResponse)));
+        }
+
+        /// <summary>
+        /// Update an affiliate Update an affiliate on the UltraCart account.  This is a full replacement of the affiliate; omitted fields are reset to their defaults, with the exception of password which is only changed when supplied. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to update.</param>
+        /// <param name="affiliate">Affiliate to update</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AffiliateResponse</returns>
+        public async System.Threading.Tasks.Task<AffiliateResponse> UpdateAffiliateAsync (int affiliateOid, Affiliate affiliate, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<AffiliateResponse> localVarResponse = await UpdateAffiliateWithHttpInfoAsync(affiliateOid, affiliate, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update an affiliate Update an affiliate on the UltraCart account.  This is a full replacement of the affiliate; omitted fields are reset to their defaults, with the exception of password which is only changed when supplied. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to update.</param>
+        /// <param name="affiliate">Affiliate to update</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AffiliateResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AffiliateResponse>> UpdateAffiliateWithHttpInfoAsync (int affiliateOid, Affiliate affiliate, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'affiliateOid' is set
+            if (affiliateOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateOid' when calling AffiliateApi->UpdateAffiliate");
+            // verify the required parameter 'affiliate' is set
+            if (affiliate == null)
+                throw new ApiException(400, "Missing required parameter 'affiliate' when calling AffiliateApi->UpdateAffiliate");
+
+            var localVarPath = "/affiliate/affiliates/{affiliate_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (affiliateOid != null) localVarPathParams.Add("affiliate_oid", this.Configuration.ApiClient.ParameterToString(affiliateOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (affiliate != null && affiliate.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(affiliate); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = affiliate; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAffiliate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AffiliateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AffiliateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AffiliateResponse)));
         }
 
     }

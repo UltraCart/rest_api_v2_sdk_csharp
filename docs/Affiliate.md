@@ -1,0 +1,65 @@
+
+# com.ultracart.admin.v2.Model.Affiliate
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**AcceptedDownlineRecruitingTerms** | **bool** | True if affiliate has agreed to the terms associated with recruiting downline affiliates | [optional] 
+**Address1** | **string** | Address 1 | [optional] 
+**Address2** | **string** | Address 2 | [optional] 
+**AffiliateCommissionGroupOid** | **int** | Commission group that this affiliate is assigned to | [optional] 
+**AffiliateOid** | **int** | Unique object identifier for this Affiliate | [optional] 
+**AllowDownlineRecruiting** | **bool** | True if affiliate is allowed to recruit downline affiliates | [optional] 
+**AllowGoogleAdwordsTracking** | **bool** | True if the affiliate is allowed to have their Google Adwords tracking pixel on the receipt | [optional] 
+**AllowYahooSearchMarketingTracking** | **bool** | True if the affiliate is allowed to have their Yahoo Search Marketing tracking pixel on the receipt | [optional] 
+**AnalyticsInternalTracking** | **bool** | True if this is used for internal tracking and should not influence UltraCart Analytics | [optional] 
+**Attributes** | [**List&lt;AffiliateAttribute&gt;**](AffiliateAttribute.md) | Custom attributes about the affiliate that can be used in the catalog/StoreFront | [optional] 
+**AutoApplyCouponCode** | **string** | Coupon code to automatically apply when this affiliate sends traffic | [optional] 
+**AutoApplyCouponOid** | **int** | Coupon object id to automatically apply when this affiliate sends traffic | [optional] 
+**AutoApproveCommissions** | **bool** | True if this affiliates commissions are automatically approved | [optional] 
+**CheckPayableTo** | **string** | If the affiliate wants to be paid by check instead of PayPal, then this is the name to make the check out to | [optional] 
+**City** | **string** | City | [optional] 
+**CompanyName** | **string** | Company Name | [optional] 
+**CookieTtl** | **int** | Number of days the affiliate tracking cookie lasts before expiring | [optional] 
+**CountryCode** | **string** | ISO-3166 two letter country code | [optional] 
+**Dob** | **string** | Date of birth | [optional] 
+**Email** | **string** | Email | [optional] 
+**EmailNotificationSchedule** | **string** | Email notification of transactions | [optional] 
+**Fax** | **string** | Fax | [optional] 
+**FirstName** | **string** | First Name | [optional] 
+**GoogleConversionId** | **string** | Google Adwords conversion id to use for the tracking pixel | [optional] 
+**HtmlPermitted** | **bool** | True if the affiliate is allowed to specify custom HTML to render on the receipt | [optional] 
+**LastName** | **string** | Last Name | [optional] 
+**LastTermsAcceptance** | **string** | Last date/time the affiliate program terms were agreed to | [optional] 
+**MarketingStrategy** | [**AffiliateMarketingStrategy**](AffiliateMarketingStrategy.md) |  | [optional] 
+**MemberType** | **int** | Member type object identifier the affiliate is assigned to within the program | [optional] 
+**MerchantId** | **string** | Merchant ID | [optional] 
+**MinimumPayout** | **decimal** | Minimum balance that must accrue before the affiliate is paid | [optional] 
+**Password** | **string** | Password (can only be used to update) | [optional] 
+**PayCommissionsOnAutoOrders** | **bool** | True if commissions are paid on auto order (rebill) transactions | [optional] 
+**PayCommissionsOnRepeatOrdersByEmail** | **bool** | True if commissions are paid on repeat orders matched by customer email | [optional] 
+**PayViaPaypal** | **bool** | True if the affiliate is paid via PayPal | [optional] 
+**PaymentAdjustment** | **decimal** | Fixed adjustment applied to the affiliate&#39;s commission payments | [optional] 
+**PaypalEmail** | **string** | Alternate email address to use for their PayPal payment if different than their primary email | [optional] 
+**Phone** | **string** | Phone | [optional] 
+**PostalCode** | **string** | Postal Code | [optional] 
+**PreventCookieStomping** | **bool** | True if cookie stomping of this affiliate is prevented | [optional] 
+**PreventSendingAllEmails** | **bool** | If true, affiliate will not receive any email notifications. | [optional] 
+**RefundServerToServerPostbackUrl** | **string** | Server to server postback URL notified of affiliate refunds | [optional] 
+**RemoveCookieAfterPurchase** | **bool** | If true, affiliate cookies are removed after a purchase. | [optional] 
+**SalesforceAccountId** | **string** | Salesforce.com account id | [optional] 
+**SalesforceContactId** | **string** | Salesforce.com contact id | [optional] 
+**ServerToServerPostbackUrl** | **string** | Server to server postback URL notified of affiliate transactions | [optional] 
+**ShortCode** | **string** | Short code that can be used in place of the affiliate id within tracking links | [optional] 
+**State** | **string** | State | [optional] 
+**Status** | **string** | Status | [optional] 
+**TaxId** | **string** | Tax ID (can only be used to update) | [optional] 
+**TerminatedForSpam** | **bool** | True if the affiliate has been terminated for spamming | [optional] 
+**TierRelationships** | [**List&lt;AffiliateTierRelationship&gt;**](AffiliateTierRelationship.md) | Relationship with other affiliates that recruted this affiliate | [optional] 
+**YsmAccountId** | **string** | Yahoo Search Marketing account id to use for the tracking pixel | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
+

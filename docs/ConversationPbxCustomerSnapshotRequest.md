@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **OrderExpand** | **string** |  | [optional] 
 **PhoneNumber** | **string** |  | [optional] 
 **SearchLinkedAccounts** | **bool** |  | [optional] 
+**SearchZohoDeskTickets** | **bool** |  | [optional] 
 **Success** | **bool** | Indicates if API call was successful | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 
 

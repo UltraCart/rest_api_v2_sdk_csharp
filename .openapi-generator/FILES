@@ -1039,6 +1039,7 @@ docs/WorkflowTasksResponse.md
 docs/WorkflowUser.md
 docs/WorkflowUserResponse.md
 docs/WorkflowUsersResponse.md
+docs/ZohoDeskTicketSummary.md
 git_push.sh
 src/com.ultracart.admin.v2/Api/AffiliateApi.cs
 src/com.ultracart.admin.v2/Api/AutoOrderApi.cs
@@ -2084,6 +2085,7 @@ src/com.ultracart.admin.v2/Model/WorkflowTasksResponse.cs
 src/com.ultracart.admin.v2/Model/WorkflowUser.cs
 src/com.ultracart.admin.v2/Model/WorkflowUserResponse.cs
 src/com.ultracart.admin.v2/Model/WorkflowUsersResponse.cs
+src/com.ultracart.admin.v2/Model/ZohoDeskTicketSummary.cs
 src/com.ultracart.admin.v2/Properties/AssemblyInfo.cs
 src/com.ultracart.admin.v2/com.ultracart.admin.v2.csproj
 src/com.ultracart.admin.v2/com.ultracart.admin.v2.nuspec

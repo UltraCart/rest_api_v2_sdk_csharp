@@ -40,7 +40,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="orders">orders.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ConversationPbxCustomerSnapshotResponse(List<AutoOrder> autoOrders = default(List<AutoOrder>), List<Customer> customers = default(List<Customer>), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), List<Order> orders = default(List<Order>), bool success = default(bool), Warning warning = default(Warning))
+        /// <param name="zohoDeskTickets">zohoDeskTickets.</param>
+        public ConversationPbxCustomerSnapshotResponse(List<AutoOrder> autoOrders = default(List<AutoOrder>), List<Customer> customers = default(List<Customer>), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), List<Order> orders = default(List<Order>), bool success = default(bool), Warning warning = default(Warning), List<ZohoDeskTicketSummary> zohoDeskTickets = default(List<ZohoDeskTicketSummary>))
         {
             this.AutoOrders = autoOrders;
             this.Customers = customers;
@@ -49,6 +50,7 @@ namespace com.ultracart.admin.v2.Model
             this.Orders = orders;
             this.Success = success;
             this.Warning = warning;
+            this.ZohoDeskTickets = zohoDeskTickets;
         }
 
         /// <summary>
@@ -95,6 +97,12 @@ namespace com.ultracart.admin.v2.Model
         public Warning Warning { get; set; }
 
         /// <summary>
+        /// Gets or Sets ZohoDeskTickets
+        /// </summary>
+        [DataMember(Name="zoho_desk_tickets", EmitDefaultValue=false)]
+        public List<ZohoDeskTicketSummary> ZohoDeskTickets { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -109,6 +117,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Orders: ").Append(Orders).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
+            sb.Append("  ZohoDeskTickets: ").Append(ZohoDeskTickets).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -180,6 +189,12 @@ namespace com.ultracart.admin.v2.Model
                     this.Warning == input.Warning ||
                     (this.Warning != null &&
                     this.Warning.Equals(input.Warning))
+                ) && 
+                (
+                    this.ZohoDeskTickets == input.ZohoDeskTickets ||
+                    this.ZohoDeskTickets != null &&
+                    input.ZohoDeskTickets != null &&
+                    this.ZohoDeskTickets.SequenceEqual(input.ZohoDeskTickets)
                 );
         }
 
@@ -206,6 +221,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Warning != null)
                     hashCode = hashCode * 59 + this.Warning.GetHashCode();
+                if (this.ZohoDeskTickets != null)
+                    hashCode = hashCode * 59 + this.ZohoDeskTickets.GetHashCode();
                 return hashCode;
             }
         }

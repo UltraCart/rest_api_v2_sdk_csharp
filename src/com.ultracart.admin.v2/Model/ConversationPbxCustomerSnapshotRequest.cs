@@ -40,9 +40,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="orderExpand">orderExpand.</param>
         /// <param name="phoneNumber">phoneNumber.</param>
         /// <param name="searchLinkedAccounts">searchLinkedAccounts.</param>
+        /// <param name="searchZohoDeskTickets">searchZohoDeskTickets.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ConversationPbxCustomerSnapshotRequest(string autoOrderExpand = default(string), string customerExpand = default(string), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), string orderExpand = default(string), string phoneNumber = default(string), bool searchLinkedAccounts = default(bool), bool success = default(bool), Warning warning = default(Warning))
+        public ConversationPbxCustomerSnapshotRequest(string autoOrderExpand = default(string), string customerExpand = default(string), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), string orderExpand = default(string), string phoneNumber = default(string), bool searchLinkedAccounts = default(bool), bool searchZohoDeskTickets = default(bool), bool success = default(bool), Warning warning = default(Warning))
         {
             this.AutoOrderExpand = autoOrderExpand;
             this.CustomerExpand = customerExpand;
@@ -51,6 +52,7 @@ namespace com.ultracart.admin.v2.Model
             this.OrderExpand = orderExpand;
             this.PhoneNumber = phoneNumber;
             this.SearchLinkedAccounts = searchLinkedAccounts;
+            this.SearchZohoDeskTickets = searchZohoDeskTickets;
             this.Success = success;
             this.Warning = warning;
         }
@@ -98,6 +100,12 @@ namespace com.ultracart.admin.v2.Model
         public bool SearchLinkedAccounts { get; set; }
 
         /// <summary>
+        /// Gets or Sets SearchZohoDeskTickets
+        /// </summary>
+        [DataMember(Name="search_zoho_desk_tickets", EmitDefaultValue=false)]
+        public bool SearchZohoDeskTickets { get; set; }
+
+        /// <summary>
         /// Indicates if API call was successful
         /// </summary>
         /// <value>Indicates if API call was successful</value>
@@ -125,6 +133,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  OrderExpand: ").Append(OrderExpand).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  SearchLinkedAccounts: ").Append(SearchLinkedAccounts).Append("\n");
+            sb.Append("  SearchZohoDeskTickets: ").Append(SearchZohoDeskTickets).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
@@ -197,6 +206,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SearchLinkedAccounts.Equals(input.SearchLinkedAccounts))
                 ) && 
                 (
+                    this.SearchZohoDeskTickets == input.SearchZohoDeskTickets ||
+                    (this.SearchZohoDeskTickets != null &&
+                    this.SearchZohoDeskTickets.Equals(input.SearchZohoDeskTickets))
+                ) && 
+                (
                     this.Success == input.Success ||
                     (this.Success != null &&
                     this.Success.Equals(input.Success))
@@ -231,6 +245,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.SearchLinkedAccounts != null)
                     hashCode = hashCode * 59 + this.SearchLinkedAccounts.GetHashCode();
+                if (this.SearchZohoDeskTickets != null)
+                    hashCode = hashCode * 59 + this.SearchZohoDeskTickets.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Warning != null)

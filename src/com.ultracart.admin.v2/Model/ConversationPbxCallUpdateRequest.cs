@@ -35,10 +35,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="finalize">True when the agent has finished after-call work (Save &amp; finish). Stamps notes_finalized_dts, which together with transcript availability gates Zoho Desk ticket creation..</param>
         /// <param name="notes">Agent-authored notes for the call. Card-like values are scrubbed server-side for PCI compliance..</param>
-        public ConversationPbxCallUpdateRequest(bool finalize = default(bool), string notes = default(string))
+        /// <param name="zohoDeskTicketId">Existing zoho desk ticket id to associate this call with..</param>
+        /// <param name="zohoDeskTicketUrl">Existing zoho desk ticket URL.</param>
+        public ConversationPbxCallUpdateRequest(bool finalize = default(bool), string notes = default(string), string zohoDeskTicketId = default(string), string zohoDeskTicketUrl = default(string))
         {
             this.Finalize = finalize;
             this.Notes = notes;
+            this.ZohoDeskTicketId = zohoDeskTicketId;
+            this.ZohoDeskTicketUrl = zohoDeskTicketUrl;
         }
 
         /// <summary>
@@ -56,6 +60,20 @@ namespace com.ultracart.admin.v2.Model
         public string Notes { get; set; }
 
         /// <summary>
+        /// Existing zoho desk ticket id to associate this call with.
+        /// </summary>
+        /// <value>Existing zoho desk ticket id to associate this call with.</value>
+        [DataMember(Name="zoho_desk_ticket_id", EmitDefaultValue=false)]
+        public string ZohoDeskTicketId { get; set; }
+
+        /// <summary>
+        /// Existing zoho desk ticket URL
+        /// </summary>
+        /// <value>Existing zoho desk ticket URL</value>
+        [DataMember(Name="zoho_desk_ticket_url", EmitDefaultValue=false)]
+        public string ZohoDeskTicketUrl { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +83,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ConversationPbxCallUpdateRequest {\n");
             sb.Append("  Finalize: ").Append(Finalize).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
+            sb.Append("  ZohoDeskTicketId: ").Append(ZohoDeskTicketId).Append("\n");
+            sb.Append("  ZohoDeskTicketUrl: ").Append(ZohoDeskTicketUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +128,16 @@ namespace com.ultracart.admin.v2.Model
                     this.Notes == input.Notes ||
                     (this.Notes != null &&
                     this.Notes.Equals(input.Notes))
+                ) && 
+                (
+                    this.ZohoDeskTicketId == input.ZohoDeskTicketId ||
+                    (this.ZohoDeskTicketId != null &&
+                    this.ZohoDeskTicketId.Equals(input.ZohoDeskTicketId))
+                ) && 
+                (
+                    this.ZohoDeskTicketUrl == input.ZohoDeskTicketUrl ||
+                    (this.ZohoDeskTicketUrl != null &&
+                    this.ZohoDeskTicketUrl.Equals(input.ZohoDeskTicketUrl))
                 );
         }
 
@@ -124,6 +154,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Finalize.GetHashCode();
                 if (this.Notes != null)
                     hashCode = hashCode * 59 + this.Notes.GetHashCode();
+                if (this.ZohoDeskTicketId != null)
+                    hashCode = hashCode * 59 + this.ZohoDeskTicketId.GetHashCode();
+                if (this.ZohoDeskTicketUrl != null)
+                    hashCode = hashCode * 59 + this.ZohoDeskTicketUrl.GetHashCode();
                 return hashCode;
             }
         }

@@ -65,6 +65,14 @@ docs/Browser.md
 docs/BrowserDevice.md
 docs/BrowserOS.md
 docs/BrowserUserAgent.md
+docs/BulkApi.md
+docs/BulkJob.md
+docs/BulkJobRequest.md
+docs/BulkJobResponse.md
+docs/BulkJobsResponse.md
+docs/BulkRecord.md
+docs/BulkRecordsResponse.md
+docs/BulkUploadUrlResponse.md
 docs/Cart.md
 docs/CartAffiliate.md
 docs/CartAffirmCheckoutResponse.md
@@ -1043,6 +1051,7 @@ docs/ZohoDeskTicketSummary.md
 git_push.sh
 src/com.ultracart.admin.v2/Api/AffiliateApi.cs
 src/com.ultracart.admin.v2/Api/AutoOrderApi.cs
+src/com.ultracart.admin.v2/Api/BulkApi.cs
 src/com.ultracart.admin.v2/Api/ChannelPartnerApi.cs
 src/com.ultracart.admin.v2/Api/CheckoutApi.cs
 src/com.ultracart.admin.v2/Api/ConversationApi.cs
@@ -1131,6 +1140,13 @@ src/com.ultracart.admin.v2/Model/Browser.cs
 src/com.ultracart.admin.v2/Model/BrowserDevice.cs
 src/com.ultracart.admin.v2/Model/BrowserOS.cs
 src/com.ultracart.admin.v2/Model/BrowserUserAgent.cs
+src/com.ultracart.admin.v2/Model/BulkJob.cs
+src/com.ultracart.admin.v2/Model/BulkJobRequest.cs
+src/com.ultracart.admin.v2/Model/BulkJobResponse.cs
+src/com.ultracart.admin.v2/Model/BulkJobsResponse.cs
+src/com.ultracart.admin.v2/Model/BulkRecord.cs
+src/com.ultracart.admin.v2/Model/BulkRecordsResponse.cs
+src/com.ultracart.admin.v2/Model/BulkUploadUrlResponse.cs
 src/com.ultracart.admin.v2/Model/Cart.cs
 src/com.ultracart.admin.v2/Model/CartAffiliate.cs
 src/com.ultracart.admin.v2/Model/CartAffirmCheckoutResponse.cs

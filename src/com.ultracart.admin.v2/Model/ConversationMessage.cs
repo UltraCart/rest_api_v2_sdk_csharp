@@ -53,7 +53,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Engagementprompt for value: engagement prompt
             /// </summary>
             [EnumMember(Value = "engagement prompt")]
-            Engagementprompt = 3
+            Engagementprompt = 3,
+
+            /// <summary>
+            /// Enum Toolcall for value: tool call
+            /// </summary>
+            [EnumMember(Value = "tool call")]
+            Toolcall = 4
 
         }
 

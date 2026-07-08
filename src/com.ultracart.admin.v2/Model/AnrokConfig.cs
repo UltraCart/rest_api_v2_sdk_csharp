@@ -37,13 +37,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="defaultProductId">Default Anrok Product ID, used for cart items that do not have their own Anrok Product ID assigned.</param>
         /// <param name="estimateOnly">True if this Anrok configuration is to estimate taxes only and not report placed orders to Anrok.</param>
         /// <param name="lastTestDts">Date/time of the connection test to Anrok.</param>
+        /// <param name="shippingProductId">Anrok Product ID used to classify shipping/handling charges; must be created in Anrok and mapped to the Shipping cost tax category.</param>
         /// <param name="testResults">Test results of the last connection test to Anrok.</param>
-        public AnrokConfig(string apiKey = default(string), string defaultProductId = default(string), bool estimateOnly = default(bool), string lastTestDts = default(string), string testResults = default(string))
+        public AnrokConfig(string apiKey = default(string), string defaultProductId = default(string), bool estimateOnly = default(bool), string lastTestDts = default(string), string shippingProductId = default(string), string testResults = default(string))
         {
             this.ApiKey = apiKey;
             this.DefaultProductId = defaultProductId;
             this.EstimateOnly = estimateOnly;
             this.LastTestDts = lastTestDts;
+            this.ShippingProductId = shippingProductId;
             this.TestResults = testResults;
         }
 
@@ -76,6 +78,13 @@ namespace com.ultracart.admin.v2.Model
         public string LastTestDts { get; set; }
 
         /// <summary>
+        /// Anrok Product ID used to classify shipping/handling charges; must be created in Anrok and mapped to the Shipping cost tax category
+        /// </summary>
+        /// <value>Anrok Product ID used to classify shipping/handling charges; must be created in Anrok and mapped to the Shipping cost tax category</value>
+        [DataMember(Name="shipping_product_id", EmitDefaultValue=false)]
+        public string ShippingProductId { get; set; }
+
+        /// <summary>
         /// Test results of the last connection test to Anrok
         /// </summary>
         /// <value>Test results of the last connection test to Anrok</value>
@@ -94,6 +103,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  DefaultProductId: ").Append(DefaultProductId).Append("\n");
             sb.Append("  EstimateOnly: ").Append(EstimateOnly).Append("\n");
             sb.Append("  LastTestDts: ").Append(LastTestDts).Append("\n");
+            sb.Append("  ShippingProductId: ").Append(ShippingProductId).Append("\n");
             sb.Append("  TestResults: ").Append(TestResults).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -150,6 +160,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LastTestDts.Equals(input.LastTestDts))
                 ) && 
                 (
+                    this.ShippingProductId == input.ShippingProductId ||
+                    (this.ShippingProductId != null &&
+                    this.ShippingProductId.Equals(input.ShippingProductId))
+                ) && 
+                (
                     this.TestResults == input.TestResults ||
                     (this.TestResults != null &&
                     this.TestResults.Equals(input.TestResults))
@@ -173,6 +188,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EstimateOnly.GetHashCode();
                 if (this.LastTestDts != null)
                     hashCode = hashCode * 59 + this.LastTestDts.GetHashCode();
+                if (this.ShippingProductId != null)
+                    hashCode = hashCode * 59 + this.ShippingProductId.GetHashCode();
                 if (this.TestResults != null)
                     hashCode = hashCode * 59 + this.TestResults.GetHashCode();
                 return hashCode;

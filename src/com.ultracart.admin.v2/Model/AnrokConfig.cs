@@ -34,12 +34,14 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="AnrokConfig" /> class.
         /// </summary>
         /// <param name="apiKey">Anrok API key.</param>
+        /// <param name="defaultProductId">Default Anrok Product ID, used for cart items that do not have their own Anrok Product ID assigned.</param>
         /// <param name="estimateOnly">True if this Anrok configuration is to estimate taxes only and not report placed orders to Anrok.</param>
         /// <param name="lastTestDts">Date/time of the connection test to Anrok.</param>
         /// <param name="testResults">Test results of the last connection test to Anrok.</param>
-        public AnrokConfig(string apiKey = default(string), bool estimateOnly = default(bool), string lastTestDts = default(string), string testResults = default(string))
+        public AnrokConfig(string apiKey = default(string), string defaultProductId = default(string), bool estimateOnly = default(bool), string lastTestDts = default(string), string testResults = default(string))
         {
             this.ApiKey = apiKey;
+            this.DefaultProductId = defaultProductId;
             this.EstimateOnly = estimateOnly;
             this.LastTestDts = lastTestDts;
             this.TestResults = testResults;
@@ -51,6 +53,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Anrok API key</value>
         [DataMember(Name="api_key", EmitDefaultValue=false)]
         public string ApiKey { get; set; }
+
+        /// <summary>
+        /// Default Anrok Product ID, used for cart items that do not have their own Anrok Product ID assigned
+        /// </summary>
+        /// <value>Default Anrok Product ID, used for cart items that do not have their own Anrok Product ID assigned</value>
+        [DataMember(Name="default_product_id", EmitDefaultValue=false)]
+        public string DefaultProductId { get; set; }
 
         /// <summary>
         /// True if this Anrok configuration is to estimate taxes only and not report placed orders to Anrok
@@ -82,6 +91,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class AnrokConfig {\n");
             sb.Append("  ApiKey: ").Append(ApiKey).Append("\n");
+            sb.Append("  DefaultProductId: ").Append(DefaultProductId).Append("\n");
             sb.Append("  EstimateOnly: ").Append(EstimateOnly).Append("\n");
             sb.Append("  LastTestDts: ").Append(LastTestDts).Append("\n");
             sb.Append("  TestResults: ").Append(TestResults).Append("\n");
@@ -125,6 +135,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ApiKey.Equals(input.ApiKey))
                 ) && 
                 (
+                    this.DefaultProductId == input.DefaultProductId ||
+                    (this.DefaultProductId != null &&
+                    this.DefaultProductId.Equals(input.DefaultProductId))
+                ) && 
+                (
                     this.EstimateOnly == input.EstimateOnly ||
                     (this.EstimateOnly != null &&
                     this.EstimateOnly.Equals(input.EstimateOnly))
@@ -152,6 +167,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.ApiKey != null)
                     hashCode = hashCode * 59 + this.ApiKey.GetHashCode();
+                if (this.DefaultProductId != null)
+                    hashCode = hashCode * 59 + this.DefaultProductId.GetHashCode();
                 if (this.EstimateOnly != null)
                     hashCode = hashCode * 59 + this.EstimateOnly.GetHashCode();
                 if (this.LastTestDts != null)

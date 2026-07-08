@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ApiKey** | **string** | Anrok API key | [optional] 
+**DefaultProductId** | **string** | Default Anrok Product ID, used for cart items that do not have their own Anrok Product ID assigned | [optional] 
 **EstimateOnly** | **bool** | True if this Anrok configuration is to estimate taxes only and not report placed orders to Anrok | [optional] 
 **LastTestDts** | **string** | Date/time of the connection test to Anrok | [optional] 
 **TestResults** | **string** | Test results of the last connection test to Anrok | [optional] 

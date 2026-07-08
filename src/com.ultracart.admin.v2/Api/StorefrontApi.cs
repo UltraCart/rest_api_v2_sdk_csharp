@@ -1214,6 +1214,39 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailCommseqsResponse</returns>
         ApiResponse<EmailCommseqsResponse> GetEmailCommseqsWithHttpInfo (int storefrontOid);
         /// <summary>
+        /// Get a customer's dispatch-log journey across all flows/campaigns
+        /// </summary>
+        /// <remarks>
+        /// Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row's detail via getEmailStepDispatchLogDetail. scanForward=false (default) returns recent-first; true returns chronological progression. Page forward until 'more' is false. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCustomerUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <param name="scanForward"> (optional)</param>
+        /// <returns>EmailDispatchLogsResponse</returns>
+        EmailDispatchLogsResponse GetEmailCustomerDispatchLogs (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?));
+
+        /// <summary>
+        /// Get a customer's dispatch-log journey across all flows/campaigns
+        /// </summary>
+        /// <remarks>
+        /// Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row's detail via getEmailStepDispatchLogDetail. scanForward=false (default) returns recent-first; true returns chronological progression. Page forward until 'more' is false. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCustomerUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <param name="scanForward"> (optional)</param>
+        /// <returns>ApiResponse of EmailDispatchLogsResponse</returns>
+        ApiResponse<EmailDispatchLogsResponse> GetEmailCustomerDispatchLogsWithHttpInfo (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?));
+        /// <summary>
         /// Get customers editor URL
         /// </summary>
         /// <remarks>
@@ -1309,6 +1342,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="days"> (optional)</param>
         /// <returns>ApiResponse of EmailDashboardStatsResponse</returns>
         ApiResponse<EmailDashboardStatsResponse> GetEmailDashboardStatsWithHttpInfo (int storefrontOid, int? days = default(int?));
+        /// <summary>
+        /// Resolve a customer email to its ESP customer UUID
+        /// </summary>
+        /// <remarks>
+        /// Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant's customer email, or a null uuid when the email is not on file. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="email"> (optional)</param>
+        /// <returns>EmailCustomerLookupResponse</returns>
+        EmailCustomerLookupResponse GetEmailDispatchLogCustomerLookup (int storefrontOid, string email = default(string));
+
+        /// <summary>
+        /// Resolve a customer email to its ESP customer UUID
+        /// </summary>
+        /// <remarks>
+        /// Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant's customer email, or a null uuid when the email is not on file. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="email"> (optional)</param>
+        /// <returns>ApiResponse of EmailCustomerLookupResponse</returns>
+        ApiResponse<EmailCustomerLookupResponse> GetEmailDispatchLogCustomerLookupWithHttpInfo (int storefrontOid, string email = default(string));
         /// <summary>
         /// Get email dispatch logs
         /// </summary>
@@ -2068,6 +2124,68 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="days"> (optional)</param>
         /// <returns>ApiResponse of EmailSmsOrdersResponse</returns>
         ApiResponse<EmailSmsOrdersResponse> GetEmailSmsOrdersWithHttpInfo (int storefrontOid, string commseqUuid, string commseqStepUuid, int? days = default(int?));
+        /// <summary>
+        /// Get the full detail of a single dispatch-log record
+        /// </summary>
+        /// <remarks>
+        /// Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="logDts"> (optional)</param>
+        /// <param name="espCustomerUuid"> (optional)</param>
+        /// <returns>EmailDispatchLogDetailResponse</returns>
+        EmailDispatchLogDetailResponse GetEmailStepDispatchLogDetail (int storefrontOid, string commseqUuid, string commseqStepUuid, string logDts = default(string), string espCustomerUuid = default(string));
+
+        /// <summary>
+        /// Get the full detail of a single dispatch-log record
+        /// </summary>
+        /// <remarks>
+        /// Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="logDts"> (optional)</param>
+        /// <param name="espCustomerUuid"> (optional)</param>
+        /// <returns>ApiResponse of EmailDispatchLogDetailResponse</returns>
+        ApiResponse<EmailDispatchLogDetailResponse> GetEmailStepDispatchLogDetailWithHttpInfo (int storefrontOid, string commseqUuid, string commseqStepUuid, string logDts = default(string), string espCustomerUuid = default(string));
+        /// <summary>
+        /// Get a paginated, date-boundable dispatch-log feed for a step
+        /// </summary>
+        /// <remarks>
+        /// Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <returns>EmailDispatchLogsResponse</returns>
+        EmailDispatchLogsResponse GetEmailStepDispatchLogs (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?));
+
+        /// <summary>
+        /// Get a paginated, date-boundable dispatch-log feed for a step
+        /// </summary>
+        /// <remarks>
+        /// Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <returns>ApiResponse of EmailDispatchLogsResponse</returns>
+        ApiResponse<EmailDispatchLogsResponse> GetEmailStepDispatchLogsWithHttpInfo (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?));
         /// <summary>
         /// Get email template
         /// </summary>
@@ -5520,6 +5638,41 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (EmailCommseqsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailCommseqsResponse>> GetEmailCommseqsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Get a customer's dispatch-log journey across all flows/campaigns
+        /// </summary>
+        /// <remarks>
+        /// Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row's detail via getEmailStepDispatchLogDetail. scanForward=false (default) returns recent-first; true returns chronological progression. Page forward until 'more' is false. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCustomerUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <param name="scanForward"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailDispatchLogsResponse</returns>
+        System.Threading.Tasks.Task<EmailDispatchLogsResponse> GetEmailCustomerDispatchLogsAsync (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get a customer&#39;s dispatch-log journey across all flows/campaigns
+        /// </summary>
+        /// <remarks>
+        /// Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row's detail via getEmailStepDispatchLogDetail. scanForward=false (default) returns recent-first; true returns chronological progression. Page forward until 'more' is false. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCustomerUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <param name="scanForward"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailDispatchLogsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogsResponse>> GetEmailCustomerDispatchLogsWithHttpInfoAsync (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Get customers editor URL
         /// </summary>
         /// <remarks>
@@ -5623,6 +5776,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailDashboardStatsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailDashboardStatsResponse>> GetEmailDashboardStatsWithHttpInfoAsync (int storefrontOid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Resolve a customer email to its ESP customer UUID
+        /// </summary>
+        /// <remarks>
+        /// Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant's customer email, or a null uuid when the email is not on file. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="email"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailCustomerLookupResponse</returns>
+        System.Threading.Tasks.Task<EmailCustomerLookupResponse> GetEmailDispatchLogCustomerLookupAsync (int storefrontOid, string email = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Resolve a customer email to its ESP customer UUID
+        /// </summary>
+        /// <remarks>
+        /// Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant's customer email, or a null uuid when the email is not on file. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="email"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailCustomerLookupResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailCustomerLookupResponse>> GetEmailDispatchLogCustomerLookupWithHttpInfoAsync (int storefrontOid, string email = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get email dispatch logs
         /// </summary>
@@ -6448,6 +6626,72 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailSmsOrdersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailSmsOrdersResponse>> GetEmailSmsOrdersWithHttpInfoAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get the full detail of a single dispatch-log record
+        /// </summary>
+        /// <remarks>
+        /// Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="logDts"> (optional)</param>
+        /// <param name="espCustomerUuid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailDispatchLogDetailResponse</returns>
+        System.Threading.Tasks.Task<EmailDispatchLogDetailResponse> GetEmailStepDispatchLogDetailAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string logDts = default(string), string espCustomerUuid = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get the full detail of a single dispatch-log record
+        /// </summary>
+        /// <remarks>
+        /// Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="logDts"> (optional)</param>
+        /// <param name="espCustomerUuid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailDispatchLogDetailResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogDetailResponse>> GetEmailStepDispatchLogDetailWithHttpInfoAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string logDts = default(string), string espCustomerUuid = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get a paginated, date-boundable dispatch-log feed for a step
+        /// </summary>
+        /// <remarks>
+        /// Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailDispatchLogsResponse</returns>
+        System.Threading.Tasks.Task<EmailDispatchLogsResponse> GetEmailStepDispatchLogsAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get a paginated, date-boundable dispatch-log feed for a step
+        /// </summary>
+        /// <remarks>
+        /// Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailDispatchLogsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogsResponse>> GetEmailStepDispatchLogsWithHttpInfoAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get email template
         /// </summary>
@@ -18315,6 +18559,215 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get a customer's dispatch-log journey across all flows/campaigns Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row's detail via getEmailStepDispatchLogDetail. scanForward=false (default) returns recent-first; true returns chronological progression. Page forward until 'more' is false. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCustomerUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <param name="scanForward"> (optional)</param>
+        /// <returns>EmailDispatchLogsResponse</returns>
+        public EmailDispatchLogsResponse GetEmailCustomerDispatchLogs (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?))
+        {
+             ApiResponse<EmailDispatchLogsResponse> localVarResponse = GetEmailCustomerDispatchLogsWithHttpInfo(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a customer's dispatch-log journey across all flows/campaigns Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row's detail via getEmailStepDispatchLogDetail. scanForward=false (default) returns recent-first; true returns chronological progression. Page forward until 'more' is false. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCustomerUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <param name="scanForward"> (optional)</param>
+        /// <returns>ApiResponse of EmailDispatchLogsResponse</returns>
+        public ApiResponse<EmailDispatchLogsResponse> GetEmailCustomerDispatchLogsWithHttpInfo (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCustomerDispatchLogs");
+            // verify the required parameter 'emailCustomerUuid' is set
+            if (emailCustomerUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailCustomerUuid' when calling StorefrontApi->GetEmailCustomerDispatchLogs");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/customers/{email_customer_uuid}/dispatch_logs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCustomerUuid != null) localVarPathParams.Add("email_customer_uuid", this.Configuration.ApiClient.ParameterToString(emailCustomerUuid)); // path parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (pageNumber != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageNumber", pageNumber)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (scanForward != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scanForward", scanForward)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCustomerDispatchLogs", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailDispatchLogsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailDispatchLogsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailDispatchLogsResponse)));
+        }
+
+        /// <summary>
+        /// Get a customer's dispatch-log journey across all flows/campaigns Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row's detail via getEmailStepDispatchLogDetail. scanForward=false (default) returns recent-first; true returns chronological progression. Page forward until 'more' is false. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCustomerUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <param name="scanForward"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailDispatchLogsResponse</returns>
+        public async System.Threading.Tasks.Task<EmailDispatchLogsResponse> GetEmailCustomerDispatchLogsAsync (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<EmailDispatchLogsResponse> localVarResponse = await GetEmailCustomerDispatchLogsWithHttpInfoAsync(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a customer's dispatch-log journey across all flows/campaigns Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row's detail via getEmailStepDispatchLogDetail. scanForward=false (default) returns recent-first; true returns chronological progression. Page forward until 'more' is false. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCustomerUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <param name="scanForward"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailDispatchLogsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogsResponse>> GetEmailCustomerDispatchLogsWithHttpInfoAsync (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCustomerDispatchLogs");
+            // verify the required parameter 'emailCustomerUuid' is set
+            if (emailCustomerUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailCustomerUuid' when calling StorefrontApi->GetEmailCustomerDispatchLogs");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/customers/{email_customer_uuid}/dispatch_logs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCustomerUuid != null) localVarPathParams.Add("email_customer_uuid", this.Configuration.ApiClient.ParameterToString(emailCustomerUuid)); // path parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (pageNumber != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageNumber", pageNumber)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (scanForward != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scanForward", scanForward)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCustomerDispatchLogs", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailDispatchLogsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailDispatchLogsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailDispatchLogsResponse)));
+        }
+
+        /// <summary>
         /// Get customers editor URL 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -19022,6 +19475,179 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailDashboardStatsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (EmailDashboardStatsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailDashboardStatsResponse)));
+        }
+
+        /// <summary>
+        /// Resolve a customer email to its ESP customer UUID Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant's customer email, or a null uuid when the email is not on file. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="email"> (optional)</param>
+        /// <returns>EmailCustomerLookupResponse</returns>
+        public EmailCustomerLookupResponse GetEmailDispatchLogCustomerLookup (int storefrontOid, string email = default(string))
+        {
+             ApiResponse<EmailCustomerLookupResponse> localVarResponse = GetEmailDispatchLogCustomerLookupWithHttpInfo(storefrontOid, email);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Resolve a customer email to its ESP customer UUID Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant's customer email, or a null uuid when the email is not on file. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="email"> (optional)</param>
+        /// <returns>ApiResponse of EmailCustomerLookupResponse</returns>
+        public ApiResponse<EmailCustomerLookupResponse> GetEmailDispatchLogCustomerLookupWithHttpInfo (int storefrontOid, string email = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailDispatchLogCustomerLookup");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/dispatch_logs/customer_lookup";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (email != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "email", email)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailDispatchLogCustomerLookup", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCustomerLookupResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailCustomerLookupResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCustomerLookupResponse)));
+        }
+
+        /// <summary>
+        /// Resolve a customer email to its ESP customer UUID Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant's customer email, or a null uuid when the email is not on file. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="email"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailCustomerLookupResponse</returns>
+        public async System.Threading.Tasks.Task<EmailCustomerLookupResponse> GetEmailDispatchLogCustomerLookupAsync (int storefrontOid, string email = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<EmailCustomerLookupResponse> localVarResponse = await GetEmailDispatchLogCustomerLookupWithHttpInfoAsync(storefrontOid, email, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Resolve a customer email to its ESP customer UUID Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant's customer email, or a null uuid when the email is not on file. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="email"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailCustomerLookupResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailCustomerLookupResponse>> GetEmailDispatchLogCustomerLookupWithHttpInfoAsync (int storefrontOid, string email = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailDispatchLogCustomerLookup");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/dispatch_logs/customer_lookup";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (email != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "email", email)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailDispatchLogCustomerLookup", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCustomerLookupResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailCustomerLookupResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCustomerLookupResponse)));
         }
 
         /// <summary>
@@ -24919,6 +25545,424 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailSmsOrdersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (EmailSmsOrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSmsOrdersResponse)));
+        }
+
+        /// <summary>
+        /// Get the full detail of a single dispatch-log record Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="logDts"> (optional)</param>
+        /// <param name="espCustomerUuid"> (optional)</param>
+        /// <returns>EmailDispatchLogDetailResponse</returns>
+        public EmailDispatchLogDetailResponse GetEmailStepDispatchLogDetail (int storefrontOid, string commseqUuid, string commseqStepUuid, string logDts = default(string), string espCustomerUuid = default(string))
+        {
+             ApiResponse<EmailDispatchLogDetailResponse> localVarResponse = GetEmailStepDispatchLogDetailWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, logDts, espCustomerUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the full detail of a single dispatch-log record Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="logDts"> (optional)</param>
+        /// <param name="espCustomerUuid"> (optional)</param>
+        /// <returns>ApiResponse of EmailDispatchLogDetailResponse</returns>
+        public ApiResponse<EmailDispatchLogDetailResponse> GetEmailStepDispatchLogDetailWithHttpInfo (int storefrontOid, string commseqUuid, string commseqStepUuid, string logDts = default(string), string espCustomerUuid = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailStepDispatchLogDetail");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->GetEmailStepDispatchLogDetail");
+            // verify the required parameter 'commseqStepUuid' is set
+            if (commseqStepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqStepUuid' when calling StorefrontApi->GetEmailStepDispatchLogDetail");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs/detail";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (commseqStepUuid != null) localVarPathParams.Add("commseq_step_uuid", this.Configuration.ApiClient.ParameterToString(commseqStepUuid)); // path parameter
+            if (logDts != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "log_dts", logDts)); // query parameter
+            if (espCustomerUuid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "esp_customer_uuid", espCustomerUuid)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailStepDispatchLogDetail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailDispatchLogDetailResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailDispatchLogDetailResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailDispatchLogDetailResponse)));
+        }
+
+        /// <summary>
+        /// Get the full detail of a single dispatch-log record Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="logDts"> (optional)</param>
+        /// <param name="espCustomerUuid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailDispatchLogDetailResponse</returns>
+        public async System.Threading.Tasks.Task<EmailDispatchLogDetailResponse> GetEmailStepDispatchLogDetailAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string logDts = default(string), string espCustomerUuid = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<EmailDispatchLogDetailResponse> localVarResponse = await GetEmailStepDispatchLogDetailWithHttpInfoAsync(storefrontOid, commseqUuid, commseqStepUuid, logDts, espCustomerUuid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the full detail of a single dispatch-log record Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="logDts"> (optional)</param>
+        /// <param name="espCustomerUuid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailDispatchLogDetailResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogDetailResponse>> GetEmailStepDispatchLogDetailWithHttpInfoAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string logDts = default(string), string espCustomerUuid = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailStepDispatchLogDetail");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->GetEmailStepDispatchLogDetail");
+            // verify the required parameter 'commseqStepUuid' is set
+            if (commseqStepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqStepUuid' when calling StorefrontApi->GetEmailStepDispatchLogDetail");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs/detail";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (commseqStepUuid != null) localVarPathParams.Add("commseq_step_uuid", this.Configuration.ApiClient.ParameterToString(commseqStepUuid)); // path parameter
+            if (logDts != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "log_dts", logDts)); // query parameter
+            if (espCustomerUuid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "esp_customer_uuid", espCustomerUuid)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailStepDispatchLogDetail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailDispatchLogDetailResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailDispatchLogDetailResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailDispatchLogDetailResponse)));
+        }
+
+        /// <summary>
+        /// Get a paginated, date-boundable dispatch-log feed for a step Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <returns>EmailDispatchLogsResponse</returns>
+        public EmailDispatchLogsResponse GetEmailStepDispatchLogs (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?))
+        {
+             ApiResponse<EmailDispatchLogsResponse> localVarResponse = GetEmailStepDispatchLogsWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a paginated, date-boundable dispatch-log feed for a step Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <returns>ApiResponse of EmailDispatchLogsResponse</returns>
+        public ApiResponse<EmailDispatchLogsResponse> GetEmailStepDispatchLogsWithHttpInfo (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailStepDispatchLogs");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->GetEmailStepDispatchLogs");
+            // verify the required parameter 'commseqStepUuid' is set
+            if (commseqStepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqStepUuid' when calling StorefrontApi->GetEmailStepDispatchLogs");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (commseqStepUuid != null) localVarPathParams.Add("commseq_step_uuid", this.Configuration.ApiClient.ParameterToString(commseqStepUuid)); // path parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (pageNumber != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageNumber", pageNumber)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailStepDispatchLogs", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailDispatchLogsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailDispatchLogsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailDispatchLogsResponse)));
+        }
+
+        /// <summary>
+        /// Get a paginated, date-boundable dispatch-log feed for a step Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailDispatchLogsResponse</returns>
+        public async System.Threading.Tasks.Task<EmailDispatchLogsResponse> GetEmailStepDispatchLogsAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<EmailDispatchLogsResponse> localVarResponse = await GetEmailStepDispatchLogsWithHttpInfoAsync(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a paginated, date-boundable dispatch-log feed for a step Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="commseqStepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="pageNumber"> (optional)</param>
+        /// <param name="pageSize"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailDispatchLogsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogsResponse>> GetEmailStepDispatchLogsWithHttpInfoAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailStepDispatchLogs");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->GetEmailStepDispatchLogs");
+            // verify the required parameter 'commseqStepUuid' is set
+            if (commseqStepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqStepUuid' when calling StorefrontApi->GetEmailStepDispatchLogs");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (commseqStepUuid != null) localVarPathParams.Add("commseq_step_uuid", this.Configuration.ApiClient.ParameterToString(commseqStepUuid)); // path parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (pageNumber != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageNumber", pageNumber)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailStepDispatchLogs", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailDispatchLogsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailDispatchLogsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailDispatchLogsResponse)));
         }
 
         /// <summary>

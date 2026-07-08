@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**DeleteTaxProviderSelfCounty**](TaxApi.md#deletetaxproviderselfcounty) | **DELETE** /tax/providers/self/county/{county} | Deletes a Self tax provider county
 [**DeleteTaxProviderSelfPostalCode**](TaxApi.md#deletetaxproviderselfpostalcode) | **DELETE** /tax/providers/self/postalCode/{postal_code} | Deletes a Self tax provider postalCode
 [**DeleteTaxProviderSelfState**](TaxApi.md#deletetaxproviderselfstate) | **DELETE** /tax/providers/self/state/{stateCode} | Deletes a Self tax provider state
+[**GetTaxProviderAnrok**](TaxApi.md#gettaxprovideranrok) | **GET** /tax/providers/anrok | Retrieve the Anrok tax provider
+[**GetTaxProviderAnrokTest**](TaxApi.md#gettaxprovideranroktest) | **GET** /tax/providers/anrok/test | Attempts to connect to Anrok and returns back the response
 [**GetTaxProviderAvalara**](TaxApi.md#gettaxprovideravalara) | **GET** /tax/providers/avalara | Retrieve the Avalara tax provider
 [**GetTaxProviderAvalaraCompanies**](TaxApi.md#gettaxprovideravalaracompanies) | **POST** /tax/providers/avalara/companies | Returns Avalara Tax companies configured by the merchant
 [**GetTaxProviderAvalaraTest**](TaxApi.md#gettaxprovideravalaratest) | **GET** /tax/providers/avalara/test | Attempts to connect to Avalara and returns back the response
@@ -22,6 +24,7 @@ Method | HTTP request | Description
 [**GetTaxProviderUltraCart**](TaxApi.md#gettaxproviderultracart) | **GET** /tax/providers/ultracart | Retrieve the UltraCart tax provider
 [**GetTaxProviders**](TaxApi.md#gettaxproviders) | **GET** /tax/providers | Retrieve tax methods
 [**SetActiveTaxProvider**](TaxApi.md#setactivetaxprovider) | **POST** /tax/providers/setActive/{providerName} | Toggle a tax provider to active
+[**UpdateTaxProviderAnrok**](TaxApi.md#updatetaxprovideranrok) | **POST** /tax/providers/anrok | Update the Anrok tax provider
 [**UpdateTaxProviderAvalara**](TaxApi.md#updatetaxprovideravalara) | **POST** /tax/providers/avalara | Update the Avalara tax provider
 [**UpdateTaxProviderSelf**](TaxApi.md#updatetaxproviderself) | **POST** /tax/providers/self | Update the Self tax provider
 [**UpdateTaxProviderSelfCity**](TaxApi.md#updatetaxproviderselfcity) | **POST** /tax/providers/self/city/{city} | Updates a Self tax provider city
@@ -288,6 +291,104 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTaxProviderAnrok
+
+> TaxProviderAnrok GetTaxProviderAnrok ()
+
+Retrieve the Anrok tax provider
+
+Retrieves the Anrok tax provider. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TaxProviderAnrok**](TaxProviderAnrok.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTaxProviderAnrokTest
+
+> TaxProviderTestResult GetTaxProviderAnrokTest ()
+
+Attempts to connect to Anrok and returns back the response
+
+Attempts to connect to Anrok and returns back the response. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TaxProviderTestResult**](TaxProviderTestResult.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
@@ -945,6 +1046,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateTaxProviderAnrok
+
+> TaxProviderAnrok UpdateTaxProviderAnrok (TaxProviderAnrok taxProviderAnrok)
+
+Update the Anrok tax provider
+
+Update the Anrok tax provider. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **taxProviderAnrok** | [**TaxProviderAnrok**](TaxProviderAnrok.md)| TaxProviderAnrok object | 
+
+### Return type
+
+[**TaxProviderAnrok**](TaxProviderAnrok.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

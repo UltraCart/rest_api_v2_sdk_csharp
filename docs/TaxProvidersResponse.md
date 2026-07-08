@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Anrok** | [**TaxProviderAnrok**](TaxProviderAnrok.md) |  | [optional] 
 **Avalara** | [**TaxProviderAvalara**](TaxProviderAvalara.md) |  | [optional] 
 **Error** | [**Error**](Error.md) |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 

@@ -141,6 +141,44 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteTaxProviderSelfStateWithHttpInfo (string stateCode, TaxState taxState);
         /// <summary>
+        /// Retrieve the Anrok tax provider
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the Anrok tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TaxProviderAnrok</returns>
+        TaxProviderAnrok GetTaxProviderAnrok ();
+
+        /// <summary>
+        /// Retrieve the Anrok tax provider
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the Anrok tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TaxProviderAnrok</returns>
+        ApiResponse<TaxProviderAnrok> GetTaxProviderAnrokWithHttpInfo ();
+        /// <summary>
+        /// Attempts to connect to Anrok and returns back the response
+        /// </summary>
+        /// <remarks>
+        /// Attempts to connect to Anrok and returns back the response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TaxProviderTestResult</returns>
+        TaxProviderTestResult GetTaxProviderAnrokTest ();
+
+        /// <summary>
+        /// Attempts to connect to Anrok and returns back the response
+        /// </summary>
+        /// <remarks>
+        /// Attempts to connect to Anrok and returns back the response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TaxProviderTestResult</returns>
+        ApiResponse<TaxProviderTestResult> GetTaxProviderAnrokTestWithHttpInfo ();
+        /// <summary>
         /// Retrieve the Avalara tax provider
         /// </summary>
         /// <remarks>
@@ -399,6 +437,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="providerName">The tax provider to set active.</param>
         /// <returns>ApiResponse of TaxProviderActivateResult</returns>
         ApiResponse<TaxProviderActivateResult> SetActiveTaxProviderWithHttpInfo (string providerName);
+        /// <summary>
+        /// Update the Anrok tax provider
+        /// </summary>
+        /// <remarks>
+        /// Update the Anrok tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderAnrok">TaxProviderAnrok object</param>
+        /// <returns>TaxProviderAnrok</returns>
+        TaxProviderAnrok UpdateTaxProviderAnrok (TaxProviderAnrok taxProviderAnrok);
+
+        /// <summary>
+        /// Update the Anrok tax provider
+        /// </summary>
+        /// <remarks>
+        /// Update the Anrok tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderAnrok">TaxProviderAnrok object</param>
+        /// <returns>ApiResponse of TaxProviderAnrok</returns>
+        ApiResponse<TaxProviderAnrok> UpdateTaxProviderAnrokWithHttpInfo (TaxProviderAnrok taxProviderAnrok);
         /// <summary>
         /// Update the Avalara tax provider
         /// </summary>
@@ -747,6 +806,48 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteTaxProviderSelfStateWithHttpInfoAsync (string stateCode, TaxState taxState, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Retrieve the Anrok tax provider
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the Anrok tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of TaxProviderAnrok</returns>
+        System.Threading.Tasks.Task<TaxProviderAnrok> GetTaxProviderAnrokAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve the Anrok tax provider
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the Anrok tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (TaxProviderAnrok)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaxProviderAnrok>> GetTaxProviderAnrokWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Attempts to connect to Anrok and returns back the response
+        /// </summary>
+        /// <remarks>
+        /// Attempts to connect to Anrok and returns back the response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of TaxProviderTestResult</returns>
+        System.Threading.Tasks.Task<TaxProviderTestResult> GetTaxProviderAnrokTestAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Attempts to connect to Anrok and returns back the response
+        /// </summary>
+        /// <remarks>
+        /// Attempts to connect to Anrok and returns back the response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (TaxProviderTestResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaxProviderTestResult>> GetTaxProviderAnrokTestWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Retrieve the Avalara tax provider
         /// </summary>
         /// <remarks>
@@ -1031,6 +1132,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (TaxProviderActivateResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<TaxProviderActivateResult>> SetActiveTaxProviderWithHttpInfoAsync (string providerName, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update the Anrok tax provider
+        /// </summary>
+        /// <remarks>
+        /// Update the Anrok tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderAnrok">TaxProviderAnrok object</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of TaxProviderAnrok</returns>
+        System.Threading.Tasks.Task<TaxProviderAnrok> UpdateTaxProviderAnrokAsync (TaxProviderAnrok taxProviderAnrok, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update the Anrok tax provider
+        /// </summary>
+        /// <remarks>
+        /// Update the Anrok tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderAnrok">TaxProviderAnrok object</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (TaxProviderAnrok)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaxProviderAnrok>> UpdateTaxProviderAnrokWithHttpInfoAsync (TaxProviderAnrok taxProviderAnrok, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update the Avalara tax provider
         /// </summary>
@@ -2313,6 +2437,296 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Retrieve the Anrok tax provider Retrieves the Anrok tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TaxProviderAnrok</returns>
+        public TaxProviderAnrok GetTaxProviderAnrok ()
+        {
+             ApiResponse<TaxProviderAnrok> localVarResponse = GetTaxProviderAnrokWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve the Anrok tax provider Retrieves the Anrok tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TaxProviderAnrok</returns>
+        public ApiResponse<TaxProviderAnrok> GetTaxProviderAnrokWithHttpInfo ()
+        {
+
+            var localVarPath = "/tax/providers/anrok";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTaxProviderAnrok", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TaxProviderAnrok>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TaxProviderAnrok) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderAnrok)));
+        }
+
+        /// <summary>
+        /// Retrieve the Anrok tax provider Retrieves the Anrok tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of TaxProviderAnrok</returns>
+        public async System.Threading.Tasks.Task<TaxProviderAnrok> GetTaxProviderAnrokAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<TaxProviderAnrok> localVarResponse = await GetTaxProviderAnrokWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve the Anrok tax provider Retrieves the Anrok tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (TaxProviderAnrok)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TaxProviderAnrok>> GetTaxProviderAnrokWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/tax/providers/anrok";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTaxProviderAnrok", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TaxProviderAnrok>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TaxProviderAnrok) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderAnrok)));
+        }
+
+        /// <summary>
+        /// Attempts to connect to Anrok and returns back the response Attempts to connect to Anrok and returns back the response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TaxProviderTestResult</returns>
+        public TaxProviderTestResult GetTaxProviderAnrokTest ()
+        {
+             ApiResponse<TaxProviderTestResult> localVarResponse = GetTaxProviderAnrokTestWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Attempts to connect to Anrok and returns back the response Attempts to connect to Anrok and returns back the response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TaxProviderTestResult</returns>
+        public ApiResponse<TaxProviderTestResult> GetTaxProviderAnrokTestWithHttpInfo ()
+        {
+
+            var localVarPath = "/tax/providers/anrok/test";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTaxProviderAnrokTest", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TaxProviderTestResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TaxProviderTestResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderTestResult)));
+        }
+
+        /// <summary>
+        /// Attempts to connect to Anrok and returns back the response Attempts to connect to Anrok and returns back the response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of TaxProviderTestResult</returns>
+        public async System.Threading.Tasks.Task<TaxProviderTestResult> GetTaxProviderAnrokTestAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<TaxProviderTestResult> localVarResponse = await GetTaxProviderAnrokTestWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Attempts to connect to Anrok and returns back the response Attempts to connect to Anrok and returns back the response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (TaxProviderTestResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TaxProviderTestResult>> GetTaxProviderAnrokTestWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/tax/providers/anrok/test";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTaxProviderAnrokTest", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TaxProviderTestResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TaxProviderTestResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderTestResult)));
         }
 
         /// <summary>
@@ -4268,6 +4682,179 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<TaxProviderActivateResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (TaxProviderActivateResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderActivateResult)));
+        }
+
+        /// <summary>
+        /// Update the Anrok tax provider Update the Anrok tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderAnrok">TaxProviderAnrok object</param>
+        /// <returns>TaxProviderAnrok</returns>
+        public TaxProviderAnrok UpdateTaxProviderAnrok (TaxProviderAnrok taxProviderAnrok)
+        {
+             ApiResponse<TaxProviderAnrok> localVarResponse = UpdateTaxProviderAnrokWithHttpInfo(taxProviderAnrok);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update the Anrok tax provider Update the Anrok tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderAnrok">TaxProviderAnrok object</param>
+        /// <returns>ApiResponse of TaxProviderAnrok</returns>
+        public ApiResponse<TaxProviderAnrok> UpdateTaxProviderAnrokWithHttpInfo (TaxProviderAnrok taxProviderAnrok)
+        {
+            // verify the required parameter 'taxProviderAnrok' is set
+            if (taxProviderAnrok == null)
+                throw new ApiException(400, "Missing required parameter 'taxProviderAnrok' when calling TaxApi->UpdateTaxProviderAnrok");
+
+            var localVarPath = "/tax/providers/anrok";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (taxProviderAnrok != null && taxProviderAnrok.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(taxProviderAnrok); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = taxProviderAnrok; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateTaxProviderAnrok", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TaxProviderAnrok>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TaxProviderAnrok) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderAnrok)));
+        }
+
+        /// <summary>
+        /// Update the Anrok tax provider Update the Anrok tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderAnrok">TaxProviderAnrok object</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of TaxProviderAnrok</returns>
+        public async System.Threading.Tasks.Task<TaxProviderAnrok> UpdateTaxProviderAnrokAsync (TaxProviderAnrok taxProviderAnrok, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<TaxProviderAnrok> localVarResponse = await UpdateTaxProviderAnrokWithHttpInfoAsync(taxProviderAnrok, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update the Anrok tax provider Update the Anrok tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderAnrok">TaxProviderAnrok object</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (TaxProviderAnrok)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TaxProviderAnrok>> UpdateTaxProviderAnrokWithHttpInfoAsync (TaxProviderAnrok taxProviderAnrok, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'taxProviderAnrok' is set
+            if (taxProviderAnrok == null)
+                throw new ApiException(400, "Missing required parameter 'taxProviderAnrok' when calling TaxApi->UpdateTaxProviderAnrok");
+
+            var localVarPath = "/tax/providers/anrok";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (taxProviderAnrok != null && taxProviderAnrok.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(taxProviderAnrok); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = taxProviderAnrok; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateTaxProviderAnrok", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TaxProviderAnrok>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TaxProviderAnrok) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderAnrok)));
         }
 
         /// <summary>

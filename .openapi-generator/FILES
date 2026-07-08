@@ -32,6 +32,7 @@ docs/AffiliateResponse.md
 docs/AffiliateTierRelationship.md
 docs/AffiliatesResponse.md
 docs/AgentSummary.md
+docs/AnrokConfig.md
 docs/ApiUserApplicationProfile.md
 docs/ApplyLibraryItemRequest.md
 docs/ApplyLibraryItemResponse.md
@@ -981,6 +982,7 @@ docs/TaxCounty.md
 docs/TaxJarConfig.md
 docs/TaxPostalCode.md
 docs/TaxProviderActivateResult.md
+docs/TaxProviderAnrok.md
 docs/TaxProviderAvalara.md
 docs/TaxProviderAvalaraCompaniesResult.md
 docs/TaxProviderAvalaraCompany.md
@@ -1113,6 +1115,7 @@ src/com.ultracart.admin.v2/Model/AffiliateResponse.cs
 src/com.ultracart.admin.v2/Model/AffiliateTierRelationship.cs
 src/com.ultracart.admin.v2/Model/AffiliatesResponse.cs
 src/com.ultracart.admin.v2/Model/AgentSummary.cs
+src/com.ultracart.admin.v2/Model/AnrokConfig.cs
 src/com.ultracart.admin.v2/Model/ApiUserApplicationProfile.cs
 src/com.ultracart.admin.v2/Model/ApplyLibraryItemRequest.cs
 src/com.ultracart.admin.v2/Model/ApplyLibraryItemResponse.cs
@@ -2043,6 +2046,7 @@ src/com.ultracart.admin.v2/Model/TaxCounty.cs
 src/com.ultracart.admin.v2/Model/TaxJarConfig.cs
 src/com.ultracart.admin.v2/Model/TaxPostalCode.cs
 src/com.ultracart.admin.v2/Model/TaxProviderActivateResult.cs
+src/com.ultracart.admin.v2/Model/TaxProviderAnrok.cs
 src/com.ultracart.admin.v2/Model/TaxProviderAvalara.cs
 src/com.ultracart.admin.v2/Model/TaxProviderAvalaraCompaniesResult.cs
 src/com.ultracart.admin.v2/Model/TaxProviderAvalaraCompany.cs

@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxProvidersResponse" /> class.
         /// </summary>
+        /// <param name="anrok">anrok.</param>
         /// <param name="avalara">avalara.</param>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
@@ -42,8 +43,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="taxjar">taxjar.</param>
         /// <param name="ultracart">ultracart.</param>
         /// <param name="warning">warning.</param>
-        public TaxProvidersResponse(TaxProviderAvalara avalara = default(TaxProviderAvalara), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), TaxProviderSelf self = default(TaxProviderSelf), TaxProviderSovos sovos = default(TaxProviderSovos), bool success = default(bool), TaxProviderTaxJar taxjar = default(TaxProviderTaxJar), TaxProviderUltraCart ultracart = default(TaxProviderUltraCart), Warning warning = default(Warning))
+        public TaxProvidersResponse(TaxProviderAnrok anrok = default(TaxProviderAnrok), TaxProviderAvalara avalara = default(TaxProviderAvalara), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), TaxProviderSelf self = default(TaxProviderSelf), TaxProviderSovos sovos = default(TaxProviderSovos), bool success = default(bool), TaxProviderTaxJar taxjar = default(TaxProviderTaxJar), TaxProviderUltraCart ultracart = default(TaxProviderUltraCart), Warning warning = default(Warning))
         {
+            this.Anrok = anrok;
             this.Avalara = avalara;
             this.Error = error;
             this.Metadata = metadata;
@@ -54,6 +56,12 @@ namespace com.ultracart.admin.v2.Model
             this.Ultracart = ultracart;
             this.Warning = warning;
         }
+
+        /// <summary>
+        /// Gets or Sets Anrok
+        /// </summary>
+        [DataMember(Name="anrok", EmitDefaultValue=false)]
+        public TaxProviderAnrok Anrok { get; set; }
 
         /// <summary>
         /// Gets or Sets Avalara
@@ -118,6 +126,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TaxProvidersResponse {\n");
+            sb.Append("  Anrok: ").Append(Anrok).Append("\n");
             sb.Append("  Avalara: ").Append(Avalara).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
@@ -161,6 +170,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.Anrok == input.Anrok ||
+                    (this.Anrok != null &&
+                    this.Anrok.Equals(input.Anrok))
+                ) && 
                 (
                     this.Avalara == input.Avalara ||
                     (this.Avalara != null &&
@@ -217,6 +231,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Anrok != null)
+                    hashCode = hashCode * 59 + this.Anrok.GetHashCode();
                 if (this.Avalara != null)
                     hashCode = hashCode * 59 + this.Avalara.GetHashCode();
                 if (this.Error != null)

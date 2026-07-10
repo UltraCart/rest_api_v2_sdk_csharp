@@ -444,6 +444,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CustomerMagicLinkResponse</returns>
         ApiResponse<CustomerMagicLinkResponse> GetMagicLinkWithHttpInfo (int customerProfileOid, string storefrontHostName);
         /// <summary>
+        /// Search the merchant's QuickBooks Online customers
+        /// </summary>
+        /// <remarks>
+        /// Typeahead search of the merchant's QuickBooks Online customers by display name.  Used by the customer profile editor to link a profile 1:1 to a QuickBooks Online customer.  Returns up to 100 matches.  If QuickBooks Online is not connected the list will be empty. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query matched against the QuickBooks Online customer display name (optional)</param>
+        /// <returns>QuickBooksOnlineCustomersResponse</returns>
+        QuickBooksOnlineCustomersResponse GetQuickBooksOnlineCustomers (string q = default(string));
+
+        /// <summary>
+        /// Search the merchant's QuickBooks Online customers
+        /// </summary>
+        /// <remarks>
+        /// Typeahead search of the merchant's QuickBooks Online customers by display name.  Used by the customer profile editor to link a profile 1:1 to a QuickBooks Online customer.  Returns up to 100 matches.  If QuickBooks Online is not connected the list will be empty. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query matched against the QuickBooks Online customer display name (optional)</param>
+        /// <returns>ApiResponse of QuickBooksOnlineCustomersResponse</returns>
+        ApiResponse<QuickBooksOnlineCustomersResponse> GetQuickBooksOnlineCustomersWithHttpInfo (string q = default(string));
+        /// <summary>
         /// Insert a customer
         /// </summary>
         /// <remarks>
@@ -1116,6 +1137,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CustomerMagicLinkResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerMagicLinkResponse>> GetMagicLinkWithHttpInfoAsync (int customerProfileOid, string storefrontHostName, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Search the merchant's QuickBooks Online customers
+        /// </summary>
+        /// <remarks>
+        /// Typeahead search of the merchant's QuickBooks Online customers by display name.  Used by the customer profile editor to link a profile 1:1 to a QuickBooks Online customer.  Returns up to 100 matches.  If QuickBooks Online is not connected the list will be empty. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query matched against the QuickBooks Online customer display name (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of QuickBooksOnlineCustomersResponse</returns>
+        System.Threading.Tasks.Task<QuickBooksOnlineCustomersResponse> GetQuickBooksOnlineCustomersAsync (string q = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Search the merchant&#39;s QuickBooks Online customers
+        /// </summary>
+        /// <remarks>
+        /// Typeahead search of the merchant's QuickBooks Online customers by display name.  Used by the customer profile editor to link a profile 1:1 to a QuickBooks Online customer.  Returns up to 100 matches.  If QuickBooks Online is not connected the list will be empty. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query matched against the QuickBooks Online customer display name (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (QuickBooksOnlineCustomersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<QuickBooksOnlineCustomersResponse>> GetQuickBooksOnlineCustomersWithHttpInfoAsync (string q = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Insert a customer
         /// </summary>
@@ -4306,6 +4350,157 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomerMagicLinkResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CustomerMagicLinkResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerMagicLinkResponse)));
+        }
+
+        /// <summary>
+        /// Search the merchant's QuickBooks Online customers Typeahead search of the merchant's QuickBooks Online customers by display name.  Used by the customer profile editor to link a profile 1:1 to a QuickBooks Online customer.  Returns up to 100 matches.  If QuickBooks Online is not connected the list will be empty. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query matched against the QuickBooks Online customer display name (optional)</param>
+        /// <returns>QuickBooksOnlineCustomersResponse</returns>
+        public QuickBooksOnlineCustomersResponse GetQuickBooksOnlineCustomers (string q = default(string))
+        {
+             ApiResponse<QuickBooksOnlineCustomersResponse> localVarResponse = GetQuickBooksOnlineCustomersWithHttpInfo(q);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search the merchant's QuickBooks Online customers Typeahead search of the merchant's QuickBooks Online customers by display name.  Used by the customer profile editor to link a profile 1:1 to a QuickBooks Online customer.  Returns up to 100 matches.  If QuickBooks Online is not connected the list will be empty. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query matched against the QuickBooks Online customer display name (optional)</param>
+        /// <returns>ApiResponse of QuickBooksOnlineCustomersResponse</returns>
+        public ApiResponse<QuickBooksOnlineCustomersResponse> GetQuickBooksOnlineCustomersWithHttpInfo (string q = default(string))
+        {
+
+            var localVarPath = "/customer/quickbooks_online/customers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (q != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "q", q)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetQuickBooksOnlineCustomers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<QuickBooksOnlineCustomersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (QuickBooksOnlineCustomersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(QuickBooksOnlineCustomersResponse)));
+        }
+
+        /// <summary>
+        /// Search the merchant's QuickBooks Online customers Typeahead search of the merchant's QuickBooks Online customers by display name.  Used by the customer profile editor to link a profile 1:1 to a QuickBooks Online customer.  Returns up to 100 matches.  If QuickBooks Online is not connected the list will be empty. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query matched against the QuickBooks Online customer display name (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of QuickBooksOnlineCustomersResponse</returns>
+        public async System.Threading.Tasks.Task<QuickBooksOnlineCustomersResponse> GetQuickBooksOnlineCustomersAsync (string q = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<QuickBooksOnlineCustomersResponse> localVarResponse = await GetQuickBooksOnlineCustomersWithHttpInfoAsync(q, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Search the merchant's QuickBooks Online customers Typeahead search of the merchant's QuickBooks Online customers by display name.  Used by the customer profile editor to link a profile 1:1 to a QuickBooks Online customer.  Returns up to 100 matches.  If QuickBooks Online is not connected the list will be empty. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query matched against the QuickBooks Online customer display name (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (QuickBooksOnlineCustomersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<QuickBooksOnlineCustomersResponse>> GetQuickBooksOnlineCustomersWithHttpInfoAsync (string q = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/customer/quickbooks_online/customers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (q != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "q", q)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetQuickBooksOnlineCustomers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<QuickBooksOnlineCustomersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (QuickBooksOnlineCustomersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(QuickBooksOnlineCustomersResponse)));
         }
 
         /// <summary>

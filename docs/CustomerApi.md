@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**GetCustomersForDataTables**](CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**GetEmailVerificationToken**](CustomerApi.md#getemailverificationtoken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 [**GetMagicLink**](CustomerApi.md#getmagiclink) | **PUT** /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name} | getMagicLink
+[**GetQuickBooksOnlineCustomers**](CustomerApi.md#getquickbooksonlinecustomers) | **GET** /customer/quickbooks_online/customers | Search the merchant&#39;s QuickBooks Online customers
 [**InsertCustomer**](CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 [**InsertWishListItem**](CustomerApi.md#insertwishlistitem) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item
 [**MergeCustomer**](CustomerApi.md#mergecustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
@@ -1689,6 +1690,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomerMagicLinkResponse**](CustomerMagicLinkResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetQuickBooksOnlineCustomers
+
+> QuickBooksOnlineCustomersResponse GetQuickBooksOnlineCustomers (string q = null)
+
+Search the merchant's QuickBooks Online customers
+
+Typeahead search of the merchant's QuickBooks Online customers by display name.  Used by the customer profile editor to link a profile 1:1 to a QuickBooks Online customer.  Returns up to 100 matches.  If QuickBooks Online is not connected the list will be empty. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **q** | **string**| Search query matched against the QuickBooks Online customer display name | [optional] 
+
+### Return type
+
+[**QuickBooksOnlineCustomersResponse**](QuickBooksOnlineCustomersResponse.md)
 
 ### Authorization
 

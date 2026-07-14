@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **AddConversationParticipantArns** | **List&lt;string&gt;** |  | [optional] 
 **ConversationArn** | **string** |  | [optional] 
 **ConversationWebchatQueueUuid** | **string** |  | [optional] 
+**ResolveOnly** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

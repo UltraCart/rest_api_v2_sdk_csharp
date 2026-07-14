@@ -36,11 +36,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="addConversationParticipantArns">addConversationParticipantArns.</param>
         /// <param name="conversationArn">conversationArn.</param>
         /// <param name="conversationWebchatQueueUuid">conversationWebchatQueueUuid.</param>
-        public ConversationStartRequest(List<string> addConversationParticipantArns = default(List<string>), string conversationArn = default(string), string conversationWebchatQueueUuid = default(string))
+        /// <param name="resolveOnly">resolveOnly.</param>
+        public ConversationStartRequest(List<string> addConversationParticipantArns = default(List<string>), string conversationArn = default(string), string conversationWebchatQueueUuid = default(string), bool resolveOnly = default(bool))
         {
             this.AddConversationParticipantArns = addConversationParticipantArns;
             this.ConversationArn = conversationArn;
             this.ConversationWebchatQueueUuid = conversationWebchatQueueUuid;
+            this.ResolveOnly = resolveOnly;
         }
 
         /// <summary>
@@ -62,6 +64,12 @@ namespace com.ultracart.admin.v2.Model
         public string ConversationWebchatQueueUuid { get; set; }
 
         /// <summary>
+        /// Gets or Sets ResolveOnly
+        /// </summary>
+        [DataMember(Name="resolve_only", EmitDefaultValue=false)]
+        public bool ResolveOnly { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +80,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AddConversationParticipantArns: ").Append(AddConversationParticipantArns).Append("\n");
             sb.Append("  ConversationArn: ").Append(ConversationArn).Append("\n");
             sb.Append("  ConversationWebchatQueueUuid: ").Append(ConversationWebchatQueueUuid).Append("\n");
+            sb.Append("  ResolveOnly: ").Append(ResolveOnly).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,6 +130,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationWebchatQueueUuid == input.ConversationWebchatQueueUuid ||
                     (this.ConversationWebchatQueueUuid != null &&
                     this.ConversationWebchatQueueUuid.Equals(input.ConversationWebchatQueueUuid))
+                ) && 
+                (
+                    this.ResolveOnly == input.ResolveOnly ||
+                    (this.ResolveOnly != null &&
+                    this.ResolveOnly.Equals(input.ResolveOnly))
                 );
         }
 
@@ -139,6 +153,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationArn.GetHashCode();
                 if (this.ConversationWebchatQueueUuid != null)
                     hashCode = hashCode * 59 + this.ConversationWebchatQueueUuid.GetHashCode();
+                if (this.ResolveOnly != null)
+                    hashCode = hashCode * 59 + this.ResolveOnly.GetHashCode();
                 return hashCode;
             }
         }

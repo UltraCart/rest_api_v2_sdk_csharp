@@ -1227,8 +1227,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
         /// <param name="scanForward"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <returns>EmailDispatchLogsResponse</returns>
-        EmailDispatchLogsResponse GetEmailCustomerDispatchLogs (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?));
+        EmailDispatchLogsResponse GetEmailCustomerDispatchLogs (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), bool? includeDetail = default(bool?));
 
         /// <summary>
         /// Get a customer's dispatch-log journey across all flows/campaigns
@@ -1244,8 +1245,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
         /// <param name="scanForward"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <returns>ApiResponse of EmailDispatchLogsResponse</returns>
-        ApiResponse<EmailDispatchLogsResponse> GetEmailCustomerDispatchLogsWithHttpInfo (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?));
+        ApiResponse<EmailDispatchLogsResponse> GetEmailCustomerDispatchLogsWithHttpInfo (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), bool? includeDetail = default(bool?));
         /// <summary>
         /// Get customers editor URL
         /// </summary>
@@ -2157,7 +2159,7 @@ namespace com.ultracart.admin.v2.Api
         /// Get a paginated, date-boundable dispatch-log feed for a step
         /// </summary>
         /// <remarks>
-        /// Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -2167,14 +2169,15 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="until"> (optional)</param>
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <returns>EmailDispatchLogsResponse</returns>
-        EmailDispatchLogsResponse GetEmailStepDispatchLogs (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?));
+        EmailDispatchLogsResponse GetEmailStepDispatchLogs (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? includeDetail = default(bool?));
 
         /// <summary>
         /// Get a paginated, date-boundable dispatch-log feed for a step
         /// </summary>
         /// <remarks>
-        /// Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -2184,8 +2187,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="until"> (optional)</param>
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <returns>ApiResponse of EmailDispatchLogsResponse</returns>
-        ApiResponse<EmailDispatchLogsResponse> GetEmailStepDispatchLogsWithHttpInfo (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?));
+        ApiResponse<EmailDispatchLogsResponse> GetEmailStepDispatchLogsWithHttpInfo (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? includeDetail = default(bool?));
         /// <summary>
         /// Get email template
         /// </summary>
@@ -5651,9 +5655,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
         /// <param name="scanForward"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of EmailDispatchLogsResponse</returns>
-        System.Threading.Tasks.Task<EmailDispatchLogsResponse> GetEmailCustomerDispatchLogsAsync (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<EmailDispatchLogsResponse> GetEmailCustomerDispatchLogsAsync (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), bool? includeDetail = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get a customer&#39;s dispatch-log journey across all flows/campaigns
@@ -5669,9 +5674,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
         /// <param name="scanForward"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailDispatchLogsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogsResponse>> GetEmailCustomerDispatchLogsWithHttpInfoAsync (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogsResponse>> GetEmailCustomerDispatchLogsWithHttpInfoAsync (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), bool? includeDetail = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get customers editor URL
         /// </summary>
@@ -6661,7 +6667,7 @@ namespace com.ultracart.admin.v2.Api
         /// Get a paginated, date-boundable dispatch-log feed for a step
         /// </summary>
         /// <remarks>
-        /// Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -6671,15 +6677,16 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="until"> (optional)</param>
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of EmailDispatchLogsResponse</returns>
-        System.Threading.Tasks.Task<EmailDispatchLogsResponse> GetEmailStepDispatchLogsAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<EmailDispatchLogsResponse> GetEmailStepDispatchLogsAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? includeDetail = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get a paginated, date-boundable dispatch-log feed for a step
         /// </summary>
         /// <remarks>
-        /// Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -6689,9 +6696,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="until"> (optional)</param>
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailDispatchLogsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogsResponse>> GetEmailStepDispatchLogsWithHttpInfoAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogsResponse>> GetEmailStepDispatchLogsWithHttpInfoAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? includeDetail = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get email template
         /// </summary>
@@ -18569,10 +18577,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
         /// <param name="scanForward"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <returns>EmailDispatchLogsResponse</returns>
-        public EmailDispatchLogsResponse GetEmailCustomerDispatchLogs (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?))
+        public EmailDispatchLogsResponse GetEmailCustomerDispatchLogs (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), bool? includeDetail = default(bool?))
         {
-             ApiResponse<EmailDispatchLogsResponse> localVarResponse = GetEmailCustomerDispatchLogsWithHttpInfo(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward);
+             ApiResponse<EmailDispatchLogsResponse> localVarResponse = GetEmailCustomerDispatchLogsWithHttpInfo(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, includeDetail);
              return localVarResponse.Data;
         }
 
@@ -18587,8 +18596,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
         /// <param name="scanForward"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <returns>ApiResponse of EmailDispatchLogsResponse</returns>
-        public ApiResponse<EmailDispatchLogsResponse> GetEmailCustomerDispatchLogsWithHttpInfo (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?))
+        public ApiResponse<EmailDispatchLogsResponse> GetEmailCustomerDispatchLogsWithHttpInfo (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), bool? includeDetail = default(bool?))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -18625,6 +18635,7 @@ namespace com.ultracart.admin.v2.Api
             if (pageNumber != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageNumber", pageNumber)); // query parameter
             if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
             if (scanForward != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scanForward", scanForward)); // query parameter
+            if (includeDetail != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeDetail", includeDetail)); // query parameter
 
             // authentication (ultraCartBrowserApiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
@@ -18672,11 +18683,12 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
         /// <param name="scanForward"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of EmailDispatchLogsResponse</returns>
-        public async System.Threading.Tasks.Task<EmailDispatchLogsResponse> GetEmailCustomerDispatchLogsAsync (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<EmailDispatchLogsResponse> GetEmailCustomerDispatchLogsAsync (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), bool? includeDetail = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<EmailDispatchLogsResponse> localVarResponse = await GetEmailCustomerDispatchLogsWithHttpInfoAsync(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, cancellationToken);
+             ApiResponse<EmailDispatchLogsResponse> localVarResponse = await GetEmailCustomerDispatchLogsWithHttpInfoAsync(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, includeDetail, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -18692,9 +18704,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
         /// <param name="scanForward"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailDispatchLogsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogsResponse>> GetEmailCustomerDispatchLogsWithHttpInfoAsync (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogsResponse>> GetEmailCustomerDispatchLogsWithHttpInfoAsync (int storefrontOid, string emailCustomerUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? scanForward = default(bool?), bool? includeDetail = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -18731,6 +18744,7 @@ namespace com.ultracart.admin.v2.Api
             if (pageNumber != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageNumber", pageNumber)); // query parameter
             if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
             if (scanForward != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scanForward", scanForward)); // query parameter
+            if (includeDetail != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeDetail", includeDetail)); // query parameter
 
             // authentication (ultraCartBrowserApiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
@@ -25751,7 +25765,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get a paginated, date-boundable dispatch-log feed for a step Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// Get a paginated, date-boundable dispatch-log feed for a step Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -25761,15 +25775,16 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="until"> (optional)</param>
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <returns>EmailDispatchLogsResponse</returns>
-        public EmailDispatchLogsResponse GetEmailStepDispatchLogs (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?))
+        public EmailDispatchLogsResponse GetEmailStepDispatchLogs (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? includeDetail = default(bool?))
         {
-             ApiResponse<EmailDispatchLogsResponse> localVarResponse = GetEmailStepDispatchLogsWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize);
+             ApiResponse<EmailDispatchLogsResponse> localVarResponse = GetEmailStepDispatchLogsWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, includeDetail);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a paginated, date-boundable dispatch-log feed for a step Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// Get a paginated, date-boundable dispatch-log feed for a step Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -25779,8 +25794,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="until"> (optional)</param>
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <returns>ApiResponse of EmailDispatchLogsResponse</returns>
-        public ApiResponse<EmailDispatchLogsResponse> GetEmailStepDispatchLogsWithHttpInfo (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?))
+        public ApiResponse<EmailDispatchLogsResponse> GetEmailStepDispatchLogsWithHttpInfo (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? includeDetail = default(bool?))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -25820,6 +25836,7 @@ namespace com.ultracart.admin.v2.Api
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
             if (pageNumber != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageNumber", pageNumber)); // query parameter
             if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (includeDetail != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeDetail", includeDetail)); // query parameter
 
             // authentication (ultraCartBrowserApiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
@@ -25857,7 +25874,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get a paginated, date-boundable dispatch-log feed for a step Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// Get a paginated, date-boundable dispatch-log feed for a step Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -25867,17 +25884,18 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="until"> (optional)</param>
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of EmailDispatchLogsResponse</returns>
-        public async System.Threading.Tasks.Task<EmailDispatchLogsResponse> GetEmailStepDispatchLogsAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<EmailDispatchLogsResponse> GetEmailStepDispatchLogsAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? includeDetail = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<EmailDispatchLogsResponse> localVarResponse = await GetEmailStepDispatchLogsWithHttpInfoAsync(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, cancellationToken);
+             ApiResponse<EmailDispatchLogsResponse> localVarResponse = await GetEmailStepDispatchLogsWithHttpInfoAsync(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, includeDetail, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a paginated, date-boundable dispatch-log feed for a step Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+        /// Get a paginated, date-boundable dispatch-log feed for a step Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -25887,9 +25905,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="until"> (optional)</param>
         /// <param name="pageNumber"> (optional)</param>
         /// <param name="pageSize"> (optional)</param>
+        /// <param name="includeDetail"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailDispatchLogsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogsResponse>> GetEmailStepDispatchLogsWithHttpInfoAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<EmailDispatchLogsResponse>> GetEmailStepDispatchLogsWithHttpInfoAsync (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = default(string), string until = default(string), int? pageNumber = default(int?), int? pageSize = default(int?), bool? includeDetail = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -25929,6 +25948,7 @@ namespace com.ultracart.admin.v2.Api
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
             if (pageNumber != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageNumber", pageNumber)); // query parameter
             if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (includeDetail != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeDetail", includeDetail)); // query parameter
 
             // authentication (ultraCartBrowserApiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))

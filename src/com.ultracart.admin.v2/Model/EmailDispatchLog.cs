@@ -33,19 +33,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailDispatchLog" /> class.
         /// </summary>
+        /// <param name="detail">Dispatch detail text (free-form log of how the customer moved through the step).</param>
         /// <param name="email">Customer email, resolved from the customer UUID for the page.</param>
         /// <param name="espCommseqStepUuid">Communication sequence step UUID.</param>
         /// <param name="espCommseqUuid">Communication sequence (flow/campaign) UUID.</param>
         /// <param name="espCustomerUuid">ESP customer UUID.</param>
         /// <param name="logDts">Log date/time (ISO-8601).</param>
-        public EmailDispatchLog(string email = default(string), string espCommseqStepUuid = default(string), string espCommseqUuid = default(string), string espCustomerUuid = default(string), string logDts = default(string))
+        public EmailDispatchLog(string detail = default(string), string email = default(string), string espCommseqStepUuid = default(string), string espCommseqUuid = default(string), string espCustomerUuid = default(string), string logDts = default(string))
         {
+            this.Detail = detail;
             this.Email = email;
             this.EspCommseqStepUuid = espCommseqStepUuid;
             this.EspCommseqUuid = espCommseqUuid;
             this.EspCustomerUuid = espCustomerUuid;
             this.LogDts = logDts;
         }
+
+        /// <summary>
+        /// Dispatch detail text (free-form log of how the customer moved through the step)
+        /// </summary>
+        /// <value>Dispatch detail text (free-form log of how the customer moved through the step)</value>
+        [DataMember(Name="detail", EmitDefaultValue=false)]
+        public string Detail { get; set; }
 
         /// <summary>
         /// Customer email, resolved from the customer UUID for the page
@@ -90,6 +99,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class EmailDispatchLog {\n");
+            sb.Append("  Detail: ").Append(Detail).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  EspCommseqStepUuid: ").Append(EspCommseqStepUuid).Append("\n");
             sb.Append("  EspCommseqUuid: ").Append(EspCommseqUuid).Append("\n");
@@ -130,6 +140,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Detail == input.Detail ||
+                    (this.Detail != null &&
+                    this.Detail.Equals(input.Detail))
+                ) && 
+                (
                     this.Email == input.Email ||
                     (this.Email != null &&
                     this.Email.Equals(input.Email))
@@ -165,6 +180,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Detail != null)
+                    hashCode = hashCode * 59 + this.Detail.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.EspCommseqStepUuid != null)

@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Detail** | **string** | Dispatch detail text (free-form log of how the customer moved through the step) | [optional] 
 **Email** | **string** | Customer email, resolved from the customer UUID for the page | [optional] 
 **EspCommseqStepUuid** | **string** | Communication sequence step UUID | [optional] 
 **EspCommseqUuid** | **string** | Communication sequence (flow/campaign) UUID | [optional] 

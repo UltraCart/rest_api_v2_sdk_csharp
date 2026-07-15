@@ -2894,7 +2894,7 @@ Name | Type | Description  | Notes
 
 ## GetEmailCustomerDispatchLogs
 
-> EmailDispatchLogsResponse GetEmailCustomerDispatchLogs (int storefrontOid, string emailCustomerUuid, string since = null, string until = null, int? pageNumber = null, int? pageSize = null, bool? scanForward = null)
+> EmailDispatchLogsResponse GetEmailCustomerDispatchLogs (int storefrontOid, string emailCustomerUuid, string since = null, string until = null, int? pageNumber = null, int? pageSize = null, bool? scanForward = null, bool? includeDetail = null)
 
 Get a customer's dispatch-log journey across all flows/campaigns
 
@@ -2919,6 +2919,7 @@ Name | Type | Description  | Notes
  **pageNumber** | **int?**|  | [optional] 
  **pageSize** | **int?**|  | [optional] 
  **scanForward** | **bool?**|  | [optional] 
+ **includeDetail** | **bool?**|  | [optional] 
 
 ### Return type
 
@@ -5064,11 +5065,11 @@ Name | Type | Description  | Notes
 
 ## GetEmailStepDispatchLogs
 
-> EmailDispatchLogsResponse GetEmailStepDispatchLogs (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = null, string until = null, int? pageNumber = null, int? pageSize = null)
+> EmailDispatchLogsResponse GetEmailStepDispatchLogs (int storefrontOid, string commseqUuid, string commseqStepUuid, string since = null, string until = null, int? pageNumber = null, int? pageSize = null, bool? includeDetail = null)
 
 Get a paginated, date-boundable dispatch-log feed for a step
 
-Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
 
 
 ### Example
@@ -5089,6 +5090,7 @@ Name | Type | Description  | Notes
  **until** | **string**|  | [optional] 
  **pageNumber** | **int?**|  | [optional] 
  **pageSize** | **int?**|  | [optional] 
+ **includeDetail** | **bool?**|  | [optional] 
 
 ### Return type
 

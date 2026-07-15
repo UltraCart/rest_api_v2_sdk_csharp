@@ -298,6 +298,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="paymentDateBegin">Date/time that the order was successfully processed.</param>
         /// <param name="paymentDateEnd">Date/time that the order was successfully processed.</param>
         /// <param name="paymentMethod">Payment method.</param>
+        /// <param name="paymentTransactionFilters">Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName..</param>
         /// <param name="phone">Phone.</param>
         /// <param name="postalCode">Postal code.</param>
         /// <param name="purchaseOrderNumber">Purchase order number.</param>
@@ -313,7 +314,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="stateRegion">State for United States otherwise region or province for other countries.</param>
         /// <param name="storefrontHostName">StoreFront host name associated with the order.</param>
         /// <param name="total">Total.</param>
-        public OrderQuery(string ccEmail = default(string), string channelPartnerCode = default(string), string channelPartnerOrderId = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string creationDateBegin = default(string), string creationDateEnd = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), string customField1 = default(string), string customField10 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customField8 = default(string), string customField9 = default(string), int customerProfileOid = default(int), string email = default(string), string firstName = default(string), string itemId = default(string), string lastName = default(string), string orderId = default(string), string paymentDateBegin = default(string), string paymentDateEnd = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string phone = default(string), string postalCode = default(string), string purchaseOrderNumber = default(string), QueryTargetEnum? queryTarget = default(QueryTargetEnum?), string refundDateBegin = default(string), string refundDateEnd = default(string), string rma = default(string), string screenBrandingThemeCode = default(string), string shipmentDateBegin = default(string), string shipmentDateEnd = default(string), string shippedOnDateBegin = default(string), string shippedOnDateEnd = default(string), string stateRegion = default(string), string storefrontHostName = default(string), decimal total = default(decimal))
+        public OrderQuery(string ccEmail = default(string), string channelPartnerCode = default(string), string channelPartnerOrderId = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string creationDateBegin = default(string), string creationDateEnd = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), string customField1 = default(string), string customField10 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customField8 = default(string), string customField9 = default(string), int customerProfileOid = default(int), string email = default(string), string firstName = default(string), string itemId = default(string), string lastName = default(string), string orderId = default(string), string paymentDateBegin = default(string), string paymentDateEnd = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), List<OrderQueryPaymentTransactionFilter> paymentTransactionFilters = default(List<OrderQueryPaymentTransactionFilter>), string phone = default(string), string postalCode = default(string), string purchaseOrderNumber = default(string), QueryTargetEnum? queryTarget = default(QueryTargetEnum?), string refundDateBegin = default(string), string refundDateEnd = default(string), string rma = default(string), string screenBrandingThemeCode = default(string), string shipmentDateBegin = default(string), string shipmentDateEnd = default(string), string shippedOnDateBegin = default(string), string shippedOnDateEnd = default(string), string stateRegion = default(string), string storefrontHostName = default(string), decimal total = default(decimal))
         {
             this.CcEmail = ccEmail;
             this.ChannelPartnerCode = channelPartnerCode;
@@ -343,6 +344,7 @@ namespace com.ultracart.admin.v2.Model
             this.PaymentDateBegin = paymentDateBegin;
             this.PaymentDateEnd = paymentDateEnd;
             this.PaymentMethod = paymentMethod;
+            this.PaymentTransactionFilters = paymentTransactionFilters;
             this.Phone = phone;
             this.PostalCode = postalCode;
             this.PurchaseOrderNumber = purchaseOrderNumber;
@@ -545,6 +547,13 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
+        /// Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.
+        /// </summary>
+        /// <value>Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.</value>
+        [DataMember(Name="payment_transaction_filters", EmitDefaultValue=false)]
+        public List<OrderQueryPaymentTransactionFilter> PaymentTransactionFilters { get; set; }
+
+        /// <summary>
         /// Phone
         /// </summary>
         /// <value>Phone</value>
@@ -679,6 +688,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PaymentDateBegin: ").Append(PaymentDateBegin).Append("\n");
             sb.Append("  PaymentDateEnd: ").Append(PaymentDateEnd).Append("\n");
             sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
+            sb.Append("  PaymentTransactionFilters: ").Append(PaymentTransactionFilters).Append("\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  PurchaseOrderNumber: ").Append(PurchaseOrderNumber).Append("\n");
@@ -869,6 +879,12 @@ namespace com.ultracart.admin.v2.Model
                     this.PaymentMethod.Equals(input.PaymentMethod))
                 ) && 
                 (
+                    this.PaymentTransactionFilters == input.PaymentTransactionFilters ||
+                    this.PaymentTransactionFilters != null &&
+                    input.PaymentTransactionFilters != null &&
+                    this.PaymentTransactionFilters.SequenceEqual(input.PaymentTransactionFilters)
+                ) && 
+                (
                     this.Phone == input.Phone ||
                     (this.Phone != null &&
                     this.Phone.Equals(input.Phone))
@@ -1010,6 +1026,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PaymentDateEnd.GetHashCode();
                 if (this.PaymentMethod != null)
                     hashCode = hashCode * 59 + this.PaymentMethod.GetHashCode();
+                if (this.PaymentTransactionFilters != null)
+                    hashCode = hashCode * 59 + this.PaymentTransactionFilters.GetHashCode();
                 if (this.Phone != null)
                     hashCode = hashCode * 59 + this.Phone.GetHashCode();
                 if (this.PostalCode != null)

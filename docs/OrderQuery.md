@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **PaymentDateBegin** | **string** | Date/time that the order was successfully processed | [optional] 
 **PaymentDateEnd** | **string** | Date/time that the order was successfully processed | [optional] 
 **PaymentMethod** | **string** | Payment method | [optional] 
+**PaymentTransactionFilters** | [**List&lt;OrderQueryPaymentTransactionFilter&gt;**](OrderQueryPaymentTransactionFilter.md) | Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName. | [optional] 
 **Phone** | **string** | Phone | [optional] 
 **PostalCode** | **string** | Postal code | [optional] 
 **PurchaseOrderNumber** | **string** | Purchase order number | [optional] 

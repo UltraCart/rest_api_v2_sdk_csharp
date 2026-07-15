@@ -846,6 +846,7 @@ docs/OrderProcessPaymentResponse.md
 docs/OrderProperty.md
 docs/OrderQuery.md
 docs/OrderQueryBatch.md
+docs/OrderQueryPaymentTransactionFilter.md
 docs/OrderQuote.md
 docs/OrderReason.md
 docs/OrderRefundableResponse.md
@@ -1915,6 +1916,7 @@ src/com.ultracart.admin.v2/Model/OrderProcessPaymentResponse.cs
 src/com.ultracart.admin.v2/Model/OrderProperty.cs
 src/com.ultracart.admin.v2/Model/OrderQuery.cs
 src/com.ultracart.admin.v2/Model/OrderQueryBatch.cs
+src/com.ultracart.admin.v2/Model/OrderQueryPaymentTransactionFilter.cs
 src/com.ultracart.admin.v2/Model/OrderQuote.cs
 src/com.ultracart.admin.v2/Model/OrderReason.cs
 src/com.ultracart.admin.v2/Model/OrderRefundableResponse.cs

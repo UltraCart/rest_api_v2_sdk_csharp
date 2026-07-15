@@ -158,9 +158,10 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="sendWelcomeEmail">Whether to send a welcome email to the affiliate after it is created.  Defaults to false. (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>AffiliateResponse</returns>
-        AffiliateResponse InsertAffiliate (Affiliate affiliate, string expand = default(string));
+        AffiliateResponse InsertAffiliate (Affiliate affiliate, bool? sendWelcomeEmail = default(bool?), string expand = default(string));
 
         /// <summary>
         /// Insert an affiliate
@@ -170,9 +171,31 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="sendWelcomeEmail">Whether to send a welcome email to the affiliate after it is created.  Defaults to false. (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of AffiliateResponse</returns>
-        ApiResponse<AffiliateResponse> InsertAffiliateWithHttpInfo (Affiliate affiliate, string expand = default(string));
+        ApiResponse<AffiliateResponse> InsertAffiliateWithHttpInfo (Affiliate affiliate, bool? sendWelcomeEmail = default(bool?), string expand = default(string));
+        /// <summary>
+        /// Send a welcome email to an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant's active affiliate program. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to send the welcome email to.</param>
+        /// <returns></returns>
+        void SendAffiliateWelcomeEmail (int affiliateOid);
+
+        /// <summary>
+        /// Send a welcome email to an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant's active affiliate program. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to send the welcome email to.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SendAffiliateWelcomeEmailWithHttpInfo (int affiliateOid);
         /// <summary>
         /// Update an affiliate
         /// </summary>
@@ -343,10 +366,11 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="sendWelcomeEmail">Whether to send a welcome email to the affiliate after it is created.  Defaults to false. (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AffiliateResponse</returns>
-        System.Threading.Tasks.Task<AffiliateResponse> InsertAffiliateAsync (Affiliate affiliate, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<AffiliateResponse> InsertAffiliateAsync (Affiliate affiliate, bool? sendWelcomeEmail = default(bool?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Insert an affiliate
@@ -356,10 +380,34 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="sendWelcomeEmail">Whether to send a welcome email to the affiliate after it is created.  Defaults to false. (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AffiliateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AffiliateResponse>> InsertAffiliateWithHttpInfoAsync (Affiliate affiliate, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AffiliateResponse>> InsertAffiliateWithHttpInfoAsync (Affiliate affiliate, bool? sendWelcomeEmail = default(bool?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Send a welcome email to an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant's active affiliate program. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to send the welcome email to.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task SendAffiliateWelcomeEmailAsync (int affiliateOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Send a welcome email to an affiliate
+        /// </summary>
+        /// <remarks>
+        /// Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant's active affiliate program. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to send the welcome email to.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> SendAffiliateWelcomeEmailWithHttpInfoAsync (int affiliateOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update an affiliate
         /// </summary>
@@ -1412,11 +1460,12 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="sendWelcomeEmail">Whether to send a welcome email to the affiliate after it is created.  Defaults to false. (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>AffiliateResponse</returns>
-        public AffiliateResponse InsertAffiliate (Affiliate affiliate, string expand = default(string))
+        public AffiliateResponse InsertAffiliate (Affiliate affiliate, bool? sendWelcomeEmail = default(bool?), string expand = default(string))
         {
-             ApiResponse<AffiliateResponse> localVarResponse = InsertAffiliateWithHttpInfo(affiliate, expand);
+             ApiResponse<AffiliateResponse> localVarResponse = InsertAffiliateWithHttpInfo(affiliate, sendWelcomeEmail, expand);
              return localVarResponse.Data;
         }
 
@@ -1425,9 +1474,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="sendWelcomeEmail">Whether to send a welcome email to the affiliate after it is created.  Defaults to false. (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of AffiliateResponse</returns>
-        public ApiResponse<AffiliateResponse> InsertAffiliateWithHttpInfo (Affiliate affiliate, string expand = default(string))
+        public ApiResponse<AffiliateResponse> InsertAffiliateWithHttpInfo (Affiliate affiliate, bool? sendWelcomeEmail = default(bool?), string expand = default(string))
         {
             // verify the required parameter 'affiliate' is set
             if (affiliate == null)
@@ -1455,6 +1505,7 @@ namespace com.ultracart.admin.v2.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (sendWelcomeEmail != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "send_welcome_email", sendWelcomeEmail)); // query parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
             if (affiliate != null && affiliate.GetType() != typeof(byte[]))
             {
@@ -1500,12 +1551,13 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="sendWelcomeEmail">Whether to send a welcome email to the affiliate after it is created.  Defaults to false. (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AffiliateResponse</returns>
-        public async System.Threading.Tasks.Task<AffiliateResponse> InsertAffiliateAsync (Affiliate affiliate, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<AffiliateResponse> InsertAffiliateAsync (Affiliate affiliate, bool? sendWelcomeEmail = default(bool?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AffiliateResponse> localVarResponse = await InsertAffiliateWithHttpInfoAsync(affiliate, expand, cancellationToken);
+             ApiResponse<AffiliateResponse> localVarResponse = await InsertAffiliateWithHttpInfoAsync(affiliate, sendWelcomeEmail, expand, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1515,10 +1567,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="affiliate">Affiliate to insert</param>
+        /// <param name="sendWelcomeEmail">Whether to send a welcome email to the affiliate after it is created.  Defaults to false. (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AffiliateResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AffiliateResponse>> InsertAffiliateWithHttpInfoAsync (Affiliate affiliate, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<AffiliateResponse>> InsertAffiliateWithHttpInfoAsync (Affiliate affiliate, bool? sendWelcomeEmail = default(bool?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'affiliate' is set
             if (affiliate == null)
@@ -1546,6 +1599,7 @@ namespace com.ultracart.admin.v2.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (sendWelcomeEmail != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "send_welcome_email", sendWelcomeEmail)); // query parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
             if (affiliate != null && affiliate.GetType() != typeof(byte[]))
             {
@@ -1584,6 +1638,161 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<AffiliateResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AffiliateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AffiliateResponse)));
+        }
+
+        /// <summary>
+        /// Send a welcome email to an affiliate Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant's active affiliate program. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to send the welcome email to.</param>
+        /// <returns></returns>
+        public void SendAffiliateWelcomeEmail (int affiliateOid)
+        {
+             SendAffiliateWelcomeEmailWithHttpInfo(affiliateOid);
+        }
+
+        /// <summary>
+        /// Send a welcome email to an affiliate Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant's active affiliate program. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to send the welcome email to.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> SendAffiliateWelcomeEmailWithHttpInfo (int affiliateOid)
+        {
+            // verify the required parameter 'affiliateOid' is set
+            if (affiliateOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateOid' when calling AffiliateApi->SendAffiliateWelcomeEmail");
+
+            var localVarPath = "/affiliate/affiliates/{affiliate_oid}/welcome_email";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (affiliateOid != null) localVarPathParams.Add("affiliate_oid", this.Configuration.ApiClient.ParameterToString(affiliateOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendAffiliateWelcomeEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Send a welcome email to an affiliate Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant's active affiliate program. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to send the welcome email to.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task SendAffiliateWelcomeEmailAsync (int affiliateOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await SendAffiliateWelcomeEmailWithHttpInfoAsync(affiliateOid, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Send a welcome email to an affiliate Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant's active affiliate program. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="affiliateOid">The affiliate oid to send the welcome email to.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendAffiliateWelcomeEmailWithHttpInfoAsync (int affiliateOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'affiliateOid' is set
+            if (affiliateOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateOid' when calling AffiliateApi->SendAffiliateWelcomeEmail");
+
+            var localVarPath = "/affiliate/affiliates/{affiliate_oid}/welcome_email";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (affiliateOid != null) localVarPathParams.Add("affiliate_oid", this.Configuration.ApiClient.ParameterToString(affiliateOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendAffiliateWelcomeEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>

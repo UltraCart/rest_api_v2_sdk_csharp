@@ -26,6 +26,29 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Attempt a failed rebill on an auto order
+        /// </summary>
+        /// <remarks>
+        /// Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to rebill.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderRebillResponse</returns>
+        AutoOrderRebillResponse AttemptAutoOrderRebill (int autoOrderOid, string expand = default(string));
+
+        /// <summary>
+        /// Attempt a failed rebill on an auto order
+        /// </summary>
+        /// <remarks>
+        /// Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to rebill.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderRebillResponse</returns>
+        ApiResponse<AutoOrderRebillResponse> AttemptAutoOrderRebillWithHttpInfo (int autoOrderOid, string expand = default(string));
+        /// <summary>
         /// Cancel a single item on an auto order
         /// </summary>
         /// <remarks>
@@ -433,6 +456,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of AutoOrderResponse</returns>
         ApiResponse<AutoOrderResponse> UpdateAutoOrderItemPropertiesWithHttpInfo (int autoOrderOid, int autoOrderItemOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string));
         /// <summary>
+        /// Update the payment information on an auto order
+        /// </summary>
+        /// <remarks>
+        /// Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update payment information on.</param>
+        /// <param name="autoOrderPaymentUpdateRequest">Payment information to place on the auto order</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderRebillResponse</returns>
+        AutoOrderRebillResponse UpdateAutoOrderPayment (int autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, string expand = default(string));
+
+        /// <summary>
+        /// Update the payment information on an auto order
+        /// </summary>
+        /// <remarks>
+        /// Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update payment information on.</param>
+        /// <param name="autoOrderPaymentUpdateRequest">Payment information to place on the auto order</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderRebillResponse</returns>
+        ApiResponse<AutoOrderRebillResponse> UpdateAutoOrderPaymentWithHttpInfo (int autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, string expand = default(string));
+        /// <summary>
         /// Update an auto order properties
         /// </summary>
         /// <remarks>
@@ -486,6 +534,31 @@ namespace com.ultracart.admin.v2.Api
         ApiResponse<AutoOrdersResponse> UpdateAutoOrdersBatchWithHttpInfo (AutoOrdersRequest autoOrdersRequest, string expand = default(string), bool? placeholders = default(bool?), bool? async = default(bool?));
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Attempt a failed rebill on an auto order
+        /// </summary>
+        /// <remarks>
+        /// Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to rebill.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AutoOrderRebillResponse</returns>
+        System.Threading.Tasks.Task<AutoOrderRebillResponse> AttemptAutoOrderRebillAsync (int autoOrderOid, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Attempt a failed rebill on an auto order
+        /// </summary>
+        /// <remarks>
+        /// Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to rebill.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AutoOrderRebillResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AutoOrderRebillResponse>> AttemptAutoOrderRebillWithHttpInfoAsync (int autoOrderOid, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Cancel a single item on an auto order
         /// </summary>
@@ -924,6 +997,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> UpdateAutoOrderItemPropertiesWithHttpInfoAsync (int autoOrderOid, int autoOrderItemOid, AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Update the payment information on an auto order
+        /// </summary>
+        /// <remarks>
+        /// Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update payment information on.</param>
+        /// <param name="autoOrderPaymentUpdateRequest">Payment information to place on the auto order</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AutoOrderRebillResponse</returns>
+        System.Threading.Tasks.Task<AutoOrderRebillResponse> UpdateAutoOrderPaymentAsync (int autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update the payment information on an auto order
+        /// </summary>
+        /// <remarks>
+        /// Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update payment information on.</param>
+        /// <param name="autoOrderPaymentUpdateRequest">Payment information to place on the auto order</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AutoOrderRebillResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AutoOrderRebillResponse>> UpdateAutoOrderPaymentWithHttpInfoAsync (int autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Update an auto order properties
         /// </summary>
         /// <remarks>
@@ -1106,6 +1206,169 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Attempt a failed rebill on an auto order Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to rebill.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderRebillResponse</returns>
+        public AutoOrderRebillResponse AttemptAutoOrderRebill (int autoOrderOid, string expand = default(string))
+        {
+             ApiResponse<AutoOrderRebillResponse> localVarResponse = AttemptAutoOrderRebillWithHttpInfo(autoOrderOid, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Attempt a failed rebill on an auto order Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to rebill.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderRebillResponse</returns>
+        public ApiResponse<AutoOrderRebillResponse> AttemptAutoOrderRebillWithHttpInfo (int autoOrderOid, string expand = default(string))
+        {
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->AttemptAutoOrderRebill");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/rebill";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AttemptAutoOrderRebill", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderRebillResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AutoOrderRebillResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderRebillResponse)));
+        }
+
+        /// <summary>
+        /// Attempt a failed rebill on an auto order Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to rebill.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AutoOrderRebillResponse</returns>
+        public async System.Threading.Tasks.Task<AutoOrderRebillResponse> AttemptAutoOrderRebillAsync (int autoOrderOid, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<AutoOrderRebillResponse> localVarResponse = await AttemptAutoOrderRebillWithHttpInfoAsync(autoOrderOid, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Attempt a failed rebill on an auto order Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to rebill.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AutoOrderRebillResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AutoOrderRebillResponse>> AttemptAutoOrderRebillWithHttpInfoAsync (int autoOrderOid, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->AttemptAutoOrderRebill");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/rebill";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AttemptAutoOrderRebill", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderRebillResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AutoOrderRebillResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderRebillResponse)));
         }
 
         /// <summary>
@@ -3901,6 +4164,197 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
+        }
+
+        /// <summary>
+        /// Update the payment information on an auto order Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update payment information on.</param>
+        /// <param name="autoOrderPaymentUpdateRequest">Payment information to place on the auto order</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderRebillResponse</returns>
+        public AutoOrderRebillResponse UpdateAutoOrderPayment (int autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, string expand = default(string))
+        {
+             ApiResponse<AutoOrderRebillResponse> localVarResponse = UpdateAutoOrderPaymentWithHttpInfo(autoOrderOid, autoOrderPaymentUpdateRequest, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update the payment information on an auto order Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update payment information on.</param>
+        /// <param name="autoOrderPaymentUpdateRequest">Payment information to place on the auto order</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderRebillResponse</returns>
+        public ApiResponse<AutoOrderRebillResponse> UpdateAutoOrderPaymentWithHttpInfo (int autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, string expand = default(string))
+        {
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->UpdateAutoOrderPayment");
+            // verify the required parameter 'autoOrderPaymentUpdateRequest' is set
+            if (autoOrderPaymentUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderPaymentUpdateRequest' when calling AutoOrderApi->UpdateAutoOrderPayment");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/payment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderPaymentUpdateRequest != null && autoOrderPaymentUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autoOrderPaymentUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderPaymentUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAutoOrderPayment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderRebillResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AutoOrderRebillResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderRebillResponse)));
+        }
+
+        /// <summary>
+        /// Update the payment information on an auto order Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update payment information on.</param>
+        /// <param name="autoOrderPaymentUpdateRequest">Payment information to place on the auto order</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AutoOrderRebillResponse</returns>
+        public async System.Threading.Tasks.Task<AutoOrderRebillResponse> UpdateAutoOrderPaymentAsync (int autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<AutoOrderRebillResponse> localVarResponse = await UpdateAutoOrderPaymentWithHttpInfoAsync(autoOrderOid, autoOrderPaymentUpdateRequest, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update the payment information on an auto order Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to update payment information on.</param>
+        /// <param name="autoOrderPaymentUpdateRequest">Payment information to place on the auto order</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AutoOrderRebillResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AutoOrderRebillResponse>> UpdateAutoOrderPaymentWithHttpInfoAsync (int autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->UpdateAutoOrderPayment");
+            // verify the required parameter 'autoOrderPaymentUpdateRequest' is set
+            if (autoOrderPaymentUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderPaymentUpdateRequest' when calling AutoOrderApi->UpdateAutoOrderPayment");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/payment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderPaymentUpdateRequest != null && autoOrderPaymentUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autoOrderPaymentUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderPaymentUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAutoOrderPayment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderRebillResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AutoOrderRebillResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderRebillResponse)));
         }
 
         /// <summary>

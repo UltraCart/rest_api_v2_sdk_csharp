@@ -36,6 +36,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="emailsPerDay">Emails per day allowed.</param>
         /// <param name="emailsPerHour">Emails per hour allowed.</param>
         /// <param name="emailsPerMonth">Emails per month allowed.</param>
+        /// <param name="machineOpenIgnore">If machine open should be ignored.</param>
         /// <param name="marketingEspDomainUser">marketingEspDomainUser.</param>
         /// <param name="marketingEspDomainUuid">marketingEspDomainUuid.</param>
         /// <param name="marketingEspFriendlyName">marketingEspFriendlyName.</param>
@@ -52,11 +53,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="transactionalEspDomainUser">transactionalEspDomainUser.</param>
         /// <param name="transactionalEspDomainUuid">transactionalEspDomainUuid.</param>
         /// <param name="transactionalEspFriendlyName">transactionalEspFriendlyName.</param>
-        public EmailSettings(int emailsPerDay = default(int), int emailsPerHour = default(int), int emailsPerMonth = default(int), string marketingEspDomainUser = default(string), string marketingEspDomainUuid = default(string), string marketingEspFriendlyName = default(string), string postcardFromAddress1 = default(string), string postcardFromAddress2 = default(string), string postcardFromCity = default(string), string postcardFromName = default(string), string postcardFromPostalCode = default(string), string postcardFromState = default(string), int requireOrderWithinLast = default(int), bool reviewsIoConfigured = default(bool), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string transactionalEspDomainUser = default(string), string transactionalEspDomainUuid = default(string), string transactionalEspFriendlyName = default(string))
+        public EmailSettings(int emailsPerDay = default(int), int emailsPerHour = default(int), int emailsPerMonth = default(int), bool machineOpenIgnore = default(bool), string marketingEspDomainUser = default(string), string marketingEspDomainUuid = default(string), string marketingEspFriendlyName = default(string), string postcardFromAddress1 = default(string), string postcardFromAddress2 = default(string), string postcardFromCity = default(string), string postcardFromName = default(string), string postcardFromPostalCode = default(string), string postcardFromState = default(string), int requireOrderWithinLast = default(int), bool reviewsIoConfigured = default(bool), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string transactionalEspDomainUser = default(string), string transactionalEspDomainUuid = default(string), string transactionalEspFriendlyName = default(string))
         {
             this.EmailsPerDay = emailsPerDay;
             this.EmailsPerHour = emailsPerHour;
             this.EmailsPerMonth = emailsPerMonth;
+            this.MachineOpenIgnore = machineOpenIgnore;
             this.MarketingEspDomainUser = marketingEspDomainUser;
             this.MarketingEspDomainUuid = marketingEspDomainUuid;
             this.MarketingEspFriendlyName = marketingEspFriendlyName;
@@ -95,6 +97,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Emails per month allowed</value>
         [DataMember(Name="emails_per_month", EmitDefaultValue=false)]
         public int EmailsPerMonth { get; set; }
+
+        /// <summary>
+        /// If machine open should be ignored
+        /// </summary>
+        /// <value>If machine open should be ignored</value>
+        [DataMember(Name="machine_open_ignore", EmitDefaultValue=false)]
+        public bool MachineOpenIgnore { get; set; }
 
         /// <summary>
         /// Gets or Sets MarketingEspDomainUser
@@ -205,6 +214,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EmailsPerDay: ").Append(EmailsPerDay).Append("\n");
             sb.Append("  EmailsPerHour: ").Append(EmailsPerHour).Append("\n");
             sb.Append("  EmailsPerMonth: ").Append(EmailsPerMonth).Append("\n");
+            sb.Append("  MachineOpenIgnore: ").Append(MachineOpenIgnore).Append("\n");
             sb.Append("  MarketingEspDomainUser: ").Append(MarketingEspDomainUser).Append("\n");
             sb.Append("  MarketingEspDomainUuid: ").Append(MarketingEspDomainUuid).Append("\n");
             sb.Append("  MarketingEspFriendlyName: ").Append(MarketingEspFriendlyName).Append("\n");
@@ -269,6 +279,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EmailsPerMonth == input.EmailsPerMonth ||
                     (this.EmailsPerMonth != null &&
                     this.EmailsPerMonth.Equals(input.EmailsPerMonth))
+                ) && 
+                (
+                    this.MachineOpenIgnore == input.MachineOpenIgnore ||
+                    (this.MachineOpenIgnore != null &&
+                    this.MachineOpenIgnore.Equals(input.MachineOpenIgnore))
                 ) && 
                 (
                     this.MarketingEspDomainUser == input.MarketingEspDomainUser ||
@@ -367,6 +382,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EmailsPerHour.GetHashCode();
                 if (this.EmailsPerMonth != null)
                     hashCode = hashCode * 59 + this.EmailsPerMonth.GetHashCode();
+                if (this.MachineOpenIgnore != null)
+                    hashCode = hashCode * 59 + this.MachineOpenIgnore.GetHashCode();
                 if (this.MarketingEspDomainUser != null)
                     hashCode = hashCode * 59 + this.MarketingEspDomainUser.GetHashCode();
                 if (this.MarketingEspDomainUuid != null)

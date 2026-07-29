@@ -53,10 +53,12 @@ docs/AutoOrderItemOption.md
 docs/AutoOrderItemSimpleSchedule.md
 docs/AutoOrderLog.md
 docs/AutoOrderManagement.md
+docs/AutoOrderPaymentUpdateRequest.md
 docs/AutoOrderPropertiesUpdateRequest.md
 docs/AutoOrderProperty.md
 docs/AutoOrderQuery.md
 docs/AutoOrderQueryBatch.md
+docs/AutoOrderRebillResponse.md
 docs/AutoOrderResponse.md
 docs/AutoOrdersRequest.md
 docs/AutoOrdersResponse.md
@@ -1138,10 +1140,12 @@ src/com.ultracart.admin.v2/Model/AutoOrderItemOption.cs
 src/com.ultracart.admin.v2/Model/AutoOrderItemSimpleSchedule.cs
 src/com.ultracart.admin.v2/Model/AutoOrderLog.cs
 src/com.ultracart.admin.v2/Model/AutoOrderManagement.cs
+src/com.ultracart.admin.v2/Model/AutoOrderPaymentUpdateRequest.cs
 src/com.ultracart.admin.v2/Model/AutoOrderPropertiesUpdateRequest.cs
 src/com.ultracart.admin.v2/Model/AutoOrderProperty.cs
 src/com.ultracart.admin.v2/Model/AutoOrderQuery.cs
 src/com.ultracart.admin.v2/Model/AutoOrderQueryBatch.cs
+src/com.ultracart.admin.v2/Model/AutoOrderRebillResponse.cs
 src/com.ultracart.admin.v2/Model/AutoOrderResponse.cs
 src/com.ultracart.admin.v2/Model/AutoOrdersRequest.cs
 src/com.ultracart.admin.v2/Model/AutoOrdersResponse.cs

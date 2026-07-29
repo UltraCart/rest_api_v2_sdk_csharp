@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **EmailsPerDay** | **int** | Emails per day allowed | [optional] 
 **EmailsPerHour** | **int** | Emails per hour allowed | [optional] 
 **EmailsPerMonth** | **int** | Emails per month allowed | [optional] 
+**MachineOpenIgnore** | **bool** | If machine open should be ignored | [optional] 
 **MarketingEspDomainUser** | **string** |  | [optional] 
 **MarketingEspDomainUuid** | **string** |  | [optional] 
 **MarketingEspFriendlyName** | **string** |  | [optional] 

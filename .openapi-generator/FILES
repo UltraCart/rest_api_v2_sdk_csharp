@@ -451,6 +451,9 @@ docs/CustomerEDI.md
 docs/CustomerEditorValues.md
 docs/CustomerEmail.md
 docs/CustomerEmailListChanges.md
+docs/CustomerEmailSuppressionRequest.md
+docs/CustomerEmailSuppressionResponse.md
+docs/CustomerEmailSuppressionResult.md
 docs/CustomerLoyalty.md
 docs/CustomerLoyaltyLedger.md
 docs/CustomerLoyaltyRedemption.md
@@ -599,6 +602,7 @@ docs/EmailStepStatRequest.md
 docs/EmailStepStatResponse.md
 docs/EmailStepWaitingRequest.md
 docs/EmailStepWaitingResponse.md
+docs/EmailSuppressionSurfaces.md
 docs/EmailTemplate.md
 docs/EmailTemplatesResponse.md
 docs/EmailThirdPartyList.md
@@ -1531,6 +1535,9 @@ src/com.ultracart.admin.v2/Model/CustomerEDI.cs
 src/com.ultracart.admin.v2/Model/CustomerEditorValues.cs
 src/com.ultracart.admin.v2/Model/CustomerEmail.cs
 src/com.ultracart.admin.v2/Model/CustomerEmailListChanges.cs
+src/com.ultracart.admin.v2/Model/CustomerEmailSuppressionRequest.cs
+src/com.ultracart.admin.v2/Model/CustomerEmailSuppressionResponse.cs
+src/com.ultracart.admin.v2/Model/CustomerEmailSuppressionResult.cs
 src/com.ultracart.admin.v2/Model/CustomerLoyalty.cs
 src/com.ultracart.admin.v2/Model/CustomerLoyaltyLedger.cs
 src/com.ultracart.admin.v2/Model/CustomerLoyaltyRedemption.cs
@@ -1678,6 +1685,7 @@ src/com.ultracart.admin.v2/Model/EmailStepStatRequest.cs
 src/com.ultracart.admin.v2/Model/EmailStepStatResponse.cs
 src/com.ultracart.admin.v2/Model/EmailStepWaitingRequest.cs
 src/com.ultracart.admin.v2/Model/EmailStepWaitingResponse.cs
+src/com.ultracart.admin.v2/Model/EmailSuppressionSurfaces.cs
 src/com.ultracart.admin.v2/Model/EmailTemplate.cs
 src/com.ultracart.admin.v2/Model/EmailTemplatesResponse.cs
 src/com.ultracart.admin.v2/Model/EmailThirdPartyList.cs

@@ -101,13 +101,7 @@ namespace com.ultracart.admin.v2.Model
             /// Enum MailChimp for value: MailChimp
             /// </summary>
             [EnumMember(Value = "MailChimp")]
-            MailChimp = 11,
-
-            /// <summary>
-            /// Enum SilverPop for value: SilverPop
-            /// </summary>
-            [EnumMember(Value = "SilverPop")]
-            SilverPop = 12
+            MailChimp = 11
 
         }
 

@@ -270,6 +270,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderQuery" /> class.
         /// </summary>
+        /// <param name="cardBin">First six digits (BIN) of the credit card number.  Must be specified together with card_last4 and a payment_date_begin/payment_date_end range.  Requires query_target&#x3D;cache..</param>
+        /// <param name="cardLast4">Last four digits of the credit card number.  Must be specified together with card_bin and a payment_date_begin/payment_date_end range.  Always supply four digits, including for American Express.  Requires query_target&#x3D;cache..</param>
         /// <param name="ccEmail">CC Email.</param>
         /// <param name="channelPartnerCode">The code of the channel partner.</param>
         /// <param name="channelPartnerOrderId">The order ID assigned by the channel partner for this order.</param>
@@ -298,7 +300,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="paymentDateBegin">Date/time that the order was successfully processed.</param>
         /// <param name="paymentDateEnd">Date/time that the order was successfully processed.</param>
         /// <param name="paymentMethod">Payment method.</param>
-        /// <param name="paymentTransactionFilters">Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName..</param>
+        /// <param name="paymentTransactionFilters">Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName..</param>
         /// <param name="phone">Phone.</param>
         /// <param name="postalCode">Postal code.</param>
         /// <param name="purchaseOrderNumber">Purchase order number.</param>
@@ -314,8 +316,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="stateRegion">State for United States otherwise region or province for other countries.</param>
         /// <param name="storefrontHostName">StoreFront host name associated with the order.</param>
         /// <param name="total">Total.</param>
-        public OrderQuery(string ccEmail = default(string), string channelPartnerCode = default(string), string channelPartnerOrderId = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string creationDateBegin = default(string), string creationDateEnd = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), string customField1 = default(string), string customField10 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customField8 = default(string), string customField9 = default(string), int customerProfileOid = default(int), string email = default(string), string firstName = default(string), string itemId = default(string), string lastName = default(string), string orderId = default(string), string paymentDateBegin = default(string), string paymentDateEnd = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), List<OrderQueryPaymentTransactionFilter> paymentTransactionFilters = default(List<OrderQueryPaymentTransactionFilter>), string phone = default(string), string postalCode = default(string), string purchaseOrderNumber = default(string), QueryTargetEnum? queryTarget = default(QueryTargetEnum?), string refundDateBegin = default(string), string refundDateEnd = default(string), string rma = default(string), string screenBrandingThemeCode = default(string), string shipmentDateBegin = default(string), string shipmentDateEnd = default(string), string shippedOnDateBegin = default(string), string shippedOnDateEnd = default(string), string stateRegion = default(string), string storefrontHostName = default(string), decimal total = default(decimal))
+        public OrderQuery(string cardBin = default(string), string cardLast4 = default(string), string ccEmail = default(string), string channelPartnerCode = default(string), string channelPartnerOrderId = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string creationDateBegin = default(string), string creationDateEnd = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), string customField1 = default(string), string customField10 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customField8 = default(string), string customField9 = default(string), int customerProfileOid = default(int), string email = default(string), string firstName = default(string), string itemId = default(string), string lastName = default(string), string orderId = default(string), string paymentDateBegin = default(string), string paymentDateEnd = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), List<OrderQueryPaymentTransactionFilter> paymentTransactionFilters = default(List<OrderQueryPaymentTransactionFilter>), string phone = default(string), string postalCode = default(string), string purchaseOrderNumber = default(string), QueryTargetEnum? queryTarget = default(QueryTargetEnum?), string refundDateBegin = default(string), string refundDateEnd = default(string), string rma = default(string), string screenBrandingThemeCode = default(string), string shipmentDateBegin = default(string), string shipmentDateEnd = default(string), string shippedOnDateBegin = default(string), string shippedOnDateEnd = default(string), string stateRegion = default(string), string storefrontHostName = default(string), decimal total = default(decimal))
         {
+            this.CardBin = cardBin;
+            this.CardLast4 = cardLast4;
             this.CcEmail = ccEmail;
             this.ChannelPartnerCode = channelPartnerCode;
             this.ChannelPartnerOrderId = channelPartnerOrderId;
@@ -361,6 +365,20 @@ namespace com.ultracart.admin.v2.Model
             this.StorefrontHostName = storefrontHostName;
             this.Total = total;
         }
+
+        /// <summary>
+        /// First six digits (BIN) of the credit card number.  Must be specified together with card_last4 and a payment_date_begin/payment_date_end range.  Requires query_target&#x3D;cache.
+        /// </summary>
+        /// <value>First six digits (BIN) of the credit card number.  Must be specified together with card_last4 and a payment_date_begin/payment_date_end range.  Requires query_target&#x3D;cache.</value>
+        [DataMember(Name="card_bin", EmitDefaultValue=false)]
+        public string CardBin { get; set; }
+
+        /// <summary>
+        /// Last four digits of the credit card number.  Must be specified together with card_bin and a payment_date_begin/payment_date_end range.  Always supply four digits, including for American Express.  Requires query_target&#x3D;cache.
+        /// </summary>
+        /// <value>Last four digits of the credit card number.  Must be specified together with card_bin and a payment_date_begin/payment_date_end range.  Always supply four digits, including for American Express.  Requires query_target&#x3D;cache.</value>
+        [DataMember(Name="card_last4", EmitDefaultValue=false)]
+        public string CardLast4 { get; set; }
 
         /// <summary>
         /// CC Email
@@ -547,9 +565,9 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
-        /// Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.
+        /// Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.
         /// </summary>
-        /// <value>Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.</value>
+        /// <value>Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.</value>
         [DataMember(Name="payment_transaction_filters", EmitDefaultValue=false)]
         public List<OrderQueryPaymentTransactionFilter> PaymentTransactionFilters { get; set; }
 
@@ -660,6 +678,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class OrderQuery {\n");
+            sb.Append("  CardBin: ").Append(CardBin).Append("\n");
+            sb.Append("  CardLast4: ").Append(CardLast4).Append("\n");
             sb.Append("  CcEmail: ").Append(CcEmail).Append("\n");
             sb.Append("  ChannelPartnerCode: ").Append(ChannelPartnerCode).Append("\n");
             sb.Append("  ChannelPartnerOrderId: ").Append(ChannelPartnerOrderId).Append("\n");
@@ -738,6 +758,16 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.CardBin == input.CardBin ||
+                    (this.CardBin != null &&
+                    this.CardBin.Equals(input.CardBin))
+                ) && 
+                (
+                    this.CardLast4 == input.CardLast4 ||
+                    (this.CardLast4 != null &&
+                    this.CardLast4.Equals(input.CardLast4))
+                ) && 
                 (
                     this.CcEmail == input.CcEmail ||
                     (this.CcEmail != null &&
@@ -970,6 +1000,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CardBin != null)
+                    hashCode = hashCode * 59 + this.CardBin.GetHashCode();
+                if (this.CardLast4 != null)
+                    hashCode = hashCode * 59 + this.CardLast4.GetHashCode();
                 if (this.CcEmail != null)
                     hashCode = hashCode * 59 + this.CcEmail.GetHashCode();
                 if (this.ChannelPartnerCode != null)
@@ -1069,6 +1103,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CardBin (string) maxLength
+            if(this.CardBin != null && this.CardBin.Length > 6)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardBin, length must be less than 6.", new [] { "CardBin" });
+            }
+
+
+            // CardLast4 (string) maxLength
+            if(this.CardLast4 != null && this.CardLast4.Length > 4)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardLast4, length must be less than 4.", new [] { "CardLast4" });
+            }
+
+
             // CcEmail (string) maxLength
             if(this.CcEmail != null && this.CcEmail.Length > 100)
             {

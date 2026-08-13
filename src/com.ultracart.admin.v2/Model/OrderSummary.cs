@@ -41,6 +41,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="actualProfitReview">Actual profit needs review.</param>
         /// <param name="actualShipping">actualShipping.</param>
         /// <param name="arbitraryShippingHandlingTotal">arbitraryShippingHandlingTotal.</param>
+        /// <param name="arbitrarySubtotalDiscount">arbitrarySubtotalDiscount.</param>
+        /// <param name="arbitraryTaxableSubtotalDiscount">arbitraryTaxableSubtotalDiscount.</param>
         /// <param name="healthBenefitCardAmount">healthBenefitCardAmount.</param>
         /// <param name="healthBenefitCardRefunded">healthBenefitCardRefunded.</param>
         /// <param name="internalGiftCertificateAmount">internalGiftCertificateAmount.</param>
@@ -59,7 +61,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="taxableSubtotalDiscount">taxableSubtotalDiscount.</param>
         /// <param name="total">total.</param>
         /// <param name="totalRefunded">totalRefunded.</param>
-        public OrderSummary(Currency actualFulfillment = default(Currency), Currency actualOtherCost = default(Currency), Currency actualPaymentProcessing = default(Currency), Currency actualProfit = default(Currency), bool actualProfitAnalyzed = default(bool), bool actualProfitReview = default(bool), Currency actualShipping = default(Currency), Currency arbitraryShippingHandlingTotal = default(Currency), Currency healthBenefitCardAmount = default(Currency), Currency healthBenefitCardRefunded = default(Currency), Currency internalGiftCertificateAmount = default(Currency), Currency internalGiftCertificateRefunded = default(Currency), Currency otherRefunded = default(Currency), Currency shippingHandlingRefunded = default(Currency), Currency shippingHandlingTotal = default(Currency), Currency shippingHandlingTotalDiscount = default(Currency), Currency subtotal = default(Currency), Currency subtotalDiscount = default(Currency), Currency subtotalDiscountRefunded = default(Currency), Currency subtotalRefunded = default(Currency), Currency tax = default(Currency), Currency taxRefunded = default(Currency), Currency taxableSubtotal = default(Currency), Currency taxableSubtotalDiscount = default(Currency), Currency total = default(Currency), Currency totalRefunded = default(Currency))
+        public OrderSummary(Currency actualFulfillment = default(Currency), Currency actualOtherCost = default(Currency), Currency actualPaymentProcessing = default(Currency), Currency actualProfit = default(Currency), bool actualProfitAnalyzed = default(bool), bool actualProfitReview = default(bool), Currency actualShipping = default(Currency), Currency arbitraryShippingHandlingTotal = default(Currency), Currency arbitrarySubtotalDiscount = default(Currency), Currency arbitraryTaxableSubtotalDiscount = default(Currency), Currency healthBenefitCardAmount = default(Currency), Currency healthBenefitCardRefunded = default(Currency), Currency internalGiftCertificateAmount = default(Currency), Currency internalGiftCertificateRefunded = default(Currency), Currency otherRefunded = default(Currency), Currency shippingHandlingRefunded = default(Currency), Currency shippingHandlingTotal = default(Currency), Currency shippingHandlingTotalDiscount = default(Currency), Currency subtotal = default(Currency), Currency subtotalDiscount = default(Currency), Currency subtotalDiscountRefunded = default(Currency), Currency subtotalRefunded = default(Currency), Currency tax = default(Currency), Currency taxRefunded = default(Currency), Currency taxableSubtotal = default(Currency), Currency taxableSubtotalDiscount = default(Currency), Currency total = default(Currency), Currency totalRefunded = default(Currency))
         {
             this.ActualFulfillment = actualFulfillment;
             this.ActualOtherCost = actualOtherCost;
@@ -69,6 +71,8 @@ namespace com.ultracart.admin.v2.Model
             this.ActualProfitReview = actualProfitReview;
             this.ActualShipping = actualShipping;
             this.ArbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
+            this.ArbitrarySubtotalDiscount = arbitrarySubtotalDiscount;
+            this.ArbitraryTaxableSubtotalDiscount = arbitraryTaxableSubtotalDiscount;
             this.HealthBenefitCardAmount = healthBenefitCardAmount;
             this.HealthBenefitCardRefunded = healthBenefitCardRefunded;
             this.InternalGiftCertificateAmount = internalGiftCertificateAmount;
@@ -138,6 +142,18 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="arbitrary_shipping_handling_total", EmitDefaultValue=false)]
         public Currency ArbitraryShippingHandlingTotal { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ArbitrarySubtotalDiscount
+        /// </summary>
+        [DataMember(Name="arbitrary_subtotal_discount", EmitDefaultValue=false)]
+        public Currency ArbitrarySubtotalDiscount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ArbitraryTaxableSubtotalDiscount
+        /// </summary>
+        [DataMember(Name="arbitrary_taxable_subtotal_discount", EmitDefaultValue=false)]
+        public Currency ArbitraryTaxableSubtotalDiscount { get; set; }
 
         /// <summary>
         /// Gets or Sets HealthBenefitCardAmount
@@ -263,6 +279,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ActualProfitReview: ").Append(ActualProfitReview).Append("\n");
             sb.Append("  ActualShipping: ").Append(ActualShipping).Append("\n");
             sb.Append("  ArbitraryShippingHandlingTotal: ").Append(ArbitraryShippingHandlingTotal).Append("\n");
+            sb.Append("  ArbitrarySubtotalDiscount: ").Append(ArbitrarySubtotalDiscount).Append("\n");
+            sb.Append("  ArbitraryTaxableSubtotalDiscount: ").Append(ArbitraryTaxableSubtotalDiscount).Append("\n");
             sb.Append("  HealthBenefitCardAmount: ").Append(HealthBenefitCardAmount).Append("\n");
             sb.Append("  HealthBenefitCardRefunded: ").Append(HealthBenefitCardRefunded).Append("\n");
             sb.Append("  InternalGiftCertificateAmount: ").Append(InternalGiftCertificateAmount).Append("\n");
@@ -354,6 +372,16 @@ namespace com.ultracart.admin.v2.Model
                     this.ArbitraryShippingHandlingTotal == input.ArbitraryShippingHandlingTotal ||
                     (this.ArbitraryShippingHandlingTotal != null &&
                     this.ArbitraryShippingHandlingTotal.Equals(input.ArbitraryShippingHandlingTotal))
+                ) && 
+                (
+                    this.ArbitrarySubtotalDiscount == input.ArbitrarySubtotalDiscount ||
+                    (this.ArbitrarySubtotalDiscount != null &&
+                    this.ArbitrarySubtotalDiscount.Equals(input.ArbitrarySubtotalDiscount))
+                ) && 
+                (
+                    this.ArbitraryTaxableSubtotalDiscount == input.ArbitraryTaxableSubtotalDiscount ||
+                    (this.ArbitraryTaxableSubtotalDiscount != null &&
+                    this.ArbitraryTaxableSubtotalDiscount.Equals(input.ArbitraryTaxableSubtotalDiscount))
                 ) && 
                 (
                     this.HealthBenefitCardAmount == input.HealthBenefitCardAmount ||
@@ -472,6 +500,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ActualShipping.GetHashCode();
                 if (this.ArbitraryShippingHandlingTotal != null)
                     hashCode = hashCode * 59 + this.ArbitraryShippingHandlingTotal.GetHashCode();
+                if (this.ArbitrarySubtotalDiscount != null)
+                    hashCode = hashCode * 59 + this.ArbitrarySubtotalDiscount.GetHashCode();
+                if (this.ArbitraryTaxableSubtotalDiscount != null)
+                    hashCode = hashCode * 59 + this.ArbitraryTaxableSubtotalDiscount.GetHashCode();
                 if (this.HealthBenefitCardAmount != null)
                     hashCode = hashCode * 59 + this.HealthBenefitCardAmount.GetHashCode();
                 if (this.HealthBenefitCardRefunded != null)

@@ -40,11 +40,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="channelPartnerOrderId">The order ID assigned by the channel partner for this order..</param>
         /// <param name="ignoreInvalidShippingMethod">Set to true to ignore invalid shipping method being specified.  Only applicable on inserting orders..</param>
         /// <param name="noRealtimePaymentProcessing">Indicates this order should be placed in Account Receivable for later payment processing.</param>
+        /// <param name="skipAutoOrderSetup">Instructs UltraCart to skip auto order setup.  Only applicable on inserting orders..</param>
         /// <param name="skipPaymentProcessing">Indicates this order was already paid for via a channel purchase and no payment collection should be attempted.</param>
         /// <param name="storeCompleted">Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order..</param>
         /// <param name="storeIfPaymentDeclines">If true, any failed payment will place the order in Accounts Receivable rather than rejecting it..</param>
         /// <param name="treatWarningsAsErrors">Any warnings are raised as errors and halt the import of the order.</param>
-        public OrderChannelPartner(bool autoApprovePurchaseOrder = default(bool), string channelPartnerCode = default(string), string channelPartnerData = default(string), int channelPartnerOid = default(int), string channelPartnerOrderId = default(string), bool ignoreInvalidShippingMethod = default(bool), bool noRealtimePaymentProcessing = default(bool), bool skipPaymentProcessing = default(bool), bool storeCompleted = default(bool), bool storeIfPaymentDeclines = default(bool), bool treatWarningsAsErrors = default(bool))
+        public OrderChannelPartner(bool autoApprovePurchaseOrder = default(bool), string channelPartnerCode = default(string), string channelPartnerData = default(string), int channelPartnerOid = default(int), string channelPartnerOrderId = default(string), bool ignoreInvalidShippingMethod = default(bool), bool noRealtimePaymentProcessing = default(bool), bool skipAutoOrderSetup = default(bool), bool skipPaymentProcessing = default(bool), bool storeCompleted = default(bool), bool storeIfPaymentDeclines = default(bool), bool treatWarningsAsErrors = default(bool))
         {
             this.AutoApprovePurchaseOrder = autoApprovePurchaseOrder;
             this.ChannelPartnerCode = channelPartnerCode;
@@ -53,6 +54,7 @@ namespace com.ultracart.admin.v2.Model
             this.ChannelPartnerOrderId = channelPartnerOrderId;
             this.IgnoreInvalidShippingMethod = ignoreInvalidShippingMethod;
             this.NoRealtimePaymentProcessing = noRealtimePaymentProcessing;
+            this.SkipAutoOrderSetup = skipAutoOrderSetup;
             this.SkipPaymentProcessing = skipPaymentProcessing;
             this.StoreCompleted = storeCompleted;
             this.StoreIfPaymentDeclines = storeIfPaymentDeclines;
@@ -109,6 +111,13 @@ namespace com.ultracart.admin.v2.Model
         public bool NoRealtimePaymentProcessing { get; set; }
 
         /// <summary>
+        /// Instructs UltraCart to skip auto order setup.  Only applicable on inserting orders.
+        /// </summary>
+        /// <value>Instructs UltraCart to skip auto order setup.  Only applicable on inserting orders.</value>
+        [DataMember(Name="skip_auto_order_setup", EmitDefaultValue=false)]
+        public bool SkipAutoOrderSetup { get; set; }
+
+        /// <summary>
         /// Indicates this order was already paid for via a channel purchase and no payment collection should be attempted
         /// </summary>
         /// <value>Indicates this order was already paid for via a channel purchase and no payment collection should be attempted</value>
@@ -151,6 +160,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ChannelPartnerOrderId: ").Append(ChannelPartnerOrderId).Append("\n");
             sb.Append("  IgnoreInvalidShippingMethod: ").Append(IgnoreInvalidShippingMethod).Append("\n");
             sb.Append("  NoRealtimePaymentProcessing: ").Append(NoRealtimePaymentProcessing).Append("\n");
+            sb.Append("  SkipAutoOrderSetup: ").Append(SkipAutoOrderSetup).Append("\n");
             sb.Append("  SkipPaymentProcessing: ").Append(SkipPaymentProcessing).Append("\n");
             sb.Append("  StoreCompleted: ").Append(StoreCompleted).Append("\n");
             sb.Append("  StoreIfPaymentDeclines: ").Append(StoreIfPaymentDeclines).Append("\n");
@@ -225,6 +235,11 @@ namespace com.ultracart.admin.v2.Model
                     this.NoRealtimePaymentProcessing.Equals(input.NoRealtimePaymentProcessing))
                 ) && 
                 (
+                    this.SkipAutoOrderSetup == input.SkipAutoOrderSetup ||
+                    (this.SkipAutoOrderSetup != null &&
+                    this.SkipAutoOrderSetup.Equals(input.SkipAutoOrderSetup))
+                ) && 
+                (
                     this.SkipPaymentProcessing == input.SkipPaymentProcessing ||
                     (this.SkipPaymentProcessing != null &&
                     this.SkipPaymentProcessing.Equals(input.SkipPaymentProcessing))
@@ -269,6 +284,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.IgnoreInvalidShippingMethod.GetHashCode();
                 if (this.NoRealtimePaymentProcessing != null)
                     hashCode = hashCode * 59 + this.NoRealtimePaymentProcessing.GetHashCode();
+                if (this.SkipAutoOrderSetup != null)
+                    hashCode = hashCode * 59 + this.SkipAutoOrderSetup.GetHashCode();
                 if (this.SkipPaymentProcessing != null)
                     hashCode = hashCode * 59 + this.SkipPaymentProcessing.GetHashCode();
                 if (this.StoreCompleted != null)

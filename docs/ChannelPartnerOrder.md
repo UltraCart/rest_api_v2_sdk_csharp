@@ -91,6 +91,7 @@ Name | Type | Description | Notes
 **ShiptoPostalCode** | **string** | Shipping Postal code | [optional] 
 **ShiptoStateRegion** | **string** | Shipping State for United States otherwise region or province for other countries | [optional] 
 **ShiptoTitle** | **string** | Shipping Title | [optional] 
+**SkipAutoOrderSetup** | **bool** | If true the setup of the auto order record is skipped | [optional] 
 **SkipPaymentProcessing** | **bool** | If true the order is placed directly into the shipping department | [optional] 
 **SpecialInstructions** | **string** | Special instructions from the customer regarding shipping | [optional] 
 **StoreCompleted** | **bool** | If true the order bypasses shipping and is marked completed | [optional] 

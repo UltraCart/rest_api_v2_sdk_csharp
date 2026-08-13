@@ -184,9 +184,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="affiliateId">Affiliate Id.</param>
         /// <param name="affiliateSubId">Affiliate Sub Id.</param>
         /// <param name="arbitraryShippingHandlingTotal">Arbitrary shipping handling total.</param>
+        /// <param name="arbitrarySubtotalDiscount">Arbitrary subtotal discount for overriding the calculated subtotal discount.  Send the gross price in the item arbitrary unit cost and the discount here..</param>
         /// <param name="arbitraryTax">Arbitrary tax for overriding calculated taxes.</param>
         /// <param name="arbitraryTaxRate">Arbitrary tax rate.</param>
         /// <param name="arbitraryTaxableSubtotal">Arbitrary taxable subtotal.</param>
+        /// <param name="arbitraryTaxableSubtotalDiscount">Arbitrary taxable subtotal discount.  If an arbitrary subtotal discount is supplied without this field, the arbitrary subtotal discount is used for both..</param>
         /// <param name="associateWithCustomerProfileIfPresent">If true any matching customer profile based on email is associated with this order.</param>
         /// <param name="autoApprovePurchaseOrder">If true any purchase orders are automatically approved.</param>
         /// <param name="billtoAddress1">Billing Address line 1.</param>
@@ -274,15 +276,17 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="transaction">transaction.</param>
         /// <param name="treatWarningsAsErrors">If true all warnings are considered errors, this is true by default.</param>
         /// <param name="usePriorPaymentInformationFromOrderId">An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order..</param>
-        public ChannelPartnerOrder(string advertisingSource = default(string), string affiliateId = default(string), string affiliateSubId = default(string), decimal arbitraryShippingHandlingTotal = default(decimal), decimal arbitraryTax = default(decimal), decimal arbitraryTaxRate = default(decimal), decimal arbitraryTaxableSubtotal = default(decimal), bool associateWithCustomerProfileIfPresent = default(bool), bool autoApprovePurchaseOrder = default(bool), string billtoAddress1 = default(string), string billtoAddress2 = default(string), string billtoCity = default(string), string billtoCompany = default(string), string billtoCountryCode = default(string), string billtoDayPhone = default(string), string billtoEveningPhone = default(string), string billtoFirstName = default(string), string billtoLastName = default(string), string billtoPostalCode = default(string), string billtoStateRegion = default(string), string billtoTitle = default(string), string ccEmail = default(string), string channelPartnerOrderId = default(string), bool considerRecurring = default(bool), List<string> coupons = default(List<string>), string creationDts = default(string), decimal creditCardAuthorizationAmount = default(decimal), string creditCardAuthorizationDts = default(string), string creditCardAuthorizationNumber = default(string), int creditCardExpirationMonth = default(int), int creditCardExpirationYear = default(int), string creditCardType = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string deliveryDate = default(string), string echeckBankAbaCode = default(string), string echeckBankAccountName = default(string), string echeckBankAccountNumber = default(string), EcheckBankAccountTypeEnum? echeckBankAccountType = default(EcheckBankAccountTypeEnum?), string echeckBankName = default(string), EcheckBankOwnerTypeEnum? echeckBankOwnerType = default(EcheckBankOwnerTypeEnum?), string echeckCustomerTaxId = default(string), string echeckDriversLicenseDob = default(string), string echeckDriversLicenseNumber = default(string), string echeckDriversLicenseState = default(string), string email = default(string), bool gift = default(bool), string giftEmail = default(string), string giftMessage = default(string), string hostedFieldsCardToken = default(string), string hostedFieldsCvvToken = default(string), string insuranceApplicationId = default(string), string insuranceClaimId = default(string), string ipAddress = default(string), List<ChannelPartnerOrderItem> items = default(List<ChannelPartnerOrderItem>), bool leastCostRoute = default(bool), List<string> leastCostRouteShippingMethods = default(List<string>), bool mailingListOptIn = default(bool), bool noRealtimePaymentProcessing = default(bool), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string purchaseOrderNumber = default(string), string rotatingTransactionGatewayCode = default(string), string salesRepCode = default(string), string screenBrandingThemeCode = default(string), string shipOnDate = default(string), bool shipToResidential = default(bool), string shippingMethod = default(string), string shiptoAddress1 = default(string), string shiptoAddress2 = default(string), string shiptoCity = default(string), string shiptoCompany = default(string), string shiptoCountryCode = default(string), string shiptoDayPhone = default(string), string shiptoEveningPhone = default(string), string shiptoFirstName = default(string), string shiptoLastName = default(string), string shiptoPostalCode = default(string), string shiptoStateRegion = default(string), string shiptoTitle = default(string), bool skipPaymentProcessing = default(bool), string specialInstructions = default(string), bool storeCompleted = default(bool), bool storeIfPaymentDeclines = default(bool), string storefrontHostName = default(string), string taxCounty = default(string), bool taxExempt = default(bool), ChannelPartnerOrderTransaction transaction = default(ChannelPartnerOrderTransaction), bool treatWarningsAsErrors = default(bool), string usePriorPaymentInformationFromOrderId = default(string))
+        public ChannelPartnerOrder(string advertisingSource = default(string), string affiliateId = default(string), string affiliateSubId = default(string), decimal arbitraryShippingHandlingTotal = default(decimal), decimal arbitrarySubtotalDiscount = default(decimal), decimal arbitraryTax = default(decimal), decimal arbitraryTaxRate = default(decimal), decimal arbitraryTaxableSubtotal = default(decimal), decimal arbitraryTaxableSubtotalDiscount = default(decimal), bool associateWithCustomerProfileIfPresent = default(bool), bool autoApprovePurchaseOrder = default(bool), string billtoAddress1 = default(string), string billtoAddress2 = default(string), string billtoCity = default(string), string billtoCompany = default(string), string billtoCountryCode = default(string), string billtoDayPhone = default(string), string billtoEveningPhone = default(string), string billtoFirstName = default(string), string billtoLastName = default(string), string billtoPostalCode = default(string), string billtoStateRegion = default(string), string billtoTitle = default(string), string ccEmail = default(string), string channelPartnerOrderId = default(string), bool considerRecurring = default(bool), List<string> coupons = default(List<string>), string creationDts = default(string), decimal creditCardAuthorizationAmount = default(decimal), string creditCardAuthorizationDts = default(string), string creditCardAuthorizationNumber = default(string), int creditCardExpirationMonth = default(int), int creditCardExpirationYear = default(int), string creditCardType = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string deliveryDate = default(string), string echeckBankAbaCode = default(string), string echeckBankAccountName = default(string), string echeckBankAccountNumber = default(string), EcheckBankAccountTypeEnum? echeckBankAccountType = default(EcheckBankAccountTypeEnum?), string echeckBankName = default(string), EcheckBankOwnerTypeEnum? echeckBankOwnerType = default(EcheckBankOwnerTypeEnum?), string echeckCustomerTaxId = default(string), string echeckDriversLicenseDob = default(string), string echeckDriversLicenseNumber = default(string), string echeckDriversLicenseState = default(string), string email = default(string), bool gift = default(bool), string giftEmail = default(string), string giftMessage = default(string), string hostedFieldsCardToken = default(string), string hostedFieldsCvvToken = default(string), string insuranceApplicationId = default(string), string insuranceClaimId = default(string), string ipAddress = default(string), List<ChannelPartnerOrderItem> items = default(List<ChannelPartnerOrderItem>), bool leastCostRoute = default(bool), List<string> leastCostRouteShippingMethods = default(List<string>), bool mailingListOptIn = default(bool), bool noRealtimePaymentProcessing = default(bool), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string purchaseOrderNumber = default(string), string rotatingTransactionGatewayCode = default(string), string salesRepCode = default(string), string screenBrandingThemeCode = default(string), string shipOnDate = default(string), bool shipToResidential = default(bool), string shippingMethod = default(string), string shiptoAddress1 = default(string), string shiptoAddress2 = default(string), string shiptoCity = default(string), string shiptoCompany = default(string), string shiptoCountryCode = default(string), string shiptoDayPhone = default(string), string shiptoEveningPhone = default(string), string shiptoFirstName = default(string), string shiptoLastName = default(string), string shiptoPostalCode = default(string), string shiptoStateRegion = default(string), string shiptoTitle = default(string), bool skipPaymentProcessing = default(bool), string specialInstructions = default(string), bool storeCompleted = default(bool), bool storeIfPaymentDeclines = default(bool), string storefrontHostName = default(string), string taxCounty = default(string), bool taxExempt = default(bool), ChannelPartnerOrderTransaction transaction = default(ChannelPartnerOrderTransaction), bool treatWarningsAsErrors = default(bool), string usePriorPaymentInformationFromOrderId = default(string))
         {
             this.AdvertisingSource = advertisingSource;
             this.AffiliateId = affiliateId;
             this.AffiliateSubId = affiliateSubId;
             this.ArbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
+            this.ArbitrarySubtotalDiscount = arbitrarySubtotalDiscount;
             this.ArbitraryTax = arbitraryTax;
             this.ArbitraryTaxRate = arbitraryTaxRate;
             this.ArbitraryTaxableSubtotal = arbitraryTaxableSubtotal;
+            this.ArbitraryTaxableSubtotalDiscount = arbitraryTaxableSubtotalDiscount;
             this.AssociateWithCustomerProfileIfPresent = associateWithCustomerProfileIfPresent;
             this.AutoApprovePurchaseOrder = autoApprovePurchaseOrder;
             this.BilltoAddress1 = billtoAddress1;
@@ -401,6 +405,13 @@ namespace com.ultracart.admin.v2.Model
         public decimal ArbitraryShippingHandlingTotal { get; set; }
 
         /// <summary>
+        /// Arbitrary subtotal discount for overriding the calculated subtotal discount.  Send the gross price in the item arbitrary unit cost and the discount here.
+        /// </summary>
+        /// <value>Arbitrary subtotal discount for overriding the calculated subtotal discount.  Send the gross price in the item arbitrary unit cost and the discount here.</value>
+        [DataMember(Name="arbitrary_subtotal_discount", EmitDefaultValue=false)]
+        public decimal ArbitrarySubtotalDiscount { get; set; }
+
+        /// <summary>
         /// Arbitrary tax for overriding calculated taxes
         /// </summary>
         /// <value>Arbitrary tax for overriding calculated taxes</value>
@@ -420,6 +431,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Arbitrary taxable subtotal</value>
         [DataMember(Name="arbitrary_taxable_subtotal", EmitDefaultValue=false)]
         public decimal ArbitraryTaxableSubtotal { get; set; }
+
+        /// <summary>
+        /// Arbitrary taxable subtotal discount.  If an arbitrary subtotal discount is supplied without this field, the arbitrary subtotal discount is used for both.
+        /// </summary>
+        /// <value>Arbitrary taxable subtotal discount.  If an arbitrary subtotal discount is supplied without this field, the arbitrary subtotal discount is used for both.</value>
+        [DataMember(Name="arbitrary_taxable_subtotal_discount", EmitDefaultValue=false)]
+        public decimal ArbitraryTaxableSubtotalDiscount { get; set; }
 
         /// <summary>
         /// If true any matching customer profile based on email is associated with this order
@@ -1023,9 +1041,11 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AffiliateId: ").Append(AffiliateId).Append("\n");
             sb.Append("  AffiliateSubId: ").Append(AffiliateSubId).Append("\n");
             sb.Append("  ArbitraryShippingHandlingTotal: ").Append(ArbitraryShippingHandlingTotal).Append("\n");
+            sb.Append("  ArbitrarySubtotalDiscount: ").Append(ArbitrarySubtotalDiscount).Append("\n");
             sb.Append("  ArbitraryTax: ").Append(ArbitraryTax).Append("\n");
             sb.Append("  ArbitraryTaxRate: ").Append(ArbitraryTaxRate).Append("\n");
             sb.Append("  ArbitraryTaxableSubtotal: ").Append(ArbitraryTaxableSubtotal).Append("\n");
+            sb.Append("  ArbitraryTaxableSubtotalDiscount: ").Append(ArbitraryTaxableSubtotalDiscount).Append("\n");
             sb.Append("  AssociateWithCustomerProfileIfPresent: ").Append(AssociateWithCustomerProfileIfPresent).Append("\n");
             sb.Append("  AutoApprovePurchaseOrder: ").Append(AutoApprovePurchaseOrder).Append("\n");
             sb.Append("  BilltoAddress1: ").Append(BilltoAddress1).Append("\n");
@@ -1168,6 +1188,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ArbitraryShippingHandlingTotal.Equals(input.ArbitraryShippingHandlingTotal))
                 ) && 
                 (
+                    this.ArbitrarySubtotalDiscount == input.ArbitrarySubtotalDiscount ||
+                    (this.ArbitrarySubtotalDiscount != null &&
+                    this.ArbitrarySubtotalDiscount.Equals(input.ArbitrarySubtotalDiscount))
+                ) && 
+                (
                     this.ArbitraryTax == input.ArbitraryTax ||
                     (this.ArbitraryTax != null &&
                     this.ArbitraryTax.Equals(input.ArbitraryTax))
@@ -1181,6 +1206,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ArbitraryTaxableSubtotal == input.ArbitraryTaxableSubtotal ||
                     (this.ArbitraryTaxableSubtotal != null &&
                     this.ArbitraryTaxableSubtotal.Equals(input.ArbitraryTaxableSubtotal))
+                ) && 
+                (
+                    this.ArbitraryTaxableSubtotalDiscount == input.ArbitraryTaxableSubtotalDiscount ||
+                    (this.ArbitraryTaxableSubtotalDiscount != null &&
+                    this.ArbitraryTaxableSubtotalDiscount.Equals(input.ArbitraryTaxableSubtotalDiscount))
                 ) && 
                 (
                     this.AssociateWithCustomerProfileIfPresent == input.AssociateWithCustomerProfileIfPresent ||
@@ -1639,12 +1669,16 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AffiliateSubId.GetHashCode();
                 if (this.ArbitraryShippingHandlingTotal != null)
                     hashCode = hashCode * 59 + this.ArbitraryShippingHandlingTotal.GetHashCode();
+                if (this.ArbitrarySubtotalDiscount != null)
+                    hashCode = hashCode * 59 + this.ArbitrarySubtotalDiscount.GetHashCode();
                 if (this.ArbitraryTax != null)
                     hashCode = hashCode * 59 + this.ArbitraryTax.GetHashCode();
                 if (this.ArbitraryTaxRate != null)
                     hashCode = hashCode * 59 + this.ArbitraryTaxRate.GetHashCode();
                 if (this.ArbitraryTaxableSubtotal != null)
                     hashCode = hashCode * 59 + this.ArbitraryTaxableSubtotal.GetHashCode();
+                if (this.ArbitraryTaxableSubtotalDiscount != null)
+                    hashCode = hashCode * 59 + this.ArbitraryTaxableSubtotalDiscount.GetHashCode();
                 if (this.AssociateWithCustomerProfileIfPresent != null)
                     hashCode = hashCode * 59 + this.AssociateWithCustomerProfileIfPresent.GetHashCode();
                 if (this.AutoApprovePurchaseOrder != null)

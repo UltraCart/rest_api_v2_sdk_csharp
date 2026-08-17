@@ -77,15 +77,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="autoOrderOid">Auto order object identifier.</param>
         /// <param name="cancelAfterNextXOrders">Cancel this auto order after X additional rebills.</param>
         /// <param name="cancelDowngrade">True if the auto order was canceled because the customer purchased a downgrade item.</param>
-        /// <param name="cancelReason">The reason this auto order was canceled by either merchant or customer.</param>
+        /// <param name="cancelReason">The reason this auto order was canceled by either merchant or customer. Supplying this when setting enabled to false records the change as a cancellation rather than a disable..</param>
         /// <param name="cancelUpgrade">True if the auto order was canceled because the customer purchased an upgrade item.</param>
-        /// <param name="canceledByUser">The user that canceled the auto order.</param>
-        /// <param name="canceledDts">The date/time that the auto order was canceled.</param>
+        /// <param name="canceledByUser">The user that canceled the auto order. Supplying this when setting enabled to false records the change as a cancellation rather than a disable..</param>
+        /// <param name="canceledDts">The date/time that the auto order was canceled. Supply this to record an explicit cancellation time, otherwise it is stamped automatically when enabled is set to false along with cancel_reason or canceled_by_user..</param>
         /// <param name="completed">True if the auto order ran successfully to completion.</param>
         /// <param name="creditCardAttempt">The number of credit card attempts that have taken place.</param>
-        /// <param name="disabledDts">The date/time the auto order was disabled due to failed rebills.</param>
+        /// <param name="disabledDts">The date/time the auto order was disabled, either by a failed rebill or by setting enabled to false without a cancellation.</param>
         /// <param name="emails">Email delivery records associated with this auto order..</param>
-        /// <param name="enabled">True if this auto order is enabled.</param>
+        /// <param name="enabled">True if this auto order is enabled. Setting this to false along with cancel_reason or canceled_by_user records the change as a cancellation and fires the auto order cancel notifications. Setting it to false without either field records a disable instead..</param>
         /// <param name="failureReason">The reason this auto order failed during the last rebill attempt.</param>
         /// <param name="items">The items that are setup to rebill.</param>
         /// <param name="logs">Logs associated with this auto order.</param>
@@ -170,9 +170,9 @@ namespace com.ultracart.admin.v2.Model
         public bool CancelDowngrade { get; set; }
 
         /// <summary>
-        /// The reason this auto order was canceled by either merchant or customer
+        /// The reason this auto order was canceled by either merchant or customer. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.
         /// </summary>
-        /// <value>The reason this auto order was canceled by either merchant or customer</value>
+        /// <value>The reason this auto order was canceled by either merchant or customer. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.</value>
         [DataMember(Name="cancel_reason", EmitDefaultValue=false)]
         public string CancelReason { get; set; }
 
@@ -184,16 +184,16 @@ namespace com.ultracart.admin.v2.Model
         public bool CancelUpgrade { get; set; }
 
         /// <summary>
-        /// The user that canceled the auto order
+        /// The user that canceled the auto order. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.
         /// </summary>
-        /// <value>The user that canceled the auto order</value>
+        /// <value>The user that canceled the auto order. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.</value>
         [DataMember(Name="canceled_by_user", EmitDefaultValue=false)]
         public string CanceledByUser { get; set; }
 
         /// <summary>
-        /// The date/time that the auto order was canceled
+        /// The date/time that the auto order was canceled. Supply this to record an explicit cancellation time, otherwise it is stamped automatically when enabled is set to false along with cancel_reason or canceled_by_user.
         /// </summary>
-        /// <value>The date/time that the auto order was canceled</value>
+        /// <value>The date/time that the auto order was canceled. Supply this to record an explicit cancellation time, otherwise it is stamped automatically when enabled is set to false along with cancel_reason or canceled_by_user.</value>
         [DataMember(Name="canceled_dts", EmitDefaultValue=false)]
         public string CanceledDts { get; set; }
 
@@ -212,9 +212,9 @@ namespace com.ultracart.admin.v2.Model
         public int CreditCardAttempt { get; set; }
 
         /// <summary>
-        /// The date/time the auto order was disabled due to failed rebills
+        /// The date/time the auto order was disabled, either by a failed rebill or by setting enabled to false without a cancellation
         /// </summary>
-        /// <value>The date/time the auto order was disabled due to failed rebills</value>
+        /// <value>The date/time the auto order was disabled, either by a failed rebill or by setting enabled to false without a cancellation</value>
         [DataMember(Name="disabled_dts", EmitDefaultValue=false)]
         public string DisabledDts { get; set; }
 
@@ -226,9 +226,9 @@ namespace com.ultracart.admin.v2.Model
         public List<AutoOrderEmail> Emails { get; set; }
 
         /// <summary>
-        /// True if this auto order is enabled
+        /// True if this auto order is enabled. Setting this to false along with cancel_reason or canceled_by_user records the change as a cancellation and fires the auto order cancel notifications. Setting it to false without either field records a disable instead.
         /// </summary>
-        /// <value>True if this auto order is enabled</value>
+        /// <value>True if this auto order is enabled. Setting this to false along with cancel_reason or canceled_by_user records the change as a cancellation and fires the auto order cancel notifications. Setting it to false without either field records a disable instead.</value>
         [DataMember(Name="enabled", EmitDefaultValue=false)]
         public bool Enabled { get; set; }
 

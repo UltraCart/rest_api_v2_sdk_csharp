@@ -5,9 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Active** | **bool** |  | [optional] 
 **Activities** | [**List&lt;Activity&gt;**](Activity.md) |  | [optional] 
 **GlobalUnsubscribed** | **bool** |  | [optional] 
 **GlobalUnsubscribedDts** | **string** |  | [optional] 
+**LastActivityDts** | **string** |  | [optional] 
 **Memberships** | [**List&lt;ListSegmentMembership&gt;**](ListSegmentMembership.md) |  | [optional] 
 **Metrics** | [**List&lt;Metric&gt;**](Metric.md) |  | [optional] 
 **PropertiesList** | [**List&lt;Property&gt;**](Property.md) |  | [optional] 

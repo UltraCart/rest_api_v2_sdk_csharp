@@ -33,9 +33,11 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerActivity" /> class.
         /// </summary>
+        /// <param name="active">active.</param>
         /// <param name="activities">activities.</param>
         /// <param name="globalUnsubscribed">globalUnsubscribed.</param>
         /// <param name="globalUnsubscribedDts">globalUnsubscribedDts.</param>
+        /// <param name="lastActivityDts">lastActivityDts.</param>
         /// <param name="memberships">memberships.</param>
         /// <param name="metrics">metrics.</param>
         /// <param name="propertiesList">propertiesList.</param>
@@ -43,11 +45,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="smsStop">smsStop.</param>
         /// <param name="spamComplaint">spamComplaint.</param>
         /// <param name="spamComplaintDts">spamComplaintDts.</param>
-        public CustomerActivity(List<Activity> activities = default(List<Activity>), bool globalUnsubscribed = default(bool), string globalUnsubscribedDts = default(string), List<ListSegmentMembership> memberships = default(List<ListSegmentMembership>), List<Metric> metrics = default(List<Metric>), List<Property> propertiesList = default(List<Property>), string sms = default(string), bool smsStop = default(bool), bool spamComplaint = default(bool), string spamComplaintDts = default(string))
+        public CustomerActivity(bool active = default(bool), List<Activity> activities = default(List<Activity>), bool globalUnsubscribed = default(bool), string globalUnsubscribedDts = default(string), string lastActivityDts = default(string), List<ListSegmentMembership> memberships = default(List<ListSegmentMembership>), List<Metric> metrics = default(List<Metric>), List<Property> propertiesList = default(List<Property>), string sms = default(string), bool smsStop = default(bool), bool spamComplaint = default(bool), string spamComplaintDts = default(string))
         {
+            this.Active = active;
             this.Activities = activities;
             this.GlobalUnsubscribed = globalUnsubscribed;
             this.GlobalUnsubscribedDts = globalUnsubscribedDts;
+            this.LastActivityDts = lastActivityDts;
             this.Memberships = memberships;
             this.Metrics = metrics;
             this.PropertiesList = propertiesList;
@@ -56,6 +60,12 @@ namespace com.ultracart.admin.v2.Model
             this.SpamComplaint = spamComplaint;
             this.SpamComplaintDts = spamComplaintDts;
         }
+
+        /// <summary>
+        /// Gets or Sets Active
+        /// </summary>
+        [DataMember(Name="active", EmitDefaultValue=false)]
+        public bool Active { get; set; }
 
         /// <summary>
         /// Gets or Sets Activities
@@ -74,6 +84,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="global_unsubscribed_dts", EmitDefaultValue=false)]
         public string GlobalUnsubscribedDts { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LastActivityDts
+        /// </summary>
+        [DataMember(Name="last_activity_dts", EmitDefaultValue=false)]
+        public string LastActivityDts { get; set; }
 
         /// <summary>
         /// Gets or Sets Memberships
@@ -125,9 +141,11 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CustomerActivity {\n");
+            sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  Activities: ").Append(Activities).Append("\n");
             sb.Append("  GlobalUnsubscribed: ").Append(GlobalUnsubscribed).Append("\n");
             sb.Append("  GlobalUnsubscribedDts: ").Append(GlobalUnsubscribedDts).Append("\n");
+            sb.Append("  LastActivityDts: ").Append(LastActivityDts).Append("\n");
             sb.Append("  Memberships: ").Append(Memberships).Append("\n");
             sb.Append("  Metrics: ").Append(Metrics).Append("\n");
             sb.Append("  PropertiesList: ").Append(PropertiesList).Append("\n");
@@ -170,6 +188,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Active == input.Active ||
+                    (this.Active != null &&
+                    this.Active.Equals(input.Active))
+                ) && 
+                (
                     this.Activities == input.Activities ||
                     this.Activities != null &&
                     input.Activities != null &&
@@ -184,6 +207,11 @@ namespace com.ultracart.admin.v2.Model
                     this.GlobalUnsubscribedDts == input.GlobalUnsubscribedDts ||
                     (this.GlobalUnsubscribedDts != null &&
                     this.GlobalUnsubscribedDts.Equals(input.GlobalUnsubscribedDts))
+                ) && 
+                (
+                    this.LastActivityDts == input.LastActivityDts ||
+                    (this.LastActivityDts != null &&
+                    this.LastActivityDts.Equals(input.LastActivityDts))
                 ) && 
                 (
                     this.Memberships == input.Memberships ||
@@ -234,12 +262,16 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Active != null)
+                    hashCode = hashCode * 59 + this.Active.GetHashCode();
                 if (this.Activities != null)
                     hashCode = hashCode * 59 + this.Activities.GetHashCode();
                 if (this.GlobalUnsubscribed != null)
                     hashCode = hashCode * 59 + this.GlobalUnsubscribed.GetHashCode();
                 if (this.GlobalUnsubscribedDts != null)
                     hashCode = hashCode * 59 + this.GlobalUnsubscribedDts.GetHashCode();
+                if (this.LastActivityDts != null)
+                    hashCode = hashCode * 59 + this.LastActivityDts.GetHashCode();
                 if (this.Memberships != null)
                     hashCode = hashCode * 59 + this.Memberships.GetHashCode();
                 if (this.Metrics != null)

@@ -114,7 +114,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="unavailableSayVoice">Unavailable say voice.</param>
         /// <param name="userId">User Id.</param>
         /// <param name="voicemail">True if this agent has voicemail configured.</param>
-        public ConversationPbxAgent(bool ai = default(bool), CallRoutingPreferenceEnum? callRoutingPreference = default(CallRoutingPreferenceEnum?), string cellphone = default(string), string conversationPbxAgentUuid = default(string), string cosUuid = default(string), string defaultPhoneNumberUuid = default(string), int extension = default(int), string fullName = default(string), List<string> hardwarePhoneUuids = default(List<string>), string login = default(string), string merchantId = default(string), string personalConversationPbxVoicemailMailboxUuid = default(string), string preferredHardwarePhoneUuid = default(string), bool recordOutgoingAutomatically = default(bool), string sharedConversationPbxVoicemailMailboxUuid = default(string), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), UnavailableSayVoiceEnum? unavailableSayVoice = default(UnavailableSayVoiceEnum?), int userId = default(int), bool voicemail = default(bool))
+        /// <param name="zohoDeskOutboundDepartmentId">Zoho Desk department ID to create outbound-call tickets in for this agent.</param>
+        /// <param name="zohoDeskOutboundTicketEnabled">If true, a Zoho Desk ticket is automatically created for outbound calls placed by this agent.</param>
+        public ConversationPbxAgent(bool ai = default(bool), CallRoutingPreferenceEnum? callRoutingPreference = default(CallRoutingPreferenceEnum?), string cellphone = default(string), string conversationPbxAgentUuid = default(string), string cosUuid = default(string), string defaultPhoneNumberUuid = default(string), int extension = default(int), string fullName = default(string), List<string> hardwarePhoneUuids = default(List<string>), string login = default(string), string merchantId = default(string), string personalConversationPbxVoicemailMailboxUuid = default(string), string preferredHardwarePhoneUuid = default(string), bool recordOutgoingAutomatically = default(bool), string sharedConversationPbxVoicemailMailboxUuid = default(string), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), UnavailableSayVoiceEnum? unavailableSayVoice = default(UnavailableSayVoiceEnum?), int userId = default(int), bool voicemail = default(bool), string zohoDeskOutboundDepartmentId = default(string), bool zohoDeskOutboundTicketEnabled = default(bool))
         {
             this.Ai = ai;
             this.CallRoutingPreference = callRoutingPreference;
@@ -137,6 +139,8 @@ namespace com.ultracart.admin.v2.Model
             this.UnavailableSayVoice = unavailableSayVoice;
             this.UserId = userId;
             this.Voicemail = voicemail;
+            this.ZohoDeskOutboundDepartmentId = zohoDeskOutboundDepartmentId;
+            this.ZohoDeskOutboundTicketEnabled = zohoDeskOutboundTicketEnabled;
         }
 
         /// <summary>
@@ -275,6 +279,20 @@ namespace com.ultracart.admin.v2.Model
         public bool Voicemail { get; set; }
 
         /// <summary>
+        /// Zoho Desk department ID to create outbound-call tickets in for this agent
+        /// </summary>
+        /// <value>Zoho Desk department ID to create outbound-call tickets in for this agent</value>
+        [DataMember(Name="zoho_desk_outbound_department_id", EmitDefaultValue=false)]
+        public string ZohoDeskOutboundDepartmentId { get; set; }
+
+        /// <summary>
+        /// If true, a Zoho Desk ticket is automatically created for outbound calls placed by this agent
+        /// </summary>
+        /// <value>If true, a Zoho Desk ticket is automatically created for outbound calls placed by this agent</value>
+        [DataMember(Name="zoho_desk_outbound_ticket_enabled", EmitDefaultValue=false)]
+        public bool ZohoDeskOutboundTicketEnabled { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -303,6 +321,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  UnavailableSayVoice: ").Append(UnavailableSayVoice).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  Voicemail: ").Append(Voicemail).Append("\n");
+            sb.Append("  ZohoDeskOutboundDepartmentId: ").Append(ZohoDeskOutboundDepartmentId).Append("\n");
+            sb.Append("  ZohoDeskOutboundTicketEnabled: ").Append(ZohoDeskOutboundTicketEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -442,6 +462,16 @@ namespace com.ultracart.admin.v2.Model
                     this.Voicemail == input.Voicemail ||
                     (this.Voicemail != null &&
                     this.Voicemail.Equals(input.Voicemail))
+                ) && 
+                (
+                    this.ZohoDeskOutboundDepartmentId == input.ZohoDeskOutboundDepartmentId ||
+                    (this.ZohoDeskOutboundDepartmentId != null &&
+                    this.ZohoDeskOutboundDepartmentId.Equals(input.ZohoDeskOutboundDepartmentId))
+                ) && 
+                (
+                    this.ZohoDeskOutboundTicketEnabled == input.ZohoDeskOutboundTicketEnabled ||
+                    (this.ZohoDeskOutboundTicketEnabled != null &&
+                    this.ZohoDeskOutboundTicketEnabled.Equals(input.ZohoDeskOutboundTicketEnabled))
                 );
         }
 
@@ -496,6 +526,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.UserId.GetHashCode();
                 if (this.Voicemail != null)
                     hashCode = hashCode * 59 + this.Voicemail.GetHashCode();
+                if (this.ZohoDeskOutboundDepartmentId != null)
+                    hashCode = hashCode * 59 + this.ZohoDeskOutboundDepartmentId.GetHashCode();
+                if (this.ZohoDeskOutboundTicketEnabled != null)
+                    hashCode = hashCode * 59 + this.ZohoDeskOutboundTicketEnabled.GetHashCode();
                 return hashCode;
             }
         }
@@ -553,6 +587,13 @@ namespace com.ultracart.admin.v2.Model
             if(this.UnavailableSayVoice != null && this.UnavailableSayVoice.ToString().Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnavailableSayVoice, length must be less than 50.", new [] { "UnavailableSayVoice" });
+            }
+
+
+            // ZohoDeskOutboundDepartmentId (string) maxLength
+            if(this.ZohoDeskOutboundDepartmentId != null && this.ZohoDeskOutboundDepartmentId.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ZohoDeskOutboundDepartmentId, length must be less than 50.", new [] { "ZohoDeskOutboundDepartmentId" });
             }
 
 

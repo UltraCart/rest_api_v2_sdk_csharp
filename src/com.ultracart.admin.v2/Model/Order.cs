@@ -154,7 +154,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="orderId">Order ID.</param>
         /// <param name="payment">payment.</param>
         /// <param name="pointOfSale">pointOfSale.</param>
-        /// <param name="properties">Properties, available only through update, not through insert due to the nature of how properties are handled internally.</param>
+        /// <param name="properties">Properties associated with the order.</param>
         /// <param name="quote">quote.</param>
         /// <param name="refundDts">If the order was refunded, the date/time that the last refund occurred.</param>
         /// <param name="refundReason">Refund reason code.  This can only be written during a refund operation otherwise this field is read only..</param>
@@ -385,9 +385,9 @@ namespace com.ultracart.admin.v2.Model
         public OrderPointOfSale PointOfSale { get; set; }
 
         /// <summary>
-        /// Properties, available only through update, not through insert due to the nature of how properties are handled internally
+        /// Properties associated with the order
         /// </summary>
-        /// <value>Properties, available only through update, not through insert due to the nature of how properties are handled internally</value>
+        /// <value>Properties associated with the order</value>
         [DataMember(Name="properties", EmitDefaultValue=false)]
         public List<OrderProperty> Properties { get; set; }
 

@@ -322,7 +322,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="surchargeTransactionFee">Surcharge transaction fee.</param>
         /// <param name="surchargeTransactionPercentage">Surcharge transaction percentage.</param>
         /// <param name="testOrder">True if this is a test order.</param>
-        /// <param name="transactions">Transactions associated with processing this payment.</param>
+        /// <param name="transactions">Transactions associated with processing this payment.  Accepted on insert to carry the payment history of an order captured outside the system..</param>
         public OrderPayment(OrderPaymentCheck check = default(OrderPaymentCheck), OrderPaymentCreditCard creditCard = default(OrderPaymentCreditCard), OrderPaymentECheck echeck = default(OrderPaymentECheck), OrderPaymentHealthBenefitCard healthBenefitCard = default(OrderPaymentHealthBenefitCard), bool holdForFraudReview = default(bool), OrderPaymentInsurance insurance = default(OrderPaymentInsurance), string paymentDts = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string paymentMethodAccountingCode = default(string), string paymentMethodDepositToAccount = default(string), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), OrderPaymentPayPal paypal = default(OrderPaymentPayPal), OrderPaymentPurchaseOrder purchaseOrder = default(OrderPaymentPurchaseOrder), string rotatingTransactionGatewayCode = default(string), Currency surcharge = default(Currency), string surchargeAccountingCode = default(string), decimal surchargeTransactionFee = default(decimal), decimal surchargeTransactionPercentage = default(decimal), bool testOrder = default(bool), List<OrderPaymentTransaction> transactions = default(List<OrderPaymentTransaction>))
         {
             this.Check = check;
@@ -461,9 +461,9 @@ namespace com.ultracart.admin.v2.Model
         public bool TestOrder { get; set; }
 
         /// <summary>
-        /// Transactions associated with processing this payment
+        /// Transactions associated with processing this payment.  Accepted on insert to carry the payment history of an order captured outside the system.
         /// </summary>
-        /// <value>Transactions associated with processing this payment</value>
+        /// <value>Transactions associated with processing this payment.  Accepted on insert to carry the payment history of an order captured outside the system.</value>
         [DataMember(Name="transactions", EmitDefaultValue=false)]
         public List<OrderPaymentTransaction> Transactions { get; set; }
 

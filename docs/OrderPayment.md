@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **SurchargeTransactionFee** | **decimal** | Surcharge transaction fee | [optional] 
 **SurchargeTransactionPercentage** | **decimal** | Surcharge transaction percentage | [optional] 
 **TestOrder** | **bool** | True if this is a test order | [optional] 
-**Transactions** | [**List&lt;OrderPaymentTransaction&gt;**](OrderPaymentTransaction.md) | Transactions associated with processing this payment | [optional] 
+**Transactions** | [**List&lt;OrderPaymentTransaction&gt;**](OrderPaymentTransaction.md) | Transactions associated with processing this payment.  Accepted on insert to carry the payment history of an order captured outside the system. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

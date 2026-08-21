@@ -65,7 +65,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Agent for value: agent
             /// </summary>
             [EnumMember(Value = "agent")]
-            Agent = 5
+            Agent = 5,
+
+            /// <summary>
+            /// Enum Sendtext for value: send text
+            /// </summary>
+            [EnumMember(Value = "send text")]
+            Sendtext = 6
 
         }
 
@@ -82,12 +88,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="actionTarget">Action target.  This is the UUID associated with the configuration object of that particular type..</param>
         /// <param name="digits">Digits.</param>
         /// <param name="speech">Speech.</param>
-        public ConversationPbxMenuMapping(ActionEnum? action = default(ActionEnum?), string actionTarget = default(string), int digits = default(int), string speech = default(string))
+        /// <param name="textMessage">Text message body sent to the caller when the action is &#39;send text&#39;.  Ignored for all other actions..</param>
+        public ConversationPbxMenuMapping(ActionEnum? action = default(ActionEnum?), string actionTarget = default(string), int digits = default(int), string speech = default(string), string textMessage = default(string))
         {
             this.Action = action;
             this.ActionTarget = actionTarget;
             this.Digits = digits;
             this.Speech = speech;
+            this.TextMessage = textMessage;
         }
 
 
@@ -113,6 +121,13 @@ namespace com.ultracart.admin.v2.Model
         public string Speech { get; set; }
 
         /// <summary>
+        /// Text message body sent to the caller when the action is &#39;send text&#39;.  Ignored for all other actions.
+        /// </summary>
+        /// <value>Text message body sent to the caller when the action is &#39;send text&#39;.  Ignored for all other actions.</value>
+        [DataMember(Name="text_message", EmitDefaultValue=false)]
+        public string TextMessage { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -124,6 +139,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ActionTarget: ").Append(ActionTarget).Append("\n");
             sb.Append("  Digits: ").Append(Digits).Append("\n");
             sb.Append("  Speech: ").Append(Speech).Append("\n");
+            sb.Append("  TextMessage: ").Append(TextMessage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -177,6 +193,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Speech == input.Speech ||
                     (this.Speech != null &&
                     this.Speech.Equals(input.Speech))
+                ) && 
+                (
+                    this.TextMessage == input.TextMessage ||
+                    (this.TextMessage != null &&
+                    this.TextMessage.Equals(input.TextMessage))
                 );
         }
 
@@ -197,6 +218,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Digits.GetHashCode();
                 if (this.Speech != null)
                     hashCode = hashCode * 59 + this.Speech.GetHashCode();
+                if (this.TextMessage != null)
+                    hashCode = hashCode * 59 + this.TextMessage.GetHashCode();
                 return hashCode;
             }
         }
@@ -219,6 +242,13 @@ namespace com.ultracart.admin.v2.Model
             if(this.ActionTarget != null && this.ActionTarget.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ActionTarget, length must be less than 50.", new [] { "ActionTarget" });
+            }
+
+
+            // TextMessage (string) maxLength
+            if(this.TextMessage != null && this.TextMessage.Length > 1600)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TextMessage, length must be less than 1600.", new [] { "TextMessage" });
             }
 
 

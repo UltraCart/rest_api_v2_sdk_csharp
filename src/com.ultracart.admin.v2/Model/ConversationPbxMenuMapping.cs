@@ -87,13 +87,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="action">Action.</param>
         /// <param name="actionTarget">Action target.  This is the UUID associated with the configuration object of that particular type..</param>
         /// <param name="digits">Digits.</param>
+        /// <param name="smsFromNumber">Optional phone number to send the text message from.  Must be a phone number configured on this merchant account and SMS enabled.  Defaults to the number the caller dialed.  Only used when the action is &#39;send text&#39;..</param>
         /// <param name="speech">Speech.</param>
         /// <param name="textMessage">Text message body sent to the caller when the action is &#39;send text&#39;.  Ignored for all other actions..</param>
-        public ConversationPbxMenuMapping(ActionEnum? action = default(ActionEnum?), string actionTarget = default(string), int digits = default(int), string speech = default(string), string textMessage = default(string))
+        public ConversationPbxMenuMapping(ActionEnum? action = default(ActionEnum?), string actionTarget = default(string), int digits = default(int), string smsFromNumber = default(string), string speech = default(string), string textMessage = default(string))
         {
             this.Action = action;
             this.ActionTarget = actionTarget;
             this.Digits = digits;
+            this.SmsFromNumber = smsFromNumber;
             this.Speech = speech;
             this.TextMessage = textMessage;
         }
@@ -112,6 +114,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Digits</value>
         [DataMember(Name="digits", EmitDefaultValue=false)]
         public int Digits { get; set; }
+
+        /// <summary>
+        /// Optional phone number to send the text message from.  Must be a phone number configured on this merchant account and SMS enabled.  Defaults to the number the caller dialed.  Only used when the action is &#39;send text&#39;.
+        /// </summary>
+        /// <value>Optional phone number to send the text message from.  Must be a phone number configured on this merchant account and SMS enabled.  Defaults to the number the caller dialed.  Only used when the action is &#39;send text&#39;.</value>
+        [DataMember(Name="sms_from_number", EmitDefaultValue=false)]
+        public string SmsFromNumber { get; set; }
 
         /// <summary>
         /// Speech
@@ -138,6 +147,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Action: ").Append(Action).Append("\n");
             sb.Append("  ActionTarget: ").Append(ActionTarget).Append("\n");
             sb.Append("  Digits: ").Append(Digits).Append("\n");
+            sb.Append("  SmsFromNumber: ").Append(SmsFromNumber).Append("\n");
             sb.Append("  Speech: ").Append(Speech).Append("\n");
             sb.Append("  TextMessage: ").Append(TextMessage).Append("\n");
             sb.Append("}\n");
@@ -190,6 +200,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Digits.Equals(input.Digits))
                 ) && 
                 (
+                    this.SmsFromNumber == input.SmsFromNumber ||
+                    (this.SmsFromNumber != null &&
+                    this.SmsFromNumber.Equals(input.SmsFromNumber))
+                ) && 
+                (
                     this.Speech == input.Speech ||
                     (this.Speech != null &&
                     this.Speech.Equals(input.Speech))
@@ -216,6 +231,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ActionTarget.GetHashCode();
                 if (this.Digits != null)
                     hashCode = hashCode * 59 + this.Digits.GetHashCode();
+                if (this.SmsFromNumber != null)
+                    hashCode = hashCode * 59 + this.SmsFromNumber.GetHashCode();
                 if (this.Speech != null)
                     hashCode = hashCode * 59 + this.Speech.GetHashCode();
                 if (this.TextMessage != null)
@@ -242,6 +259,13 @@ namespace com.ultracart.admin.v2.Model
             if(this.ActionTarget != null && this.ActionTarget.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ActionTarget, length must be less than 50.", new [] { "ActionTarget" });
+            }
+
+
+            // SmsFromNumber (string) maxLength
+            if(this.SmsFromNumber != null && this.SmsFromNumber.Length > 25)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SmsFromNumber, length must be less than 25.", new [] { "SmsFromNumber" });
             }
 
 

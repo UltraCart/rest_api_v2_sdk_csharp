@@ -16,6 +16,8 @@ docs/Activity.md
 docs/AddLibraryItemRequest.md
 docs/AdjustInternalCertificateRequest.md
 docs/AdjustInternalCertificateResponse.md
+docs/AdjustLoyaltyPointsRequest.md
+docs/AdjustLoyaltyPointsResponse.md
 docs/Affiliate.md
 docs/AffiliateApi.md
 docs/AffiliateAttribute.md
@@ -457,6 +459,7 @@ docs/CustomerEmailSuppressionResult.md
 docs/CustomerLoyalty.md
 docs/CustomerLoyaltyLedger.md
 docs/CustomerLoyaltyRedemption.md
+docs/CustomerLoyaltyResponse.md
 docs/CustomerMagicLinkResponse.md
 docs/CustomerMergeRequest.md
 docs/CustomerOrdersSummary.md
@@ -1111,6 +1114,8 @@ src/com.ultracart.admin.v2/Model/Activity.cs
 src/com.ultracart.admin.v2/Model/AddLibraryItemRequest.cs
 src/com.ultracart.admin.v2/Model/AdjustInternalCertificateRequest.cs
 src/com.ultracart.admin.v2/Model/AdjustInternalCertificateResponse.cs
+src/com.ultracart.admin.v2/Model/AdjustLoyaltyPointsRequest.cs
+src/com.ultracart.admin.v2/Model/AdjustLoyaltyPointsResponse.cs
 src/com.ultracart.admin.v2/Model/Affiliate.cs
 src/com.ultracart.admin.v2/Model/AffiliateAttribute.cs
 src/com.ultracart.admin.v2/Model/AffiliateClick.cs
@@ -1543,6 +1548,7 @@ src/com.ultracart.admin.v2/Model/CustomerEmailSuppressionResult.cs
 src/com.ultracart.admin.v2/Model/CustomerLoyalty.cs
 src/com.ultracart.admin.v2/Model/CustomerLoyaltyLedger.cs
 src/com.ultracart.admin.v2/Model/CustomerLoyaltyRedemption.cs
+src/com.ultracart.admin.v2/Model/CustomerLoyaltyResponse.cs
 src/com.ultracart.admin.v2/Model/CustomerMagicLinkResponse.cs
 src/com.ultracart.admin.v2/Model/CustomerMergeRequest.cs
 src/com.ultracart.admin.v2/Model/CustomerOrdersSummary.cs

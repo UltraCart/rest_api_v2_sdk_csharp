@@ -72,6 +72,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of AdjustInternalCertificateResponse</returns>
         ApiResponse<AdjustInternalCertificateResponse> AdjustInternalCertificateWithHttpInfo (int customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest);
         /// <summary>
+        /// Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.
+        /// </summary>
+        /// <remarks>
+        /// Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.  The loyalty ledger is append only.  Records are never updated or deleted, so a correction is made by posting a second adjustment with the opposite sign. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustLoyaltyPointsRequest">adjustLoyaltyPointsRequest</param>
+        /// <returns>AdjustLoyaltyPointsResponse</returns>
+        AdjustLoyaltyPointsResponse AdjustLoyaltyPoints (int customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest);
+
+        /// <summary>
+        /// Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.
+        /// </summary>
+        /// <remarks>
+        /// Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.  The loyalty ledger is append only.  Records are never updated or deleted, so a correction is made by posting a second adjustment with the opposite sign. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustLoyaltyPointsRequest">adjustLoyaltyPointsRequest</param>
+        /// <returns>ApiResponse of AdjustLoyaltyPointsResponse</returns>
+        ApiResponse<AdjustLoyaltyPointsResponse> AdjustLoyaltyPointsWithHttpInfo (int customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest);
+        /// <summary>
         /// Delete a customer
         /// </summary>
         /// <remarks>
@@ -199,6 +222,27 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of EmailListsResponse</returns>
         ApiResponse<EmailListsResponse> GetCustomerEmailListsWithHttpInfo ();
+        /// <summary>
+        /// Retrieve the loyalty points, ledger and redemptions for a customer
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the loyalty points, ledger and redemptions for a customer.  This is a convenience method that returns the same information as expanding loyalty on the customer object, without having to retrieve the entire customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <returns>CustomerLoyaltyResponse</returns>
+        CustomerLoyaltyResponse GetCustomerLoyalty (int customerProfileOid);
+
+        /// <summary>
+        /// Retrieve the loyalty points, ledger and redemptions for a customer
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the loyalty points, ledger and redemptions for a customer.  This is a convenience method that returns the same information as expanding loyalty on the customer object, without having to retrieve the entire customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <returns>ApiResponse of CustomerLoyaltyResponse</returns>
+        ApiResponse<CustomerLoyaltyResponse> GetCustomerLoyaltyWithHttpInfo (int customerProfileOid);
         /// <summary>
         /// Retrieve the customer store credit accumulated through loyalty programs
         /// </summary>
@@ -761,6 +805,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (AdjustInternalCertificateResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AdjustInternalCertificateResponse>> AdjustInternalCertificateWithHttpInfoAsync (int customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.
+        /// </summary>
+        /// <remarks>
+        /// Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.  The loyalty ledger is append only.  Records are never updated or deleted, so a correction is made by posting a second adjustment with the opposite sign. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustLoyaltyPointsRequest">adjustLoyaltyPointsRequest</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AdjustLoyaltyPointsResponse</returns>
+        System.Threading.Tasks.Task<AdjustLoyaltyPointsResponse> AdjustLoyaltyPointsAsync (int customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.
+        /// </summary>
+        /// <remarks>
+        /// Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.  The loyalty ledger is append only.  Records are never updated or deleted, so a correction is made by posting a second adjustment with the opposite sign. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustLoyaltyPointsRequest">adjustLoyaltyPointsRequest</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AdjustLoyaltyPointsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AdjustLoyaltyPointsResponse>> AdjustLoyaltyPointsWithHttpInfoAsync (int customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Delete a customer
         /// </summary>
         /// <remarks>
@@ -900,6 +969,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailListsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailListsResponse>> GetCustomerEmailListsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve the loyalty points, ledger and redemptions for a customer
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the loyalty points, ledger and redemptions for a customer.  This is a convenience method that returns the same information as expanding loyalty on the customer object, without having to retrieve the entire customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomerLoyaltyResponse</returns>
+        System.Threading.Tasks.Task<CustomerLoyaltyResponse> GetCustomerLoyaltyAsync (int customerProfileOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve the loyalty points, ledger and redemptions for a customer
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the loyalty points, ledger and redemptions for a customer.  This is a convenience method that returns the same information as expanding loyalty on the customer object, without having to retrieve the entire customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomerLoyaltyResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerLoyaltyResponse>> GetCustomerLoyaltyWithHttpInfoAsync (int customerProfileOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve the customer store credit accumulated through loyalty programs
         /// </summary>
@@ -1947,6 +2039,191 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Adjusts the loyalty points for a customer by adding a record to the loyalty ledger. Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.  The loyalty ledger is append only.  Records are never updated or deleted, so a correction is made by posting a second adjustment with the opposite sign. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustLoyaltyPointsRequest">adjustLoyaltyPointsRequest</param>
+        /// <returns>AdjustLoyaltyPointsResponse</returns>
+        public AdjustLoyaltyPointsResponse AdjustLoyaltyPoints (int customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest)
+        {
+             ApiResponse<AdjustLoyaltyPointsResponse> localVarResponse = AdjustLoyaltyPointsWithHttpInfo(customerProfileOid, adjustLoyaltyPointsRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Adjusts the loyalty points for a customer by adding a record to the loyalty ledger. Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.  The loyalty ledger is append only.  Records are never updated or deleted, so a correction is made by posting a second adjustment with the opposite sign. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustLoyaltyPointsRequest">adjustLoyaltyPointsRequest</param>
+        /// <returns>ApiResponse of AdjustLoyaltyPointsResponse</returns>
+        public ApiResponse<AdjustLoyaltyPointsResponse> AdjustLoyaltyPointsWithHttpInfo (int customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->AdjustLoyaltyPoints");
+            // verify the required parameter 'adjustLoyaltyPointsRequest' is set
+            if (adjustLoyaltyPointsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'adjustLoyaltyPointsRequest' when calling CustomerApi->AdjustLoyaltyPoints");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/adjust_loyalty_points";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (adjustLoyaltyPointsRequest != null && adjustLoyaltyPointsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(adjustLoyaltyPointsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = adjustLoyaltyPointsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AdjustLoyaltyPoints", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AdjustLoyaltyPointsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AdjustLoyaltyPointsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AdjustLoyaltyPointsResponse)));
+        }
+
+        /// <summary>
+        /// Adjusts the loyalty points for a customer by adding a record to the loyalty ledger. Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.  The loyalty ledger is append only.  Records are never updated or deleted, so a correction is made by posting a second adjustment with the opposite sign. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustLoyaltyPointsRequest">adjustLoyaltyPointsRequest</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AdjustLoyaltyPointsResponse</returns>
+        public async System.Threading.Tasks.Task<AdjustLoyaltyPointsResponse> AdjustLoyaltyPointsAsync (int customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<AdjustLoyaltyPointsResponse> localVarResponse = await AdjustLoyaltyPointsWithHttpInfoAsync(customerProfileOid, adjustLoyaltyPointsRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Adjusts the loyalty points for a customer by adding a record to the loyalty ledger. Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.  The loyalty ledger is append only.  Records are never updated or deleted, so a correction is made by posting a second adjustment with the opposite sign. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustLoyaltyPointsRequest">adjustLoyaltyPointsRequest</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AdjustLoyaltyPointsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AdjustLoyaltyPointsResponse>> AdjustLoyaltyPointsWithHttpInfoAsync (int customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->AdjustLoyaltyPoints");
+            // verify the required parameter 'adjustLoyaltyPointsRequest' is set
+            if (adjustLoyaltyPointsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'adjustLoyaltyPointsRequest' when calling CustomerApi->AdjustLoyaltyPoints");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/adjust_loyalty_points";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (adjustLoyaltyPointsRequest != null && adjustLoyaltyPointsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(adjustLoyaltyPointsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = adjustLoyaltyPointsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AdjustLoyaltyPoints", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AdjustLoyaltyPointsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AdjustLoyaltyPointsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AdjustLoyaltyPointsResponse)));
+        }
+
+        /// <summary>
         /// Delete a customer Delete a customer on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2882,6 +3159,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailListsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (EmailListsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve the loyalty points, ledger and redemptions for a customer Retrieve the loyalty points, ledger and redemptions for a customer.  This is a convenience method that returns the same information as expanding loyalty on the customer object, without having to retrieve the entire customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <returns>CustomerLoyaltyResponse</returns>
+        public CustomerLoyaltyResponse GetCustomerLoyalty (int customerProfileOid)
+        {
+             ApiResponse<CustomerLoyaltyResponse> localVarResponse = GetCustomerLoyaltyWithHttpInfo(customerProfileOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve the loyalty points, ledger and redemptions for a customer Retrieve the loyalty points, ledger and redemptions for a customer.  This is a convenience method that returns the same information as expanding loyalty on the customer object, without having to retrieve the entire customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <returns>ApiResponse of CustomerLoyaltyResponse</returns>
+        public ApiResponse<CustomerLoyaltyResponse> GetCustomerLoyaltyWithHttpInfo (int customerProfileOid)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->GetCustomerLoyalty");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/loyalty";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomerLoyalty", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerLoyaltyResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerLoyaltyResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerLoyaltyResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve the loyalty points, ledger and redemptions for a customer Retrieve the loyalty points, ledger and redemptions for a customer.  This is a convenience method that returns the same information as expanding loyalty on the customer object, without having to retrieve the entire customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomerLoyaltyResponse</returns>
+        public async System.Threading.Tasks.Task<CustomerLoyaltyResponse> GetCustomerLoyaltyAsync (int customerProfileOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<CustomerLoyaltyResponse> localVarResponse = await GetCustomerLoyaltyWithHttpInfoAsync(customerProfileOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve the loyalty points, ledger and redemptions for a customer Retrieve the loyalty points, ledger and redemptions for a customer.  This is a convenience method that returns the same information as expanding loyalty on the customer object, without having to retrieve the entire customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomerLoyaltyResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerLoyaltyResponse>> GetCustomerLoyaltyWithHttpInfoAsync (int customerProfileOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->GetCustomerLoyalty");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/loyalty";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomerLoyalty", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerLoyaltyResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerLoyaltyResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerLoyaltyResponse)));
         }
 
         /// <summary>

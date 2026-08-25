@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderChannelPartner" /> class.
         /// </summary>
+        /// <param name="arbitraryPricingTierNames">Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.  Only applicable on inserting orders..</param>
         /// <param name="autoApprovePurchaseOrder">If true, any purchase order submitted is automatically approved.</param>
         /// <param name="channelPartnerCode">The code of the channel partner.</param>
         /// <param name="channelPartnerData">Additional data provided by the channel partner, read-only.</param>
@@ -45,8 +46,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="storeCompleted">Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order..</param>
         /// <param name="storeIfPaymentDeclines">If true, any failed payment will place the order in Accounts Receivable rather than rejecting it..</param>
         /// <param name="treatWarningsAsErrors">Any warnings are raised as errors and halt the import of the order.</param>
-        public OrderChannelPartner(bool autoApprovePurchaseOrder = default(bool), string channelPartnerCode = default(string), string channelPartnerData = default(string), int channelPartnerOid = default(int), string channelPartnerOrderId = default(string), bool ignoreInvalidShippingMethod = default(bool), bool noRealtimePaymentProcessing = default(bool), bool skipAutoOrderSetup = default(bool), bool skipPaymentProcessing = default(bool), bool storeCompleted = default(bool), bool storeIfPaymentDeclines = default(bool), bool treatWarningsAsErrors = default(bool))
+        public OrderChannelPartner(List<string> arbitraryPricingTierNames = default(List<string>), bool autoApprovePurchaseOrder = default(bool), string channelPartnerCode = default(string), string channelPartnerData = default(string), int channelPartnerOid = default(int), string channelPartnerOrderId = default(string), bool ignoreInvalidShippingMethod = default(bool), bool noRealtimePaymentProcessing = default(bool), bool skipAutoOrderSetup = default(bool), bool skipPaymentProcessing = default(bool), bool storeCompleted = default(bool), bool storeIfPaymentDeclines = default(bool), bool treatWarningsAsErrors = default(bool))
         {
+            this.ArbitraryPricingTierNames = arbitraryPricingTierNames;
             this.AutoApprovePurchaseOrder = autoApprovePurchaseOrder;
             this.ChannelPartnerCode = channelPartnerCode;
             this.ChannelPartnerData = channelPartnerData;
@@ -60,6 +62,13 @@ namespace com.ultracart.admin.v2.Model
             this.StoreIfPaymentDeclines = storeIfPaymentDeclines;
             this.TreatWarningsAsErrors = treatWarningsAsErrors;
         }
+
+        /// <summary>
+        /// Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.  Only applicable on inserting orders.
+        /// </summary>
+        /// <value>Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.  Only applicable on inserting orders.</value>
+        [DataMember(Name="arbitrary_pricing_tier_names", EmitDefaultValue=false)]
+        public List<string> ArbitraryPricingTierNames { get; set; }
 
         /// <summary>
         /// If true, any purchase order submitted is automatically approved
@@ -153,6 +162,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class OrderChannelPartner {\n");
+            sb.Append("  ArbitraryPricingTierNames: ").Append(ArbitraryPricingTierNames).Append("\n");
             sb.Append("  AutoApprovePurchaseOrder: ").Append(AutoApprovePurchaseOrder).Append("\n");
             sb.Append("  ChannelPartnerCode: ").Append(ChannelPartnerCode).Append("\n");
             sb.Append("  ChannelPartnerData: ").Append(ChannelPartnerData).Append("\n");
@@ -199,6 +209,12 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.ArbitraryPricingTierNames == input.ArbitraryPricingTierNames ||
+                    this.ArbitraryPricingTierNames != null &&
+                    input.ArbitraryPricingTierNames != null &&
+                    this.ArbitraryPricingTierNames.SequenceEqual(input.ArbitraryPricingTierNames)
+                ) && 
                 (
                     this.AutoApprovePurchaseOrder == input.AutoApprovePurchaseOrder ||
                     (this.AutoApprovePurchaseOrder != null &&
@@ -270,6 +286,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ArbitraryPricingTierNames != null)
+                    hashCode = hashCode * 59 + this.ArbitraryPricingTierNames.GetHashCode();
                 if (this.AutoApprovePurchaseOrder != null)
                     hashCode = hashCode * 59 + this.AutoApprovePurchaseOrder.GetHashCode();
                 if (this.ChannelPartnerCode != null)

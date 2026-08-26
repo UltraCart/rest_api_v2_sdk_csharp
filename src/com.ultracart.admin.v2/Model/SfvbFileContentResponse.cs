@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// True when this file is compiler output and must not be edited directly.
         /// </summary>
         /// <value>True when this file is compiler output and must not be edited directly.</value>
-        [DataMember(Name="autoCompiled", EmitDefaultValue=false)]
+        [DataMember(Name="auto_compiled", EmitDefaultValue=false)]
         public bool AutoCompiled { get; set; }
 
         /// <summary>
@@ -77,21 +77,21 @@ namespace com.ultracart.admin.v2.Model
         /// StoreFront file system file oid.
         /// </summary>
         /// <value>StoreFront file system file oid.</value>
-        [DataMember(Name="fsFileOid", EmitDefaultValue=false)]
+        [DataMember(Name="fs_file_oid", EmitDefaultValue=false)]
         public int FsFileOid { get; set; }
 
         /// <summary>
         /// SHA-256 of the content.  Also returned as the ETag header; send it back as If-Match when writing.
         /// </summary>
         /// <value>SHA-256 of the content.  Also returned as the ETag header; send it back as If-Match when writing.</value>
-        [DataMember(Name="hashSha256", EmitDefaultValue=false)]
+        [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
         public string HashSha256 { get; set; }
 
         /// <summary>
         /// Mime type.
         /// </summary>
         /// <value>Mime type.</value>
-        [DataMember(Name="mimeType", EmitDefaultValue=false)]
+        [DataMember(Name="mime_type", EmitDefaultValue=false)]
         public string MimeType { get; set; }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace com.ultracart.admin.v2.Model
         /// Velocity errors recorded on the last write.  Null when valid.
         /// </summary>
         /// <value>Velocity errors recorded on the last write.  Null when valid.</value>
-        [DataMember(Name="velocityErrors", EmitDefaultValue=false)]
+        [DataMember(Name="velocity_errors", EmitDefaultValue=false)]
         public string VelocityErrors { get; set; }
 
         /// <summary>

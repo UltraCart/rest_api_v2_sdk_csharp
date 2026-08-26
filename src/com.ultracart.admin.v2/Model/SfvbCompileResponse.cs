@@ -53,7 +53,7 @@ namespace com.ultracart.admin.v2.Model
         /// Container id the document compiled under.
         /// </summary>
         /// <value>Container id the document compiled under.</value>
-        [DataMember(Name="containerId", EmitDefaultValue=false)]
+        [DataMember(Name="container_id", EmitDefaultValue=false)]
         public string ContainerId { get; set; }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace com.ultracart.admin.v2.Model
         /// Element types used, sorted.
         /// </summary>
         /// <value>Element types used, sorted.</value>
-        [DataMember(Name="usedElements", EmitDefaultValue=false)]
+        [DataMember(Name="used_elements", EmitDefaultValue=false)]
         public List<string> UsedElements { get; set; }
 
         /// <summary>

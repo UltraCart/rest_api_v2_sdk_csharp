@@ -60,21 +60,21 @@ namespace com.ultracart.admin.v2.Model
         /// Oid of the directory that was listed.
         /// </summary>
         /// <value>Oid of the directory that was listed.</value>
-        [DataMember(Name="fsDirectoryOid", EmitDefaultValue=false)]
+        [DataMember(Name="fs_directory_oid", EmitDefaultValue=false)]
         public int FsDirectoryOid { get; set; }
 
         /// <summary>
         /// Number of entries omitted when truncated is true.
         /// </summary>
         /// <value>Number of entries omitted when truncated is true.</value>
-        [DataMember(Name="omittedCount", EmitDefaultValue=false)]
+        [DataMember(Name="omitted_count", EmitDefaultValue=false)]
         public int OmittedCount { get; set; }
 
         /// <summary>
         /// Oid of the parent directory, or zero at the root.
         /// </summary>
         /// <value>Oid of the parent directory, or zero at the root.</value>
-        [DataMember(Name="parentFsDirectoryOid", EmitDefaultValue=false)]
+        [DataMember(Name="parent_fs_directory_oid", EmitDefaultValue=false)]
         public int ParentFsDirectoryOid { get; set; }
 
         /// <summary>

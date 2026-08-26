@@ -61,7 +61,7 @@ namespace com.ultracart.admin.v2.Model
         /// Create the file if it does not exist.  Defaults to true.
         /// </summary>
         /// <value>Create the file if it does not exist.  Defaults to true.</value>
-        [DataMember(Name="createIfMissing", EmitDefaultValue=false)]
+        [DataMember(Name="create_if_missing", EmitDefaultValue=false)]
         public bool CreateIfMissing { get; set; }
 
         /// <summary>

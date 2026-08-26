@@ -65,14 +65,14 @@ namespace com.ultracart.admin.v2.Model
         /// The chain of ancestor nodes above this one, as CJSON.  Elements that inherit layout or styling from a parent render differently without it, so supply it when rendering a node from inside a container rather than a standalone fragment.
         /// </summary>
         /// <value>The chain of ancestor nodes above this one, as CJSON.  Elements that inherit layout or styling from a parent render differently without it, so supply it when rendering a node from inside a container rather than a standalone fragment.</value>
-        [DataMember(Name="ancestorsCjson", EmitDefaultValue=false)]
+        [DataMember(Name="ancestors_cjson", EmitDefaultValue=false)]
         public string AncestorsCjson { get; set; }
 
         /// <summary>
         /// Child containers this node references, as a JSON object keyed by container id.  Compiled into the render context so nested containers resolve.
         /// </summary>
         /// <value>Child containers this node references, as a JSON object keyed by container id.  Compiled into the render context so nested containers resolve.</value>
-        [DataMember(Name="childContainersJson", EmitDefaultValue=false)]
+        [DataMember(Name="child_containers_json", EmitDefaultValue=false)]
         public string ChildContainersJson { get; set; }
 
         /// <summary>
@@ -86,56 +86,56 @@ namespace com.ultracart.admin.v2.Model
         /// Affiliate oid for the rendering context.
         /// </summary>
         /// <value>Affiliate oid for the rendering context.</value>
-        [DataMember(Name="contextAffiliateOid", EmitDefaultValue=false)]
+        [DataMember(Name="context_affiliate_oid", EmitDefaultValue=false)]
         public int ContextAffiliateOid { get; set; }
 
         /// <summary>
         /// Blog post oid for the rendering context.
         /// </summary>
         /// <value>Blog post oid for the rendering context.</value>
-        [DataMember(Name="contextBlogPostOid", EmitDefaultValue=false)]
+        [DataMember(Name="context_blog_post_oid", EmitDefaultValue=false)]
         public int ContextBlogPostOid { get; set; }
 
         /// <summary>
         /// Catalog group path for the rendering context.
         /// </summary>
         /// <value>Catalog group path for the rendering context.</value>
-        [DataMember(Name="contextGroupPath", EmitDefaultValue=false)]
+        [DataMember(Name="context_group_path", EmitDefaultValue=false)]
         public string ContextGroupPath { get; set; }
 
         /// <summary>
         /// Item id for the rendering context.  Required for item bound elements.
         /// </summary>
         /// <value>Item id for the rendering context.  Required for item bound elements.</value>
-        [DataMember(Name="contextItemId", EmitDefaultValue=false)]
+        [DataMember(Name="context_item_id", EmitDefaultValue=false)]
         public string ContextItemId { get; set; }
 
         /// <summary>
         /// Order id for the rendering context.
         /// </summary>
         /// <value>Order id for the rendering context.</value>
-        [DataMember(Name="contextOrderId", EmitDefaultValue=false)]
+        [DataMember(Name="context_order_id", EmitDefaultValue=false)]
         public string ContextOrderId { get; set; }
 
         /// <summary>
         /// Page number for paginated elements.  Defaults to 1.
         /// </summary>
         /// <value>Page number for paginated elements.  Defaults to 1.</value>
-        [DataMember(Name="contextPageNumber", EmitDefaultValue=false)]
+        [DataMember(Name="context_page_number", EmitDefaultValue=false)]
         public string ContextPageNumber { get; set; }
 
         /// <summary>
         /// Upsell offer oid for the rendering context.
         /// </summary>
         /// <value>Upsell offer oid for the rendering context.</value>
-        [DataMember(Name="contextUpsellOfferOid", EmitDefaultValue=false)]
+        [DataMember(Name="context_upsell_offer_oid", EmitDefaultValue=false)]
         public int ContextUpsellOfferOid { get; set; }
 
         /// <summary>
         /// Language ISO code.  Defaults to ENG.
         /// </summary>
         /// <value>Language ISO code.  Defaults to ENG.</value>
-        [DataMember(Name="languageIsoCode", EmitDefaultValue=false)]
+        [DataMember(Name="language_iso_code", EmitDefaultValue=false)]
         public string LanguageIsoCode { get; set; }
 
         /// <summary>

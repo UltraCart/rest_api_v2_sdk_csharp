@@ -52,7 +52,7 @@ namespace com.ultracart.admin.v2.Model
         /// Theme to compile against.  Supplies the inherit groups configuration.  Defaults to the active theme.
         /// </summary>
         /// <value>Theme to compile against.  Supplies the inherit groups configuration.  Defaults to the active theme.</value>
-        [DataMember(Name="themeOid", EmitDefaultValue=false)]
+        [DataMember(Name="theme_oid", EmitDefaultValue=false)]
         public int ThemeOid { get; set; }
 
         /// <summary>

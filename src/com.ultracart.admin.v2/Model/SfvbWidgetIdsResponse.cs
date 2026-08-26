@@ -54,7 +54,7 @@ namespace com.ultracart.admin.v2.Model
         /// First reserved number.
         /// </summary>
         /// <value>First reserved number.</value>
-        [DataMember(Name="firstId", EmitDefaultValue=false)]
+        [DataMember(Name="first_id", EmitDefaultValue=false)]
         public int FirstId { get; set; }
 
         /// <summary>

@@ -55,7 +55,7 @@ namespace com.ultracart.admin.v2.Model
         /// Seconds until the session expires.
         /// </summary>
         /// <value>Seconds until the session expires.</value>
-        [DataMember(Name="expiresInSeconds", EmitDefaultValue=false)]
+        [DataMember(Name="expires_in_seconds", EmitDefaultValue=false)]
         public int ExpiresInSeconds { get; set; }
 
         /// <summary>
@@ -69,21 +69,21 @@ namespace com.ultracart.admin.v2.Model
         /// The preview session id used.
         /// </summary>
         /// <value>The preview session id used.</value>
-        [DataMember(Name="previewSessionId", EmitDefaultValue=false)]
+        [DataMember(Name="preview_session_id", EmitDefaultValue=false)]
         public string PreviewSessionId { get; set; }
 
         /// <summary>
         /// URL that renders the storefront page with the preview session&#39;s containers substituted for the stored ones.
         /// </summary>
         /// <value>URL that renders the storefront page with the preview session&#39;s containers substituted for the stored ones.</value>
-        [DataMember(Name="previewUrl", EmitDefaultValue=false)]
+        [DataMember(Name="preview_url", EmitDefaultValue=false)]
         public string PreviewUrl { get; set; }
 
         /// <summary>
         /// Always true.  The preview only applies to a request carrying the UltraCart admin session cookie of the user who authorised this token.  Fetched without it, the URL returns the LIVE page with a 200 and no error, so a successful fetch is not evidence the preview was applied.  Present this URL for a human to open; do not fetch it.
         /// </summary>
         /// <value>Always true.  The preview only applies to a request carrying the UltraCart admin session cookie of the user who authorised this token.  Fetched without it, the URL returns the LIVE page with a 200 and no error, so a successful fetch is not evidence the preview was applied.  Present this URL for a human to open; do not fetch it.</value>
-        [DataMember(Name="requiresBrowserSession", EmitDefaultValue=false)]
+        [DataMember(Name="requires_browser_session", EmitDefaultValue=false)]
         public bool RequiresBrowserSession { get; set; }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace com.ultracart.admin.v2.Model
         /// Plain language restatement of the two flags above, safe to show a user.
         /// </summary>
         /// <value>Plain language restatement of the two flags above, safe to show a user.</value>
-        [DataMember(Name="usageNote", EmitDefaultValue=false)]
+        [DataMember(Name="usage_note", EmitDefaultValue=false)]
         public string UsageNote { get; set; }
 
         /// <summary>

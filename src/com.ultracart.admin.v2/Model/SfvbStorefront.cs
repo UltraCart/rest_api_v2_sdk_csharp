@@ -47,21 +47,21 @@ namespace com.ultracart.admin.v2.Model
         /// Oid of the theme currently serving live traffic.
         /// </summary>
         /// <value>Oid of the theme currently serving live traffic.</value>
-        [DataMember(Name="activeThemeOid", EmitDefaultValue=false)]
+        [DataMember(Name="active_theme_oid", EmitDefaultValue=false)]
         public int ActiveThemeOid { get; set; }
 
         /// <summary>
         /// Host name of the storefront.
         /// </summary>
         /// <value>Host name of the storefront.</value>
-        [DataMember(Name="hostName", EmitDefaultValue=false)]
+        [DataMember(Name="host_name", EmitDefaultValue=false)]
         public string HostName { get; set; }
 
         /// <summary>
         /// StoreFront oid.
         /// </summary>
         /// <value>StoreFront oid.</value>
-        [DataMember(Name="storefrontOid", EmitDefaultValue=false)]
+        [DataMember(Name="storefront_oid", EmitDefaultValue=false)]
         public int StorefrontOid { get; set; }
 
         /// <summary>

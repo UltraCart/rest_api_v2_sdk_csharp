@@ -124,21 +124,21 @@ namespace com.ultracart.admin.v2.Model
         /// Failure detail.  Populated only when status is error.
         /// </summary>
         /// <value>Failure detail.  Populated only when status is error.</value>
-        [DataMember(Name="errorMessage", EmitDefaultValue=false)]
+        [DataMember(Name="error_message", EmitDefaultValue=false)]
         public string ErrorMessage { get; set; }
 
         /// <summary>
         /// When the job stopped.  Null until it does.
         /// </summary>
         /// <value>When the job stopped.  Null until it does.</value>
-        [DataMember(Name="finishedDts", EmitDefaultValue=false)]
+        [DataMember(Name="finished_dts", EmitDefaultValue=false)]
         public string FinishedDts { get; set; }
 
         /// <summary>
         /// Job handle.  Poll getSfvbThemeJob with this.
         /// </summary>
         /// <value>Job handle.  Poll getSfvbThemeJob with this.</value>
-        [DataMember(Name="jobId", EmitDefaultValue=false)]
+        [DataMember(Name="job_id", EmitDefaultValue=false)]
         public int JobId { get; set; }
 
         /// <summary>
@@ -152,14 +152,14 @@ namespace com.ultracart.admin.v2.Model
         /// What the job is doing right now, for example &#39;Duplicating locale text&#39;.
         /// </summary>
         /// <value>What the job is doing right now, for example &#39;Duplicating locale text&#39;.</value>
-        [DataMember(Name="progressDescription", EmitDefaultValue=false)]
+        [DataMember(Name="progress_description", EmitDefaultValue=false)]
         public string ProgressDescription { get; set; }
 
         /// <summary>
         /// When the job started running.  Null until it does.
         /// </summary>
         /// <value>When the job started running.  Null until it does.</value>
-        [DataMember(Name="startedDts", EmitDefaultValue=false)]
+        [DataMember(Name="started_dts", EmitDefaultValue=false)]
         public string StartedDts { get; set; }
 
 
@@ -167,7 +167,7 @@ namespace com.ultracart.admin.v2.Model
         /// When the job was queued.
         /// </summary>
         /// <value>When the job was queued.</value>
-        [DataMember(Name="submittedDts", EmitDefaultValue=false)]
+        [DataMember(Name="submitted_dts", EmitDefaultValue=false)]
         public string SubmittedDts { get; set; }
 
         /// <summary>
@@ -181,7 +181,7 @@ namespace com.ultracart.admin.v2.Model
         /// Path the new theme was created at.  Returned when the job is started; the theme oid itself is NOT returned, because the job&#39;s product is a plain text report rather than a structured result.  Once the job completes, list themes and match on this path.
         /// </summary>
         /// <value>Path the new theme was created at.  Returned when the job is started; the theme oid itself is NOT returned, because the job&#39;s product is a plain text report rather than a structured result.  Once the job completes, list themes and match on this path.</value>
-        [DataMember(Name="targetPath", EmitDefaultValue=false)]
+        [DataMember(Name="target_path", EmitDefaultValue=false)]
         public string TargetPath { get; set; }
 
         /// <summary>

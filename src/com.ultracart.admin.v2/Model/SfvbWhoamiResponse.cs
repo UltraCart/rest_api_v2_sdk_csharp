@@ -67,49 +67,49 @@ namespace com.ultracart.admin.v2.Model
         /// True when this token resolves to a merchant user.  Preview sessions and file writes need one, because they are recorded against the person who approved the token.  Only device flow tokens resolve a user, so a plain API key will see this false.
         /// </summary>
         /// <value>True when this token resolves to a merchant user.  Preview sessions and file writes need one, because they are recorded against the person who approved the token.  Only device flow tokens resolve a user, so a plain API key will see this false.</value>
-        [DataMember(Name="actingAsUser", EmitDefaultValue=false)]
+        [DataMember(Name="acting_as_user", EmitDefaultValue=false)]
         public bool ActingAsUser { get; set; }
 
         /// <summary>
         /// Description of the application this credential belongs to.
         /// </summary>
         /// <value>Description of the application this credential belongs to.</value>
-        [DataMember(Name="applicationName", EmitDefaultValue=false)]
+        [DataMember(Name="application_name", EmitDefaultValue=false)]
         public string ApplicationName { get; set; }
 
         /// <summary>
         /// How this token authenticated - Oauth2, Simple Key, Public/Private Key or Browser Key.
         /// </summary>
         /// <value>How this token authenticated - Oauth2, Simple Key, Public/Private Key or Browser Key.</value>
-        [DataMember(Name="authenticationType", EmitDefaultValue=false)]
+        [DataMember(Name="authentication_type", EmitDefaultValue=false)]
         public string AuthenticationType { get; set; }
 
         /// <summary>
         /// True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change.
         /// </summary>
         /// <value>True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change.</value>
-        [DataMember(Name="canPublish", EmitDefaultValue=false)]
+        [DataMember(Name="can_publish", EmitDefaultValue=false)]
         public bool CanPublish { get; set; }
 
         /// <summary>
         /// True when this token may read.  Do not infer this from the requested scope name.
         /// </summary>
         /// <value>True when this token may read.  Do not infer this from the requested scope name.</value>
-        [DataMember(Name="canRead", EmitDefaultValue=false)]
+        [DataMember(Name="can_read", EmitDefaultValue=false)]
         public bool CanRead { get; set; }
 
         /// <summary>
         /// True when this token may write.  Writing a target that is not currently live needs only this.
         /// </summary>
         /// <value>True when this token may write.  Writing a target that is not currently live needs only this.</value>
-        [DataMember(Name="canWrite", EmitDefaultValue=false)]
+        [DataMember(Name="can_write", EmitDefaultValue=false)]
         public bool CanWrite { get; set; }
 
         /// <summary>
         /// Device scope name, when this is a device flow token.
         /// </summary>
         /// <value>Device scope name, when this is a device flow token.</value>
-        [DataMember(Name="deviceScope", EmitDefaultValue=false)]
+        [DataMember(Name="device_scope", EmitDefaultValue=false)]
         public string DeviceScope { get; set; }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace com.ultracart.admin.v2.Model
         /// Merchant id this token acts against.
         /// </summary>
         /// <value>Merchant id this token acts against.</value>
-        [DataMember(Name="merchantId", EmitDefaultValue=false)]
+        [DataMember(Name="merchant_id", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
 
         /// <summary>
@@ -144,14 +144,14 @@ namespace com.ultracart.admin.v2.Model
         /// True when storefronts was emptied because the token lacks sfvb_read, rather than because the account has none.  Without this the two look identical.
         /// </summary>
         /// <value>True when storefronts was emptied because the token lacks sfvb_read, rather than because the account has none.  Without this the two look identical.</value>
-        [DataMember(Name="storefrontsWithheld", EmitDefaultValue=false)]
+        [DataMember(Name="storefronts_withheld", EmitDefaultValue=false)]
         public bool StorefrontsWithheld { get; set; }
 
         /// <summary>
         /// Display name of the approving user, when known.
         /// </summary>
         /// <value>Display name of the approving user, when known.</value>
-        [DataMember(Name="userName", EmitDefaultValue=false)]
+        [DataMember(Name="user_name", EmitDefaultValue=false)]
         public string UserName { get; set; }
 
         /// <summary>

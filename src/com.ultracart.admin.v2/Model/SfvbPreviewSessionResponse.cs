@@ -55,35 +55,35 @@ namespace com.ultracart.admin.v2.Model
         /// Bytes stored in this session by the request that returned this response.
         /// </summary>
         /// <value>Bytes stored in this session by the request that returned this response.</value>
-        [DataMember(Name="bytesStored", EmitDefaultValue=false)]
+        [DataMember(Name="bytes_stored", EmitDefaultValue=false)]
         public int BytesStored { get; set; }
 
         /// <summary>
         /// Seconds until this session expires.
         /// </summary>
         /// <value>Seconds until this session expires.</value>
-        [DataMember(Name="expiresInSeconds", EmitDefaultValue=false)]
+        [DataMember(Name="expires_in_seconds", EmitDefaultValue=false)]
         public int ExpiresInSeconds { get; set; }
 
         /// <summary>
         /// Maximum bytes one preview session may hold.
         /// </summary>
         /// <value>Maximum bytes one preview session may hold.</value>
-        [DataMember(Name="maxBytes", EmitDefaultValue=false)]
+        [DataMember(Name="max_bytes", EmitDefaultValue=false)]
         public int MaxBytes { get; set; }
 
         /// <summary>
         /// Login this session belongs to.  Sessions are keyed by user, not by token.
         /// </summary>
         /// <value>Login this session belongs to.  Sessions are keyed by user, not by token.</value>
-        [DataMember(Name="ownerLogin", EmitDefaultValue=false)]
+        [DataMember(Name="owner_login", EmitDefaultValue=false)]
         public string OwnerLogin { get; set; }
 
         /// <summary>
         /// The preview session id.
         /// </summary>
         /// <value>The preview session id.</value>
-        [DataMember(Name="previewSessionId", EmitDefaultValue=false)]
+        [DataMember(Name="preview_session_id", EmitDefaultValue=false)]
         public string PreviewSessionId { get; set; }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace com.ultracart.admin.v2.Model
         /// Preview map keys that were stored.  A container whose owner type could not be resolved is silently dropped by the underlying store, so compare this against what you sent.
         /// </summary>
         /// <value>Preview map keys that were stored.  A container whose owner type could not be resolved is silently dropped by the underlying store, so compare this against what you sent.</value>
-        [DataMember(Name="storedKeys", EmitDefaultValue=false)]
+        [DataMember(Name="stored_keys", EmitDefaultValue=false)]
         public List<string> StoredKeys { get; set; }
 
         /// <summary>

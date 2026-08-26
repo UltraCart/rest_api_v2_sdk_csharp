@@ -79,7 +79,7 @@ namespace com.ultracart.admin.v2.Model
         /// Where this container lives.
         /// </summary>
         /// <value>Where this container lives.</value>
-        [DataMember(Name="ownerType", EmitDefaultValue=false)]
+        [DataMember(Name="owner_type", EmitDefaultValue=false)]
         public OwnerTypeEnum? OwnerType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbContainerResponse" /> class.
@@ -112,7 +112,7 @@ namespace com.ultracart.admin.v2.Model
         /// True when this container lives in the theme currently serving live traffic.  Writing to it requires the sfvb_publish scope.
         /// </summary>
         /// <value>True when this container lives in the theme currently serving live traffic.  Writing to it requires the sfvb_publish scope.</value>
-        [DataMember(Name="activeTheme", EmitDefaultValue=false)]
+        [DataMember(Name="active_theme", EmitDefaultValue=false)]
         public bool ActiveTheme { get; set; }
 
         /// <summary>
@@ -126,35 +126,35 @@ namespace com.ultracart.admin.v2.Model
         /// Container id as the compiler will derive it.
         /// </summary>
         /// <value>Container id as the compiler will derive it.</value>
-        [DataMember(Name="containerId", EmitDefaultValue=false)]
+        [DataMember(Name="container_id", EmitDefaultValue=false)]
         public string ContainerId { get; set; }
 
         /// <summary>
         /// Container name.
         /// </summary>
         /// <value>Container name.</value>
-        [DataMember(Name="containerName", EmitDefaultValue=false)]
+        [DataMember(Name="container_name", EmitDefaultValue=false)]
         public string ContainerName { get; set; }
 
         /// <summary>
         /// SHA-256 of the cjson.  Send back as If-Match when writing.
         /// </summary>
         /// <value>SHA-256 of the cjson.  Send back as If-Match when writing.</value>
-        [DataMember(Name="hashSha256", EmitDefaultValue=false)]
+        [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
         public string HashSha256 { get; set; }
 
         /// <summary>
         /// When the container was last modified, where the store records it.
         /// </summary>
         /// <value>When the container was last modified, where the store records it.</value>
-        [DataMember(Name="lastModified", EmitDefaultValue=false)]
+        [DataMember(Name="last_modified", EmitDefaultValue=false)]
         public string LastModified { get; set; }
 
         /// <summary>
         /// Identifier of the owning object within its store.
         /// </summary>
         /// <value>Identifier of the owning object within its store.</value>
-        [DataMember(Name="ownerObjectId", EmitDefaultValue=false)]
+        [DataMember(Name="owner_object_id", EmitDefaultValue=false)]
         public string OwnerObjectId { get; set; }
 
 

@@ -67,7 +67,7 @@ namespace com.ultracart.admin.v2.Model
         /// Number of strings still awaiting translation in the requested language.
         /// </summary>
         /// <value>Number of strings still awaiting translation in the requested language.</value>
-        [DataMember(Name="pendingTranslationCount", EmitDefaultValue=false)]
+        [DataMember(Name="pending_translation_count", EmitDefaultValue=false)]
         public int PendingTranslationCount { get; set; }
 
         /// <summary>

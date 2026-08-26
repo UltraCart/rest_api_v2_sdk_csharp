@@ -100,7 +100,7 @@ namespace com.ultracart.admin.v2.Model
         /// Owner type.
         /// </summary>
         /// <value>Owner type.</value>
-        [DataMember(Name="ownerType", EmitDefaultValue=false)]
+        [DataMember(Name="owner_type", EmitDefaultValue=false)]
         public OwnerTypeEnum? OwnerType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbContainerVersion" /> class.
@@ -151,21 +151,21 @@ namespace com.ultracart.admin.v2.Model
         /// History record oid.  Pass to the revert operation on the owning container.
         /// </summary>
         /// <value>History record oid.  Pass to the revert operation on the owning container.</value>
-        [DataMember(Name="containerHistoryOid", EmitDefaultValue=false)]
+        [DataMember(Name="container_history_oid", EmitDefaultValue=false)]
         public int ContainerHistoryOid { get; set; }
 
         /// <summary>
         /// Container name, where the owner has more than one container.
         /// </summary>
         /// <value>Container name, where the owner has more than one container.</value>
-        [DataMember(Name="containerName", EmitDefaultValue=false)]
+        [DataMember(Name="container_name", EmitDefaultValue=false)]
         public string ContainerName { get; set; }
 
         /// <summary>
         /// When this snapshot was taken.
         /// </summary>
         /// <value>When this snapshot was taken.</value>
-        [DataMember(Name="createdDts", EmitDefaultValue=false)]
+        [DataMember(Name="created_dts", EmitDefaultValue=false)]
         public string CreatedDts { get; set; }
 
         /// <summary>
@@ -179,14 +179,14 @@ namespace com.ultracart.admin.v2.Model
         /// Login of whoever caused this snapshot.
         /// </summary>
         /// <value>Login of whoever caused this snapshot.</value>
-        [DataMember(Name="editedBy", EmitDefaultValue=false)]
+        [DataMember(Name="edited_by", EmitDefaultValue=false)]
         public string EditedBy { get; set; }
 
         /// <summary>
         /// SHA-256 of this version&#39;s CJSON.
         /// </summary>
         /// <value>SHA-256 of this version&#39;s CJSON.</value>
-        [DataMember(Name="hashSha256", EmitDefaultValue=false)]
+        [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
         public string HashSha256 { get; set; }
 
 
@@ -194,7 +194,7 @@ namespace com.ultracart.admin.v2.Model
         /// Owner object identifier.
         /// </summary>
         /// <value>Owner object identifier.</value>
-        [DataMember(Name="ownerObjectId", EmitDefaultValue=false)]
+        [DataMember(Name="owner_object_id", EmitDefaultValue=false)]
         public string OwnerObjectId { get; set; }
 
 

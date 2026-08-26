@@ -53,7 +53,7 @@ namespace com.ultracart.admin.v2.Model
         /// Path of the compiled output, when writing a .cjson under a theme triggered a compile.
         /// </summary>
         /// <value>Path of the compiled output, when writing a .cjson under a theme triggered a compile.</value>
-        [DataMember(Name="compiledPath", EmitDefaultValue=false)]
+        [DataMember(Name="compiled_path", EmitDefaultValue=false)]
         public string CompiledPath { get; set; }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace com.ultracart.admin.v2.Model
         /// New SHA-256.  Use as the next If-Match value.
         /// </summary>
         /// <value>New SHA-256.  Use as the next If-Match value.</value>
-        [DataMember(Name="hashSha256", EmitDefaultValue=false)]
+        [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
         public string HashSha256 { get; set; }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace com.ultracart.admin.v2.Model
         /// Velocity errors recorded by the store.  Present means the file was written but is not valid.
         /// </summary>
         /// <value>Velocity errors recorded by the store.  Present means the file was written but is not valid.</value>
-        [DataMember(Name="velocityErrors", EmitDefaultValue=false)]
+        [DataMember(Name="velocity_errors", EmitDefaultValue=false)]
         public string VelocityErrors { get; set; }
 
         /// <summary>

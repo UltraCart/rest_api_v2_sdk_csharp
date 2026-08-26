@@ -84,7 +84,7 @@ namespace com.ultracart.admin.v2.Model
         /// Library entry oid.
         /// </summary>
         /// <value>Library entry oid.</value>
-        [DataMember(Name="libraryOid", EmitDefaultValue=false)]
+        [DataMember(Name="library_oid", EmitDefaultValue=false)]
         public int LibraryOid { get; set; }
 
         /// <summary>
@@ -105,35 +105,35 @@ namespace com.ultracart.admin.v2.Model
         /// Storefront file paths this fragment references.  Installing the fragment copies them into the storefront; reading it does not.
         /// </summary>
         /// <value>Storefront file paths this fragment references.  Installing the fragment copies them into the storefront; reading it does not.</value>
-        [DataMember(Name="referencedFiles", EmitDefaultValue=false)]
+        [DataMember(Name="referenced_files", EmitDefaultValue=false)]
         public List<string> ReferencedFiles { get; set; }
 
         /// <summary>
         /// S3 listing key for the large screenshot, when one has been generated.
         /// </summary>
         /// <value>S3 listing key for the large screenshot, when one has been generated.</value>
-        [DataMember(Name="screenshotKey", EmitDefaultValue=false)]
+        [DataMember(Name="screenshot_key", EmitDefaultValue=false)]
         public string ScreenshotKey { get; set; }
 
         /// <summary>
         /// True when the entry is shared across the merchant account.
         /// </summary>
         /// <value>True when the entry is shared across the merchant account.</value>
-        [DataMember(Name="shareWithAccount", EmitDefaultValue=false)]
+        [DataMember(Name="share_with_account", EmitDefaultValue=false)]
         public bool ShareWithAccount { get; set; }
 
         /// <summary>
         /// S3 listing key for the medium thumbnail, when one has been generated.  Thumbnails are produced asynchronously and can lag a save by a minute or two.
         /// </summary>
         /// <value>S3 listing key for the medium thumbnail, when one has been generated.  Thumbnails are produced asynchronously and can lag a save by a minute or two.</value>
-        [DataMember(Name="thumbnailKey", EmitDefaultValue=false)]
+        [DataMember(Name="thumbnail_key", EmitDefaultValue=false)]
         public string ThumbnailKey { get; set; }
 
         /// <summary>
         /// Element type at the root of the fragment.
         /// </summary>
         /// <value>Element type at the root of the fragment.</value>
-        [DataMember(Name="widgetType", EmitDefaultValue=false)]
+        [DataMember(Name="widget_type", EmitDefaultValue=false)]
         public string WidgetType { get; set; }
 
         /// <summary>

@@ -73,28 +73,28 @@ namespace com.ultracart.admin.v2.Model
         /// Login of whoever wrote this version.
         /// </summary>
         /// <value>Login of whoever wrote this version.</value>
-        [DataMember(Name="editedBy", EmitDefaultValue=false)]
+        [DataMember(Name="edited_by", EmitDefaultValue=false)]
         public string EditedBy { get; set; }
 
         /// <summary>
         /// History record oid.
         /// </summary>
         /// <value>History record oid.</value>
-        [DataMember(Name="fsFileHistoryOid", EmitDefaultValue=false)]
+        [DataMember(Name="fs_file_history_oid", EmitDefaultValue=false)]
         public int FsFileHistoryOid { get; set; }
 
         /// <summary>
         /// SHA-256 of this version&#39;s content.
         /// </summary>
         /// <value>SHA-256 of this version&#39;s content.</value>
-        [DataMember(Name="hashSha256", EmitDefaultValue=false)]
+        [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
         public string HashSha256 { get; set; }
 
         /// <summary>
         /// When this version was written.
         /// </summary>
         /// <value>When this version was written.</value>
-        [DataMember(Name="lastModified", EmitDefaultValue=false)]
+        [DataMember(Name="last_modified", EmitDefaultValue=false)]
         public string LastModified { get; set; }
 
         /// <summary>

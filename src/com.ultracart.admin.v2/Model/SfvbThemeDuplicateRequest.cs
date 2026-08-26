@@ -54,14 +54,14 @@ namespace com.ultracart.admin.v2.Model
         /// Storefront to create the copy on.  Defaults to the storefront in the path.  Supply it only when copying a theme between storefronts you own.
         /// </summary>
         /// <value>Storefront to create the copy on.  Defaults to the storefront in the path.  Supply it only when copying a theme between storefronts you own.</value>
-        [DataMember(Name="targetStorefrontOid", EmitDefaultValue=false)]
+        [DataMember(Name="target_storefront_oid", EmitDefaultValue=false)]
         public int TargetStorefrontOid { get; set; }
 
         /// <summary>
         /// Name for the new theme.
         /// </summary>
         /// <value>Name for the new theme.</value>
-        [DataMember(Name="themeName", EmitDefaultValue=false)]
+        [DataMember(Name="theme_name", EmitDefaultValue=false)]
         public string ThemeName { get; set; }
 
         /// <summary>

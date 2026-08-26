@@ -64,14 +64,14 @@ namespace com.ultracart.admin.v2.Model
         /// The cap that was applied.
         /// </summary>
         /// <value>The cap that was applied.</value>
-        [DataMember(Name="maxResults", EmitDefaultValue=false)]
+        [DataMember(Name="max_results", EmitDefaultValue=false)]
         public int MaxResults { get; set; }
 
         /// <summary>
         /// Offset to send for the next page.  Zero when truncated is false.  Never truncates without giving a way to continue.
         /// </summary>
         /// <value>Offset to send for the next page.  Zero when truncated is false.  Never truncates without giving a way to continue.</value>
-        [DataMember(Name="nextOffset", EmitDefaultValue=false)]
+        [DataMember(Name="next_offset", EmitDefaultValue=false)]
         public int NextOffset { get; set; }
 
         /// <summary>
@@ -85,14 +85,14 @@ namespace com.ultracart.admin.v2.Model
         /// Number of results returned.
         /// </summary>
         /// <value>Number of results returned.</value>
-        [DataMember(Name="resultCount", EmitDefaultValue=false)]
+        [DataMember(Name="result_count", EmitDefaultValue=false)]
         public int ResultCount { get; set; }
 
         /// <summary>
         /// Total matches found.  Available because the underlying query is unbounded and returns everything anyway; it is not evidence that fetching them all is cheap.
         /// </summary>
         /// <value>Total matches found.  Available because the underlying query is unbounded and returns everything anyway; it is not evidence that fetching them all is cheap.</value>
-        [DataMember(Name="totalCount", EmitDefaultValue=false)]
+        [DataMember(Name="total_count", EmitDefaultValue=false)]
         public int TotalCount { get; set; }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace com.ultracart.admin.v2.Model
         /// Advice for the caller when truncated is true.
         /// </summary>
         /// <value>Advice for the caller when truncated is true.</value>
-        [DataMember(Name="truncationAdvice", EmitDefaultValue=false)]
+        [DataMember(Name="truncation_advice", EmitDefaultValue=false)]
         public string TruncationAdvice { get; set; }
 
         /// <summary>

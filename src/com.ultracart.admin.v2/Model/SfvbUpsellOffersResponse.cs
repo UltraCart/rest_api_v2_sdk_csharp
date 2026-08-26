@@ -43,7 +43,7 @@ namespace com.ultracart.admin.v2.Model
         /// Upsell offers on this storefront.
         /// </summary>
         /// <value>Upsell offers on this storefront.</value>
-        [DataMember(Name="upsellOffers", EmitDefaultValue=false)]
+        [DataMember(Name="upsell_offers", EmitDefaultValue=false)]
         public List<SfvbUpsellOffer> UpsellOffers { get; set; }
 
         /// <summary>

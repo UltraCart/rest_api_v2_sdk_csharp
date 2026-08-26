@@ -45,7 +45,7 @@ namespace com.ultracart.admin.v2.Model
         /// Oid of the active theme, repeated here so a caller does not have to scan the list.
         /// </summary>
         /// <value>Oid of the active theme, repeated here so a caller does not have to scan the list.</value>
-        [DataMember(Name="activeThemeOid", EmitDefaultValue=false)]
+        [DataMember(Name="active_theme_oid", EmitDefaultValue=false)]
         public int ActiveThemeOid { get; set; }
 
         /// <summary>

@@ -73,28 +73,28 @@ namespace com.ultracart.admin.v2.Model
         /// Whether the text search is case sensitive.  Defaults to false.
         /// </summary>
         /// <value>Whether the text search is case sensitive.  Defaults to false.</value>
-        [DataMember(Name="caseSensitive", EmitDefaultValue=false)]
+        [DataMember(Name="case_sensitive", EmitDefaultValue=false)]
         public bool CaseSensitive { get; set; }
 
         /// <summary>
         /// Only dynamic HTML (arbitrary) files.
         /// </summary>
         /// <value>Only dynamic HTML (arbitrary) files.</value>
-        [DataMember(Name="dynamicHtml", EmitDefaultValue=false)]
+        [DataMember(Name="dynamic_html", EmitDefaultValue=false)]
         public bool DynamicHtml { get; set; }
 
         /// <summary>
         /// Comma separated file name patterns, matched case insensitively with wildcards.
         /// </summary>
         /// <value>Comma separated file name patterns, matched case insensitively with wildcards.</value>
-        [DataMember(Name="fileName", EmitDefaultValue=false)]
+        [DataMember(Name="file_name", EmitDefaultValue=false)]
         public string FileName { get; set; }
 
         /// <summary>
         /// Only files with internationalization violations.
         /// </summary>
         /// <value>Only files with internationalization violations.</value>
-        [DataMember(Name="i18nViolations", EmitDefaultValue=false)]
+        [DataMember(Name="i18n_violations", EmitDefaultValue=false)]
         public bool I18nViolations { get; set; }
 
         /// <summary>
@@ -108,35 +108,35 @@ namespace com.ultracart.admin.v2.Model
         /// Maximum results to return.  Clamped to the server maximum.
         /// </summary>
         /// <value>Maximum results to return.  Clamped to the server maximum.</value>
-        [DataMember(Name="maxResults", EmitDefaultValue=false)]
+        [DataMember(Name="max_results", EmitDefaultValue=false)]
         public int MaxResults { get; set; }
 
         /// <summary>
         /// Only files with unresolved theme merge conflicts.
         /// </summary>
         /// <value>Only files with unresolved theme merge conflicts.</value>
-        [DataMember(Name="mergeConflicts", EmitDefaultValue=false)]
+        [DataMember(Name="merge_conflicts", EmitDefaultValue=false)]
         public bool MergeConflicts { get; set; }
 
         /// <summary>
         /// Restrict to a mime type.
         /// </summary>
         /// <value>Restrict to a mime type.</value>
-        [DataMember(Name="mimeType", EmitDefaultValue=false)]
+        [DataMember(Name="mime_type", EmitDefaultValue=false)]
         public string MimeType { get; set; }
 
         /// <summary>
         /// Only files modified at or before this ISO-8601 timestamp.
         /// </summary>
         /// <value>Only files modified at or before this ISO-8601 timestamp.</value>
-        [DataMember(Name="modifiedMax", EmitDefaultValue=false)]
+        [DataMember(Name="modified_max", EmitDefaultValue=false)]
         public string ModifiedMax { get; set; }
 
         /// <summary>
         /// Only files modified at or after this ISO-8601 timestamp.
         /// </summary>
         /// <value>Only files modified at or after this ISO-8601 timestamp.</value>
-        [DataMember(Name="modifiedMin", EmitDefaultValue=false)]
+        [DataMember(Name="modified_min", EmitDefaultValue=false)]
         public string ModifiedMin { get; set; }
 
         /// <summary>
@@ -157,21 +157,21 @@ namespace com.ultracart.admin.v2.Model
         /// Maximum size in bytes.
         /// </summary>
         /// <value>Maximum size in bytes.</value>
-        [DataMember(Name="sizeMax", EmitDefaultValue=false)]
+        [DataMember(Name="size_max", EmitDefaultValue=false)]
         public int SizeMax { get; set; }
 
         /// <summary>
         /// Minimum size in bytes.
         /// </summary>
         /// <value>Minimum size in bytes.</value>
-        [DataMember(Name="sizeMin", EmitDefaultValue=false)]
+        [DataMember(Name="size_min", EmitDefaultValue=false)]
         public int SizeMin { get; set; }
 
         /// <summary>
         /// Recurse below path.  Defaults to true.
         /// </summary>
         /// <value>Recurse below path.  Defaults to true.</value>
-        [DataMember(Name="subDirectories", EmitDefaultValue=false)]
+        [DataMember(Name="sub_directories", EmitDefaultValue=false)]
         public bool SubDirectories { get; set; }
 
         /// <summary>

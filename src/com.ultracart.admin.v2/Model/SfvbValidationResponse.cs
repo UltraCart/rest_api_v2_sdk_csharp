@@ -56,7 +56,7 @@ namespace com.ultracart.admin.v2.Model
         /// Element types found in the document, sorted.
         /// </summary>
         /// <value>Element types found in the document, sorted.</value>
-        [DataMember(Name="usedElements", EmitDefaultValue=false)]
+        [DataMember(Name="used_elements", EmitDefaultValue=false)]
         public List<string> UsedElements { get; set; }
 
         /// <summary>

@@ -45,7 +45,7 @@ namespace com.ultracart.admin.v2.Model
         /// True when a per element configuration schema is available from elements/{element_type}.
         /// </summary>
         /// <value>True when a per element configuration schema is available from elements/{element_type}.</value>
-        [DataMember(Name="schemaAvailable", EmitDefaultValue=false)]
+        [DataMember(Name="schema_available", EmitDefaultValue=false)]
         public bool SchemaAvailable { get; set; }
 
         /// <summary>

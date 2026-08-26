@@ -49,7 +49,7 @@ namespace com.ultracart.admin.v2.Model
         /// Store the container even if quality warnings were raised.  Warnings never block by default; this field exists so a caller can opt into treating them as blocking by setting it false.
         /// </summary>
         /// <value>Store the container even if quality warnings were raised.  Warnings never block by default; this field exists so a caller can opt into treating them as blocking by setting it false.</value>
-        [DataMember(Name="allowWarnings", EmitDefaultValue=false)]
+        [DataMember(Name="allow_warnings", EmitDefaultValue=false)]
         public bool AllowWarnings { get; set; }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace com.ultracart.admin.v2.Model
         /// For email containers, whether this is a marketing email.  Selects whether CAN-SPAM footer rules apply.
         /// </summary>
         /// <value>For email containers, whether this is a marketing email.  Selects whether CAN-SPAM footer rules apply.</value>
-        [DataMember(Name="marketingEmail", EmitDefaultValue=false)]
+        [DataMember(Name="marketing_email", EmitDefaultValue=false)]
         public bool MarketingEmail { get; set; }
 
         /// <summary>

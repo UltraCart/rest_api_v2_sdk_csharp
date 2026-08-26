@@ -66,21 +66,21 @@ namespace com.ultracart.admin.v2.Model
         /// Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it.
         /// </summary>
         /// <value>Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it.</value>
-        [DataMember(Name="activeOverall", EmitDefaultValue=false)]
+        [DataMember(Name="active_overall", EmitDefaultValue=false)]
         public bool ActiveOverall { get; set; }
 
         /// <summary>
         /// Size of the offer&#39;s container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump.
         /// </summary>
         /// <value>Size of the offer&#39;s container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump.</value>
-        [DataMember(Name="cjsonSize", EmitDefaultValue=false)]
+        [DataMember(Name="cjson_size", EmitDefaultValue=false)]
         public int CjsonSize { get; set; }
 
         /// <summary>
         /// Whether a container has been authored for this offer.
         /// </summary>
         /// <value>Whether a container has been authored for this offer.</value>
-        [DataMember(Name="hasContainer", EmitDefaultValue=false)]
+        [DataMember(Name="has_container", EmitDefaultValue=false)]
         public bool HasContainer { get; set; }
 
         /// <summary>
@@ -94,28 +94,28 @@ namespace com.ultracart.admin.v2.Model
         /// Name of the upsell path this offer sits on.
         /// </summary>
         /// <value>Name of the upsell path this offer sits on.</value>
-        [DataMember(Name="pathName", EmitDefaultValue=false)]
+        [DataMember(Name="path_name", EmitDefaultValue=false)]
         public string PathName { get; set; }
 
         /// <summary>
         /// Storefront oid.
         /// </summary>
         /// <value>Storefront oid.</value>
-        [DataMember(Name="storefrontOid", EmitDefaultValue=false)]
+        [DataMember(Name="storefront_oid", EmitDefaultValue=false)]
         public int StorefrontOid { get; set; }
 
         /// <summary>
         /// Whether the offer is restricted to test traffic.
         /// </summary>
         /// <value>Whether the offer is restricted to test traffic.</value>
-        [DataMember(Name="testOnly", EmitDefaultValue=false)]
+        [DataMember(Name="test_only", EmitDefaultValue=false)]
         public bool TestOnly { get; set; }
 
         /// <summary>
         /// Upsell offer oid.
         /// </summary>
         /// <value>Upsell offer oid.</value>
-        [DataMember(Name="upsellOfferOid", EmitDefaultValue=false)]
+        [DataMember(Name="upsell_offer_oid", EmitDefaultValue=false)]
         public int UpsellOfferOid { get; set; }
 
         /// <summary>

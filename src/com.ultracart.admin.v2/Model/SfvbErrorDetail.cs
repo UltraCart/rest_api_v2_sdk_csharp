@@ -102,7 +102,7 @@ namespace com.ultracart.admin.v2.Model
         /// Close matches for an unrecognized value, best match first.  Populated for unknown element types and unknown configuration keys.
         /// </summary>
         /// <value>Close matches for an unrecognized value, best match first.  Populated for unknown element types and unknown configuration keys.</value>
-        [DataMember(Name="didYouMean", EmitDefaultValue=false)]
+        [DataMember(Name="did_you_mean", EmitDefaultValue=false)]
         public List<string> DidYouMean { get; set; }
 
         /// <summary>

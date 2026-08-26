@@ -47,7 +47,7 @@ namespace com.ultracart.admin.v2.Model
         /// Human readable facet name.
         /// </summary>
         /// <value>Human readable facet name.</value>
-        [DataMember(Name="displayName", EmitDefaultValue=false)]
+        [DataMember(Name="display_name", EmitDefaultValue=false)]
         public string DisplayName { get; set; }
 
         /// <summary>

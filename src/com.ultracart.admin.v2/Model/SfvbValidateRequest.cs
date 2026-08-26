@@ -79,7 +79,7 @@ namespace com.ultracart.admin.v2.Model
         /// Where this container is destined to live.  Determines which contextual rules apply.
         /// </summary>
         /// <value>Where this container is destined to live.  Determines which contextual rules apply.</value>
-        [DataMember(Name="ownerType", EmitDefaultValue=false)]
+        [DataMember(Name="owner_type", EmitDefaultValue=false)]
         public OwnerTypeEnum? OwnerType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbValidateRequest" /> class.
@@ -109,21 +109,21 @@ namespace com.ultracart.admin.v2.Model
         /// Container name it will be stored under, for example upsell-offer or email-footer.  Some rules key off the name.
         /// </summary>
         /// <value>Container name it will be stored under, for example upsell-offer or email-footer.  Some rules key off the name.</value>
-        [DataMember(Name="containerName", EmitDefaultValue=false)]
+        [DataMember(Name="container_name", EmitDefaultValue=false)]
         public string ContainerName { get; set; }
 
         /// <summary>
         /// Include quality warnings as well as errors.  Defaults to true.
         /// </summary>
         /// <value>Include quality warnings as well as errors.  Defaults to true.</value>
-        [DataMember(Name="includeWarnings", EmitDefaultValue=false)]
+        [DataMember(Name="include_warnings", EmitDefaultValue=false)]
         public bool IncludeWarnings { get; set; }
 
         /// <summary>
         /// For email containers, whether this is a marketing email.  Marketing emails carry CAN-SPAM footer requirements that transactional emails do not.
         /// </summary>
         /// <value>For email containers, whether this is a marketing email.  Marketing emails carry CAN-SPAM footer requirements that transactional emails do not.</value>
-        [DataMember(Name="marketingEmail", EmitDefaultValue=false)]
+        [DataMember(Name="marketing_email", EmitDefaultValue=false)]
         public bool MarketingEmail { get; set; }
 
 

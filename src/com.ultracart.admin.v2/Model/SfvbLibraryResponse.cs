@@ -60,14 +60,14 @@ namespace com.ultracart.admin.v2.Model
         /// 1-indexed position of the first result on this page.
         /// </summary>
         /// <value>1-indexed position of the first result on this page.</value>
-        [DataMember(Name="firstResultNumber", EmitDefaultValue=false)]
+        [DataMember(Name="first_result_number", EmitDefaultValue=false)]
         public int FirstResultNumber { get; set; }
 
         /// <summary>
         /// 1-indexed position of the last result on this page.
         /// </summary>
         /// <value>1-indexed position of the last result on this page.</value>
-        [DataMember(Name="lastResultNumber", EmitDefaultValue=false)]
+        [DataMember(Name="last_result_number", EmitDefaultValue=false)]
         public int LastResultNumber { get; set; }
 
         /// <summary>
@@ -81,14 +81,14 @@ namespace com.ultracart.admin.v2.Model
         /// Total pages available.
         /// </summary>
         /// <value>Total pages available.</value>
-        [DataMember(Name="totalPages", EmitDefaultValue=false)]
+        [DataMember(Name="total_pages", EmitDefaultValue=false)]
         public int TotalPages { get; set; }
 
         /// <summary>
         /// Total matches across all pages.
         /// </summary>
         /// <value>Total matches across all pages.</value>
-        [DataMember(Name="totalResults", EmitDefaultValue=false)]
+        [DataMember(Name="total_results", EmitDefaultValue=false)]
         public int TotalResults { get; set; }
 
         /// <summary>

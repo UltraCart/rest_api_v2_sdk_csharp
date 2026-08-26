@@ -47,7 +47,7 @@ namespace com.ultracart.admin.v2.Model
         /// Number of element types.
         /// </summary>
         /// <value>Number of element types.</value>
-        [DataMember(Name="elementCount", EmitDefaultValue=false)]
+        [DataMember(Name="element_count", EmitDefaultValue=false)]
         public int ElementCount { get; set; }
 
         /// <summary>

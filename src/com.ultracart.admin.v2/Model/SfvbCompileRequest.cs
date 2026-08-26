@@ -58,21 +58,21 @@ namespace com.ultracart.admin.v2.Model
         /// Optional container name, used to derive the container id the same way a .cjson file name would.  Omit and the id on the document is kept.
         /// </summary>
         /// <value>Optional container name, used to derive the container id the same way a .cjson file name would.  Omit and the id on the document is kept.</value>
-        [DataMember(Name="containerName", EmitDefaultValue=false)]
+        [DataMember(Name="container_name", EmitDefaultValue=false)]
         public string ContainerName { get; set; }
 
         /// <summary>
         /// Optional storefront oid.  Required when theme_oid is supplied.
         /// </summary>
         /// <value>Optional storefront oid.  Required when theme_oid is supplied.</value>
-        [DataMember(Name="storefrontOid", EmitDefaultValue=false)]
+        [DataMember(Name="storefront_oid", EmitDefaultValue=false)]
         public int StorefrontOid { get; set; }
 
         /// <summary>
         /// Optional theme oid.  Supplies the theme&#39;s inherit groups configuration so compilation matches what the theme would produce.  Omit to compile without inheritance.
         /// </summary>
         /// <value>Optional theme oid.  Supplies the theme&#39;s inherit groups configuration so compilation matches what the theme would produce.  Omit to compile without inheritance.</value>
-        [DataMember(Name="themeOid", EmitDefaultValue=false)]
+        [DataMember(Name="theme_oid", EmitDefaultValue=false)]
         public int ThemeOid { get; set; }
 
         /// <summary>

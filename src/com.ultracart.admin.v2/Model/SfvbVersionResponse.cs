@@ -94,63 +94,63 @@ namespace com.ultracart.admin.v2.Model
         /// Container manager version used to compile for this merchant.
         /// </summary>
         /// <value>Container manager version used to compile for this merchant.</value>
-        [DataMember(Name="containerManagerVersion", EmitDefaultValue=false)]
+        [DataMember(Name="container_manager_version", EmitDefaultValue=false)]
         public string ContainerManagerVersion { get; set; }
 
         /// <summary>
         /// Versions kept per non-file container before the oldest are pruned.  Beyond this, history is gone - not merely paginated.
         /// </summary>
         /// <value>Versions kept per non-file container before the oldest are pruned.  Beyond this, history is gone - not merely paginated.</value>
-        [DataMember(Name="containerVersionsRetained", EmitDefaultValue=false)]
+        [DataMember(Name="container_versions_retained", EmitDefaultValue=false)]
         public int ContainerVersionsRetained { get; set; }
 
         /// <summary>
         /// Number of element types this version recognizes.
         /// </summary>
         /// <value>Number of element types this version recognizes.</value>
-        [DataMember(Name="elementCount", EmitDefaultValue=false)]
+        [DataMember(Name="element_count", EmitDefaultValue=false)]
         public int ElementCount { get; set; }
 
         /// <summary>
         /// Largest CJSON document that will be parsed, in bytes.
         /// </summary>
         /// <value>Largest CJSON document that will be parsed, in bytes.</value>
-        [DataMember(Name="maxCjsonBytes", EmitDefaultValue=false)]
+        [DataMember(Name="max_cjson_bytes", EmitDefaultValue=false)]
         public int MaxCjsonBytes { get; set; }
 
         /// <summary>
         /// Largest payload one preview session may hold, in bytes.
         /// </summary>
         /// <value>Largest payload one preview session may hold, in bytes.</value>
-        [DataMember(Name="maxPreviewSessionBytes", EmitDefaultValue=false)]
+        [DataMember(Name="max_preview_session_bytes", EmitDefaultValue=false)]
         public int MaxPreviewSessionBytes { get; set; }
 
         /// <summary>
         /// Hard ceiling on file search results per page.
         /// </summary>
         /// <value>Hard ceiling on file search results per page.</value>
-        [DataMember(Name="maxSearchResults", EmitDefaultValue=false)]
+        [DataMember(Name="max_search_results", EmitDefaultValue=false)]
         public int MaxSearchResults { get; set; }
 
         /// <summary>
         /// Largest template file that can be written, in bytes.
         /// </summary>
         /// <value>Largest template file that can be written, in bytes.</value>
-        [DataMember(Name="maxTemplateBytes", EmitDefaultValue=false)]
+        [DataMember(Name="max_template_bytes", EmitDefaultValue=false)]
         public int MaxTemplateBytes { get; set; }
 
         /// <summary>
         /// Most widget ids that can be reserved in one call.
         /// </summary>
         /// <value>Most widget ids that can be reserved in one call.</value>
-        [DataMember(Name="maxWidgetIdsPerRequest", EmitDefaultValue=false)]
+        [DataMember(Name="max_widget_ids_per_request", EmitDefaultValue=false)]
         public int MaxWidgetIdsPerRequest { get; set; }
 
         /// <summary>
         /// Seconds a preview session survives before expiring.
         /// </summary>
         /// <value>Seconds a preview session survives before expiring.</value>
-        [DataMember(Name="previewSessionTtlSeconds", EmitDefaultValue=false)]
+        [DataMember(Name="preview_session_ttl_seconds", EmitDefaultValue=false)]
         public int PreviewSessionTtlSeconds { get; set; }
 
 

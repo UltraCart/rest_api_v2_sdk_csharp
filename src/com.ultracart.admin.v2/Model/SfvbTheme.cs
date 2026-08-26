@@ -75,7 +75,7 @@ namespace com.ultracart.admin.v2.Model
         /// Oid of the theme root directory in the storefront file system.
         /// </summary>
         /// <value>Oid of the theme root directory in the storefront file system.</value>
-        [DataMember(Name="fsDirectoryOid", EmitDefaultValue=false)]
+        [DataMember(Name="fs_directory_oid", EmitDefaultValue=false)]
         public int FsDirectoryOid { get; set; }
 
         /// <summary>
@@ -89,28 +89,28 @@ namespace com.ultracart.admin.v2.Model
         /// StoreFront oid this theme belongs to.
         /// </summary>
         /// <value>StoreFront oid this theme belongs to.</value>
-        [DataMember(Name="storefrontOid", EmitDefaultValue=false)]
+        [DataMember(Name="storefront_oid", EmitDefaultValue=false)]
         public int StorefrontOid { get; set; }
 
         /// <summary>
         /// Theme name.
         /// </summary>
         /// <value>Theme name.</value>
-        [DataMember(Name="themeName", EmitDefaultValue=false)]
+        [DataMember(Name="theme_name", EmitDefaultValue=false)]
         public string ThemeName { get; set; }
 
         /// <summary>
         /// StoreFront theme oid.
         /// </summary>
         /// <value>StoreFront theme oid.</value>
-        [DataMember(Name="themeOid", EmitDefaultValue=false)]
+        [DataMember(Name="theme_oid", EmitDefaultValue=false)]
         public int ThemeOid { get; set; }
 
         /// <summary>
         /// True when a newer version of this theme exists.  Relevant because an upgrade is what produces the merge conflicts that block activation.
         /// </summary>
         /// <value>True when a newer version of this theme exists.  Relevant because an upgrade is what produces the merge conflicts that block activation.</value>
-        [DataMember(Name="upgradeAvailable", EmitDefaultValue=false)]
+        [DataMember(Name="upgrade_available", EmitDefaultValue=false)]
         public bool UpgradeAvailable { get; set; }
 
         /// <summary>

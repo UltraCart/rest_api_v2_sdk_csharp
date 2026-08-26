@@ -47,7 +47,7 @@ namespace com.ultracart.admin.v2.Model
         /// StoreFront file system file oid.
         /// </summary>
         /// <value>StoreFront file system file oid.</value>
-        [DataMember(Name="fsFileOid", EmitDefaultValue=false)]
+        [DataMember(Name="fs_file_oid", EmitDefaultValue=false)]
         public int FsFileOid { get; set; }
 
         /// <summary>

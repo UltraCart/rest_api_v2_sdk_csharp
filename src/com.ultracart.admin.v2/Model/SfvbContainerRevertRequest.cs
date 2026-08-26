@@ -52,7 +52,7 @@ namespace com.ultracart.admin.v2.Model
         /// History record oid to restore, as returned by container_versions.
         /// </summary>
         /// <value>History record oid to restore, as returned by container_versions.</value>
-        [DataMember(Name="containerHistoryOid", EmitDefaultValue=false)]
+        [DataMember(Name="container_history_oid", EmitDefaultValue=false)]
         public int ContainerHistoryOid { get; set; }
 
         /// <summary>

@@ -36,6 +36,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="actingAsUser">True when this token resolves to a merchant user.  Preview sessions and file writes need one, because they are recorded against the person who approved the token.  Only device flow tokens resolve a user, so a plain API key will see this false..</param>
         /// <param name="applicationName">Description of the application this credential belongs to..</param>
         /// <param name="authenticationType">How this token authenticated - Oauth2, Simple Key, Public/Private Key or Browser Key..</param>
+        /// <param name="canPublish">True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change..</param>
+        /// <param name="canRead">True when this token may read.  Do not infer this from the requested scope name..</param>
+        /// <param name="canWrite">True when this token may write.  Writing a target that is not currently live needs only this..</param>
         /// <param name="deviceScope">Device scope name, when this is a device flow token..</param>
         /// <param name="login">Login of the user who approved this token.  Populated for device flow tokens; null for plain API key credentials..</param>
         /// <param name="merchantId">Merchant id this token acts against..</param>
@@ -43,11 +46,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="storefronts">Storefronts reachable with this token.  Empty unless the token holds sfvb_read, because storefront inventory is resource data rather than identity..</param>
         /// <param name="storefrontsWithheld">True when storefronts was emptied because the token lacks sfvb_read, rather than because the account has none.  Without this the two look identical..</param>
         /// <param name="userName">Display name of the approving user, when known..</param>
-        public SfvbWhoamiResponse(bool actingAsUser = default(bool), string applicationName = default(string), string authenticationType = default(string), string deviceScope = default(string), string login = default(string), string merchantId = default(string), List<string> scopes = default(List<string>), List<SfvbStorefront> storefronts = default(List<SfvbStorefront>), bool storefrontsWithheld = default(bool), string userName = default(string))
+        public SfvbWhoamiResponse(bool actingAsUser = default(bool), string applicationName = default(string), string authenticationType = default(string), bool canPublish = default(bool), bool canRead = default(bool), bool canWrite = default(bool), string deviceScope = default(string), string login = default(string), string merchantId = default(string), List<string> scopes = default(List<string>), List<SfvbStorefront> storefronts = default(List<SfvbStorefront>), bool storefrontsWithheld = default(bool), string userName = default(string))
         {
             this.ActingAsUser = actingAsUser;
             this.ApplicationName = applicationName;
             this.AuthenticationType = authenticationType;
+            this.CanPublish = canPublish;
+            this.CanRead = canRead;
+            this.CanWrite = canWrite;
             this.DeviceScope = deviceScope;
             this.Login = login;
             this.MerchantId = merchantId;
@@ -77,6 +83,27 @@ namespace com.ultracart.admin.v2.Model
         /// <value>How this token authenticated - Oauth2, Simple Key, Public/Private Key or Browser Key.</value>
         [DataMember(Name="authenticationType", EmitDefaultValue=false)]
         public string AuthenticationType { get; set; }
+
+        /// <summary>
+        /// True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change.
+        /// </summary>
+        /// <value>True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change.</value>
+        [DataMember(Name="canPublish", EmitDefaultValue=false)]
+        public bool CanPublish { get; set; }
+
+        /// <summary>
+        /// True when this token may read.  Do not infer this from the requested scope name.
+        /// </summary>
+        /// <value>True when this token may read.  Do not infer this from the requested scope name.</value>
+        [DataMember(Name="canRead", EmitDefaultValue=false)]
+        public bool CanRead { get; set; }
+
+        /// <summary>
+        /// True when this token may write.  Writing a target that is not currently live needs only this.
+        /// </summary>
+        /// <value>True when this token may write.  Writing a target that is not currently live needs only this.</value>
+        [DataMember(Name="canWrite", EmitDefaultValue=false)]
+        public bool CanWrite { get; set; }
 
         /// <summary>
         /// Device scope name, when this is a device flow token.
@@ -138,6 +165,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ActingAsUser: ").Append(ActingAsUser).Append("\n");
             sb.Append("  ApplicationName: ").Append(ApplicationName).Append("\n");
             sb.Append("  AuthenticationType: ").Append(AuthenticationType).Append("\n");
+            sb.Append("  CanPublish: ").Append(CanPublish).Append("\n");
+            sb.Append("  CanRead: ").Append(CanRead).Append("\n");
+            sb.Append("  CanWrite: ").Append(CanWrite).Append("\n");
             sb.Append("  DeviceScope: ").Append(DeviceScope).Append("\n");
             sb.Append("  Login: ").Append(Login).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
@@ -195,6 +225,21 @@ namespace com.ultracart.admin.v2.Model
                     this.AuthenticationType.Equals(input.AuthenticationType))
                 ) && 
                 (
+                    this.CanPublish == input.CanPublish ||
+                    (this.CanPublish != null &&
+                    this.CanPublish.Equals(input.CanPublish))
+                ) && 
+                (
+                    this.CanRead == input.CanRead ||
+                    (this.CanRead != null &&
+                    this.CanRead.Equals(input.CanRead))
+                ) && 
+                (
+                    this.CanWrite == input.CanWrite ||
+                    (this.CanWrite != null &&
+                    this.CanWrite.Equals(input.CanWrite))
+                ) && 
+                (
                     this.DeviceScope == input.DeviceScope ||
                     (this.DeviceScope != null &&
                     this.DeviceScope.Equals(input.DeviceScope))
@@ -248,6 +293,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ApplicationName.GetHashCode();
                 if (this.AuthenticationType != null)
                     hashCode = hashCode * 59 + this.AuthenticationType.GetHashCode();
+                if (this.CanPublish != null)
+                    hashCode = hashCode * 59 + this.CanPublish.GetHashCode();
+                if (this.CanRead != null)
+                    hashCode = hashCode * 59 + this.CanRead.GetHashCode();
+                if (this.CanWrite != null)
+                    hashCode = hashCode * 59 + this.CanWrite.GetHashCode();
                 if (this.DeviceScope != null)
                     hashCode = hashCode * 59 + this.DeviceScope.GetHashCode();
                 if (this.Login != null)

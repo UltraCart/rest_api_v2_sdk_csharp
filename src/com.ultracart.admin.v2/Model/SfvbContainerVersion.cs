@@ -107,7 +107,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="cjson">The CJSON this version held.  Populated only when reading a single version, and null when the operation is create.  Listings omit it because container CJSON is large..</param>
         /// <param name="comment">Comment recorded with the write that replaced this version..</param>
-        /// <param name="containerHistoryOid">History record oid.  Pass to the revert operation on the owning container..</param>
+        /// <param name="containerHistoryOid">History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to..</param>
         /// <param name="containerName">Container name, where the owner has more than one container..</param>
         /// <param name="createdDts">When this snapshot was taken..</param>
         /// <param name="current">True for the value currently stored..</param>
@@ -148,9 +148,9 @@ namespace com.ultracart.admin.v2.Model
         public string Comment { get; set; }
 
         /// <summary>
-        /// History record oid.  Pass to the revert operation on the owning container.
+        /// History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to.
         /// </summary>
-        /// <value>History record oid.  Pass to the revert operation on the owning container.</value>
+        /// <value>History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to.</value>
         [DataMember(Name="container_history_oid", EmitDefaultValue=false)]
         public int ContainerHistoryOid { get; set; }
 

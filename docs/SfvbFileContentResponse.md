@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **AutoCompiled** | **bool** | True when this file is compiler output and must not be edited directly. | [optional] 
 **Content** | **string** | UTF-8 content.  Only text/_* files can be read this way. | [optional] 
 **FsFileOid** | **int** | StoreFront file system file oid. | [optional] 
-**HashSha256** | **string** | SHA-256 of the content.  Also returned as the ETag header; send it back as If-Match when writing. | [optional] 
+**HashSha256** | **string** | SHA-256 of the content.  Send this back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so this body value is the authoritative one.  Both forms are accepted on write. | [optional] 
 **MimeType** | **string** | Mime type. | [optional] 
 **Path** | **string** | Full path of the file. | [optional] 
 **Size** | **int** | Size in bytes. | [optional] 

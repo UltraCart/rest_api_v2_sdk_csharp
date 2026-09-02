@@ -36,14 +36,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="compiledPath">Path of the compiled output, when writing a .cjson under a theme triggered a compile..</param>
         /// <param name="file">file.</param>
         /// <param name="hashSha256">New SHA-256.  Use as the next If-Match value..</param>
+        /// <param name="publicUrl">Where a shopper&#39;s browser will fetch this file, for use in an img src or a background image.  Present only for a path outside /themes/, which is served straight off the storefront root.  A file inside a theme is absent here because its public URL depends on which theme is active, and guessing it would be worse than omitting it..</param>
         /// <param name="validation">validation.</param>
         /// <param name="velocityErrors">Velocity errors recorded by the store.  Present means the file was written but is not valid..</param>
         /// <param name="version">New version number..</param>
-        public SfvbFileWriteResponse(string compiledPath = default(string), SfvbFileEntry file = default(SfvbFileEntry), string hashSha256 = default(string), SfvbValidationResponse validation = default(SfvbValidationResponse), string velocityErrors = default(string), int version = default(int))
+        public SfvbFileWriteResponse(string compiledPath = default(string), SfvbFileEntry file = default(SfvbFileEntry), string hashSha256 = default(string), string publicUrl = default(string), SfvbValidationResponse validation = default(SfvbValidationResponse), string velocityErrors = default(string), int version = default(int))
         {
             this.CompiledPath = compiledPath;
             this.File = file;
             this.HashSha256 = hashSha256;
+            this.PublicUrl = publicUrl;
             this.Validation = validation;
             this.VelocityErrors = velocityErrors;
             this._Version = version;
@@ -68,6 +70,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>New SHA-256.  Use as the next If-Match value.</value>
         [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
         public string HashSha256 { get; set; }
+
+        /// <summary>
+        /// Where a shopper&#39;s browser will fetch this file, for use in an img src or a background image.  Present only for a path outside /themes/, which is served straight off the storefront root.  A file inside a theme is absent here because its public URL depends on which theme is active, and guessing it would be worse than omitting it.
+        /// </summary>
+        /// <value>Where a shopper&#39;s browser will fetch this file, for use in an img src or a background image.  Present only for a path outside /themes/, which is served straight off the storefront root.  A file inside a theme is absent here because its public URL depends on which theme is active, and guessing it would be worse than omitting it.</value>
+        [DataMember(Name="public_url", EmitDefaultValue=false)]
+        public string PublicUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Validation
@@ -100,6 +109,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CompiledPath: ").Append(CompiledPath).Append("\n");
             sb.Append("  File: ").Append(File).Append("\n");
             sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
+            sb.Append("  PublicUrl: ").Append(PublicUrl).Append("\n");
             sb.Append("  Validation: ").Append(Validation).Append("\n");
             sb.Append("  VelocityErrors: ").Append(VelocityErrors).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
@@ -153,6 +163,11 @@ namespace com.ultracart.admin.v2.Model
                     this.HashSha256.Equals(input.HashSha256))
                 ) && 
                 (
+                    this.PublicUrl == input.PublicUrl ||
+                    (this.PublicUrl != null &&
+                    this.PublicUrl.Equals(input.PublicUrl))
+                ) && 
+                (
                     this.Validation == input.Validation ||
                     (this.Validation != null &&
                     this.Validation.Equals(input.Validation))
@@ -184,6 +199,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.File.GetHashCode();
                 if (this.HashSha256 != null)
                     hashCode = hashCode * 59 + this.HashSha256.GetHashCode();
+                if (this.PublicUrl != null)
+                    hashCode = hashCode * 59 + this.PublicUrl.GetHashCode();
                 if (this.Validation != null)
                     hashCode = hashCode * 59 + this.Validation.GetHashCode();
                 if (this.VelocityErrors != null)

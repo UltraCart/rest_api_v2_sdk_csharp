@@ -36,7 +36,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="autoCompiled">True when this file is compiler output and must not be edited directly..</param>
         /// <param name="content">UTF-8 content.  Only text/_* files can be read this way..</param>
         /// <param name="fsFileOid">StoreFront file system file oid..</param>
-        /// <param name="hashSha256">SHA-256 of the content.  Also returned as the ETag header; send it back as If-Match when writing..</param>
+        /// <param name="hashSha256">SHA-256 of the content.  Send this back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so this body value is the authoritative one.  Both forms are accepted on write..</param>
         /// <param name="mimeType">Mime type..</param>
         /// <param name="path">Full path of the file..</param>
         /// <param name="size">Size in bytes..</param>
@@ -81,9 +81,9 @@ namespace com.ultracart.admin.v2.Model
         public int FsFileOid { get; set; }
 
         /// <summary>
-        /// SHA-256 of the content.  Also returned as the ETag header; send it back as If-Match when writing.
+        /// SHA-256 of the content.  Send this back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so this body value is the authoritative one.  Both forms are accepted on write.
         /// </summary>
-        /// <value>SHA-256 of the content.  Also returned as the ETag header; send it back as If-Match when writing.</value>
+        /// <value>SHA-256 of the content.  Send this back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so this body value is the authoritative one.  Both forms are accepted on write.</value>
         [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
         public string HashSha256 { get; set; }
 

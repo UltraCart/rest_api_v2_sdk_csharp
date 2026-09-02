@@ -116,6 +116,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSfvbPreviewSessionWithHttpInfo (int storefrontOid, string previewSessionId);
         /// <summary>
+        /// Read a storefront file's raw bytes
+        /// </summary>
+        /// <remarks>
+        /// Returns the file itself rather than a JSON envelope, for any type including binaries that files/content refuses.  Use this to verify what you uploaded, and note it is the only way to read a file inside a theme that is not active - such a file is served to nobody until the theme is promoted, so it has no public URL to fetch instead.  On success the body is the file; on failure it is the usual JSON error object, so do not assume the content type without checking the status. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path"> (optional)</param>
+        /// <returns></returns>
+        void DownloadSfvbFile (int storefrontOid, string path = default(string));
+
+        /// <summary>
+        /// Read a storefront file's raw bytes
+        /// </summary>
+        /// <remarks>
+        /// Returns the file itself rather than a JSON envelope, for any type including binaries that files/content refuses.  Use this to verify what you uploaded, and note it is the only way to read a file inside a theme that is not active - such a file is served to nobody until the theme is promoted, so it has no public URL to fetch instead.  On success the body is the file; on failure it is the usual JSON error object, so do not assume the content type without checking the status. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DownloadSfvbFileWithHttpInfo (int storefrontOid, string path = default(string));
+        /// <summary>
         /// Duplicate a theme
         /// </summary>
         /// <remarks>
@@ -242,7 +265,7 @@ namespace com.ultracart.admin.v2.Api
         /// Read a storefront file
         /// </summary>
         /// <remarks>
-        /// Returns the current content, or an earlier version when version is supplied.  The content hash is returned as an ETag; send it back as If-Match when writing. 
+        /// Returns the current content, or an earlier version when version is supplied.  Send the body's hash_sha256 back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so prefer the body value. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -255,7 +278,7 @@ namespace com.ultracart.admin.v2.Api
         /// Read a storefront file
         /// </summary>
         /// <remarks>
-        /// Returns the current content, or an earlier version when version is supplied.  The content hash is returned as an ETag; send it back as If-Match when writing. 
+        /// Returns the current content, or an earlier version when version is supplied.  Send the body's hash_sha256 back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so prefer the body value. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -263,6 +286,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="version"> (optional)</param>
         /// <returns>ApiResponse of SfvbFileContentResponse</returns>
         ApiResponse<SfvbFileContentResponse> GetSfvbFileContentWithHttpInfo (int storefrontOid, string path = default(string), int? version = default(int?));
+        /// <summary>
+        /// Get a URL to upload a binary asset to
+        /// </summary>
+        /// <remarks>
+        /// Binary content does not travel through this API as JSON, so uploading an image, font, video or PDF is two steps.  Ask here for a URL, PUT the raw bytes straight to it, then call uploadSfvbFile quoting the key you were given.  The bytes never pass through the API server.  The extension is checked against the accepted type list before a URL is issued, so an unsupported type fails here rather than after you have sent the file.  The URL is short lived and the key is bound to your account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="extension"></param>
+        /// <returns>SfvbFileUploadUrlResponse</returns>
+        SfvbFileUploadUrlResponse GetSfvbFileUploadUrl (int storefrontOid, string extension);
+
+        /// <summary>
+        /// Get a URL to upload a binary asset to
+        /// </summary>
+        /// <remarks>
+        /// Binary content does not travel through this API as JSON, so uploading an image, font, video or PDF is two steps.  Ask here for a URL, PUT the raw bytes straight to it, then call uploadSfvbFile quoting the key you were given.  The bytes never pass through the API server.  The extension is checked against the accepted type list before a URL is issued, so an unsupported type fails here rather than after you have sent the file.  The URL is short lived and the key is bound to your account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="extension"></param>
+        /// <returns>ApiResponse of SfvbFileUploadUrlResponse</returns>
+        ApiResponse<SfvbFileUploadUrlResponse> GetSfvbFileUploadUrlWithHttpInfo (int storefrontOid, string extension);
         /// <summary>
         /// Read one library entry including its CJSON
         /// </summary>
@@ -819,6 +865,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbLibraryResponse</returns>
         ApiResponse<SfvbLibraryResponse> SearchSfvbLibraryWithHttpInfo (int storefrontOid, string segment = default(string), string search = default(string), int? pageNumber = default(int?), int? resultsPerPage = default(int?));
         /// <summary>
+        /// Store a binary asset that was already uploaded
+        /// </summary>
+        /// <remarks>
+        /// The second half of the two step upload.  The bytes are fetched from the key, checked against the extension they claim to be, and written exactly as a text write is - so the same If-Match precondition, the same read only refusal and the same publish gate apply.  An SVG is sanitized before it is stored.  Writing outside /themes/ requires sfvb_publish, because anything served off the storefront root is live by definition. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileUploadRequest">Where to store the uploaded bytes</param>
+        /// <param name="ifMatch">Content hash from the last read.  Required when the file already exists; 428 when absent, 412 when stale. (optional)</param>
+        /// <returns>SfvbFileWriteResponse</returns>
+        SfvbFileWriteResponse UploadSfvbFile (int storefrontOid, SfvbFileUploadRequest fileUploadRequest, string ifMatch = default(string));
+
+        /// <summary>
+        /// Store a binary asset that was already uploaded
+        /// </summary>
+        /// <remarks>
+        /// The second half of the two step upload.  The bytes are fetched from the key, checked against the extension they claim to be, and written exactly as a text write is - so the same If-Match precondition, the same read only refusal and the same publish gate apply.  An SVG is sanitized before it is stored.  Writing outside /themes/ requires sfvb_publish, because anything served off the storefront root is live by definition. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileUploadRequest">Where to store the uploaded bytes</param>
+        /// <param name="ifMatch">Content hash from the last read.  Required when the file already exists; 428 when absent, 412 when stale. (optional)</param>
+        /// <returns>ApiResponse of SfvbFileWriteResponse</returns>
+        ApiResponse<SfvbFileWriteResponse> UploadSfvbFileWithHttpInfo (int storefrontOid, SfvbFileUploadRequest fileUploadRequest, string ifMatch = default(string));
+        /// <summary>
         /// Validate CJSON
         /// </summary>
         /// <remarks>
@@ -965,6 +1036,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbPreviewSessionWithHttpInfoAsync (int storefrontOid, string previewSessionId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Read a storefront file's raw bytes
+        /// </summary>
+        /// <remarks>
+        /// Returns the file itself rather than a JSON envelope, for any type including binaries that files/content refuses.  Use this to verify what you uploaded, and note it is the only way to read a file inside a theme that is not active - such a file is served to nobody until the theme is promoted, so it has no public URL to fetch instead.  On success the body is the file; on failure it is the usual JSON error object, so do not assume the content type without checking the status. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DownloadSfvbFileAsync (int storefrontOid, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a storefront file&#39;s raw bytes
+        /// </summary>
+        /// <remarks>
+        /// Returns the file itself rather than a JSON envelope, for any type including binaries that files/content refuses.  Use this to verify what you uploaded, and note it is the only way to read a file inside a theme that is not active - such a file is served to nobody until the theme is promoted, so it has no public URL to fetch instead.  On success the body is the file; on failure it is the usual JSON error object, so do not assume the content type without checking the status. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DownloadSfvbFileWithHttpInfoAsync (int storefrontOid, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Duplicate a theme
         /// </summary>
         /// <remarks>
@@ -1101,7 +1197,7 @@ namespace com.ultracart.admin.v2.Api
         /// Read a storefront file
         /// </summary>
         /// <remarks>
-        /// Returns the current content, or an earlier version when version is supplied.  The content hash is returned as an ETag; send it back as If-Match when writing. 
+        /// Returns the current content, or an earlier version when version is supplied.  Send the body's hash_sha256 back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so prefer the body value. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -1115,7 +1211,7 @@ namespace com.ultracart.admin.v2.Api
         /// Read a storefront file
         /// </summary>
         /// <remarks>
-        /// Returns the current content, or an earlier version when version is supplied.  The content hash is returned as an ETag; send it back as If-Match when writing. 
+        /// Returns the current content, or an earlier version when version is supplied.  Send the body's hash_sha256 back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so prefer the body value. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -1124,6 +1220,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFileContentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFileContentResponse>> GetSfvbFileContentWithHttpInfoAsync (int storefrontOid, string path = default(string), int? version = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get a URL to upload a binary asset to
+        /// </summary>
+        /// <remarks>
+        /// Binary content does not travel through this API as JSON, so uploading an image, font, video or PDF is two steps.  Ask here for a URL, PUT the raw bytes straight to it, then call uploadSfvbFile quoting the key you were given.  The bytes never pass through the API server.  The extension is checked against the accepted type list before a URL is issued, so an unsupported type fails here rather than after you have sent the file.  The URL is short lived and the key is bound to your account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="extension"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFileUploadUrlResponse</returns>
+        System.Threading.Tasks.Task<SfvbFileUploadUrlResponse> GetSfvbFileUploadUrlAsync (int storefrontOid, string extension, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get a URL to upload a binary asset to
+        /// </summary>
+        /// <remarks>
+        /// Binary content does not travel through this API as JSON, so uploading an image, font, video or PDF is two steps.  Ask here for a URL, PUT the raw bytes straight to it, then call uploadSfvbFile quoting the key you were given.  The bytes never pass through the API server.  The extension is checked against the accepted type list before a URL is issued, so an unsupported type fails here rather than after you have sent the file.  The URL is short lived and the key is bound to your account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="extension"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFileUploadUrlResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbFileUploadUrlResponse>> GetSfvbFileUploadUrlWithHttpInfoAsync (int storefrontOid, string extension, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read one library entry including its CJSON
         /// </summary>
@@ -1725,6 +1846,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbLibraryResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbLibraryResponse>> SearchSfvbLibraryWithHttpInfoAsync (int storefrontOid, string segment = default(string), string search = default(string), int? pageNumber = default(int?), int? resultsPerPage = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Store a binary asset that was already uploaded
+        /// </summary>
+        /// <remarks>
+        /// The second half of the two step upload.  The bytes are fetched from the key, checked against the extension they claim to be, and written exactly as a text write is - so the same If-Match precondition, the same read only refusal and the same publish gate apply.  An SVG is sanitized before it is stored.  Writing outside /themes/ requires sfvb_publish, because anything served off the storefront root is live by definition. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileUploadRequest">Where to store the uploaded bytes</param>
+        /// <param name="ifMatch">Content hash from the last read.  Required when the file already exists; 428 when absent, 412 when stale. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFileWriteResponse</returns>
+        System.Threading.Tasks.Task<SfvbFileWriteResponse> UploadSfvbFileAsync (int storefrontOid, SfvbFileUploadRequest fileUploadRequest, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Store a binary asset that was already uploaded
+        /// </summary>
+        /// <remarks>
+        /// The second half of the two step upload.  The bytes are fetched from the key, checked against the extension they claim to be, and written exactly as a text write is - so the same If-Match precondition, the same read only refusal and the same publish gate apply.  An SVG is sanitized before it is stored.  Writing outside /themes/ requires sfvb_publish, because anything served off the storefront root is live by definition. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileUploadRequest">Where to store the uploaded bytes</param>
+        /// <param name="ifMatch">Content hash from the last read.  Required when the file already exists; 428 when absent, 412 when stale. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFileWriteResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> UploadSfvbFileWithHttpInfoAsync (int storefrontOid, SfvbFileUploadRequest fileUploadRequest, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Validate CJSON
         /// </summary>
@@ -2566,6 +2714,167 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DeleteSfvbPreviewSession", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Read a storefront file's raw bytes Returns the file itself rather than a JSON envelope, for any type including binaries that files/content refuses.  Use this to verify what you uploaded, and note it is the only way to read a file inside a theme that is not active - such a file is served to nobody until the theme is promoted, so it has no public URL to fetch instead.  On success the body is the file; on failure it is the usual JSON error object, so do not assume the content type without checking the status. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path"> (optional)</param>
+        /// <returns></returns>
+        public void DownloadSfvbFile (int storefrontOid, string path = default(string))
+        {
+             DownloadSfvbFileWithHttpInfo(storefrontOid, path);
+        }
+
+        /// <summary>
+        /// Read a storefront file's raw bytes Returns the file itself rather than a JSON envelope, for any type including binaries that files/content refuses.  Use this to verify what you uploaded, and note it is the only way to read a file inside a theme that is not active - such a file is served to nobody until the theme is promoted, so it has no public URL to fetch instead.  On success the body is the file; on failure it is the usual JSON error object, so do not assume the content type without checking the status. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DownloadSfvbFileWithHttpInfo (int storefrontOid, string path = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DownloadSfvbFile");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/files/download";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DownloadSfvbFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Read a storefront file's raw bytes Returns the file itself rather than a JSON envelope, for any type including binaries that files/content refuses.  Use this to verify what you uploaded, and note it is the only way to read a file inside a theme that is not active - such a file is served to nobody until the theme is promoted, so it has no public URL to fetch instead.  On success the body is the file; on failure it is the usual JSON error object, so do not assume the content type without checking the status. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DownloadSfvbFileAsync (int storefrontOid, string path = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DownloadSfvbFileWithHttpInfoAsync(storefrontOid, path, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Read a storefront file's raw bytes Returns the file itself rather than a JSON envelope, for any type including binaries that files/content refuses.  Use this to verify what you uploaded, and note it is the only way to read a file inside a theme that is not active - such a file is served to nobody until the theme is promoted, so it has no public URL to fetch instead.  On success the body is the file; on failure it is the usual JSON error object, so do not assume the content type without checking the status. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DownloadSfvbFileWithHttpInfoAsync (int storefrontOid, string path = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DownloadSfvbFile");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/files/download";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DownloadSfvbFile", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3476,7 +3785,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Read a storefront file Returns the current content, or an earlier version when version is supplied.  The content hash is returned as an ETag; send it back as If-Match when writing. 
+        /// Read a storefront file Returns the current content, or an earlier version when version is supplied.  Send the body's hash_sha256 back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so prefer the body value. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -3490,7 +3799,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Read a storefront file Returns the current content, or an earlier version when version is supplied.  The content hash is returned as an ETag; send it back as If-Match when writing. 
+        /// Read a storefront file Returns the current content, or an earlier version when version is supplied.  Send the body's hash_sha256 back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so prefer the body value. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -3559,7 +3868,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Read a storefront file Returns the current content, or an earlier version when version is supplied.  The content hash is returned as an ETag; send it back as If-Match when writing. 
+        /// Read a storefront file Returns the current content, or an earlier version when version is supplied.  Send the body's hash_sha256 back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so prefer the body value. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -3575,7 +3884,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Read a storefront file Returns the current content, or an earlier version when version is supplied.  The content hash is returned as an ETag; send it back as If-Match when writing. 
+        /// Read a storefront file Returns the current content, or an earlier version when version is supplied.  Send the body's hash_sha256 back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so prefer the body value. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -3642,6 +3951,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbFileContentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbFileContentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFileContentResponse)));
+        }
+
+        /// <summary>
+        /// Get a URL to upload a binary asset to Binary content does not travel through this API as JSON, so uploading an image, font, video or PDF is two steps.  Ask here for a URL, PUT the raw bytes straight to it, then call uploadSfvbFile quoting the key you were given.  The bytes never pass through the API server.  The extension is checked against the accepted type list before a URL is issued, so an unsupported type fails here rather than after you have sent the file.  The URL is short lived and the key is bound to your account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="extension"></param>
+        /// <returns>SfvbFileUploadUrlResponse</returns>
+        public SfvbFileUploadUrlResponse GetSfvbFileUploadUrl (int storefrontOid, string extension)
+        {
+             ApiResponse<SfvbFileUploadUrlResponse> localVarResponse = GetSfvbFileUploadUrlWithHttpInfo(storefrontOid, extension);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a URL to upload a binary asset to Binary content does not travel through this API as JSON, so uploading an image, font, video or PDF is two steps.  Ask here for a URL, PUT the raw bytes straight to it, then call uploadSfvbFile quoting the key you were given.  The bytes never pass through the API server.  The extension is checked against the accepted type list before a URL is issued, so an unsupported type fails here rather than after you have sent the file.  The URL is short lived and the key is bound to your account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="extension"></param>
+        /// <returns>ApiResponse of SfvbFileUploadUrlResponse</returns>
+        public ApiResponse<SfvbFileUploadUrlResponse> GetSfvbFileUploadUrlWithHttpInfo (int storefrontOid, string extension)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbFileUploadUrl");
+            // verify the required parameter 'extension' is set
+            if (extension == null)
+                throw new ApiException(400, "Missing required parameter 'extension' when calling SfvbApi->GetSfvbFileUploadUrl");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/files/upload_url/{extension}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (extension != null) localVarPathParams.Add("extension", this.Configuration.ApiClient.ParameterToString(extension)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbFileUploadUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFileUploadUrlResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFileUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFileUploadUrlResponse)));
+        }
+
+        /// <summary>
+        /// Get a URL to upload a binary asset to Binary content does not travel through this API as JSON, so uploading an image, font, video or PDF is two steps.  Ask here for a URL, PUT the raw bytes straight to it, then call uploadSfvbFile quoting the key you were given.  The bytes never pass through the API server.  The extension is checked against the accepted type list before a URL is issued, so an unsupported type fails here rather than after you have sent the file.  The URL is short lived and the key is bound to your account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="extension"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFileUploadUrlResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbFileUploadUrlResponse> GetSfvbFileUploadUrlAsync (int storefrontOid, string extension, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbFileUploadUrlResponse> localVarResponse = await GetSfvbFileUploadUrlWithHttpInfoAsync(storefrontOid, extension, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a URL to upload a binary asset to Binary content does not travel through this API as JSON, so uploading an image, font, video or PDF is two steps.  Ask here for a URL, PUT the raw bytes straight to it, then call uploadSfvbFile quoting the key you were given.  The bytes never pass through the API server.  The extension is checked against the accepted type list before a URL is issued, so an unsupported type fails here rather than after you have sent the file.  The URL is short lived and the key is bound to your account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="extension"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFileUploadUrlResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbFileUploadUrlResponse>> GetSfvbFileUploadUrlWithHttpInfoAsync (int storefrontOid, string extension, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbFileUploadUrl");
+            // verify the required parameter 'extension' is set
+            if (extension == null)
+                throw new ApiException(400, "Missing required parameter 'extension' when calling SfvbApi->GetSfvbFileUploadUrl");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/files/upload_url/{extension}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (extension != null) localVarPathParams.Add("extension", this.Configuration.ApiClient.ParameterToString(extension)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbFileUploadUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFileUploadUrlResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFileUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFileUploadUrlResponse)));
         }
 
         /// <summary>
@@ -7689,6 +8167,197 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbLibraryResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbLibraryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryResponse)));
+        }
+
+        /// <summary>
+        /// Store a binary asset that was already uploaded The second half of the two step upload.  The bytes are fetched from the key, checked against the extension they claim to be, and written exactly as a text write is - so the same If-Match precondition, the same read only refusal and the same publish gate apply.  An SVG is sanitized before it is stored.  Writing outside /themes/ requires sfvb_publish, because anything served off the storefront root is live by definition. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileUploadRequest">Where to store the uploaded bytes</param>
+        /// <param name="ifMatch">Content hash from the last read.  Required when the file already exists; 428 when absent, 412 when stale. (optional)</param>
+        /// <returns>SfvbFileWriteResponse</returns>
+        public SfvbFileWriteResponse UploadSfvbFile (int storefrontOid, SfvbFileUploadRequest fileUploadRequest, string ifMatch = default(string))
+        {
+             ApiResponse<SfvbFileWriteResponse> localVarResponse = UploadSfvbFileWithHttpInfo(storefrontOid, fileUploadRequest, ifMatch);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Store a binary asset that was already uploaded The second half of the two step upload.  The bytes are fetched from the key, checked against the extension they claim to be, and written exactly as a text write is - so the same If-Match precondition, the same read only refusal and the same publish gate apply.  An SVG is sanitized before it is stored.  Writing outside /themes/ requires sfvb_publish, because anything served off the storefront root is live by definition. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileUploadRequest">Where to store the uploaded bytes</param>
+        /// <param name="ifMatch">Content hash from the last read.  Required when the file already exists; 428 when absent, 412 when stale. (optional)</param>
+        /// <returns>ApiResponse of SfvbFileWriteResponse</returns>
+        public ApiResponse<SfvbFileWriteResponse> UploadSfvbFileWithHttpInfo (int storefrontOid, SfvbFileUploadRequest fileUploadRequest, string ifMatch = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UploadSfvbFile");
+            // verify the required parameter 'fileUploadRequest' is set
+            if (fileUploadRequest == null)
+                throw new ApiException(400, "Missing required parameter 'fileUploadRequest' when calling SfvbApi->UploadSfvbFile");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/files/upload";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (fileUploadRequest != null && fileUploadRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(fileUploadRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = fileUploadRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UploadSfvbFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFileWriteResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFileWriteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFileWriteResponse)));
+        }
+
+        /// <summary>
+        /// Store a binary asset that was already uploaded The second half of the two step upload.  The bytes are fetched from the key, checked against the extension they claim to be, and written exactly as a text write is - so the same If-Match precondition, the same read only refusal and the same publish gate apply.  An SVG is sanitized before it is stored.  Writing outside /themes/ requires sfvb_publish, because anything served off the storefront root is live by definition. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileUploadRequest">Where to store the uploaded bytes</param>
+        /// <param name="ifMatch">Content hash from the last read.  Required when the file already exists; 428 when absent, 412 when stale. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFileWriteResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbFileWriteResponse> UploadSfvbFileAsync (int storefrontOid, SfvbFileUploadRequest fileUploadRequest, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbFileWriteResponse> localVarResponse = await UploadSfvbFileWithHttpInfoAsync(storefrontOid, fileUploadRequest, ifMatch, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Store a binary asset that was already uploaded The second half of the two step upload.  The bytes are fetched from the key, checked against the extension they claim to be, and written exactly as a text write is - so the same If-Match precondition, the same read only refusal and the same publish gate apply.  An SVG is sanitized before it is stored.  Writing outside /themes/ requires sfvb_publish, because anything served off the storefront root is live by definition. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileUploadRequest">Where to store the uploaded bytes</param>
+        /// <param name="ifMatch">Content hash from the last read.  Required when the file already exists; 428 when absent, 412 when stale. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFileWriteResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> UploadSfvbFileWithHttpInfoAsync (int storefrontOid, SfvbFileUploadRequest fileUploadRequest, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UploadSfvbFile");
+            // verify the required parameter 'fileUploadRequest' is set
+            if (fileUploadRequest == null)
+                throw new ApiException(400, "Missing required parameter 'fileUploadRequest' when calling SfvbApi->UploadSfvbFile");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/files/upload";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (fileUploadRequest != null && fileUploadRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(fileUploadRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = fileUploadRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UploadSfvbFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFileWriteResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFileWriteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFileWriteResponse)));
         }
 
         /// <summary>

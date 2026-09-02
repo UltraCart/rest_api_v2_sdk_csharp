@@ -994,6 +994,8 @@ docs/SfvbFileEntry.md
 docs/SfvbFileRevertRequest.md
 docs/SfvbFileSearchRequest.md
 docs/SfvbFileSearchResponse.md
+docs/SfvbFileUploadRequest.md
+docs/SfvbFileUploadUrlResponse.md
 docs/SfvbFileVersion.md
 docs/SfvbFileVersionsResponse.md
 docs/SfvbFileWriteRequest.md
@@ -2121,6 +2123,8 @@ src/com.ultracart.admin.v2/Model/SfvbFileEntry.cs
 src/com.ultracart.admin.v2/Model/SfvbFileRevertRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbFileSearchRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbFileSearchResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbFileUploadRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbFileUploadUrlResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbFileVersion.cs
 src/com.ultracart.admin.v2/Model/SfvbFileVersionsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbFileWriteRequest.cs

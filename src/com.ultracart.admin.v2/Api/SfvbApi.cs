@@ -336,7 +336,7 @@ namespace com.ultracart.admin.v2.Api
         /// URL that renders a preview session
         /// </summary>
         /// <remarks>
-        /// 
+        /// Refuses a session that does not exist, so a URL you receive is for a session that was really there.  expires_in_seconds is the time actually remaining, not the configured lifetime.  Needs a token that resolves to a user, because a preview session belongs to the person who created it. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -349,7 +349,7 @@ namespace com.ultracart.admin.v2.Api
         /// URL that renders a preview session
         /// </summary>
         /// <remarks>
-        /// 
+        /// Refuses a session that does not exist, so a URL you receive is for a session that was really there.  expires_in_seconds is the time actually remaining, not the configured lifetime.  Needs a token that resolves to a user, because a preview session belongs to the person who created it. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -1274,7 +1274,7 @@ namespace com.ultracart.admin.v2.Api
         /// URL that renders a preview session
         /// </summary>
         /// <remarks>
-        /// 
+        /// Refuses a session that does not exist, so a URL you receive is for a session that was really there.  expires_in_seconds is the time actually remaining, not the configured lifetime.  Needs a token that resolves to a user, because a preview session belongs to the person who created it. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -1288,7 +1288,7 @@ namespace com.ultracart.admin.v2.Api
         /// URL that renders a preview session
         /// </summary>
         /// <remarks>
-        /// 
+        /// Refuses a session that does not exist, so a URL you receive is for a session that was really there.  expires_in_seconds is the time actually remaining, not the configured lifetime.  Needs a token that resolves to a user, because a preview session belongs to the person who created it. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -4292,7 +4292,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// URL that renders a preview session 
+        /// URL that renders a preview session Refuses a session that does not exist, so a URL you receive is for a session that was really there.  expires_in_seconds is the time actually remaining, not the configured lifetime.  Needs a token that resolves to a user, because a preview session belongs to the person who created it. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -4306,7 +4306,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// URL that renders a preview session 
+        /// URL that renders a preview session Refuses a session that does not exist, so a URL you receive is for a session that was really there.  expires_in_seconds is the time actually remaining, not the configured lifetime.  Needs a token that resolves to a user, because a preview session belongs to the person who created it. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -4378,7 +4378,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// URL that renders a preview session 
+        /// URL that renders a preview session Refuses a session that does not exist, so a URL you receive is for a session that was really there.  expires_in_seconds is the time actually remaining, not the configured lifetime.  Needs a token that resolves to a user, because a preview session belongs to the person who created it. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -4394,7 +4394,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// URL that renders a preview session 
+        /// URL that renders a preview session Refuses a session that does not exist, so a URL you receive is for a session that was really there.  expires_in_seconds is the time actually remaining, not the configured lifetime.  Needs a token that resolves to a user, because a preview session belongs to the person who created it. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>

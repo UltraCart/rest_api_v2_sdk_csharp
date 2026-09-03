@@ -36,10 +36,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="comment">Comment recorded with the write..</param>
         /// <param name="current">True for the version currently on disk..</param>
         /// <param name="editedBy">Login of whoever wrote this version..</param>
-        /// <param name="fsFileHistoryOid">History record oid..</param>
+        /// <param name="fsFileHistoryOid">History record oid, for correlating an entry with the file manager.  Absent on the entry marked current, which is the content on disk right now and has no history row of its own.  Unlike container_history_oid on a container version, this is NOT addressable through this API - nothing accepts it.  Fetch and revert a file version by path plus version instead..</param>
         /// <param name="hashSha256">SHA-256 of this version&#39;s content..</param>
         /// <param name="lastModified">When this version was written..</param>
-        /// <param name="revertable">True when this version can be reverted to..</param>
+        /// <param name="revertable">True when this version can be reverted to, which is every entry except the one marked current.  Note that it is absent rather than false on that entry - false booleans are omitted across this API, so a generated client sees undefined rather than false.  Test whether the key is present, or simpler still, use current..</param>
         /// <param name="size">Size in bytes..</param>
         /// <param name="version">Version number.  Pass to files/content or files/revert..</param>
         public SfvbFileVersion(string comment = default(string), bool current = default(bool), string editedBy = default(string), int fsFileHistoryOid = default(int), string hashSha256 = default(string), string lastModified = default(string), bool revertable = default(bool), int size = default(int), int version = default(int))
@@ -77,9 +77,9 @@ namespace com.ultracart.admin.v2.Model
         public string EditedBy { get; set; }
 
         /// <summary>
-        /// History record oid.
+        /// History record oid, for correlating an entry with the file manager.  Absent on the entry marked current, which is the content on disk right now and has no history row of its own.  Unlike container_history_oid on a container version, this is NOT addressable through this API - nothing accepts it.  Fetch and revert a file version by path plus version instead.
         /// </summary>
-        /// <value>History record oid.</value>
+        /// <value>History record oid, for correlating an entry with the file manager.  Absent on the entry marked current, which is the content on disk right now and has no history row of its own.  Unlike container_history_oid on a container version, this is NOT addressable through this API - nothing accepts it.  Fetch and revert a file version by path plus version instead.</value>
         [DataMember(Name="fs_file_history_oid", EmitDefaultValue=false)]
         public int FsFileHistoryOid { get; set; }
 
@@ -98,9 +98,9 @@ namespace com.ultracart.admin.v2.Model
         public string LastModified { get; set; }
 
         /// <summary>
-        /// True when this version can be reverted to.
+        /// True when this version can be reverted to, which is every entry except the one marked current.  Note that it is absent rather than false on that entry - false booleans are omitted across this API, so a generated client sees undefined rather than false.  Test whether the key is present, or simpler still, use current.
         /// </summary>
-        /// <value>True when this version can be reverted to.</value>
+        /// <value>True when this version can be reverted to, which is every entry except the one marked current.  Note that it is absent rather than false on that entry - false booleans are omitted across this API, so a generated client sees undefined rather than false.  Test whether the key is present, or simpler still, use current.</value>
         [DataMember(Name="revertable", EmitDefaultValue=false)]
         public bool Revertable { get; set; }
 

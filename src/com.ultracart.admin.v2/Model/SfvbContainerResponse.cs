@@ -84,36 +84,21 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbContainerResponse" /> class.
         /// </summary>
-        /// <param name="activeTheme">True when this container lives in the theme currently serving live traffic.  Writing to it requires the sfvb_publish scope..</param>
         /// <param name="cjson">The container JSON.  Runtime state is stripped on the way out..</param>
-        /// <param name="containerId">Container id as the compiler will derive it..</param>
         /// <param name="containerName">Container name..</param>
         /// <param name="hashSha256">SHA-256 of the cjson.  Send back as If-Match when writing..</param>
-        /// <param name="lastModified">When the container was last modified, where the store records it..</param>
+        /// <param name="lastModified">When the container was last modified, in the store&#39;s own record of it.  Present for email, postcardfront and postcardback.  Absent for upsell and item, because those tables carry no modification timestamp at all - for those two, read created_dts on the current entry of container_versions, which records when this API last wrote the container.  Note that a postcard keeps one timestamp for both of its sides, so writing the front moves the value the back reports..</param>
         /// <param name="ownerObjectId">Identifier of the owning object within its store..</param>
         /// <param name="ownerType">Where this container lives..</param>
-        /// <param name="path">File path, for theme and page containers only..</param>
-        /// <param name="version">File version, for theme and page containers only..</param>
-        public SfvbContainerResponse(bool activeTheme = default(bool), string cjson = default(string), string containerId = default(string), string containerName = default(string), string hashSha256 = default(string), string lastModified = default(string), string ownerObjectId = default(string), OwnerTypeEnum? ownerType = default(OwnerTypeEnum?), string path = default(string), int version = default(int))
+        public SfvbContainerResponse(string cjson = default(string), string containerName = default(string), string hashSha256 = default(string), string lastModified = default(string), string ownerObjectId = default(string), OwnerTypeEnum? ownerType = default(OwnerTypeEnum?))
         {
-            this.ActiveTheme = activeTheme;
             this.Cjson = cjson;
-            this.ContainerId = containerId;
             this.ContainerName = containerName;
             this.HashSha256 = hashSha256;
             this.LastModified = lastModified;
             this.OwnerObjectId = ownerObjectId;
             this.OwnerType = ownerType;
-            this.Path = path;
-            this._Version = version;
         }
-
-        /// <summary>
-        /// True when this container lives in the theme currently serving live traffic.  Writing to it requires the sfvb_publish scope.
-        /// </summary>
-        /// <value>True when this container lives in the theme currently serving live traffic.  Writing to it requires the sfvb_publish scope.</value>
-        [DataMember(Name="active_theme", EmitDefaultValue=false)]
-        public bool ActiveTheme { get; set; }
 
         /// <summary>
         /// The container JSON.  Runtime state is stripped on the way out.
@@ -121,13 +106,6 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The container JSON.  Runtime state is stripped on the way out.</value>
         [DataMember(Name="cjson", EmitDefaultValue=false)]
         public string Cjson { get; set; }
-
-        /// <summary>
-        /// Container id as the compiler will derive it.
-        /// </summary>
-        /// <value>Container id as the compiler will derive it.</value>
-        [DataMember(Name="container_id", EmitDefaultValue=false)]
-        public string ContainerId { get; set; }
 
         /// <summary>
         /// Container name.
@@ -144,9 +122,9 @@ namespace com.ultracart.admin.v2.Model
         public string HashSha256 { get; set; }
 
         /// <summary>
-        /// When the container was last modified, where the store records it.
+        /// When the container was last modified, in the store&#39;s own record of it.  Present for email, postcardfront and postcardback.  Absent for upsell and item, because those tables carry no modification timestamp at all - for those two, read created_dts on the current entry of container_versions, which records when this API last wrote the container.  Note that a postcard keeps one timestamp for both of its sides, so writing the front moves the value the back reports.
         /// </summary>
-        /// <value>When the container was last modified, where the store records it.</value>
+        /// <value>When the container was last modified, in the store&#39;s own record of it.  Present for email, postcardfront and postcardback.  Absent for upsell and item, because those tables carry no modification timestamp at all - for those two, read created_dts on the current entry of container_versions, which records when this API last wrote the container.  Note that a postcard keeps one timestamp for both of its sides, so writing the front moves the value the back reports.</value>
         [DataMember(Name="last_modified", EmitDefaultValue=false)]
         public string LastModified { get; set; }
 
@@ -159,20 +137,6 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
-        /// File path, for theme and page containers only.
-        /// </summary>
-        /// <value>File path, for theme and page containers only.</value>
-        [DataMember(Name="path", EmitDefaultValue=false)]
-        public string Path { get; set; }
-
-        /// <summary>
-        /// File version, for theme and page containers only.
-        /// </summary>
-        /// <value>File version, for theme and page containers only.</value>
-        [DataMember(Name="version", EmitDefaultValue=false)]
-        public int _Version { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,16 +144,12 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbContainerResponse {\n");
-            sb.Append("  ActiveTheme: ").Append(ActiveTheme).Append("\n");
             sb.Append("  Cjson: ").Append(Cjson).Append("\n");
-            sb.Append("  ContainerId: ").Append(ContainerId).Append("\n");
             sb.Append("  ContainerName: ").Append(ContainerName).Append("\n");
             sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
             sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("  OwnerObjectId: ").Append(OwnerObjectId).Append("\n");
             sb.Append("  OwnerType: ").Append(OwnerType).Append("\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -225,19 +185,9 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.ActiveTheme == input.ActiveTheme ||
-                    (this.ActiveTheme != null &&
-                    this.ActiveTheme.Equals(input.ActiveTheme))
-                ) && 
-                (
                     this.Cjson == input.Cjson ||
                     (this.Cjson != null &&
                     this.Cjson.Equals(input.Cjson))
-                ) && 
-                (
-                    this.ContainerId == input.ContainerId ||
-                    (this.ContainerId != null &&
-                    this.ContainerId.Equals(input.ContainerId))
                 ) && 
                 (
                     this.ContainerName == input.ContainerName ||
@@ -263,16 +213,6 @@ namespace com.ultracart.admin.v2.Model
                     this.OwnerType == input.OwnerType ||
                     (this.OwnerType != null &&
                     this.OwnerType.Equals(input.OwnerType))
-                ) && 
-                (
-                    this.Path == input.Path ||
-                    (this.Path != null &&
-                    this.Path.Equals(input.Path))
-                ) && 
-                (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
                 );
         }
 
@@ -285,12 +225,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ActiveTheme != null)
-                    hashCode = hashCode * 59 + this.ActiveTheme.GetHashCode();
                 if (this.Cjson != null)
                     hashCode = hashCode * 59 + this.Cjson.GetHashCode();
-                if (this.ContainerId != null)
-                    hashCode = hashCode * 59 + this.ContainerId.GetHashCode();
                 if (this.ContainerName != null)
                     hashCode = hashCode * 59 + this.ContainerName.GetHashCode();
                 if (this.HashSha256 != null)
@@ -301,10 +237,6 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OwnerObjectId.GetHashCode();
                 if (this.OwnerType != null)
                     hashCode = hashCode * 59 + this.OwnerType.GetHashCode();
-                if (this.Path != null)
-                    hashCode = hashCode * 59 + this.Path.GetHashCode();
-                if (this._Version != null)
-                    hashCode = hashCode * 59 + this._Version.GetHashCode();
                 return hashCode;
             }
         }

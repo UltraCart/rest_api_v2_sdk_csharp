@@ -69,22 +69,34 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="containerManagerVersion">Container manager version used to compile for this merchant..</param>
         /// <param name="containerVersionsRetained">Versions kept per non-file container before the oldest are pruned.  Beyond this, history is gone - not merely paginated..</param>
         /// <param name="elementCount">Number of element types this version recognizes..</param>
+        /// <param name="maxAssetBytes">Largest binary asset that can be uploaded, in bytes, for every accepted type except video..</param>
         /// <param name="maxCjsonBytes">Largest CJSON document that will be parsed, in bytes..</param>
+        /// <param name="maxDirectoryEntries">Most entries one directory listing returns.  Asking for more is silently reduced to this rather than refused, so compare against it instead of trusting that you got what you asked for.  The listing does set a truncated flag when it drops entries..</param>
+        /// <param name="maxLibraryResultsPerPage">Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut..</param>
         /// <param name="maxPreviewSessionBytes">Largest payload one preview session may hold, in bytes..</param>
+        /// <param name="maxRevertableBytes">Largest historical version files/revert will restore, in bytes.  Higher than max_text_read_bytes deliberately - putting back a version that is already stored is cheaper than serving it as JSON, so a version too large to read can still be reverted to..</param>
         /// <param name="maxSearchResults">Hard ceiling on file search results per page..</param>
-        /// <param name="maxTemplateBytes">Largest template file that can be written, in bytes..</param>
+        /// <param name="maxTemplateBytes">Largest .vm template that can be written, in bytes.  Narrow on purpose - it gates writes, only for files ending in .vm, and it is not the ceiling on reading a file back.  Use max_text_read_bytes for that..</param>
+        /// <param name="maxTextReadBytes">Largest file files/content will return as text, in bytes.  A file above this is refused with sfvb.too_large however small its history versions are.  Bigger than max_template_bytes, so a file can be readable here and still be too large to write back as a template.  Anything above this is still readable in full through files/download, which returns raw bytes and applies no ceiling..</param>
+        /// <param name="maxVideoBytes">Largest video that can be uploaded, in bytes.  Video is the one type allowed past max_asset_bytes..</param>
         /// <param name="maxWidgetIdsPerRequest">Most widget ids that can be reserved in one call..</param>
         /// <param name="previewSessionTtlSeconds">Seconds a preview session survives before expiring..</param>
         /// <param name="release">Release channel selected for this merchant..</param>
-        public SfvbVersionResponse(string containerManagerVersion = default(string), int containerVersionsRetained = default(int), int elementCount = default(int), int maxCjsonBytes = default(int), int maxPreviewSessionBytes = default(int), int maxSearchResults = default(int), int maxTemplateBytes = default(int), int maxWidgetIdsPerRequest = default(int), int previewSessionTtlSeconds = default(int), ReleaseEnum? release = default(ReleaseEnum?))
+        public SfvbVersionResponse(string containerManagerVersion = default(string), int containerVersionsRetained = default(int), int elementCount = default(int), long maxAssetBytes = default(long), int maxCjsonBytes = default(int), int maxDirectoryEntries = default(int), int maxLibraryResultsPerPage = default(int), int maxPreviewSessionBytes = default(int), int maxRevertableBytes = default(int), int maxSearchResults = default(int), int maxTemplateBytes = default(int), int maxTextReadBytes = default(int), long maxVideoBytes = default(long), int maxWidgetIdsPerRequest = default(int), int previewSessionTtlSeconds = default(int), ReleaseEnum? release = default(ReleaseEnum?))
         {
             this.ContainerManagerVersion = containerManagerVersion;
             this.ContainerVersionsRetained = containerVersionsRetained;
             this.ElementCount = elementCount;
+            this.MaxAssetBytes = maxAssetBytes;
             this.MaxCjsonBytes = maxCjsonBytes;
+            this.MaxDirectoryEntries = maxDirectoryEntries;
+            this.MaxLibraryResultsPerPage = maxLibraryResultsPerPage;
             this.MaxPreviewSessionBytes = maxPreviewSessionBytes;
+            this.MaxRevertableBytes = maxRevertableBytes;
             this.MaxSearchResults = maxSearchResults;
             this.MaxTemplateBytes = maxTemplateBytes;
+            this.MaxTextReadBytes = maxTextReadBytes;
+            this.MaxVideoBytes = maxVideoBytes;
             this.MaxWidgetIdsPerRequest = maxWidgetIdsPerRequest;
             this.PreviewSessionTtlSeconds = previewSessionTtlSeconds;
             this.Release = release;
@@ -112,11 +124,32 @@ namespace com.ultracart.admin.v2.Model
         public int ElementCount { get; set; }
 
         /// <summary>
+        /// Largest binary asset that can be uploaded, in bytes, for every accepted type except video.
+        /// </summary>
+        /// <value>Largest binary asset that can be uploaded, in bytes, for every accepted type except video.</value>
+        [DataMember(Name="max_asset_bytes", EmitDefaultValue=false)]
+        public long MaxAssetBytes { get; set; }
+
+        /// <summary>
         /// Largest CJSON document that will be parsed, in bytes.
         /// </summary>
         /// <value>Largest CJSON document that will be parsed, in bytes.</value>
         [DataMember(Name="max_cjson_bytes", EmitDefaultValue=false)]
         public int MaxCjsonBytes { get; set; }
+
+        /// <summary>
+        /// Most entries one directory listing returns.  Asking for more is silently reduced to this rather than refused, so compare against it instead of trusting that you got what you asked for.  The listing does set a truncated flag when it drops entries.
+        /// </summary>
+        /// <value>Most entries one directory listing returns.  Asking for more is silently reduced to this rather than refused, so compare against it instead of trusting that you got what you asked for.  The listing does set a truncated flag when it drops entries.</value>
+        [DataMember(Name="max_directory_entries", EmitDefaultValue=false)]
+        public int MaxDirectoryEntries { get; set; }
+
+        /// <summary>
+        /// Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut.
+        /// </summary>
+        /// <value>Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut.</value>
+        [DataMember(Name="max_library_results_per_page", EmitDefaultValue=false)]
+        public int MaxLibraryResultsPerPage { get; set; }
 
         /// <summary>
         /// Largest payload one preview session may hold, in bytes.
@@ -126,6 +159,13 @@ namespace com.ultracart.admin.v2.Model
         public int MaxPreviewSessionBytes { get; set; }
 
         /// <summary>
+        /// Largest historical version files/revert will restore, in bytes.  Higher than max_text_read_bytes deliberately - putting back a version that is already stored is cheaper than serving it as JSON, so a version too large to read can still be reverted to.
+        /// </summary>
+        /// <value>Largest historical version files/revert will restore, in bytes.  Higher than max_text_read_bytes deliberately - putting back a version that is already stored is cheaper than serving it as JSON, so a version too large to read can still be reverted to.</value>
+        [DataMember(Name="max_revertable_bytes", EmitDefaultValue=false)]
+        public int MaxRevertableBytes { get; set; }
+
+        /// <summary>
         /// Hard ceiling on file search results per page.
         /// </summary>
         /// <value>Hard ceiling on file search results per page.</value>
@@ -133,11 +173,25 @@ namespace com.ultracart.admin.v2.Model
         public int MaxSearchResults { get; set; }
 
         /// <summary>
-        /// Largest template file that can be written, in bytes.
+        /// Largest .vm template that can be written, in bytes.  Narrow on purpose - it gates writes, only for files ending in .vm, and it is not the ceiling on reading a file back.  Use max_text_read_bytes for that.
         /// </summary>
-        /// <value>Largest template file that can be written, in bytes.</value>
+        /// <value>Largest .vm template that can be written, in bytes.  Narrow on purpose - it gates writes, only for files ending in .vm, and it is not the ceiling on reading a file back.  Use max_text_read_bytes for that.</value>
         [DataMember(Name="max_template_bytes", EmitDefaultValue=false)]
         public int MaxTemplateBytes { get; set; }
+
+        /// <summary>
+        /// Largest file files/content will return as text, in bytes.  A file above this is refused with sfvb.too_large however small its history versions are.  Bigger than max_template_bytes, so a file can be readable here and still be too large to write back as a template.  Anything above this is still readable in full through files/download, which returns raw bytes and applies no ceiling.
+        /// </summary>
+        /// <value>Largest file files/content will return as text, in bytes.  A file above this is refused with sfvb.too_large however small its history versions are.  Bigger than max_template_bytes, so a file can be readable here and still be too large to write back as a template.  Anything above this is still readable in full through files/download, which returns raw bytes and applies no ceiling.</value>
+        [DataMember(Name="max_text_read_bytes", EmitDefaultValue=false)]
+        public int MaxTextReadBytes { get; set; }
+
+        /// <summary>
+        /// Largest video that can be uploaded, in bytes.  Video is the one type allowed past max_asset_bytes.
+        /// </summary>
+        /// <value>Largest video that can be uploaded, in bytes.  Video is the one type allowed past max_asset_bytes.</value>
+        [DataMember(Name="max_video_bytes", EmitDefaultValue=false)]
+        public long MaxVideoBytes { get; set; }
 
         /// <summary>
         /// Most widget ids that can be reserved in one call.
@@ -165,10 +219,16 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ContainerManagerVersion: ").Append(ContainerManagerVersion).Append("\n");
             sb.Append("  ContainerVersionsRetained: ").Append(ContainerVersionsRetained).Append("\n");
             sb.Append("  ElementCount: ").Append(ElementCount).Append("\n");
+            sb.Append("  MaxAssetBytes: ").Append(MaxAssetBytes).Append("\n");
             sb.Append("  MaxCjsonBytes: ").Append(MaxCjsonBytes).Append("\n");
+            sb.Append("  MaxDirectoryEntries: ").Append(MaxDirectoryEntries).Append("\n");
+            sb.Append("  MaxLibraryResultsPerPage: ").Append(MaxLibraryResultsPerPage).Append("\n");
             sb.Append("  MaxPreviewSessionBytes: ").Append(MaxPreviewSessionBytes).Append("\n");
+            sb.Append("  MaxRevertableBytes: ").Append(MaxRevertableBytes).Append("\n");
             sb.Append("  MaxSearchResults: ").Append(MaxSearchResults).Append("\n");
             sb.Append("  MaxTemplateBytes: ").Append(MaxTemplateBytes).Append("\n");
+            sb.Append("  MaxTextReadBytes: ").Append(MaxTextReadBytes).Append("\n");
+            sb.Append("  MaxVideoBytes: ").Append(MaxVideoBytes).Append("\n");
             sb.Append("  MaxWidgetIdsPerRequest: ").Append(MaxWidgetIdsPerRequest).Append("\n");
             sb.Append("  PreviewSessionTtlSeconds: ").Append(PreviewSessionTtlSeconds).Append("\n");
             sb.Append("  Release: ").Append(Release).Append("\n");
@@ -222,14 +282,34 @@ namespace com.ultracart.admin.v2.Model
                     this.ElementCount.Equals(input.ElementCount))
                 ) && 
                 (
+                    this.MaxAssetBytes == input.MaxAssetBytes ||
+                    (this.MaxAssetBytes != null &&
+                    this.MaxAssetBytes.Equals(input.MaxAssetBytes))
+                ) && 
+                (
                     this.MaxCjsonBytes == input.MaxCjsonBytes ||
                     (this.MaxCjsonBytes != null &&
                     this.MaxCjsonBytes.Equals(input.MaxCjsonBytes))
                 ) && 
                 (
+                    this.MaxDirectoryEntries == input.MaxDirectoryEntries ||
+                    (this.MaxDirectoryEntries != null &&
+                    this.MaxDirectoryEntries.Equals(input.MaxDirectoryEntries))
+                ) && 
+                (
+                    this.MaxLibraryResultsPerPage == input.MaxLibraryResultsPerPage ||
+                    (this.MaxLibraryResultsPerPage != null &&
+                    this.MaxLibraryResultsPerPage.Equals(input.MaxLibraryResultsPerPage))
+                ) && 
+                (
                     this.MaxPreviewSessionBytes == input.MaxPreviewSessionBytes ||
                     (this.MaxPreviewSessionBytes != null &&
                     this.MaxPreviewSessionBytes.Equals(input.MaxPreviewSessionBytes))
+                ) && 
+                (
+                    this.MaxRevertableBytes == input.MaxRevertableBytes ||
+                    (this.MaxRevertableBytes != null &&
+                    this.MaxRevertableBytes.Equals(input.MaxRevertableBytes))
                 ) && 
                 (
                     this.MaxSearchResults == input.MaxSearchResults ||
@@ -240,6 +320,16 @@ namespace com.ultracart.admin.v2.Model
                     this.MaxTemplateBytes == input.MaxTemplateBytes ||
                     (this.MaxTemplateBytes != null &&
                     this.MaxTemplateBytes.Equals(input.MaxTemplateBytes))
+                ) && 
+                (
+                    this.MaxTextReadBytes == input.MaxTextReadBytes ||
+                    (this.MaxTextReadBytes != null &&
+                    this.MaxTextReadBytes.Equals(input.MaxTextReadBytes))
+                ) && 
+                (
+                    this.MaxVideoBytes == input.MaxVideoBytes ||
+                    (this.MaxVideoBytes != null &&
+                    this.MaxVideoBytes.Equals(input.MaxVideoBytes))
                 ) && 
                 (
                     this.MaxWidgetIdsPerRequest == input.MaxWidgetIdsPerRequest ||
@@ -273,14 +363,26 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ContainerVersionsRetained.GetHashCode();
                 if (this.ElementCount != null)
                     hashCode = hashCode * 59 + this.ElementCount.GetHashCode();
+                if (this.MaxAssetBytes != null)
+                    hashCode = hashCode * 59 + this.MaxAssetBytes.GetHashCode();
                 if (this.MaxCjsonBytes != null)
                     hashCode = hashCode * 59 + this.MaxCjsonBytes.GetHashCode();
+                if (this.MaxDirectoryEntries != null)
+                    hashCode = hashCode * 59 + this.MaxDirectoryEntries.GetHashCode();
+                if (this.MaxLibraryResultsPerPage != null)
+                    hashCode = hashCode * 59 + this.MaxLibraryResultsPerPage.GetHashCode();
                 if (this.MaxPreviewSessionBytes != null)
                     hashCode = hashCode * 59 + this.MaxPreviewSessionBytes.GetHashCode();
+                if (this.MaxRevertableBytes != null)
+                    hashCode = hashCode * 59 + this.MaxRevertableBytes.GetHashCode();
                 if (this.MaxSearchResults != null)
                     hashCode = hashCode * 59 + this.MaxSearchResults.GetHashCode();
                 if (this.MaxTemplateBytes != null)
                     hashCode = hashCode * 59 + this.MaxTemplateBytes.GetHashCode();
+                if (this.MaxTextReadBytes != null)
+                    hashCode = hashCode * 59 + this.MaxTextReadBytes.GetHashCode();
+                if (this.MaxVideoBytes != null)
+                    hashCode = hashCode * 59 + this.MaxVideoBytes.GetHashCode();
                 if (this.MaxWidgetIdsPerRequest != null)
                     hashCode = hashCode * 59 + this.MaxWidgetIdsPerRequest.GetHashCode();
                 if (this.PreviewSessionTtlSeconds != null)

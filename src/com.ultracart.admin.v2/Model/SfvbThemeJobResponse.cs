@@ -89,7 +89,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="status">Raw job status..</param>
         /// <param name="submittedDts">When the job was queued..</param>
         /// <param name="success">True only when the job finished successfully.  Check complete first..</param>
-        /// <param name="targetPath">Path the new theme was created at.  Returned when the job is started; the theme oid itself is NOT returned, because the job&#39;s product is a plain text report rather than a structured result.  Once the job completes, list themes and match on this path..</param>
+        /// <param name="targetPath">Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending..</param>
         public SfvbThemeJobResponse(bool complete = default(bool), string description = default(string), string errorMessage = default(string), string finishedDts = default(string), int jobId = default(int), int progress = default(int), string progressDescription = default(string), string startedDts = default(string), StatusEnum? status = default(StatusEnum?), string submittedDts = default(string), bool success = default(bool), string targetPath = default(string))
         {
             this.Complete = complete;
@@ -178,9 +178,9 @@ namespace com.ultracart.admin.v2.Model
         public bool Success { get; set; }
 
         /// <summary>
-        /// Path the new theme was created at.  Returned when the job is started; the theme oid itself is NOT returned, because the job&#39;s product is a plain text report rather than a structured result.  Once the job completes, list themes and match on this path.
+        /// Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.
         /// </summary>
-        /// <value>Path the new theme was created at.  Returned when the job is started; the theme oid itself is NOT returned, because the job&#39;s product is a plain text report rather than a structured result.  Once the job completes, list themes and match on this path.</value>
+        /// <value>Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.</value>
         [DataMember(Name="target_path", EmitDefaultValue=false)]
         public string TargetPath { get; set; }
 

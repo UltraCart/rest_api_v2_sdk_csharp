@@ -33,7 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbThemeDuplicateRequest" /> class.
         /// </summary>
-        /// <param name="folder">Directory name for the new theme under /themes/.  Letters and numbers; it is cleansed before use.  Must not already exist - a collision is refused rather than resolved, because silently creating a differently named theme leaves you unsure what you made..</param>
+        /// <param name="folder">Directory name for the new theme under /themes/.  Letters and numbers, one path segment.  Used verbatim - anything that is not already a valid directory name is refused rather than adjusted, because this call does not return the new theme&#39;s oid and you find your copy by matching the target_path you asked for.  Must not already exist - a collision is refused rather than resolved, because silently creating a differently named theme leaves you unsure what you made..</param>
         /// <param name="targetStorefrontOid">Storefront to create the copy on.  Defaults to the storefront in the path.  Supply it only when copying a theme between storefronts you own..</param>
         /// <param name="themeName">Name for the new theme..</param>
         public SfvbThemeDuplicateRequest(string folder = default(string), int targetStorefrontOid = default(int), string themeName = default(string))
@@ -44,9 +44,9 @@ namespace com.ultracart.admin.v2.Model
         }
 
         /// <summary>
-        /// Directory name for the new theme under /themes/.  Letters and numbers; it is cleansed before use.  Must not already exist - a collision is refused rather than resolved, because silently creating a differently named theme leaves you unsure what you made.
+        /// Directory name for the new theme under /themes/.  Letters and numbers, one path segment.  Used verbatim - anything that is not already a valid directory name is refused rather than adjusted, because this call does not return the new theme&#39;s oid and you find your copy by matching the target_path you asked for.  Must not already exist - a collision is refused rather than resolved, because silently creating a differently named theme leaves you unsure what you made.
         /// </summary>
-        /// <value>Directory name for the new theme under /themes/.  Letters and numbers; it is cleansed before use.  Must not already exist - a collision is refused rather than resolved, because silently creating a differently named theme leaves you unsure what you made.</value>
+        /// <value>Directory name for the new theme under /themes/.  Letters and numbers, one path segment.  Used verbatim - anything that is not already a valid directory name is refused rather than adjusted, because this call does not return the new theme&#39;s oid and you find your copy by matching the target_path you asked for.  Must not already exist - a collision is refused rather than resolved, because silently creating a differently named theme leaves you unsure what you made.</value>
         [DataMember(Name="folder", EmitDefaultValue=false)]
         public string Folder { get; set; }
 

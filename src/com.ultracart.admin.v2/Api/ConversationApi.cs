@@ -2177,6 +2177,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationPbxAudioResponse</returns>
         ApiResponse<ConversationPbxAudioResponse> InsertUserPbxAudioWithHttpInfo (ConversationPbxAudio pbxAudio);
         /// <summary>
+        /// Join a test conversation as the simulated customer
+        /// </summary>
+        /// <remarks>
+        /// Joins the simulated customer to the conversation the agent opened for a test session.  This mirrors what the storefront webchat widget does after an agent picks up its queue entry, and it is what gives the conversation a customer participant.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Test session join request</param>
+        /// <returns></returns>
+        void JoinAgentTestSession (int userId, string conversationUuid, ConversationAgentTestSessionJoinRequest joinRequest);
+
+        /// <summary>
+        /// Join a test conversation as the simulated customer
+        /// </summary>
+        /// <remarks>
+        /// Joins the simulated customer to the conversation the agent opened for a test session.  This mirrors what the storefront webchat widget does after an agent picks up its queue entry, and it is what gives the conversation a customer participant.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Test session join request</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> JoinAgentTestSessionWithHttpInfo (int userId, string conversationUuid, ConversationAgentTestSessionJoinRequest joinRequest);
+        /// <summary>
         /// Join a conversation
         /// </summary>
         /// <remarks>
@@ -2519,6 +2544,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="conversationUuid"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SmsUnsubscribeConversationWithHttpInfo (string conversationUuid);
+        /// <summary>
+        /// Start a test conversation with this AI agent
+        /// </summary>
+        /// <remarks>
+        /// Opens a webchat conversation against this specific AI agent as if the given customer had started it from the storefront, so the agent can be tried out before it is put in front of anyone.  The session runs against live data: the cart is real, the customer is real, and anything the agent does during the conversation actually happens.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="testSessionRequest">Test session request</param>
+        /// <returns>ConversationAgentTestSessionResponse</returns>
+        ConversationAgentTestSessionResponse StartAgentTestSession (int userId, ConversationAgentTestSessionRequest testSessionRequest);
+
+        /// <summary>
+        /// Start a test conversation with this AI agent
+        /// </summary>
+        /// <remarks>
+        /// Opens a webchat conversation against this specific AI agent as if the given customer had started it from the storefront, so the agent can be tried out before it is put in front of anyone.  The session runs against live data: the cart is real, the customer is real, and anything the agent does during the conversation actually happens.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="testSessionRequest">Test session request</param>
+        /// <returns>ApiResponse of ConversationAgentTestSessionResponse</returns>
+        ApiResponse<ConversationAgentTestSessionResponse> StartAgentTestSessionWithHttpInfo (int userId, ConversationAgentTestSessionRequest testSessionRequest);
         /// <summary>
         /// Start a conversation
         /// </summary>
@@ -5423,6 +5471,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ConversationPbxAudioResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationPbxAudioResponse>> InsertUserPbxAudioWithHttpInfoAsync (ConversationPbxAudio pbxAudio, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Join a test conversation as the simulated customer
+        /// </summary>
+        /// <remarks>
+        /// Joins the simulated customer to the conversation the agent opened for a test session.  This mirrors what the storefront webchat widget does after an agent picks up its queue entry, and it is what gives the conversation a customer participant.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Test session join request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task JoinAgentTestSessionAsync (int userId, string conversationUuid, ConversationAgentTestSessionJoinRequest joinRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Join a test conversation as the simulated customer
+        /// </summary>
+        /// <remarks>
+        /// Joins the simulated customer to the conversation the agent opened for a test session.  This mirrors what the storefront webchat widget does after an agent picks up its queue entry, and it is what gives the conversation a customer participant.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Test session join request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> JoinAgentTestSessionWithHttpInfoAsync (int userId, string conversationUuid, ConversationAgentTestSessionJoinRequest joinRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Join a conversation
         /// </summary>
         /// <remarks>
@@ -5795,6 +5870,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SmsUnsubscribeConversationWithHttpInfoAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Start a test conversation with this AI agent
+        /// </summary>
+        /// <remarks>
+        /// Opens a webchat conversation against this specific AI agent as if the given customer had started it from the storefront, so the agent can be tried out before it is put in front of anyone.  The session runs against live data: the cart is real, the customer is real, and anything the agent does during the conversation actually happens.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="testSessionRequest">Test session request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ConversationAgentTestSessionResponse</returns>
+        System.Threading.Tasks.Task<ConversationAgentTestSessionResponse> StartAgentTestSessionAsync (int userId, ConversationAgentTestSessionRequest testSessionRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Start a test conversation with this AI agent
+        /// </summary>
+        /// <remarks>
+        /// Opens a webchat conversation against this specific AI agent as if the given customer had started it from the storefront, so the agent can be tried out before it is put in front of anyone.  The session runs against live data: the cart is real, the customer is real, and anything the agent does during the conversation actually happens.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="testSessionRequest">Test session request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ConversationAgentTestSessionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationAgentTestSessionResponse>> StartAgentTestSessionWithHttpInfoAsync (int userId, ConversationAgentTestSessionRequest testSessionRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Start a conversation
         /// </summary>
@@ -22828,6 +22928,201 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Join a test conversation as the simulated customer Joins the simulated customer to the conversation the agent opened for a test session.  This mirrors what the storefront webchat widget does after an agent picks up its queue entry, and it is what gives the conversation a customer participant.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Test session join request</param>
+        /// <returns></returns>
+        public void JoinAgentTestSession (int userId, string conversationUuid, ConversationAgentTestSessionJoinRequest joinRequest)
+        {
+             JoinAgentTestSessionWithHttpInfo(userId, conversationUuid, joinRequest);
+        }
+
+        /// <summary>
+        /// Join a test conversation as the simulated customer Joins the simulated customer to the conversation the agent opened for a test session.  This mirrors what the storefront webchat widget does after an agent picks up its queue entry, and it is what gives the conversation a customer participant.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Test session join request</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> JoinAgentTestSessionWithHttpInfo (int userId, string conversationUuid, ConversationAgentTestSessionJoinRequest joinRequest)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->JoinAgentTestSession");
+            // verify the required parameter 'conversationUuid' is set
+            if (conversationUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationUuid' when calling ConversationApi->JoinAgentTestSession");
+            // verify the required parameter 'joinRequest' is set
+            if (joinRequest == null)
+                throw new ApiException(400, "Missing required parameter 'joinRequest' when calling ConversationApi->JoinAgentTestSession");
+
+            var localVarPath = "/conversation/agent/profiles/{user_id}/test_session/{conversation_uuid}/join";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+            if (joinRequest != null && joinRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(joinRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = joinRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JoinAgentTestSession", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Join a test conversation as the simulated customer Joins the simulated customer to the conversation the agent opened for a test session.  This mirrors what the storefront webchat widget does after an agent picks up its queue entry, and it is what gives the conversation a customer participant.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Test session join request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task JoinAgentTestSessionAsync (int userId, string conversationUuid, ConversationAgentTestSessionJoinRequest joinRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await JoinAgentTestSessionWithHttpInfoAsync(userId, conversationUuid, joinRequest, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Join a test conversation as the simulated customer Joins the simulated customer to the conversation the agent opened for a test session.  This mirrors what the storefront webchat widget does after an agent picks up its queue entry, and it is what gives the conversation a customer participant.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Test session join request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> JoinAgentTestSessionWithHttpInfoAsync (int userId, string conversationUuid, ConversationAgentTestSessionJoinRequest joinRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->JoinAgentTestSession");
+            // verify the required parameter 'conversationUuid' is set
+            if (conversationUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationUuid' when calling ConversationApi->JoinAgentTestSession");
+            // verify the required parameter 'joinRequest' is set
+            if (joinRequest == null)
+                throw new ApiException(400, "Missing required parameter 'joinRequest' when calling ConversationApi->JoinAgentTestSession");
+
+            var localVarPath = "/conversation/agent/profiles/{user_id}/test_session/{conversation_uuid}/join";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+            if (joinRequest != null && joinRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(joinRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = joinRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("JoinAgentTestSession", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
         /// Join a conversation Join a conversation 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -25374,6 +25669,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Start a test conversation with this AI agent Opens a webchat conversation against this specific AI agent as if the given customer had started it from the storefront, so the agent can be tried out before it is put in front of anyone.  The session runs against live data: the cart is real, the customer is real, and anything the agent does during the conversation actually happens.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="testSessionRequest">Test session request</param>
+        /// <returns>ConversationAgentTestSessionResponse</returns>
+        public ConversationAgentTestSessionResponse StartAgentTestSession (int userId, ConversationAgentTestSessionRequest testSessionRequest)
+        {
+             ApiResponse<ConversationAgentTestSessionResponse> localVarResponse = StartAgentTestSessionWithHttpInfo(userId, testSessionRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Start a test conversation with this AI agent Opens a webchat conversation against this specific AI agent as if the given customer had started it from the storefront, so the agent can be tried out before it is put in front of anyone.  The session runs against live data: the cart is real, the customer is real, and anything the agent does during the conversation actually happens.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="testSessionRequest">Test session request</param>
+        /// <returns>ApiResponse of ConversationAgentTestSessionResponse</returns>
+        public ApiResponse<ConversationAgentTestSessionResponse> StartAgentTestSessionWithHttpInfo (int userId, ConversationAgentTestSessionRequest testSessionRequest)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->StartAgentTestSession");
+            // verify the required parameter 'testSessionRequest' is set
+            if (testSessionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'testSessionRequest' when calling ConversationApi->StartAgentTestSession");
+
+            var localVarPath = "/conversation/agent/profiles/{user_id}/test_session";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (testSessionRequest != null && testSessionRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(testSessionRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = testSessionRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("StartAgentTestSession", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationAgentTestSessionResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ConversationAgentTestSessionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationAgentTestSessionResponse)));
+        }
+
+        /// <summary>
+        /// Start a test conversation with this AI agent Opens a webchat conversation against this specific AI agent as if the given customer had started it from the storefront, so the agent can be tried out before it is put in front of anyone.  The session runs against live data: the cart is real, the customer is real, and anything the agent does during the conversation actually happens.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="testSessionRequest">Test session request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ConversationAgentTestSessionResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationAgentTestSessionResponse> StartAgentTestSessionAsync (int userId, ConversationAgentTestSessionRequest testSessionRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ConversationAgentTestSessionResponse> localVarResponse = await StartAgentTestSessionWithHttpInfoAsync(userId, testSessionRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Start a test conversation with this AI agent Opens a webchat conversation against this specific AI agent as if the given customer had started it from the storefront, so the agent can be tried out before it is put in front of anyone.  The session runs against live data: the cart is real, the customer is real, and anything the agent does during the conversation actually happens.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="testSessionRequest">Test session request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ConversationAgentTestSessionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationAgentTestSessionResponse>> StartAgentTestSessionWithHttpInfoAsync (int userId, ConversationAgentTestSessionRequest testSessionRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ConversationApi->StartAgentTestSession");
+            // verify the required parameter 'testSessionRequest' is set
+            if (testSessionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'testSessionRequest' when calling ConversationApi->StartAgentTestSession");
+
+            var localVarPath = "/conversation/agent/profiles/{user_id}/test_session";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (testSessionRequest != null && testSessionRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(testSessionRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = testSessionRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("StartAgentTestSession", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationAgentTestSessionResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ConversationAgentTestSessionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationAgentTestSessionResponse)));
         }
 
         /// <summary>

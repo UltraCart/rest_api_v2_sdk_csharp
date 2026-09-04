@@ -187,6 +187,9 @@ docs/ConversationAgentStatusRollupSearchRequest.md
 docs/ConversationAgentStatusRollupSearchResponse.md
 docs/ConversationAgentStatusSummaryResponse.md
 docs/ConversationAgentStatusTimelineResponse.md
+docs/ConversationAgentTestSessionJoinRequest.md
+docs/ConversationAgentTestSessionRequest.md
+docs/ConversationAgentTestSessionResponse.md
 docs/ConversationApi.md
 docs/ConversationAutocompleteRequest.md
 docs/ConversationAutocompleteResponse.md
@@ -195,6 +198,7 @@ docs/ConversationCannedMessage.md
 docs/ConversationCannedMessageResponse.md
 docs/ConversationCannedMessagesResponse.md
 docs/ConversationCannedMessagesSearch.md
+docs/ConversationCustomerAuth.md
 docs/ConversationDeleteKnowledgeBaseDocumentResponse.md
 docs/ConversationDepartment.md
 docs/ConversationDepartmentMember.md
@@ -1330,6 +1334,9 @@ src/com.ultracart.admin.v2/Model/ConversationAgentStatusRollupSearchRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationAgentStatusRollupSearchResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationAgentStatusSummaryResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationAgentStatusTimelineResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationAgentTestSessionJoinRequest.cs
+src/com.ultracart.admin.v2/Model/ConversationAgentTestSessionRequest.cs
+src/com.ultracart.admin.v2/Model/ConversationAgentTestSessionResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationAutocompleteRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationAutocompleteResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationAutocompleteValue.cs
@@ -1337,6 +1344,7 @@ src/com.ultracart.admin.v2/Model/ConversationCannedMessage.cs
 src/com.ultracart.admin.v2/Model/ConversationCannedMessageResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationCannedMessagesResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationCannedMessagesSearch.cs
+src/com.ultracart.admin.v2/Model/ConversationCustomerAuth.cs
 src/com.ultracart.admin.v2/Model/ConversationDeleteKnowledgeBaseDocumentResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationDepartment.cs
 src/com.ultracart.admin.v2/Model/ConversationDepartmentMember.cs

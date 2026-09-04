@@ -107,6 +107,7 @@ Method | HTTP request | Description
 [**InsertPbxTimeRange**](ConversationApi.md#insertpbxtimerange) | **POST** /conversation/pbx/time_range | Insert pbx timeRange
 [**InsertPbxVoicemailMailbox**](ConversationApi.md#insertpbxvoicemailmailbox) | **POST** /conversation/pbx/voicemail_mailbox | Insert pbx voicemailMailbox
 [**InsertUserPbxAudio**](ConversationApi.md#insertuserpbxaudio) | **POST** /conversation/pbx/audio/user | Insert user pbx audio
+[**JoinAgentTestSession**](ConversationApi.md#joinagenttestsession) | **PUT** /conversation/agent/profiles/{user_id}/test_session/{conversation_uuid}/join | Join a test conversation as the simulated customer
 [**JoinConversation**](ConversationApi.md#joinconversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 [**LeaveConversation**](ConversationApi.md#leaveconversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 [**ListenedPbxAgentVoicemail**](ConversationApi.md#listenedpbxagentvoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
@@ -122,6 +123,7 @@ Method | HTTP request | Description
 [**SearchPbxAvailablePhoneNumbers**](ConversationApi.md#searchpbxavailablephonenumbers) | **GET** /conversation/pbx/phone_number/search | Search for available phone numbers
 [**SearchPbxCalls**](ConversationApi.md#searchpbxcalls) | **POST** /conversation/pbx/call/search | Search pbx call records
 [**SmsUnsubscribeConversation**](ConversationApi.md#smsunsubscribeconversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
+[**StartAgentTestSession**](ConversationApi.md#startagenttestsession) | **PUT** /conversation/agent/profiles/{user_id}/test_session | Start a test conversation with this AI agent
 [**StartConversation**](ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
 [**UpdateAgentProfile**](ConversationApi.md#updateagentprofile) | **PUT** /conversation/agent/profile | Update agent profile
 [**UpdateAgentProfileMcp**](ConversationApi.md#updateagentprofilemcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Update an agent MCP server
@@ -5467,6 +5469,59 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## JoinAgentTestSession
+
+> void JoinAgentTestSession (int userId, string conversationUuid, ConversationAgentTestSessionJoinRequest joinRequest)
+
+Join a test conversation as the simulated customer
+
+Joins the simulated customer to the conversation the agent opened for a test session.  This mirrors what the storefront webchat widget does after an agent picks up its queue entry, and it is what gives the conversation a customer participant.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int**|  | 
+ **conversationUuid** | **string**|  | 
+ **joinRequest** | [**ConversationAgentTestSessionJoinRequest**](ConversationAgentTestSessionJoinRequest.md)| Test session join request | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## JoinConversation
 
 > void JoinConversation (string conversationUuid, ConversationJoinRequest joinRequest = null)
@@ -6238,6 +6293,59 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## StartAgentTestSession
+
+> ConversationAgentTestSessionResponse StartAgentTestSession (int userId, ConversationAgentTestSessionRequest testSessionRequest)
+
+Start a test conversation with this AI agent
+
+Opens a webchat conversation against this specific AI agent as if the given customer had started it from the storefront, so the agent can be tried out before it is put in front of anyone.  The session runs against live data: the cart is real, the customer is real, and anything the agent does during the conversation actually happens.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int**|  | 
+ **testSessionRequest** | [**ConversationAgentTestSessionRequest**](ConversationAgentTestSessionRequest.md)| Test session request | 
+
+### Return type
+
+[**ConversationAgentTestSessionResponse**](ConversationAgentTestSessionResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |

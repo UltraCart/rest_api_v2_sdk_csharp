@@ -91,7 +91,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="updateSubscriptionCreditCard">updateSubscriptionCreditCard.</param>
         /// <param name="zohoDeskAvailable">True if Zoho Desk is connected to UltraCart.</param>
         /// <param name="zohoDeskDepartments">Array of Zoho Desk Department if zoho desk is connected to UltraCart.</param>
-        public ConversationVirtualAgentCapabilities(bool accessCustomCollections = default(bool), bool accessStorefrontAndItem = default(bool), bool cancelSubscription = default(bool), Object customCollectionOids = default(Object), List<ConversationVirtualAgentCapabilityCustomCollection> customCollections = default(List<ConversationVirtualAgentCapabilityCustomCollection>), bool delaySubscription = default(bool), bool generateCoupon = default(bool), bool lookupOrderInformation = default(bool), bool lookupSubscriptionInformation = default(bool), bool openSupportTicket = default(bool), OpenSupportTicketChannelEnum? openSupportTicketChannel = default(OpenSupportTicketChannelEnum?), string openSupportTicketChannelEmail = default(string), string openSupportTicketZohoDeskDepartmentId = default(string), bool pauseSubscription = default(bool), bool resumeSubscription = default(bool), bool transferChatToLiveAgent = default(bool), bool updateSubscriptionCreditCard = default(bool), bool zohoDeskAvailable = default(bool), List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments = default(List<ConversationVirtualAgentCapabilityZohoDeskDepartment>))
+        public ConversationVirtualAgentCapabilities(bool accessCustomCollections = default(bool), bool accessStorefrontAndItem = default(bool), bool cancelSubscription = default(bool), List<int> customCollectionOids = default(List<int>), List<ConversationVirtualAgentCapabilityCustomCollection> customCollections = default(List<ConversationVirtualAgentCapabilityCustomCollection>), bool delaySubscription = default(bool), bool generateCoupon = default(bool), bool lookupOrderInformation = default(bool), bool lookupSubscriptionInformation = default(bool), bool openSupportTicket = default(bool), OpenSupportTicketChannelEnum? openSupportTicketChannel = default(OpenSupportTicketChannelEnum?), string openSupportTicketChannelEmail = default(string), string openSupportTicketZohoDeskDepartmentId = default(string), bool pauseSubscription = default(bool), bool resumeSubscription = default(bool), bool transferChatToLiveAgent = default(bool), bool updateSubscriptionCreditCard = default(bool), bool zohoDeskAvailable = default(bool), List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments = default(List<ConversationVirtualAgentCapabilityZohoDeskDepartment>))
         {
             this.AccessCustomCollections = accessCustomCollections;
             this.AccessStorefrontAndItem = accessStorefrontAndItem;
@@ -139,7 +139,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.</value>
         [DataMember(Name="custom_collection_oids", EmitDefaultValue=false)]
-        public Object CustomCollectionOids { get; set; }
+        public List<int> CustomCollectionOids { get; set; }
 
         /// <summary>
         /// Read only.  All of the merchant&#39;s custom collections, to populate the selection list for custom_collection_oids.  Changes here are ignored.
@@ -310,8 +310,9 @@ namespace com.ultracart.admin.v2.Model
                 ) && 
                 (
                     this.CustomCollectionOids == input.CustomCollectionOids ||
-                    (this.CustomCollectionOids != null &&
-                    this.CustomCollectionOids.Equals(input.CustomCollectionOids))
+                    this.CustomCollectionOids != null &&
+                    input.CustomCollectionOids != null &&
+                    this.CustomCollectionOids.SequenceEqual(input.CustomCollectionOids)
                 ) && 
                 (
                     this.CustomCollections == input.CustomCollections ||

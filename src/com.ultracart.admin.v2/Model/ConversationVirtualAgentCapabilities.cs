@@ -72,8 +72,11 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationVirtualAgentCapabilities" /> class.
         /// </summary>
+        /// <param name="accessCustomCollections">Permission flag to allow this Agent to search the merchant&#39;s custom Typesense collections..</param>
         /// <param name="accessStorefrontAndItem">Permission flag to allow this Agent access to the storefront and item information..</param>
         /// <param name="cancelSubscription">cancelSubscription.</param>
+        /// <param name="customCollectionOids">The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true..</param>
+        /// <param name="customCollections">Read only.  All of the merchant&#39;s custom collections, to populate the selection list for custom_collection_oids.  Changes here are ignored..</param>
         /// <param name="delaySubscription">delaySubscription.</param>
         /// <param name="generateCoupon">Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions.</param>
         /// <param name="lookupOrderInformation">lookupOrderInformation.</param>
@@ -88,10 +91,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="updateSubscriptionCreditCard">updateSubscriptionCreditCard.</param>
         /// <param name="zohoDeskAvailable">True if Zoho Desk is connected to UltraCart.</param>
         /// <param name="zohoDeskDepartments">Array of Zoho Desk Department if zoho desk is connected to UltraCart.</param>
-        public ConversationVirtualAgentCapabilities(bool accessStorefrontAndItem = default(bool), bool cancelSubscription = default(bool), bool delaySubscription = default(bool), bool generateCoupon = default(bool), bool lookupOrderInformation = default(bool), bool lookupSubscriptionInformation = default(bool), bool openSupportTicket = default(bool), OpenSupportTicketChannelEnum? openSupportTicketChannel = default(OpenSupportTicketChannelEnum?), string openSupportTicketChannelEmail = default(string), string openSupportTicketZohoDeskDepartmentId = default(string), bool pauseSubscription = default(bool), bool resumeSubscription = default(bool), bool transferChatToLiveAgent = default(bool), bool updateSubscriptionCreditCard = default(bool), bool zohoDeskAvailable = default(bool), List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments = default(List<ConversationVirtualAgentCapabilityZohoDeskDepartment>))
+        public ConversationVirtualAgentCapabilities(bool accessCustomCollections = default(bool), bool accessStorefrontAndItem = default(bool), bool cancelSubscription = default(bool), Object customCollectionOids = default(Object), List<ConversationVirtualAgentCapabilityCustomCollection> customCollections = default(List<ConversationVirtualAgentCapabilityCustomCollection>), bool delaySubscription = default(bool), bool generateCoupon = default(bool), bool lookupOrderInformation = default(bool), bool lookupSubscriptionInformation = default(bool), bool openSupportTicket = default(bool), OpenSupportTicketChannelEnum? openSupportTicketChannel = default(OpenSupportTicketChannelEnum?), string openSupportTicketChannelEmail = default(string), string openSupportTicketZohoDeskDepartmentId = default(string), bool pauseSubscription = default(bool), bool resumeSubscription = default(bool), bool transferChatToLiveAgent = default(bool), bool updateSubscriptionCreditCard = default(bool), bool zohoDeskAvailable = default(bool), List<ConversationVirtualAgentCapabilityZohoDeskDepartment> zohoDeskDepartments = default(List<ConversationVirtualAgentCapabilityZohoDeskDepartment>))
         {
+            this.AccessCustomCollections = accessCustomCollections;
             this.AccessStorefrontAndItem = accessStorefrontAndItem;
             this.CancelSubscription = cancelSubscription;
+            this.CustomCollectionOids = customCollectionOids;
+            this.CustomCollections = customCollections;
             this.DelaySubscription = delaySubscription;
             this.GenerateCoupon = generateCoupon;
             this.LookupOrderInformation = lookupOrderInformation;
@@ -109,6 +115,13 @@ namespace com.ultracart.admin.v2.Model
         }
 
         /// <summary>
+        /// Permission flag to allow this Agent to search the merchant&#39;s custom Typesense collections.
+        /// </summary>
+        /// <value>Permission flag to allow this Agent to search the merchant&#39;s custom Typesense collections.</value>
+        [DataMember(Name="access_custom_collections", EmitDefaultValue=false)]
+        public bool AccessCustomCollections { get; set; }
+
+        /// <summary>
         /// Permission flag to allow this Agent access to the storefront and item information.
         /// </summary>
         /// <value>Permission flag to allow this Agent access to the storefront and item information.</value>
@@ -120,6 +133,20 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="cancel_subscription", EmitDefaultValue=false)]
         public bool CancelSubscription { get; set; }
+
+        /// <summary>
+        /// The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.
+        /// </summary>
+        /// <value>The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.</value>
+        [DataMember(Name="custom_collection_oids", EmitDefaultValue=false)]
+        public Object CustomCollectionOids { get; set; }
+
+        /// <summary>
+        /// Read only.  All of the merchant&#39;s custom collections, to populate the selection list for custom_collection_oids.  Changes here are ignored.
+        /// </summary>
+        /// <value>Read only.  All of the merchant&#39;s custom collections, to populate the selection list for custom_collection_oids.  Changes here are ignored.</value>
+        [DataMember(Name="custom_collections", EmitDefaultValue=false)]
+        public List<ConversationVirtualAgentCapabilityCustomCollection> CustomCollections { get; set; }
 
         /// <summary>
         /// Gets or Sets DelaySubscription
@@ -213,8 +240,11 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationVirtualAgentCapabilities {\n");
+            sb.Append("  AccessCustomCollections: ").Append(AccessCustomCollections).Append("\n");
             sb.Append("  AccessStorefrontAndItem: ").Append(AccessStorefrontAndItem).Append("\n");
             sb.Append("  CancelSubscription: ").Append(CancelSubscription).Append("\n");
+            sb.Append("  CustomCollectionOids: ").Append(CustomCollectionOids).Append("\n");
+            sb.Append("  CustomCollections: ").Append(CustomCollections).Append("\n");
             sb.Append("  DelaySubscription: ").Append(DelaySubscription).Append("\n");
             sb.Append("  GenerateCoupon: ").Append(GenerateCoupon).Append("\n");
             sb.Append("  LookupOrderInformation: ").Append(LookupOrderInformation).Append("\n");
@@ -264,6 +294,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AccessCustomCollections == input.AccessCustomCollections ||
+                    (this.AccessCustomCollections != null &&
+                    this.AccessCustomCollections.Equals(input.AccessCustomCollections))
+                ) && 
+                (
                     this.AccessStorefrontAndItem == input.AccessStorefrontAndItem ||
                     (this.AccessStorefrontAndItem != null &&
                     this.AccessStorefrontAndItem.Equals(input.AccessStorefrontAndItem))
@@ -272,6 +307,17 @@ namespace com.ultracart.admin.v2.Model
                     this.CancelSubscription == input.CancelSubscription ||
                     (this.CancelSubscription != null &&
                     this.CancelSubscription.Equals(input.CancelSubscription))
+                ) && 
+                (
+                    this.CustomCollectionOids == input.CustomCollectionOids ||
+                    (this.CustomCollectionOids != null &&
+                    this.CustomCollectionOids.Equals(input.CustomCollectionOids))
+                ) && 
+                (
+                    this.CustomCollections == input.CustomCollections ||
+                    this.CustomCollections != null &&
+                    input.CustomCollections != null &&
+                    this.CustomCollections.SequenceEqual(input.CustomCollections)
                 ) && 
                 (
                     this.DelaySubscription == input.DelaySubscription ||
@@ -355,10 +401,16 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AccessCustomCollections != null)
+                    hashCode = hashCode * 59 + this.AccessCustomCollections.GetHashCode();
                 if (this.AccessStorefrontAndItem != null)
                     hashCode = hashCode * 59 + this.AccessStorefrontAndItem.GetHashCode();
                 if (this.CancelSubscription != null)
                     hashCode = hashCode * 59 + this.CancelSubscription.GetHashCode();
+                if (this.CustomCollectionOids != null)
+                    hashCode = hashCode * 59 + this.CustomCollectionOids.GetHashCode();
+                if (this.CustomCollections != null)
+                    hashCode = hashCode * 59 + this.CustomCollections.GetHashCode();
                 if (this.DelaySubscription != null)
                     hashCode = hashCode * 59 + this.DelaySubscription.GetHashCode();
                 if (this.GenerateCoupon != null)

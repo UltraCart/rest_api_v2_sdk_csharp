@@ -381,6 +381,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbTheme</returns>
         ApiResponse<SfvbTheme> GetSfvbThemeWithHttpInfo (int storefrontOid, int themeOid);
         /// <summary>
+        /// Read a theme's colors, fonts and settings
+        /// </summary>
+        /// <remarks>
+        /// The values theme.css and the compiled containers resolve at render time.  These do NOT live in any file.  settings.json contains a palette and looks like the answer, but it is the theme's factory template - it supplies defaults for slots that have never been set and is ignored for slots that have, so editing it will not change a color and reading it will not tell you the current one.  Slots a template declares but nothing has ever set are included here, carrying the default they will render with, so the response describes the whole theme rather than the rows that happen to exist. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <returns>SfvbThemeAttributesResponse</returns>
+        SfvbThemeAttributesResponse GetSfvbThemeAttributes (int storefrontOid, int themeOid);
+
+        /// <summary>
+        /// Read a theme's colors, fonts and settings
+        /// </summary>
+        /// <remarks>
+        /// The values theme.css and the compiled containers resolve at render time.  These do NOT live in any file.  settings.json contains a palette and looks like the answer, but it is the theme's factory template - it supplies defaults for slots that have never been set and is ignored for slots that have, so editing it will not change a color and reading it will not tell you the current one.  Slots a template declares but nothing has ever set are included here, carrying the default they will render with, so the response describes the whole theme rather than the rows that happen to exist. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <returns>ApiResponse of SfvbThemeAttributesResponse</returns>
+        ApiResponse<SfvbThemeAttributesResponse> GetSfvbThemeAttributesWithHttpInfo (int storefrontOid, int themeOid);
+        /// <summary>
         /// Status of an asynchronous theme job
         /// </summary>
         /// <remarks>
@@ -708,6 +731,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="themeOid"> (optional)</param>
         /// <returns>ApiResponse of SfvbPreviewSessionResponse</returns>
         ApiResponse<SfvbPreviewSessionResponse> PutSfvbPreviewSessionWithHttpInfo (int storefrontOid, string previewSessionId, SfvbPreviewSessionRequest previewSession, int? themeOid = default(int?));
+        /// <summary>
+        /// Change a theme's colors, fonts and settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the slots you name are changed and every other slot on the theme keeps its value, so there is no need to send the whole set back to change one color.  Send a whole palette in one call rather than one call per color - they are applied together, so the storefront never renders half of a change.  Needs sfvb_publish when the theme is the one serving live traffic, because a color is referenced by name from every template that uses it and one write repaints the whole storefront at once.  On a dormant theme sfvb_write is enough, which is what makes duplicate-then-restyle work. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="attributeUpdateRequest">Slots to change</param>
+        /// <returns>SfvbThemeAttributesResponse</returns>
+        SfvbThemeAttributesResponse PutSfvbThemeAttributes (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest);
+
+        /// <summary>
+        /// Change a theme's colors, fonts and settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the slots you name are changed and every other slot on the theme keeps its value, so there is no need to send the whole set back to change one color.  Send a whole palette in one call rather than one call per color - they are applied together, so the storefront never renders half of a change.  Needs sfvb_publish when the theme is the one serving live traffic, because a color is referenced by name from every template that uses it and one write repaints the whole storefront at once.  On a dormant theme sfvb_write is enough, which is what makes duplicate-then-restyle work. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="attributeUpdateRequest">Slots to change</param>
+        /// <returns>ApiResponse of SfvbThemeAttributesResponse</returns>
+        ApiResponse<SfvbThemeAttributesResponse> PutSfvbThemeAttributesWithHttpInfo (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest);
         /// <summary>
         /// Render a CJSON node to HTML
         /// </summary>
@@ -1323,6 +1371,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbTheme)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbTheme>> GetSfvbThemeWithHttpInfoAsync (int storefrontOid, int themeOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Read a theme's colors, fonts and settings
+        /// </summary>
+        /// <remarks>
+        /// The values theme.css and the compiled containers resolve at render time.  These do NOT live in any file.  settings.json contains a palette and looks like the answer, but it is the theme's factory template - it supplies defaults for slots that have never been set and is ignored for slots that have, so editing it will not change a color and reading it will not tell you the current one.  Slots a template declares but nothing has ever set are included here, carrying the default they will render with, so the response describes the whole theme rather than the rows that happen to exist. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbThemeAttributesResponse</returns>
+        System.Threading.Tasks.Task<SfvbThemeAttributesResponse> GetSfvbThemeAttributesAsync (int storefrontOid, int themeOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a theme&#39;s colors, fonts and settings
+        /// </summary>
+        /// <remarks>
+        /// The values theme.css and the compiled containers resolve at render time.  These do NOT live in any file.  settings.json contains a palette and looks like the answer, but it is the theme's factory template - it supplies defaults for slots that have never been set and is ignored for slots that have, so editing it will not change a color and reading it will not tell you the current one.  Slots a template declares but nothing has ever set are included here, carrying the default they will render with, so the response describes the whole theme rather than the rows that happen to exist. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbThemeAttributesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbThemeAttributesResponse>> GetSfvbThemeAttributesWithHttpInfoAsync (int storefrontOid, int themeOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Status of an asynchronous theme job
         /// </summary>
         /// <remarks>
@@ -1678,6 +1751,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPreviewSessionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPreviewSessionResponse>> PutSfvbPreviewSessionWithHttpInfoAsync (int storefrontOid, string previewSessionId, SfvbPreviewSessionRequest previewSession, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change a theme's colors, fonts and settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the slots you name are changed and every other slot on the theme keeps its value, so there is no need to send the whole set back to change one color.  Send a whole palette in one call rather than one call per color - they are applied together, so the storefront never renders half of a change.  Needs sfvb_publish when the theme is the one serving live traffic, because a color is referenced by name from every template that uses it and one write repaints the whole storefront at once.  On a dormant theme sfvb_write is enough, which is what makes duplicate-then-restyle work. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="attributeUpdateRequest">Slots to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbThemeAttributesResponse</returns>
+        System.Threading.Tasks.Task<SfvbThemeAttributesResponse> PutSfvbThemeAttributesAsync (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a theme&#39;s colors, fonts and settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the slots you name are changed and every other slot on the theme keeps its value, so there is no need to send the whole set back to change one color.  Send a whole palette in one call rather than one call per color - they are applied together, so the storefront never renders half of a change.  Needs sfvb_publish when the theme is the one serving live traffic, because a color is referenced by name from every template that uses it and one write repaints the whole storefront at once.  On a dormant theme sfvb_write is enough, which is what makes duplicate-then-restyle work. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="attributeUpdateRequest">Slots to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbThemeAttributesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbThemeAttributesResponse>> PutSfvbThemeAttributesWithHttpInfoAsync (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Render a CJSON node to HTML
         /// </summary>
@@ -4636,6 +4736,175 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Read a theme's colors, fonts and settings The values theme.css and the compiled containers resolve at render time.  These do NOT live in any file.  settings.json contains a palette and looks like the answer, but it is the theme's factory template - it supplies defaults for slots that have never been set and is ignored for slots that have, so editing it will not change a color and reading it will not tell you the current one.  Slots a template declares but nothing has ever set are included here, carrying the default they will render with, so the response describes the whole theme rather than the rows that happen to exist. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <returns>SfvbThemeAttributesResponse</returns>
+        public SfvbThemeAttributesResponse GetSfvbThemeAttributes (int storefrontOid, int themeOid)
+        {
+             ApiResponse<SfvbThemeAttributesResponse> localVarResponse = GetSfvbThemeAttributesWithHttpInfo(storefrontOid, themeOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read a theme's colors, fonts and settings The values theme.css and the compiled containers resolve at render time.  These do NOT live in any file.  settings.json contains a palette and looks like the answer, but it is the theme's factory template - it supplies defaults for slots that have never been set and is ignored for slots that have, so editing it will not change a color and reading it will not tell you the current one.  Slots a template declares but nothing has ever set are included here, carrying the default they will render with, so the response describes the whole theme rather than the rows that happen to exist. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <returns>ApiResponse of SfvbThemeAttributesResponse</returns>
+        public ApiResponse<SfvbThemeAttributesResponse> GetSfvbThemeAttributesWithHttpInfo (int storefrontOid, int themeOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbThemeAttributes");
+            // verify the required parameter 'themeOid' is set
+            if (themeOid == null)
+                throw new ApiException(400, "Missing required parameter 'themeOid' when calling SfvbApi->GetSfvbThemeAttributes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (themeOid != null) localVarPathParams.Add("theme_oid", this.Configuration.ApiClient.ParameterToString(themeOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbThemeAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbThemeAttributesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbThemeAttributesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbThemeAttributesResponse)));
+        }
+
+        /// <summary>
+        /// Read a theme's colors, fonts and settings The values theme.css and the compiled containers resolve at render time.  These do NOT live in any file.  settings.json contains a palette and looks like the answer, but it is the theme's factory template - it supplies defaults for slots that have never been set and is ignored for slots that have, so editing it will not change a color and reading it will not tell you the current one.  Slots a template declares but nothing has ever set are included here, carrying the default they will render with, so the response describes the whole theme rather than the rows that happen to exist. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbThemeAttributesResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbThemeAttributesResponse> GetSfvbThemeAttributesAsync (int storefrontOid, int themeOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbThemeAttributesResponse> localVarResponse = await GetSfvbThemeAttributesWithHttpInfoAsync(storefrontOid, themeOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read a theme's colors, fonts and settings The values theme.css and the compiled containers resolve at render time.  These do NOT live in any file.  settings.json contains a palette and looks like the answer, but it is the theme's factory template - it supplies defaults for slots that have never been set and is ignored for slots that have, so editing it will not change a color and reading it will not tell you the current one.  Slots a template declares but nothing has ever set are included here, carrying the default they will render with, so the response describes the whole theme rather than the rows that happen to exist. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbThemeAttributesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbThemeAttributesResponse>> GetSfvbThemeAttributesWithHttpInfoAsync (int storefrontOid, int themeOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbThemeAttributes");
+            // verify the required parameter 'themeOid' is set
+            if (themeOid == null)
+                throw new ApiException(400, "Missing required parameter 'themeOid' when calling SfvbApi->GetSfvbThemeAttributes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (themeOid != null) localVarPathParams.Add("theme_oid", this.Configuration.ApiClient.ParameterToString(themeOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbThemeAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbThemeAttributesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbThemeAttributesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbThemeAttributesResponse)));
+        }
+
+        /// <summary>
         /// Status of an asynchronous theme job Poll until complete is true, then check success.  Note that the new theme's oid is not returned.  The job's product is a plain text report rather than a structured result, so once it completes, list themes and match on the target_path the start call gave you. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7017,6 +7286,203 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbPreviewSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbPreviewSessionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPreviewSessionResponse)));
+        }
+
+        /// <summary>
+        /// Change a theme's colors, fonts and settings A partial update.  Only the slots you name are changed and every other slot on the theme keeps its value, so there is no need to send the whole set back to change one color.  Send a whole palette in one call rather than one call per color - they are applied together, so the storefront never renders half of a change.  Needs sfvb_publish when the theme is the one serving live traffic, because a color is referenced by name from every template that uses it and one write repaints the whole storefront at once.  On a dormant theme sfvb_write is enough, which is what makes duplicate-then-restyle work. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="attributeUpdateRequest">Slots to change</param>
+        /// <returns>SfvbThemeAttributesResponse</returns>
+        public SfvbThemeAttributesResponse PutSfvbThemeAttributes (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest)
+        {
+             ApiResponse<SfvbThemeAttributesResponse> localVarResponse = PutSfvbThemeAttributesWithHttpInfo(storefrontOid, themeOid, attributeUpdateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a theme's colors, fonts and settings A partial update.  Only the slots you name are changed and every other slot on the theme keeps its value, so there is no need to send the whole set back to change one color.  Send a whole palette in one call rather than one call per color - they are applied together, so the storefront never renders half of a change.  Needs sfvb_publish when the theme is the one serving live traffic, because a color is referenced by name from every template that uses it and one write repaints the whole storefront at once.  On a dormant theme sfvb_write is enough, which is what makes duplicate-then-restyle work. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="attributeUpdateRequest">Slots to change</param>
+        /// <returns>ApiResponse of SfvbThemeAttributesResponse</returns>
+        public ApiResponse<SfvbThemeAttributesResponse> PutSfvbThemeAttributesWithHttpInfo (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbThemeAttributes");
+            // verify the required parameter 'themeOid' is set
+            if (themeOid == null)
+                throw new ApiException(400, "Missing required parameter 'themeOid' when calling SfvbApi->PutSfvbThemeAttributes");
+            // verify the required parameter 'attributeUpdateRequest' is set
+            if (attributeUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'attributeUpdateRequest' when calling SfvbApi->PutSfvbThemeAttributes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (themeOid != null) localVarPathParams.Add("theme_oid", this.Configuration.ApiClient.ParameterToString(themeOid)); // path parameter
+            if (attributeUpdateRequest != null && attributeUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(attributeUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = attributeUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbThemeAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbThemeAttributesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbThemeAttributesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbThemeAttributesResponse)));
+        }
+
+        /// <summary>
+        /// Change a theme's colors, fonts and settings A partial update.  Only the slots you name are changed and every other slot on the theme keeps its value, so there is no need to send the whole set back to change one color.  Send a whole palette in one call rather than one call per color - they are applied together, so the storefront never renders half of a change.  Needs sfvb_publish when the theme is the one serving live traffic, because a color is referenced by name from every template that uses it and one write repaints the whole storefront at once.  On a dormant theme sfvb_write is enough, which is what makes duplicate-then-restyle work. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="attributeUpdateRequest">Slots to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbThemeAttributesResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbThemeAttributesResponse> PutSfvbThemeAttributesAsync (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbThemeAttributesResponse> localVarResponse = await PutSfvbThemeAttributesWithHttpInfoAsync(storefrontOid, themeOid, attributeUpdateRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a theme's colors, fonts and settings A partial update.  Only the slots you name are changed and every other slot on the theme keeps its value, so there is no need to send the whole set back to change one color.  Send a whole palette in one call rather than one call per color - they are applied together, so the storefront never renders half of a change.  Needs sfvb_publish when the theme is the one serving live traffic, because a color is referenced by name from every template that uses it and one write repaints the whole storefront at once.  On a dormant theme sfvb_write is enough, which is what makes duplicate-then-restyle work. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="attributeUpdateRequest">Slots to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbThemeAttributesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbThemeAttributesResponse>> PutSfvbThemeAttributesWithHttpInfoAsync (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbThemeAttributes");
+            // verify the required parameter 'themeOid' is set
+            if (themeOid == null)
+                throw new ApiException(400, "Missing required parameter 'themeOid' when calling SfvbApi->PutSfvbThemeAttributes");
+            // verify the required parameter 'attributeUpdateRequest' is set
+            if (attributeUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'attributeUpdateRequest' when calling SfvbApi->PutSfvbThemeAttributes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (themeOid != null) localVarPathParams.Add("theme_oid", this.Configuration.ApiClient.ParameterToString(themeOid)); // path parameter
+            if (attributeUpdateRequest != null && attributeUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(attributeUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = attributeUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbThemeAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbThemeAttributesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbThemeAttributesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbThemeAttributesResponse)));
         }
 
         /// <summary>

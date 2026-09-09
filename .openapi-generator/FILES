@@ -1017,7 +1017,13 @@ docs/SfvbRenderResponse.md
 docs/SfvbStorefront.md
 docs/SfvbStorefrontsResponse.md
 docs/SfvbTheme.md
+docs/SfvbThemeAttribute.md
+docs/SfvbThemeAttributeUpdate.md
+docs/SfvbThemeAttributeUpdateRequest.md
+docs/SfvbThemeAttributesResponse.md
 docs/SfvbThemeDuplicateRequest.md
+docs/SfvbThemeFont.md
+docs/SfvbThemeFontFamily.md
 docs/SfvbThemeJobResponse.md
 docs/SfvbThemesResponse.md
 docs/SfvbUpsellOffer.md
@@ -2151,7 +2157,13 @@ src/com.ultracart.admin.v2/Model/SfvbRenderResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbStorefront.cs
 src/com.ultracart.admin.v2/Model/SfvbStorefrontsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbTheme.cs
+src/com.ultracart.admin.v2/Model/SfvbThemeAttribute.cs
+src/com.ultracart.admin.v2/Model/SfvbThemeAttributeUpdate.cs
+src/com.ultracart.admin.v2/Model/SfvbThemeAttributeUpdateRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbThemeAttributesResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbThemeDuplicateRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbThemeFont.cs
+src/com.ultracart.admin.v2/Model/SfvbThemeFontFamily.cs
 src/com.ultracart.admin.v2/Model/SfvbThemeJobResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbThemesResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbUpsellOffer.cs

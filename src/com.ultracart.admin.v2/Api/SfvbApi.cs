@@ -93,6 +93,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSfvbFileWithHttpInfo (int storefrontOid, string ifMatch, string path = default(string));
         /// <summary>
+        /// Detach an image from a page
+        /// </summary>
+        /// <remarks>
+        /// Name exactly one of code or default.  Removes the page's copy of the image; the source file in the page folder is left alone.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="code">Image code to detach (optional)</param>
+        /// <param name="_default">True to detach the default image (optional)</param>
+        /// <returns>SfvbPageResponse</returns>
+        SfvbPageResponse DeleteSfvbPageMultimedia (int storefrontOid, string path, string code = default(string), bool? _default = default(bool?));
+
+        /// <summary>
+        /// Detach an image from a page
+        /// </summary>
+        /// <remarks>
+        /// Name exactly one of code or default.  Removes the page's copy of the image; the source file in the page folder is left alone.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="code">Image code to detach (optional)</param>
+        /// <param name="_default">True to detach the default image (optional)</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        ApiResponse<SfvbPageResponse> DeleteSfvbPageMultimediaWithHttpInfo (int storefrontOid, string path, string code = default(string), bool? _default = default(bool?));
+        /// <summary>
         /// Delete a preview session
         /// </summary>
         /// <remarks>
@@ -332,6 +359,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="libraryOid"></param>
         /// <returns>ApiResponse of SfvbLibraryEntry</returns>
         ApiResponse<SfvbLibraryEntry> GetSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid);
+        /// <summary>
+        /// Read a page's attributes and images
+        /// </summary>
+        /// <remarks>
+        /// What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <returns>SfvbPageResponse</returns>
+        SfvbPageResponse GetSfvbPage (int storefrontOid, string path);
+
+        /// <summary>
+        /// Read a page's attributes and images
+        /// </summary>
+        /// <remarks>
+        /// What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        ApiResponse<SfvbPageResponse> GetSfvbPageWithHttpInfo (int storefrontOid, string path);
         /// <summary>
         /// URL that renders a preview session
         /// </summary>
@@ -705,6 +755,56 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbFileWriteResponse</returns>
         ApiResponse<SfvbFileWriteResponse> PutSfvbFileContentWithHttpInfo (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string));
         /// <summary>
+        /// Change a page's attributes
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, slider, item set, page collection and video list attributes are refused - edit those in the page editor.  Always needs sfvb_publish, because a page's attributes are shared by every theme and there is no dormant copy to change instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageAttributeUpdateRequest">Attributes to change</param>
+        /// <returns>SfvbPageResponse</returns>
+        SfvbPageResponse PutSfvbPageAttributes (int storefrontOid, string path, SfvbPageAttributeUpdateRequest pageAttributeUpdateRequest);
+
+        /// <summary>
+        /// Change a page's attributes
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, slider, item set, page collection and video list attributes are refused - edit those in the page editor.  Always needs sfvb_publish, because a page's attributes are shared by every theme and there is no dormant copy to change instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageAttributeUpdateRequest">Attributes to change</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        ApiResponse<SfvbPageResponse> PutSfvbPageAttributesWithHttpInfo (int storefrontOid, string path, SfvbPageAttributeUpdateRequest pageAttributeUpdateRequest);
+        /// <summary>
+        /// Attach an image to a page
+        /// </summary>
+        /// <remarks>
+        /// Upload the image with files/upload to the page path followed by a filename first, then name that filename here as either the default image or an image code.  The default image is what a pageimage element with no pageImageCode renders, and what a subgroup tile shows.  Replaces whatever that slot held.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageMultimediaRequest">Image to attach</param>
+        /// <returns>SfvbPageResponse</returns>
+        SfvbPageResponse PutSfvbPageMultimedia (int storefrontOid, string path, SfvbPageMultimediaRequest pageMultimediaRequest);
+
+        /// <summary>
+        /// Attach an image to a page
+        /// </summary>
+        /// <remarks>
+        /// Upload the image with files/upload to the page path followed by a filename first, then name that filename here as either the default image or an image code.  The default image is what a pageimage element with no pageImageCode renders, and what a subgroup tile shows.  Replaces whatever that slot held.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageMultimediaRequest">Image to attach</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        ApiResponse<SfvbPageResponse> PutSfvbPageMultimediaWithHttpInfo (int storefrontOid, string path, SfvbPageMultimediaRequest pageMultimediaRequest);
+        /// <summary>
         /// Push containers into a preview session
         /// </summary>
         /// <remarks>
@@ -1059,6 +1159,35 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbFileWithHttpInfoAsync (int storefrontOid, string ifMatch, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Detach an image from a page
+        /// </summary>
+        /// <remarks>
+        /// Name exactly one of code or default.  Removes the page's copy of the image; the source file in the page folder is left alone.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="code">Image code to detach (optional)</param>
+        /// <param name="_default">True to detach the default image (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageResponse> DeleteSfvbPageMultimediaAsync (int storefrontOid, string path, string code = default(string), bool? _default = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Detach an image from a page
+        /// </summary>
+        /// <remarks>
+        /// Name exactly one of code or default.  Removes the page's copy of the image; the source file in the page folder is left alone.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="code">Image code to detach (optional)</param>
+        /// <param name="_default">True to detach the default image (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> DeleteSfvbPageMultimediaWithHttpInfoAsync (int storefrontOid, string path, string code = default(string), bool? _default = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Delete a preview session
         /// </summary>
         /// <remarks>
@@ -1318,6 +1447,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> GetSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read a page's attributes and images
+        /// </summary>
+        /// <remarks>
+        /// What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageResponse> GetSfvbPageAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a page&#39;s attributes and images
+        /// </summary>
+        /// <remarks>
+        /// What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> GetSfvbPageWithHttpInfoAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// URL that renders a preview session
         /// </summary>
@@ -1722,6 +1876,60 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFileWriteResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> PutSfvbFileContentWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change a page's attributes
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, slider, item set, page collection and video list attributes are refused - edit those in the page editor.  Always needs sfvb_publish, because a page's attributes are shared by every theme and there is no dormant copy to change instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageResponse> PutSfvbPageAttributesAsync (int storefrontOid, string path, SfvbPageAttributeUpdateRequest pageAttributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a page&#39;s attributes
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, slider, item set, page collection and video list attributes are refused - edit those in the page editor.  Always needs sfvb_publish, because a page's attributes are shared by every theme and there is no dormant copy to change instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> PutSfvbPageAttributesWithHttpInfoAsync (int storefrontOid, string path, SfvbPageAttributeUpdateRequest pageAttributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Attach an image to a page
+        /// </summary>
+        /// <remarks>
+        /// Upload the image with files/upload to the page path followed by a filename first, then name that filename here as either the default image or an image code.  The default image is what a pageimage element with no pageImageCode renders, and what a subgroup tile shows.  Replaces whatever that slot held.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageMultimediaRequest">Image to attach</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageResponse> PutSfvbPageMultimediaAsync (int storefrontOid, string path, SfvbPageMultimediaRequest pageMultimediaRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Attach an image to a page
+        /// </summary>
+        /// <remarks>
+        /// Upload the image with files/upload to the page path followed by a filename first, then name that filename here as either the default image or an image code.  The default image is what a pageimage element with no pageImageCode renders, and what a subgroup tile shows.  Replaces whatever that slot held.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageMultimediaRequest">Image to attach</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> PutSfvbPageMultimediaWithHttpInfoAsync (int storefrontOid, string path, SfvbPageMultimediaRequest pageMultimediaRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Push containers into a preview session
         /// </summary>
@@ -2653,6 +2861,187 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Detach an image from a page Name exactly one of code or default.  Removes the page's copy of the image; the source file in the page folder is left alone.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="code">Image code to detach (optional)</param>
+        /// <param name="_default">True to detach the default image (optional)</param>
+        /// <returns>SfvbPageResponse</returns>
+        public SfvbPageResponse DeleteSfvbPageMultimedia (int storefrontOid, string path, string code = default(string), bool? _default = default(bool?))
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = DeleteSfvbPageMultimediaWithHttpInfo(storefrontOid, path, code, _default);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Detach an image from a page Name exactly one of code or default.  Removes the page's copy of the image; the source file in the page folder is left alone.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="code">Image code to detach (optional)</param>
+        /// <param name="_default">True to detach the default image (optional)</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        public ApiResponse<SfvbPageResponse> DeleteSfvbPageMultimediaWithHttpInfo (int storefrontOid, string path, string code = default(string), bool? _default = default(bool?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbPageMultimedia");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->DeleteSfvbPageMultimedia");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/multimedia";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (code != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "code", code)); // query parameter
+            if (_default != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "default", _default)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbPageMultimedia", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
+        /// Detach an image from a page Name exactly one of code or default.  Removes the page's copy of the image; the source file in the page folder is left alone.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="code">Image code to detach (optional)</param>
+        /// <param name="_default">True to detach the default image (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageResponse> DeleteSfvbPageMultimediaAsync (int storefrontOid, string path, string code = default(string), bool? _default = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = await DeleteSfvbPageMultimediaWithHttpInfoAsync(storefrontOid, path, code, _default, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Detach an image from a page Name exactly one of code or default.  Removes the page's copy of the image; the source file in the page folder is left alone.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="code">Image code to detach (optional)</param>
+        /// <param name="_default">True to detach the default image (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> DeleteSfvbPageMultimediaWithHttpInfoAsync (int storefrontOid, string path, string code = default(string), bool? _default = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbPageMultimedia");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->DeleteSfvbPageMultimedia");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/multimedia";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (code != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "code", code)); // query parameter
+            if (_default != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "default", _default)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbPageMultimedia", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
         }
 
         /// <summary>
@@ -4389,6 +4778,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <returns>SfvbPageResponse</returns>
+        public SfvbPageResponse GetSfvbPage (int storefrontOid, string path)
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = GetSfvbPageWithHttpInfo(storefrontOid, path);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        public ApiResponse<SfvbPageResponse> GetSfvbPageWithHttpInfo (int storefrontOid, string path)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbPage");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->GetSfvbPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
+        /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageResponse> GetSfvbPageAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = await GetSfvbPageWithHttpInfoAsync(storefrontOid, path, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> GetSfvbPageWithHttpInfoAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbPage");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->GetSfvbPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
         }
 
         /// <summary>
@@ -7083,6 +7641,400 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbFileWriteResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbFileWriteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFileWriteResponse)));
+        }
+
+        /// <summary>
+        /// Change a page's attributes A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, slider, item set, page collection and video list attributes are refused - edit those in the page editor.  Always needs sfvb_publish, because a page's attributes are shared by every theme and there is no dormant copy to change instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageAttributeUpdateRequest">Attributes to change</param>
+        /// <returns>SfvbPageResponse</returns>
+        public SfvbPageResponse PutSfvbPageAttributes (int storefrontOid, string path, SfvbPageAttributeUpdateRequest pageAttributeUpdateRequest)
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = PutSfvbPageAttributesWithHttpInfo(storefrontOid, path, pageAttributeUpdateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a page's attributes A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, slider, item set, page collection and video list attributes are refused - edit those in the page editor.  Always needs sfvb_publish, because a page's attributes are shared by every theme and there is no dormant copy to change instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageAttributeUpdateRequest">Attributes to change</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        public ApiResponse<SfvbPageResponse> PutSfvbPageAttributesWithHttpInfo (int storefrontOid, string path, SfvbPageAttributeUpdateRequest pageAttributeUpdateRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbPageAttributes");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->PutSfvbPageAttributes");
+            // verify the required parameter 'pageAttributeUpdateRequest' is set
+            if (pageAttributeUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageAttributeUpdateRequest' when calling SfvbApi->PutSfvbPageAttributes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageAttributeUpdateRequest != null && pageAttributeUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageAttributeUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageAttributeUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbPageAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
+        /// Change a page's attributes A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, slider, item set, page collection and video list attributes are refused - edit those in the page editor.  Always needs sfvb_publish, because a page's attributes are shared by every theme and there is no dormant copy to change instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageResponse> PutSfvbPageAttributesAsync (int storefrontOid, string path, SfvbPageAttributeUpdateRequest pageAttributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = await PutSfvbPageAttributesWithHttpInfoAsync(storefrontOid, path, pageAttributeUpdateRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a page's attributes A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, slider, item set, page collection and video list attributes are refused - edit those in the page editor.  Always needs sfvb_publish, because a page's attributes are shared by every theme and there is no dormant copy to change instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> PutSfvbPageAttributesWithHttpInfoAsync (int storefrontOid, string path, SfvbPageAttributeUpdateRequest pageAttributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbPageAttributes");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->PutSfvbPageAttributes");
+            // verify the required parameter 'pageAttributeUpdateRequest' is set
+            if (pageAttributeUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageAttributeUpdateRequest' when calling SfvbApi->PutSfvbPageAttributes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageAttributeUpdateRequest != null && pageAttributeUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageAttributeUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageAttributeUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbPageAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
+        /// Attach an image to a page Upload the image with files/upload to the page path followed by a filename first, then name that filename here as either the default image or an image code.  The default image is what a pageimage element with no pageImageCode renders, and what a subgroup tile shows.  Replaces whatever that slot held.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageMultimediaRequest">Image to attach</param>
+        /// <returns>SfvbPageResponse</returns>
+        public SfvbPageResponse PutSfvbPageMultimedia (int storefrontOid, string path, SfvbPageMultimediaRequest pageMultimediaRequest)
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = PutSfvbPageMultimediaWithHttpInfo(storefrontOid, path, pageMultimediaRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Attach an image to a page Upload the image with files/upload to the page path followed by a filename first, then name that filename here as either the default image or an image code.  The default image is what a pageimage element with no pageImageCode renders, and what a subgroup tile shows.  Replaces whatever that slot held.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageMultimediaRequest">Image to attach</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        public ApiResponse<SfvbPageResponse> PutSfvbPageMultimediaWithHttpInfo (int storefrontOid, string path, SfvbPageMultimediaRequest pageMultimediaRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbPageMultimedia");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->PutSfvbPageMultimedia");
+            // verify the required parameter 'pageMultimediaRequest' is set
+            if (pageMultimediaRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageMultimediaRequest' when calling SfvbApi->PutSfvbPageMultimedia");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/multimedia";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageMultimediaRequest != null && pageMultimediaRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageMultimediaRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageMultimediaRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbPageMultimedia", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
+        /// Attach an image to a page Upload the image with files/upload to the page path followed by a filename first, then name that filename here as either the default image or an image code.  The default image is what a pageimage element with no pageImageCode renders, and what a subgroup tile shows.  Replaces whatever that slot held.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageMultimediaRequest">Image to attach</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageResponse> PutSfvbPageMultimediaAsync (int storefrontOid, string path, SfvbPageMultimediaRequest pageMultimediaRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = await PutSfvbPageMultimediaWithHttpInfoAsync(storefrontOid, path, pageMultimediaRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Attach an image to a page Upload the image with files/upload to the page path followed by a filename first, then name that filename here as either the default image or an image code.  The default image is what a pageimage element with no pageImageCode renders, and what a subgroup tile shows.  Replaces whatever that slot held.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="pageMultimediaRequest">Image to attach</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> PutSfvbPageMultimediaWithHttpInfoAsync (int storefrontOid, string path, SfvbPageMultimediaRequest pageMultimediaRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbPageMultimedia");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->PutSfvbPageMultimedia");
+            // verify the required parameter 'pageMultimediaRequest' is set
+            if (pageMultimediaRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageMultimediaRequest' when calling SfvbApi->PutSfvbPageMultimedia");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/multimedia";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageMultimediaRequest != null && pageMultimediaRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageMultimediaRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageMultimediaRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbPageMultimedia", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
         }
 
         /// <summary>

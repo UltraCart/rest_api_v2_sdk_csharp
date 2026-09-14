@@ -33,13 +33,22 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbElement" /> class.
         /// </summary>
+        /// <param name="docAvailable">True when a markdown field card for this element is available from elements/{element_type}..</param>
         /// <param name="schemaAvailable">True when a per element configuration schema is available from elements/{element_type}..</param>
         /// <param name="type">The element type as it appears in the type property of a CJSON node..</param>
-        public SfvbElement(bool schemaAvailable = default(bool), string type = default(string))
+        public SfvbElement(bool docAvailable = default(bool), bool schemaAvailable = default(bool), string type = default(string))
         {
+            this.DocAvailable = docAvailable;
             this.SchemaAvailable = schemaAvailable;
             this.Type = type;
         }
+
+        /// <summary>
+        /// True when a markdown field card for this element is available from elements/{element_type}.
+        /// </summary>
+        /// <value>True when a markdown field card for this element is available from elements/{element_type}.</value>
+        [DataMember(Name="doc_available", EmitDefaultValue=false)]
+        public bool DocAvailable { get; set; }
 
         /// <summary>
         /// True when a per element configuration schema is available from elements/{element_type}.
@@ -63,6 +72,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbElement {\n");
+            sb.Append("  DocAvailable: ").Append(DocAvailable).Append("\n");
             sb.Append("  SchemaAvailable: ").Append(SchemaAvailable).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
@@ -100,6 +110,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.DocAvailable == input.DocAvailable ||
+                    (this.DocAvailable != null &&
+                    this.DocAvailable.Equals(input.DocAvailable))
+                ) && 
+                (
                     this.SchemaAvailable == input.SchemaAvailable ||
                     (this.SchemaAvailable != null &&
                     this.SchemaAvailable.Equals(input.SchemaAvailable))
@@ -120,6 +135,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.DocAvailable != null)
+                    hashCode = hashCode * 59 + this.DocAvailable.GetHashCode();
                 if (this.SchemaAvailable != null)
                     hashCode = hashCode * 59 + this.SchemaAvailable.GetHashCode();
                 if (this.Type != null)

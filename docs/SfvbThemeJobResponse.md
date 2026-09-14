@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Complete** | **bool** | True once the job has stopped, whether it succeeded or failed. | [optional] 
 **Description** | **string** | Human readable description of the job. | [optional] 
-**ErrorMessage** | **string** | Failure detail.  Populated only when status is error. | [optional] 
+**ErrorMessage** | **string** | What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log. | [optional] 
 **FinishedDts** | **string** | When the job stopped.  Null until it does. | [optional] 
 **JobId** | **int** | Job handle.  Poll getSfvbThemeJob with this. | [optional] 
 **Progress** | **int** | Percent complete, 0-100. | [optional] 

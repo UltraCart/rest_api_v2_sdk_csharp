@@ -80,7 +80,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="complete">True once the job has stopped, whether it succeeded or failed..</param>
         /// <param name="description">Human readable description of the job..</param>
-        /// <param name="errorMessage">Failure detail.  Populated only when status is error..</param>
+        /// <param name="errorMessage">What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log..</param>
         /// <param name="finishedDts">When the job stopped.  Null until it does..</param>
         /// <param name="jobId">Job handle.  Poll getSfvbThemeJob with this..</param>
         /// <param name="progress">Percent complete, 0-100..</param>
@@ -121,9 +121,9 @@ namespace com.ultracart.admin.v2.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Failure detail.  Populated only when status is error.
+        /// What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log.
         /// </summary>
-        /// <value>Failure detail.  Populated only when status is error.</value>
+        /// <value>What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log.</value>
         [DataMember(Name="error_message", EmitDefaultValue=false)]
         public string ErrorMessage { get; set; }
 

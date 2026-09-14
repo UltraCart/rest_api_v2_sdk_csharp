@@ -33,18 +33,27 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbElementSchemaResponse" /> class.
         /// </summary>
-        /// <param name="schema">JSON schema for this element&#39;s config object, as a JSON string.  Null when no schema has been published for this element yet..</param>
+        /// <param name="doc">Markdown field card for this element, as a string.  Omitted when no field card has been published for this element..</param>
+        /// <param name="schema">Draft-07 JSON schema for this element&#39;s config object, as a JSON string.  Omitted when no schema has been published for this element..</param>
         /// <param name="type">The element type..</param>
-        public SfvbElementSchemaResponse(string schema = default(string), string type = default(string))
+        public SfvbElementSchemaResponse(string doc = default(string), string schema = default(string), string type = default(string))
         {
+            this.Doc = doc;
             this.Schema = schema;
             this.Type = type;
         }
 
         /// <summary>
-        /// JSON schema for this element&#39;s config object, as a JSON string.  Null when no schema has been published for this element yet.
+        /// Markdown field card for this element, as a string.  Omitted when no field card has been published for this element.
         /// </summary>
-        /// <value>JSON schema for this element&#39;s config object, as a JSON string.  Null when no schema has been published for this element yet.</value>
+        /// <value>Markdown field card for this element, as a string.  Omitted when no field card has been published for this element.</value>
+        [DataMember(Name="doc", EmitDefaultValue=false)]
+        public string Doc { get; set; }
+
+        /// <summary>
+        /// Draft-07 JSON schema for this element&#39;s config object, as a JSON string.  Omitted when no schema has been published for this element.
+        /// </summary>
+        /// <value>Draft-07 JSON schema for this element&#39;s config object, as a JSON string.  Omitted when no schema has been published for this element.</value>
         [DataMember(Name="schema", EmitDefaultValue=false)]
         public string Schema { get; set; }
 
@@ -63,6 +72,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbElementSchemaResponse {\n");
+            sb.Append("  Doc: ").Append(Doc).Append("\n");
             sb.Append("  Schema: ").Append(Schema).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
@@ -100,6 +110,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Doc == input.Doc ||
+                    (this.Doc != null &&
+                    this.Doc.Equals(input.Doc))
+                ) && 
+                (
                     this.Schema == input.Schema ||
                     (this.Schema != null &&
                     this.Schema.Equals(input.Schema))
@@ -120,6 +135,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Doc != null)
+                    hashCode = hashCode * 59 + this.Doc.GetHashCode();
                 if (this.Schema != null)
                     hashCode = hashCode * 59 + this.Schema.GetHashCode();
                 if (this.Type != null)

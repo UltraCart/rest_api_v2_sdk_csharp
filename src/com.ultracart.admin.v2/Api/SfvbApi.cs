@@ -268,10 +268,10 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbContainerVersion</returns>
         ApiResponse<SfvbContainerVersion> GetSfvbContainerVersionWithHttpInfo (int storefrontOid, int containerHistoryOid, string ownerType = default(string), string ownerObjectId = default(string), string containerName = default(string));
         /// <summary>
-        /// Configuration schema for one element type
+        /// Configuration schema and field card for one element type
         /// </summary>
         /// <remarks>
-        /// 
+        /// schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="elementType"></param>
@@ -279,10 +279,10 @@ namespace com.ultracart.admin.v2.Api
         SfvbElementSchemaResponse GetSfvbElement (string elementType);
 
         /// <summary>
-        /// Configuration schema for one element type
+        /// Configuration schema and field card for one element type
         /// </summary>
         /// <remarks>
-        /// 
+        /// schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="elementType"></param>
@@ -1348,10 +1348,10 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbContainerVersion)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbContainerVersion>> GetSfvbContainerVersionWithHttpInfoAsync (int storefrontOid, int containerHistoryOid, string ownerType = default(string), string ownerObjectId = default(string), string containerName = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Configuration schema for one element type
+        /// Configuration schema and field card for one element type
         /// </summary>
         /// <remarks>
-        /// 
+        /// schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="elementType"></param>
@@ -1360,10 +1360,10 @@ namespace com.ultracart.admin.v2.Api
         System.Threading.Tasks.Task<SfvbElementSchemaResponse> GetSfvbElementAsync (string elementType, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Configuration schema for one element type
+        /// Configuration schema and field card for one element type
         /// </summary>
         /// <remarks>
-        /// 
+        /// schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="elementType"></param>
@@ -4117,7 +4117,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Configuration schema for one element type 
+        /// Configuration schema and field card for one element type schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="elementType"></param>
@@ -4129,7 +4129,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Configuration schema for one element type 
+        /// Configuration schema and field card for one element type schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="elementType"></param>
@@ -4194,7 +4194,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Configuration schema for one element type 
+        /// Configuration schema and field card for one element type schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="elementType"></param>
@@ -4208,7 +4208,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Configuration schema for one element type 
+        /// Configuration schema and field card for one element type schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="elementType"></param>

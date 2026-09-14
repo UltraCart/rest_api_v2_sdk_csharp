@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Schema** | **string** | JSON schema for this element&#39;s config object, as a JSON string.  Null when no schema has been published for this element yet. | [optional] 
+**Doc** | **string** | Markdown field card for this element, as a string.  Omitted when no field card has been published for this element. | [optional] 
+**Schema** | **string** | Draft-07 JSON schema for this element&#39;s config object, as a JSON string.  Omitted when no schema has been published for this element. | [optional] 
 **Type** | **string** | The element type. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

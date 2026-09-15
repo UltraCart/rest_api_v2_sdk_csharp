@@ -47,6 +47,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbCompileResponse</returns>
         ApiResponse<SfvbCompileResponse> CompileSfvbCjsonWithHttpInfo (SfvbCompileRequest compileRequest);
         /// <summary>
+        /// One time link that opens a preview in a browser with no UltraCart login
+        /// </summary>
+        /// <remarks>
+        /// The preview URL only works in a browser already signed in to UltraCart on the storefront's own host, and an agent's built in browser never is.  This returns a single use access_url on the storefront host instead.  Opening it gets past the storefront lock, shows the requested theme and applies the requested preview session for the rest of that browser session, then redirects to path.  It expires two minutes after issue or on first use.  Pages opened afterwards carry an X-UltraCart-Preview header of applied or not-applied.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewAccess">What the browser should see (optional)</param>
+        /// <returns>SfvbPreviewAccessResponse</returns>
+        SfvbPreviewAccessResponse CreateSfvbPreviewAccess (int storefrontOid, SfvbPreviewAccessRequest previewAccess = default(SfvbPreviewAccessRequest));
+
+        /// <summary>
+        /// One time link that opens a preview in a browser with no UltraCart login
+        /// </summary>
+        /// <remarks>
+        /// The preview URL only works in a browser already signed in to UltraCart on the storefront's own host, and an agent's built in browser never is.  This returns a single use access_url on the storefront host instead.  Opening it gets past the storefront lock, shows the requested theme and applies the requested preview session for the rest of that browser session, then redirects to path.  It expires two minutes after issue or on first use.  Pages opened afterwards carry an X-UltraCart-Preview header of applied or not-applied.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewAccess">What the browser should see (optional)</param>
+        /// <returns>ApiResponse of SfvbPreviewAccessResponse</returns>
+        ApiResponse<SfvbPreviewAccessResponse> CreateSfvbPreviewAccessWithHttpInfo (int storefrontOid, SfvbPreviewAccessRequest previewAccess = default(SfvbPreviewAccessRequest));
+        /// <summary>
         /// Create a preview session
         /// </summary>
         /// <remarks>
@@ -1108,6 +1131,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbCompileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCompileResponse>> CompileSfvbCjsonWithHttpInfoAsync (SfvbCompileRequest compileRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// One time link that opens a preview in a browser with no UltraCart login
+        /// </summary>
+        /// <remarks>
+        /// The preview URL only works in a browser already signed in to UltraCart on the storefront's own host, and an agent's built in browser never is.  This returns a single use access_url on the storefront host instead.  Opening it gets past the storefront lock, shows the requested theme and applies the requested preview session for the rest of that browser session, then redirects to path.  It expires two minutes after issue or on first use.  Pages opened afterwards carry an X-UltraCart-Preview header of applied or not-applied.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewAccess">What the browser should see (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPreviewAccessResponse</returns>
+        System.Threading.Tasks.Task<SfvbPreviewAccessResponse> CreateSfvbPreviewAccessAsync (int storefrontOid, SfvbPreviewAccessRequest previewAccess = default(SfvbPreviewAccessRequest), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// One time link that opens a preview in a browser with no UltraCart login
+        /// </summary>
+        /// <remarks>
+        /// The preview URL only works in a browser already signed in to UltraCart on the storefront's own host, and an agent's built in browser never is.  This returns a single use access_url on the storefront host instead.  Opening it gets past the storefront lock, shows the requested theme and applies the requested preview session for the rest of that browser session, then redirects to path.  It expires two minutes after issue or on first use.  Pages opened afterwards carry an X-UltraCart-Preview header of applied or not-applied.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewAccess">What the browser should see (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPreviewAccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPreviewAccessResponse>> CreateSfvbPreviewAccessWithHttpInfoAsync (int storefrontOid, SfvbPreviewAccessRequest previewAccess = default(SfvbPreviewAccessRequest), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a preview session
         /// </summary>
@@ -2531,6 +2579,185 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbCompileResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbCompileResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCompileResponse)));
+        }
+
+        /// <summary>
+        /// One time link that opens a preview in a browser with no UltraCart login The preview URL only works in a browser already signed in to UltraCart on the storefront's own host, and an agent's built in browser never is.  This returns a single use access_url on the storefront host instead.  Opening it gets past the storefront lock, shows the requested theme and applies the requested preview session for the rest of that browser session, then redirects to path.  It expires two minutes after issue or on first use.  Pages opened afterwards carry an X-UltraCart-Preview header of applied or not-applied.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewAccess">What the browser should see (optional)</param>
+        /// <returns>SfvbPreviewAccessResponse</returns>
+        public SfvbPreviewAccessResponse CreateSfvbPreviewAccess (int storefrontOid, SfvbPreviewAccessRequest previewAccess = default(SfvbPreviewAccessRequest))
+        {
+             ApiResponse<SfvbPreviewAccessResponse> localVarResponse = CreateSfvbPreviewAccessWithHttpInfo(storefrontOid, previewAccess);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// One time link that opens a preview in a browser with no UltraCart login The preview URL only works in a browser already signed in to UltraCart on the storefront's own host, and an agent's built in browser never is.  This returns a single use access_url on the storefront host instead.  Opening it gets past the storefront lock, shows the requested theme and applies the requested preview session for the rest of that browser session, then redirects to path.  It expires two minutes after issue or on first use.  Pages opened afterwards carry an X-UltraCart-Preview header of applied or not-applied.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewAccess">What the browser should see (optional)</param>
+        /// <returns>ApiResponse of SfvbPreviewAccessResponse</returns>
+        public ApiResponse<SfvbPreviewAccessResponse> CreateSfvbPreviewAccessWithHttpInfo (int storefrontOid, SfvbPreviewAccessRequest previewAccess = default(SfvbPreviewAccessRequest))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->CreateSfvbPreviewAccess");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/preview_access";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (previewAccess != null && previewAccess.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(previewAccess); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = previewAccess; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateSfvbPreviewAccess", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPreviewAccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPreviewAccessResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPreviewAccessResponse)));
+        }
+
+        /// <summary>
+        /// One time link that opens a preview in a browser with no UltraCart login The preview URL only works in a browser already signed in to UltraCart on the storefront's own host, and an agent's built in browser never is.  This returns a single use access_url on the storefront host instead.  Opening it gets past the storefront lock, shows the requested theme and applies the requested preview session for the rest of that browser session, then redirects to path.  It expires two minutes after issue or on first use.  Pages opened afterwards carry an X-UltraCart-Preview header of applied or not-applied.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewAccess">What the browser should see (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPreviewAccessResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPreviewAccessResponse> CreateSfvbPreviewAccessAsync (int storefrontOid, SfvbPreviewAccessRequest previewAccess = default(SfvbPreviewAccessRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPreviewAccessResponse> localVarResponse = await CreateSfvbPreviewAccessWithHttpInfoAsync(storefrontOid, previewAccess, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// One time link that opens a preview in a browser with no UltraCart login The preview URL only works in a browser already signed in to UltraCart on the storefront's own host, and an agent's built in browser never is.  This returns a single use access_url on the storefront host instead.  Opening it gets past the storefront lock, shows the requested theme and applies the requested preview session for the rest of that browser session, then redirects to path.  It expires two minutes after issue or on first use.  Pages opened afterwards carry an X-UltraCart-Preview header of applied or not-applied.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewAccess">What the browser should see (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPreviewAccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPreviewAccessResponse>> CreateSfvbPreviewAccessWithHttpInfoAsync (int storefrontOid, SfvbPreviewAccessRequest previewAccess = default(SfvbPreviewAccessRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->CreateSfvbPreviewAccess");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/preview_access";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (previewAccess != null && previewAccess.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(previewAccess); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = previewAccess; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateSfvbPreviewAccess", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPreviewAccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPreviewAccessResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPreviewAccessResponse)));
         }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="expiresInSeconds">Seconds left to open access_url.  It stops working after that, and after its first use..</param>
         /// <param name="path">Storefront path the browser lands on, after reserved preview parameters are removed..</param>
         /// <param name="previewSessionId">The preview session applied, when one was requested..</param>
-        /// <param name="sessionLifetimeSeconds">How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  The user and their storefront permission are checked again on every page, so removing either ends it sooner..</param>
+        /// <param name="sessionLifetimeSeconds">How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  Ending the preview session ends preview in that browser at its next page.  The user and their storefront permission are checked again on every page, so removing either ends it sooner..</param>
         /// <param name="singleUse">Always true.  A second open of access_url returns 410..</param>
         /// <param name="themeOid">The theme shown, when one was requested..</param>
         /// <param name="usageNote">Plain language instructions, safe to show a user..</param>
@@ -82,9 +82,9 @@ namespace com.ultracart.admin.v2.Model
         public string PreviewSessionId { get; set; }
 
         /// <summary>
-        /// How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  The user and their storefront permission are checked again on every page, so removing either ends it sooner.
+        /// How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  Ending the preview session ends preview in that browser at its next page.  The user and their storefront permission are checked again on every page, so removing either ends it sooner.
         /// </summary>
-        /// <value>How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  The user and their storefront permission are checked again on every page, so removing either ends it sooner.</value>
+        /// <value>How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  Ending the preview session ends preview in that browser at its next page.  The user and their storefront permission are checked again on every page, so removing either ends it sooner.</value>
         [DataMember(Name="session_lifetime_seconds", EmitDefaultValue=false)]
         public int SessionLifetimeSeconds { get; set; }
 

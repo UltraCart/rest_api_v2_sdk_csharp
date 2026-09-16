@@ -73,6 +73,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="maxCjsonBytes">Largest CJSON document that will be parsed, in bytes..</param>
         /// <param name="maxDirectoryEntries">Most entries one directory listing returns.  Asking for more is silently reduced to this rather than refused, so compare against it instead of trusting that you got what you asked for.  The listing does set a truncated flag when it drops entries..</param>
         /// <param name="maxLibraryResultsPerPage">Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut..</param>
+        /// <param name="maxMenuDepth">How deeply store menu entries can nest..</param>
+        /// <param name="maxMenuItems">Most entries one store menu can hold, counting every level of the tree.  A menu is navigation that renders on every page, so this is deliberately far below what the storage would physically accept..</param>
         /// <param name="maxPreviewSessionBytes">Largest payload one preview session may hold, in bytes..</param>
         /// <param name="maxRevertableBytes">Largest historical version files/revert will restore, in bytes.  Higher than max_text_read_bytes deliberately - putting back a version that is already stored is cheaper than serving it as JSON, so a version too large to read can still be reverted to..</param>
         /// <param name="maxSearchResults">Hard ceiling on file search results per page..</param>
@@ -82,7 +84,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="maxWidgetIdsPerRequest">Most widget ids that can be reserved in one call..</param>
         /// <param name="previewSessionTtlSeconds">Seconds a preview session survives before expiring..</param>
         /// <param name="release">Release channel selected for this merchant..</param>
-        public SfvbVersionResponse(string containerManagerVersion = default(string), int containerVersionsRetained = default(int), int elementCount = default(int), long maxAssetBytes = default(long), int maxCjsonBytes = default(int), int maxDirectoryEntries = default(int), int maxLibraryResultsPerPage = default(int), int maxPreviewSessionBytes = default(int), int maxRevertableBytes = default(int), int maxSearchResults = default(int), int maxTemplateBytes = default(int), int maxTextReadBytes = default(int), long maxVideoBytes = default(long), int maxWidgetIdsPerRequest = default(int), int previewSessionTtlSeconds = default(int), ReleaseEnum? release = default(ReleaseEnum?))
+        public SfvbVersionResponse(string containerManagerVersion = default(string), int containerVersionsRetained = default(int), int elementCount = default(int), long maxAssetBytes = default(long), int maxCjsonBytes = default(int), int maxDirectoryEntries = default(int), int maxLibraryResultsPerPage = default(int), int maxMenuDepth = default(int), int maxMenuItems = default(int), int maxPreviewSessionBytes = default(int), int maxRevertableBytes = default(int), int maxSearchResults = default(int), int maxTemplateBytes = default(int), int maxTextReadBytes = default(int), long maxVideoBytes = default(long), int maxWidgetIdsPerRequest = default(int), int previewSessionTtlSeconds = default(int), ReleaseEnum? release = default(ReleaseEnum?))
         {
             this.ContainerManagerVersion = containerManagerVersion;
             this.ContainerVersionsRetained = containerVersionsRetained;
@@ -91,6 +93,8 @@ namespace com.ultracart.admin.v2.Model
             this.MaxCjsonBytes = maxCjsonBytes;
             this.MaxDirectoryEntries = maxDirectoryEntries;
             this.MaxLibraryResultsPerPage = maxLibraryResultsPerPage;
+            this.MaxMenuDepth = maxMenuDepth;
+            this.MaxMenuItems = maxMenuItems;
             this.MaxPreviewSessionBytes = maxPreviewSessionBytes;
             this.MaxRevertableBytes = maxRevertableBytes;
             this.MaxSearchResults = maxSearchResults;
@@ -150,6 +154,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut.</value>
         [DataMember(Name="max_library_results_per_page", EmitDefaultValue=false)]
         public int MaxLibraryResultsPerPage { get; set; }
+
+        /// <summary>
+        /// How deeply store menu entries can nest.
+        /// </summary>
+        /// <value>How deeply store menu entries can nest.</value>
+        [DataMember(Name="max_menu_depth", EmitDefaultValue=false)]
+        public int MaxMenuDepth { get; set; }
+
+        /// <summary>
+        /// Most entries one store menu can hold, counting every level of the tree.  A menu is navigation that renders on every page, so this is deliberately far below what the storage would physically accept.
+        /// </summary>
+        /// <value>Most entries one store menu can hold, counting every level of the tree.  A menu is navigation that renders on every page, so this is deliberately far below what the storage would physically accept.</value>
+        [DataMember(Name="max_menu_items", EmitDefaultValue=false)]
+        public int MaxMenuItems { get; set; }
 
         /// <summary>
         /// Largest payload one preview session may hold, in bytes.
@@ -223,6 +241,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MaxCjsonBytes: ").Append(MaxCjsonBytes).Append("\n");
             sb.Append("  MaxDirectoryEntries: ").Append(MaxDirectoryEntries).Append("\n");
             sb.Append("  MaxLibraryResultsPerPage: ").Append(MaxLibraryResultsPerPage).Append("\n");
+            sb.Append("  MaxMenuDepth: ").Append(MaxMenuDepth).Append("\n");
+            sb.Append("  MaxMenuItems: ").Append(MaxMenuItems).Append("\n");
             sb.Append("  MaxPreviewSessionBytes: ").Append(MaxPreviewSessionBytes).Append("\n");
             sb.Append("  MaxRevertableBytes: ").Append(MaxRevertableBytes).Append("\n");
             sb.Append("  MaxSearchResults: ").Append(MaxSearchResults).Append("\n");
@@ -302,6 +322,16 @@ namespace com.ultracart.admin.v2.Model
                     this.MaxLibraryResultsPerPage.Equals(input.MaxLibraryResultsPerPage))
                 ) && 
                 (
+                    this.MaxMenuDepth == input.MaxMenuDepth ||
+                    (this.MaxMenuDepth != null &&
+                    this.MaxMenuDepth.Equals(input.MaxMenuDepth))
+                ) && 
+                (
+                    this.MaxMenuItems == input.MaxMenuItems ||
+                    (this.MaxMenuItems != null &&
+                    this.MaxMenuItems.Equals(input.MaxMenuItems))
+                ) && 
+                (
                     this.MaxPreviewSessionBytes == input.MaxPreviewSessionBytes ||
                     (this.MaxPreviewSessionBytes != null &&
                     this.MaxPreviewSessionBytes.Equals(input.MaxPreviewSessionBytes))
@@ -371,6 +401,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MaxDirectoryEntries.GetHashCode();
                 if (this.MaxLibraryResultsPerPage != null)
                     hashCode = hashCode * 59 + this.MaxLibraryResultsPerPage.GetHashCode();
+                if (this.MaxMenuDepth != null)
+                    hashCode = hashCode * 59 + this.MaxMenuDepth.GetHashCode();
+                if (this.MaxMenuItems != null)
+                    hashCode = hashCode * 59 + this.MaxMenuItems.GetHashCode();
                 if (this.MaxPreviewSessionBytes != null)
                     hashCode = hashCode * 59 + this.MaxPreviewSessionBytes.GetHashCode();
                 if (this.MaxRevertableBytes != null)

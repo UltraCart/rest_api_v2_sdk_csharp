@@ -475,6 +475,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbPreviewUrlResponse</returns>
         ApiResponse<SfvbPreviewUrlResponse> GetSfvbPreviewUrlWithHttpInfo (int storefrontOid, string previewSessionId, string path = default(string));
         /// <summary>
+        /// Read a storefront's site attributes
+        /// </summary>
+        /// <remarks>
+        /// The values the siteattribute element and $site.attr render.  These are not in any file or theme.  Attributes a template declares but nothing has set are included with the template's default, so the response describes what the templates can render rather than only what has been saved.  Credentials stored as site attributes are never included. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbSiteAttributesResponse</returns>
+        SfvbSiteAttributesResponse GetSfvbSiteAttributes (int storefrontOid);
+
+        /// <summary>
+        /// Read a storefront's site attributes
+        /// </summary>
+        /// <remarks>
+        /// The values the siteattribute element and $site.attr render.  These are not in any file or theme.  Attributes a template declares but nothing has set are included with the template's default, so the response describes what the templates can render rather than only what has been saved.  Credentials stored as site attributes are never included. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbSiteAttributesResponse</returns>
+        ApiResponse<SfvbSiteAttributesResponse> GetSfvbSiteAttributesWithHttpInfo (int storefrontOid);
+        /// <summary>
         /// Get a theme
         /// </summary>
         /// <remarks>
@@ -925,6 +946,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="themeOid"> (optional)</param>
         /// <returns>ApiResponse of SfvbPreviewSessionResponse</returns>
         ApiResponse<SfvbPreviewSessionResponse> PutSfvbPreviewSessionWithHttpInfo (int storefrontOid, string previewSessionId, SfvbPreviewSessionRequest previewSession, int? themeOid = default(int?));
+        /// <summary>
+        /// Change a storefront's site attributes
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, video list, mailing list and item set attributes are refused, and so are the General screen settings other than the title, the SEO description and keywords and the social account names.  Credentials are refused.  Always needs sfvb_publish, because every theme reads the same attributes and there is no dormant copy to change instead.  The admin General screen saves the whole storefront, so a merchant with it open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="siteAttributeUpdateRequest">Attributes to change</param>
+        /// <returns>SfvbSiteAttributesResponse</returns>
+        SfvbSiteAttributesResponse PutSfvbSiteAttributes (int storefrontOid, SfvbSiteAttributeUpdateRequest siteAttributeUpdateRequest);
+
+        /// <summary>
+        /// Change a storefront's site attributes
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, video list, mailing list and item set attributes are refused, and so are the General screen settings other than the title, the SEO description and keywords and the social account names.  Credentials are refused.  Always needs sfvb_publish, because every theme reads the same attributes and there is no dormant copy to change instead.  The admin General screen saves the whole storefront, so a merchant with it open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="siteAttributeUpdateRequest">Attributes to change</param>
+        /// <returns>ApiResponse of SfvbSiteAttributesResponse</returns>
+        ApiResponse<SfvbSiteAttributesResponse> PutSfvbSiteAttributesWithHttpInfo (int storefrontOid, SfvbSiteAttributeUpdateRequest siteAttributeUpdateRequest);
         /// <summary>
         /// Change a theme's colors, fonts and settings
         /// </summary>
@@ -1667,6 +1711,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbPreviewUrlResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPreviewUrlResponse>> GetSfvbPreviewUrlWithHttpInfoAsync (int storefrontOid, string previewSessionId, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Read a storefront's site attributes
+        /// </summary>
+        /// <remarks>
+        /// The values the siteattribute element and $site.attr render.  These are not in any file or theme.  Attributes a template declares but nothing has set are included with the template's default, so the response describes what the templates can render rather than only what has been saved.  Credentials stored as site attributes are never included. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSiteAttributesResponse</returns>
+        System.Threading.Tasks.Task<SfvbSiteAttributesResponse> GetSfvbSiteAttributesAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a storefront&#39;s site attributes
+        /// </summary>
+        /// <remarks>
+        /// The values the siteattribute element and $site.attr render.  These are not in any file or theme.  Attributes a template declares but nothing has set are included with the template's default, so the response describes what the templates can render rather than only what has been saved.  Credentials stored as site attributes are never included. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSiteAttributesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbSiteAttributesResponse>> GetSfvbSiteAttributesWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Get a theme
         /// </summary>
         /// <remarks>
@@ -2155,6 +2222,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPreviewSessionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPreviewSessionResponse>> PutSfvbPreviewSessionWithHttpInfoAsync (int storefrontOid, string previewSessionId, SfvbPreviewSessionRequest previewSession, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change a storefront's site attributes
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, video list, mailing list and item set attributes are refused, and so are the General screen settings other than the title, the SEO description and keywords and the social account names.  Credentials are refused.  Always needs sfvb_publish, because every theme reads the same attributes and there is no dormant copy to change instead.  The admin General screen saves the whole storefront, so a merchant with it open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="siteAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSiteAttributesResponse</returns>
+        System.Threading.Tasks.Task<SfvbSiteAttributesResponse> PutSfvbSiteAttributesAsync (int storefrontOid, SfvbSiteAttributeUpdateRequest siteAttributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a storefront&#39;s site attributes
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, video list, mailing list and item set attributes are refused, and so are the General screen settings other than the title, the SEO description and keywords and the social account names.  Credentials are refused.  Always needs sfvb_publish, because every theme reads the same attributes and there is no dormant copy to change instead.  The admin General screen saves the whole storefront, so a merchant with it open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="siteAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSiteAttributesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbSiteAttributesResponse>> PutSfvbSiteAttributesWithHttpInfoAsync (int storefrontOid, SfvbSiteAttributeUpdateRequest siteAttributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Change a theme's colors, fonts and settings
         /// </summary>
@@ -5826,6 +5918,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Read a storefront's site attributes The values the siteattribute element and $site.attr render.  These are not in any file or theme.  Attributes a template declares but nothing has set are included with the template's default, so the response describes what the templates can render rather than only what has been saved.  Credentials stored as site attributes are never included. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbSiteAttributesResponse</returns>
+        public SfvbSiteAttributesResponse GetSfvbSiteAttributes (int storefrontOid)
+        {
+             ApiResponse<SfvbSiteAttributesResponse> localVarResponse = GetSfvbSiteAttributesWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read a storefront's site attributes The values the siteattribute element and $site.attr render.  These are not in any file or theme.  Attributes a template declares but nothing has set are included with the template's default, so the response describes what the templates can render rather than only what has been saved.  Credentials stored as site attributes are never included. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbSiteAttributesResponse</returns>
+        public ApiResponse<SfvbSiteAttributesResponse> GetSfvbSiteAttributesWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbSiteAttributes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbSiteAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSiteAttributesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSiteAttributesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSiteAttributesResponse)));
+        }
+
+        /// <summary>
+        /// Read a storefront's site attributes The values the siteattribute element and $site.attr render.  These are not in any file or theme.  Attributes a template declares but nothing has set are included with the template's default, so the response describes what the templates can render rather than only what has been saved.  Credentials stored as site attributes are never included. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSiteAttributesResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbSiteAttributesResponse> GetSfvbSiteAttributesAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbSiteAttributesResponse> localVarResponse = await GetSfvbSiteAttributesWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read a storefront's site attributes The values the siteattribute element and $site.attr render.  These are not in any file or theme.  Attributes a template declares but nothing has set are included with the template's default, so the response describes what the templates can render rather than only what has been saved.  Credentials stored as site attributes are never included. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSiteAttributesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbSiteAttributesResponse>> GetSfvbSiteAttributesWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbSiteAttributes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbSiteAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSiteAttributesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSiteAttributesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSiteAttributesResponse)));
+        }
+
+        /// <summary>
         /// Get a theme 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9142,6 +9391,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbPreviewSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbPreviewSessionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPreviewSessionResponse)));
+        }
+
+        /// <summary>
+        /// Change a storefront's site attributes A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, video list, mailing list and item set attributes are refused, and so are the General screen settings other than the title, the SEO description and keywords and the social account names.  Credentials are refused.  Always needs sfvb_publish, because every theme reads the same attributes and there is no dormant copy to change instead.  The admin General screen saves the whole storefront, so a merchant with it open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="siteAttributeUpdateRequest">Attributes to change</param>
+        /// <returns>SfvbSiteAttributesResponse</returns>
+        public SfvbSiteAttributesResponse PutSfvbSiteAttributes (int storefrontOid, SfvbSiteAttributeUpdateRequest siteAttributeUpdateRequest)
+        {
+             ApiResponse<SfvbSiteAttributesResponse> localVarResponse = PutSfvbSiteAttributesWithHttpInfo(storefrontOid, siteAttributeUpdateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a storefront's site attributes A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, video list, mailing list and item set attributes are refused, and so are the General screen settings other than the title, the SEO description and keywords and the social account names.  Credentials are refused.  Always needs sfvb_publish, because every theme reads the same attributes and there is no dormant copy to change instead.  The admin General screen saves the whole storefront, so a merchant with it open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="siteAttributeUpdateRequest">Attributes to change</param>
+        /// <returns>ApiResponse of SfvbSiteAttributesResponse</returns>
+        public ApiResponse<SfvbSiteAttributesResponse> PutSfvbSiteAttributesWithHttpInfo (int storefrontOid, SfvbSiteAttributeUpdateRequest siteAttributeUpdateRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbSiteAttributes");
+            // verify the required parameter 'siteAttributeUpdateRequest' is set
+            if (siteAttributeUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'siteAttributeUpdateRequest' when calling SfvbApi->PutSfvbSiteAttributes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (siteAttributeUpdateRequest != null && siteAttributeUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(siteAttributeUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = siteAttributeUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbSiteAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSiteAttributesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSiteAttributesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSiteAttributesResponse)));
+        }
+
+        /// <summary>
+        /// Change a storefront's site attributes A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, video list, mailing list and item set attributes are refused, and so are the General screen settings other than the title, the SEO description and keywords and the social account names.  Credentials are refused.  Always needs sfvb_publish, because every theme reads the same attributes and there is no dormant copy to change instead.  The admin General screen saves the whole storefront, so a merchant with it open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="siteAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSiteAttributesResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbSiteAttributesResponse> PutSfvbSiteAttributesAsync (int storefrontOid, SfvbSiteAttributeUpdateRequest siteAttributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbSiteAttributesResponse> localVarResponse = await PutSfvbSiteAttributesWithHttpInfoAsync(storefrontOid, siteAttributeUpdateRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a storefront's site attributes A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, video list, mailing list and item set attributes are refused, and so are the General screen settings other than the title, the SEO description and keywords and the social account names.  Credentials are refused.  Always needs sfvb_publish, because every theme reads the same attributes and there is no dormant copy to change instead.  The admin General screen saves the whole storefront, so a merchant with it open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="siteAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSiteAttributesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbSiteAttributesResponse>> PutSfvbSiteAttributesWithHttpInfoAsync (int storefrontOid, SfvbSiteAttributeUpdateRequest siteAttributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbSiteAttributes");
+            // verify the required parameter 'siteAttributeUpdateRequest' is set
+            if (siteAttributeUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'siteAttributeUpdateRequest' when calling SfvbApi->PutSfvbSiteAttributes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (siteAttributeUpdateRequest != null && siteAttributeUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(siteAttributeUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = siteAttributeUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbSiteAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSiteAttributesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSiteAttributesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSiteAttributesResponse)));
         }
 
         /// <summary>

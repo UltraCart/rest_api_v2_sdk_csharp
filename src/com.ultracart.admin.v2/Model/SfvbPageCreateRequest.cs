@@ -25,30 +25,30 @@ using OpenAPIDateConverter = com.ultracart.admin.v2.Client.OpenAPIDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// SfvbPageResponse
+    /// SfvbPageCreateRequest
     /// </summary>
     [DataContract]
-    public partial class SfvbPageResponse :  IEquatable<SfvbPageResponse>, IValidatableObject
+    public partial class SfvbPageCreateRequest :  IEquatable<SfvbPageCreateRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SfvbPageResponse" /> class.
+        /// Initializes a new instance of the <see cref="SfvbPageCreateRequest" /> class.
         /// </summary>
-        /// <param name="attributes">Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name..</param>
-        /// <param name="excludeFromSitemap">True when the page is left out of the sitemap and marked noindex..</param>
-        /// <param name="groupTemplate">Template file that renders the page itself, a bare .vm name found anywhere in the active theme..</param>
-        /// <param name="itemTemplate">Template file that renders the item pages under this page..</param>
-        /// <param name="multimedia">The page&#39;s images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first..</param>
-        /// <param name="path">The page path, normalized to begin and end with a slash..</param>
+        /// <param name="description">The page description, for templates that show one..</param>
+        /// <param name="excludeFromSitemap">Leave the page out of the sitemap and mark it noindex.  Usual for ad landing pages..</param>
+        /// <param name="groupTemplate">Template that renders the page, a name from the template list.  When omitted the page inherits its parent&#39;s templates, or catalog_group.vm directly under the root..</param>
+        /// <param name="itemTemplate">Template that renders the item pages under this page.  Inherited or defaulted like group_template..</param>
+        /// <param name="pageType">S for a static page, D for a dynamic one.  Defaults to D, as in the admin..</param>
+        /// <param name="path">Path of the new page, for example /lp/spring-sale/.  The parent page must already exist, and the last part may only contain letters, digits, hyphens and underscores..</param>
         /// <param name="title">The page title..</param>
-        /// <param name="visible">False when the page is hidden.  A hidden page answers 404 to shoppers..</param>
-        /// <param name="visibleDts">When set, the page stays hidden until this time (ISO 8601, UTC)..</param>
-        public SfvbPageResponse(List<SfvbPageAttribute> attributes = default(List<SfvbPageAttribute>), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), List<SfvbPageMultimedia> multimedia = default(List<SfvbPageMultimedia>), string path = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
+        /// <param name="visible">False creates the page hidden, so it answers 404 to shoppers until it is shown..</param>
+        /// <param name="visibleDts">Keep the page hidden until this time (ISO 8601)..</param>
+        public SfvbPageCreateRequest(string description = default(string), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), string pageType = default(string), string path = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
         {
-            this.Attributes = attributes;
+            this.Description = description;
             this.ExcludeFromSitemap = excludeFromSitemap;
             this.GroupTemplate = groupTemplate;
             this.ItemTemplate = itemTemplate;
-            this.Multimedia = multimedia;
+            this.PageType = pageType;
             this.Path = path;
             this.Title = title;
             this.Visible = visible;
@@ -56,44 +56,44 @@ namespace com.ultracart.admin.v2.Model
         }
 
         /// <summary>
-        /// Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.
+        /// The page description, for templates that show one.
         /// </summary>
-        /// <value>Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.</value>
-        [DataMember(Name="attributes", EmitDefaultValue=false)]
-        public List<SfvbPageAttribute> Attributes { get; set; }
+        /// <value>The page description, for templates that show one.</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
 
         /// <summary>
-        /// True when the page is left out of the sitemap and marked noindex.
+        /// Leave the page out of the sitemap and mark it noindex.  Usual for ad landing pages.
         /// </summary>
-        /// <value>True when the page is left out of the sitemap and marked noindex.</value>
+        /// <value>Leave the page out of the sitemap and mark it noindex.  Usual for ad landing pages.</value>
         [DataMember(Name="exclude_from_sitemap", EmitDefaultValue=false)]
         public bool ExcludeFromSitemap { get; set; }
 
         /// <summary>
-        /// Template file that renders the page itself, a bare .vm name found anywhere in the active theme.
+        /// Template that renders the page, a name from the template list.  When omitted the page inherits its parent&#39;s templates, or catalog_group.vm directly under the root.
         /// </summary>
-        /// <value>Template file that renders the page itself, a bare .vm name found anywhere in the active theme.</value>
+        /// <value>Template that renders the page, a name from the template list.  When omitted the page inherits its parent&#39;s templates, or catalog_group.vm directly under the root.</value>
         [DataMember(Name="group_template", EmitDefaultValue=false)]
         public string GroupTemplate { get; set; }
 
         /// <summary>
-        /// Template file that renders the item pages under this page.
+        /// Template that renders the item pages under this page.  Inherited or defaulted like group_template.
         /// </summary>
-        /// <value>Template file that renders the item pages under this page.</value>
+        /// <value>Template that renders the item pages under this page.  Inherited or defaulted like group_template.</value>
         [DataMember(Name="item_template", EmitDefaultValue=false)]
         public string ItemTemplate { get; set; }
 
         /// <summary>
-        /// The page&#39;s images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.
+        /// S for a static page, D for a dynamic one.  Defaults to D, as in the admin.
         /// </summary>
-        /// <value>The page&#39;s images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.</value>
-        [DataMember(Name="multimedia", EmitDefaultValue=false)]
-        public List<SfvbPageMultimedia> Multimedia { get; set; }
+        /// <value>S for a static page, D for a dynamic one.  Defaults to D, as in the admin.</value>
+        [DataMember(Name="page_type", EmitDefaultValue=false)]
+        public string PageType { get; set; }
 
         /// <summary>
-        /// The page path, normalized to begin and end with a slash.
+        /// Path of the new page, for example /lp/spring-sale/.  The parent page must already exist, and the last part may only contain letters, digits, hyphens and underscores.
         /// </summary>
-        /// <value>The page path, normalized to begin and end with a slash.</value>
+        /// <value>Path of the new page, for example /lp/spring-sale/.  The parent page must already exist, and the last part may only contain letters, digits, hyphens and underscores.</value>
         [DataMember(Name="path", EmitDefaultValue=false)]
         public string Path { get; set; }
 
@@ -105,16 +105,16 @@ namespace com.ultracart.admin.v2.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// False when the page is hidden.  A hidden page answers 404 to shoppers.
+        /// False creates the page hidden, so it answers 404 to shoppers until it is shown.
         /// </summary>
-        /// <value>False when the page is hidden.  A hidden page answers 404 to shoppers.</value>
+        /// <value>False creates the page hidden, so it answers 404 to shoppers until it is shown.</value>
         [DataMember(Name="visible", EmitDefaultValue=false)]
         public bool Visible { get; set; }
 
         /// <summary>
-        /// When set, the page stays hidden until this time (ISO 8601, UTC).
+        /// Keep the page hidden until this time (ISO 8601).
         /// </summary>
-        /// <value>When set, the page stays hidden until this time (ISO 8601, UTC).</value>
+        /// <value>Keep the page hidden until this time (ISO 8601).</value>
         [DataMember(Name="visible_dts", EmitDefaultValue=false)]
         public string VisibleDts { get; set; }
 
@@ -125,12 +125,12 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SfvbPageResponse {\n");
-            sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("class SfvbPageCreateRequest {\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ExcludeFromSitemap: ").Append(ExcludeFromSitemap).Append("\n");
             sb.Append("  GroupTemplate: ").Append(GroupTemplate).Append("\n");
             sb.Append("  ItemTemplate: ").Append(ItemTemplate).Append("\n");
-            sb.Append("  Multimedia: ").Append(Multimedia).Append("\n");
+            sb.Append("  PageType: ").Append(PageType).Append("\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");
@@ -155,25 +155,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SfvbPageResponse);
+            return this.Equals(input as SfvbPageCreateRequest);
         }
 
         /// <summary>
-        /// Returns true if SfvbPageResponse instances are equal
+        /// Returns true if SfvbPageCreateRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of SfvbPageResponse to be compared</param>
+        /// <param name="input">Instance of SfvbPageCreateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SfvbPageResponse input)
+        public bool Equals(SfvbPageCreateRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Attributes == input.Attributes ||
-                    this.Attributes != null &&
-                    input.Attributes != null &&
-                    this.Attributes.SequenceEqual(input.Attributes)
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
                     this.ExcludeFromSitemap == input.ExcludeFromSitemap ||
@@ -191,10 +190,9 @@ namespace com.ultracart.admin.v2.Model
                     this.ItemTemplate.Equals(input.ItemTemplate))
                 ) && 
                 (
-                    this.Multimedia == input.Multimedia ||
-                    this.Multimedia != null &&
-                    input.Multimedia != null &&
-                    this.Multimedia.SequenceEqual(input.Multimedia)
+                    this.PageType == input.PageType ||
+                    (this.PageType != null &&
+                    this.PageType.Equals(input.PageType))
                 ) && 
                 (
                     this.Path == input.Path ||
@@ -227,16 +225,16 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Attributes != null)
-                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.ExcludeFromSitemap != null)
                     hashCode = hashCode * 59 + this.ExcludeFromSitemap.GetHashCode();
                 if (this.GroupTemplate != null)
                     hashCode = hashCode * 59 + this.GroupTemplate.GetHashCode();
                 if (this.ItemTemplate != null)
                     hashCode = hashCode * 59 + this.ItemTemplate.GetHashCode();
-                if (this.Multimedia != null)
-                    hashCode = hashCode * 59 + this.Multimedia.GetHashCode();
+                if (this.PageType != null)
+                    hashCode = hashCode * 59 + this.PageType.GetHashCode();
                 if (this.Path != null)
                     hashCode = hashCode * 59 + this.Path.GetHashCode();
                 if (this.Title != null)

@@ -26,6 +26,56 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Assign blog posts to a page
+        /// </summary>
+        /// <remarks>
+        /// Adds posts by blog_post_oid, at most 500 at a time.  Every oid must be a post on this storefront, and one that is not changes nothing.  Refused on a page whose selectors choose its blog posts.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to assign</param>
+        /// <returns>SfvbPageBlogPostsResponse</returns>
+        SfvbPageBlogPostsResponse AddSfvbPageBlogPosts (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest);
+
+        /// <summary>
+        /// Assign blog posts to a page
+        /// </summary>
+        /// <remarks>
+        /// Adds posts by blog_post_oid, at most 500 at a time.  Every oid must be a post on this storefront, and one that is not changes nothing.  Refused on a page whose selectors choose its blog posts.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to assign</param>
+        /// <returns>ApiResponse of SfvbPageBlogPostsResponse</returns>
+        ApiResponse<SfvbPageBlogPostsResponse> AddSfvbPageBlogPostsWithHttpInfo (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest);
+        /// <summary>
+        /// Assign items to a page
+        /// </summary>
+        /// <remarks>
+        /// Adds items by item id, at most 500 at a time, or changes the sort order or url part of items already on the page.  Every id is checked first and one unknown id changes nothing.  Refused on a page whose selectors choose its items.  sort_order is refused unless the page sorts its items by a custom order.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsAddRequest">Items to assign</param>
+        /// <returns>SfvbPageItemsResponse</returns>
+        SfvbPageItemsResponse AddSfvbPageItems (int storefrontOid, string path, SfvbPageItemsAddRequest pageItemsAddRequest);
+
+        /// <summary>
+        /// Assign items to a page
+        /// </summary>
+        /// <remarks>
+        /// Adds items by item id, at most 500 at a time, or changes the sort order or url part of items already on the page.  Every id is checked first and one unknown id changes nothing.  Refused on a page whose selectors choose its items.  sort_order is refused unless the page sorts its items by a custom order.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsAddRequest">Items to assign</param>
+        /// <returns>ApiResponse of SfvbPageItemsResponse</returns>
+        ApiResponse<SfvbPageItemsResponse> AddSfvbPageItemsWithHttpInfo (int storefrontOid, string path, SfvbPageItemsAddRequest pageItemsAddRequest);
+        /// <summary>
         /// Compile CJSON to Velocity
         /// </summary>
         /// <remarks>
@@ -189,6 +239,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DownloadSfvbFileWithHttpInfo (int storefrontOid, string path = default(string));
         /// <summary>
+        /// Copy a page to a new path
+        /// </summary>
+        /// <remarks>
+        /// Copies what the store admin's duplicate copies - settings, items, blog posts, permissions, attributes, selectors, images and the page folder with its body.  The copy goes to the path you choose, under any existing page, with the same path rules as creating a page, and a 409 with the code sfvb.page_exists when that path is taken.  The root page and pages with pages under them cannot be copied.  A page whose folder holds a started experiment is refused, because the copy would share the experiment - end it first.  Translated title and description text is not copied.  Always needs sfvb_publish, because the copy is live as soon as it exists. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageDuplicateRequest">The page to copy and where</param>
+        /// <returns>SfvbPageResponse</returns>
+        SfvbPageResponse DuplicateSfvbPage (int storefrontOid, SfvbPageDuplicateRequest pageDuplicateRequest);
+
+        /// <summary>
+        /// Copy a page to a new path
+        /// </summary>
+        /// <remarks>
+        /// Copies what the store admin's duplicate copies - settings, items, blog posts, permissions, attributes, selectors, images and the page folder with its body.  The copy goes to the path you choose, under any existing page, with the same path rules as creating a page, and a 409 with the code sfvb.page_exists when that path is taken.  The root page and pages with pages under them cannot be copied.  A page whose folder holds a started experiment is refused, because the copy would share the experiment - end it first.  Translated title and description text is not copied.  Always needs sfvb_publish, because the copy is live as soon as it exists. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageDuplicateRequest">The page to copy and where</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        ApiResponse<SfvbPageResponse> DuplicateSfvbPageWithHttpInfo (int storefrontOid, SfvbPageDuplicateRequest pageDuplicateRequest);
+        /// <summary>
         /// Duplicate a theme
         /// </summary>
         /// <remarks>
@@ -213,6 +286,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="duplicateRequest">Theme duplication details</param>
         /// <returns>ApiResponse of SfvbThemeJobResponse</returns>
         ApiResponse<SfvbThemeJobResponse> DuplicateSfvbThemeWithHttpInfo (int storefrontOid, int themeOid, SfvbThemeDuplicateRequest duplicateRequest);
+        /// <summary>
+        /// End an experiment
+        /// </summary>
+        /// <remarks>
+        /// Ends a running experiment.  With winner_variation_number the winner gets all new visitors, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Visitors already assigned to a url experiment keep their page for up to 30 days.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="experimentEndRequest">The winner, if any (optional)</param>
+        /// <returns>SfvbExperiment</returns>
+        SfvbExperiment EndSfvbExperiment (int storefrontOid, int experimentOid, SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest));
+
+        /// <summary>
+        /// End an experiment
+        /// </summary>
+        /// <remarks>
+        /// Ends a running experiment.  With winner_variation_number the winner gets all new visitors, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Visitors already assigned to a url experiment keep their page for up to 30 days.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="experimentEndRequest">The winner, if any (optional)</param>
+        /// <returns>ApiResponse of SfvbExperiment</returns>
+        ApiResponse<SfvbExperiment> EndSfvbExperimentWithHttpInfo (int storefrontOid, int experimentOid, SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest));
         /// <summary>
         /// Element types used by a container
         /// </summary>
@@ -311,6 +409,52 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="elementType"></param>
         /// <returns>ApiResponse of SfvbElementSchemaResponse</returns>
         ApiResponse<SfvbElementSchemaResponse> GetSfvbElementWithHttpInfo (string elementType);
+        /// <summary>
+        /// Read one experiment and its statistics
+        /// </summary>
+        /// <remarks>
+        /// The experiment, its variations and their statistics, and with daily=true each variation's daily rows.  p95_sessions_needed is estimated only after 1000 sessions, and sessions_needed_computed_dts says when.  For a url experiment, router_url is the address visitors must enter through. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="daily">Include each variation&#39;s daily statistics (optional)</param>
+        /// <returns>SfvbExperiment</returns>
+        SfvbExperiment GetSfvbExperiment (int storefrontOid, int experimentOid, bool? daily = default(bool?));
+
+        /// <summary>
+        /// Read one experiment and its statistics
+        /// </summary>
+        /// <remarks>
+        /// The experiment, its variations and their statistics, and with daily=true each variation's daily rows.  p95_sessions_needed is estimated only after 1000 sessions, and sessions_needed_computed_dts says when.  For a url experiment, router_url is the address visitors must enter through. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="daily">Include each variation&#39;s daily statistics (optional)</param>
+        /// <returns>ApiResponse of SfvbExperiment</returns>
+        ApiResponse<SfvbExperiment> GetSfvbExperimentWithHttpInfo (int storefrontOid, int experimentOid, bool? daily = default(bool?));
+        /// <summary>
+        /// List the objectives an experiment can optimize
+        /// </summary>
+        /// <remarks>
+        /// Each objective with what is measured per session and compared between variations, the usual optimization type, and whether it needs an event name. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbExperimentObjectivesResponse</returns>
+        SfvbExperimentObjectivesResponse GetSfvbExperimentObjectives (int storefrontOid);
+
+        /// <summary>
+        /// List the objectives an experiment can optimize
+        /// </summary>
+        /// <remarks>
+        /// Each objective with what is measured per session and compared between variations, the usual optimization type, and whether it needs an event name. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbExperimentObjectivesResponse</returns>
+        ApiResponse<SfvbExperimentObjectivesResponse> GetSfvbExperimentObjectivesWithHttpInfo (int storefrontOid);
         /// <summary>
         /// Read a storefront file
         /// </summary>
@@ -449,6 +593,75 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="path">Page path, for example /catalog/dispensers/</param>
         /// <returns>ApiResponse of SfvbPageResponse</returns>
         ApiResponse<SfvbPageResponse> GetSfvbPageWithHttpInfo (int storefrontOid, string path);
+        /// <summary>
+        /// Read the blog posts assigned to a page
+        /// </summary>
+        /// <remarks>
+        /// The posts the page shows.  uses_selectors is true when the page's blog post selectors choose them instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <returns>SfvbPageBlogPostsResponse</returns>
+        SfvbPageBlogPostsResponse GetSfvbPageBlogPosts (int storefrontOid, string path);
+
+        /// <summary>
+        /// Read the blog posts assigned to a page
+        /// </summary>
+        /// <remarks>
+        /// The posts the page shows.  uses_selectors is true when the page's blog post selectors choose them instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <returns>ApiResponse of SfvbPageBlogPostsResponse</returns>
+        ApiResponse<SfvbPageBlogPostsResponse> GetSfvbPageBlogPostsWithHttpInfo (int storefrontOid, string path);
+        /// <summary>
+        /// Read the items assigned to a page
+        /// </summary>
+        /// <remarks>
+        /// The items on the page with their sort order and url part.  uses_selectors is true when the page's selectors choose its items instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <returns>SfvbPageItemsResponse</returns>
+        SfvbPageItemsResponse GetSfvbPageItems (int storefrontOid, string path);
+
+        /// <summary>
+        /// Read the items assigned to a page
+        /// </summary>
+        /// <remarks>
+        /// The items on the page with their sort order and url part.  uses_selectors is true when the page's selectors choose its items instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <returns>ApiResponse of SfvbPageItemsResponse</returns>
+        ApiResponse<SfvbPageItemsResponse> GetSfvbPageItemsWithHttpInfo (int storefrontOid, string path);
+        /// <summary>
+        /// Read a page's selectors
+        /// </summary>
+        /// <remarks>
+        /// The conditions that choose the page's items and blog posts, and whether each set must all match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <returns>SfvbPageSelectors</returns>
+        SfvbPageSelectors GetSfvbPageSelectors (int storefrontOid, string path);
+
+        /// <summary>
+        /// Read a page's selectors
+        /// </summary>
+        /// <remarks>
+        /// The conditions that choose the page's items and blog posts, and whether each set must all match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <returns>ApiResponse of SfvbPageSelectors</returns>
+        ApiResponse<SfvbPageSelectors> GetSfvbPageSelectorsWithHttpInfo (int storefrontOid, string path);
         /// <summary>
         /// URL that renders a preview session
         /// </summary>
@@ -603,6 +816,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbWhoamiResponse</returns>
         ApiResponse<SfvbWhoamiResponse> GetSfvbWhoamiWithHttpInfo ();
         /// <summary>
+        /// Create a page
+        /// </summary>
+        /// <remarks>
+        /// Creates the page and its folder, the way the store admin's add page does.  The parent page must already exist, and the last part of the path may only contain letters, digits, hyphens and underscores - it is refused, not cleaned.  A path that already has a page is refused with a 409 and the code sfvb.page_exists.  Without a group_template the page inherits its parent's templates, or catalog_group.vm directly under the root.  Set attributes and images afterwards with the page attribute and image endpoints, and push the body to the page folder.  Always needs sfvb_publish, because the page is live as soon as it exists.  Deleting, moving and renaming pages stay in the store admin. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageCreateRequest">The page to create</param>
+        /// <returns>SfvbPageResponse</returns>
+        SfvbPageResponse InsertSfvbPage (int storefrontOid, SfvbPageCreateRequest pageCreateRequest);
+
+        /// <summary>
+        /// Create a page
+        /// </summary>
+        /// <remarks>
+        /// Creates the page and its folder, the way the store admin's add page does.  The parent page must already exist, and the last part of the path may only contain letters, digits, hyphens and underscores - it is refused, not cleaned.  A path that already has a page is refused with a 409 and the code sfvb.page_exists.  Without a group_template the page inherits its parent's templates, or catalog_group.vm directly under the root.  Set attributes and images afterwards with the page attribute and image endpoints, and push the body to the page folder.  Always needs sfvb_publish, because the page is live as soon as it exists.  Deleting, moving and renaming pages stay in the store admin. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageCreateRequest">The page to create</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        ApiResponse<SfvbPageResponse> InsertSfvbPageWithHttpInfo (int storefrontOid, SfvbPageCreateRequest pageCreateRequest);
+        /// <summary>
         /// Install a library entry into a storefront
         /// </summary>
         /// <remarks>
@@ -625,6 +861,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="libraryOid"></param>
         /// <returns>ApiResponse of SfvbLibraryEntry</returns>
         ApiResponse<SfvbLibraryEntry> InstallSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid);
+        /// <summary>
+        /// List the storefront's blog posts
+        /// </summary>
+        /// <remarks>
+        /// One page of blog posts, newest first, without their bodies.  search matches the title, body, excerpt, url part or author, or a tag exactly.  unassigned marks posts no page shows yet.  Use a post's blog_post_oid to assign it to a page. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Posts per page, 1 to 100, default 50 (optional)</param>
+        /// <returns>SfvbBlogPostsResponse</returns>
+        SfvbBlogPostsResponse ListSfvbBlogPosts (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?));
+
+        /// <summary>
+        /// List the storefront's blog posts
+        /// </summary>
+        /// <remarks>
+        /// One page of blog posts, newest first, without their bodies.  search matches the title, body, excerpt, url part or author, or a tag exactly.  unassigned marks posts no page shows yet.  Use a post's blog_post_oid to assign it to a page. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Posts per page, 1 to 100, default 50 (optional)</param>
+        /// <returns>ApiResponse of SfvbBlogPostsResponse</returns>
+        ApiResponse<SfvbBlogPostsResponse> ListSfvbBlogPostsWithHttpInfo (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?));
         /// <summary>
         /// Version history for a container stored outside the file system
         /// </summary>
@@ -671,6 +934,33 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of SfvbElementsResponse</returns>
         ApiResponse<SfvbElementsResponse> ListSfvbElementsWithHttpInfo ();
+        /// <summary>
+        /// List the storefront's experiments
+        /// </summary>
+        /// <remarks>
+        /// Every experiment that is not deleted, with its variations and their statistics - the same numbers the store admin shows.  Filter by status, by type (page, url, theme, openai), or by the page an experiment runs on.  auto_ends_at says when the engine will end an experiment by itself, and p_value is a one-way ANOVA across all variations.  Read one experiment for its daily statistics. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">Running or Ended (optional)</param>
+        /// <param name="type">page, url, theme or openai (optional)</param>
+        /// <param name="path">Only experiments on this page, for example /lp/spring-sale/ (optional)</param>
+        /// <returns>SfvbExperimentsResponse</returns>
+        SfvbExperimentsResponse ListSfvbExperiments (int storefrontOid, string status = default(string), string type = default(string), string path = default(string));
+
+        /// <summary>
+        /// List the storefront's experiments
+        /// </summary>
+        /// <remarks>
+        /// Every experiment that is not deleted, with its variations and their statistics - the same numbers the store admin shows.  Filter by status, by type (page, url, theme, openai), or by the page an experiment runs on.  auto_ends_at says when the engine will end an experiment by itself, and p_value is a one-way ANOVA across all variations.  Read one experiment for its daily statistics. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">Running or Ended (optional)</param>
+        /// <param name="type">page, url, theme or openai (optional)</param>
+        /// <param name="path">Only experiments on this page, for example /lp/spring-sale/ (optional)</param>
+        /// <returns>ApiResponse of SfvbExperimentsResponse</returns>
+        ApiResponse<SfvbExperimentsResponse> ListSfvbExperimentsWithHttpInfo (int storefrontOid, string status = default(string), string type = default(string), string path = default(string));
         /// <summary>
         /// Version history for a storefront file
         /// </summary>
@@ -724,6 +1014,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbFilesResponse</returns>
         ApiResponse<SfvbFilesResponse> ListSfvbFilesWithHttpInfo (int storefrontOid, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? themeOid = default(int?), int? maxEntries = default(int?));
         /// <summary>
+        /// List the storefront's pages
+        /// </summary>
+        /// <remarks>
+        /// Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <returns>SfvbPageListResponse</returns>
+        SfvbPageListResponse ListSfvbPages (int storefrontOid, string under = default(string));
+
+        /// <summary>
+        /// List the storefront's pages
+        /// </summary>
+        /// <remarks>
+        /// Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <returns>ApiResponse of SfvbPageListResponse</returns>
+        ApiResponse<SfvbPageListResponse> ListSfvbPagesWithHttpInfo (int storefrontOid, string under = default(string));
+        /// <summary>
         /// List storefronts
         /// </summary>
         /// <remarks>
@@ -742,6 +1055,29 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of SfvbStorefrontsResponse</returns>
         ApiResponse<SfvbStorefrontsResponse> ListSfvbStorefrontsWithHttpInfo ();
+        /// <summary>
+        /// List the active theme's templates
+        /// </summary>
+        /// <remarks>
+        /// Each template with the page type it declares and what it can render - items, sub-pages, blog posts, pagination, visual builder containers.  A page's group_template names one of these.  The storefront's fixed templates, such as checkout and my account, are flagged system and must never be assigned to a page. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageType">Only templates declaring this page type, for example group (optional)</param>
+        /// <returns>SfvbTemplatesResponse</returns>
+        SfvbTemplatesResponse ListSfvbTemplates (int storefrontOid, string pageType = default(string));
+
+        /// <summary>
+        /// List the active theme's templates
+        /// </summary>
+        /// <remarks>
+        /// Each template with the page type it declares and what it can render - items, sub-pages, blog posts, pagination, visual builder containers.  A page's group_template names one of these.  The storefront's fixed templates, such as checkout and my account, are flagged system and must never be assigned to a page. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageType">Only templates declaring this page type, for example group (optional)</param>
+        /// <returns>ApiResponse of SfvbTemplatesResponse</returns>
+        ApiResponse<SfvbTemplatesResponse> ListSfvbTemplatesWithHttpInfo (int storefrontOid, string pageType = default(string));
         /// <summary>
         /// List themes for a storefront
         /// </summary>
@@ -815,6 +1151,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="containerName"> (optional)</param>
         /// <returns>ApiResponse of SfvbContainerResponse</returns>
         ApiResponse<SfvbContainerResponse> PutSfvbContainerWithHttpInfo (int storefrontOid, string ownerType, string ownerObjectId, string ifMatch, SfvbContainerWriteRequest containerWriteRequest, string containerName = default(string));
+        /// <summary>
+        /// Pause or resume a variation
+        /// </summary>
+        /// <remarks>
+        /// Stops or resumes sending new visitors to one variation of a running experiment.  Visitors already assigned keep seeing it.  Variation 0 cannot be paused, because the split falls back to it, and the last variation still receiving visitors cannot be paused.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="variationNumber"></param>
+        /// <param name="experimentVariationUpdateRequest">Pause or resume</param>
+        /// <returns>SfvbExperiment</returns>
+        SfvbExperiment PutSfvbExperimentVariation (int storefrontOid, int experimentOid, int variationNumber, SfvbExperimentVariationUpdateRequest experimentVariationUpdateRequest);
+
+        /// <summary>
+        /// Pause or resume a variation
+        /// </summary>
+        /// <remarks>
+        /// Stops or resumes sending new visitors to one variation of a running experiment.  Visitors already assigned keep seeing it.  Variation 0 cannot be paused, because the split falls back to it, and the last variation still receiving visitors cannot be paused.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="variationNumber"></param>
+        /// <param name="experimentVariationUpdateRequest">Pause or resume</param>
+        /// <returns>ApiResponse of SfvbExperiment</returns>
+        ApiResponse<SfvbExperiment> PutSfvbExperimentVariationWithHttpInfo (int storefrontOid, int experimentOid, int variationNumber, SfvbExperimentVariationUpdateRequest experimentVariationUpdateRequest);
         /// <summary>
         /// Write a storefront file
         /// </summary>
@@ -920,6 +1283,56 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbPageResponse</returns>
         ApiResponse<SfvbPageResponse> PutSfvbPageMultimediaWithHttpInfo (int storefrontOid, string path, SfvbPageMultimediaRequest pageMultimediaRequest);
         /// <summary>
+        /// Replace a page's selectors
+        /// </summary>
+        /// <remarks>
+        /// Each list you send replaces that whole set, and an empty list clears it.  A list you leave out is not touched.  The page's items or blog posts are recalculated from the new selectors straight away.  While a page has item selectors its items cannot be assigned by hand.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSelectorsRequest">The selector sets to replace</param>
+        /// <returns>SfvbPageSelectors</returns>
+        SfvbPageSelectors PutSfvbPageSelectors (int storefrontOid, string path, SfvbPageSelectors pageSelectorsRequest);
+
+        /// <summary>
+        /// Replace a page's selectors
+        /// </summary>
+        /// <remarks>
+        /// Each list you send replaces that whole set, and an empty list clears it.  A list you leave out is not touched.  The page's items or blog posts are recalculated from the new selectors straight away.  While a page has item selectors its items cannot be assigned by hand.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSelectorsRequest">The selector sets to replace</param>
+        /// <returns>ApiResponse of SfvbPageSelectors</returns>
+        ApiResponse<SfvbPageSelectors> PutSfvbPageSelectorsWithHttpInfo (int storefrontOid, string path, SfvbPageSelectors pageSelectorsRequest);
+        /// <summary>
+        /// Change a page's settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSettingsRequest">The settings to change</param>
+        /// <returns>SfvbPageResponse</returns>
+        SfvbPageResponse PutSfvbPageSettings (int storefrontOid, string path, SfvbPageSettingsRequest pageSettingsRequest);
+
+        /// <summary>
+        /// Change a page's settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSettingsRequest">The settings to change</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        ApiResponse<SfvbPageResponse> PutSfvbPageSettingsWithHttpInfo (int storefrontOid, string path, SfvbPageSettingsRequest pageSettingsRequest);
+        /// <summary>
         /// Push containers into a preview session
         /// </summary>
         /// <remarks>
@@ -994,6 +1407,56 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="attributeUpdateRequest">Slots to change</param>
         /// <returns>ApiResponse of SfvbThemeAttributesResponse</returns>
         ApiResponse<SfvbThemeAttributesResponse> PutSfvbThemeAttributesWithHttpInfo (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest);
+        /// <summary>
+        /// Take blog posts off a page
+        /// </summary>
+        /// <remarks>
+        /// Removes posts by blog_post_oid, at most 500 at a time.  Every oid must be on the page, and one that is not changes nothing.  The posts themselves are not touched.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to take off the page</param>
+        /// <returns>SfvbPageBlogPostsResponse</returns>
+        SfvbPageBlogPostsResponse RemoveSfvbPageBlogPosts (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest);
+
+        /// <summary>
+        /// Take blog posts off a page
+        /// </summary>
+        /// <remarks>
+        /// Removes posts by blog_post_oid, at most 500 at a time.  Every oid must be on the page, and one that is not changes nothing.  The posts themselves are not touched.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to take off the page</param>
+        /// <returns>ApiResponse of SfvbPageBlogPostsResponse</returns>
+        ApiResponse<SfvbPageBlogPostsResponse> RemoveSfvbPageBlogPostsWithHttpInfo (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest);
+        /// <summary>
+        /// Take items off a page
+        /// </summary>
+        /// <remarks>
+        /// Removes items by item id, at most 500 at a time.  Every id must be on the page, and one that is not changes nothing.  The items themselves are not touched.  Refused on a page whose selectors choose its items.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsRemoveRequest">Items to take off the page</param>
+        /// <returns>SfvbPageItemsResponse</returns>
+        SfvbPageItemsResponse RemoveSfvbPageItems (int storefrontOid, string path, SfvbPageItemsRemoveRequest pageItemsRemoveRequest);
+
+        /// <summary>
+        /// Take items off a page
+        /// </summary>
+        /// <remarks>
+        /// Removes items by item id, at most 500 at a time.  Every id must be on the page, and one that is not changes nothing.  The items themselves are not touched.  Refused on a page whose selectors choose its items.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsRemoveRequest">Items to take off the page</param>
+        /// <returns>ApiResponse of SfvbPageItemsResponse</returns>
+        ApiResponse<SfvbPageItemsResponse> RemoveSfvbPageItemsWithHttpInfo (int storefrontOid, string path, SfvbPageItemsRemoveRequest pageItemsRemoveRequest);
         /// <summary>
         /// Render a CJSON node to HTML
         /// </summary>
@@ -1151,6 +1614,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbLibraryResponse</returns>
         ApiResponse<SfvbLibraryResponse> SearchSfvbLibraryWithHttpInfo (int storefrontOid, string segment = default(string), string search = default(string), int? pageNumber = default(int?), int? resultsPerPage = default(int?));
         /// <summary>
+        /// Start an experiment
+        /// </summary>
+        /// <remarks>
+        /// type page starts an experiment element already saved in a page body - send path, slot and widget_id, and its name, objective, duration and variations are read from the element with the builder's rules (2 to 5 variations numbered 0 up with no gaps, 3 to 90 days, traffic on all or none adding up to 100).  The new id is written into the element and the body is saved, so pull it again before the next edit.  type url splits visitors between existing pages at router_url, and always ends by itself after duration_days.  Always needs sfvb_publish, because visitors are split as soon as it starts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentStartRequest">The experiment to start</param>
+        /// <returns>SfvbExperiment</returns>
+        SfvbExperiment StartSfvbExperiment (int storefrontOid, SfvbExperimentStartRequest experimentStartRequest);
+
+        /// <summary>
+        /// Start an experiment
+        /// </summary>
+        /// <remarks>
+        /// type page starts an experiment element already saved in a page body - send path, slot and widget_id, and its name, objective, duration and variations are read from the element with the builder's rules (2 to 5 variations numbered 0 up with no gaps, 3 to 90 days, traffic on all or none adding up to 100).  The new id is written into the element and the body is saved, so pull it again before the next edit.  type url splits visitors between existing pages at router_url, and always ends by itself after duration_days.  Always needs sfvb_publish, because visitors are split as soon as it starts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentStartRequest">The experiment to start</param>
+        /// <returns>ApiResponse of SfvbExperiment</returns>
+        ApiResponse<SfvbExperiment> StartSfvbExperimentWithHttpInfo (int storefrontOid, SfvbExperimentStartRequest experimentStartRequest);
+        /// <summary>
         /// Store a binary asset that was already uploaded
         /// </summary>
         /// <remarks>
@@ -1223,6 +1709,60 @@ namespace com.ultracart.admin.v2.Api
         ApiResponse<SfvbValidationResponse> ValidateSfvbVelocityWithHttpInfo (int storefrontOid, int themeOid, SfvbVelocityValidateRequest velocityValidateRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Assign blog posts to a page
+        /// </summary>
+        /// <remarks>
+        /// Adds posts by blog_post_oid, at most 500 at a time.  Every oid must be a post on this storefront, and one that is not changes nothing.  Refused on a page whose selectors choose its blog posts.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to assign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageBlogPostsResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageBlogPostsResponse> AddSfvbPageBlogPostsAsync (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Assign blog posts to a page
+        /// </summary>
+        /// <remarks>
+        /// Adds posts by blog_post_oid, at most 500 at a time.  Every oid must be a post on this storefront, and one that is not changes nothing.  Refused on a page whose selectors choose its blog posts.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to assign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageBlogPostsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageBlogPostsResponse>> AddSfvbPageBlogPostsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Assign items to a page
+        /// </summary>
+        /// <remarks>
+        /// Adds items by item id, at most 500 at a time, or changes the sort order or url part of items already on the page.  Every id is checked first and one unknown id changes nothing.  Refused on a page whose selectors choose its items.  sort_order is refused unless the page sorts its items by a custom order.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsAddRequest">Items to assign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageItemsResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageItemsResponse> AddSfvbPageItemsAsync (int storefrontOid, string path, SfvbPageItemsAddRequest pageItemsAddRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Assign items to a page
+        /// </summary>
+        /// <remarks>
+        /// Adds items by item id, at most 500 at a time, or changes the sort order or url part of items already on the page.  Every id is checked first and one unknown id changes nothing.  Refused on a page whose selectors choose its items.  sort_order is refused unless the page sorts its items by a custom order.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsAddRequest">Items to assign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageItemsResponse>> AddSfvbPageItemsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageItemsAddRequest pageItemsAddRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Compile CJSON to Velocity
         /// </summary>
@@ -1401,6 +1941,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DownloadSfvbFileWithHttpInfoAsync (int storefrontOid, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Copy a page to a new path
+        /// </summary>
+        /// <remarks>
+        /// Copies what the store admin's duplicate copies - settings, items, blog posts, permissions, attributes, selectors, images and the page folder with its body.  The copy goes to the path you choose, under any existing page, with the same path rules as creating a page, and a 409 with the code sfvb.page_exists when that path is taken.  The root page and pages with pages under them cannot be copied.  A page whose folder holds a started experiment is refused, because the copy would share the experiment - end it first.  Translated title and description text is not copied.  Always needs sfvb_publish, because the copy is live as soon as it exists. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageDuplicateRequest">The page to copy and where</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageResponse> DuplicateSfvbPageAsync (int storefrontOid, SfvbPageDuplicateRequest pageDuplicateRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Copy a page to a new path
+        /// </summary>
+        /// <remarks>
+        /// Copies what the store admin's duplicate copies - settings, items, blog posts, permissions, attributes, selectors, images and the page folder with its body.  The copy goes to the path you choose, under any existing page, with the same path rules as creating a page, and a 409 with the code sfvb.page_exists when that path is taken.  The root page and pages with pages under them cannot be copied.  A page whose folder holds a started experiment is refused, because the copy would share the experiment - end it first.  Translated title and description text is not copied.  Always needs sfvb_publish, because the copy is live as soon as it exists. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageDuplicateRequest">The page to copy and where</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> DuplicateSfvbPageWithHttpInfoAsync (int storefrontOid, SfvbPageDuplicateRequest pageDuplicateRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Duplicate a theme
         /// </summary>
         /// <remarks>
@@ -1427,6 +1992,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbThemeJobResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbThemeJobResponse>> DuplicateSfvbThemeWithHttpInfoAsync (int storefrontOid, int themeOid, SfvbThemeDuplicateRequest duplicateRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// End an experiment
+        /// </summary>
+        /// <remarks>
+        /// Ends a running experiment.  With winner_variation_number the winner gets all new visitors, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Visitors already assigned to a url experiment keep their page for up to 30 days.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="experimentEndRequest">The winner, if any (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbExperiment</returns>
+        System.Threading.Tasks.Task<SfvbExperiment> EndSfvbExperimentAsync (int storefrontOid, int experimentOid, SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// End an experiment
+        /// </summary>
+        /// <remarks>
+        /// Ends a running experiment.  With winner_variation_number the winner gets all new visitors, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Visitors already assigned to a url experiment keep their page for up to 30 days.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="experimentEndRequest">The winner, if any (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> EndSfvbExperimentWithHttpInfoAsync (int storefrontOid, int experimentOid, SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Element types used by a container
         /// </summary>
@@ -1533,6 +2125,56 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbElementSchemaResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbElementSchemaResponse>> GetSfvbElementWithHttpInfoAsync (string elementType, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read one experiment and its statistics
+        /// </summary>
+        /// <remarks>
+        /// The experiment, its variations and their statistics, and with daily=true each variation's daily rows.  p95_sessions_needed is estimated only after 1000 sessions, and sessions_needed_computed_dts says when.  For a url experiment, router_url is the address visitors must enter through. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="daily">Include each variation&#39;s daily statistics (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbExperiment</returns>
+        System.Threading.Tasks.Task<SfvbExperiment> GetSfvbExperimentAsync (int storefrontOid, int experimentOid, bool? daily = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read one experiment and its statistics
+        /// </summary>
+        /// <remarks>
+        /// The experiment, its variations and their statistics, and with daily=true each variation's daily rows.  p95_sessions_needed is estimated only after 1000 sessions, and sessions_needed_computed_dts says when.  For a url experiment, router_url is the address visitors must enter through. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="daily">Include each variation&#39;s daily statistics (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> GetSfvbExperimentWithHttpInfoAsync (int storefrontOid, int experimentOid, bool? daily = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the objectives an experiment can optimize
+        /// </summary>
+        /// <remarks>
+        /// Each objective with what is measured per session and compared between variations, the usual optimization type, and whether it needs an event name. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbExperimentObjectivesResponse</returns>
+        System.Threading.Tasks.Task<SfvbExperimentObjectivesResponse> GetSfvbExperimentObjectivesAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the objectives an experiment can optimize
+        /// </summary>
+        /// <remarks>
+        /// Each objective with what is measured per session and compared between variations, the usual optimization type, and whether it needs an event name. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbExperimentObjectivesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbExperimentObjectivesResponse>> GetSfvbExperimentObjectivesWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read a storefront file
         /// </summary>
@@ -1683,6 +2325,81 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> GetSfvbPageWithHttpInfoAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read the blog posts assigned to a page
+        /// </summary>
+        /// <remarks>
+        /// The posts the page shows.  uses_selectors is true when the page's blog post selectors choose them instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageBlogPostsResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageBlogPostsResponse> GetSfvbPageBlogPostsAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read the blog posts assigned to a page
+        /// </summary>
+        /// <remarks>
+        /// The posts the page shows.  uses_selectors is true when the page's blog post selectors choose them instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageBlogPostsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageBlogPostsResponse>> GetSfvbPageBlogPostsWithHttpInfoAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read the items assigned to a page
+        /// </summary>
+        /// <remarks>
+        /// The items on the page with their sort order and url part.  uses_selectors is true when the page's selectors choose its items instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageItemsResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageItemsResponse> GetSfvbPageItemsAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read the items assigned to a page
+        /// </summary>
+        /// <remarks>
+        /// The items on the page with their sort order and url part.  uses_selectors is true when the page's selectors choose its items instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageItemsResponse>> GetSfvbPageItemsWithHttpInfoAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read a page's selectors
+        /// </summary>
+        /// <remarks>
+        /// The conditions that choose the page's items and blog posts, and whether each set must all match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageSelectors</returns>
+        System.Threading.Tasks.Task<SfvbPageSelectors> GetSfvbPageSelectorsAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a page&#39;s selectors
+        /// </summary>
+        /// <remarks>
+        /// The conditions that choose the page's items and blog posts, and whether each set must all match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageSelectors)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageSelectors>> GetSfvbPageSelectorsWithHttpInfoAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// URL that renders a preview session
         /// </summary>
@@ -1851,6 +2568,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbWhoamiResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbWhoamiResponse>> GetSfvbWhoamiWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Create a page
+        /// </summary>
+        /// <remarks>
+        /// Creates the page and its folder, the way the store admin's add page does.  The parent page must already exist, and the last part of the path may only contain letters, digits, hyphens and underscores - it is refused, not cleaned.  A path that already has a page is refused with a 409 and the code sfvb.page_exists.  Without a group_template the page inherits its parent's templates, or catalog_group.vm directly under the root.  Set attributes and images afterwards with the page attribute and image endpoints, and push the body to the page folder.  Always needs sfvb_publish, because the page is live as soon as it exists.  Deleting, moving and renaming pages stay in the store admin. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageCreateRequest">The page to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageResponse> InsertSfvbPageAsync (int storefrontOid, SfvbPageCreateRequest pageCreateRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create a page
+        /// </summary>
+        /// <remarks>
+        /// Creates the page and its folder, the way the store admin's add page does.  The parent page must already exist, and the last part of the path may only contain letters, digits, hyphens and underscores - it is refused, not cleaned.  A path that already has a page is refused with a 409 and the code sfvb.page_exists.  Without a group_template the page inherits its parent's templates, or catalog_group.vm directly under the root.  Set attributes and images afterwards with the page attribute and image endpoints, and push the body to the page folder.  Always needs sfvb_publish, because the page is live as soon as it exists.  Deleting, moving and renaming pages stay in the store admin. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageCreateRequest">The page to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> InsertSfvbPageWithHttpInfoAsync (int storefrontOid, SfvbPageCreateRequest pageCreateRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Install a library entry into a storefront
         /// </summary>
         /// <remarks>
@@ -1875,6 +2617,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> InstallSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the storefront's blog posts
+        /// </summary>
+        /// <remarks>
+        /// One page of blog posts, newest first, without their bodies.  search matches the title, body, excerpt, url part or author, or a tag exactly.  unassigned marks posts no page shows yet.  Use a post's blog_post_oid to assign it to a page. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Posts per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbBlogPostsResponse</returns>
+        System.Threading.Tasks.Task<SfvbBlogPostsResponse> ListSfvbBlogPostsAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the storefront&#39;s blog posts
+        /// </summary>
+        /// <remarks>
+        /// One page of blog posts, newest first, without their bodies.  search matches the title, body, excerpt, url part or author, or a tag exactly.  unassigned marks posts no page shows yet.  Use a post's blog_post_oid to assign it to a page. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Posts per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbBlogPostsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostsResponse>> ListSfvbBlogPostsWithHttpInfoAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Version history for a container stored outside the file system
         /// </summary>
@@ -1925,6 +2696,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbElementsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbElementsResponse>> ListSfvbElementsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the storefront's experiments
+        /// </summary>
+        /// <remarks>
+        /// Every experiment that is not deleted, with its variations and their statistics - the same numbers the store admin shows.  Filter by status, by type (page, url, theme, openai), or by the page an experiment runs on.  auto_ends_at says when the engine will end an experiment by itself, and p_value is a one-way ANOVA across all variations.  Read one experiment for its daily statistics. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">Running or Ended (optional)</param>
+        /// <param name="type">page, url, theme or openai (optional)</param>
+        /// <param name="path">Only experiments on this page, for example /lp/spring-sale/ (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbExperimentsResponse</returns>
+        System.Threading.Tasks.Task<SfvbExperimentsResponse> ListSfvbExperimentsAsync (int storefrontOid, string status = default(string), string type = default(string), string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the storefront&#39;s experiments
+        /// </summary>
+        /// <remarks>
+        /// Every experiment that is not deleted, with its variations and their statistics - the same numbers the store admin shows.  Filter by status, by type (page, url, theme, openai), or by the page an experiment runs on.  auto_ends_at says when the engine will end an experiment by itself, and p_value is a one-way ANOVA across all variations.  Read one experiment for its daily statistics. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">Running or Ended (optional)</param>
+        /// <param name="type">page, url, theme or openai (optional)</param>
+        /// <param name="path">Only experiments on this page, for example /lp/spring-sale/ (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbExperimentsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbExperimentsResponse>> ListSfvbExperimentsWithHttpInfoAsync (int storefrontOid, string status = default(string), string type = default(string), string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Version history for a storefront file
         /// </summary>
@@ -1982,6 +2782,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbFilesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFilesResponse>> ListSfvbFilesWithHttpInfoAsync (int storefrontOid, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? themeOid = default(int?), int? maxEntries = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// List the storefront's pages
+        /// </summary>
+        /// <remarks>
+        /// Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageListResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageListResponse> ListSfvbPagesAsync (int storefrontOid, string under = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the storefront&#39;s pages
+        /// </summary>
+        /// <remarks>
+        /// Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageListResponse>> ListSfvbPagesWithHttpInfoAsync (int storefrontOid, string under = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// List storefronts
         /// </summary>
         /// <remarks>
@@ -2002,6 +2827,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbStorefrontsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbStorefrontsResponse>> ListSfvbStorefrontsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the active theme's templates
+        /// </summary>
+        /// <remarks>
+        /// Each template with the page type it declares and what it can render - items, sub-pages, blog posts, pagination, visual builder containers.  A page's group_template names one of these.  The storefront's fixed templates, such as checkout and my account, are flagged system and must never be assigned to a page. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageType">Only templates declaring this page type, for example group (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTemplatesResponse</returns>
+        System.Threading.Tasks.Task<SfvbTemplatesResponse> ListSfvbTemplatesAsync (int storefrontOid, string pageType = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the active theme&#39;s templates
+        /// </summary>
+        /// <remarks>
+        /// Each template with the page type it declares and what it can render - items, sub-pages, blog posts, pagination, visual builder containers.  A page's group_template names one of these.  The storefront's fixed templates, such as checkout and my account, are flagged system and must never be assigned to a page. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageType">Only templates declaring this page type, for example group (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTemplatesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTemplatesResponse>> ListSfvbTemplatesWithHttpInfoAsync (int storefrontOid, string pageType = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// List themes for a storefront
         /// </summary>
@@ -2081,6 +2931,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbContainerResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbContainerResponse>> PutSfvbContainerWithHttpInfoAsync (int storefrontOid, string ownerType, string ownerObjectId, string ifMatch, SfvbContainerWriteRequest containerWriteRequest, string containerName = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Pause or resume a variation
+        /// </summary>
+        /// <remarks>
+        /// Stops or resumes sending new visitors to one variation of a running experiment.  Visitors already assigned keep seeing it.  Variation 0 cannot be paused, because the split falls back to it, and the last variation still receiving visitors cannot be paused.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="variationNumber"></param>
+        /// <param name="experimentVariationUpdateRequest">Pause or resume</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbExperiment</returns>
+        System.Threading.Tasks.Task<SfvbExperiment> PutSfvbExperimentVariationAsync (int storefrontOid, int experimentOid, int variationNumber, SfvbExperimentVariationUpdateRequest experimentVariationUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Pause or resume a variation
+        /// </summary>
+        /// <remarks>
+        /// Stops or resumes sending new visitors to one variation of a running experiment.  Visitors already assigned keep seeing it.  Variation 0 cannot be paused, because the split falls back to it, and the last variation still receiving visitors cannot be paused.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="variationNumber"></param>
+        /// <param name="experimentVariationUpdateRequest">Pause or resume</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> PutSfvbExperimentVariationWithHttpInfoAsync (int storefrontOid, int experimentOid, int variationNumber, SfvbExperimentVariationUpdateRequest experimentVariationUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Write a storefront file
         /// </summary>
@@ -2194,6 +3073,60 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> PutSfvbPageMultimediaWithHttpInfoAsync (int storefrontOid, string path, SfvbPageMultimediaRequest pageMultimediaRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Replace a page's selectors
+        /// </summary>
+        /// <remarks>
+        /// Each list you send replaces that whole set, and an empty list clears it.  A list you leave out is not touched.  The page's items or blog posts are recalculated from the new selectors straight away.  While a page has item selectors its items cannot be assigned by hand.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSelectorsRequest">The selector sets to replace</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageSelectors</returns>
+        System.Threading.Tasks.Task<SfvbPageSelectors> PutSfvbPageSelectorsAsync (int storefrontOid, string path, SfvbPageSelectors pageSelectorsRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Replace a page&#39;s selectors
+        /// </summary>
+        /// <remarks>
+        /// Each list you send replaces that whole set, and an empty list clears it.  A list you leave out is not touched.  The page's items or blog posts are recalculated from the new selectors straight away.  While a page has item selectors its items cannot be assigned by hand.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSelectorsRequest">The selector sets to replace</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageSelectors)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageSelectors>> PutSfvbPageSelectorsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageSelectors pageSelectorsRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change a page's settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSettingsRequest">The settings to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageResponse> PutSfvbPageSettingsAsync (int storefrontOid, string path, SfvbPageSettingsRequest pageSettingsRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a page&#39;s settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSettingsRequest">The settings to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> PutSfvbPageSettingsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageSettingsRequest pageSettingsRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Push containers into a preview session
         /// </summary>
         /// <remarks>
@@ -2274,6 +3207,60 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbThemeAttributesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbThemeAttributesResponse>> PutSfvbThemeAttributesWithHttpInfoAsync (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Take blog posts off a page
+        /// </summary>
+        /// <remarks>
+        /// Removes posts by blog_post_oid, at most 500 at a time.  Every oid must be on the page, and one that is not changes nothing.  The posts themselves are not touched.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to take off the page</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageBlogPostsResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageBlogPostsResponse> RemoveSfvbPageBlogPostsAsync (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Take blog posts off a page
+        /// </summary>
+        /// <remarks>
+        /// Removes posts by blog_post_oid, at most 500 at a time.  Every oid must be on the page, and one that is not changes nothing.  The posts themselves are not touched.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to take off the page</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageBlogPostsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageBlogPostsResponse>> RemoveSfvbPageBlogPostsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Take items off a page
+        /// </summary>
+        /// <remarks>
+        /// Removes items by item id, at most 500 at a time.  Every id must be on the page, and one that is not changes nothing.  The items themselves are not touched.  Refused on a page whose selectors choose its items.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsRemoveRequest">Items to take off the page</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageItemsResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageItemsResponse> RemoveSfvbPageItemsAsync (int storefrontOid, string path, SfvbPageItemsRemoveRequest pageItemsRemoveRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Take items off a page
+        /// </summary>
+        /// <remarks>
+        /// Removes items by item id, at most 500 at a time.  Every id must be on the page, and one that is not changes nothing.  The items themselves are not touched.  Refused on a page whose selectors choose its items.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsRemoveRequest">Items to take off the page</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageItemsResponse>> RemoveSfvbPageItemsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageItemsRemoveRequest pageItemsRemoveRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Render a CJSON node to HTML
         /// </summary>
@@ -2442,6 +3429,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbLibraryResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbLibraryResponse>> SearchSfvbLibraryWithHttpInfoAsync (int storefrontOid, string segment = default(string), string search = default(string), int? pageNumber = default(int?), int? resultsPerPage = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Start an experiment
+        /// </summary>
+        /// <remarks>
+        /// type page starts an experiment element already saved in a page body - send path, slot and widget_id, and its name, objective, duration and variations are read from the element with the builder's rules (2 to 5 variations numbered 0 up with no gaps, 3 to 90 days, traffic on all or none adding up to 100).  The new id is written into the element and the body is saved, so pull it again before the next edit.  type url splits visitors between existing pages at router_url, and always ends by itself after duration_days.  Always needs sfvb_publish, because visitors are split as soon as it starts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentStartRequest">The experiment to start</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbExperiment</returns>
+        System.Threading.Tasks.Task<SfvbExperiment> StartSfvbExperimentAsync (int storefrontOid, SfvbExperimentStartRequest experimentStartRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Start an experiment
+        /// </summary>
+        /// <remarks>
+        /// type page starts an experiment element already saved in a page body - send path, slot and widget_id, and its name, objective, duration and variations are read from the element with the builder's rules (2 to 5 variations numbered 0 up with no gaps, 3 to 90 days, traffic on all or none adding up to 100).  The new id is written into the element and the body is saved, so pull it again before the next edit.  type url splits visitors between existing pages at router_url, and always ends by itself after duration_days.  Always needs sfvb_publish, because visitors are split as soon as it starts. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentStartRequest">The experiment to start</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> StartSfvbExperimentWithHttpInfoAsync (int storefrontOid, SfvbExperimentStartRequest experimentStartRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Store a binary asset that was already uploaded
         /// </summary>
@@ -2646,6 +3658,400 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Assign blog posts to a page Adds posts by blog_post_oid, at most 500 at a time.  Every oid must be a post on this storefront, and one that is not changes nothing.  Refused on a page whose selectors choose its blog posts.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to assign</param>
+        /// <returns>SfvbPageBlogPostsResponse</returns>
+        public SfvbPageBlogPostsResponse AddSfvbPageBlogPosts (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest)
+        {
+             ApiResponse<SfvbPageBlogPostsResponse> localVarResponse = AddSfvbPageBlogPostsWithHttpInfo(storefrontOid, path, pageBlogPostsRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Assign blog posts to a page Adds posts by blog_post_oid, at most 500 at a time.  Every oid must be a post on this storefront, and one that is not changes nothing.  Refused on a page whose selectors choose its blog posts.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to assign</param>
+        /// <returns>ApiResponse of SfvbPageBlogPostsResponse</returns>
+        public ApiResponse<SfvbPageBlogPostsResponse> AddSfvbPageBlogPostsWithHttpInfo (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->AddSfvbPageBlogPosts");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->AddSfvbPageBlogPosts");
+            // verify the required parameter 'pageBlogPostsRequest' is set
+            if (pageBlogPostsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageBlogPostsRequest' when calling SfvbApi->AddSfvbPageBlogPosts");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/blog_posts/add";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageBlogPostsRequest != null && pageBlogPostsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageBlogPostsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageBlogPostsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddSfvbPageBlogPosts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageBlogPostsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageBlogPostsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageBlogPostsResponse)));
+        }
+
+        /// <summary>
+        /// Assign blog posts to a page Adds posts by blog_post_oid, at most 500 at a time.  Every oid must be a post on this storefront, and one that is not changes nothing.  Refused on a page whose selectors choose its blog posts.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to assign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageBlogPostsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageBlogPostsResponse> AddSfvbPageBlogPostsAsync (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageBlogPostsResponse> localVarResponse = await AddSfvbPageBlogPostsWithHttpInfoAsync(storefrontOid, path, pageBlogPostsRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Assign blog posts to a page Adds posts by blog_post_oid, at most 500 at a time.  Every oid must be a post on this storefront, and one that is not changes nothing.  Refused on a page whose selectors choose its blog posts.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to assign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageBlogPostsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageBlogPostsResponse>> AddSfvbPageBlogPostsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->AddSfvbPageBlogPosts");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->AddSfvbPageBlogPosts");
+            // verify the required parameter 'pageBlogPostsRequest' is set
+            if (pageBlogPostsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageBlogPostsRequest' when calling SfvbApi->AddSfvbPageBlogPosts");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/blog_posts/add";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageBlogPostsRequest != null && pageBlogPostsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageBlogPostsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageBlogPostsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddSfvbPageBlogPosts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageBlogPostsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageBlogPostsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageBlogPostsResponse)));
+        }
+
+        /// <summary>
+        /// Assign items to a page Adds items by item id, at most 500 at a time, or changes the sort order or url part of items already on the page.  Every id is checked first and one unknown id changes nothing.  Refused on a page whose selectors choose its items.  sort_order is refused unless the page sorts its items by a custom order.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsAddRequest">Items to assign</param>
+        /// <returns>SfvbPageItemsResponse</returns>
+        public SfvbPageItemsResponse AddSfvbPageItems (int storefrontOid, string path, SfvbPageItemsAddRequest pageItemsAddRequest)
+        {
+             ApiResponse<SfvbPageItemsResponse> localVarResponse = AddSfvbPageItemsWithHttpInfo(storefrontOid, path, pageItemsAddRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Assign items to a page Adds items by item id, at most 500 at a time, or changes the sort order or url part of items already on the page.  Every id is checked first and one unknown id changes nothing.  Refused on a page whose selectors choose its items.  sort_order is refused unless the page sorts its items by a custom order.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsAddRequest">Items to assign</param>
+        /// <returns>ApiResponse of SfvbPageItemsResponse</returns>
+        public ApiResponse<SfvbPageItemsResponse> AddSfvbPageItemsWithHttpInfo (int storefrontOid, string path, SfvbPageItemsAddRequest pageItemsAddRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->AddSfvbPageItems");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->AddSfvbPageItems");
+            // verify the required parameter 'pageItemsAddRequest' is set
+            if (pageItemsAddRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageItemsAddRequest' when calling SfvbApi->AddSfvbPageItems");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/items/add";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageItemsAddRequest != null && pageItemsAddRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageItemsAddRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageItemsAddRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddSfvbPageItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageItemsResponse)));
+        }
+
+        /// <summary>
+        /// Assign items to a page Adds items by item id, at most 500 at a time, or changes the sort order or url part of items already on the page.  Every id is checked first and one unknown id changes nothing.  Refused on a page whose selectors choose its items.  sort_order is refused unless the page sorts its items by a custom order.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsAddRequest">Items to assign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageItemsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageItemsResponse> AddSfvbPageItemsAsync (int storefrontOid, string path, SfvbPageItemsAddRequest pageItemsAddRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageItemsResponse> localVarResponse = await AddSfvbPageItemsWithHttpInfoAsync(storefrontOid, path, pageItemsAddRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Assign items to a page Adds items by item id, at most 500 at a time, or changes the sort order or url part of items already on the page.  Every id is checked first and one unknown id changes nothing.  Refused on a page whose selectors choose its items.  sort_order is refused unless the page sorts its items by a custom order.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsAddRequest">Items to assign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageItemsResponse>> AddSfvbPageItemsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageItemsAddRequest pageItemsAddRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->AddSfvbPageItems");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->AddSfvbPageItems");
+            // verify the required parameter 'pageItemsAddRequest' is set
+            if (pageItemsAddRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageItemsAddRequest' when calling SfvbApi->AddSfvbPageItems");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/items/add";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageItemsAddRequest != null && pageItemsAddRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageItemsAddRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageItemsAddRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddSfvbPageItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageItemsResponse)));
         }
 
         /// <summary>
@@ -3840,6 +5246,191 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Copy a page to a new path Copies what the store admin's duplicate copies - settings, items, blog posts, permissions, attributes, selectors, images and the page folder with its body.  The copy goes to the path you choose, under any existing page, with the same path rules as creating a page, and a 409 with the code sfvb.page_exists when that path is taken.  The root page and pages with pages under them cannot be copied.  A page whose folder holds a started experiment is refused, because the copy would share the experiment - end it first.  Translated title and description text is not copied.  Always needs sfvb_publish, because the copy is live as soon as it exists. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageDuplicateRequest">The page to copy and where</param>
+        /// <returns>SfvbPageResponse</returns>
+        public SfvbPageResponse DuplicateSfvbPage (int storefrontOid, SfvbPageDuplicateRequest pageDuplicateRequest)
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = DuplicateSfvbPageWithHttpInfo(storefrontOid, pageDuplicateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Copy a page to a new path Copies what the store admin's duplicate copies - settings, items, blog posts, permissions, attributes, selectors, images and the page folder with its body.  The copy goes to the path you choose, under any existing page, with the same path rules as creating a page, and a 409 with the code sfvb.page_exists when that path is taken.  The root page and pages with pages under them cannot be copied.  A page whose folder holds a started experiment is refused, because the copy would share the experiment - end it first.  Translated title and description text is not copied.  Always needs sfvb_publish, because the copy is live as soon as it exists. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageDuplicateRequest">The page to copy and where</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        public ApiResponse<SfvbPageResponse> DuplicateSfvbPageWithHttpInfo (int storefrontOid, SfvbPageDuplicateRequest pageDuplicateRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DuplicateSfvbPage");
+            // verify the required parameter 'pageDuplicateRequest' is set
+            if (pageDuplicateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageDuplicateRequest' when calling SfvbApi->DuplicateSfvbPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/duplicate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (pageDuplicateRequest != null && pageDuplicateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageDuplicateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageDuplicateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DuplicateSfvbPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
+        /// Copy a page to a new path Copies what the store admin's duplicate copies - settings, items, blog posts, permissions, attributes, selectors, images and the page folder with its body.  The copy goes to the path you choose, under any existing page, with the same path rules as creating a page, and a 409 with the code sfvb.page_exists when that path is taken.  The root page and pages with pages under them cannot be copied.  A page whose folder holds a started experiment is refused, because the copy would share the experiment - end it first.  Translated title and description text is not copied.  Always needs sfvb_publish, because the copy is live as soon as it exists. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageDuplicateRequest">The page to copy and where</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageResponse> DuplicateSfvbPageAsync (int storefrontOid, SfvbPageDuplicateRequest pageDuplicateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = await DuplicateSfvbPageWithHttpInfoAsync(storefrontOid, pageDuplicateRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Copy a page to a new path Copies what the store admin's duplicate copies - settings, items, blog posts, permissions, attributes, selectors, images and the page folder with its body.  The copy goes to the path you choose, under any existing page, with the same path rules as creating a page, and a 409 with the code sfvb.page_exists when that path is taken.  The root page and pages with pages under them cannot be copied.  A page whose folder holds a started experiment is refused, because the copy would share the experiment - end it first.  Translated title and description text is not copied.  Always needs sfvb_publish, because the copy is live as soon as it exists. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageDuplicateRequest">The page to copy and where</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> DuplicateSfvbPageWithHttpInfoAsync (int storefrontOid, SfvbPageDuplicateRequest pageDuplicateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DuplicateSfvbPage");
+            // verify the required parameter 'pageDuplicateRequest' is set
+            if (pageDuplicateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageDuplicateRequest' when calling SfvbApi->DuplicateSfvbPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/duplicate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (pageDuplicateRequest != null && pageDuplicateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageDuplicateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageDuplicateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DuplicateSfvbPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
         /// Duplicate a theme Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4034,6 +5625,197 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbThemeJobResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbThemeJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbThemeJobResponse)));
+        }
+
+        /// <summary>
+        /// End an experiment Ends a running experiment.  With winner_variation_number the winner gets all new visitors, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Visitors already assigned to a url experiment keep their page for up to 30 days.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="experimentEndRequest">The winner, if any (optional)</param>
+        /// <returns>SfvbExperiment</returns>
+        public SfvbExperiment EndSfvbExperiment (int storefrontOid, int experimentOid, SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest))
+        {
+             ApiResponse<SfvbExperiment> localVarResponse = EndSfvbExperimentWithHttpInfo(storefrontOid, experimentOid, experimentEndRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// End an experiment Ends a running experiment.  With winner_variation_number the winner gets all new visitors, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Visitors already assigned to a url experiment keep their page for up to 30 days.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="experimentEndRequest">The winner, if any (optional)</param>
+        /// <returns>ApiResponse of SfvbExperiment</returns>
+        public ApiResponse<SfvbExperiment> EndSfvbExperimentWithHttpInfo (int storefrontOid, int experimentOid, SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->EndSfvbExperiment");
+            // verify the required parameter 'experimentOid' is set
+            if (experimentOid == null)
+                throw new ApiException(400, "Missing required parameter 'experimentOid' when calling SfvbApi->EndSfvbExperiment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (experimentOid != null) localVarPathParams.Add("experiment_oid", this.Configuration.ApiClient.ParameterToString(experimentOid)); // path parameter
+            if (experimentEndRequest != null && experimentEndRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(experimentEndRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = experimentEndRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EndSfvbExperiment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbExperiment>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbExperiment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperiment)));
+        }
+
+        /// <summary>
+        /// End an experiment Ends a running experiment.  With winner_variation_number the winner gets all new visitors, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Visitors already assigned to a url experiment keep their page for up to 30 days.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="experimentEndRequest">The winner, if any (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbExperiment</returns>
+        public async System.Threading.Tasks.Task<SfvbExperiment> EndSfvbExperimentAsync (int storefrontOid, int experimentOid, SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbExperiment> localVarResponse = await EndSfvbExperimentWithHttpInfoAsync(storefrontOid, experimentOid, experimentEndRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// End an experiment Ends a running experiment.  With winner_variation_number the winner gets all new visitors, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Visitors already assigned to a url experiment keep their page for up to 30 days.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="experimentEndRequest">The winner, if any (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> EndSfvbExperimentWithHttpInfoAsync (int storefrontOid, int experimentOid, SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->EndSfvbExperiment");
+            // verify the required parameter 'experimentOid' is set
+            if (experimentOid == null)
+                throw new ApiException(400, "Missing required parameter 'experimentOid' when calling SfvbApi->EndSfvbExperiment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (experimentOid != null) localVarPathParams.Add("experiment_oid", this.Configuration.ApiClient.ParameterToString(experimentOid)); // path parameter
+            if (experimentEndRequest != null && experimentEndRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(experimentEndRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = experimentEndRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EndSfvbExperiment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbExperiment>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbExperiment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperiment)));
         }
 
         /// <summary>
@@ -4738,6 +6520,338 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbElementSchemaResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbElementSchemaResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbElementSchemaResponse)));
+        }
+
+        /// <summary>
+        /// Read one experiment and its statistics The experiment, its variations and their statistics, and with daily=true each variation's daily rows.  p95_sessions_needed is estimated only after 1000 sessions, and sessions_needed_computed_dts says when.  For a url experiment, router_url is the address visitors must enter through. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="daily">Include each variation&#39;s daily statistics (optional)</param>
+        /// <returns>SfvbExperiment</returns>
+        public SfvbExperiment GetSfvbExperiment (int storefrontOid, int experimentOid, bool? daily = default(bool?))
+        {
+             ApiResponse<SfvbExperiment> localVarResponse = GetSfvbExperimentWithHttpInfo(storefrontOid, experimentOid, daily);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read one experiment and its statistics The experiment, its variations and their statistics, and with daily=true each variation's daily rows.  p95_sessions_needed is estimated only after 1000 sessions, and sessions_needed_computed_dts says when.  For a url experiment, router_url is the address visitors must enter through. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="daily">Include each variation&#39;s daily statistics (optional)</param>
+        /// <returns>ApiResponse of SfvbExperiment</returns>
+        public ApiResponse<SfvbExperiment> GetSfvbExperimentWithHttpInfo (int storefrontOid, int experimentOid, bool? daily = default(bool?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbExperiment");
+            // verify the required parameter 'experimentOid' is set
+            if (experimentOid == null)
+                throw new ApiException(400, "Missing required parameter 'experimentOid' when calling SfvbApi->GetSfvbExperiment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (experimentOid != null) localVarPathParams.Add("experiment_oid", this.Configuration.ApiClient.ParameterToString(experimentOid)); // path parameter
+            if (daily != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "daily", daily)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbExperiment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbExperiment>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbExperiment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperiment)));
+        }
+
+        /// <summary>
+        /// Read one experiment and its statistics The experiment, its variations and their statistics, and with daily=true each variation's daily rows.  p95_sessions_needed is estimated only after 1000 sessions, and sessions_needed_computed_dts says when.  For a url experiment, router_url is the address visitors must enter through. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="daily">Include each variation&#39;s daily statistics (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbExperiment</returns>
+        public async System.Threading.Tasks.Task<SfvbExperiment> GetSfvbExperimentAsync (int storefrontOid, int experimentOid, bool? daily = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbExperiment> localVarResponse = await GetSfvbExperimentWithHttpInfoAsync(storefrontOid, experimentOid, daily, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read one experiment and its statistics The experiment, its variations and their statistics, and with daily=true each variation's daily rows.  p95_sessions_needed is estimated only after 1000 sessions, and sessions_needed_computed_dts says when.  For a url experiment, router_url is the address visitors must enter through. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="daily">Include each variation&#39;s daily statistics (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> GetSfvbExperimentWithHttpInfoAsync (int storefrontOid, int experimentOid, bool? daily = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbExperiment");
+            // verify the required parameter 'experimentOid' is set
+            if (experimentOid == null)
+                throw new ApiException(400, "Missing required parameter 'experimentOid' when calling SfvbApi->GetSfvbExperiment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (experimentOid != null) localVarPathParams.Add("experiment_oid", this.Configuration.ApiClient.ParameterToString(experimentOid)); // path parameter
+            if (daily != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "daily", daily)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbExperiment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbExperiment>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbExperiment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperiment)));
+        }
+
+        /// <summary>
+        /// List the objectives an experiment can optimize Each objective with what is measured per session and compared between variations, the usual optimization type, and whether it needs an event name. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbExperimentObjectivesResponse</returns>
+        public SfvbExperimentObjectivesResponse GetSfvbExperimentObjectives (int storefrontOid)
+        {
+             ApiResponse<SfvbExperimentObjectivesResponse> localVarResponse = GetSfvbExperimentObjectivesWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the objectives an experiment can optimize Each objective with what is measured per session and compared between variations, the usual optimization type, and whether it needs an event name. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbExperimentObjectivesResponse</returns>
+        public ApiResponse<SfvbExperimentObjectivesResponse> GetSfvbExperimentObjectivesWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbExperimentObjectives");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/experiments/objectives";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbExperimentObjectives", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbExperimentObjectivesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbExperimentObjectivesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperimentObjectivesResponse)));
+        }
+
+        /// <summary>
+        /// List the objectives an experiment can optimize Each objective with what is measured per session and compared between variations, the usual optimization type, and whether it needs an event name. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbExperimentObjectivesResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbExperimentObjectivesResponse> GetSfvbExperimentObjectivesAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbExperimentObjectivesResponse> localVarResponse = await GetSfvbExperimentObjectivesWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the objectives an experiment can optimize Each objective with what is measured per session and compared between variations, the usual optimization type, and whether it needs an event name. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbExperimentObjectivesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbExperimentObjectivesResponse>> GetSfvbExperimentObjectivesWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbExperimentObjectives");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/experiments/objectives";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbExperimentObjectives", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbExperimentObjectivesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbExperimentObjectivesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperimentObjectivesResponse)));
         }
 
         /// <summary>
@@ -5740,6 +7854,513 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
+        /// Read the blog posts assigned to a page The posts the page shows.  uses_selectors is true when the page's blog post selectors choose them instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <returns>SfvbPageBlogPostsResponse</returns>
+        public SfvbPageBlogPostsResponse GetSfvbPageBlogPosts (int storefrontOid, string path)
+        {
+             ApiResponse<SfvbPageBlogPostsResponse> localVarResponse = GetSfvbPageBlogPostsWithHttpInfo(storefrontOid, path);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read the blog posts assigned to a page The posts the page shows.  uses_selectors is true when the page's blog post selectors choose them instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <returns>ApiResponse of SfvbPageBlogPostsResponse</returns>
+        public ApiResponse<SfvbPageBlogPostsResponse> GetSfvbPageBlogPostsWithHttpInfo (int storefrontOid, string path)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbPageBlogPosts");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->GetSfvbPageBlogPosts");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/blog_posts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbPageBlogPosts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageBlogPostsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageBlogPostsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageBlogPostsResponse)));
+        }
+
+        /// <summary>
+        /// Read the blog posts assigned to a page The posts the page shows.  uses_selectors is true when the page's blog post selectors choose them instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageBlogPostsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageBlogPostsResponse> GetSfvbPageBlogPostsAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageBlogPostsResponse> localVarResponse = await GetSfvbPageBlogPostsWithHttpInfoAsync(storefrontOid, path, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read the blog posts assigned to a page The posts the page shows.  uses_selectors is true when the page's blog post selectors choose them instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageBlogPostsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageBlogPostsResponse>> GetSfvbPageBlogPostsWithHttpInfoAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbPageBlogPosts");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->GetSfvbPageBlogPosts");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/blog_posts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbPageBlogPosts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageBlogPostsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageBlogPostsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageBlogPostsResponse)));
+        }
+
+        /// <summary>
+        /// Read the items assigned to a page The items on the page with their sort order and url part.  uses_selectors is true when the page's selectors choose its items instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <returns>SfvbPageItemsResponse</returns>
+        public SfvbPageItemsResponse GetSfvbPageItems (int storefrontOid, string path)
+        {
+             ApiResponse<SfvbPageItemsResponse> localVarResponse = GetSfvbPageItemsWithHttpInfo(storefrontOid, path);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read the items assigned to a page The items on the page with their sort order and url part.  uses_selectors is true when the page's selectors choose its items instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <returns>ApiResponse of SfvbPageItemsResponse</returns>
+        public ApiResponse<SfvbPageItemsResponse> GetSfvbPageItemsWithHttpInfo (int storefrontOid, string path)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbPageItems");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->GetSfvbPageItems");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/items";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbPageItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageItemsResponse)));
+        }
+
+        /// <summary>
+        /// Read the items assigned to a page The items on the page with their sort order and url part.  uses_selectors is true when the page's selectors choose its items instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageItemsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageItemsResponse> GetSfvbPageItemsAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageItemsResponse> localVarResponse = await GetSfvbPageItemsWithHttpInfoAsync(storefrontOid, path, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read the items assigned to a page The items on the page with their sort order and url part.  uses_selectors is true when the page's selectors choose its items instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageItemsResponse>> GetSfvbPageItemsWithHttpInfoAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbPageItems");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->GetSfvbPageItems");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/items";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbPageItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageItemsResponse)));
+        }
+
+        /// <summary>
+        /// Read a page's selectors The conditions that choose the page's items and blog posts, and whether each set must all match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <returns>SfvbPageSelectors</returns>
+        public SfvbPageSelectors GetSfvbPageSelectors (int storefrontOid, string path)
+        {
+             ApiResponse<SfvbPageSelectors> localVarResponse = GetSfvbPageSelectorsWithHttpInfo(storefrontOid, path);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read a page's selectors The conditions that choose the page's items and blog posts, and whether each set must all match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <returns>ApiResponse of SfvbPageSelectors</returns>
+        public ApiResponse<SfvbPageSelectors> GetSfvbPageSelectorsWithHttpInfo (int storefrontOid, string path)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbPageSelectors");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->GetSfvbPageSelectors");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/selectors";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbPageSelectors", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageSelectors>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageSelectors) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageSelectors)));
+        }
+
+        /// <summary>
+        /// Read a page's selectors The conditions that choose the page's items and blog posts, and whether each set must all match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageSelectors</returns>
+        public async System.Threading.Tasks.Task<SfvbPageSelectors> GetSfvbPageSelectorsAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageSelectors> localVarResponse = await GetSfvbPageSelectorsWithHttpInfoAsync(storefrontOid, path, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read a page's selectors The conditions that choose the page's items and blog posts, and whether each set must all match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageSelectors)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageSelectors>> GetSfvbPageSelectorsWithHttpInfoAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbPageSelectors");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->GetSfvbPageSelectors");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/selectors";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbPageSelectors", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageSelectors>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageSelectors) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageSelectors)));
         }
 
         /// <summary>
@@ -6872,6 +9493,191 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Create a page Creates the page and its folder, the way the store admin's add page does.  The parent page must already exist, and the last part of the path may only contain letters, digits, hyphens and underscores - it is refused, not cleaned.  A path that already has a page is refused with a 409 and the code sfvb.page_exists.  Without a group_template the page inherits its parent's templates, or catalog_group.vm directly under the root.  Set attributes and images afterwards with the page attribute and image endpoints, and push the body to the page folder.  Always needs sfvb_publish, because the page is live as soon as it exists.  Deleting, moving and renaming pages stay in the store admin. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageCreateRequest">The page to create</param>
+        /// <returns>SfvbPageResponse</returns>
+        public SfvbPageResponse InsertSfvbPage (int storefrontOid, SfvbPageCreateRequest pageCreateRequest)
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = InsertSfvbPageWithHttpInfo(storefrontOid, pageCreateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a page Creates the page and its folder, the way the store admin's add page does.  The parent page must already exist, and the last part of the path may only contain letters, digits, hyphens and underscores - it is refused, not cleaned.  A path that already has a page is refused with a 409 and the code sfvb.page_exists.  Without a group_template the page inherits its parent's templates, or catalog_group.vm directly under the root.  Set attributes and images afterwards with the page attribute and image endpoints, and push the body to the page folder.  Always needs sfvb_publish, because the page is live as soon as it exists.  Deleting, moving and renaming pages stay in the store admin. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageCreateRequest">The page to create</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        public ApiResponse<SfvbPageResponse> InsertSfvbPageWithHttpInfo (int storefrontOid, SfvbPageCreateRequest pageCreateRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbPage");
+            // verify the required parameter 'pageCreateRequest' is set
+            if (pageCreateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageCreateRequest' when calling SfvbApi->InsertSfvbPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (pageCreateRequest != null && pageCreateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageCreateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageCreateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
+        /// Create a page Creates the page and its folder, the way the store admin's add page does.  The parent page must already exist, and the last part of the path may only contain letters, digits, hyphens and underscores - it is refused, not cleaned.  A path that already has a page is refused with a 409 and the code sfvb.page_exists.  Without a group_template the page inherits its parent's templates, or catalog_group.vm directly under the root.  Set attributes and images afterwards with the page attribute and image endpoints, and push the body to the page folder.  Always needs sfvb_publish, because the page is live as soon as it exists.  Deleting, moving and renaming pages stay in the store admin. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageCreateRequest">The page to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageResponse> InsertSfvbPageAsync (int storefrontOid, SfvbPageCreateRequest pageCreateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = await InsertSfvbPageWithHttpInfoAsync(storefrontOid, pageCreateRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a page Creates the page and its folder, the way the store admin's add page does.  The parent page must already exist, and the last part of the path may only contain letters, digits, hyphens and underscores - it is refused, not cleaned.  A path that already has a page is refused with a 409 and the code sfvb.page_exists.  Without a group_template the page inherits its parent's templates, or catalog_group.vm directly under the root.  Set attributes and images afterwards with the page attribute and image endpoints, and push the body to the page folder.  Always needs sfvb_publish, because the page is live as soon as it exists.  Deleting, moving and renaming pages stay in the store admin. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageCreateRequest">The page to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> InsertSfvbPageWithHttpInfoAsync (int storefrontOid, SfvbPageCreateRequest pageCreateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbPage");
+            // verify the required parameter 'pageCreateRequest' is set
+            if (pageCreateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageCreateRequest' when calling SfvbApi->InsertSfvbPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (pageCreateRequest != null && pageCreateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageCreateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageCreateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
         /// Install a library entry into a storefront Copies the fragment's referenced assets into the storefront file system and returns the CJSON with its paths resolved, ready to place.  This writes, which is why it is a POST rather than the GET the internal admin endpoint uses.  It also requires sfvb_publish, because the assets land in the shared storefront file system, which is served to shoppers regardless of which theme is active, so no amount of working inside a duplicate theme isolates them. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7038,6 +9844,181 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// List the storefront's blog posts One page of blog posts, newest first, without their bodies.  search matches the title, body, excerpt, url part or author, or a tag exactly.  unassigned marks posts no page shows yet.  Use a post's blog_post_oid to assign it to a page. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Posts per page, 1 to 100, default 50 (optional)</param>
+        /// <returns>SfvbBlogPostsResponse</returns>
+        public SfvbBlogPostsResponse ListSfvbBlogPosts (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?))
+        {
+             ApiResponse<SfvbBlogPostsResponse> localVarResponse = ListSfvbBlogPostsWithHttpInfo(storefrontOid, search, page, pageSize);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the storefront's blog posts One page of blog posts, newest first, without their bodies.  search matches the title, body, excerpt, url part or author, or a tag exactly.  unassigned marks posts no page shows yet.  Use a post's blog_post_oid to assign it to a page. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Posts per page, 1 to 100, default 50 (optional)</param>
+        /// <returns>ApiResponse of SfvbBlogPostsResponse</returns>
+        public ApiResponse<SfvbBlogPostsResponse> ListSfvbBlogPostsWithHttpInfo (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbBlogPosts");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (search != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search", search)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page_size", pageSize)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbBlogPosts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbBlogPostsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbBlogPostsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostsResponse)));
+        }
+
+        /// <summary>
+        /// List the storefront's blog posts One page of blog posts, newest first, without their bodies.  search matches the title, body, excerpt, url part or author, or a tag exactly.  unassigned marks posts no page shows yet.  Use a post's blog_post_oid to assign it to a page. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Posts per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbBlogPostsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbBlogPostsResponse> ListSfvbBlogPostsAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbBlogPostsResponse> localVarResponse = await ListSfvbBlogPostsWithHttpInfoAsync(storefrontOid, search, page, pageSize, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the storefront's blog posts One page of blog posts, newest first, without their bodies.  search matches the title, body, excerpt, url part or author, or a tag exactly.  unassigned marks posts no page shows yet.  Use a post's blog_post_oid to assign it to a page. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Posts per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbBlogPostsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostsResponse>> ListSfvbBlogPostsWithHttpInfoAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbBlogPosts");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (search != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search", search)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page_size", pageSize)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbBlogPosts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbBlogPostsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbBlogPostsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostsResponse)));
         }
 
         /// <summary>
@@ -7358,6 +10339,181 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbElementsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbElementsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbElementsResponse)));
+        }
+
+        /// <summary>
+        /// List the storefront's experiments Every experiment that is not deleted, with its variations and their statistics - the same numbers the store admin shows.  Filter by status, by type (page, url, theme, openai), or by the page an experiment runs on.  auto_ends_at says when the engine will end an experiment by itself, and p_value is a one-way ANOVA across all variations.  Read one experiment for its daily statistics. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">Running or Ended (optional)</param>
+        /// <param name="type">page, url, theme or openai (optional)</param>
+        /// <param name="path">Only experiments on this page, for example /lp/spring-sale/ (optional)</param>
+        /// <returns>SfvbExperimentsResponse</returns>
+        public SfvbExperimentsResponse ListSfvbExperiments (int storefrontOid, string status = default(string), string type = default(string), string path = default(string))
+        {
+             ApiResponse<SfvbExperimentsResponse> localVarResponse = ListSfvbExperimentsWithHttpInfo(storefrontOid, status, type, path);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the storefront's experiments Every experiment that is not deleted, with its variations and their statistics - the same numbers the store admin shows.  Filter by status, by type (page, url, theme, openai), or by the page an experiment runs on.  auto_ends_at says when the engine will end an experiment by itself, and p_value is a one-way ANOVA across all variations.  Read one experiment for its daily statistics. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">Running or Ended (optional)</param>
+        /// <param name="type">page, url, theme or openai (optional)</param>
+        /// <param name="path">Only experiments on this page, for example /lp/spring-sale/ (optional)</param>
+        /// <returns>ApiResponse of SfvbExperimentsResponse</returns>
+        public ApiResponse<SfvbExperimentsResponse> ListSfvbExperimentsWithHttpInfo (int storefrontOid, string status = default(string), string type = default(string), string path = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbExperiments");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/experiments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (status != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "status", status)); // query parameter
+            if (type != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "type", type)); // query parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbExperiments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbExperimentsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbExperimentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperimentsResponse)));
+        }
+
+        /// <summary>
+        /// List the storefront's experiments Every experiment that is not deleted, with its variations and their statistics - the same numbers the store admin shows.  Filter by status, by type (page, url, theme, openai), or by the page an experiment runs on.  auto_ends_at says when the engine will end an experiment by itself, and p_value is a one-way ANOVA across all variations.  Read one experiment for its daily statistics. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">Running or Ended (optional)</param>
+        /// <param name="type">page, url, theme or openai (optional)</param>
+        /// <param name="path">Only experiments on this page, for example /lp/spring-sale/ (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbExperimentsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbExperimentsResponse> ListSfvbExperimentsAsync (int storefrontOid, string status = default(string), string type = default(string), string path = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbExperimentsResponse> localVarResponse = await ListSfvbExperimentsWithHttpInfoAsync(storefrontOid, status, type, path, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the storefront's experiments Every experiment that is not deleted, with its variations and their statistics - the same numbers the store admin shows.  Filter by status, by type (page, url, theme, openai), or by the page an experiment runs on.  auto_ends_at says when the engine will end an experiment by itself, and p_value is a one-way ANOVA across all variations.  Read one experiment for its daily statistics. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">Running or Ended (optional)</param>
+        /// <param name="type">page, url, theme or openai (optional)</param>
+        /// <param name="path">Only experiments on this page, for example /lp/spring-sale/ (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbExperimentsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbExperimentsResponse>> ListSfvbExperimentsWithHttpInfoAsync (int storefrontOid, string status = default(string), string type = default(string), string path = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbExperiments");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/experiments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (status != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "status", status)); // query parameter
+            if (type != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "type", type)); // query parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbExperiments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbExperimentsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbExperimentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperimentsResponse)));
         }
 
         /// <summary>
@@ -7705,6 +10861,169 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// List the storefront's pages Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <returns>SfvbPageListResponse</returns>
+        public SfvbPageListResponse ListSfvbPages (int storefrontOid, string under = default(string))
+        {
+             ApiResponse<SfvbPageListResponse> localVarResponse = ListSfvbPagesWithHttpInfo(storefrontOid, under);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the storefront's pages Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <returns>ApiResponse of SfvbPageListResponse</returns>
+        public ApiResponse<SfvbPageListResponse> ListSfvbPagesWithHttpInfo (int storefrontOid, string under = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbPages");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/list";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (under != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "under", under)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbPages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageListResponse)));
+        }
+
+        /// <summary>
+        /// List the storefront's pages Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageListResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageListResponse> ListSfvbPagesAsync (int storefrontOid, string under = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageListResponse> localVarResponse = await ListSfvbPagesWithHttpInfoAsync(storefrontOid, under, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the storefront's pages Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageListResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageListResponse>> ListSfvbPagesWithHttpInfoAsync (int storefrontOid, string under = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbPages");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/list";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (under != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "under", under)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbPages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageListResponse)));
+        }
+
+        /// <summary>
         /// List storefronts 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7847,6 +11166,169 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbStorefrontsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbStorefrontsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbStorefrontsResponse)));
+        }
+
+        /// <summary>
+        /// List the active theme's templates Each template with the page type it declares and what it can render - items, sub-pages, blog posts, pagination, visual builder containers.  A page's group_template names one of these.  The storefront's fixed templates, such as checkout and my account, are flagged system and must never be assigned to a page. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageType">Only templates declaring this page type, for example group (optional)</param>
+        /// <returns>SfvbTemplatesResponse</returns>
+        public SfvbTemplatesResponse ListSfvbTemplates (int storefrontOid, string pageType = default(string))
+        {
+             ApiResponse<SfvbTemplatesResponse> localVarResponse = ListSfvbTemplatesWithHttpInfo(storefrontOid, pageType);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the active theme's templates Each template with the page type it declares and what it can render - items, sub-pages, blog posts, pagination, visual builder containers.  A page's group_template names one of these.  The storefront's fixed templates, such as checkout and my account, are flagged system and must never be assigned to a page. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageType">Only templates declaring this page type, for example group (optional)</param>
+        /// <returns>ApiResponse of SfvbTemplatesResponse</returns>
+        public ApiResponse<SfvbTemplatesResponse> ListSfvbTemplatesWithHttpInfo (int storefrontOid, string pageType = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbTemplates");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/templates";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (pageType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page_type", pageType)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbTemplates", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTemplatesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTemplatesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTemplatesResponse)));
+        }
+
+        /// <summary>
+        /// List the active theme's templates Each template with the page type it declares and what it can render - items, sub-pages, blog posts, pagination, visual builder containers.  A page's group_template names one of these.  The storefront's fixed templates, such as checkout and my account, are flagged system and must never be assigned to a page. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageType">Only templates declaring this page type, for example group (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTemplatesResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbTemplatesResponse> ListSfvbTemplatesAsync (int storefrontOid, string pageType = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTemplatesResponse> localVarResponse = await ListSfvbTemplatesWithHttpInfoAsync(storefrontOid, pageType, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the active theme's templates Each template with the page type it declares and what it can render - items, sub-pages, blog posts, pagination, visual builder containers.  A page's group_template names one of these.  The storefront's fixed templates, such as checkout and my account, are flagged system and must never be assigned to a page. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageType">Only templates declaring this page type, for example group (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTemplatesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTemplatesResponse>> ListSfvbTemplatesWithHttpInfoAsync (int storefrontOid, string pageType = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbTemplates");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/templates";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (pageType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page_type", pageType)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbTemplates", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTemplatesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTemplatesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTemplatesResponse)));
         }
 
         /// <summary>
@@ -8388,6 +11870,215 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbContainerResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbContainerResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbContainerResponse)));
+        }
+
+        /// <summary>
+        /// Pause or resume a variation Stops or resumes sending new visitors to one variation of a running experiment.  Visitors already assigned keep seeing it.  Variation 0 cannot be paused, because the split falls back to it, and the last variation still receiving visitors cannot be paused.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="variationNumber"></param>
+        /// <param name="experimentVariationUpdateRequest">Pause or resume</param>
+        /// <returns>SfvbExperiment</returns>
+        public SfvbExperiment PutSfvbExperimentVariation (int storefrontOid, int experimentOid, int variationNumber, SfvbExperimentVariationUpdateRequest experimentVariationUpdateRequest)
+        {
+             ApiResponse<SfvbExperiment> localVarResponse = PutSfvbExperimentVariationWithHttpInfo(storefrontOid, experimentOid, variationNumber, experimentVariationUpdateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Pause or resume a variation Stops or resumes sending new visitors to one variation of a running experiment.  Visitors already assigned keep seeing it.  Variation 0 cannot be paused, because the split falls back to it, and the last variation still receiving visitors cannot be paused.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="variationNumber"></param>
+        /// <param name="experimentVariationUpdateRequest">Pause or resume</param>
+        /// <returns>ApiResponse of SfvbExperiment</returns>
+        public ApiResponse<SfvbExperiment> PutSfvbExperimentVariationWithHttpInfo (int storefrontOid, int experimentOid, int variationNumber, SfvbExperimentVariationUpdateRequest experimentVariationUpdateRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbExperimentVariation");
+            // verify the required parameter 'experimentOid' is set
+            if (experimentOid == null)
+                throw new ApiException(400, "Missing required parameter 'experimentOid' when calling SfvbApi->PutSfvbExperimentVariation");
+            // verify the required parameter 'variationNumber' is set
+            if (variationNumber == null)
+                throw new ApiException(400, "Missing required parameter 'variationNumber' when calling SfvbApi->PutSfvbExperimentVariation");
+            // verify the required parameter 'experimentVariationUpdateRequest' is set
+            if (experimentVariationUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'experimentVariationUpdateRequest' when calling SfvbApi->PutSfvbExperimentVariation");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (experimentOid != null) localVarPathParams.Add("experiment_oid", this.Configuration.ApiClient.ParameterToString(experimentOid)); // path parameter
+            if (variationNumber != null) localVarPathParams.Add("variation_number", this.Configuration.ApiClient.ParameterToString(variationNumber)); // path parameter
+            if (experimentVariationUpdateRequest != null && experimentVariationUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(experimentVariationUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = experimentVariationUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbExperimentVariation", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbExperiment>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbExperiment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperiment)));
+        }
+
+        /// <summary>
+        /// Pause or resume a variation Stops or resumes sending new visitors to one variation of a running experiment.  Visitors already assigned keep seeing it.  Variation 0 cannot be paused, because the split falls back to it, and the last variation still receiving visitors cannot be paused.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="variationNumber"></param>
+        /// <param name="experimentVariationUpdateRequest">Pause or resume</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbExperiment</returns>
+        public async System.Threading.Tasks.Task<SfvbExperiment> PutSfvbExperimentVariationAsync (int storefrontOid, int experimentOid, int variationNumber, SfvbExperimentVariationUpdateRequest experimentVariationUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbExperiment> localVarResponse = await PutSfvbExperimentVariationWithHttpInfoAsync(storefrontOid, experimentOid, variationNumber, experimentVariationUpdateRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Pause or resume a variation Stops or resumes sending new visitors to one variation of a running experiment.  Visitors already assigned keep seeing it.  Variation 0 cannot be paused, because the split falls back to it, and the last variation still receiving visitors cannot be paused.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentOid"></param>
+        /// <param name="variationNumber"></param>
+        /// <param name="experimentVariationUpdateRequest">Pause or resume</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> PutSfvbExperimentVariationWithHttpInfoAsync (int storefrontOid, int experimentOid, int variationNumber, SfvbExperimentVariationUpdateRequest experimentVariationUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbExperimentVariation");
+            // verify the required parameter 'experimentOid' is set
+            if (experimentOid == null)
+                throw new ApiException(400, "Missing required parameter 'experimentOid' when calling SfvbApi->PutSfvbExperimentVariation");
+            // verify the required parameter 'variationNumber' is set
+            if (variationNumber == null)
+                throw new ApiException(400, "Missing required parameter 'variationNumber' when calling SfvbApi->PutSfvbExperimentVariation");
+            // verify the required parameter 'experimentVariationUpdateRequest' is set
+            if (experimentVariationUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'experimentVariationUpdateRequest' when calling SfvbApi->PutSfvbExperimentVariation");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (experimentOid != null) localVarPathParams.Add("experiment_oid", this.Configuration.ApiClient.ParameterToString(experimentOid)); // path parameter
+            if (variationNumber != null) localVarPathParams.Add("variation_number", this.Configuration.ApiClient.ParameterToString(variationNumber)); // path parameter
+            if (experimentVariationUpdateRequest != null && experimentVariationUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(experimentVariationUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = experimentVariationUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbExperimentVariation", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbExperiment>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbExperiment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperiment)));
         }
 
         /// <summary>
@@ -9191,6 +12882,400 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Replace a page's selectors Each list you send replaces that whole set, and an empty list clears it.  A list you leave out is not touched.  The page's items or blog posts are recalculated from the new selectors straight away.  While a page has item selectors its items cannot be assigned by hand.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSelectorsRequest">The selector sets to replace</param>
+        /// <returns>SfvbPageSelectors</returns>
+        public SfvbPageSelectors PutSfvbPageSelectors (int storefrontOid, string path, SfvbPageSelectors pageSelectorsRequest)
+        {
+             ApiResponse<SfvbPageSelectors> localVarResponse = PutSfvbPageSelectorsWithHttpInfo(storefrontOid, path, pageSelectorsRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Replace a page's selectors Each list you send replaces that whole set, and an empty list clears it.  A list you leave out is not touched.  The page's items or blog posts are recalculated from the new selectors straight away.  While a page has item selectors its items cannot be assigned by hand.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSelectorsRequest">The selector sets to replace</param>
+        /// <returns>ApiResponse of SfvbPageSelectors</returns>
+        public ApiResponse<SfvbPageSelectors> PutSfvbPageSelectorsWithHttpInfo (int storefrontOid, string path, SfvbPageSelectors pageSelectorsRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbPageSelectors");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->PutSfvbPageSelectors");
+            // verify the required parameter 'pageSelectorsRequest' is set
+            if (pageSelectorsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageSelectorsRequest' when calling SfvbApi->PutSfvbPageSelectors");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/selectors";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageSelectorsRequest != null && pageSelectorsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageSelectorsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageSelectorsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbPageSelectors", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageSelectors>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageSelectors) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageSelectors)));
+        }
+
+        /// <summary>
+        /// Replace a page's selectors Each list you send replaces that whole set, and an empty list clears it.  A list you leave out is not touched.  The page's items or blog posts are recalculated from the new selectors straight away.  While a page has item selectors its items cannot be assigned by hand.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSelectorsRequest">The selector sets to replace</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageSelectors</returns>
+        public async System.Threading.Tasks.Task<SfvbPageSelectors> PutSfvbPageSelectorsAsync (int storefrontOid, string path, SfvbPageSelectors pageSelectorsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageSelectors> localVarResponse = await PutSfvbPageSelectorsWithHttpInfoAsync(storefrontOid, path, pageSelectorsRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Replace a page's selectors Each list you send replaces that whole set, and an empty list clears it.  A list you leave out is not touched.  The page's items or blog posts are recalculated from the new selectors straight away.  While a page has item selectors its items cannot be assigned by hand.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSelectorsRequest">The selector sets to replace</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageSelectors)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageSelectors>> PutSfvbPageSelectorsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageSelectors pageSelectorsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbPageSelectors");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->PutSfvbPageSelectors");
+            // verify the required parameter 'pageSelectorsRequest' is set
+            if (pageSelectorsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageSelectorsRequest' when calling SfvbApi->PutSfvbPageSelectors");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/selectors";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageSelectorsRequest != null && pageSelectorsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageSelectorsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageSelectorsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbPageSelectors", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageSelectors>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageSelectors) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageSelectors)));
+        }
+
+        /// <summary>
+        /// Change a page's settings A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSettingsRequest">The settings to change</param>
+        /// <returns>SfvbPageResponse</returns>
+        public SfvbPageResponse PutSfvbPageSettings (int storefrontOid, string path, SfvbPageSettingsRequest pageSettingsRequest)
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = PutSfvbPageSettingsWithHttpInfo(storefrontOid, path, pageSettingsRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a page's settings A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSettingsRequest">The settings to change</param>
+        /// <returns>ApiResponse of SfvbPageResponse</returns>
+        public ApiResponse<SfvbPageResponse> PutSfvbPageSettingsWithHttpInfo (int storefrontOid, string path, SfvbPageSettingsRequest pageSettingsRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbPageSettings");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->PutSfvbPageSettings");
+            // verify the required parameter 'pageSettingsRequest' is set
+            if (pageSettingsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageSettingsRequest' when calling SfvbApi->PutSfvbPageSettings");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageSettingsRequest != null && pageSettingsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageSettingsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageSettingsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbPageSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
+        /// Change a page's settings A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSettingsRequest">The settings to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageResponse> PutSfvbPageSettingsAsync (int storefrontOid, string path, SfvbPageSettingsRequest pageSettingsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageResponse> localVarResponse = await PutSfvbPageSettingsWithHttpInfoAsync(storefrontOid, path, pageSettingsRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a page's settings A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageSettingsRequest">The settings to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> PutSfvbPageSettingsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageSettingsRequest pageSettingsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbPageSettings");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->PutSfvbPageSettings");
+            // verify the required parameter 'pageSettingsRequest' is set
+            if (pageSettingsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageSettingsRequest' when calling SfvbApi->PutSfvbPageSettings");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageSettingsRequest != null && pageSettingsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageSettingsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageSettingsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbPageSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
         /// Push containers into a preview session Stores compiled containers against a session created by createSfvbPreviewSession.  Replaces whatever the session held.  The session must exist - this does not create one, so a deleted, expired or never issued id is a 404 rather than a new session.  Nothing durable is written.  Requires a token that resolves to a user, so use the device authorization flow. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9773,6 +13858,400 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbThemeAttributesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbThemeAttributesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbThemeAttributesResponse)));
+        }
+
+        /// <summary>
+        /// Take blog posts off a page Removes posts by blog_post_oid, at most 500 at a time.  Every oid must be on the page, and one that is not changes nothing.  The posts themselves are not touched.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to take off the page</param>
+        /// <returns>SfvbPageBlogPostsResponse</returns>
+        public SfvbPageBlogPostsResponse RemoveSfvbPageBlogPosts (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest)
+        {
+             ApiResponse<SfvbPageBlogPostsResponse> localVarResponse = RemoveSfvbPageBlogPostsWithHttpInfo(storefrontOid, path, pageBlogPostsRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Take blog posts off a page Removes posts by blog_post_oid, at most 500 at a time.  Every oid must be on the page, and one that is not changes nothing.  The posts themselves are not touched.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to take off the page</param>
+        /// <returns>ApiResponse of SfvbPageBlogPostsResponse</returns>
+        public ApiResponse<SfvbPageBlogPostsResponse> RemoveSfvbPageBlogPostsWithHttpInfo (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->RemoveSfvbPageBlogPosts");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->RemoveSfvbPageBlogPosts");
+            // verify the required parameter 'pageBlogPostsRequest' is set
+            if (pageBlogPostsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageBlogPostsRequest' when calling SfvbApi->RemoveSfvbPageBlogPosts");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageBlogPostsRequest != null && pageBlogPostsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageBlogPostsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageBlogPostsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RemoveSfvbPageBlogPosts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageBlogPostsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageBlogPostsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageBlogPostsResponse)));
+        }
+
+        /// <summary>
+        /// Take blog posts off a page Removes posts by blog_post_oid, at most 500 at a time.  Every oid must be on the page, and one that is not changes nothing.  The posts themselves are not touched.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to take off the page</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageBlogPostsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageBlogPostsResponse> RemoveSfvbPageBlogPostsAsync (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageBlogPostsResponse> localVarResponse = await RemoveSfvbPageBlogPostsWithHttpInfoAsync(storefrontOid, path, pageBlogPostsRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Take blog posts off a page Removes posts by blog_post_oid, at most 500 at a time.  Every oid must be on the page, and one that is not changes nothing.  The posts themselves are not touched.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /blog/</param>
+        /// <param name="pageBlogPostsRequest">Blog posts to take off the page</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageBlogPostsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageBlogPostsResponse>> RemoveSfvbPageBlogPostsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageBlogPostsRequest pageBlogPostsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->RemoveSfvbPageBlogPosts");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->RemoveSfvbPageBlogPosts");
+            // verify the required parameter 'pageBlogPostsRequest' is set
+            if (pageBlogPostsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageBlogPostsRequest' when calling SfvbApi->RemoveSfvbPageBlogPosts");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageBlogPostsRequest != null && pageBlogPostsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageBlogPostsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageBlogPostsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RemoveSfvbPageBlogPosts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageBlogPostsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageBlogPostsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageBlogPostsResponse)));
+        }
+
+        /// <summary>
+        /// Take items off a page Removes items by item id, at most 500 at a time.  Every id must be on the page, and one that is not changes nothing.  The items themselves are not touched.  Refused on a page whose selectors choose its items.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsRemoveRequest">Items to take off the page</param>
+        /// <returns>SfvbPageItemsResponse</returns>
+        public SfvbPageItemsResponse RemoveSfvbPageItems (int storefrontOid, string path, SfvbPageItemsRemoveRequest pageItemsRemoveRequest)
+        {
+             ApiResponse<SfvbPageItemsResponse> localVarResponse = RemoveSfvbPageItemsWithHttpInfo(storefrontOid, path, pageItemsRemoveRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Take items off a page Removes items by item id, at most 500 at a time.  Every id must be on the page, and one that is not changes nothing.  The items themselves are not touched.  Refused on a page whose selectors choose its items.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsRemoveRequest">Items to take off the page</param>
+        /// <returns>ApiResponse of SfvbPageItemsResponse</returns>
+        public ApiResponse<SfvbPageItemsResponse> RemoveSfvbPageItemsWithHttpInfo (int storefrontOid, string path, SfvbPageItemsRemoveRequest pageItemsRemoveRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->RemoveSfvbPageItems");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->RemoveSfvbPageItems");
+            // verify the required parameter 'pageItemsRemoveRequest' is set
+            if (pageItemsRemoveRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageItemsRemoveRequest' when calling SfvbApi->RemoveSfvbPageItems");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/items/remove";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageItemsRemoveRequest != null && pageItemsRemoveRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageItemsRemoveRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageItemsRemoveRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RemoveSfvbPageItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageItemsResponse)));
+        }
+
+        /// <summary>
+        /// Take items off a page Removes items by item id, at most 500 at a time.  Every id must be on the page, and one that is not changes nothing.  The items themselves are not touched.  Refused on a page whose selectors choose its items.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsRemoveRequest">Items to take off the page</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageItemsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageItemsResponse> RemoveSfvbPageItemsAsync (int storefrontOid, string path, SfvbPageItemsRemoveRequest pageItemsRemoveRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageItemsResponse> localVarResponse = await RemoveSfvbPageItemsWithHttpInfoAsync(storefrontOid, path, pageItemsRemoveRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Take items off a page Removes items by item id, at most 500 at a time.  Every id must be on the page, and one that is not changes nothing.  The items themselves are not touched.  Refused on a page whose selectors choose its items.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">Page path, for example /lp/spring-sale/</param>
+        /// <param name="pageItemsRemoveRequest">Items to take off the page</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageItemsResponse>> RemoveSfvbPageItemsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageItemsRemoveRequest pageItemsRemoveRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->RemoveSfvbPageItems");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->RemoveSfvbPageItems");
+            // verify the required parameter 'pageItemsRemoveRequest' is set
+            if (pageItemsRemoveRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageItemsRemoveRequest' when calling SfvbApi->RemoveSfvbPageItems");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/items/remove";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (pageItemsRemoveRequest != null && pageItemsRemoveRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageItemsRemoveRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageItemsRemoveRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RemoveSfvbPageItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageItemsResponse)));
         }
 
         /// <summary>
@@ -10923,6 +15402,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbLibraryResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbLibraryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryResponse)));
+        }
+
+        /// <summary>
+        /// Start an experiment type page starts an experiment element already saved in a page body - send path, slot and widget_id, and its name, objective, duration and variations are read from the element with the builder's rules (2 to 5 variations numbered 0 up with no gaps, 3 to 90 days, traffic on all or none adding up to 100).  The new id is written into the element and the body is saved, so pull it again before the next edit.  type url splits visitors between existing pages at router_url, and always ends by itself after duration_days.  Always needs sfvb_publish, because visitors are split as soon as it starts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentStartRequest">The experiment to start</param>
+        /// <returns>SfvbExperiment</returns>
+        public SfvbExperiment StartSfvbExperiment (int storefrontOid, SfvbExperimentStartRequest experimentStartRequest)
+        {
+             ApiResponse<SfvbExperiment> localVarResponse = StartSfvbExperimentWithHttpInfo(storefrontOid, experimentStartRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Start an experiment type page starts an experiment element already saved in a page body - send path, slot and widget_id, and its name, objective, duration and variations are read from the element with the builder's rules (2 to 5 variations numbered 0 up with no gaps, 3 to 90 days, traffic on all or none adding up to 100).  The new id is written into the element and the body is saved, so pull it again before the next edit.  type url splits visitors between existing pages at router_url, and always ends by itself after duration_days.  Always needs sfvb_publish, because visitors are split as soon as it starts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentStartRequest">The experiment to start</param>
+        /// <returns>ApiResponse of SfvbExperiment</returns>
+        public ApiResponse<SfvbExperiment> StartSfvbExperimentWithHttpInfo (int storefrontOid, SfvbExperimentStartRequest experimentStartRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->StartSfvbExperiment");
+            // verify the required parameter 'experimentStartRequest' is set
+            if (experimentStartRequest == null)
+                throw new ApiException(400, "Missing required parameter 'experimentStartRequest' when calling SfvbApi->StartSfvbExperiment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/experiments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (experimentStartRequest != null && experimentStartRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(experimentStartRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = experimentStartRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("StartSfvbExperiment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbExperiment>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbExperiment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperiment)));
+        }
+
+        /// <summary>
+        /// Start an experiment type page starts an experiment element already saved in a page body - send path, slot and widget_id, and its name, objective, duration and variations are read from the element with the builder's rules (2 to 5 variations numbered 0 up with no gaps, 3 to 90 days, traffic on all or none adding up to 100).  The new id is written into the element and the body is saved, so pull it again before the next edit.  type url splits visitors between existing pages at router_url, and always ends by itself after duration_days.  Always needs sfvb_publish, because visitors are split as soon as it starts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentStartRequest">The experiment to start</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbExperiment</returns>
+        public async System.Threading.Tasks.Task<SfvbExperiment> StartSfvbExperimentAsync (int storefrontOid, SfvbExperimentStartRequest experimentStartRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbExperiment> localVarResponse = await StartSfvbExperimentWithHttpInfoAsync(storefrontOid, experimentStartRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Start an experiment type page starts an experiment element already saved in a page body - send path, slot and widget_id, and its name, objective, duration and variations are read from the element with the builder's rules (2 to 5 variations numbered 0 up with no gaps, 3 to 90 days, traffic on all or none adding up to 100).  The new id is written into the element and the body is saved, so pull it again before the next edit.  type url splits visitors between existing pages at router_url, and always ends by itself after duration_days.  Always needs sfvb_publish, because visitors are split as soon as it starts. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="experimentStartRequest">The experiment to start</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> StartSfvbExperimentWithHttpInfoAsync (int storefrontOid, SfvbExperimentStartRequest experimentStartRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->StartSfvbExperiment");
+            // verify the required parameter 'experimentStartRequest' is set
+            if (experimentStartRequest == null)
+                throw new ApiException(400, "Missing required parameter 'experimentStartRequest' when calling SfvbApi->StartSfvbExperiment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/experiments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (experimentStartRequest != null && experimentStartRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(experimentStartRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = experimentStartRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("StartSfvbExperiment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbExperiment>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbExperiment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperiment)));
         }
 
         /// <summary>

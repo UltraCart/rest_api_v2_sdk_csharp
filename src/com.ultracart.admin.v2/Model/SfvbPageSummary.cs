@@ -25,42 +25,52 @@ using OpenAPIDateConverter = com.ultracart.admin.v2.Client.OpenAPIDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// SfvbPageResponse
+    /// SfvbPageSummary
     /// </summary>
     [DataContract]
-    public partial class SfvbPageResponse :  IEquatable<SfvbPageResponse>, IValidatableObject
+    public partial class SfvbPageSummary :  IEquatable<SfvbPageSummary>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SfvbPageResponse" /> class.
+        /// Initializes a new instance of the <see cref="SfvbPageSummary" /> class.
         /// </summary>
-        /// <param name="attributes">Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name..</param>
+        /// <param name="childCount">Number of pages directly under this one..</param>
         /// <param name="excludeFromSitemap">True when the page is left out of the sitemap and marked noindex..</param>
         /// <param name="groupTemplate">Template file that renders the page itself, a bare .vm name found anywhere in the active theme..</param>
+        /// <param name="itemCount">Number of items assigned to the page.  The catalog stops counting at its per-page item ceiling..</param>
         /// <param name="itemTemplate">Template file that renders the item pages under this page..</param>
-        /// <param name="multimedia">The page&#39;s images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first..</param>
-        /// <param name="path">The page path, normalized to begin and end with a slash..</param>
+        /// <param name="pageType">S for a static page, D for a dynamic one..</param>
+        /// <param name="parentPath">Path of the page this one sits under.  Empty for the root page..</param>
+        /// <param name="path">The page path, beginning and ending with a slash.  The root page is /..</param>
+        /// <param name="root">True for the storefront&#39;s home page..</param>
+        /// <param name="sortOrder">Position among its siblings when the parent sorts child pages by a custom order..</param>
         /// <param name="title">The page title..</param>
+        /// <param name="usesSelectors">True when the page&#39;s items or blog posts are chosen by selectors rather than assigned by hand..</param>
         /// <param name="visible">False when the page is hidden.  A hidden page answers 404 to shoppers..</param>
         /// <param name="visibleDts">When set, the page stays hidden until this time (ISO 8601, UTC)..</param>
-        public SfvbPageResponse(List<SfvbPageAttribute> attributes = default(List<SfvbPageAttribute>), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), List<SfvbPageMultimedia> multimedia = default(List<SfvbPageMultimedia>), string path = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
+        public SfvbPageSummary(int childCount = default(int), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), int itemCount = default(int), string itemTemplate = default(string), string pageType = default(string), string parentPath = default(string), string path = default(string), bool root = default(bool), int sortOrder = default(int), string title = default(string), bool usesSelectors = default(bool), bool visible = default(bool), string visibleDts = default(string))
         {
-            this.Attributes = attributes;
+            this.ChildCount = childCount;
             this.ExcludeFromSitemap = excludeFromSitemap;
             this.GroupTemplate = groupTemplate;
+            this.ItemCount = itemCount;
             this.ItemTemplate = itemTemplate;
-            this.Multimedia = multimedia;
+            this.PageType = pageType;
+            this.ParentPath = parentPath;
             this.Path = path;
+            this.Root = root;
+            this.SortOrder = sortOrder;
             this.Title = title;
+            this.UsesSelectors = usesSelectors;
             this.Visible = visible;
             this.VisibleDts = visibleDts;
         }
 
         /// <summary>
-        /// Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.
+        /// Number of pages directly under this one.
         /// </summary>
-        /// <value>Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.</value>
-        [DataMember(Name="attributes", EmitDefaultValue=false)]
-        public List<SfvbPageAttribute> Attributes { get; set; }
+        /// <value>Number of pages directly under this one.</value>
+        [DataMember(Name="child_count", EmitDefaultValue=false)]
+        public int ChildCount { get; set; }
 
         /// <summary>
         /// True when the page is left out of the sitemap and marked noindex.
@@ -77,6 +87,13 @@ namespace com.ultracart.admin.v2.Model
         public string GroupTemplate { get; set; }
 
         /// <summary>
+        /// Number of items assigned to the page.  The catalog stops counting at its per-page item ceiling.
+        /// </summary>
+        /// <value>Number of items assigned to the page.  The catalog stops counting at its per-page item ceiling.</value>
+        [DataMember(Name="item_count", EmitDefaultValue=false)]
+        public int ItemCount { get; set; }
+
+        /// <summary>
         /// Template file that renders the item pages under this page.
         /// </summary>
         /// <value>Template file that renders the item pages under this page.</value>
@@ -84,18 +101,39 @@ namespace com.ultracart.admin.v2.Model
         public string ItemTemplate { get; set; }
 
         /// <summary>
-        /// The page&#39;s images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.
+        /// S for a static page, D for a dynamic one.
         /// </summary>
-        /// <value>The page&#39;s images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.</value>
-        [DataMember(Name="multimedia", EmitDefaultValue=false)]
-        public List<SfvbPageMultimedia> Multimedia { get; set; }
+        /// <value>S for a static page, D for a dynamic one.</value>
+        [DataMember(Name="page_type", EmitDefaultValue=false)]
+        public string PageType { get; set; }
 
         /// <summary>
-        /// The page path, normalized to begin and end with a slash.
+        /// Path of the page this one sits under.  Empty for the root page.
         /// </summary>
-        /// <value>The page path, normalized to begin and end with a slash.</value>
+        /// <value>Path of the page this one sits under.  Empty for the root page.</value>
+        [DataMember(Name="parent_path", EmitDefaultValue=false)]
+        public string ParentPath { get; set; }
+
+        /// <summary>
+        /// The page path, beginning and ending with a slash.  The root page is /.
+        /// </summary>
+        /// <value>The page path, beginning and ending with a slash.  The root page is /.</value>
         [DataMember(Name="path", EmitDefaultValue=false)]
         public string Path { get; set; }
+
+        /// <summary>
+        /// True for the storefront&#39;s home page.
+        /// </summary>
+        /// <value>True for the storefront&#39;s home page.</value>
+        [DataMember(Name="root", EmitDefaultValue=false)]
+        public bool Root { get; set; }
+
+        /// <summary>
+        /// Position among its siblings when the parent sorts child pages by a custom order.
+        /// </summary>
+        /// <value>Position among its siblings when the parent sorts child pages by a custom order.</value>
+        [DataMember(Name="sort_order", EmitDefaultValue=false)]
+        public int SortOrder { get; set; }
 
         /// <summary>
         /// The page title.
@@ -103,6 +141,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The page title.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
+
+        /// <summary>
+        /// True when the page&#39;s items or blog posts are chosen by selectors rather than assigned by hand.
+        /// </summary>
+        /// <value>True when the page&#39;s items or blog posts are chosen by selectors rather than assigned by hand.</value>
+        [DataMember(Name="uses_selectors", EmitDefaultValue=false)]
+        public bool UsesSelectors { get; set; }
 
         /// <summary>
         /// False when the page is hidden.  A hidden page answers 404 to shoppers.
@@ -125,14 +170,19 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SfvbPageResponse {\n");
-            sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("class SfvbPageSummary {\n");
+            sb.Append("  ChildCount: ").Append(ChildCount).Append("\n");
             sb.Append("  ExcludeFromSitemap: ").Append(ExcludeFromSitemap).Append("\n");
             sb.Append("  GroupTemplate: ").Append(GroupTemplate).Append("\n");
+            sb.Append("  ItemCount: ").Append(ItemCount).Append("\n");
             sb.Append("  ItemTemplate: ").Append(ItemTemplate).Append("\n");
-            sb.Append("  Multimedia: ").Append(Multimedia).Append("\n");
+            sb.Append("  PageType: ").Append(PageType).Append("\n");
+            sb.Append("  ParentPath: ").Append(ParentPath).Append("\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("  Root: ").Append(Root).Append("\n");
+            sb.Append("  SortOrder: ").Append(SortOrder).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  UsesSelectors: ").Append(UsesSelectors).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");
             sb.Append("  VisibleDts: ").Append(VisibleDts).Append("\n");
             sb.Append("}\n");
@@ -155,25 +205,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SfvbPageResponse);
+            return this.Equals(input as SfvbPageSummary);
         }
 
         /// <summary>
-        /// Returns true if SfvbPageResponse instances are equal
+        /// Returns true if SfvbPageSummary instances are equal
         /// </summary>
-        /// <param name="input">Instance of SfvbPageResponse to be compared</param>
+        /// <param name="input">Instance of SfvbPageSummary to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SfvbPageResponse input)
+        public bool Equals(SfvbPageSummary input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Attributes == input.Attributes ||
-                    this.Attributes != null &&
-                    input.Attributes != null &&
-                    this.Attributes.SequenceEqual(input.Attributes)
+                    this.ChildCount == input.ChildCount ||
+                    (this.ChildCount != null &&
+                    this.ChildCount.Equals(input.ChildCount))
                 ) && 
                 (
                     this.ExcludeFromSitemap == input.ExcludeFromSitemap ||
@@ -186,15 +235,24 @@ namespace com.ultracart.admin.v2.Model
                     this.GroupTemplate.Equals(input.GroupTemplate))
                 ) && 
                 (
+                    this.ItemCount == input.ItemCount ||
+                    (this.ItemCount != null &&
+                    this.ItemCount.Equals(input.ItemCount))
+                ) && 
+                (
                     this.ItemTemplate == input.ItemTemplate ||
                     (this.ItemTemplate != null &&
                     this.ItemTemplate.Equals(input.ItemTemplate))
                 ) && 
                 (
-                    this.Multimedia == input.Multimedia ||
-                    this.Multimedia != null &&
-                    input.Multimedia != null &&
-                    this.Multimedia.SequenceEqual(input.Multimedia)
+                    this.PageType == input.PageType ||
+                    (this.PageType != null &&
+                    this.PageType.Equals(input.PageType))
+                ) && 
+                (
+                    this.ParentPath == input.ParentPath ||
+                    (this.ParentPath != null &&
+                    this.ParentPath.Equals(input.ParentPath))
                 ) && 
                 (
                     this.Path == input.Path ||
@@ -202,9 +260,24 @@ namespace com.ultracart.admin.v2.Model
                     this.Path.Equals(input.Path))
                 ) && 
                 (
+                    this.Root == input.Root ||
+                    (this.Root != null &&
+                    this.Root.Equals(input.Root))
+                ) && 
+                (
+                    this.SortOrder == input.SortOrder ||
+                    (this.SortOrder != null &&
+                    this.SortOrder.Equals(input.SortOrder))
+                ) && 
+                (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.UsesSelectors == input.UsesSelectors ||
+                    (this.UsesSelectors != null &&
+                    this.UsesSelectors.Equals(input.UsesSelectors))
                 ) && 
                 (
                     this.Visible == input.Visible ||
@@ -227,20 +300,30 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Attributes != null)
-                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.ChildCount != null)
+                    hashCode = hashCode * 59 + this.ChildCount.GetHashCode();
                 if (this.ExcludeFromSitemap != null)
                     hashCode = hashCode * 59 + this.ExcludeFromSitemap.GetHashCode();
                 if (this.GroupTemplate != null)
                     hashCode = hashCode * 59 + this.GroupTemplate.GetHashCode();
+                if (this.ItemCount != null)
+                    hashCode = hashCode * 59 + this.ItemCount.GetHashCode();
                 if (this.ItemTemplate != null)
                     hashCode = hashCode * 59 + this.ItemTemplate.GetHashCode();
-                if (this.Multimedia != null)
-                    hashCode = hashCode * 59 + this.Multimedia.GetHashCode();
+                if (this.PageType != null)
+                    hashCode = hashCode * 59 + this.PageType.GetHashCode();
+                if (this.ParentPath != null)
+                    hashCode = hashCode * 59 + this.ParentPath.GetHashCode();
                 if (this.Path != null)
                     hashCode = hashCode * 59 + this.Path.GetHashCode();
+                if (this.Root != null)
+                    hashCode = hashCode * 59 + this.Root.GetHashCode();
+                if (this.SortOrder != null)
+                    hashCode = hashCode * 59 + this.SortOrder.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
+                if (this.UsesSelectors != null)
+                    hashCode = hashCode * 59 + this.UsesSelectors.GetHashCode();
                 if (this.Visible != null)
                     hashCode = hashCode * 59 + this.Visible.GetHashCode();
                 if (this.VisibleDts != null)

@@ -88,14 +88,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="containerName">Container name..</param>
         /// <param name="hashSha256">SHA-256 of the cjson.  Send back as If-Match when writing..</param>
         /// <param name="lastModified">When the container was last modified, in the store&#39;s own record of it.  Every owner type reports this.  It is absent only when the container has never been written since the store began recording it, so treat an absent value as unknown rather than as never modified.  Two behaviours worth knowing.  A postcard keeps one timestamp for both of its sides, so writing the front moves the value the back reports.  An upsell container that is rewritten with byte identical content keeps its original date rather than moving to now, because the timestamp tracks changes to the container and not writes to the offer..</param>
+        /// <param name="merchantItemId">The merchant item id of the owning item, for item containers only and absent for every other owner type.  owner_object_id is the item oid, which appears nowhere on a rendered storefront, so this is how a caller confirms which item an oid actually reached.  It is read fresh on every call and so reflects a renamed item.  A container&#39;s own id embeds this value, which is what a preview session keys an item container on..</param>
         /// <param name="ownerObjectId">Identifier of the owning object within its store..</param>
         /// <param name="ownerType">Where this container lives..</param>
-        public SfvbContainerResponse(string cjson = default(string), string containerName = default(string), string hashSha256 = default(string), string lastModified = default(string), string ownerObjectId = default(string), OwnerTypeEnum? ownerType = default(OwnerTypeEnum?))
+        public SfvbContainerResponse(string cjson = default(string), string containerName = default(string), string hashSha256 = default(string), string lastModified = default(string), string merchantItemId = default(string), string ownerObjectId = default(string), OwnerTypeEnum? ownerType = default(OwnerTypeEnum?))
         {
             this.Cjson = cjson;
             this.ContainerName = containerName;
             this.HashSha256 = hashSha256;
             this.LastModified = lastModified;
+            this.MerchantItemId = merchantItemId;
             this.OwnerObjectId = ownerObjectId;
             this.OwnerType = ownerType;
         }
@@ -129,6 +131,13 @@ namespace com.ultracart.admin.v2.Model
         public string LastModified { get; set; }
 
         /// <summary>
+        /// The merchant item id of the owning item, for item containers only and absent for every other owner type.  owner_object_id is the item oid, which appears nowhere on a rendered storefront, so this is how a caller confirms which item an oid actually reached.  It is read fresh on every call and so reflects a renamed item.  A container&#39;s own id embeds this value, which is what a preview session keys an item container on.
+        /// </summary>
+        /// <value>The merchant item id of the owning item, for item containers only and absent for every other owner type.  owner_object_id is the item oid, which appears nowhere on a rendered storefront, so this is how a caller confirms which item an oid actually reached.  It is read fresh on every call and so reflects a renamed item.  A container&#39;s own id embeds this value, which is what a preview session keys an item container on.</value>
+        [DataMember(Name="merchant_item_id", EmitDefaultValue=false)]
+        public string MerchantItemId { get; set; }
+
+        /// <summary>
         /// Identifier of the owning object within its store.
         /// </summary>
         /// <value>Identifier of the owning object within its store.</value>
@@ -148,6 +157,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ContainerName: ").Append(ContainerName).Append("\n");
             sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
             sb.Append("  LastModified: ").Append(LastModified).Append("\n");
+            sb.Append("  MerchantItemId: ").Append(MerchantItemId).Append("\n");
             sb.Append("  OwnerObjectId: ").Append(OwnerObjectId).Append("\n");
             sb.Append("  OwnerType: ").Append(OwnerType).Append("\n");
             sb.Append("}\n");
@@ -205,6 +215,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LastModified.Equals(input.LastModified))
                 ) && 
                 (
+                    this.MerchantItemId == input.MerchantItemId ||
+                    (this.MerchantItemId != null &&
+                    this.MerchantItemId.Equals(input.MerchantItemId))
+                ) && 
+                (
                     this.OwnerObjectId == input.OwnerObjectId ||
                     (this.OwnerObjectId != null &&
                     this.OwnerObjectId.Equals(input.OwnerObjectId))
@@ -233,6 +248,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.HashSha256.GetHashCode();
                 if (this.LastModified != null)
                     hashCode = hashCode * 59 + this.LastModified.GetHashCode();
+                if (this.MerchantItemId != null)
+                    hashCode = hashCode * 59 + this.MerchantItemId.GetHashCode();
                 if (this.OwnerObjectId != null)
                     hashCode = hashCode * 59 + this.OwnerObjectId.GetHashCode();
                 if (this.OwnerType != null)

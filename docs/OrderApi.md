@@ -1501,8 +1501,69 @@ Retrieves the customer activity associated with the email address on this order.
 
 ### Example
 
+```csharp
+using System;
+using System.Collections.Generic;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
+using Newtonsoft.Json;
 
-(No example for this operation).
+namespace SdkSample.order
+{
+    public class GetOrderCustomerActivity
+    {
+        /*
+            getOrderCustomerActivity returns the customer activity associated with the email address on an
+            order.  This includes email engagement history, email list and segment membership, lifetime
+            metrics and email suppression status.
+
+            A customer profile is NOT required and is not consulted.  The activity is keyed off the email
+            address on the order, so this works for guest orders that have never had a customer profile
+            established.  For the page views captured during the session that placed the order, use
+            GetOrderPageViewHistory instead.
+
+            If the order has no valid email address, Email and CustomerActivity both come back null.  That
+            is a successful response rather than an error - without an email there is no activity record
+            to find.
+
+            Note: Activity.Ts is a unix timestamp in milliseconds, not an ISO 8601 string like most dates
+            in this API.
+
+            Possible Errors:
+            order_id does not start with the merchant id -> "Path parameter 'order_id' does not start with the merchant id.  Check your parameter value and call log."
+         */
+        public static void Execute()
+        {
+            OrderApi orderApi = new OrderApi(Constants.ApiKey);
+
+            string orderId = "DEMO-0009104976";
+            OrderCustomerActivityResponse response = orderApi.GetOrderCustomerActivity(orderId);
+
+            Console.WriteLine("Customer activity for: " + response.Email);
+
+            CustomerActivity customerActivity = response.CustomerActivity;
+
+            if (customerActivity == null)
+            {
+                Console.WriteLine("No customer activity found for this order.");
+                return;
+            }
+
+            Console.WriteLine("Globally unsubscribed: " + customerActivity.GlobalUnsubscribed);
+            Console.WriteLine("Spam complaint: " + customerActivity.SpamComplaint);
+
+            List<Activity> activities = customerActivity.Activities;
+
+            foreach (Activity activity in activities)
+            {
+                Console.WriteLine(JsonConvert.SerializeObject(activity,
+                    new JsonSerializerSettings { Formatting = Formatting.Indented }));
+            }
+
+        }
+    }
+}
+```
 
 
 ### Parameters
@@ -1638,8 +1699,58 @@ Retrieves email delivery records associated with the specified order id.
 
 ### Example
 
+```csharp
+using System;
+using System.Collections.Generic;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
+using Newtonsoft.Json;
 
-(No example for this operation).
+namespace SdkSample.order
+{
+    public class GetOrderEmails
+    {
+        /*
+            getOrderEmails returns the delivery records for every email UltraCart sent regarding an order,
+            oldest first.  Each record carries the subject and send time plus delivery, open, click and
+            bounce status, which makes this useful evidence that a customer was notified about their
+            order.
+
+            A customer profile is NOT required.  These records are tied to the order id itself.
+
+            An order with no email history, or one whose emails were all suppressed, comes back with an
+            empty Emails list.  That is a successful response rather than an error.
+
+            The Internal flag marks messages sent to merchant staff rather than to the customer.  Filter
+            those out if you only want what the customer actually received.
+
+            Possible Errors:
+            order_id does not start with the merchant id -> "Path parameter 'order_id' does not start with the merchant id.  Check your parameter value and call log."
+         */
+        public static void Execute()
+        {
+            OrderApi orderApi = new OrderApi(Constants.ApiKey);
+
+            string orderId = "DEMO-0009104976";
+            OrderEmailsResponse response = orderApi.GetOrderEmails(orderId);
+            List<OrderEmail> emails = response.Emails;
+
+            if (emails == null || emails.Count == 0)
+            {
+                Console.WriteLine("No emails were sent for this order.");
+                return;
+            }
+
+            foreach (OrderEmail email in emails)
+            {
+                Console.WriteLine(JsonConvert.SerializeObject(email,
+                    new JsonSerializerSettings { Formatting = Formatting.Indented }));
+            }
+
+        }
+    }
+}
+```
 
 
 ### Parameters
@@ -1690,8 +1801,63 @@ Retrieves the page views captured during the session that placed this order.
 
 ### Example
 
+```csharp
+using System;
+using System.Collections.Generic;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
+using Newtonsoft.Json;
 
-(No example for this operation).
+namespace SdkSample.order
+{
+    public class GetOrderPageViewHistory
+    {
+        /*
+            getOrderPageViewHistory returns the page views captured during the session that placed an
+            order, along with the referrer that started that session.
+
+            A customer profile is NOT required.  These page views are keyed off an analytics client id
+            stored on the order itself, so this works for guest orders.  For the email engagement side of
+            customer activity, use GetOrderCustomerActivity instead.
+
+            An order placed outside the storefront, such as a phone order or an order imported from a
+            channel partner, will have no analytics session attached.  In that case PageViews comes back
+            empty.  That is a successful response rather than an error.
+
+            Note: ViewDts is an ISO 8601 string here.  Be aware that the Ts field on
+            GetOrderCustomerActivity is unix milliseconds instead, so do not assume the two methods format
+            dates the same way.
+
+            Possible Errors:
+            order_id does not start with the merchant id -> "Path parameter 'order_id' does not start with the merchant id.  Check your parameter value and call log."
+         */
+        public static void Execute()
+        {
+            OrderApi orderApi = new OrderApi(Constants.ApiKey);
+
+            string orderId = "DEMO-0009104976";
+            OrderPageViewHistoryResponse response = orderApi.GetOrderPageViewHistory(orderId);
+
+            Console.WriteLine("Session referrer: " + (response.Referrer ?? "(none captured)"));
+
+            List<OrderPageView> pageViews = response.PageViews;
+
+            if (pageViews == null || pageViews.Count == 0)
+            {
+                Console.WriteLine("No page views were captured for this order.");
+                return;
+            }
+
+            foreach (OrderPageView pageView in pageViews)
+            {
+                Console.WriteLine(JsonConvert.SerializeObject(pageView,
+                    new JsonSerializerSettings { Formatting = Formatting.Indented }));
+            }
+
+        }
+    }
+}
+```
 
 
 ### Parameters

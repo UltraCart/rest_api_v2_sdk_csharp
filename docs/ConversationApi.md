@@ -3978,8 +3978,9 @@ Retrieve pbx queue voicemails
 
 ### Example
 
+```csharp
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -5638,8 +5639,9 @@ Listened pbx agent Voicemail
 
 ### Example
 
+```csharp
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -6265,8 +6267,9 @@ Unsubscribe any SMS participants in this conversation
 
 ### Example
 
+```csharp
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -7434,8 +7437,9 @@ Update a pbx voicemailMailbox
 
 ### Example
 
+```csharp
 
-(No example for this operation).
+```
 
 
 ### Parameters

@@ -1,0 +1,44 @@
+name: Publish to NuGet
+
+on:
+  push:
+    branches:
+      - openapi
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    env:
+      PROJ_DIR: src/com.ultracart.admin.v2
+      PROJ: src/com.ultracart.admin.v2/com.ultracart.admin.v2.csproj
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: nuget/setup-nuget@fd55a6f3b34392fa83fde1454582407d8c714123 # v4.0
+
+      - uses: microsoft/setup-msbuild@30375c66a4eea26614e0d39710365f22f8b0af57 # v3.0.0
+
+      - name: NuGet login (OIDC)
+        id: login
+        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1.2.0
+        with:
+          user: ultracart
+
+      - name: Build, pack, push
+        shell: bash
+        run: |
+          VERSION=$(cat sdk_version.txt)
+          echo "Publishing version $VERSION"
+          sed -i 's/-RC//g' $PROJ_DIR/Properties/AssemblyInfo.cs
+          nuget restore $PROJ_DIR -DirectDownload -NoCache -NonInteractive -OutputDirectory packages
+          msbuild $PROJ
+          nuget pack $PROJ -properties "author=UltraCart,version=$VERSION" -Version $VERSION
+          dotnet nuget push ./*.nupkg \
+            --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate

@@ -1922,6 +1922,52 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailCommseqPostcardsResponse</returns>
         ApiResponse<EmailCommseqPostcardsResponse> GetEmailPostcardsMultipleWithHttpInfo (int storefrontOid, EmailCommseqPostcardsRequest emailCommseqPostcardsRequest);
         /// <summary>
+        /// Get the review status of an email
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqEmailUuid"></param>
+        /// <returns>EmailCommseqEmailReviewStatusResponse</returns>
+        EmailCommseqEmailReviewStatusResponse GetEmailReviewStatus (int storefrontOid, string commseqEmailUuid);
+
+        /// <summary>
+        /// Get the review status of an email
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqEmailUuid"></param>
+        /// <returns>ApiResponse of EmailCommseqEmailReviewStatusResponse</returns>
+        ApiResponse<EmailCommseqEmailReviewStatusResponse> GetEmailReviewStatusWithHttpInfo (int storefrontOid, string commseqEmailUuid);
+        /// <summary>
+        /// Get the review status of multiple emails
+        /// </summary>
+        /// <remarks>
+        /// Returns one entry per requested email, in the order requested, so a caller polling a campaign does not have to reconcile a short response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqEmailReviewStatusesRequest">Request of email uuids</param>
+        /// <returns>EmailCommseqEmailReviewStatusesResponse</returns>
+        EmailCommseqEmailReviewStatusesResponse GetEmailReviewStatusesMultiple (int storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest);
+
+        /// <summary>
+        /// Get the review status of multiple emails
+        /// </summary>
+        /// <remarks>
+        /// Returns one entry per requested email, in the order requested, so a caller polling a campaign does not have to reconcile a short response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqEmailReviewStatusesRequest">Request of email uuids</param>
+        /// <returns>ApiResponse of EmailCommseqEmailReviewStatusesResponse</returns>
+        ApiResponse<EmailCommseqEmailReviewStatusesResponse> GetEmailReviewStatusesMultipleWithHttpInfo (int storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest);
+        /// <summary>
         /// Get email segment
         /// </summary>
         /// <remarks>
@@ -6409,6 +6455,56 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailCommseqPostcardsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailCommseqPostcardsResponse>> GetEmailPostcardsMultipleWithHttpInfoAsync (int storefrontOid, EmailCommseqPostcardsRequest emailCommseqPostcardsRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get the review status of an email
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqEmailUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailCommseqEmailReviewStatusResponse</returns>
+        System.Threading.Tasks.Task<EmailCommseqEmailReviewStatusResponse> GetEmailReviewStatusAsync (int storefrontOid, string commseqEmailUuid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get the review status of an email
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqEmailUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailCommseqEmailReviewStatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailCommseqEmailReviewStatusResponse>> GetEmailReviewStatusWithHttpInfoAsync (int storefrontOid, string commseqEmailUuid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get the review status of multiple emails
+        /// </summary>
+        /// <remarks>
+        /// Returns one entry per requested email, in the order requested, so a caller polling a campaign does not have to reconcile a short response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqEmailReviewStatusesRequest">Request of email uuids</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailCommseqEmailReviewStatusesResponse</returns>
+        System.Threading.Tasks.Task<EmailCommseqEmailReviewStatusesResponse> GetEmailReviewStatusesMultipleAsync (int storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get the review status of multiple emails
+        /// </summary>
+        /// <remarks>
+        /// Returns one entry per requested email, in the order requested, so a caller polling a campaign does not have to reconcile a short response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqEmailReviewStatusesRequest">Request of email uuids</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailCommseqEmailReviewStatusesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailCommseqEmailReviewStatusesResponse>> GetEmailReviewStatusesMultipleWithHttpInfoAsync (int storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get email segment
         /// </summary>
@@ -23978,6 +24074,380 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailCommseqPostcardsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (EmailCommseqPostcardsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqPostcardsResponse)));
+        }
+
+        /// <summary>
+        /// Get the review status of an email 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqEmailUuid"></param>
+        /// <returns>EmailCommseqEmailReviewStatusResponse</returns>
+        public EmailCommseqEmailReviewStatusResponse GetEmailReviewStatus (int storefrontOid, string commseqEmailUuid)
+        {
+             ApiResponse<EmailCommseqEmailReviewStatusResponse> localVarResponse = GetEmailReviewStatusWithHttpInfo(storefrontOid, commseqEmailUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the review status of an email 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqEmailUuid"></param>
+        /// <returns>ApiResponse of EmailCommseqEmailReviewStatusResponse</returns>
+        public ApiResponse<EmailCommseqEmailReviewStatusResponse> GetEmailReviewStatusWithHttpInfo (int storefrontOid, string commseqEmailUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailReviewStatus");
+            // verify the required parameter 'commseqEmailUuid' is set
+            if (commseqEmailUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqEmailUuid' when calling StorefrontApi->GetEmailReviewStatus");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review_status";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqEmailUuid != null) localVarPathParams.Add("commseq_email_uuid", this.Configuration.ApiClient.ParameterToString(commseqEmailUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailReviewStatus", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCommseqEmailReviewStatusResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailCommseqEmailReviewStatusResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqEmailReviewStatusResponse)));
+        }
+
+        /// <summary>
+        /// Get the review status of an email 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqEmailUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailCommseqEmailReviewStatusResponse</returns>
+        public async System.Threading.Tasks.Task<EmailCommseqEmailReviewStatusResponse> GetEmailReviewStatusAsync (int storefrontOid, string commseqEmailUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<EmailCommseqEmailReviewStatusResponse> localVarResponse = await GetEmailReviewStatusWithHttpInfoAsync(storefrontOid, commseqEmailUuid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the review status of an email 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqEmailUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailCommseqEmailReviewStatusResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailCommseqEmailReviewStatusResponse>> GetEmailReviewStatusWithHttpInfoAsync (int storefrontOid, string commseqEmailUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailReviewStatus");
+            // verify the required parameter 'commseqEmailUuid' is set
+            if (commseqEmailUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqEmailUuid' when calling StorefrontApi->GetEmailReviewStatus");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review_status";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqEmailUuid != null) localVarPathParams.Add("commseq_email_uuid", this.Configuration.ApiClient.ParameterToString(commseqEmailUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailReviewStatus", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCommseqEmailReviewStatusResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailCommseqEmailReviewStatusResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqEmailReviewStatusResponse)));
+        }
+
+        /// <summary>
+        /// Get the review status of multiple emails Returns one entry per requested email, in the order requested, so a caller polling a campaign does not have to reconcile a short response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqEmailReviewStatusesRequest">Request of email uuids</param>
+        /// <returns>EmailCommseqEmailReviewStatusesResponse</returns>
+        public EmailCommseqEmailReviewStatusesResponse GetEmailReviewStatusesMultiple (int storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest)
+        {
+             ApiResponse<EmailCommseqEmailReviewStatusesResponse> localVarResponse = GetEmailReviewStatusesMultipleWithHttpInfo(storefrontOid, emailCommseqEmailReviewStatusesRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the review status of multiple emails Returns one entry per requested email, in the order requested, so a caller polling a campaign does not have to reconcile a short response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqEmailReviewStatusesRequest">Request of email uuids</param>
+        /// <returns>ApiResponse of EmailCommseqEmailReviewStatusesResponse</returns>
+        public ApiResponse<EmailCommseqEmailReviewStatusesResponse> GetEmailReviewStatusesMultipleWithHttpInfo (int storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailReviewStatusesMultiple");
+            // verify the required parameter 'emailCommseqEmailReviewStatusesRequest' is set
+            if (emailCommseqEmailReviewStatusesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailCommseqEmailReviewStatusesRequest' when calling StorefrontApi->GetEmailReviewStatusesMultiple");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/emails/review_status/multiple";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCommseqEmailReviewStatusesRequest != null && emailCommseqEmailReviewStatusesRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailCommseqEmailReviewStatusesRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailCommseqEmailReviewStatusesRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailReviewStatusesMultiple", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCommseqEmailReviewStatusesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailCommseqEmailReviewStatusesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqEmailReviewStatusesResponse)));
+        }
+
+        /// <summary>
+        /// Get the review status of multiple emails Returns one entry per requested email, in the order requested, so a caller polling a campaign does not have to reconcile a short response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqEmailReviewStatusesRequest">Request of email uuids</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailCommseqEmailReviewStatusesResponse</returns>
+        public async System.Threading.Tasks.Task<EmailCommseqEmailReviewStatusesResponse> GetEmailReviewStatusesMultipleAsync (int storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<EmailCommseqEmailReviewStatusesResponse> localVarResponse = await GetEmailReviewStatusesMultipleWithHttpInfoAsync(storefrontOid, emailCommseqEmailReviewStatusesRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the review status of multiple emails Returns one entry per requested email, in the order requested, so a caller polling a campaign does not have to reconcile a short response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqEmailReviewStatusesRequest">Request of email uuids</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailCommseqEmailReviewStatusesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailCommseqEmailReviewStatusesResponse>> GetEmailReviewStatusesMultipleWithHttpInfoAsync (int storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailReviewStatusesMultiple");
+            // verify the required parameter 'emailCommseqEmailReviewStatusesRequest' is set
+            if (emailCommseqEmailReviewStatusesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailCommseqEmailReviewStatusesRequest' when calling StorefrontApi->GetEmailReviewStatusesMultiple");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/emails/review_status/multiple";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCommseqEmailReviewStatusesRequest != null && emailCommseqEmailReviewStatusesRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailCommseqEmailReviewStatusesRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailCommseqEmailReviewStatusesRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailReviewStatusesMultiple", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCommseqEmailReviewStatusesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailCommseqEmailReviewStatusesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqEmailReviewStatusesResponse)));
         }
 
         /// <summary>

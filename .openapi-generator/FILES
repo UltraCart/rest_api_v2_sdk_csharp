@@ -506,6 +506,10 @@ docs/EmailClicksResponse.md
 docs/EmailCommseq.md
 docs/EmailCommseqEmail.md
 docs/EmailCommseqEmailResponse.md
+docs/EmailCommseqEmailReviewStatus.md
+docs/EmailCommseqEmailReviewStatusResponse.md
+docs/EmailCommseqEmailReviewStatusesRequest.md
+docs/EmailCommseqEmailReviewStatusesResponse.md
 docs/EmailCommseqEmailSendTestRequest.md
 docs/EmailCommseqEmailSendTestResponse.md
 docs/EmailCommseqEmailsRequest.md
@@ -1696,6 +1700,10 @@ src/com.ultracart.admin.v2/Model/EmailClicksResponse.cs
 src/com.ultracart.admin.v2/Model/EmailCommseq.cs
 src/com.ultracart.admin.v2/Model/EmailCommseqEmail.cs
 src/com.ultracart.admin.v2/Model/EmailCommseqEmailResponse.cs
+src/com.ultracart.admin.v2/Model/EmailCommseqEmailReviewStatus.cs
+src/com.ultracart.admin.v2/Model/EmailCommseqEmailReviewStatusResponse.cs
+src/com.ultracart.admin.v2/Model/EmailCommseqEmailReviewStatusesRequest.cs
+src/com.ultracart.admin.v2/Model/EmailCommseqEmailReviewStatusesResponse.cs
 src/com.ultracart.admin.v2/Model/EmailCommseqEmailSendTestRequest.cs
 src/com.ultracart.admin.v2/Model/EmailCommseqEmailSendTestResponse.cs
 src/com.ultracart.admin.v2/Model/EmailCommseqEmailsRequest.cs

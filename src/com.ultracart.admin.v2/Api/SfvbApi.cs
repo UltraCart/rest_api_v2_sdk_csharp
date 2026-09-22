@@ -166,6 +166,35 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSfvbFileWithHttpInfo (int storefrontOid, string ifMatch, string path = default(string));
         /// <summary>
+        /// Detach an image from an item
+        /// </summary>
+        /// <remarks>
+        /// Removes the item's copy of the image in one slot.  The file you uploaded is left where it is, so the same source can be attached again or used elsewhere. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="code">The image code to detach (optional)</param>
+        /// <param name="_default">Detach the default image instead of a coded one (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        SfvbItemResponse DeleteSfvbItemMultimedia (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string code = default(string), bool? _default = default(bool?));
+
+        /// <summary>
+        /// Detach an image from an item
+        /// </summary>
+        /// <remarks>
+        /// Removes the item's copy of the image in one slot.  The file you uploaded is left where it is, so the same source can be attached again or used elsewhere. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="code">The image code to detach (optional)</param>
+        /// <param name="_default">Detach the default image instead of a coded one (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        ApiResponse<SfvbItemResponse> DeleteSfvbItemMultimediaWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string code = default(string), bool? _default = default(bool?));
+        /// <summary>
         /// Detach an image from a page
         /// </summary>
         /// <remarks>
@@ -503,6 +532,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="extension"></param>
         /// <returns>ApiResponse of SfvbFileUploadUrlResponse</returns>
         ApiResponse<SfvbFileUploadUrlResponse> GetSfvbFileUploadUrlWithHttpInfo (int storefrontOid, string extension);
+        /// <summary>
+        /// Read an item's storefront facing content
+        /// </summary>
+        /// <remarks>
+        /// The attributes, images, title, description and search metadata a StoreFront element can render, reconciled against the templates behind the pages this item sits on.  An attribute a template declares but nothing has set comes back present with an empty value, which is how you discover what the page is asking for.  Pricing, shipping, inventory, tax, variants and kit structure are not here because no element reads them; use the item API for those.  Address by merchant_item_id, the value data-context-item-id carries, or by merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">The merchant item id, as a storefront carries it (optional)</param>
+        /// <param name="merchantItemOid">The item oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        SfvbItemResponse GetSfvbItem (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+
+        /// <summary>
+        /// Read an item's storefront facing content
+        /// </summary>
+        /// <remarks>
+        /// The attributes, images, title, description and search metadata a StoreFront element can render, reconciled against the templates behind the pages this item sits on.  An attribute a template declares but nothing has set comes back present with an empty value, which is how you discover what the page is asking for.  Pricing, shipping, inventory, tax, variants and kit structure are not here because no element reads them; use the item API for those.  Address by merchant_item_id, the value data-context-item-id carries, or by merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">The merchant item id, as a storefront carries it (optional)</param>
+        /// <param name="merchantItemOid">The item oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        ApiResponse<SfvbItemResponse> GetSfvbItemWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
         /// <summary>
         /// Read one library entry including its CJSON
         /// </summary>
@@ -1237,6 +1291,114 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbFileWriteResponse</returns>
         ApiResponse<SfvbFileWriteResponse> PutSfvbFileContentWithHttpInfo (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string));
         /// <summary>
+        /// Change some of an item's attributes
+        /// </summary>
+        /// <remarks>
+        /// Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        SfvbItemResponse PutSfvbItemAttributes (int storefrontOid, SfvbItemAttributeUpdateRequest itemAttributeUpdateRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+
+        /// <summary>
+        /// Change some of an item's attributes
+        /// </summary>
+        /// <remarks>
+        /// Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        ApiResponse<SfvbItemResponse> PutSfvbItemAttributesWithHttpInfo (int storefrontOid, SfvbItemAttributeUpdateRequest itemAttributeUpdateRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+        /// <summary>
+        /// Change an item's title or long description
+        /// </summary>
+        /// <remarks>
+        /// Partial - a field left out is untouched, a field sent empty is cleared, and those are different things.  These are what itemtitle and itemdescription render.  Writing the matching config keys into a container does nothing, because they are dialog buffers bound to the item and the render never reads them.  Both are the catalog's own fields, so a change here reaches the item everywhere, not only on this storefront. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemContentRequest">Title and description to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        SfvbItemResponse PutSfvbItemContent (int storefrontOid, SfvbItemContentRequest itemContentRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+
+        /// <summary>
+        /// Change an item's title or long description
+        /// </summary>
+        /// <remarks>
+        /// Partial - a field left out is untouched, a field sent empty is cleared, and those are different things.  These are what itemtitle and itemdescription render.  Writing the matching config keys into a container does nothing, because they are dialog buffers bound to the item and the render never reads them.  Both are the catalog's own fields, so a change here reaches the item everywhere, not only on this storefront. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemContentRequest">Title and description to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        ApiResponse<SfvbItemResponse> PutSfvbItemContentWithHttpInfo (int storefrontOid, SfvbItemContentRequest itemContentRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+        /// <summary>
+        /// Attach an image to an item
+        /// </summary>
+        /// <remarks>
+        /// One slot at a time - the default image or one code - and every other image on the item is left alone.  That is the difference from the item API, where images are reachable only through a full item update whose multimedia array is reconciled destructively, so adding one means resending the rest or losing them.  Upload the file with files/upload first and name its storefront path here; unlike a page image it does not have to live in any particular folder, because the bytes are copied into the item's own storage on attach. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemMultimediaRequest">Image to attach</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        SfvbItemResponse PutSfvbItemMultimedia (int storefrontOid, SfvbItemMultimediaRequest itemMultimediaRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+
+        /// <summary>
+        /// Attach an image to an item
+        /// </summary>
+        /// <remarks>
+        /// One slot at a time - the default image or one code - and every other image on the item is left alone.  That is the difference from the item API, where images are reachable only through a full item update whose multimedia array is reconciled destructively, so adding one means resending the rest or losing them.  Upload the file with files/upload first and name its storefront path here; unlike a page image it does not have to live in any particular folder, because the bytes are copied into the item's own storage on attach. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemMultimediaRequest">Image to attach</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        ApiResponse<SfvbItemResponse> PutSfvbItemMultimediaWithHttpInfo (int storefrontOid, SfvbItemMultimediaRequest itemMultimediaRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+        /// <summary>
+        /// Change an item's search metadata
+        /// </summary>
+        /// <remarks>
+        /// Partial - a field left out is untouched, a field sent empty is cleared and the page falls back to what it fell back to before.  Underneath these are three item attributes with reserved names, so this and the attributes endpoint reach the same storage; it exists separately because the names are not discoverable from the templates.  Two things worth knowing.  A title set here changes the document title only - og:title and twitter:title render the item's description either way.  And there is no canonical or noindex field, because both are site wide switches rather than per item values. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemSeoRequest">Search metadata to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        SfvbItemResponse PutSfvbItemSeo (int storefrontOid, SfvbItemSeoRequest itemSeoRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+
+        /// <summary>
+        /// Change an item's search metadata
+        /// </summary>
+        /// <remarks>
+        /// Partial - a field left out is untouched, a field sent empty is cleared and the page falls back to what it fell back to before.  Underneath these are three item attributes with reserved names, so this and the attributes endpoint reach the same storage; it exists separately because the names are not discoverable from the templates.  Two things worth knowing.  A title set here changes the document title only - og:title and twitter:title render the item's description either way.  And there is no canonical or noindex field, because both are site wide switches rather than per item values. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemSeoRequest">Search metadata to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        ApiResponse<SfvbItemResponse> PutSfvbItemSeoWithHttpInfo (int storefrontOid, SfvbItemSeoRequest itemSeoRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+        /// <summary>
         /// Replace a store menu's entries
         /// </summary>
         /// <remarks>
@@ -1893,6 +2055,37 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbFileWithHttpInfoAsync (int storefrontOid, string ifMatch, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Detach an image from an item
+        /// </summary>
+        /// <remarks>
+        /// Removes the item's copy of the image in one slot.  The file you uploaded is left where it is, so the same source can be attached again or used elsewhere. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="code">The image code to detach (optional)</param>
+        /// <param name="_default">Detach the default image instead of a coded one (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemResponse> DeleteSfvbItemMultimediaAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string code = default(string), bool? _default = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Detach an image from an item
+        /// </summary>
+        /// <remarks>
+        /// Removes the item's copy of the image in one slot.  The file you uploaded is left where it is, so the same source can be attached again or used elsewhere. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="code">The image code to detach (optional)</param>
+        /// <param name="_default">Detach the default image instead of a coded one (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> DeleteSfvbItemMultimediaWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string code = default(string), bool? _default = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Detach an image from a page
         /// </summary>
         /// <remarks>
@@ -2258,6 +2451,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFileUploadUrlResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFileUploadUrlResponse>> GetSfvbFileUploadUrlWithHttpInfoAsync (int storefrontOid, string extension, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read an item's storefront facing content
+        /// </summary>
+        /// <remarks>
+        /// The attributes, images, title, description and search metadata a StoreFront element can render, reconciled against the templates behind the pages this item sits on.  An attribute a template declares but nothing has set comes back present with an empty value, which is how you discover what the page is asking for.  Pricing, shipping, inventory, tax, variants and kit structure are not here because no element reads them; use the item API for those.  Address by merchant_item_id, the value data-context-item-id carries, or by merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">The merchant item id, as a storefront carries it (optional)</param>
+        /// <param name="merchantItemOid">The item oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemResponse> GetSfvbItemAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read an item&#39;s storefront facing content
+        /// </summary>
+        /// <remarks>
+        /// The attributes, images, title, description and search metadata a StoreFront element can render, reconciled against the templates behind the pages this item sits on.  An attribute a template declares but nothing has set comes back present with an empty value, which is how you discover what the page is asking for.  Pricing, shipping, inventory, tax, variants and kit structure are not here because no element reads them; use the item API for those.  Address by merchant_item_id, the value data-context-item-id carries, or by merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">The merchant item id, as a storefront carries it (optional)</param>
+        /// <param name="merchantItemOid">The item oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> GetSfvbItemWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read one library entry including its CJSON
         /// </summary>
@@ -3053,6 +3273,122 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFileWriteResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> PutSfvbFileContentWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change some of an item's attributes
+        /// </summary>
+        /// <remarks>
+        /// Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemResponse> PutSfvbItemAttributesAsync (int storefrontOid, SfvbItemAttributeUpdateRequest itemAttributeUpdateRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change some of an item&#39;s attributes
+        /// </summary>
+        /// <remarks>
+        /// Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> PutSfvbItemAttributesWithHttpInfoAsync (int storefrontOid, SfvbItemAttributeUpdateRequest itemAttributeUpdateRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change an item's title or long description
+        /// </summary>
+        /// <remarks>
+        /// Partial - a field left out is untouched, a field sent empty is cleared, and those are different things.  These are what itemtitle and itemdescription render.  Writing the matching config keys into a container does nothing, because they are dialog buffers bound to the item and the render never reads them.  Both are the catalog's own fields, so a change here reaches the item everywhere, not only on this storefront. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemContentRequest">Title and description to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemResponse> PutSfvbItemContentAsync (int storefrontOid, SfvbItemContentRequest itemContentRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change an item&#39;s title or long description
+        /// </summary>
+        /// <remarks>
+        /// Partial - a field left out is untouched, a field sent empty is cleared, and those are different things.  These are what itemtitle and itemdescription render.  Writing the matching config keys into a container does nothing, because they are dialog buffers bound to the item and the render never reads them.  Both are the catalog's own fields, so a change here reaches the item everywhere, not only on this storefront. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemContentRequest">Title and description to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> PutSfvbItemContentWithHttpInfoAsync (int storefrontOid, SfvbItemContentRequest itemContentRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Attach an image to an item
+        /// </summary>
+        /// <remarks>
+        /// One slot at a time - the default image or one code - and every other image on the item is left alone.  That is the difference from the item API, where images are reachable only through a full item update whose multimedia array is reconciled destructively, so adding one means resending the rest or losing them.  Upload the file with files/upload first and name its storefront path here; unlike a page image it does not have to live in any particular folder, because the bytes are copied into the item's own storage on attach. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemMultimediaRequest">Image to attach</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemResponse> PutSfvbItemMultimediaAsync (int storefrontOid, SfvbItemMultimediaRequest itemMultimediaRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Attach an image to an item
+        /// </summary>
+        /// <remarks>
+        /// One slot at a time - the default image or one code - and every other image on the item is left alone.  That is the difference from the item API, where images are reachable only through a full item update whose multimedia array is reconciled destructively, so adding one means resending the rest or losing them.  Upload the file with files/upload first and name its storefront path here; unlike a page image it does not have to live in any particular folder, because the bytes are copied into the item's own storage on attach. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemMultimediaRequest">Image to attach</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> PutSfvbItemMultimediaWithHttpInfoAsync (int storefrontOid, SfvbItemMultimediaRequest itemMultimediaRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change an item's search metadata
+        /// </summary>
+        /// <remarks>
+        /// Partial - a field left out is untouched, a field sent empty is cleared and the page falls back to what it fell back to before.  Underneath these are three item attributes with reserved names, so this and the attributes endpoint reach the same storage; it exists separately because the names are not discoverable from the templates.  Two things worth knowing.  A title set here changes the document title only - og:title and twitter:title render the item's description either way.  And there is no canonical or noindex field, because both are site wide switches rather than per item values. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemSeoRequest">Search metadata to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemResponse> PutSfvbItemSeoAsync (int storefrontOid, SfvbItemSeoRequest itemSeoRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change an item&#39;s search metadata
+        /// </summary>
+        /// <remarks>
+        /// Partial - a field left out is untouched, a field sent empty is cleared and the page falls back to what it fell back to before.  Underneath these are three item attributes with reserved names, so this and the attributes endpoint reach the same storage; it exists separately because the names are not discoverable from the templates.  Two things worth knowing.  A title set here changes the document title only - og:title and twitter:title render the item's description either way.  And there is no canonical or noindex field, because both are site wide switches rather than per item values. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemSeoRequest">Search metadata to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> PutSfvbItemSeoWithHttpInfoAsync (int storefrontOid, SfvbItemSeoRequest itemSeoRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Replace a store menu's entries
         /// </summary>
@@ -4798,6 +5134,187 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Detach an image from an item Removes the item's copy of the image in one slot.  The file you uploaded is left where it is, so the same source can be attached again or used elsewhere. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="code">The image code to detach (optional)</param>
+        /// <param name="_default">Detach the default image instead of a coded one (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        public SfvbItemResponse DeleteSfvbItemMultimedia (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string code = default(string), bool? _default = default(bool?))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = DeleteSfvbItemMultimediaWithHttpInfo(storefrontOid, merchantItemId, merchantItemOid, code, _default);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Detach an image from an item Removes the item's copy of the image in one slot.  The file you uploaded is left where it is, so the same source can be attached again or used elsewhere. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="code">The image code to detach (optional)</param>
+        /// <param name="_default">Detach the default image instead of a coded one (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        public ApiResponse<SfvbItemResponse> DeleteSfvbItemMultimediaWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string code = default(string), bool? _default = default(bool?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbItemMultimedia");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/multimedia";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (code != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "code", code)); // query parameter
+            if (_default != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "default", _default)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbItemMultimedia", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Detach an image from an item Removes the item's copy of the image in one slot.  The file you uploaded is left where it is, so the same source can be attached again or used elsewhere. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="code">The image code to detach (optional)</param>
+        /// <param name="_default">Detach the default image instead of a coded one (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemResponse> DeleteSfvbItemMultimediaAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string code = default(string), bool? _default = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = await DeleteSfvbItemMultimediaWithHttpInfoAsync(storefrontOid, merchantItemId, merchantItemOid, code, _default, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Detach an image from an item Removes the item's copy of the image in one slot.  The file you uploaded is left where it is, so the same source can be attached again or used elsewhere. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="code">The image code to detach (optional)</param>
+        /// <param name="_default">Detach the default image instead of a coded one (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> DeleteSfvbItemMultimediaWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string code = default(string), bool? _default = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbItemMultimedia");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/multimedia";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (code != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "code", code)); // query parameter
+            if (_default != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "default", _default)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbItemMultimedia", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
         }
 
         /// <summary>
@@ -7254,6 +7771,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbFileUploadUrlResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbFileUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFileUploadUrlResponse)));
+        }
+
+        /// <summary>
+        /// Read an item's storefront facing content The attributes, images, title, description and search metadata a StoreFront element can render, reconciled against the templates behind the pages this item sits on.  An attribute a template declares but nothing has set comes back present with an empty value, which is how you discover what the page is asking for.  Pricing, shipping, inventory, tax, variants and kit structure are not here because no element reads them; use the item API for those.  Address by merchant_item_id, the value data-context-item-id carries, or by merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">The merchant item id, as a storefront carries it (optional)</param>
+        /// <param name="merchantItemOid">The item oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        public SfvbItemResponse GetSfvbItem (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = GetSfvbItemWithHttpInfo(storefrontOid, merchantItemId, merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read an item's storefront facing content The attributes, images, title, description and search metadata a StoreFront element can render, reconciled against the templates behind the pages this item sits on.  An attribute a template declares but nothing has set comes back present with an empty value, which is how you discover what the page is asking for.  Pricing, shipping, inventory, tax, variants and kit structure are not here because no element reads them; use the item API for those.  Address by merchant_item_id, the value data-context-item-id carries, or by merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">The merchant item id, as a storefront carries it (optional)</param>
+        /// <param name="merchantItemOid">The item oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        public ApiResponse<SfvbItemResponse> GetSfvbItemWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbItem");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Read an item's storefront facing content The attributes, images, title, description and search metadata a StoreFront element can render, reconciled against the templates behind the pages this item sits on.  An attribute a template declares but nothing has set comes back present with an empty value, which is how you discover what the page is asking for.  Pricing, shipping, inventory, tax, variants and kit structure are not here because no element reads them; use the item API for those.  Address by merchant_item_id, the value data-context-item-id carries, or by merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">The merchant item id, as a storefront carries it (optional)</param>
+        /// <param name="merchantItemOid">The item oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemResponse> GetSfvbItemAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = await GetSfvbItemWithHttpInfoAsync(storefrontOid, merchantItemId, merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read an item's storefront facing content The attributes, images, title, description and search metadata a StoreFront element can render, reconciled against the templates behind the pages this item sits on.  An attribute a template declares but nothing has set comes back present with an empty value, which is how you discover what the page is asking for.  Pricing, shipping, inventory, tax, variants and kit structure are not here because no element reads them; use the item API for those.  Address by merchant_item_id, the value data-context-item-id carries, or by merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">The merchant item id, as a storefront carries it (optional)</param>
+        /// <param name="merchantItemOid">The item oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> GetSfvbItemWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbItem");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
         }
 
         /// <summary>
@@ -12533,6 +13219,794 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbFileWriteResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbFileWriteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFileWriteResponse)));
+        }
+
+        /// <summary>
+        /// Change some of an item's attributes Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        public SfvbItemResponse PutSfvbItemAttributes (int storefrontOid, SfvbItemAttributeUpdateRequest itemAttributeUpdateRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = PutSfvbItemAttributesWithHttpInfo(storefrontOid, itemAttributeUpdateRequest, merchantItemId, merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change some of an item's attributes Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        public ApiResponse<SfvbItemResponse> PutSfvbItemAttributesWithHttpInfo (int storefrontOid, SfvbItemAttributeUpdateRequest itemAttributeUpdateRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemAttributes");
+            // verify the required parameter 'itemAttributeUpdateRequest' is set
+            if (itemAttributeUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemAttributeUpdateRequest' when calling SfvbApi->PutSfvbItemAttributes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (itemAttributeUpdateRequest != null && itemAttributeUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemAttributeUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemAttributeUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Change some of an item's attributes Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemResponse> PutSfvbItemAttributesAsync (int storefrontOid, SfvbItemAttributeUpdateRequest itemAttributeUpdateRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = await PutSfvbItemAttributesWithHttpInfoAsync(storefrontOid, itemAttributeUpdateRequest, merchantItemId, merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change some of an item's attributes Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemAttributeUpdateRequest">Attributes to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> PutSfvbItemAttributesWithHttpInfoAsync (int storefrontOid, SfvbItemAttributeUpdateRequest itemAttributeUpdateRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemAttributes");
+            // verify the required parameter 'itemAttributeUpdateRequest' is set
+            if (itemAttributeUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemAttributeUpdateRequest' when calling SfvbApi->PutSfvbItemAttributes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (itemAttributeUpdateRequest != null && itemAttributeUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemAttributeUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemAttributeUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Change an item's title or long description Partial - a field left out is untouched, a field sent empty is cleared, and those are different things.  These are what itemtitle and itemdescription render.  Writing the matching config keys into a container does nothing, because they are dialog buffers bound to the item and the render never reads them.  Both are the catalog's own fields, so a change here reaches the item everywhere, not only on this storefront. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemContentRequest">Title and description to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        public SfvbItemResponse PutSfvbItemContent (int storefrontOid, SfvbItemContentRequest itemContentRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = PutSfvbItemContentWithHttpInfo(storefrontOid, itemContentRequest, merchantItemId, merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change an item's title or long description Partial - a field left out is untouched, a field sent empty is cleared, and those are different things.  These are what itemtitle and itemdescription render.  Writing the matching config keys into a container does nothing, because they are dialog buffers bound to the item and the render never reads them.  Both are the catalog's own fields, so a change here reaches the item everywhere, not only on this storefront. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemContentRequest">Title and description to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        public ApiResponse<SfvbItemResponse> PutSfvbItemContentWithHttpInfo (int storefrontOid, SfvbItemContentRequest itemContentRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemContent");
+            // verify the required parameter 'itemContentRequest' is set
+            if (itemContentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemContentRequest' when calling SfvbApi->PutSfvbItemContent");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/content";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (itemContentRequest != null && itemContentRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemContentRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemContentRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemContent", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Change an item's title or long description Partial - a field left out is untouched, a field sent empty is cleared, and those are different things.  These are what itemtitle and itemdescription render.  Writing the matching config keys into a container does nothing, because they are dialog buffers bound to the item and the render never reads them.  Both are the catalog's own fields, so a change here reaches the item everywhere, not only on this storefront. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemContentRequest">Title and description to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemResponse> PutSfvbItemContentAsync (int storefrontOid, SfvbItemContentRequest itemContentRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = await PutSfvbItemContentWithHttpInfoAsync(storefrontOid, itemContentRequest, merchantItemId, merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change an item's title or long description Partial - a field left out is untouched, a field sent empty is cleared, and those are different things.  These are what itemtitle and itemdescription render.  Writing the matching config keys into a container does nothing, because they are dialog buffers bound to the item and the render never reads them.  Both are the catalog's own fields, so a change here reaches the item everywhere, not only on this storefront. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemContentRequest">Title and description to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> PutSfvbItemContentWithHttpInfoAsync (int storefrontOid, SfvbItemContentRequest itemContentRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemContent");
+            // verify the required parameter 'itemContentRequest' is set
+            if (itemContentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemContentRequest' when calling SfvbApi->PutSfvbItemContent");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/content";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (itemContentRequest != null && itemContentRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemContentRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemContentRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemContent", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Attach an image to an item One slot at a time - the default image or one code - and every other image on the item is left alone.  That is the difference from the item API, where images are reachable only through a full item update whose multimedia array is reconciled destructively, so adding one means resending the rest or losing them.  Upload the file with files/upload first and name its storefront path here; unlike a page image it does not have to live in any particular folder, because the bytes are copied into the item's own storage on attach. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemMultimediaRequest">Image to attach</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        public SfvbItemResponse PutSfvbItemMultimedia (int storefrontOid, SfvbItemMultimediaRequest itemMultimediaRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = PutSfvbItemMultimediaWithHttpInfo(storefrontOid, itemMultimediaRequest, merchantItemId, merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Attach an image to an item One slot at a time - the default image or one code - and every other image on the item is left alone.  That is the difference from the item API, where images are reachable only through a full item update whose multimedia array is reconciled destructively, so adding one means resending the rest or losing them.  Upload the file with files/upload first and name its storefront path here; unlike a page image it does not have to live in any particular folder, because the bytes are copied into the item's own storage on attach. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemMultimediaRequest">Image to attach</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        public ApiResponse<SfvbItemResponse> PutSfvbItemMultimediaWithHttpInfo (int storefrontOid, SfvbItemMultimediaRequest itemMultimediaRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemMultimedia");
+            // verify the required parameter 'itemMultimediaRequest' is set
+            if (itemMultimediaRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemMultimediaRequest' when calling SfvbApi->PutSfvbItemMultimedia");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/multimedia";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (itemMultimediaRequest != null && itemMultimediaRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemMultimediaRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemMultimediaRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemMultimedia", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Attach an image to an item One slot at a time - the default image or one code - and every other image on the item is left alone.  That is the difference from the item API, where images are reachable only through a full item update whose multimedia array is reconciled destructively, so adding one means resending the rest or losing them.  Upload the file with files/upload first and name its storefront path here; unlike a page image it does not have to live in any particular folder, because the bytes are copied into the item's own storage on attach. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemMultimediaRequest">Image to attach</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemResponse> PutSfvbItemMultimediaAsync (int storefrontOid, SfvbItemMultimediaRequest itemMultimediaRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = await PutSfvbItemMultimediaWithHttpInfoAsync(storefrontOid, itemMultimediaRequest, merchantItemId, merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Attach an image to an item One slot at a time - the default image or one code - and every other image on the item is left alone.  That is the difference from the item API, where images are reachable only through a full item update whose multimedia array is reconciled destructively, so adding one means resending the rest or losing them.  Upload the file with files/upload first and name its storefront path here; unlike a page image it does not have to live in any particular folder, because the bytes are copied into the item's own storage on attach. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemMultimediaRequest">Image to attach</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> PutSfvbItemMultimediaWithHttpInfoAsync (int storefrontOid, SfvbItemMultimediaRequest itemMultimediaRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemMultimedia");
+            // verify the required parameter 'itemMultimediaRequest' is set
+            if (itemMultimediaRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemMultimediaRequest' when calling SfvbApi->PutSfvbItemMultimedia");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/multimedia";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (itemMultimediaRequest != null && itemMultimediaRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemMultimediaRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemMultimediaRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemMultimedia", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Change an item's search metadata Partial - a field left out is untouched, a field sent empty is cleared and the page falls back to what it fell back to before.  Underneath these are three item attributes with reserved names, so this and the attributes endpoint reach the same storage; it exists separately because the names are not discoverable from the templates.  Two things worth knowing.  A title set here changes the document title only - og:title and twitter:title render the item's description either way.  And there is no canonical or noindex field, because both are site wide switches rather than per item values. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemSeoRequest">Search metadata to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        public SfvbItemResponse PutSfvbItemSeo (int storefrontOid, SfvbItemSeoRequest itemSeoRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = PutSfvbItemSeoWithHttpInfo(storefrontOid, itemSeoRequest, merchantItemId, merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change an item's search metadata Partial - a field left out is untouched, a field sent empty is cleared and the page falls back to what it fell back to before.  Underneath these are three item attributes with reserved names, so this and the attributes endpoint reach the same storage; it exists separately because the names are not discoverable from the templates.  Two things worth knowing.  A title set here changes the document title only - og:title and twitter:title render the item's description either way.  And there is no canonical or noindex field, because both are site wide switches rather than per item values. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemSeoRequest">Search metadata to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        public ApiResponse<SfvbItemResponse> PutSfvbItemSeoWithHttpInfo (int storefrontOid, SfvbItemSeoRequest itemSeoRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemSeo");
+            // verify the required parameter 'itemSeoRequest' is set
+            if (itemSeoRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemSeoRequest' when calling SfvbApi->PutSfvbItemSeo");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/seo";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (itemSeoRequest != null && itemSeoRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemSeoRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemSeoRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemSeo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Change an item's search metadata Partial - a field left out is untouched, a field sent empty is cleared and the page falls back to what it fell back to before.  Underneath these are three item attributes with reserved names, so this and the attributes endpoint reach the same storage; it exists separately because the names are not discoverable from the templates.  Two things worth knowing.  A title set here changes the document title only - og:title and twitter:title render the item's description either way.  And there is no canonical or noindex field, because both are site wide switches rather than per item values. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemSeoRequest">Search metadata to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemResponse> PutSfvbItemSeoAsync (int storefrontOid, SfvbItemSeoRequest itemSeoRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = await PutSfvbItemSeoWithHttpInfoAsync(storefrontOid, itemSeoRequest, merchantItemId, merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change an item's search metadata Partial - a field left out is untouched, a field sent empty is cleared and the page falls back to what it fell back to before.  Underneath these are three item attributes with reserved names, so this and the attributes endpoint reach the same storage; it exists separately because the names are not discoverable from the templates.  Two things worth knowing.  A title set here changes the document title only - og:title and twitter:title render the item's description either way.  And there is no canonical or noindex field, because both are site wide switches rather than per item values. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemSeoRequest">Search metadata to change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> PutSfvbItemSeoWithHttpInfoAsync (int storefrontOid, SfvbItemSeoRequest itemSeoRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemSeo");
+            // verify the required parameter 'itemSeoRequest' is set
+            if (itemSeoRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemSeoRequest' when calling SfvbApi->PutSfvbItemSeo");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/seo";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (itemSeoRequest != null && itemSeoRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemSeoRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemSeoRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemSeo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
         }
 
         /// <summary>

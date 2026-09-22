@@ -1014,6 +1014,37 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbFilesResponse</returns>
         ApiResponse<SfvbFilesResponse> ListSfvbFilesWithHttpInfo (int storefrontOid, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? themeOid = default(int?), int? maxEntries = default(int?));
         /// <summary>
+        /// List the item containers on the account
+        /// </summary>
+        /// <remarks>
+        /// An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller's storefront but does not narrow the result. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">Restrict to one item, by the merchant item id a storefront carries (optional)</param>
+        /// <param name="merchantItemOid">Restrict to one item, by oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <param name="containerName">Restrict to one slot name, matched without regard to case (optional)</param>
+        /// <param name="maxResults"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <returns>SfvbItemContainersResponse</returns>
+        SfvbItemContainersResponse ListSfvbItemContainers (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string containerName = default(string), int? maxResults = default(int?), int? offset = default(int?));
+
+        /// <summary>
+        /// List the item containers on the account
+        /// </summary>
+        /// <remarks>
+        /// An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller's storefront but does not narrow the result. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">Restrict to one item, by the merchant item id a storefront carries (optional)</param>
+        /// <param name="merchantItemOid">Restrict to one item, by oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <param name="containerName">Restrict to one slot name, matched without regard to case (optional)</param>
+        /// <param name="maxResults"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemContainersResponse</returns>
+        ApiResponse<SfvbItemContainersResponse> ListSfvbItemContainersWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string containerName = default(string), int? maxResults = default(int?), int? offset = default(int?));
+        /// <summary>
         /// List the storefront's pages
         /// </summary>
         /// <remarks>
@@ -2781,6 +2812,39 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFilesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFilesResponse>> ListSfvbFilesWithHttpInfoAsync (int storefrontOid, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? themeOid = default(int?), int? maxEntries = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the item containers on the account
+        /// </summary>
+        /// <remarks>
+        /// An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller's storefront but does not narrow the result. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">Restrict to one item, by the merchant item id a storefront carries (optional)</param>
+        /// <param name="merchantItemOid">Restrict to one item, by oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <param name="containerName">Restrict to one slot name, matched without regard to case (optional)</param>
+        /// <param name="maxResults"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemContainersResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemContainersResponse> ListSfvbItemContainersAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string containerName = default(string), int? maxResults = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the item containers on the account
+        /// </summary>
+        /// <remarks>
+        /// An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller's storefront but does not narrow the result. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">Restrict to one item, by the merchant item id a storefront carries (optional)</param>
+        /// <param name="merchantItemOid">Restrict to one item, by oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <param name="containerName">Restrict to one slot name, matched without regard to case (optional)</param>
+        /// <param name="maxResults"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemContainersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemContainersResponse>> ListSfvbItemContainersWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string containerName = default(string), int? maxResults = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// List the storefront's pages
         /// </summary>
@@ -10858,6 +10922,193 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbFilesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbFilesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFilesResponse)));
+        }
+
+        /// <summary>
+        /// List the item containers on the account An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller's storefront but does not narrow the result. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">Restrict to one item, by the merchant item id a storefront carries (optional)</param>
+        /// <param name="merchantItemOid">Restrict to one item, by oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <param name="containerName">Restrict to one slot name, matched without regard to case (optional)</param>
+        /// <param name="maxResults"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <returns>SfvbItemContainersResponse</returns>
+        public SfvbItemContainersResponse ListSfvbItemContainers (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string containerName = default(string), int? maxResults = default(int?), int? offset = default(int?))
+        {
+             ApiResponse<SfvbItemContainersResponse> localVarResponse = ListSfvbItemContainersWithHttpInfo(storefrontOid, merchantItemId, merchantItemOid, containerName, maxResults, offset);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the item containers on the account An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller's storefront but does not narrow the result. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">Restrict to one item, by the merchant item id a storefront carries (optional)</param>
+        /// <param name="merchantItemOid">Restrict to one item, by oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <param name="containerName">Restrict to one slot name, matched without regard to case (optional)</param>
+        /// <param name="maxResults"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemContainersResponse</returns>
+        public ApiResponse<SfvbItemContainersResponse> ListSfvbItemContainersWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string containerName = default(string), int? maxResults = default(int?), int? offset = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbItemContainers");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/item_containers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (containerName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "container_name", containerName)); // query parameter
+            if (maxResults != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "max_results", maxResults)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbItemContainers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemContainersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemContainersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemContainersResponse)));
+        }
+
+        /// <summary>
+        /// List the item containers on the account An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller's storefront but does not narrow the result. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">Restrict to one item, by the merchant item id a storefront carries (optional)</param>
+        /// <param name="merchantItemOid">Restrict to one item, by oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <param name="containerName">Restrict to one slot name, matched without regard to case (optional)</param>
+        /// <param name="maxResults"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemContainersResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemContainersResponse> ListSfvbItemContainersAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string containerName = default(string), int? maxResults = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemContainersResponse> localVarResponse = await ListSfvbItemContainersWithHttpInfoAsync(storefrontOid, merchantItemId, merchantItemOid, containerName, maxResults, offset, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the item containers on the account An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller's storefront but does not narrow the result. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId">Restrict to one item, by the merchant item id a storefront carries (optional)</param>
+        /// <param name="merchantItemOid">Restrict to one item, by oid.  Send this or merchant_item_id, not both (optional)</param>
+        /// <param name="containerName">Restrict to one slot name, matched without regard to case (optional)</param>
+        /// <param name="maxResults"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemContainersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemContainersResponse>> ListSfvbItemContainersWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string containerName = default(string), int? maxResults = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbItemContainers");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/item_containers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (containerName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "container_name", containerName)); // query parameter
+            if (maxResults != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "max_results", maxResults)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbItemContainers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemContainersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemContainersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemContainersResponse)));
         }
 
         /// <summary>

@@ -46,6 +46,7 @@ Method | HTTP request | Description
 [**ListSfvbExperiments**](SfvbApi.md#listsfvbexperiments) | **GET** /sfvb/storefronts/{storefront_oid}/experiments | List the storefront&#39;s experiments
 [**ListSfvbFileVersions**](SfvbApi.md#listsfvbfileversions) | **GET** /sfvb/storefronts/{storefront_oid}/files/versions | Version history for a storefront file
 [**ListSfvbFiles**](SfvbApi.md#listsfvbfiles) | **GET** /sfvb/storefronts/{storefront_oid}/files | List a storefront directory
+[**ListSfvbItemContainers**](SfvbApi.md#listsfvbitemcontainers) | **GET** /sfvb/storefronts/{storefront_oid}/item_containers | List the item containers on the account
 [**ListSfvbPages**](SfvbApi.md#listsfvbpages) | **GET** /sfvb/storefronts/{storefront_oid}/pages/list | List the storefront&#39;s pages
 [**ListSfvbStorefronts**](SfvbApi.md#listsfvbstorefronts) | **GET** /sfvb/storefronts | List storefronts
 [**ListSfvbTemplates**](SfvbApi.md#listsfvbtemplates) | **GET** /sfvb/storefronts/{storefront_oid}/templates | List the active theme&#39;s templates
@@ -2270,6 +2271,62 @@ Name | Type | Description  | Notes
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListSfvbItemContainers
+
+> SfvbItemContainersResponse ListSfvbItemContainers (int storefrontOid, string merchantItemId = null, int? merchantItemOid = null, string containerName = null, int? maxResults = null, int? offset = null)
+
+List the item containers on the account
+
+An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller's storefront but does not narrow the result. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **merchantItemId** | **string**| Restrict to one item, by the merchant item id a storefront carries | [optional] 
+ **merchantItemOid** | **int?**| Restrict to one item, by oid.  Send this or merchant_item_id, not both | [optional] 
+ **containerName** | **string**| Restrict to one slot name, matched without regard to case | [optional] 
+ **maxResults** | **int?**|  | [optional] 
+ **offset** | **int?**|  | [optional] 
+
+### Return type
+
+[**SfvbItemContainersResponse**](SfvbItemContainersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#)

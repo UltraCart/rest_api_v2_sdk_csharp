@@ -1020,6 +1020,8 @@ docs/SfvbFileVersionsResponse.md
 docs/SfvbFileWriteRequest.md
 docs/SfvbFileWriteResponse.md
 docs/SfvbFilesResponse.md
+docs/SfvbItemContainer.md
+docs/SfvbItemContainersResponse.md
 docs/SfvbLibraryEntry.md
 docs/SfvbLibraryFacet.md
 docs/SfvbLibraryResponse.md
@@ -2206,6 +2208,8 @@ src/com.ultracart.admin.v2/Model/SfvbFileVersionsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbFileWriteRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbFileWriteResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbFilesResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbItemContainer.cs
+src/com.ultracart.admin.v2/Model/SfvbItemContainersResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryEntry.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryFacet.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryResponse.cs

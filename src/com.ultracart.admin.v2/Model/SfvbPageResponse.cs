@@ -34,6 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbPageResponse" /> class.
         /// </summary>
         /// <param name="attributes">Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name..</param>
+        /// <param name="description">The page description, the text a page template renders as the page&#39;s description.  Omitted when empty..</param>
         /// <param name="excludeFromSitemap">True when the page is left out of the sitemap and marked noindex..</param>
         /// <param name="groupTemplate">Template file that renders the page itself, a bare .vm name found anywhere in the active theme..</param>
         /// <param name="itemTemplate">Template file that renders the item pages under this page..</param>
@@ -42,9 +43,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="title">The page title..</param>
         /// <param name="visible">False when the page is hidden.  A hidden page answers 404 to shoppers..</param>
         /// <param name="visibleDts">When set, the page stays hidden until this time (ISO 8601, UTC)..</param>
-        public SfvbPageResponse(List<SfvbPageAttribute> attributes = default(List<SfvbPageAttribute>), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), List<SfvbPageMultimedia> multimedia = default(List<SfvbPageMultimedia>), string path = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
+        public SfvbPageResponse(List<SfvbPageAttribute> attributes = default(List<SfvbPageAttribute>), string description = default(string), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), List<SfvbPageMultimedia> multimedia = default(List<SfvbPageMultimedia>), string path = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
         {
             this.Attributes = attributes;
+            this.Description = description;
             this.ExcludeFromSitemap = excludeFromSitemap;
             this.GroupTemplate = groupTemplate;
             this.ItemTemplate = itemTemplate;
@@ -61,6 +63,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public List<SfvbPageAttribute> Attributes { get; set; }
+
+        /// <summary>
+        /// The page description, the text a page template renders as the page&#39;s description.  Omitted when empty.
+        /// </summary>
+        /// <value>The page description, the text a page template renders as the page&#39;s description.  Omitted when empty.</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
 
         /// <summary>
         /// True when the page is left out of the sitemap and marked noindex.
@@ -127,6 +136,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class SfvbPageResponse {\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ExcludeFromSitemap: ").Append(ExcludeFromSitemap).Append("\n");
             sb.Append("  GroupTemplate: ").Append(GroupTemplate).Append("\n");
             sb.Append("  ItemTemplate: ").Append(ItemTemplate).Append("\n");
@@ -174,6 +184,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Attributes != null &&
                     input.Attributes != null &&
                     this.Attributes.SequenceEqual(input.Attributes)
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
                     this.ExcludeFromSitemap == input.ExcludeFromSitemap ||
@@ -229,6 +244,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.ExcludeFromSitemap != null)
                     hashCode = hashCode * 59 + this.ExcludeFromSitemap.GetHashCode();
                 if (this.GroupTemplate != null)

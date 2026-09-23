@@ -33,76 +33,498 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbUpsellOffer" /> class.
         /// </summary>
-        /// <param name="active">Whether the offer is switched on..</param>
-        /// <param name="activeOverall">Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it..</param>
-        /// <param name="cjsonSize">Size of the offer&#39;s container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump..</param>
-        /// <param name="hasContainer">Whether a container has been authored for this offer..</param>
-        /// <param name="name">Offer name..</param>
-        /// <param name="pathName">Name of the upsell path this offer sits on..</param>
-        /// <param name="storefrontOid">Storefront oid..</param>
+        /// <param name="active">Whether the offer is switched on.  Setting it true, or changing an offer that is active overall, needs the sfvb_publish scope..</param>
+        /// <param name="activeOverall">Read only.  Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it..</param>
+        /// <param name="addAccessoryItemIds">Accessory items added when the offer is accepted..</param>
+        /// <param name="adjustTriggerItemOption">Option on the trigger item to adjust when the offer is accepted.  Omitted or null for none..</param>
+        /// <param name="allowUpsellItemInCartAlready">Whether to show the offer when the upsell item is already in the cart..</param>
+        /// <param name="arbitraryUnitCost">Price per unit when the offer is accepted.  Omitted or null to charge the item&#39;s own price..</param>
+        /// <param name="arbitraryUnitCostFriday">Price on Fridays, overriding arbitrary_unit_cost..</param>
+        /// <param name="arbitraryUnitCostMonday">Price on Mondays, overriding arbitrary_unit_cost.  Omitted or null for no override..</param>
+        /// <param name="arbitraryUnitCostSaturday">Price on Saturdays, overriding arbitrary_unit_cost..</param>
+        /// <param name="arbitraryUnitCostSunday">Price on Sundays, overriding arbitrary_unit_cost..</param>
+        /// <param name="arbitraryUnitCostThursday">Price on Thursdays, overriding arbitrary_unit_cost..</param>
+        /// <param name="arbitraryUnitCostTuesday">Price on Tuesdays, overriding arbitrary_unit_cost..</param>
+        /// <param name="arbitraryUnitCostWednesday">Price on Wednesdays, overriding arbitrary_unit_cost..</param>
+        /// <param name="cjsonSize">Read only.  Size of the offer&#39;s container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump..</param>
+        /// <param name="endDate">Last day the offer runs, as YYYY-MM-DD, inclusive.  Omitted or null for no end..</param>
+        /// <param name="everflowAdvertiserEventId">Everflow advertiser event id recorded when the offer is accepted.  Omitted or null for none..</param>
+        /// <param name="firstTimeItem">Show only to shoppers who have not bought the upsell item before..</param>
+        /// <param name="firstTimeStore">Show only to shoppers buying from this store for the first time..</param>
+        /// <param name="freeShipping">Whether the upsell item ships free..</param>
+        /// <param name="hasContainer">Read only.  Whether a container has been authored for this offer..</param>
+        /// <param name="hasEverflowConfigured">Read only.  Whether the merchant has Everflow set up..</param>
+        /// <param name="hasLoyaltyConfigured">Read only.  Whether the merchant has loyalty set up, so the loyalty tier lists apply..</param>
+        /// <param name="hasTowerdataConfigured">Read only.  Whether the merchant has TowerData set up, so the age and gender lists apply..</param>
+        /// <param name="hashSha256">Read only.  Hash of the offer&#39;s writable fields.  Send it in If-Match on an update..</param>
+        /// <param name="itemLogicSuppression">itemLogicSuppression.</param>
+        /// <param name="itemLogicTrigger">itemLogicTrigger.</param>
+        /// <param name="lockShipping">Whether the shipping method is locked once the offer is accepted..</param>
+        /// <param name="maxQuantity">Most units a shopper can take.  Omitted or null for no limit..</param>
+        /// <param name="migrateAccessoryItemIdsFrom">Accessory items to migrate from, paired by position with migrate_accessory_item_ids_to..</param>
+        /// <param name="migrateAccessoryItemIdsTo">Accessory items to migrate to, paired by position with migrate_accessory_item_ids_from..</param>
+        /// <param name="name">Offer name, at most 50 characters..</param>
+        /// <param name="offsiteContentUrl">URL of offsite content shown instead of the container.  Omitted or null for none..</param>
+        /// <param name="outOfStockUpsellItemIds">Read only.  Upsell items that are out of stock now, so the offer would not be shown..</param>
+        /// <param name="pathName">Read only.  Name of the upsell path this offer was last served on.  Written by checkout traffic, so it is empty until shoppers have seen the offer and can be stale.  Use referenced_by_path_oids for the configured answer..</param>
+        /// <param name="recordAsRegularItem">Whether the accepted item is recorded as a regular item rather than an upsell..</param>
+        /// <param name="referencedByPathOids">Read only.  The storefront&#39;s upsell paths whose steps use this offer, as an offer or a downsell..</param>
+        /// <param name="removableOnConfirmation">Whether the shopper can remove the accepted item on the confirmation step..</param>
+        /// <param name="removeAccessoryItemIds">Accessory items removed when the offer is accepted..</param>
+        /// <param name="removeTriggerItem">Whether accepting the offer removes the item that triggered it (a swap rather than an add)..</param>
+        /// <param name="skipPreviousCustomers">Do not show to previous customers..</param>
+        /// <param name="startDate">First day the offer runs, as YYYY-MM-DD.  Omitted or null for no start..</param>
+        /// <param name="stats">stats.</param>
+        /// <param name="storefrontOid">Read only.  Storefront oid..</param>
+        /// <param name="suppressLarge">Do not show on large screens..</param>
+        /// <param name="suppressMedium">Do not show on medium screens..</param>
+        /// <param name="suppressSmall">Do not show on small screens..</param>
+        /// <param name="suppressionCountryCodes">Shipping countries that stop the offer from showing..</param>
+        /// <param name="suppressionLoyaltyTierOids">Loyalty tiers that stop the offer from showing..</param>
+        /// <param name="suppressionPaymentMethods">Payment methods that stop the offer from showing..</param>
+        /// <param name="suppressionShippingMethods">Shipping methods that stop the offer from showing..</param>
+        /// <param name="suppressionStateCodes">Shipping states that stop the offer from showing..</param>
+        /// <param name="suppressionTags">Customer tags that stop the offer from showing..</param>
         /// <param name="testOnly">Whether the offer is restricted to test traffic..</param>
-        /// <param name="upsellOfferOid">Upsell offer oid..</param>
-        public SfvbUpsellOffer(bool active = default(bool), bool activeOverall = default(bool), int cjsonSize = default(int), bool hasContainer = default(bool), string name = default(string), string pathName = default(string), int storefrontOid = default(int), bool testOnly = default(bool), int upsellOfferOid = default(int))
+        /// <param name="triggerAges">TowerData age bands the offer is shown to.  18-20, 21-24, 25-34, 35-44, 45-54, 55-64, 65+ or Unknown..</param>
+        /// <param name="triggerCountryCodes">Shipping countries (ISO 3166 two letter codes) that trigger the offer..</param>
+        /// <param name="triggerGenders">TowerData genders the offer is shown to.  Male, Female or Unknown..</param>
+        /// <param name="triggerLoyaltyTierOids">Loyalty tiers that trigger the offer.  Each must be one of the merchant&#39;s loyalty tiers..</param>
+        /// <param name="triggerPaymentMethods">Payment methods that trigger the offer.  Each must be one of the merchant&#39;s payment methods..</param>
+        /// <param name="triggerShippingMethods">Shipping methods that trigger the offer.  Each must be one of the merchant&#39;s shipping methods..</param>
+        /// <param name="triggerStateCodes">Shipping states that trigger the offer..</param>
+        /// <param name="triggerTags">Customer tags that trigger the offer..</param>
+        /// <param name="upsellItemIdJavascript">JavaScript that chooses the upsell item at runtime.  Omitted or null for none..</param>
+        /// <param name="upsellItemIds">The items offered.  Every item id must exist on the merchant account..</param>
+        /// <param name="upsellOfferOid">Read only.  Upsell offer oid..</param>
+        public SfvbUpsellOffer(bool active = default(bool), bool activeOverall = default(bool), List<string> addAccessoryItemIds = default(List<string>), string adjustTriggerItemOption = default(string), bool allowUpsellItemInCartAlready = default(bool), decimal arbitraryUnitCost = default(decimal), decimal arbitraryUnitCostFriday = default(decimal), decimal arbitraryUnitCostMonday = default(decimal), decimal arbitraryUnitCostSaturday = default(decimal), decimal arbitraryUnitCostSunday = default(decimal), decimal arbitraryUnitCostThursday = default(decimal), decimal arbitraryUnitCostTuesday = default(decimal), decimal arbitraryUnitCostWednesday = default(decimal), int cjsonSize = default(int), string endDate = default(string), string everflowAdvertiserEventId = default(string), bool firstTimeItem = default(bool), bool firstTimeStore = default(bool), bool freeShipping = default(bool), bool hasContainer = default(bool), bool hasEverflowConfigured = default(bool), bool hasLoyaltyConfigured = default(bool), bool hasTowerdataConfigured = default(bool), string hashSha256 = default(string), SfvbUpsellItemLogic itemLogicSuppression = default(SfvbUpsellItemLogic), SfvbUpsellItemLogic itemLogicTrigger = default(SfvbUpsellItemLogic), bool lockShipping = default(bool), int maxQuantity = default(int), List<string> migrateAccessoryItemIdsFrom = default(List<string>), List<string> migrateAccessoryItemIdsTo = default(List<string>), string name = default(string), string offsiteContentUrl = default(string), List<string> outOfStockUpsellItemIds = default(List<string>), string pathName = default(string), bool recordAsRegularItem = default(bool), List<int> referencedByPathOids = default(List<int>), bool removableOnConfirmation = default(bool), List<string> removeAccessoryItemIds = default(List<string>), bool removeTriggerItem = default(bool), bool skipPreviousCustomers = default(bool), string startDate = default(string), SfvbUpsellStats stats = default(SfvbUpsellStats), int storefrontOid = default(int), bool suppressLarge = default(bool), bool suppressMedium = default(bool), bool suppressSmall = default(bool), List<string> suppressionCountryCodes = default(List<string>), List<int> suppressionLoyaltyTierOids = default(List<int>), List<string> suppressionPaymentMethods = default(List<string>), List<string> suppressionShippingMethods = default(List<string>), List<string> suppressionStateCodes = default(List<string>), List<string> suppressionTags = default(List<string>), bool testOnly = default(bool), List<string> triggerAges = default(List<string>), List<string> triggerCountryCodes = default(List<string>), List<string> triggerGenders = default(List<string>), List<int> triggerLoyaltyTierOids = default(List<int>), List<string> triggerPaymentMethods = default(List<string>), List<string> triggerShippingMethods = default(List<string>), List<string> triggerStateCodes = default(List<string>), List<string> triggerTags = default(List<string>), string upsellItemIdJavascript = default(string), List<string> upsellItemIds = default(List<string>), int upsellOfferOid = default(int))
         {
             this.Active = active;
             this.ActiveOverall = activeOverall;
+            this.AddAccessoryItemIds = addAccessoryItemIds;
+            this.AdjustTriggerItemOption = adjustTriggerItemOption;
+            this.AllowUpsellItemInCartAlready = allowUpsellItemInCartAlready;
+            this.ArbitraryUnitCost = arbitraryUnitCost;
+            this.ArbitraryUnitCostFriday = arbitraryUnitCostFriday;
+            this.ArbitraryUnitCostMonday = arbitraryUnitCostMonday;
+            this.ArbitraryUnitCostSaturday = arbitraryUnitCostSaturday;
+            this.ArbitraryUnitCostSunday = arbitraryUnitCostSunday;
+            this.ArbitraryUnitCostThursday = arbitraryUnitCostThursday;
+            this.ArbitraryUnitCostTuesday = arbitraryUnitCostTuesday;
+            this.ArbitraryUnitCostWednesday = arbitraryUnitCostWednesday;
             this.CjsonSize = cjsonSize;
+            this.EndDate = endDate;
+            this.EverflowAdvertiserEventId = everflowAdvertiserEventId;
+            this.FirstTimeItem = firstTimeItem;
+            this.FirstTimeStore = firstTimeStore;
+            this.FreeShipping = freeShipping;
             this.HasContainer = hasContainer;
+            this.HasEverflowConfigured = hasEverflowConfigured;
+            this.HasLoyaltyConfigured = hasLoyaltyConfigured;
+            this.HasTowerdataConfigured = hasTowerdataConfigured;
+            this.HashSha256 = hashSha256;
+            this.ItemLogicSuppression = itemLogicSuppression;
+            this.ItemLogicTrigger = itemLogicTrigger;
+            this.LockShipping = lockShipping;
+            this.MaxQuantity = maxQuantity;
+            this.MigrateAccessoryItemIdsFrom = migrateAccessoryItemIdsFrom;
+            this.MigrateAccessoryItemIdsTo = migrateAccessoryItemIdsTo;
             this.Name = name;
+            this.OffsiteContentUrl = offsiteContentUrl;
+            this.OutOfStockUpsellItemIds = outOfStockUpsellItemIds;
             this.PathName = pathName;
+            this.RecordAsRegularItem = recordAsRegularItem;
+            this.ReferencedByPathOids = referencedByPathOids;
+            this.RemovableOnConfirmation = removableOnConfirmation;
+            this.RemoveAccessoryItemIds = removeAccessoryItemIds;
+            this.RemoveTriggerItem = removeTriggerItem;
+            this.SkipPreviousCustomers = skipPreviousCustomers;
+            this.StartDate = startDate;
+            this.Stats = stats;
             this.StorefrontOid = storefrontOid;
+            this.SuppressLarge = suppressLarge;
+            this.SuppressMedium = suppressMedium;
+            this.SuppressSmall = suppressSmall;
+            this.SuppressionCountryCodes = suppressionCountryCodes;
+            this.SuppressionLoyaltyTierOids = suppressionLoyaltyTierOids;
+            this.SuppressionPaymentMethods = suppressionPaymentMethods;
+            this.SuppressionShippingMethods = suppressionShippingMethods;
+            this.SuppressionStateCodes = suppressionStateCodes;
+            this.SuppressionTags = suppressionTags;
             this.TestOnly = testOnly;
+            this.TriggerAges = triggerAges;
+            this.TriggerCountryCodes = triggerCountryCodes;
+            this.TriggerGenders = triggerGenders;
+            this.TriggerLoyaltyTierOids = triggerLoyaltyTierOids;
+            this.TriggerPaymentMethods = triggerPaymentMethods;
+            this.TriggerShippingMethods = triggerShippingMethods;
+            this.TriggerStateCodes = triggerStateCodes;
+            this.TriggerTags = triggerTags;
+            this.UpsellItemIdJavascript = upsellItemIdJavascript;
+            this.UpsellItemIds = upsellItemIds;
             this.UpsellOfferOid = upsellOfferOid;
         }
 
         /// <summary>
-        /// Whether the offer is switched on.
+        /// Whether the offer is switched on.  Setting it true, or changing an offer that is active overall, needs the sfvb_publish scope.
         /// </summary>
-        /// <value>Whether the offer is switched on.</value>
+        /// <value>Whether the offer is switched on.  Setting it true, or changing an offer that is active overall, needs the sfvb_publish scope.</value>
         [DataMember(Name="active", EmitDefaultValue=false)]
         public bool Active { get; set; }
 
         /// <summary>
-        /// Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it.
+        /// Read only.  Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it.
         /// </summary>
-        /// <value>Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it.</value>
+        /// <value>Read only.  Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it.</value>
         [DataMember(Name="active_overall", EmitDefaultValue=false)]
         public bool ActiveOverall { get; set; }
 
         /// <summary>
-        /// Size of the offer&#39;s container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump.
+        /// Accessory items added when the offer is accepted.
         /// </summary>
-        /// <value>Size of the offer&#39;s container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump.</value>
+        /// <value>Accessory items added when the offer is accepted.</value>
+        [DataMember(Name="add_accessory_item_ids", EmitDefaultValue=false)]
+        public List<string> AddAccessoryItemIds { get; set; }
+
+        /// <summary>
+        /// Option on the trigger item to adjust when the offer is accepted.  Omitted or null for none.
+        /// </summary>
+        /// <value>Option on the trigger item to adjust when the offer is accepted.  Omitted or null for none.</value>
+        [DataMember(Name="adjust_trigger_item_option", EmitDefaultValue=false)]
+        public string AdjustTriggerItemOption { get; set; }
+
+        /// <summary>
+        /// Whether to show the offer when the upsell item is already in the cart.
+        /// </summary>
+        /// <value>Whether to show the offer when the upsell item is already in the cart.</value>
+        [DataMember(Name="allow_upsell_item_in_cart_already", EmitDefaultValue=false)]
+        public bool AllowUpsellItemInCartAlready { get; set; }
+
+        /// <summary>
+        /// Price per unit when the offer is accepted.  Omitted or null to charge the item&#39;s own price.
+        /// </summary>
+        /// <value>Price per unit when the offer is accepted.  Omitted or null to charge the item&#39;s own price.</value>
+        [DataMember(Name="arbitrary_unit_cost", EmitDefaultValue=false)]
+        public decimal ArbitraryUnitCost { get; set; }
+
+        /// <summary>
+        /// Price on Fridays, overriding arbitrary_unit_cost.
+        /// </summary>
+        /// <value>Price on Fridays, overriding arbitrary_unit_cost.</value>
+        [DataMember(Name="arbitrary_unit_cost_friday", EmitDefaultValue=false)]
+        public decimal ArbitraryUnitCostFriday { get; set; }
+
+        /// <summary>
+        /// Price on Mondays, overriding arbitrary_unit_cost.  Omitted or null for no override.
+        /// </summary>
+        /// <value>Price on Mondays, overriding arbitrary_unit_cost.  Omitted or null for no override.</value>
+        [DataMember(Name="arbitrary_unit_cost_monday", EmitDefaultValue=false)]
+        public decimal ArbitraryUnitCostMonday { get; set; }
+
+        /// <summary>
+        /// Price on Saturdays, overriding arbitrary_unit_cost.
+        /// </summary>
+        /// <value>Price on Saturdays, overriding arbitrary_unit_cost.</value>
+        [DataMember(Name="arbitrary_unit_cost_saturday", EmitDefaultValue=false)]
+        public decimal ArbitraryUnitCostSaturday { get; set; }
+
+        /// <summary>
+        /// Price on Sundays, overriding arbitrary_unit_cost.
+        /// </summary>
+        /// <value>Price on Sundays, overriding arbitrary_unit_cost.</value>
+        [DataMember(Name="arbitrary_unit_cost_sunday", EmitDefaultValue=false)]
+        public decimal ArbitraryUnitCostSunday { get; set; }
+
+        /// <summary>
+        /// Price on Thursdays, overriding arbitrary_unit_cost.
+        /// </summary>
+        /// <value>Price on Thursdays, overriding arbitrary_unit_cost.</value>
+        [DataMember(Name="arbitrary_unit_cost_thursday", EmitDefaultValue=false)]
+        public decimal ArbitraryUnitCostThursday { get; set; }
+
+        /// <summary>
+        /// Price on Tuesdays, overriding arbitrary_unit_cost.
+        /// </summary>
+        /// <value>Price on Tuesdays, overriding arbitrary_unit_cost.</value>
+        [DataMember(Name="arbitrary_unit_cost_tuesday", EmitDefaultValue=false)]
+        public decimal ArbitraryUnitCostTuesday { get; set; }
+
+        /// <summary>
+        /// Price on Wednesdays, overriding arbitrary_unit_cost.
+        /// </summary>
+        /// <value>Price on Wednesdays, overriding arbitrary_unit_cost.</value>
+        [DataMember(Name="arbitrary_unit_cost_wednesday", EmitDefaultValue=false)]
+        public decimal ArbitraryUnitCostWednesday { get; set; }
+
+        /// <summary>
+        /// Read only.  Size of the offer&#39;s container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump.
+        /// </summary>
+        /// <value>Read only.  Size of the offer&#39;s container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump.</value>
         [DataMember(Name="cjson_size", EmitDefaultValue=false)]
         public int CjsonSize { get; set; }
 
         /// <summary>
-        /// Whether a container has been authored for this offer.
+        /// Last day the offer runs, as YYYY-MM-DD, inclusive.  Omitted or null for no end.
         /// </summary>
-        /// <value>Whether a container has been authored for this offer.</value>
+        /// <value>Last day the offer runs, as YYYY-MM-DD, inclusive.  Omitted or null for no end.</value>
+        [DataMember(Name="end_date", EmitDefaultValue=false)]
+        public string EndDate { get; set; }
+
+        /// <summary>
+        /// Everflow advertiser event id recorded when the offer is accepted.  Omitted or null for none.
+        /// </summary>
+        /// <value>Everflow advertiser event id recorded when the offer is accepted.  Omitted or null for none.</value>
+        [DataMember(Name="everflow_advertiser_event_id", EmitDefaultValue=false)]
+        public string EverflowAdvertiserEventId { get; set; }
+
+        /// <summary>
+        /// Show only to shoppers who have not bought the upsell item before.
+        /// </summary>
+        /// <value>Show only to shoppers who have not bought the upsell item before.</value>
+        [DataMember(Name="first_time_item", EmitDefaultValue=false)]
+        public bool FirstTimeItem { get; set; }
+
+        /// <summary>
+        /// Show only to shoppers buying from this store for the first time.
+        /// </summary>
+        /// <value>Show only to shoppers buying from this store for the first time.</value>
+        [DataMember(Name="first_time_store", EmitDefaultValue=false)]
+        public bool FirstTimeStore { get; set; }
+
+        /// <summary>
+        /// Whether the upsell item ships free.
+        /// </summary>
+        /// <value>Whether the upsell item ships free.</value>
+        [DataMember(Name="free_shipping", EmitDefaultValue=false)]
+        public bool FreeShipping { get; set; }
+
+        /// <summary>
+        /// Read only.  Whether a container has been authored for this offer.
+        /// </summary>
+        /// <value>Read only.  Whether a container has been authored for this offer.</value>
         [DataMember(Name="has_container", EmitDefaultValue=false)]
         public bool HasContainer { get; set; }
 
         /// <summary>
-        /// Offer name.
+        /// Read only.  Whether the merchant has Everflow set up.
         /// </summary>
-        /// <value>Offer name.</value>
+        /// <value>Read only.  Whether the merchant has Everflow set up.</value>
+        [DataMember(Name="has_everflow_configured", EmitDefaultValue=false)]
+        public bool HasEverflowConfigured { get; set; }
+
+        /// <summary>
+        /// Read only.  Whether the merchant has loyalty set up, so the loyalty tier lists apply.
+        /// </summary>
+        /// <value>Read only.  Whether the merchant has loyalty set up, so the loyalty tier lists apply.</value>
+        [DataMember(Name="has_loyalty_configured", EmitDefaultValue=false)]
+        public bool HasLoyaltyConfigured { get; set; }
+
+        /// <summary>
+        /// Read only.  Whether the merchant has TowerData set up, so the age and gender lists apply.
+        /// </summary>
+        /// <value>Read only.  Whether the merchant has TowerData set up, so the age and gender lists apply.</value>
+        [DataMember(Name="has_towerdata_configured", EmitDefaultValue=false)]
+        public bool HasTowerdataConfigured { get; set; }
+
+        /// <summary>
+        /// Read only.  Hash of the offer&#39;s writable fields.  Send it in If-Match on an update.
+        /// </summary>
+        /// <value>Read only.  Hash of the offer&#39;s writable fields.  Send it in If-Match on an update.</value>
+        [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
+        public string HashSha256 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItemLogicSuppression
+        /// </summary>
+        [DataMember(Name="item_logic_suppression", EmitDefaultValue=false)]
+        public SfvbUpsellItemLogic ItemLogicSuppression { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItemLogicTrigger
+        /// </summary>
+        [DataMember(Name="item_logic_trigger", EmitDefaultValue=false)]
+        public SfvbUpsellItemLogic ItemLogicTrigger { get; set; }
+
+        /// <summary>
+        /// Whether the shipping method is locked once the offer is accepted.
+        /// </summary>
+        /// <value>Whether the shipping method is locked once the offer is accepted.</value>
+        [DataMember(Name="lock_shipping", EmitDefaultValue=false)]
+        public bool LockShipping { get; set; }
+
+        /// <summary>
+        /// Most units a shopper can take.  Omitted or null for no limit.
+        /// </summary>
+        /// <value>Most units a shopper can take.  Omitted or null for no limit.</value>
+        [DataMember(Name="max_quantity", EmitDefaultValue=false)]
+        public int MaxQuantity { get; set; }
+
+        /// <summary>
+        /// Accessory items to migrate from, paired by position with migrate_accessory_item_ids_to.
+        /// </summary>
+        /// <value>Accessory items to migrate from, paired by position with migrate_accessory_item_ids_to.</value>
+        [DataMember(Name="migrate_accessory_item_ids_from", EmitDefaultValue=false)]
+        public List<string> MigrateAccessoryItemIdsFrom { get; set; }
+
+        /// <summary>
+        /// Accessory items to migrate to, paired by position with migrate_accessory_item_ids_from.
+        /// </summary>
+        /// <value>Accessory items to migrate to, paired by position with migrate_accessory_item_ids_from.</value>
+        [DataMember(Name="migrate_accessory_item_ids_to", EmitDefaultValue=false)]
+        public List<string> MigrateAccessoryItemIdsTo { get; set; }
+
+        /// <summary>
+        /// Offer name, at most 50 characters.
+        /// </summary>
+        /// <value>Offer name, at most 50 characters.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Name of the upsell path this offer sits on.
+        /// URL of offsite content shown instead of the container.  Omitted or null for none.
         /// </summary>
-        /// <value>Name of the upsell path this offer sits on.</value>
+        /// <value>URL of offsite content shown instead of the container.  Omitted or null for none.</value>
+        [DataMember(Name="offsite_content_url", EmitDefaultValue=false)]
+        public string OffsiteContentUrl { get; set; }
+
+        /// <summary>
+        /// Read only.  Upsell items that are out of stock now, so the offer would not be shown.
+        /// </summary>
+        /// <value>Read only.  Upsell items that are out of stock now, so the offer would not be shown.</value>
+        [DataMember(Name="out_of_stock_upsell_item_ids", EmitDefaultValue=false)]
+        public List<string> OutOfStockUpsellItemIds { get; set; }
+
+        /// <summary>
+        /// Read only.  Name of the upsell path this offer was last served on.  Written by checkout traffic, so it is empty until shoppers have seen the offer and can be stale.  Use referenced_by_path_oids for the configured answer.
+        /// </summary>
+        /// <value>Read only.  Name of the upsell path this offer was last served on.  Written by checkout traffic, so it is empty until shoppers have seen the offer and can be stale.  Use referenced_by_path_oids for the configured answer.</value>
         [DataMember(Name="path_name", EmitDefaultValue=false)]
         public string PathName { get; set; }
 
         /// <summary>
-        /// Storefront oid.
+        /// Whether the accepted item is recorded as a regular item rather than an upsell.
         /// </summary>
-        /// <value>Storefront oid.</value>
+        /// <value>Whether the accepted item is recorded as a regular item rather than an upsell.</value>
+        [DataMember(Name="record_as_regular_item", EmitDefaultValue=false)]
+        public bool RecordAsRegularItem { get; set; }
+
+        /// <summary>
+        /// Read only.  The storefront&#39;s upsell paths whose steps use this offer, as an offer or a downsell.
+        /// </summary>
+        /// <value>Read only.  The storefront&#39;s upsell paths whose steps use this offer, as an offer or a downsell.</value>
+        [DataMember(Name="referenced_by_path_oids", EmitDefaultValue=false)]
+        public List<int> ReferencedByPathOids { get; set; }
+
+        /// <summary>
+        /// Whether the shopper can remove the accepted item on the confirmation step.
+        /// </summary>
+        /// <value>Whether the shopper can remove the accepted item on the confirmation step.</value>
+        [DataMember(Name="removable_on_confirmation", EmitDefaultValue=false)]
+        public bool RemovableOnConfirmation { get; set; }
+
+        /// <summary>
+        /// Accessory items removed when the offer is accepted.
+        /// </summary>
+        /// <value>Accessory items removed when the offer is accepted.</value>
+        [DataMember(Name="remove_accessory_item_ids", EmitDefaultValue=false)]
+        public List<string> RemoveAccessoryItemIds { get; set; }
+
+        /// <summary>
+        /// Whether accepting the offer removes the item that triggered it (a swap rather than an add).
+        /// </summary>
+        /// <value>Whether accepting the offer removes the item that triggered it (a swap rather than an add).</value>
+        [DataMember(Name="remove_trigger_item", EmitDefaultValue=false)]
+        public bool RemoveTriggerItem { get; set; }
+
+        /// <summary>
+        /// Do not show to previous customers.
+        /// </summary>
+        /// <value>Do not show to previous customers.</value>
+        [DataMember(Name="skip_previous_customers", EmitDefaultValue=false)]
+        public bool SkipPreviousCustomers { get; set; }
+
+        /// <summary>
+        /// First day the offer runs, as YYYY-MM-DD.  Omitted or null for no start.
+        /// </summary>
+        /// <value>First day the offer runs, as YYYY-MM-DD.  Omitted or null for no start.</value>
+        [DataMember(Name="start_date", EmitDefaultValue=false)]
+        public string StartDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Stats
+        /// </summary>
+        [DataMember(Name="stats", EmitDefaultValue=false)]
+        public SfvbUpsellStats Stats { get; set; }
+
+        /// <summary>
+        /// Read only.  Storefront oid.
+        /// </summary>
+        /// <value>Read only.  Storefront oid.</value>
         [DataMember(Name="storefront_oid", EmitDefaultValue=false)]
         public int StorefrontOid { get; set; }
+
+        /// <summary>
+        /// Do not show on large screens.
+        /// </summary>
+        /// <value>Do not show on large screens.</value>
+        [DataMember(Name="suppress_large", EmitDefaultValue=false)]
+        public bool SuppressLarge { get; set; }
+
+        /// <summary>
+        /// Do not show on medium screens.
+        /// </summary>
+        /// <value>Do not show on medium screens.</value>
+        [DataMember(Name="suppress_medium", EmitDefaultValue=false)]
+        public bool SuppressMedium { get; set; }
+
+        /// <summary>
+        /// Do not show on small screens.
+        /// </summary>
+        /// <value>Do not show on small screens.</value>
+        [DataMember(Name="suppress_small", EmitDefaultValue=false)]
+        public bool SuppressSmall { get; set; }
+
+        /// <summary>
+        /// Shipping countries that stop the offer from showing.
+        /// </summary>
+        /// <value>Shipping countries that stop the offer from showing.</value>
+        [DataMember(Name="suppression_country_codes", EmitDefaultValue=false)]
+        public List<string> SuppressionCountryCodes { get; set; }
+
+        /// <summary>
+        /// Loyalty tiers that stop the offer from showing.
+        /// </summary>
+        /// <value>Loyalty tiers that stop the offer from showing.</value>
+        [DataMember(Name="suppression_loyalty_tier_oids", EmitDefaultValue=false)]
+        public List<int> SuppressionLoyaltyTierOids { get; set; }
+
+        /// <summary>
+        /// Payment methods that stop the offer from showing.
+        /// </summary>
+        /// <value>Payment methods that stop the offer from showing.</value>
+        [DataMember(Name="suppression_payment_methods", EmitDefaultValue=false)]
+        public List<string> SuppressionPaymentMethods { get; set; }
+
+        /// <summary>
+        /// Shipping methods that stop the offer from showing.
+        /// </summary>
+        /// <value>Shipping methods that stop the offer from showing.</value>
+        [DataMember(Name="suppression_shipping_methods", EmitDefaultValue=false)]
+        public List<string> SuppressionShippingMethods { get; set; }
+
+        /// <summary>
+        /// Shipping states that stop the offer from showing.
+        /// </summary>
+        /// <value>Shipping states that stop the offer from showing.</value>
+        [DataMember(Name="suppression_state_codes", EmitDefaultValue=false)]
+        public List<string> SuppressionStateCodes { get; set; }
+
+        /// <summary>
+        /// Customer tags that stop the offer from showing.
+        /// </summary>
+        /// <value>Customer tags that stop the offer from showing.</value>
+        [DataMember(Name="suppression_tags", EmitDefaultValue=false)]
+        public List<string> SuppressionTags { get; set; }
 
         /// <summary>
         /// Whether the offer is restricted to test traffic.
@@ -112,9 +534,79 @@ namespace com.ultracart.admin.v2.Model
         public bool TestOnly { get; set; }
 
         /// <summary>
-        /// Upsell offer oid.
+        /// TowerData age bands the offer is shown to.  18-20, 21-24, 25-34, 35-44, 45-54, 55-64, 65+ or Unknown.
         /// </summary>
-        /// <value>Upsell offer oid.</value>
+        /// <value>TowerData age bands the offer is shown to.  18-20, 21-24, 25-34, 35-44, 45-54, 55-64, 65+ or Unknown.</value>
+        [DataMember(Name="trigger_ages", EmitDefaultValue=false)]
+        public List<string> TriggerAges { get; set; }
+
+        /// <summary>
+        /// Shipping countries (ISO 3166 two letter codes) that trigger the offer.
+        /// </summary>
+        /// <value>Shipping countries (ISO 3166 two letter codes) that trigger the offer.</value>
+        [DataMember(Name="trigger_country_codes", EmitDefaultValue=false)]
+        public List<string> TriggerCountryCodes { get; set; }
+
+        /// <summary>
+        /// TowerData genders the offer is shown to.  Male, Female or Unknown.
+        /// </summary>
+        /// <value>TowerData genders the offer is shown to.  Male, Female or Unknown.</value>
+        [DataMember(Name="trigger_genders", EmitDefaultValue=false)]
+        public List<string> TriggerGenders { get; set; }
+
+        /// <summary>
+        /// Loyalty tiers that trigger the offer.  Each must be one of the merchant&#39;s loyalty tiers.
+        /// </summary>
+        /// <value>Loyalty tiers that trigger the offer.  Each must be one of the merchant&#39;s loyalty tiers.</value>
+        [DataMember(Name="trigger_loyalty_tier_oids", EmitDefaultValue=false)]
+        public List<int> TriggerLoyaltyTierOids { get; set; }
+
+        /// <summary>
+        /// Payment methods that trigger the offer.  Each must be one of the merchant&#39;s payment methods.
+        /// </summary>
+        /// <value>Payment methods that trigger the offer.  Each must be one of the merchant&#39;s payment methods.</value>
+        [DataMember(Name="trigger_payment_methods", EmitDefaultValue=false)]
+        public List<string> TriggerPaymentMethods { get; set; }
+
+        /// <summary>
+        /// Shipping methods that trigger the offer.  Each must be one of the merchant&#39;s shipping methods.
+        /// </summary>
+        /// <value>Shipping methods that trigger the offer.  Each must be one of the merchant&#39;s shipping methods.</value>
+        [DataMember(Name="trigger_shipping_methods", EmitDefaultValue=false)]
+        public List<string> TriggerShippingMethods { get; set; }
+
+        /// <summary>
+        /// Shipping states that trigger the offer.
+        /// </summary>
+        /// <value>Shipping states that trigger the offer.</value>
+        [DataMember(Name="trigger_state_codes", EmitDefaultValue=false)]
+        public List<string> TriggerStateCodes { get; set; }
+
+        /// <summary>
+        /// Customer tags that trigger the offer.
+        /// </summary>
+        /// <value>Customer tags that trigger the offer.</value>
+        [DataMember(Name="trigger_tags", EmitDefaultValue=false)]
+        public List<string> TriggerTags { get; set; }
+
+        /// <summary>
+        /// JavaScript that chooses the upsell item at runtime.  Omitted or null for none.
+        /// </summary>
+        /// <value>JavaScript that chooses the upsell item at runtime.  Omitted or null for none.</value>
+        [DataMember(Name="upsell_item_id_javascript", EmitDefaultValue=false)]
+        public string UpsellItemIdJavascript { get; set; }
+
+        /// <summary>
+        /// The items offered.  Every item id must exist on the merchant account.
+        /// </summary>
+        /// <value>The items offered.  Every item id must exist on the merchant account.</value>
+        [DataMember(Name="upsell_item_ids", EmitDefaultValue=false)]
+        public List<string> UpsellItemIds { get; set; }
+
+        /// <summary>
+        /// Read only.  Upsell offer oid.
+        /// </summary>
+        /// <value>Read only.  Upsell offer oid.</value>
         [DataMember(Name="upsell_offer_oid", EmitDefaultValue=false)]
         public int UpsellOfferOid { get; set; }
 
@@ -128,12 +620,67 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class SfvbUpsellOffer {\n");
             sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  ActiveOverall: ").Append(ActiveOverall).Append("\n");
+            sb.Append("  AddAccessoryItemIds: ").Append(AddAccessoryItemIds).Append("\n");
+            sb.Append("  AdjustTriggerItemOption: ").Append(AdjustTriggerItemOption).Append("\n");
+            sb.Append("  AllowUpsellItemInCartAlready: ").Append(AllowUpsellItemInCartAlready).Append("\n");
+            sb.Append("  ArbitraryUnitCost: ").Append(ArbitraryUnitCost).Append("\n");
+            sb.Append("  ArbitraryUnitCostFriday: ").Append(ArbitraryUnitCostFriday).Append("\n");
+            sb.Append("  ArbitraryUnitCostMonday: ").Append(ArbitraryUnitCostMonday).Append("\n");
+            sb.Append("  ArbitraryUnitCostSaturday: ").Append(ArbitraryUnitCostSaturday).Append("\n");
+            sb.Append("  ArbitraryUnitCostSunday: ").Append(ArbitraryUnitCostSunday).Append("\n");
+            sb.Append("  ArbitraryUnitCostThursday: ").Append(ArbitraryUnitCostThursday).Append("\n");
+            sb.Append("  ArbitraryUnitCostTuesday: ").Append(ArbitraryUnitCostTuesday).Append("\n");
+            sb.Append("  ArbitraryUnitCostWednesday: ").Append(ArbitraryUnitCostWednesday).Append("\n");
             sb.Append("  CjsonSize: ").Append(CjsonSize).Append("\n");
+            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
+            sb.Append("  EverflowAdvertiserEventId: ").Append(EverflowAdvertiserEventId).Append("\n");
+            sb.Append("  FirstTimeItem: ").Append(FirstTimeItem).Append("\n");
+            sb.Append("  FirstTimeStore: ").Append(FirstTimeStore).Append("\n");
+            sb.Append("  FreeShipping: ").Append(FreeShipping).Append("\n");
             sb.Append("  HasContainer: ").Append(HasContainer).Append("\n");
+            sb.Append("  HasEverflowConfigured: ").Append(HasEverflowConfigured).Append("\n");
+            sb.Append("  HasLoyaltyConfigured: ").Append(HasLoyaltyConfigured).Append("\n");
+            sb.Append("  HasTowerdataConfigured: ").Append(HasTowerdataConfigured).Append("\n");
+            sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
+            sb.Append("  ItemLogicSuppression: ").Append(ItemLogicSuppression).Append("\n");
+            sb.Append("  ItemLogicTrigger: ").Append(ItemLogicTrigger).Append("\n");
+            sb.Append("  LockShipping: ").Append(LockShipping).Append("\n");
+            sb.Append("  MaxQuantity: ").Append(MaxQuantity).Append("\n");
+            sb.Append("  MigrateAccessoryItemIdsFrom: ").Append(MigrateAccessoryItemIdsFrom).Append("\n");
+            sb.Append("  MigrateAccessoryItemIdsTo: ").Append(MigrateAccessoryItemIdsTo).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  OffsiteContentUrl: ").Append(OffsiteContentUrl).Append("\n");
+            sb.Append("  OutOfStockUpsellItemIds: ").Append(OutOfStockUpsellItemIds).Append("\n");
             sb.Append("  PathName: ").Append(PathName).Append("\n");
+            sb.Append("  RecordAsRegularItem: ").Append(RecordAsRegularItem).Append("\n");
+            sb.Append("  ReferencedByPathOids: ").Append(ReferencedByPathOids).Append("\n");
+            sb.Append("  RemovableOnConfirmation: ").Append(RemovableOnConfirmation).Append("\n");
+            sb.Append("  RemoveAccessoryItemIds: ").Append(RemoveAccessoryItemIds).Append("\n");
+            sb.Append("  RemoveTriggerItem: ").Append(RemoveTriggerItem).Append("\n");
+            sb.Append("  SkipPreviousCustomers: ").Append(SkipPreviousCustomers).Append("\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  Stats: ").Append(Stats).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
+            sb.Append("  SuppressLarge: ").Append(SuppressLarge).Append("\n");
+            sb.Append("  SuppressMedium: ").Append(SuppressMedium).Append("\n");
+            sb.Append("  SuppressSmall: ").Append(SuppressSmall).Append("\n");
+            sb.Append("  SuppressionCountryCodes: ").Append(SuppressionCountryCodes).Append("\n");
+            sb.Append("  SuppressionLoyaltyTierOids: ").Append(SuppressionLoyaltyTierOids).Append("\n");
+            sb.Append("  SuppressionPaymentMethods: ").Append(SuppressionPaymentMethods).Append("\n");
+            sb.Append("  SuppressionShippingMethods: ").Append(SuppressionShippingMethods).Append("\n");
+            sb.Append("  SuppressionStateCodes: ").Append(SuppressionStateCodes).Append("\n");
+            sb.Append("  SuppressionTags: ").Append(SuppressionTags).Append("\n");
             sb.Append("  TestOnly: ").Append(TestOnly).Append("\n");
+            sb.Append("  TriggerAges: ").Append(TriggerAges).Append("\n");
+            sb.Append("  TriggerCountryCodes: ").Append(TriggerCountryCodes).Append("\n");
+            sb.Append("  TriggerGenders: ").Append(TriggerGenders).Append("\n");
+            sb.Append("  TriggerLoyaltyTierOids: ").Append(TriggerLoyaltyTierOids).Append("\n");
+            sb.Append("  TriggerPaymentMethods: ").Append(TriggerPaymentMethods).Append("\n");
+            sb.Append("  TriggerShippingMethods: ").Append(TriggerShippingMethods).Append("\n");
+            sb.Append("  TriggerStateCodes: ").Append(TriggerStateCodes).Append("\n");
+            sb.Append("  TriggerTags: ").Append(TriggerTags).Append("\n");
+            sb.Append("  UpsellItemIdJavascript: ").Append(UpsellItemIdJavascript).Append("\n");
+            sb.Append("  UpsellItemIds: ").Append(UpsellItemIds).Append("\n");
             sb.Append("  UpsellOfferOid: ").Append(UpsellOfferOid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -180,9 +727,90 @@ namespace com.ultracart.admin.v2.Model
                     this.ActiveOverall.Equals(input.ActiveOverall))
                 ) && 
                 (
+                    this.AddAccessoryItemIds == input.AddAccessoryItemIds ||
+                    this.AddAccessoryItemIds != null &&
+                    input.AddAccessoryItemIds != null &&
+                    this.AddAccessoryItemIds.SequenceEqual(input.AddAccessoryItemIds)
+                ) && 
+                (
+                    this.AdjustTriggerItemOption == input.AdjustTriggerItemOption ||
+                    (this.AdjustTriggerItemOption != null &&
+                    this.AdjustTriggerItemOption.Equals(input.AdjustTriggerItemOption))
+                ) && 
+                (
+                    this.AllowUpsellItemInCartAlready == input.AllowUpsellItemInCartAlready ||
+                    (this.AllowUpsellItemInCartAlready != null &&
+                    this.AllowUpsellItemInCartAlready.Equals(input.AllowUpsellItemInCartAlready))
+                ) && 
+                (
+                    this.ArbitraryUnitCost == input.ArbitraryUnitCost ||
+                    (this.ArbitraryUnitCost != null &&
+                    this.ArbitraryUnitCost.Equals(input.ArbitraryUnitCost))
+                ) && 
+                (
+                    this.ArbitraryUnitCostFriday == input.ArbitraryUnitCostFriday ||
+                    (this.ArbitraryUnitCostFriday != null &&
+                    this.ArbitraryUnitCostFriday.Equals(input.ArbitraryUnitCostFriday))
+                ) && 
+                (
+                    this.ArbitraryUnitCostMonday == input.ArbitraryUnitCostMonday ||
+                    (this.ArbitraryUnitCostMonday != null &&
+                    this.ArbitraryUnitCostMonday.Equals(input.ArbitraryUnitCostMonday))
+                ) && 
+                (
+                    this.ArbitraryUnitCostSaturday == input.ArbitraryUnitCostSaturday ||
+                    (this.ArbitraryUnitCostSaturday != null &&
+                    this.ArbitraryUnitCostSaturday.Equals(input.ArbitraryUnitCostSaturday))
+                ) && 
+                (
+                    this.ArbitraryUnitCostSunday == input.ArbitraryUnitCostSunday ||
+                    (this.ArbitraryUnitCostSunday != null &&
+                    this.ArbitraryUnitCostSunday.Equals(input.ArbitraryUnitCostSunday))
+                ) && 
+                (
+                    this.ArbitraryUnitCostThursday == input.ArbitraryUnitCostThursday ||
+                    (this.ArbitraryUnitCostThursday != null &&
+                    this.ArbitraryUnitCostThursday.Equals(input.ArbitraryUnitCostThursday))
+                ) && 
+                (
+                    this.ArbitraryUnitCostTuesday == input.ArbitraryUnitCostTuesday ||
+                    (this.ArbitraryUnitCostTuesday != null &&
+                    this.ArbitraryUnitCostTuesday.Equals(input.ArbitraryUnitCostTuesday))
+                ) && 
+                (
+                    this.ArbitraryUnitCostWednesday == input.ArbitraryUnitCostWednesday ||
+                    (this.ArbitraryUnitCostWednesday != null &&
+                    this.ArbitraryUnitCostWednesday.Equals(input.ArbitraryUnitCostWednesday))
+                ) && 
+                (
                     this.CjsonSize == input.CjsonSize ||
                     (this.CjsonSize != null &&
                     this.CjsonSize.Equals(input.CjsonSize))
+                ) && 
+                (
+                    this.EndDate == input.EndDate ||
+                    (this.EndDate != null &&
+                    this.EndDate.Equals(input.EndDate))
+                ) && 
+                (
+                    this.EverflowAdvertiserEventId == input.EverflowAdvertiserEventId ||
+                    (this.EverflowAdvertiserEventId != null &&
+                    this.EverflowAdvertiserEventId.Equals(input.EverflowAdvertiserEventId))
+                ) && 
+                (
+                    this.FirstTimeItem == input.FirstTimeItem ||
+                    (this.FirstTimeItem != null &&
+                    this.FirstTimeItem.Equals(input.FirstTimeItem))
+                ) && 
+                (
+                    this.FirstTimeStore == input.FirstTimeStore ||
+                    (this.FirstTimeStore != null &&
+                    this.FirstTimeStore.Equals(input.FirstTimeStore))
+                ) && 
+                (
+                    this.FreeShipping == input.FreeShipping ||
+                    (this.FreeShipping != null &&
+                    this.FreeShipping.Equals(input.FreeShipping))
                 ) && 
                 (
                     this.HasContainer == input.HasContainer ||
@@ -190,9 +818,72 @@ namespace com.ultracart.admin.v2.Model
                     this.HasContainer.Equals(input.HasContainer))
                 ) && 
                 (
+                    this.HasEverflowConfigured == input.HasEverflowConfigured ||
+                    (this.HasEverflowConfigured != null &&
+                    this.HasEverflowConfigured.Equals(input.HasEverflowConfigured))
+                ) && 
+                (
+                    this.HasLoyaltyConfigured == input.HasLoyaltyConfigured ||
+                    (this.HasLoyaltyConfigured != null &&
+                    this.HasLoyaltyConfigured.Equals(input.HasLoyaltyConfigured))
+                ) && 
+                (
+                    this.HasTowerdataConfigured == input.HasTowerdataConfigured ||
+                    (this.HasTowerdataConfigured != null &&
+                    this.HasTowerdataConfigured.Equals(input.HasTowerdataConfigured))
+                ) && 
+                (
+                    this.HashSha256 == input.HashSha256 ||
+                    (this.HashSha256 != null &&
+                    this.HashSha256.Equals(input.HashSha256))
+                ) && 
+                (
+                    this.ItemLogicSuppression == input.ItemLogicSuppression ||
+                    (this.ItemLogicSuppression != null &&
+                    this.ItemLogicSuppression.Equals(input.ItemLogicSuppression))
+                ) && 
+                (
+                    this.ItemLogicTrigger == input.ItemLogicTrigger ||
+                    (this.ItemLogicTrigger != null &&
+                    this.ItemLogicTrigger.Equals(input.ItemLogicTrigger))
+                ) && 
+                (
+                    this.LockShipping == input.LockShipping ||
+                    (this.LockShipping != null &&
+                    this.LockShipping.Equals(input.LockShipping))
+                ) && 
+                (
+                    this.MaxQuantity == input.MaxQuantity ||
+                    (this.MaxQuantity != null &&
+                    this.MaxQuantity.Equals(input.MaxQuantity))
+                ) && 
+                (
+                    this.MigrateAccessoryItemIdsFrom == input.MigrateAccessoryItemIdsFrom ||
+                    this.MigrateAccessoryItemIdsFrom != null &&
+                    input.MigrateAccessoryItemIdsFrom != null &&
+                    this.MigrateAccessoryItemIdsFrom.SequenceEqual(input.MigrateAccessoryItemIdsFrom)
+                ) && 
+                (
+                    this.MigrateAccessoryItemIdsTo == input.MigrateAccessoryItemIdsTo ||
+                    this.MigrateAccessoryItemIdsTo != null &&
+                    input.MigrateAccessoryItemIdsTo != null &&
+                    this.MigrateAccessoryItemIdsTo.SequenceEqual(input.MigrateAccessoryItemIdsTo)
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.OffsiteContentUrl == input.OffsiteContentUrl ||
+                    (this.OffsiteContentUrl != null &&
+                    this.OffsiteContentUrl.Equals(input.OffsiteContentUrl))
+                ) && 
+                (
+                    this.OutOfStockUpsellItemIds == input.OutOfStockUpsellItemIds ||
+                    this.OutOfStockUpsellItemIds != null &&
+                    input.OutOfStockUpsellItemIds != null &&
+                    this.OutOfStockUpsellItemIds.SequenceEqual(input.OutOfStockUpsellItemIds)
                 ) && 
                 (
                     this.PathName == input.PathName ||
@@ -200,14 +891,166 @@ namespace com.ultracart.admin.v2.Model
                     this.PathName.Equals(input.PathName))
                 ) && 
                 (
+                    this.RecordAsRegularItem == input.RecordAsRegularItem ||
+                    (this.RecordAsRegularItem != null &&
+                    this.RecordAsRegularItem.Equals(input.RecordAsRegularItem))
+                ) && 
+                (
+                    this.ReferencedByPathOids == input.ReferencedByPathOids ||
+                    this.ReferencedByPathOids != null &&
+                    input.ReferencedByPathOids != null &&
+                    this.ReferencedByPathOids.SequenceEqual(input.ReferencedByPathOids)
+                ) && 
+                (
+                    this.RemovableOnConfirmation == input.RemovableOnConfirmation ||
+                    (this.RemovableOnConfirmation != null &&
+                    this.RemovableOnConfirmation.Equals(input.RemovableOnConfirmation))
+                ) && 
+                (
+                    this.RemoveAccessoryItemIds == input.RemoveAccessoryItemIds ||
+                    this.RemoveAccessoryItemIds != null &&
+                    input.RemoveAccessoryItemIds != null &&
+                    this.RemoveAccessoryItemIds.SequenceEqual(input.RemoveAccessoryItemIds)
+                ) && 
+                (
+                    this.RemoveTriggerItem == input.RemoveTriggerItem ||
+                    (this.RemoveTriggerItem != null &&
+                    this.RemoveTriggerItem.Equals(input.RemoveTriggerItem))
+                ) && 
+                (
+                    this.SkipPreviousCustomers == input.SkipPreviousCustomers ||
+                    (this.SkipPreviousCustomers != null &&
+                    this.SkipPreviousCustomers.Equals(input.SkipPreviousCustomers))
+                ) && 
+                (
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
+                ) && 
+                (
+                    this.Stats == input.Stats ||
+                    (this.Stats != null &&
+                    this.Stats.Equals(input.Stats))
+                ) && 
+                (
                     this.StorefrontOid == input.StorefrontOid ||
                     (this.StorefrontOid != null &&
                     this.StorefrontOid.Equals(input.StorefrontOid))
                 ) && 
                 (
+                    this.SuppressLarge == input.SuppressLarge ||
+                    (this.SuppressLarge != null &&
+                    this.SuppressLarge.Equals(input.SuppressLarge))
+                ) && 
+                (
+                    this.SuppressMedium == input.SuppressMedium ||
+                    (this.SuppressMedium != null &&
+                    this.SuppressMedium.Equals(input.SuppressMedium))
+                ) && 
+                (
+                    this.SuppressSmall == input.SuppressSmall ||
+                    (this.SuppressSmall != null &&
+                    this.SuppressSmall.Equals(input.SuppressSmall))
+                ) && 
+                (
+                    this.SuppressionCountryCodes == input.SuppressionCountryCodes ||
+                    this.SuppressionCountryCodes != null &&
+                    input.SuppressionCountryCodes != null &&
+                    this.SuppressionCountryCodes.SequenceEqual(input.SuppressionCountryCodes)
+                ) && 
+                (
+                    this.SuppressionLoyaltyTierOids == input.SuppressionLoyaltyTierOids ||
+                    this.SuppressionLoyaltyTierOids != null &&
+                    input.SuppressionLoyaltyTierOids != null &&
+                    this.SuppressionLoyaltyTierOids.SequenceEqual(input.SuppressionLoyaltyTierOids)
+                ) && 
+                (
+                    this.SuppressionPaymentMethods == input.SuppressionPaymentMethods ||
+                    this.SuppressionPaymentMethods != null &&
+                    input.SuppressionPaymentMethods != null &&
+                    this.SuppressionPaymentMethods.SequenceEqual(input.SuppressionPaymentMethods)
+                ) && 
+                (
+                    this.SuppressionShippingMethods == input.SuppressionShippingMethods ||
+                    this.SuppressionShippingMethods != null &&
+                    input.SuppressionShippingMethods != null &&
+                    this.SuppressionShippingMethods.SequenceEqual(input.SuppressionShippingMethods)
+                ) && 
+                (
+                    this.SuppressionStateCodes == input.SuppressionStateCodes ||
+                    this.SuppressionStateCodes != null &&
+                    input.SuppressionStateCodes != null &&
+                    this.SuppressionStateCodes.SequenceEqual(input.SuppressionStateCodes)
+                ) && 
+                (
+                    this.SuppressionTags == input.SuppressionTags ||
+                    this.SuppressionTags != null &&
+                    input.SuppressionTags != null &&
+                    this.SuppressionTags.SequenceEqual(input.SuppressionTags)
+                ) && 
+                (
                     this.TestOnly == input.TestOnly ||
                     (this.TestOnly != null &&
                     this.TestOnly.Equals(input.TestOnly))
+                ) && 
+                (
+                    this.TriggerAges == input.TriggerAges ||
+                    this.TriggerAges != null &&
+                    input.TriggerAges != null &&
+                    this.TriggerAges.SequenceEqual(input.TriggerAges)
+                ) && 
+                (
+                    this.TriggerCountryCodes == input.TriggerCountryCodes ||
+                    this.TriggerCountryCodes != null &&
+                    input.TriggerCountryCodes != null &&
+                    this.TriggerCountryCodes.SequenceEqual(input.TriggerCountryCodes)
+                ) && 
+                (
+                    this.TriggerGenders == input.TriggerGenders ||
+                    this.TriggerGenders != null &&
+                    input.TriggerGenders != null &&
+                    this.TriggerGenders.SequenceEqual(input.TriggerGenders)
+                ) && 
+                (
+                    this.TriggerLoyaltyTierOids == input.TriggerLoyaltyTierOids ||
+                    this.TriggerLoyaltyTierOids != null &&
+                    input.TriggerLoyaltyTierOids != null &&
+                    this.TriggerLoyaltyTierOids.SequenceEqual(input.TriggerLoyaltyTierOids)
+                ) && 
+                (
+                    this.TriggerPaymentMethods == input.TriggerPaymentMethods ||
+                    this.TriggerPaymentMethods != null &&
+                    input.TriggerPaymentMethods != null &&
+                    this.TriggerPaymentMethods.SequenceEqual(input.TriggerPaymentMethods)
+                ) && 
+                (
+                    this.TriggerShippingMethods == input.TriggerShippingMethods ||
+                    this.TriggerShippingMethods != null &&
+                    input.TriggerShippingMethods != null &&
+                    this.TriggerShippingMethods.SequenceEqual(input.TriggerShippingMethods)
+                ) && 
+                (
+                    this.TriggerStateCodes == input.TriggerStateCodes ||
+                    this.TriggerStateCodes != null &&
+                    input.TriggerStateCodes != null &&
+                    this.TriggerStateCodes.SequenceEqual(input.TriggerStateCodes)
+                ) && 
+                (
+                    this.TriggerTags == input.TriggerTags ||
+                    this.TriggerTags != null &&
+                    input.TriggerTags != null &&
+                    this.TriggerTags.SequenceEqual(input.TriggerTags)
+                ) && 
+                (
+                    this.UpsellItemIdJavascript == input.UpsellItemIdJavascript ||
+                    (this.UpsellItemIdJavascript != null &&
+                    this.UpsellItemIdJavascript.Equals(input.UpsellItemIdJavascript))
+                ) && 
+                (
+                    this.UpsellItemIds == input.UpsellItemIds ||
+                    this.UpsellItemIds != null &&
+                    input.UpsellItemIds != null &&
+                    this.UpsellItemIds.SequenceEqual(input.UpsellItemIds)
                 ) && 
                 (
                     this.UpsellOfferOid == input.UpsellOfferOid ||
@@ -229,18 +1072,128 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Active.GetHashCode();
                 if (this.ActiveOverall != null)
                     hashCode = hashCode * 59 + this.ActiveOverall.GetHashCode();
+                if (this.AddAccessoryItemIds != null)
+                    hashCode = hashCode * 59 + this.AddAccessoryItemIds.GetHashCode();
+                if (this.AdjustTriggerItemOption != null)
+                    hashCode = hashCode * 59 + this.AdjustTriggerItemOption.GetHashCode();
+                if (this.AllowUpsellItemInCartAlready != null)
+                    hashCode = hashCode * 59 + this.AllowUpsellItemInCartAlready.GetHashCode();
+                if (this.ArbitraryUnitCost != null)
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCost.GetHashCode();
+                if (this.ArbitraryUnitCostFriday != null)
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCostFriday.GetHashCode();
+                if (this.ArbitraryUnitCostMonday != null)
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCostMonday.GetHashCode();
+                if (this.ArbitraryUnitCostSaturday != null)
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCostSaturday.GetHashCode();
+                if (this.ArbitraryUnitCostSunday != null)
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCostSunday.GetHashCode();
+                if (this.ArbitraryUnitCostThursday != null)
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCostThursday.GetHashCode();
+                if (this.ArbitraryUnitCostTuesday != null)
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCostTuesday.GetHashCode();
+                if (this.ArbitraryUnitCostWednesday != null)
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCostWednesday.GetHashCode();
                 if (this.CjsonSize != null)
                     hashCode = hashCode * 59 + this.CjsonSize.GetHashCode();
+                if (this.EndDate != null)
+                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
+                if (this.EverflowAdvertiserEventId != null)
+                    hashCode = hashCode * 59 + this.EverflowAdvertiserEventId.GetHashCode();
+                if (this.FirstTimeItem != null)
+                    hashCode = hashCode * 59 + this.FirstTimeItem.GetHashCode();
+                if (this.FirstTimeStore != null)
+                    hashCode = hashCode * 59 + this.FirstTimeStore.GetHashCode();
+                if (this.FreeShipping != null)
+                    hashCode = hashCode * 59 + this.FreeShipping.GetHashCode();
                 if (this.HasContainer != null)
                     hashCode = hashCode * 59 + this.HasContainer.GetHashCode();
+                if (this.HasEverflowConfigured != null)
+                    hashCode = hashCode * 59 + this.HasEverflowConfigured.GetHashCode();
+                if (this.HasLoyaltyConfigured != null)
+                    hashCode = hashCode * 59 + this.HasLoyaltyConfigured.GetHashCode();
+                if (this.HasTowerdataConfigured != null)
+                    hashCode = hashCode * 59 + this.HasTowerdataConfigured.GetHashCode();
+                if (this.HashSha256 != null)
+                    hashCode = hashCode * 59 + this.HashSha256.GetHashCode();
+                if (this.ItemLogicSuppression != null)
+                    hashCode = hashCode * 59 + this.ItemLogicSuppression.GetHashCode();
+                if (this.ItemLogicTrigger != null)
+                    hashCode = hashCode * 59 + this.ItemLogicTrigger.GetHashCode();
+                if (this.LockShipping != null)
+                    hashCode = hashCode * 59 + this.LockShipping.GetHashCode();
+                if (this.MaxQuantity != null)
+                    hashCode = hashCode * 59 + this.MaxQuantity.GetHashCode();
+                if (this.MigrateAccessoryItemIdsFrom != null)
+                    hashCode = hashCode * 59 + this.MigrateAccessoryItemIdsFrom.GetHashCode();
+                if (this.MigrateAccessoryItemIdsTo != null)
+                    hashCode = hashCode * 59 + this.MigrateAccessoryItemIdsTo.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.OffsiteContentUrl != null)
+                    hashCode = hashCode * 59 + this.OffsiteContentUrl.GetHashCode();
+                if (this.OutOfStockUpsellItemIds != null)
+                    hashCode = hashCode * 59 + this.OutOfStockUpsellItemIds.GetHashCode();
                 if (this.PathName != null)
                     hashCode = hashCode * 59 + this.PathName.GetHashCode();
+                if (this.RecordAsRegularItem != null)
+                    hashCode = hashCode * 59 + this.RecordAsRegularItem.GetHashCode();
+                if (this.ReferencedByPathOids != null)
+                    hashCode = hashCode * 59 + this.ReferencedByPathOids.GetHashCode();
+                if (this.RemovableOnConfirmation != null)
+                    hashCode = hashCode * 59 + this.RemovableOnConfirmation.GetHashCode();
+                if (this.RemoveAccessoryItemIds != null)
+                    hashCode = hashCode * 59 + this.RemoveAccessoryItemIds.GetHashCode();
+                if (this.RemoveTriggerItem != null)
+                    hashCode = hashCode * 59 + this.RemoveTriggerItem.GetHashCode();
+                if (this.SkipPreviousCustomers != null)
+                    hashCode = hashCode * 59 + this.SkipPreviousCustomers.GetHashCode();
+                if (this.StartDate != null)
+                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                if (this.Stats != null)
+                    hashCode = hashCode * 59 + this.Stats.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
+                if (this.SuppressLarge != null)
+                    hashCode = hashCode * 59 + this.SuppressLarge.GetHashCode();
+                if (this.SuppressMedium != null)
+                    hashCode = hashCode * 59 + this.SuppressMedium.GetHashCode();
+                if (this.SuppressSmall != null)
+                    hashCode = hashCode * 59 + this.SuppressSmall.GetHashCode();
+                if (this.SuppressionCountryCodes != null)
+                    hashCode = hashCode * 59 + this.SuppressionCountryCodes.GetHashCode();
+                if (this.SuppressionLoyaltyTierOids != null)
+                    hashCode = hashCode * 59 + this.SuppressionLoyaltyTierOids.GetHashCode();
+                if (this.SuppressionPaymentMethods != null)
+                    hashCode = hashCode * 59 + this.SuppressionPaymentMethods.GetHashCode();
+                if (this.SuppressionShippingMethods != null)
+                    hashCode = hashCode * 59 + this.SuppressionShippingMethods.GetHashCode();
+                if (this.SuppressionStateCodes != null)
+                    hashCode = hashCode * 59 + this.SuppressionStateCodes.GetHashCode();
+                if (this.SuppressionTags != null)
+                    hashCode = hashCode * 59 + this.SuppressionTags.GetHashCode();
                 if (this.TestOnly != null)
                     hashCode = hashCode * 59 + this.TestOnly.GetHashCode();
+                if (this.TriggerAges != null)
+                    hashCode = hashCode * 59 + this.TriggerAges.GetHashCode();
+                if (this.TriggerCountryCodes != null)
+                    hashCode = hashCode * 59 + this.TriggerCountryCodes.GetHashCode();
+                if (this.TriggerGenders != null)
+                    hashCode = hashCode * 59 + this.TriggerGenders.GetHashCode();
+                if (this.TriggerLoyaltyTierOids != null)
+                    hashCode = hashCode * 59 + this.TriggerLoyaltyTierOids.GetHashCode();
+                if (this.TriggerPaymentMethods != null)
+                    hashCode = hashCode * 59 + this.TriggerPaymentMethods.GetHashCode();
+                if (this.TriggerShippingMethods != null)
+                    hashCode = hashCode * 59 + this.TriggerShippingMethods.GetHashCode();
+                if (this.TriggerStateCodes != null)
+                    hashCode = hashCode * 59 + this.TriggerStateCodes.GetHashCode();
+                if (this.TriggerTags != null)
+                    hashCode = hashCode * 59 + this.TriggerTags.GetHashCode();
+                if (this.UpsellItemIdJavascript != null)
+                    hashCode = hashCode * 59 + this.UpsellItemIdJavascript.GetHashCode();
+                if (this.UpsellItemIds != null)
+                    hashCode = hashCode * 59 + this.UpsellItemIds.GetHashCode();
                 if (this.UpsellOfferOid != null)
                     hashCode = hashCode * 59 + this.UpsellOfferOid.GetHashCode();
                 return hashCode;

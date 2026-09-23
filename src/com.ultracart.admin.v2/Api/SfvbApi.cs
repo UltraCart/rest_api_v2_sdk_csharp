@@ -76,6 +76,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbPageItemsResponse</returns>
         ApiResponse<SfvbPageItemsResponse> AddSfvbPageItemsWithHttpInfo (int storefrontOid, string path, SfvbPageItemsAddRequest pageItemsAddRequest);
         /// <summary>
+        /// Archive an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Files the path out of the default list.  An archived path does not run.  Archiving one that is switched on is a live change and needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <returns>SfvbUpsellPath</returns>
+        SfvbUpsellPath ArchiveSfvbUpsellPath (int storefrontOid, int upsellPathOid);
+
+        /// <summary>
+        /// Archive an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Files the path out of the default list.  An archived path does not run.  Archiving one that is switched on is a live change and needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        ApiResponse<SfvbUpsellPath> ArchiveSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid);
+        /// <summary>
         /// Compile CJSON to Velocity
         /// </summary>
         /// <remarks>
@@ -166,6 +189,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSfvbFileWithHttpInfo (int storefrontOid, string ifMatch, string path = default(string));
         /// <summary>
+        /// Delete an attribute from an item
+        /// </summary>
+        /// <remarks>
+        /// Removes one attribute that no template on the item's pages declares - a test name, a misspelling, one a retired template used.  A declared attribute is refused, because the template would list it again, empty; send an empty value through the attributes update to clear one of those instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="name">The attribute name, matched without regard to case</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        SfvbItemResponse DeleteSfvbItemAttribute (int storefrontOid, string name, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+
+        /// <summary>
+        /// Delete an attribute from an item
+        /// </summary>
+        /// <remarks>
+        /// Removes one attribute that no template on the item's pages declares - a test name, a misspelling, one a retired template used.  A declared attribute is refused, because the template would list it again, empty; send an empty value through the attributes update to clear one of those instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="name">The attribute name, matched without regard to case</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        ApiResponse<SfvbItemResponse> DeleteSfvbItemAttributeWithHttpInfo (int storefrontOid, string name, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+        /// <summary>
         /// Detach an image from an item
         /// </summary>
         /// <remarks>
@@ -245,6 +295,52 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSfvbPreviewSessionWithHttpInfo (int storefrontOid, string previewSessionId);
         /// <summary>
+        /// Disable an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// Switches the offer off.  Disabling one that is switched on is a live change and needs sfvb_publish.  An offer that is already off is returned unchanged.  There is no delete. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <returns>SfvbUpsellOffer</returns>
+        SfvbUpsellOffer DisableSfvbUpsellOffer (int storefrontOid, int upsellOfferOid);
+
+        /// <summary>
+        /// Disable an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// Switches the offer off.  Disabling one that is switched on is a live change and needs sfvb_publish.  An offer that is already off is returned unchanged.  There is no delete. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <returns>ApiResponse of SfvbUpsellOffer</returns>
+        ApiResponse<SfvbUpsellOffer> DisableSfvbUpsellOfferWithHttpInfo (int storefrontOid, int upsellOfferOid);
+        /// <summary>
+        /// Disable an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Switches the path off.  Disabling a running path is a live change and needs sfvb_publish.  A path that is already off is returned unchanged.  There is no delete. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <returns>SfvbUpsellPath</returns>
+        SfvbUpsellPath DisableSfvbUpsellPath (int storefrontOid, int upsellPathOid);
+
+        /// <summary>
+        /// Disable an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Switches the path off.  Disabling a running path is a live change and needs sfvb_publish.  A path that is already off is returned unchanged.  There is no delete. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        ApiResponse<SfvbUpsellPath> DisableSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid);
+        /// <summary>
         /// Read a storefront file's raw bytes
         /// </summary>
         /// <remarks>
@@ -315,6 +411,54 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="duplicateRequest">Theme duplication details</param>
         /// <returns>ApiResponse of SfvbThemeJobResponse</returns>
         ApiResponse<SfvbThemeJobResponse> DuplicateSfvbThemeWithHttpInfo (int storefrontOid, int themeOid, SfvbThemeDuplicateRequest duplicateRequest);
+        /// <summary>
+        /// Duplicate an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// A copy named Copy of, switched off, with its own copy of the container.  Put it on a path with a path update to have it shown. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <returns>SfvbUpsellOffer</returns>
+        SfvbUpsellOffer DuplicateSfvbUpsellOffer (int storefrontOid, int upsellOfferOid);
+
+        /// <summary>
+        /// Duplicate an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// A copy named Copy of, switched off, with its own copy of the container.  Put it on a path with a path update to have it shown. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <returns>ApiResponse of SfvbUpsellOffer</returns>
+        ApiResponse<SfvbUpsellOffer> DuplicateSfvbUpsellOfferWithHttpInfo (int storefrontOid, int upsellOfferOid);
+        /// <summary>
+        /// Duplicate an upsell path or one of its variations
+        /// </summary>
+        /// <remarks>
+        /// Without a variation, copies the whole path right after it, switched off.  With a variation, appends a copy of that variation to the same path, which needs sfvb_publish when the path is running.  Every offer the copy uses is copied too and switched off.  Within this storefront only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="duplicateRequest">What to duplicate (optional)</param>
+        /// <returns>SfvbUpsellPath</returns>
+        SfvbUpsellPath DuplicateSfvbUpsellPath (int storefrontOid, int upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest = default(SfvbUpsellPathDuplicateRequest));
+
+        /// <summary>
+        /// Duplicate an upsell path or one of its variations
+        /// </summary>
+        /// <remarks>
+        /// Without a variation, copies the whole path right after it, switched off.  With a variation, appends a copy of that variation to the same path, which needs sfvb_publish when the path is running.  Every offer the copy uses is copied too and switched off.  Within this storefront only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="duplicateRequest">What to duplicate (optional)</param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        ApiResponse<SfvbUpsellPath> DuplicateSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest = default(SfvbUpsellPathDuplicateRequest));
         /// <summary>
         /// End an experiment
         /// </summary>
@@ -832,6 +976,68 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbThemeJobResponse</returns>
         ApiResponse<SfvbThemeJobResponse> GetSfvbThemeJobWithHttpInfo (int storefrontOid, int jobId);
         /// <summary>
+        /// Get an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// The whole offer, with the hash an update sends back in If-Match, which upsell items are out of stock now, and whether loyalty, TowerData and Everflow are set up.  Stats as on the path list. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <returns>SfvbUpsellOffer</returns>
+        SfvbUpsellOffer GetSfvbUpsellOffer (int storefrontOid, int upsellOfferOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string));
+
+        /// <summary>
+        /// Get an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// The whole offer, with the hash an update sends back in If-Match, which upsell items are out of stock now, and whether loyalty, TowerData and Everflow are set up.  Stats as on the path list. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <returns>ApiResponse of SfvbUpsellOffer</returns>
+        ApiResponse<SfvbUpsellOffer> GetSfvbUpsellOfferWithHttpInfo (int storefrontOid, int upsellOfferOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string));
+        /// <summary>
+        /// Get an upsell path
+        /// </summary>
+        /// <remarks>
+        /// The whole path, with the hash an update sends back in If-Match.  Stats as on the list. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <returns>SfvbUpsellPath</returns>
+        SfvbUpsellPath GetSfvbUpsellPath (int storefrontOid, int upsellPathOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string));
+
+        /// <summary>
+        /// Get an upsell path
+        /// </summary>
+        /// <remarks>
+        /// The whole path, with the hash an update sends back in If-Match.  Stats as on the list. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        ApiResponse<SfvbUpsellPath> GetSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string));
+        /// <summary>
         /// Compiler version for this merchant
         /// </summary>
         /// <remarks>
@@ -892,6 +1098,52 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pageCreateRequest">The page to create</param>
         /// <returns>ApiResponse of SfvbPageResponse</returns>
         ApiResponse<SfvbPageResponse> InsertSfvbPageWithHttpInfo (int storefrontOid, SfvbPageCreateRequest pageCreateRequest);
+        /// <summary>
+        /// Create an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOffer">The offer to create</param>
+        /// <returns>SfvbUpsellOffer</returns>
+        SfvbUpsellOffer InsertSfvbUpsellOffer (int storefrontOid, SfvbUpsellOffer upsellOffer);
+
+        /// <summary>
+        /// Create an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOffer">The offer to create</param>
+        /// <returns>ApiResponse of SfvbUpsellOffer</returns>
+        ApiResponse<SfvbUpsellOffer> InsertSfvbUpsellOfferWithHttpInfo (int storefrontOid, SfvbUpsellOffer upsellOffer);
+        /// <summary>
+        /// Create an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  Creating it switched on needs sfvb_publish; create it with active false to build it without that scope. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPath">The path to create</param>
+        /// <returns>SfvbUpsellPath</returns>
+        SfvbUpsellPath InsertSfvbUpsellPath (int storefrontOid, SfvbUpsellPath upsellPath);
+
+        /// <summary>
+        /// Create an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  Creating it switched on needs sfvb_publish; create it with active false to build it without that scope. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPath">The path to create</param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        ApiResponse<SfvbUpsellPath> InsertSfvbUpsellPathWithHttpInfo (int storefrontOid, SfvbUpsellPath upsellPath);
         /// <summary>
         /// Install a library entry into a storefront
         /// </summary>
@@ -1188,23 +1440,95 @@ namespace com.ultracart.admin.v2.Api
         /// List upsell offers
         /// </summary>
         /// <remarks>
-        /// Without container JSON, so the funnel can be surveyed cheaply.  A large container size alongside a small element count is the signature of markup pasted into a single html element. 
+        /// Every offer on one of this storefront's paths that are not archived, the same list the admin shows, with each offer's full settings but not its container JSON.  An offer on no path yet is still read by oid.  A large container size alongside a small element count is the signature of markup pasted into a single html element.  Stats as on the path list. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
         /// <returns>SfvbUpsellOffersResponse</returns>
-        SfvbUpsellOffersResponse ListSfvbUpsellOffers (int storefrontOid);
+        SfvbUpsellOffersResponse ListSfvbUpsellOffers (int storefrontOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string));
 
         /// <summary>
         /// List upsell offers
         /// </summary>
         /// <remarks>
-        /// Without container JSON, so the funnel can be surveyed cheaply.  A large container size alongside a small element count is the signature of markup pasted into a single html element. 
+        /// Every offer on one of this storefront's paths that are not archived, the same list the admin shows, with each offer's full settings but not its container JSON.  An offer on no path yet is still read by oid.  A large container size alongside a small element count is the signature of markup pasted into a single html element.  Stats as on the path list. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
         /// <returns>ApiResponse of SfvbUpsellOffersResponse</returns>
-        ApiResponse<SfvbUpsellOffersResponse> ListSfvbUpsellOffersWithHttpInfo (int storefrontOid);
+        ApiResponse<SfvbUpsellOffersResponse> ListSfvbUpsellOffersWithHttpInfo (int storefrontOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string));
+        /// <summary>
+        /// List upsell paths
+        /// </summary>
+        /// <remarks>
+        /// In path order, first to last.  status current (the default) leaves out archived paths.  Stats are computed only with stats=true, over stats_start to stats_end (YYYY-MM-DD, the last 30 days when both are omitted, at most 366 days), because they are the expensive part of the read. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">current, archived or all (optional)</param>
+        /// <param name="location">pre checkout or post checkout (optional)</param>
+        /// <param name="search">Only paths whose name contains this (optional)</param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="maxResults">Page size, 1 to 500, default 100 (optional)</param>
+        /// <param name="offset">Offset of the first path returned (optional)</param>
+        /// <returns>SfvbUpsellPathsResponse</returns>
+        SfvbUpsellPathsResponse ListSfvbUpsellPaths (int storefrontOid, string status = default(string), string location = default(string), string search = default(string), bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), int? maxResults = default(int?), int? offset = default(int?));
+
+        /// <summary>
+        /// List upsell paths
+        /// </summary>
+        /// <remarks>
+        /// In path order, first to last.  status current (the default) leaves out archived paths.  Stats are computed only with stats=true, over stats_start to stats_end (YYYY-MM-DD, the last 30 days when both are omitted, at most 366 days), because they are the expensive part of the read. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">current, archived or all (optional)</param>
+        /// <param name="location">pre checkout or post checkout (optional)</param>
+        /// <param name="search">Only paths whose name contains this (optional)</param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="maxResults">Page size, 1 to 500, default 100 (optional)</param>
+        /// <param name="offset">Offset of the first path returned (optional)</param>
+        /// <returns>ApiResponse of SfvbUpsellPathsResponse</returns>
+        ApiResponse<SfvbUpsellPathsResponse> ListSfvbUpsellPathsWithHttpInfo (int storefrontOid, string status = default(string), string location = default(string), string search = default(string), bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), int? maxResults = default(int?), int? offset = default(int?));
+        /// <summary>
+        /// Move an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Up, down, to the top or to the bottom of the storefront's paths.  Order decides which running path a shopper meets first, so moving a running path needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="moveRequest">Where to move it</param>
+        /// <returns>SfvbUpsellPath</returns>
+        SfvbUpsellPath MoveSfvbUpsellPath (int storefrontOid, int upsellPathOid, SfvbUpsellPathMoveRequest moveRequest);
+
+        /// <summary>
+        /// Move an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Up, down, to the top or to the bottom of the storefront's paths.  Order decides which running path a shopper meets first, so moving a running path needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="moveRequest">Where to move it</param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        ApiResponse<SfvbUpsellPath> MoveSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, SfvbUpsellPathMoveRequest moveRequest);
         /// <summary>
         /// Write a container stored outside the file system
         /// </summary>
@@ -1294,7 +1618,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change some of an item's attributes
         /// </summary>
         /// <remarks>
-        /// Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// Partial - only the attributes named change, and an empty value empties one but keeps it on the item.  To remove an attribute no template declares, use the attribute DELETE.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -1308,7 +1632,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change some of an item's attributes
         /// </summary>
         /// <remarks>
-        /// Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// Partial - only the attributes named change, and an empty value empties one but keeps it on the item.  To remove an attribute no template declares, use the attribute DELETE.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -1830,6 +2154,83 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbExperiment</returns>
         ApiResponse<SfvbExperiment> StartSfvbExperimentWithHttpInfo (int storefrontOid, SfvbExperimentStartRequest experimentStartRequest);
         /// <summary>
+        /// Unarchive an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Brings the path back into the default list.  Unarchiving one that is switched on starts it, so that needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <returns>SfvbUpsellPath</returns>
+        SfvbUpsellPath UnarchiveSfvbUpsellPath (int storefrontOid, int upsellPathOid);
+
+        /// <summary>
+        /// Unarchive an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Brings the path back into the default list.  Unarchiving one that is switched on starts it, so that needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        ApiResponse<SfvbUpsellPath> UnarchiveSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid);
+        /// <summary>
+        /// Update an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, switching one on, or changing upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Settings the API does not show, such as the offer's screenshots, are kept. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellOffer">The whole offer</param>
+        /// <returns>SfvbUpsellOffer</returns>
+        SfvbUpsellOffer UpdateSfvbUpsellOffer (int storefrontOid, int upsellOfferOid, string ifMatch, SfvbUpsellOffer upsellOffer);
+
+        /// <summary>
+        /// Update an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, switching one on, or changing upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Settings the API does not show, such as the offer's screenshots, are kept. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellOffer">The whole offer</param>
+        /// <returns>ApiResponse of SfvbUpsellOffer</returns>
+        ApiResponse<SfvbUpsellOffer> UpdateSfvbUpsellOfferWithHttpInfo (int storefrontOid, int upsellOfferOid, string ifMatch, SfvbUpsellOffer upsellOffer);
+        /// <summary>
+        /// Update an upsell path
+        /// </summary>
+        /// <remarks>
+        /// A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path, or switching one on, needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellPath">The whole path</param>
+        /// <returns>SfvbUpsellPath</returns>
+        SfvbUpsellPath UpdateSfvbUpsellPath (int storefrontOid, int upsellPathOid, string ifMatch, SfvbUpsellPath upsellPath);
+
+        /// <summary>
+        /// Update an upsell path
+        /// </summary>
+        /// <remarks>
+        /// A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path, or switching one on, needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellPath">The whole path</param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        ApiResponse<SfvbUpsellPath> UpdateSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, string ifMatch, SfvbUpsellPath upsellPath);
+        /// <summary>
         /// Store a binary asset that was already uploaded
         /// </summary>
         /// <remarks>
@@ -1957,6 +2358,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbPageItemsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPageItemsResponse>> AddSfvbPageItemsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageItemsAddRequest pageItemsAddRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Archive an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Files the path out of the default list.  An archived path does not run.  Archiving one that is switched on is a live change and needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        System.Threading.Tasks.Task<SfvbUpsellPath> ArchiveSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Archive an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Files the path out of the default list.  An archived path does not run.  Archiving one that is switched on is a live change and needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> ArchiveSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Compile CJSON to Velocity
         /// </summary>
         /// <remarks>
@@ -2055,6 +2481,35 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbFileWithHttpInfoAsync (int storefrontOid, string ifMatch, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Delete an attribute from an item
+        /// </summary>
+        /// <remarks>
+        /// Removes one attribute that no template on the item's pages declares - a test name, a misspelling, one a retired template used.  A declared attribute is refused, because the template would list it again, empty; send an empty value through the attributes update to clear one of those instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="name">The attribute name, matched without regard to case</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemResponse> DeleteSfvbItemAttributeAsync (int storefrontOid, string name, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete an attribute from an item
+        /// </summary>
+        /// <remarks>
+        /// Removes one attribute that no template on the item's pages declares - a test name, a misspelling, one a retired template used.  A declared attribute is refused, because the template would list it again, empty; send an empty value through the attributes update to clear one of those instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="name">The attribute name, matched without regard to case</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> DeleteSfvbItemAttributeWithHttpInfoAsync (int storefrontOid, string name, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Detach an image from an item
         /// </summary>
         /// <remarks>
@@ -2140,6 +2595,56 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbPreviewSessionWithHttpInfoAsync (int storefrontOid, string previewSessionId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Disable an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// Switches the offer off.  Disabling one that is switched on is a live change and needs sfvb_publish.  An offer that is already off is returned unchanged.  There is no delete. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellOffer</returns>
+        System.Threading.Tasks.Task<SfvbUpsellOffer> DisableSfvbUpsellOfferAsync (int storefrontOid, int upsellOfferOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Disable an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// Switches the offer off.  Disabling one that is switched on is a live change and needs sfvb_publish.  An offer that is already off is returned unchanged.  There is no delete. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellOffer)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffer>> DisableSfvbUpsellOfferWithHttpInfoAsync (int storefrontOid, int upsellOfferOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Disable an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Switches the path off.  Disabling a running path is a live change and needs sfvb_publish.  A path that is already off is returned unchanged.  There is no delete. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        System.Threading.Tasks.Task<SfvbUpsellPath> DisableSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Disable an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Switches the path off.  Disabling a running path is a live change and needs sfvb_publish.  A path that is already off is returned unchanged.  There is no delete. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> DisableSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Read a storefront file's raw bytes
         /// </summary>
         /// <remarks>
@@ -2216,6 +2721,58 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbThemeJobResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbThemeJobResponse>> DuplicateSfvbThemeWithHttpInfoAsync (int storefrontOid, int themeOid, SfvbThemeDuplicateRequest duplicateRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Duplicate an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// A copy named Copy of, switched off, with its own copy of the container.  Put it on a path with a path update to have it shown. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellOffer</returns>
+        System.Threading.Tasks.Task<SfvbUpsellOffer> DuplicateSfvbUpsellOfferAsync (int storefrontOid, int upsellOfferOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Duplicate an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// A copy named Copy of, switched off, with its own copy of the container.  Put it on a path with a path update to have it shown. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellOffer)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffer>> DuplicateSfvbUpsellOfferWithHttpInfoAsync (int storefrontOid, int upsellOfferOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Duplicate an upsell path or one of its variations
+        /// </summary>
+        /// <remarks>
+        /// Without a variation, copies the whole path right after it, switched off.  With a variation, appends a copy of that variation to the same path, which needs sfvb_publish when the path is running.  Every offer the copy uses is copied too and switched off.  Within this storefront only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="duplicateRequest">What to duplicate (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        System.Threading.Tasks.Task<SfvbUpsellPath> DuplicateSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest = default(SfvbUpsellPathDuplicateRequest), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Duplicate an upsell path or one of its variations
+        /// </summary>
+        /// <remarks>
+        /// Without a variation, copies the whole path right after it, switched off.  With a variation, appends a copy of that variation to the same path, which needs sfvb_publish when the path is running.  Every offer the copy uses is copied too and switched off.  Within this storefront only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="duplicateRequest">What to duplicate (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> DuplicateSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest = default(SfvbUpsellPathDuplicateRequest), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// End an experiment
         /// </summary>
@@ -2777,6 +3334,72 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbThemeJobResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbThemeJobResponse>> GetSfvbThemeJobWithHttpInfoAsync (int storefrontOid, int jobId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Get an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// The whole offer, with the hash an update sends back in If-Match, which upsell items are out of stock now, and whether loyalty, TowerData and Everflow are set up.  Stats as on the path list. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellOffer</returns>
+        System.Threading.Tasks.Task<SfvbUpsellOffer> GetSfvbUpsellOfferAsync (int storefrontOid, int upsellOfferOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// The whole offer, with the hash an update sends back in If-Match, which upsell items are out of stock now, and whether loyalty, TowerData and Everflow are set up.  Stats as on the path list. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellOffer)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffer>> GetSfvbUpsellOfferWithHttpInfoAsync (int storefrontOid, int upsellOfferOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get an upsell path
+        /// </summary>
+        /// <remarks>
+        /// The whole path, with the hash an update sends back in If-Match.  Stats as on the list. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        System.Threading.Tasks.Task<SfvbUpsellPath> GetSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get an upsell path
+        /// </summary>
+        /// <remarks>
+        /// The whole path, with the hash an update sends back in If-Match.  Stats as on the list. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> GetSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Compiler version for this merchant
         /// </summary>
         /// <remarks>
@@ -2843,6 +3466,56 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> InsertSfvbPageWithHttpInfoAsync (int storefrontOid, SfvbPageCreateRequest pageCreateRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Create an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOffer">The offer to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellOffer</returns>
+        System.Threading.Tasks.Task<SfvbUpsellOffer> InsertSfvbUpsellOfferAsync (int storefrontOid, SfvbUpsellOffer upsellOffer, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOffer">The offer to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellOffer)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffer>> InsertSfvbUpsellOfferWithHttpInfoAsync (int storefrontOid, SfvbUpsellOffer upsellOffer, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Create an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  Creating it switched on needs sfvb_publish; create it with active false to build it without that scope. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPath">The path to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        System.Threading.Tasks.Task<SfvbUpsellPath> InsertSfvbUpsellPathAsync (int storefrontOid, SfvbUpsellPath upsellPath, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  Creating it switched on needs sfvb_publish; create it with active false to build it without that scope. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPath">The path to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> InsertSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, SfvbUpsellPath upsellPath, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Install a library entry into a storefront
         /// </summary>
@@ -3163,25 +3836,101 @@ namespace com.ultracart.admin.v2.Api
         /// List upsell offers
         /// </summary>
         /// <remarks>
-        /// Without container JSON, so the funnel can be surveyed cheaply.  A large container size alongside a small element count is the signature of markup pasted into a single html element. 
+        /// Every offer on one of this storefront's paths that are not archived, the same list the admin shows, with each offer's full settings but not its container JSON.  An offer on no path yet is still read by oid.  A large container size alongside a small element count is the signature of markup pasted into a single html element.  Stats as on the path list. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbUpsellOffersResponse</returns>
-        System.Threading.Tasks.Task<SfvbUpsellOffersResponse> ListSfvbUpsellOffersAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<SfvbUpsellOffersResponse> ListSfvbUpsellOffersAsync (int storefrontOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List upsell offers
         /// </summary>
         /// <remarks>
-        /// Without container JSON, so the funnel can be surveyed cheaply.  A large container size alongside a small element count is the signature of markup pasted into a single html element. 
+        /// Every offer on one of this storefront's paths that are not archived, the same list the admin shows, with each offer's full settings but not its container JSON.  An offer on no path yet is still read by oid.  A large container size alongside a small element count is the signature of markup pasted into a single html element.  Stats as on the path list. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbUpsellOffersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffersResponse>> ListSfvbUpsellOffersWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffersResponse>> ListSfvbUpsellOffersWithHttpInfoAsync (int storefrontOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List upsell paths
+        /// </summary>
+        /// <remarks>
+        /// In path order, first to last.  status current (the default) leaves out archived paths.  Stats are computed only with stats=true, over stats_start to stats_end (YYYY-MM-DD, the last 30 days when both are omitted, at most 366 days), because they are the expensive part of the read. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">current, archived or all (optional)</param>
+        /// <param name="location">pre checkout or post checkout (optional)</param>
+        /// <param name="search">Only paths whose name contains this (optional)</param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="maxResults">Page size, 1 to 500, default 100 (optional)</param>
+        /// <param name="offset">Offset of the first path returned (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPathsResponse</returns>
+        System.Threading.Tasks.Task<SfvbUpsellPathsResponse> ListSfvbUpsellPathsAsync (int storefrontOid, string status = default(string), string location = default(string), string search = default(string), bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), int? maxResults = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List upsell paths
+        /// </summary>
+        /// <remarks>
+        /// In path order, first to last.  status current (the default) leaves out archived paths.  Stats are computed only with stats=true, over stats_start to stats_end (YYYY-MM-DD, the last 30 days when both are omitted, at most 366 days), because they are the expensive part of the read. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">current, archived or all (optional)</param>
+        /// <param name="location">pre checkout or post checkout (optional)</param>
+        /// <param name="search">Only paths whose name contains this (optional)</param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="maxResults">Page size, 1 to 500, default 100 (optional)</param>
+        /// <param name="offset">Offset of the first path returned (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPathsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPathsResponse>> ListSfvbUpsellPathsWithHttpInfoAsync (int storefrontOid, string status = default(string), string location = default(string), string search = default(string), bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), int? maxResults = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Move an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Up, down, to the top or to the bottom of the storefront's paths.  Order decides which running path a shopper meets first, so moving a running path needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="moveRequest">Where to move it</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        System.Threading.Tasks.Task<SfvbUpsellPath> MoveSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, SfvbUpsellPathMoveRequest moveRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Move an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Up, down, to the top or to the bottom of the storefront's paths.  Order decides which running path a shopper meets first, so moving a running path needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="moveRequest">Where to move it</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> MoveSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, SfvbUpsellPathMoveRequest moveRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Write a container stored outside the file system
         /// </summary>
@@ -3277,7 +4026,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change some of an item's attributes
         /// </summary>
         /// <remarks>
-        /// Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// Partial - only the attributes named change, and an empty value empties one but keeps it on the item.  To remove an attribute no template declares, use the attribute DELETE.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -3292,7 +4041,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change some of an item&#39;s attributes
         /// </summary>
         /// <remarks>
-        /// Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// Partial - only the attributes named change, and an empty value empties one but keeps it on the item.  To remove an attribute no template declares, use the attribute DELETE.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -3854,6 +4603,89 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> StartSfvbExperimentWithHttpInfoAsync (int storefrontOid, SfvbExperimentStartRequest experimentStartRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Unarchive an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Brings the path back into the default list.  Unarchiving one that is switched on starts it, so that needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        System.Threading.Tasks.Task<SfvbUpsellPath> UnarchiveSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Unarchive an upsell path
+        /// </summary>
+        /// <remarks>
+        /// Brings the path back into the default list.  Unarchiving one that is switched on starts it, so that needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> UnarchiveSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, switching one on, or changing upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Settings the API does not show, such as the offer's screenshots, are kept. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellOffer">The whole offer</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellOffer</returns>
+        System.Threading.Tasks.Task<SfvbUpsellOffer> UpdateSfvbUpsellOfferAsync (int storefrontOid, int upsellOfferOid, string ifMatch, SfvbUpsellOffer upsellOffer, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update an upsell offer
+        /// </summary>
+        /// <remarks>
+        /// A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, switching one on, or changing upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Settings the API does not show, such as the offer's screenshots, are kept. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellOffer">The whole offer</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellOffer)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffer>> UpdateSfvbUpsellOfferWithHttpInfoAsync (int storefrontOid, int upsellOfferOid, string ifMatch, SfvbUpsellOffer upsellOffer, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update an upsell path
+        /// </summary>
+        /// <remarks>
+        /// A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path, or switching one on, needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellPath">The whole path</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        System.Threading.Tasks.Task<SfvbUpsellPath> UpdateSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, string ifMatch, SfvbUpsellPath upsellPath, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update an upsell path
+        /// </summary>
+        /// <remarks>
+        /// A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path, or switching one on, needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellPath">The whole path</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> UpdateSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, string ifMatch, SfvbUpsellPath upsellPath, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Store a binary asset that was already uploaded
         /// </summary>
@@ -4452,6 +5284,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbPageItemsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbPageItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageItemsResponse)));
+        }
+
+        /// <summary>
+        /// Archive an upsell path Files the path out of the default list.  An archived path does not run.  Archiving one that is switched on is a live change and needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <returns>SfvbUpsellPath</returns>
+        public SfvbUpsellPath ArchiveSfvbUpsellPath (int storefrontOid, int upsellPathOid)
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = ArchiveSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Archive an upsell path Files the path out of the default list.  An archived path does not run.  Archiving one that is switched on is a live change and needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        public ApiResponse<SfvbUpsellPath> ArchiveSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ArchiveSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->ArchiveSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/archive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ArchiveSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Archive an upsell path Files the path out of the default list.  An archived path does not run.  Archiving one that is switched on is a live change and needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellPath> ArchiveSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = await ArchiveSfvbUpsellPathWithHttpInfoAsync(storefrontOid, upsellPathOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Archive an upsell path Files the path out of the default list.  An archived path does not run.  Archiving one that is switched on is a live change and needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> ArchiveSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ArchiveSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->ArchiveSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/archive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ArchiveSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
         }
 
         /// <summary>
@@ -5137,6 +6138,187 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Delete an attribute from an item Removes one attribute that no template on the item's pages declares - a test name, a misspelling, one a retired template used.  A declared attribute is refused, because the template would list it again, empty; send an empty value through the attributes update to clear one of those instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="name">The attribute name, matched without regard to case</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemResponse</returns>
+        public SfvbItemResponse DeleteSfvbItemAttribute (int storefrontOid, string name, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = DeleteSfvbItemAttributeWithHttpInfo(storefrontOid, name, merchantItemId, merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete an attribute from an item Removes one attribute that no template on the item's pages declares - a test name, a misspelling, one a retired template used.  A declared attribute is refused, because the template would list it again, empty; send an empty value through the attributes update to clear one of those instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="name">The attribute name, matched without regard to case</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemResponse</returns>
+        public ApiResponse<SfvbItemResponse> DeleteSfvbItemAttributeWithHttpInfo (int storefrontOid, string name, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbItemAttribute");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling SfvbApi->DeleteSfvbItemAttribute");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (name != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "name", name)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbItemAttribute", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Delete an attribute from an item Removes one attribute that no template on the item's pages declares - a test name, a misspelling, one a retired template used.  A declared attribute is refused, because the template would list it again, empty; send an empty value through the attributes update to clear one of those instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="name">The attribute name, matched without regard to case</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemResponse> DeleteSfvbItemAttributeAsync (int storefrontOid, string name, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemResponse> localVarResponse = await DeleteSfvbItemAttributeWithHttpInfoAsync(storefrontOid, name, merchantItemId, merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete an attribute from an item Removes one attribute that no template on the item's pages declares - a test name, a misspelling, one a retired template used.  A declared attribute is refused, because the template would list it again, empty; send an empty value through the attributes update to clear one of those instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="name">The attribute name, matched without regard to case</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> DeleteSfvbItemAttributeWithHttpInfoAsync (int storefrontOid, string name, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbItemAttribute");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling SfvbApi->DeleteSfvbItemAttribute");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (name != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "name", name)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbItemAttribute", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
         /// Detach an image from an item Removes the item's copy of the image in one slot.  The file you uploaded is left where it is, so the same source can be attached again or used elsewhere. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5663,6 +6845,344 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Disable an upsell offer Switches the offer off.  Disabling one that is switched on is a live change and needs sfvb_publish.  An offer that is already off is returned unchanged.  There is no delete. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <returns>SfvbUpsellOffer</returns>
+        public SfvbUpsellOffer DisableSfvbUpsellOffer (int storefrontOid, int upsellOfferOid)
+        {
+             ApiResponse<SfvbUpsellOffer> localVarResponse = DisableSfvbUpsellOfferWithHttpInfo(storefrontOid, upsellOfferOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Disable an upsell offer Switches the offer off.  Disabling one that is switched on is a live change and needs sfvb_publish.  An offer that is already off is returned unchanged.  There is no delete. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <returns>ApiResponse of SfvbUpsellOffer</returns>
+        public ApiResponse<SfvbUpsellOffer> DisableSfvbUpsellOfferWithHttpInfo (int storefrontOid, int upsellOfferOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DisableSfvbUpsellOffer");
+            // verify the required parameter 'upsellOfferOid' is set
+            if (upsellOfferOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellOfferOid' when calling SfvbApi->DisableSfvbUpsellOffer");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellOfferOid != null) localVarPathParams.Add("upsell_offer_oid", this.Configuration.ApiClient.ParameterToString(upsellOfferOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DisableSfvbUpsellOffer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellOffer>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellOffer) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellOffer)));
+        }
+
+        /// <summary>
+        /// Disable an upsell offer Switches the offer off.  Disabling one that is switched on is a live change and needs sfvb_publish.  An offer that is already off is returned unchanged.  There is no delete. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellOffer</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellOffer> DisableSfvbUpsellOfferAsync (int storefrontOid, int upsellOfferOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellOffer> localVarResponse = await DisableSfvbUpsellOfferWithHttpInfoAsync(storefrontOid, upsellOfferOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Disable an upsell offer Switches the offer off.  Disabling one that is switched on is a live change and needs sfvb_publish.  An offer that is already off is returned unchanged.  There is no delete. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellOffer)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffer>> DisableSfvbUpsellOfferWithHttpInfoAsync (int storefrontOid, int upsellOfferOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DisableSfvbUpsellOffer");
+            // verify the required parameter 'upsellOfferOid' is set
+            if (upsellOfferOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellOfferOid' when calling SfvbApi->DisableSfvbUpsellOffer");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellOfferOid != null) localVarPathParams.Add("upsell_offer_oid", this.Configuration.ApiClient.ParameterToString(upsellOfferOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DisableSfvbUpsellOffer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellOffer>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellOffer) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellOffer)));
+        }
+
+        /// <summary>
+        /// Disable an upsell path Switches the path off.  Disabling a running path is a live change and needs sfvb_publish.  A path that is already off is returned unchanged.  There is no delete. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <returns>SfvbUpsellPath</returns>
+        public SfvbUpsellPath DisableSfvbUpsellPath (int storefrontOid, int upsellPathOid)
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = DisableSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Disable an upsell path Switches the path off.  Disabling a running path is a live change and needs sfvb_publish.  A path that is already off is returned unchanged.  There is no delete. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        public ApiResponse<SfvbUpsellPath> DisableSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DisableSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->DisableSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DisableSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Disable an upsell path Switches the path off.  Disabling a running path is a live change and needs sfvb_publish.  A path that is already off is returned unchanged.  There is no delete. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellPath> DisableSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = await DisableSfvbUpsellPathWithHttpInfoAsync(storefrontOid, upsellPathOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Disable an upsell path Switches the path off.  Disabling a running path is a live change and needs sfvb_publish.  A path that is already off is returned unchanged.  There is no delete. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> DisableSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DisableSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->DisableSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DisableSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
         }
 
         /// <summary>
@@ -6206,6 +7726,366 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbThemeJobResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbThemeJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbThemeJobResponse)));
+        }
+
+        /// <summary>
+        /// Duplicate an upsell offer A copy named Copy of, switched off, with its own copy of the container.  Put it on a path with a path update to have it shown. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <returns>SfvbUpsellOffer</returns>
+        public SfvbUpsellOffer DuplicateSfvbUpsellOffer (int storefrontOid, int upsellOfferOid)
+        {
+             ApiResponse<SfvbUpsellOffer> localVarResponse = DuplicateSfvbUpsellOfferWithHttpInfo(storefrontOid, upsellOfferOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Duplicate an upsell offer A copy named Copy of, switched off, with its own copy of the container.  Put it on a path with a path update to have it shown. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <returns>ApiResponse of SfvbUpsellOffer</returns>
+        public ApiResponse<SfvbUpsellOffer> DuplicateSfvbUpsellOfferWithHttpInfo (int storefrontOid, int upsellOfferOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DuplicateSfvbUpsellOffer");
+            // verify the required parameter 'upsellOfferOid' is set
+            if (upsellOfferOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellOfferOid' when calling SfvbApi->DuplicateSfvbUpsellOffer");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/duplicate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellOfferOid != null) localVarPathParams.Add("upsell_offer_oid", this.Configuration.ApiClient.ParameterToString(upsellOfferOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DuplicateSfvbUpsellOffer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellOffer>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellOffer) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellOffer)));
+        }
+
+        /// <summary>
+        /// Duplicate an upsell offer A copy named Copy of, switched off, with its own copy of the container.  Put it on a path with a path update to have it shown. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellOffer</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellOffer> DuplicateSfvbUpsellOfferAsync (int storefrontOid, int upsellOfferOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellOffer> localVarResponse = await DuplicateSfvbUpsellOfferWithHttpInfoAsync(storefrontOid, upsellOfferOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Duplicate an upsell offer A copy named Copy of, switched off, with its own copy of the container.  Put it on a path with a path update to have it shown. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellOffer)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffer>> DuplicateSfvbUpsellOfferWithHttpInfoAsync (int storefrontOid, int upsellOfferOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DuplicateSfvbUpsellOffer");
+            // verify the required parameter 'upsellOfferOid' is set
+            if (upsellOfferOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellOfferOid' when calling SfvbApi->DuplicateSfvbUpsellOffer");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/duplicate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellOfferOid != null) localVarPathParams.Add("upsell_offer_oid", this.Configuration.ApiClient.ParameterToString(upsellOfferOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DuplicateSfvbUpsellOffer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellOffer>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellOffer) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellOffer)));
+        }
+
+        /// <summary>
+        /// Duplicate an upsell path or one of its variations Without a variation, copies the whole path right after it, switched off.  With a variation, appends a copy of that variation to the same path, which needs sfvb_publish when the path is running.  Every offer the copy uses is copied too and switched off.  Within this storefront only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="duplicateRequest">What to duplicate (optional)</param>
+        /// <returns>SfvbUpsellPath</returns>
+        public SfvbUpsellPath DuplicateSfvbUpsellPath (int storefrontOid, int upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest = default(SfvbUpsellPathDuplicateRequest))
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = DuplicateSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid, duplicateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Duplicate an upsell path or one of its variations Without a variation, copies the whole path right after it, switched off.  With a variation, appends a copy of that variation to the same path, which needs sfvb_publish when the path is running.  Every offer the copy uses is copied too and switched off.  Within this storefront only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="duplicateRequest">What to duplicate (optional)</param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        public ApiResponse<SfvbUpsellPath> DuplicateSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest = default(SfvbUpsellPathDuplicateRequest))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DuplicateSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->DuplicateSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/duplicate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+            if (duplicateRequest != null && duplicateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(duplicateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = duplicateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DuplicateSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Duplicate an upsell path or one of its variations Without a variation, copies the whole path right after it, switched off.  With a variation, appends a copy of that variation to the same path, which needs sfvb_publish when the path is running.  Every offer the copy uses is copied too and switched off.  Within this storefront only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="duplicateRequest">What to duplicate (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellPath> DuplicateSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest = default(SfvbUpsellPathDuplicateRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = await DuplicateSfvbUpsellPathWithHttpInfoAsync(storefrontOid, upsellPathOid, duplicateRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Duplicate an upsell path or one of its variations Without a variation, copies the whole path right after it, switched off.  With a variation, appends a copy of that variation to the same path, which needs sfvb_publish when the path is running.  Every offer the copy uses is copied too and switched off.  Within this storefront only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="duplicateRequest">What to duplicate (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> DuplicateSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest = default(SfvbUpsellPathDuplicateRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DuplicateSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->DuplicateSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/duplicate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+            if (duplicateRequest != null && duplicateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(duplicateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = duplicateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DuplicateSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
         }
 
         /// <summary>
@@ -9953,6 +11833,392 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get an upsell offer The whole offer, with the hash an update sends back in If-Match, which upsell items are out of stock now, and whether loyalty, TowerData and Everflow are set up.  Stats as on the path list. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <returns>SfvbUpsellOffer</returns>
+        public SfvbUpsellOffer GetSfvbUpsellOffer (int storefrontOid, int upsellOfferOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string))
+        {
+             ApiResponse<SfvbUpsellOffer> localVarResponse = GetSfvbUpsellOfferWithHttpInfo(storefrontOid, upsellOfferOid, stats, statsStart, statsEnd, statsWeekdays);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get an upsell offer The whole offer, with the hash an update sends back in If-Match, which upsell items are out of stock now, and whether loyalty, TowerData and Everflow are set up.  Stats as on the path list. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <returns>ApiResponse of SfvbUpsellOffer</returns>
+        public ApiResponse<SfvbUpsellOffer> GetSfvbUpsellOfferWithHttpInfo (int storefrontOid, int upsellOfferOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbUpsellOffer");
+            // verify the required parameter 'upsellOfferOid' is set
+            if (upsellOfferOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellOfferOid' when calling SfvbApi->GetSfvbUpsellOffer");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellOfferOid != null) localVarPathParams.Add("upsell_offer_oid", this.Configuration.ApiClient.ParameterToString(upsellOfferOid)); // path parameter
+            if (stats != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats", stats)); // query parameter
+            if (statsStart != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_start", statsStart)); // query parameter
+            if (statsEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_end", statsEnd)); // query parameter
+            if (statsWeekdays != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_weekdays", statsWeekdays)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbUpsellOffer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellOffer>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellOffer) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellOffer)));
+        }
+
+        /// <summary>
+        /// Get an upsell offer The whole offer, with the hash an update sends back in If-Match, which upsell items are out of stock now, and whether loyalty, TowerData and Everflow are set up.  Stats as on the path list. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellOffer</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellOffer> GetSfvbUpsellOfferAsync (int storefrontOid, int upsellOfferOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellOffer> localVarResponse = await GetSfvbUpsellOfferWithHttpInfoAsync(storefrontOid, upsellOfferOid, stats, statsStart, statsEnd, statsWeekdays, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get an upsell offer The whole offer, with the hash an update sends back in If-Match, which upsell items are out of stock now, and whether loyalty, TowerData and Everflow are set up.  Stats as on the path list. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellOffer)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffer>> GetSfvbUpsellOfferWithHttpInfoAsync (int storefrontOid, int upsellOfferOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbUpsellOffer");
+            // verify the required parameter 'upsellOfferOid' is set
+            if (upsellOfferOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellOfferOid' when calling SfvbApi->GetSfvbUpsellOffer");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellOfferOid != null) localVarPathParams.Add("upsell_offer_oid", this.Configuration.ApiClient.ParameterToString(upsellOfferOid)); // path parameter
+            if (stats != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats", stats)); // query parameter
+            if (statsStart != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_start", statsStart)); // query parameter
+            if (statsEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_end", statsEnd)); // query parameter
+            if (statsWeekdays != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_weekdays", statsWeekdays)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbUpsellOffer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellOffer>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellOffer) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellOffer)));
+        }
+
+        /// <summary>
+        /// Get an upsell path The whole path, with the hash an update sends back in If-Match.  Stats as on the list. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <returns>SfvbUpsellPath</returns>
+        public SfvbUpsellPath GetSfvbUpsellPath (int storefrontOid, int upsellPathOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string))
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = GetSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid, stats, statsStart, statsEnd, statsWeekdays);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get an upsell path The whole path, with the hash an update sends back in If-Match.  Stats as on the list. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        public ApiResponse<SfvbUpsellPath> GetSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->GetSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+            if (stats != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats", stats)); // query parameter
+            if (statsStart != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_start", statsStart)); // query parameter
+            if (statsEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_end", statsEnd)); // query parameter
+            if (statsWeekdays != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_weekdays", statsWeekdays)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Get an upsell path The whole path, with the hash an update sends back in If-Match.  Stats as on the list. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellPath> GetSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = await GetSfvbUpsellPathWithHttpInfoAsync(storefrontOid, upsellPathOid, stats, statsStart, statsEnd, statsWeekdays, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get an upsell path The whole path, with the hash an update sends back in If-Match.  Stats as on the list. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> GetSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->GetSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+            if (stats != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats", stats)); // query parameter
+            if (statsStart != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_start", statsStart)); // query parameter
+            if (statsEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_end", statsEnd)); // query parameter
+            if (statsWeekdays != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_weekdays", statsWeekdays)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
         /// Compiler version for this merchant The visual builder release channel is per merchant, so a CLI holding cached schema or element data should compare against this to know when it has gone stale. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -10425,6 +12691,376 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbPageResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageResponse)));
+        }
+
+        /// <summary>
+        /// Create an upsell offer Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOffer">The offer to create</param>
+        /// <returns>SfvbUpsellOffer</returns>
+        public SfvbUpsellOffer InsertSfvbUpsellOffer (int storefrontOid, SfvbUpsellOffer upsellOffer)
+        {
+             ApiResponse<SfvbUpsellOffer> localVarResponse = InsertSfvbUpsellOfferWithHttpInfo(storefrontOid, upsellOffer);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create an upsell offer Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOffer">The offer to create</param>
+        /// <returns>ApiResponse of SfvbUpsellOffer</returns>
+        public ApiResponse<SfvbUpsellOffer> InsertSfvbUpsellOfferWithHttpInfo (int storefrontOid, SfvbUpsellOffer upsellOffer)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbUpsellOffer");
+            // verify the required parameter 'upsellOffer' is set
+            if (upsellOffer == null)
+                throw new ApiException(400, "Missing required parameter 'upsellOffer' when calling SfvbApi->InsertSfvbUpsellOffer");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellOffer != null && upsellOffer.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(upsellOffer); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = upsellOffer; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbUpsellOffer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellOffer>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellOffer) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellOffer)));
+        }
+
+        /// <summary>
+        /// Create an upsell offer Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOffer">The offer to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellOffer</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellOffer> InsertSfvbUpsellOfferAsync (int storefrontOid, SfvbUpsellOffer upsellOffer, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellOffer> localVarResponse = await InsertSfvbUpsellOfferWithHttpInfoAsync(storefrontOid, upsellOffer, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create an upsell offer Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOffer">The offer to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellOffer)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffer>> InsertSfvbUpsellOfferWithHttpInfoAsync (int storefrontOid, SfvbUpsellOffer upsellOffer, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbUpsellOffer");
+            // verify the required parameter 'upsellOffer' is set
+            if (upsellOffer == null)
+                throw new ApiException(400, "Missing required parameter 'upsellOffer' when calling SfvbApi->InsertSfvbUpsellOffer");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellOffer != null && upsellOffer.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(upsellOffer); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = upsellOffer; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbUpsellOffer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellOffer>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellOffer) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellOffer)));
+        }
+
+        /// <summary>
+        /// Create an upsell path Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  Creating it switched on needs sfvb_publish; create it with active false to build it without that scope. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPath">The path to create</param>
+        /// <returns>SfvbUpsellPath</returns>
+        public SfvbUpsellPath InsertSfvbUpsellPath (int storefrontOid, SfvbUpsellPath upsellPath)
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = InsertSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPath);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create an upsell path Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  Creating it switched on needs sfvb_publish; create it with active false to build it without that scope. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPath">The path to create</param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        public ApiResponse<SfvbUpsellPath> InsertSfvbUpsellPathWithHttpInfo (int storefrontOid, SfvbUpsellPath upsellPath)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbUpsellPath");
+            // verify the required parameter 'upsellPath' is set
+            if (upsellPath == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPath' when calling SfvbApi->InsertSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPath != null && upsellPath.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(upsellPath); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = upsellPath; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Create an upsell path Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  Creating it switched on needs sfvb_publish; create it with active false to build it without that scope. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPath">The path to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellPath> InsertSfvbUpsellPathAsync (int storefrontOid, SfvbUpsellPath upsellPath, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = await InsertSfvbUpsellPathWithHttpInfoAsync(storefrontOid, upsellPath, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create an upsell path Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  Creating it switched on needs sfvb_publish; create it with active false to build it without that scope. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPath">The path to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> InsertSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, SfvbUpsellPath upsellPath, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbUpsellPath");
+            // verify the required parameter 'upsellPath' is set
+            if (upsellPath == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPath' when calling SfvbApi->InsertSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPath != null && upsellPath.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(upsellPath); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = upsellPath; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
         }
 
         /// <summary>
@@ -12426,24 +15062,32 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// List upsell offers Without container JSON, so the funnel can be surveyed cheaply.  A large container size alongside a small element count is the signature of markup pasted into a single html element. 
+        /// List upsell offers Every offer on one of this storefront's paths that are not archived, the same list the admin shows, with each offer's full settings but not its container JSON.  An offer on no path yet is still read by oid.  A large container size alongside a small element count is the signature of markup pasted into a single html element.  Stats as on the path list. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
         /// <returns>SfvbUpsellOffersResponse</returns>
-        public SfvbUpsellOffersResponse ListSfvbUpsellOffers (int storefrontOid)
+        public SfvbUpsellOffersResponse ListSfvbUpsellOffers (int storefrontOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string))
         {
-             ApiResponse<SfvbUpsellOffersResponse> localVarResponse = ListSfvbUpsellOffersWithHttpInfo(storefrontOid);
+             ApiResponse<SfvbUpsellOffersResponse> localVarResponse = ListSfvbUpsellOffersWithHttpInfo(storefrontOid, stats, statsStart, statsEnd, statsWeekdays);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List upsell offers Without container JSON, so the funnel can be surveyed cheaply.  A large container size alongside a small element count is the signature of markup pasted into a single html element. 
+        /// List upsell offers Every offer on one of this storefront's paths that are not archived, the same list the admin shows, with each offer's full settings but not its container JSON.  An offer on no path yet is still read by oid.  A large container size alongside a small element count is the signature of markup pasted into a single html element.  Stats as on the path list. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
         /// <returns>ApiResponse of SfvbUpsellOffersResponse</returns>
-        public ApiResponse<SfvbUpsellOffersResponse> ListSfvbUpsellOffersWithHttpInfo (int storefrontOid)
+        public ApiResponse<SfvbUpsellOffersResponse> ListSfvbUpsellOffersWithHttpInfo (int storefrontOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -12471,6 +15115,10 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (stats != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats", stats)); // query parameter
+            if (statsStart != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_start", statsStart)); // query parameter
+            if (statsEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_end", statsEnd)); // query parameter
+            if (statsWeekdays != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_weekdays", statsWeekdays)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -12503,27 +15151,35 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// List upsell offers Without container JSON, so the funnel can be surveyed cheaply.  A large container size alongside a small element count is the signature of markup pasted into a single html element. 
+        /// List upsell offers Every offer on one of this storefront's paths that are not archived, the same list the admin shows, with each offer's full settings but not its container JSON.  An offer on no path yet is still read by oid.  A large container size alongside a small element count is the signature of markup pasted into a single html element.  Stats as on the path list. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbUpsellOffersResponse</returns>
-        public async System.Threading.Tasks.Task<SfvbUpsellOffersResponse> ListSfvbUpsellOffersAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<SfvbUpsellOffersResponse> ListSfvbUpsellOffersAsync (int storefrontOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbUpsellOffersResponse> localVarResponse = await ListSfvbUpsellOffersWithHttpInfoAsync(storefrontOid, cancellationToken);
+             ApiResponse<SfvbUpsellOffersResponse> localVarResponse = await ListSfvbUpsellOffersWithHttpInfoAsync(storefrontOid, stats, statsStart, statsEnd, statsWeekdays, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List upsell offers Without container JSON, so the funnel can be surveyed cheaply.  A large container size alongside a small element count is the signature of markup pasted into a single html element. 
+        /// List upsell offers Every offer on one of this storefront's paths that are not archived, the same list the admin shows, with each offer's full settings but not its container JSON.  An offer on no path yet is still read by oid.  A large container size alongside a small element count is the signature of markup pasted into a single html element.  Stats as on the path list. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbUpsellOffersResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffersResponse>> ListSfvbUpsellOffersWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffersResponse>> ListSfvbUpsellOffersWithHttpInfoAsync (int storefrontOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -12551,6 +15207,10 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (stats != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats", stats)); // query parameter
+            if (statsStart != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_start", statsStart)); // query parameter
+            if (statsEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_end", statsEnd)); // query parameter
+            if (statsWeekdays != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_weekdays", statsWeekdays)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -12580,6 +15240,414 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbUpsellOffersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbUpsellOffersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellOffersResponse)));
+        }
+
+        /// <summary>
+        /// List upsell paths In path order, first to last.  status current (the default) leaves out archived paths.  Stats are computed only with stats=true, over stats_start to stats_end (YYYY-MM-DD, the last 30 days when both are omitted, at most 366 days), because they are the expensive part of the read. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">current, archived or all (optional)</param>
+        /// <param name="location">pre checkout or post checkout (optional)</param>
+        /// <param name="search">Only paths whose name contains this (optional)</param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="maxResults">Page size, 1 to 500, default 100 (optional)</param>
+        /// <param name="offset">Offset of the first path returned (optional)</param>
+        /// <returns>SfvbUpsellPathsResponse</returns>
+        public SfvbUpsellPathsResponse ListSfvbUpsellPaths (int storefrontOid, string status = default(string), string location = default(string), string search = default(string), bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), int? maxResults = default(int?), int? offset = default(int?))
+        {
+             ApiResponse<SfvbUpsellPathsResponse> localVarResponse = ListSfvbUpsellPathsWithHttpInfo(storefrontOid, status, location, search, stats, statsStart, statsEnd, statsWeekdays, maxResults, offset);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List upsell paths In path order, first to last.  status current (the default) leaves out archived paths.  Stats are computed only with stats=true, over stats_start to stats_end (YYYY-MM-DD, the last 30 days when both are omitted, at most 366 days), because they are the expensive part of the read. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">current, archived or all (optional)</param>
+        /// <param name="location">pre checkout or post checkout (optional)</param>
+        /// <param name="search">Only paths whose name contains this (optional)</param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="maxResults">Page size, 1 to 500, default 100 (optional)</param>
+        /// <param name="offset">Offset of the first path returned (optional)</param>
+        /// <returns>ApiResponse of SfvbUpsellPathsResponse</returns>
+        public ApiResponse<SfvbUpsellPathsResponse> ListSfvbUpsellPathsWithHttpInfo (int storefrontOid, string status = default(string), string location = default(string), string search = default(string), bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), int? maxResults = default(int?), int? offset = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbUpsellPaths");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (status != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "status", status)); // query parameter
+            if (location != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "location", location)); // query parameter
+            if (search != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search", search)); // query parameter
+            if (stats != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats", stats)); // query parameter
+            if (statsStart != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_start", statsStart)); // query parameter
+            if (statsEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_end", statsEnd)); // query parameter
+            if (statsWeekdays != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_weekdays", statsWeekdays)); // query parameter
+            if (maxResults != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "max_results", maxResults)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbUpsellPaths", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPathsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPathsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPathsResponse)));
+        }
+
+        /// <summary>
+        /// List upsell paths In path order, first to last.  status current (the default) leaves out archived paths.  Stats are computed only with stats=true, over stats_start to stats_end (YYYY-MM-DD, the last 30 days when both are omitted, at most 366 days), because they are the expensive part of the read. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">current, archived or all (optional)</param>
+        /// <param name="location">pre checkout or post checkout (optional)</param>
+        /// <param name="search">Only paths whose name contains this (optional)</param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="maxResults">Page size, 1 to 500, default 100 (optional)</param>
+        /// <param name="offset">Offset of the first path returned (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPathsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellPathsResponse> ListSfvbUpsellPathsAsync (int storefrontOid, string status = default(string), string location = default(string), string search = default(string), bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), int? maxResults = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellPathsResponse> localVarResponse = await ListSfvbUpsellPathsWithHttpInfoAsync(storefrontOid, status, location, search, stats, statsStart, statsEnd, statsWeekdays, maxResults, offset, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List upsell paths In path order, first to last.  status current (the default) leaves out archived paths.  Stats are computed only with stats=true, over stats_start to stats_end (YYYY-MM-DD, the last 30 days when both are omitted, at most 366 days), because they are the expensive part of the read. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="status">current, archived or all (optional)</param>
+        /// <param name="location">pre checkout or post checkout (optional)</param>
+        /// <param name="search">Only paths whose name contains this (optional)</param>
+        /// <param name="stats">Include stats (optional)</param>
+        /// <param name="statsStart">Stats window start, YYYY-MM-DD (optional)</param>
+        /// <param name="statsEnd">Stats window end, YYYY-MM-DD (optional)</param>
+        /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
+        /// <param name="maxResults">Page size, 1 to 500, default 100 (optional)</param>
+        /// <param name="offset">Offset of the first path returned (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPathsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPathsResponse>> ListSfvbUpsellPathsWithHttpInfoAsync (int storefrontOid, string status = default(string), string location = default(string), string search = default(string), bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), int? maxResults = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbUpsellPaths");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (status != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "status", status)); // query parameter
+            if (location != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "location", location)); // query parameter
+            if (search != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search", search)); // query parameter
+            if (stats != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats", stats)); // query parameter
+            if (statsStart != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_start", statsStart)); // query parameter
+            if (statsEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_end", statsEnd)); // query parameter
+            if (statsWeekdays != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "stats_weekdays", statsWeekdays)); // query parameter
+            if (maxResults != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "max_results", maxResults)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbUpsellPaths", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPathsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPathsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPathsResponse)));
+        }
+
+        /// <summary>
+        /// Move an upsell path Up, down, to the top or to the bottom of the storefront's paths.  Order decides which running path a shopper meets first, so moving a running path needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="moveRequest">Where to move it</param>
+        /// <returns>SfvbUpsellPath</returns>
+        public SfvbUpsellPath MoveSfvbUpsellPath (int storefrontOid, int upsellPathOid, SfvbUpsellPathMoveRequest moveRequest)
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = MoveSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid, moveRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Move an upsell path Up, down, to the top or to the bottom of the storefront's paths.  Order decides which running path a shopper meets first, so moving a running path needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="moveRequest">Where to move it</param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        public ApiResponse<SfvbUpsellPath> MoveSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, SfvbUpsellPathMoveRequest moveRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->MoveSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->MoveSfvbUpsellPath");
+            // verify the required parameter 'moveRequest' is set
+            if (moveRequest == null)
+                throw new ApiException(400, "Missing required parameter 'moveRequest' when calling SfvbApi->MoveSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+            if (moveRequest != null && moveRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(moveRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = moveRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MoveSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Move an upsell path Up, down, to the top or to the bottom of the storefront's paths.  Order decides which running path a shopper meets first, so moving a running path needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="moveRequest">Where to move it</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellPath> MoveSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, SfvbUpsellPathMoveRequest moveRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = await MoveSfvbUpsellPathWithHttpInfoAsync(storefrontOid, upsellPathOid, moveRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Move an upsell path Up, down, to the top or to the bottom of the storefront's paths.  Order decides which running path a shopper meets first, so moving a running path needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="moveRequest">Where to move it</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> MoveSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, SfvbUpsellPathMoveRequest moveRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->MoveSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->MoveSfvbUpsellPath");
+            // verify the required parameter 'moveRequest' is set
+            if (moveRequest == null)
+                throw new ApiException(400, "Missing required parameter 'moveRequest' when calling SfvbApi->MoveSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+            if (moveRequest != null && moveRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(moveRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = moveRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MoveSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
         }
 
         /// <summary>
@@ -13222,7 +16290,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change some of an item's attributes Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// Change some of an item's attributes Partial - only the attributes named change, and an empty value empties one but keeps it on the item.  To remove an attribute no template declares, use the attribute DELETE.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -13237,7 +16305,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change some of an item's attributes Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// Change some of an item's attributes Partial - only the attributes named change, and an empty value empties one but keeps it on the item.  To remove an attribute no template declares, use the attribute DELETE.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -13319,7 +16387,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change some of an item's attributes Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// Change some of an item's attributes Partial - only the attributes named change, and an empty value empties one but keeps it on the item.  To remove an attribute no template declares, use the attribute DELETE.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -13336,7 +16404,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change some of an item's attributes Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+        /// Change some of an item's attributes Partial - only the attributes named change, and an empty value empties one but keeps it on the item.  To remove an attribute no template declares, use the attribute DELETE.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -17312,6 +20380,593 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbExperiment>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbExperiment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperiment)));
+        }
+
+        /// <summary>
+        /// Unarchive an upsell path Brings the path back into the default list.  Unarchiving one that is switched on starts it, so that needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <returns>SfvbUpsellPath</returns>
+        public SfvbUpsellPath UnarchiveSfvbUpsellPath (int storefrontOid, int upsellPathOid)
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = UnarchiveSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Unarchive an upsell path Brings the path back into the default list.  Unarchiving one that is switched on starts it, so that needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        public ApiResponse<SfvbUpsellPath> UnarchiveSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UnarchiveSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->UnarchiveSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/unarchive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnarchiveSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Unarchive an upsell path Brings the path back into the default list.  Unarchiving one that is switched on starts it, so that needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellPath> UnarchiveSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = await UnarchiveSfvbUpsellPathWithHttpInfoAsync(storefrontOid, upsellPathOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Unarchive an upsell path Brings the path back into the default list.  Unarchiving one that is switched on starts it, so that needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> UnarchiveSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UnarchiveSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->UnarchiveSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/unarchive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnarchiveSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Update an upsell offer A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, switching one on, or changing upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Settings the API does not show, such as the offer's screenshots, are kept. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellOffer">The whole offer</param>
+        /// <returns>SfvbUpsellOffer</returns>
+        public SfvbUpsellOffer UpdateSfvbUpsellOffer (int storefrontOid, int upsellOfferOid, string ifMatch, SfvbUpsellOffer upsellOffer)
+        {
+             ApiResponse<SfvbUpsellOffer> localVarResponse = UpdateSfvbUpsellOfferWithHttpInfo(storefrontOid, upsellOfferOid, ifMatch, upsellOffer);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update an upsell offer A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, switching one on, or changing upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Settings the API does not show, such as the offer's screenshots, are kept. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellOffer">The whole offer</param>
+        /// <returns>ApiResponse of SfvbUpsellOffer</returns>
+        public ApiResponse<SfvbUpsellOffer> UpdateSfvbUpsellOfferWithHttpInfo (int storefrontOid, int upsellOfferOid, string ifMatch, SfvbUpsellOffer upsellOffer)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbUpsellOffer");
+            // verify the required parameter 'upsellOfferOid' is set
+            if (upsellOfferOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellOfferOid' when calling SfvbApi->UpdateSfvbUpsellOffer");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbUpsellOffer");
+            // verify the required parameter 'upsellOffer' is set
+            if (upsellOffer == null)
+                throw new ApiException(400, "Missing required parameter 'upsellOffer' when calling SfvbApi->UpdateSfvbUpsellOffer");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellOfferOid != null) localVarPathParams.Add("upsell_offer_oid", this.Configuration.ApiClient.ParameterToString(upsellOfferOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (upsellOffer != null && upsellOffer.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(upsellOffer); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = upsellOffer; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbUpsellOffer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellOffer>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellOffer) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellOffer)));
+        }
+
+        /// <summary>
+        /// Update an upsell offer A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, switching one on, or changing upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Settings the API does not show, such as the offer's screenshots, are kept. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellOffer">The whole offer</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellOffer</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellOffer> UpdateSfvbUpsellOfferAsync (int storefrontOid, int upsellOfferOid, string ifMatch, SfvbUpsellOffer upsellOffer, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellOffer> localVarResponse = await UpdateSfvbUpsellOfferWithHttpInfoAsync(storefrontOid, upsellOfferOid, ifMatch, upsellOffer, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update an upsell offer A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, switching one on, or changing upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Settings the API does not show, such as the offer's screenshots, are kept. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellOfferOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellOffer">The whole offer</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellOffer)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellOffer>> UpdateSfvbUpsellOfferWithHttpInfoAsync (int storefrontOid, int upsellOfferOid, string ifMatch, SfvbUpsellOffer upsellOffer, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbUpsellOffer");
+            // verify the required parameter 'upsellOfferOid' is set
+            if (upsellOfferOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellOfferOid' when calling SfvbApi->UpdateSfvbUpsellOffer");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbUpsellOffer");
+            // verify the required parameter 'upsellOffer' is set
+            if (upsellOffer == null)
+                throw new ApiException(400, "Missing required parameter 'upsellOffer' when calling SfvbApi->UpdateSfvbUpsellOffer");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellOfferOid != null) localVarPathParams.Add("upsell_offer_oid", this.Configuration.ApiClient.ParameterToString(upsellOfferOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (upsellOffer != null && upsellOffer.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(upsellOffer); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = upsellOffer; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbUpsellOffer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellOffer>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellOffer) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellOffer)));
+        }
+
+        /// <summary>
+        /// Update an upsell path A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path, or switching one on, needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellPath">The whole path</param>
+        /// <returns>SfvbUpsellPath</returns>
+        public SfvbUpsellPath UpdateSfvbUpsellPath (int storefrontOid, int upsellPathOid, string ifMatch, SfvbUpsellPath upsellPath)
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = UpdateSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid, ifMatch, upsellPath);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update an upsell path A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path, or switching one on, needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellPath">The whole path</param>
+        /// <returns>ApiResponse of SfvbUpsellPath</returns>
+        public ApiResponse<SfvbUpsellPath> UpdateSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, string ifMatch, SfvbUpsellPath upsellPath)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->UpdateSfvbUpsellPath");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbUpsellPath");
+            // verify the required parameter 'upsellPath' is set
+            if (upsellPath == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPath' when calling SfvbApi->UpdateSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (upsellPath != null && upsellPath.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(upsellPath); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = upsellPath; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Update an upsell path A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path, or switching one on, needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellPath">The whole path</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUpsellPath</returns>
+        public async System.Threading.Tasks.Task<SfvbUpsellPath> UpdateSfvbUpsellPathAsync (int storefrontOid, int upsellPathOid, string ifMatch, SfvbUpsellPath upsellPath, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUpsellPath> localVarResponse = await UpdateSfvbUpsellPathWithHttpInfoAsync(storefrontOid, upsellPathOid, ifMatch, upsellPath, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update an upsell path A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path, or switching one on, needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="upsellPathOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="upsellPath">The whole path</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> UpdateSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, string ifMatch, SfvbUpsellPath upsellPath, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbUpsellPath");
+            // verify the required parameter 'upsellPathOid' is set
+            if (upsellPathOid == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPathOid' when calling SfvbApi->UpdateSfvbUpsellPath");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbUpsellPath");
+            // verify the required parameter 'upsellPath' is set
+            if (upsellPath == null)
+                throw new ApiException(400, "Missing required parameter 'upsellPath' when calling SfvbApi->UpdateSfvbUpsellPath");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (upsellPathOid != null) localVarPathParams.Add("upsell_path_oid", this.Configuration.ApiClient.ParameterToString(upsellPathOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (upsellPath != null && upsellPath.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(upsellPath); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = upsellPath; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbUpsellPath", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
         }
 
         /// <summary>

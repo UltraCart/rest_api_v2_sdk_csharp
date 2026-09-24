@@ -31,6 +31,39 @@ namespace com.ultracart.admin.v2.Model
     public partial class EmailFlow :  IEquatable<EmailFlow>, IValidatableObject
     {
         /// <summary>
+        /// Whether a customer may enter this flow again after a previous enrollment.  anytime (default), after_days (see reentry_delay_days), or never.  Enrollment history is kept for 3 years, so never means not within 3 years of the last enrollment.
+        /// </summary>
+        /// <value>Whether a customer may enter this flow again after a previous enrollment.  anytime (default), after_days (see reentry_delay_days), or never.  Enrollment history is kept for 3 years, so never means not within 3 years of the last enrollment.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ReentryPolicyEnum
+        {
+            /// <summary>
+            /// Enum Anytime for value: anytime
+            /// </summary>
+            [EnumMember(Value = "anytime")]
+            Anytime = 1,
+
+            /// <summary>
+            /// Enum Afterdays for value: after_days
+            /// </summary>
+            [EnumMember(Value = "after_days")]
+            Afterdays = 2,
+
+            /// <summary>
+            /// Enum Never for value: never
+            /// </summary>
+            [EnumMember(Value = "never")]
+            Never = 3
+
+        }
+
+        /// <summary>
+        /// Whether a customer may enter this flow again after a previous enrollment.  anytime (default), after_days (see reentry_delay_days), or never.  Enrollment history is kept for 3 years, so never means not within 3 years of the last enrollment.
+        /// </summary>
+        /// <value>Whether a customer may enter this flow again after a previous enrollment.  anytime (default), after_days (see reentry_delay_days), or never.  Enrollment history is kept for 3 years, so never means not within 3 years of the last enrollment.</value>
+        [DataMember(Name="reentry_policy", EmitDefaultValue=false)]
+        public ReentryPolicyEnum? ReentryPolicy { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="EmailFlow" /> class.
         /// </summary>
         /// <param name="allowMultipleConcurrentEnrollments">True if a customer may be enrolled in this flow multiple times.</param>
@@ -53,6 +86,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantId">Merchant ID.</param>
         /// <param name="name">Name of email flow.</param>
         /// <param name="openRateFormatted">Open rate of emails, formatted.</param>
+        /// <param name="reentryDelayDays">Number of days after the last enrollment before a customer may enter this flow again.  Only used when reentry_policy is after_days.  Maximum 1095..</param>
+        /// <param name="reentryPolicy">Whether a customer may enter this flow again after a previous enrollment.  anytime (default), after_days (see reentry_delay_days), or never.  Enrollment history is kept for 3 years, so never means not within 3 years of the last enrollment..</param>
         /// <param name="revenueFormatted">Revenue, formatted.</param>
         /// <param name="revenuePerCustomerFormatted">Revenue per customer, formatted.</param>
         /// <param name="screenshotLargeFullUrl">URL to a large full length screenshot.</param>
@@ -64,7 +99,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="triggerParameter">Trigger parameter.</param>
         /// <param name="triggerParameterName">Trigger parameter name.</param>
         /// <param name="triggerType">Trigger type.</param>
-        public EmailFlow(bool allowMultipleConcurrentEnrollments = default(bool), bool backPopulating = default(bool), string clickRateFormatted = default(string), string createdDts = default(string), bool deleted = default(bool), string emailCommunicationSequenceUuid = default(string), string emailFlowUuid = default(string), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), int enrolledCustomers = default(int), string espDomainUser = default(string), string espDomainUuid = default(string), string espFlowFolderUuid = default(string), string espFriendlyName = default(string), string filterProfileEquationJson = default(string), int libraryItemOid = default(int), bool maximumEnrolled = default(bool), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string screenshotLargeFullUrl = default(string), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string status = default(string), string statusDts = default(string), int storefrontOid = default(int), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
+        public EmailFlow(bool allowMultipleConcurrentEnrollments = default(bool), bool backPopulating = default(bool), string clickRateFormatted = default(string), string createdDts = default(string), bool deleted = default(bool), string emailCommunicationSequenceUuid = default(string), string emailFlowUuid = default(string), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), int enrolledCustomers = default(int), string espDomainUser = default(string), string espDomainUuid = default(string), string espFlowFolderUuid = default(string), string espFriendlyName = default(string), string filterProfileEquationJson = default(string), int libraryItemOid = default(int), bool maximumEnrolled = default(bool), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), int reentryDelayDays = default(int), ReentryPolicyEnum? reentryPolicy = default(ReentryPolicyEnum?), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string screenshotLargeFullUrl = default(string), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string status = default(string), string statusDts = default(string), int storefrontOid = default(int), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
         {
             this.AllowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
             this.BackPopulating = backPopulating;
@@ -86,6 +121,8 @@ namespace com.ultracart.admin.v2.Model
             this.MerchantId = merchantId;
             this.Name = name;
             this.OpenRateFormatted = openRateFormatted;
+            this.ReentryDelayDays = reentryDelayDays;
+            this.ReentryPolicy = reentryPolicy;
             this.RevenueFormatted = revenueFormatted;
             this.RevenuePerCustomerFormatted = revenuePerCustomerFormatted;
             this.ScreenshotLargeFullUrl = screenshotLargeFullUrl;
@@ -240,6 +277,14 @@ namespace com.ultracart.admin.v2.Model
         public string OpenRateFormatted { get; set; }
 
         /// <summary>
+        /// Number of days after the last enrollment before a customer may enter this flow again.  Only used when reentry_policy is after_days.  Maximum 1095.
+        /// </summary>
+        /// <value>Number of days after the last enrollment before a customer may enter this flow again.  Only used when reentry_policy is after_days.  Maximum 1095.</value>
+        [DataMember(Name="reentry_delay_days", EmitDefaultValue=false)]
+        public int ReentryDelayDays { get; set; }
+
+
+        /// <summary>
         /// Revenue, formatted
         /// </summary>
         /// <value>Revenue, formatted</value>
@@ -344,6 +389,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OpenRateFormatted: ").Append(OpenRateFormatted).Append("\n");
+            sb.Append("  ReentryDelayDays: ").Append(ReentryDelayDays).Append("\n");
+            sb.Append("  ReentryPolicy: ").Append(ReentryPolicy).Append("\n");
             sb.Append("  RevenueFormatted: ").Append(RevenueFormatted).Append("\n");
             sb.Append("  RevenuePerCustomerFormatted: ").Append(RevenuePerCustomerFormatted).Append("\n");
             sb.Append("  ScreenshotLargeFullUrl: ").Append(ScreenshotLargeFullUrl).Append("\n");
@@ -490,6 +537,16 @@ namespace com.ultracart.admin.v2.Model
                     this.OpenRateFormatted.Equals(input.OpenRateFormatted))
                 ) && 
                 (
+                    this.ReentryDelayDays == input.ReentryDelayDays ||
+                    (this.ReentryDelayDays != null &&
+                    this.ReentryDelayDays.Equals(input.ReentryDelayDays))
+                ) && 
+                (
+                    this.ReentryPolicy == input.ReentryPolicy ||
+                    (this.ReentryPolicy != null &&
+                    this.ReentryPolicy.Equals(input.ReentryPolicy))
+                ) && 
+                (
                     this.RevenueFormatted == input.RevenueFormatted ||
                     (this.RevenueFormatted != null &&
                     this.RevenueFormatted.Equals(input.RevenueFormatted))
@@ -595,6 +652,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.OpenRateFormatted != null)
                     hashCode = hashCode * 59 + this.OpenRateFormatted.GetHashCode();
+                if (this.ReentryDelayDays != null)
+                    hashCode = hashCode * 59 + this.ReentryDelayDays.GetHashCode();
+                if (this.ReentryPolicy != null)
+                    hashCode = hashCode * 59 + this.ReentryPolicy.GetHashCode();
                 if (this.RevenueFormatted != null)
                     hashCode = hashCode * 59 + this.RevenueFormatted.GetHashCode();
                 if (this.RevenuePerCustomerFormatted != null)

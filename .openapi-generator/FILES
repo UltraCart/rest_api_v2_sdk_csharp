@@ -1072,6 +1072,9 @@ docs/SfvbSiteAttributesResponse.md
 docs/SfvbStorefront.md
 docs/SfvbStorefrontsResponse.md
 docs/SfvbTemplate.md
+docs/SfvbTemplateResolveCandidate.md
+docs/SfvbTemplateResolvePath.md
+docs/SfvbTemplateResolveResponse.md
 docs/SfvbTemplatesResponse.md
 docs/SfvbTheme.md
 docs/SfvbThemeAttribute.md
@@ -2280,6 +2283,9 @@ src/com.ultracart.admin.v2/Model/SfvbSiteAttributesResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbStorefront.cs
 src/com.ultracart.admin.v2/Model/SfvbStorefrontsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbTemplate.cs
+src/com.ultracart.admin.v2/Model/SfvbTemplateResolveCandidate.cs
+src/com.ultracart.admin.v2/Model/SfvbTemplateResolvePath.cs
+src/com.ultracart.admin.v2/Model/SfvbTemplateResolveResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbTemplatesResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbTheme.cs
 src/com.ultracart.admin.v2/Model/SfvbThemeAttribute.cs

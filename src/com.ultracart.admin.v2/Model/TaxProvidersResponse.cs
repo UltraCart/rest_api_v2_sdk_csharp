@@ -40,10 +40,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="self">self.</param>
         /// <param name="sovos">sovos.</param>
         /// <param name="success">Indicates if API call was successful.</param>
+        /// <param name="taxcloud">taxcloud.</param>
         /// <param name="taxjar">taxjar.</param>
         /// <param name="ultracart">ultracart.</param>
         /// <param name="warning">warning.</param>
-        public TaxProvidersResponse(TaxProviderAnrok anrok = default(TaxProviderAnrok), TaxProviderAvalara avalara = default(TaxProviderAvalara), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), TaxProviderSelf self = default(TaxProviderSelf), TaxProviderSovos sovos = default(TaxProviderSovos), bool success = default(bool), TaxProviderTaxJar taxjar = default(TaxProviderTaxJar), TaxProviderUltraCart ultracart = default(TaxProviderUltraCart), Warning warning = default(Warning))
+        public TaxProvidersResponse(TaxProviderAnrok anrok = default(TaxProviderAnrok), TaxProviderAvalara avalara = default(TaxProviderAvalara), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), TaxProviderSelf self = default(TaxProviderSelf), TaxProviderSovos sovos = default(TaxProviderSovos), bool success = default(bool), TaxProviderTaxCloud taxcloud = default(TaxProviderTaxCloud), TaxProviderTaxJar taxjar = default(TaxProviderTaxJar), TaxProviderUltraCart ultracart = default(TaxProviderUltraCart), Warning warning = default(Warning))
         {
             this.Anrok = anrok;
             this.Avalara = avalara;
@@ -52,6 +53,7 @@ namespace com.ultracart.admin.v2.Model
             this.Self = self;
             this.Sovos = sovos;
             this.Success = success;
+            this.Taxcloud = taxcloud;
             this.Taxjar = taxjar;
             this.Ultracart = ultracart;
             this.Warning = warning;
@@ -101,6 +103,12 @@ namespace com.ultracart.admin.v2.Model
         public bool Success { get; set; }
 
         /// <summary>
+        /// Gets or Sets Taxcloud
+        /// </summary>
+        [DataMember(Name="taxcloud", EmitDefaultValue=false)]
+        public TaxProviderTaxCloud Taxcloud { get; set; }
+
+        /// <summary>
         /// Gets or Sets Taxjar
         /// </summary>
         [DataMember(Name="taxjar", EmitDefaultValue=false)]
@@ -133,6 +141,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("  Sovos: ").Append(Sovos).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
+            sb.Append("  Taxcloud: ").Append(Taxcloud).Append("\n");
             sb.Append("  Taxjar: ").Append(Taxjar).Append("\n");
             sb.Append("  Ultracart: ").Append(Ultracart).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
@@ -206,6 +215,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Success.Equals(input.Success))
                 ) && 
                 (
+                    this.Taxcloud == input.Taxcloud ||
+                    (this.Taxcloud != null &&
+                    this.Taxcloud.Equals(input.Taxcloud))
+                ) && 
+                (
                     this.Taxjar == input.Taxjar ||
                     (this.Taxjar != null &&
                     this.Taxjar.Equals(input.Taxjar))
@@ -245,6 +259,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Sovos.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
+                if (this.Taxcloud != null)
+                    hashCode = hashCode * 59 + this.Taxcloud.GetHashCode();
                 if (this.Taxjar != null)
                     hashCode = hashCode * 59 + this.Taxjar.GetHashCode();
                 if (this.Ultracart != null)

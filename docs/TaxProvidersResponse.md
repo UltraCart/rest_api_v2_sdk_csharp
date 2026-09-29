@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Self** | [**TaxProviderSelf**](TaxProviderSelf.md) |  | [optional] 
 **Sovos** | [**TaxProviderSovos**](TaxProviderSovos.md) |  | [optional] 
 **Success** | **bool** | Indicates if API call was successful | [optional] 
+**Taxcloud** | [**TaxProviderTaxCloud**](TaxProviderTaxCloud.md) |  | [optional] 
 **Taxjar** | [**TaxProviderTaxJar**](TaxProviderTaxJar.md) |  | [optional] 
 **Ultracart** | [**TaxProviderUltraCart**](TaxProviderUltraCart.md) |  | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 

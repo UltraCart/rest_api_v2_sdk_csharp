@@ -163,21 +163,21 @@ namespace com.ultracart.admin.v2.Api
         /// Attempts to connect to Anrok and returns back the response
         /// </summary>
         /// <remarks>
-        /// Attempts to connect to Anrok and returns back the response. 
+        /// Attempts to connect to Anrok and returns back the response, including the products configured on the merchant's Anrok account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>TaxProviderTestResult</returns>
-        TaxProviderTestResult GetTaxProviderAnrokTest ();
+        /// <returns>TaxProviderAnrokTestResult</returns>
+        TaxProviderAnrokTestResult GetTaxProviderAnrokTest ();
 
         /// <summary>
         /// Attempts to connect to Anrok and returns back the response
         /// </summary>
         /// <remarks>
-        /// Attempts to connect to Anrok and returns back the response. 
+        /// Attempts to connect to Anrok and returns back the response, including the products configured on the merchant's Anrok account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of TaxProviderTestResult</returns>
-        ApiResponse<TaxProviderTestResult> GetTaxProviderAnrokTestWithHttpInfo ();
+        /// <returns>ApiResponse of TaxProviderAnrokTestResult</returns>
+        ApiResponse<TaxProviderAnrokTestResult> GetTaxProviderAnrokTestWithHttpInfo ();
         /// <summary>
         /// Retrieve the Avalara tax provider
         /// </summary>
@@ -334,6 +334,44 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of TaxProviderTestResult</returns>
         ApiResponse<TaxProviderTestResult> GetTaxProviderSovosTestWithHttpInfo ();
+        /// <summary>
+        /// Retrieve the TaxCloud tax provider
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the TaxCloud tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TaxProviderTaxCloud</returns>
+        TaxProviderTaxCloud GetTaxProviderTaxCloud ();
+
+        /// <summary>
+        /// Retrieve the TaxCloud tax provider
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the TaxCloud tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TaxProviderTaxCloud</returns>
+        ApiResponse<TaxProviderTaxCloud> GetTaxProviderTaxCloudWithHttpInfo ();
+        /// <summary>
+        /// Attempts to connect to TaxCloud and returns back the response
+        /// </summary>
+        /// <remarks>
+        /// Attempts to connect to TaxCloud with the saved API key and Connection ID and returns back the response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TaxProviderTestResult</returns>
+        TaxProviderTestResult GetTaxProviderTaxCloudTest ();
+
+        /// <summary>
+        /// Attempts to connect to TaxCloud and returns back the response
+        /// </summary>
+        /// <remarks>
+        /// Attempts to connect to TaxCloud with the saved API key and Connection ID and returns back the response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TaxProviderTestResult</returns>
+        ApiResponse<TaxProviderTestResult> GetTaxProviderTaxCloudTestWithHttpInfo ();
         /// <summary>
         /// Retrieve the TaxJar tax provider
         /// </summary>
@@ -637,6 +675,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of TaxProviderSovos</returns>
         ApiResponse<TaxProviderSovos> UpdateTaxProviderSovosWithHttpInfo (TaxProviderSovos taxProviderSovos);
         /// <summary>
+        /// Update the TaxCloud tax provider
+        /// </summary>
+        /// <remarks>
+        /// Update the TaxCloud tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderTaxcloud">TaxProviderTaxCloud object</param>
+        /// <returns>TaxProviderTaxCloud</returns>
+        TaxProviderTaxCloud UpdateTaxProviderTaxCloud (TaxProviderTaxCloud taxProviderTaxcloud);
+
+        /// <summary>
+        /// Update the TaxCloud tax provider
+        /// </summary>
+        /// <remarks>
+        /// Update the TaxCloud tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderTaxcloud">TaxProviderTaxCloud object</param>
+        /// <returns>ApiResponse of TaxProviderTaxCloud</returns>
+        ApiResponse<TaxProviderTaxCloud> UpdateTaxProviderTaxCloudWithHttpInfo (TaxProviderTaxCloud taxProviderTaxcloud);
+        /// <summary>
         /// Update the TaxJar tax provider
         /// </summary>
         /// <remarks>
@@ -830,23 +889,23 @@ namespace com.ultracart.admin.v2.Api
         /// Attempts to connect to Anrok and returns back the response
         /// </summary>
         /// <remarks>
-        /// Attempts to connect to Anrok and returns back the response. 
+        /// Attempts to connect to Anrok and returns back the response, including the products configured on the merchant's Anrok account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of TaxProviderTestResult</returns>
-        System.Threading.Tasks.Task<TaxProviderTestResult> GetTaxProviderAnrokTestAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of TaxProviderAnrokTestResult</returns>
+        System.Threading.Tasks.Task<TaxProviderAnrokTestResult> GetTaxProviderAnrokTestAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Attempts to connect to Anrok and returns back the response
         /// </summary>
         /// <remarks>
-        /// Attempts to connect to Anrok and returns back the response. 
+        /// Attempts to connect to Anrok and returns back the response, including the products configured on the merchant's Anrok account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (TaxProviderTestResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaxProviderTestResult>> GetTaxProviderAnrokTestWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (TaxProviderAnrokTestResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaxProviderAnrokTestResult>> GetTaxProviderAnrokTestWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve the Avalara tax provider
         /// </summary>
@@ -1019,6 +1078,48 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (TaxProviderTestResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<TaxProviderTestResult>> GetTaxProviderSovosTestWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve the TaxCloud tax provider
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the TaxCloud tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of TaxProviderTaxCloud</returns>
+        System.Threading.Tasks.Task<TaxProviderTaxCloud> GetTaxProviderTaxCloudAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve the TaxCloud tax provider
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the TaxCloud tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (TaxProviderTaxCloud)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaxProviderTaxCloud>> GetTaxProviderTaxCloudWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Attempts to connect to TaxCloud and returns back the response
+        /// </summary>
+        /// <remarks>
+        /// Attempts to connect to TaxCloud with the saved API key and Connection ID and returns back the response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of TaxProviderTestResult</returns>
+        System.Threading.Tasks.Task<TaxProviderTestResult> GetTaxProviderTaxCloudTestAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Attempts to connect to TaxCloud and returns back the response
+        /// </summary>
+        /// <remarks>
+        /// Attempts to connect to TaxCloud with the saved API key and Connection ID and returns back the response. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (TaxProviderTestResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaxProviderTestResult>> GetTaxProviderTaxCloudTestWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve the TaxJar tax provider
         /// </summary>
@@ -1349,6 +1450,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (TaxProviderSovos)</returns>
         System.Threading.Tasks.Task<ApiResponse<TaxProviderSovos>> UpdateTaxProviderSovosWithHttpInfoAsync (TaxProviderSovos taxProviderSovos, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update the TaxCloud tax provider
+        /// </summary>
+        /// <remarks>
+        /// Update the TaxCloud tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderTaxcloud">TaxProviderTaxCloud object</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of TaxProviderTaxCloud</returns>
+        System.Threading.Tasks.Task<TaxProviderTaxCloud> UpdateTaxProviderTaxCloudAsync (TaxProviderTaxCloud taxProviderTaxcloud, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update the TaxCloud tax provider
+        /// </summary>
+        /// <remarks>
+        /// Update the TaxCloud tax provider. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderTaxcloud">TaxProviderTaxCloud object</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (TaxProviderTaxCloud)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaxProviderTaxCloud>> UpdateTaxProviderTaxCloudWithHttpInfoAsync (TaxProviderTaxCloud taxProviderTaxcloud, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update the TaxJar tax provider
         /// </summary>
@@ -2585,22 +2709,22 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Attempts to connect to Anrok and returns back the response Attempts to connect to Anrok and returns back the response. 
+        /// Attempts to connect to Anrok and returns back the response Attempts to connect to Anrok and returns back the response, including the products configured on the merchant's Anrok account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>TaxProviderTestResult</returns>
-        public TaxProviderTestResult GetTaxProviderAnrokTest ()
+        /// <returns>TaxProviderAnrokTestResult</returns>
+        public TaxProviderAnrokTestResult GetTaxProviderAnrokTest ()
         {
-             ApiResponse<TaxProviderTestResult> localVarResponse = GetTaxProviderAnrokTestWithHttpInfo();
+             ApiResponse<TaxProviderAnrokTestResult> localVarResponse = GetTaxProviderAnrokTestWithHttpInfo();
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Attempts to connect to Anrok and returns back the response Attempts to connect to Anrok and returns back the response. 
+        /// Attempts to connect to Anrok and returns back the response Attempts to connect to Anrok and returns back the response, including the products configured on the merchant's Anrok account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of TaxProviderTestResult</returns>
-        public ApiResponse<TaxProviderTestResult> GetTaxProviderAnrokTestWithHttpInfo ()
+        /// <returns>ApiResponse of TaxProviderAnrokTestResult</returns>
+        public ApiResponse<TaxProviderAnrokTestResult> GetTaxProviderAnrokTestWithHttpInfo ()
         {
 
             var localVarPath = "/tax/providers/anrok/test";
@@ -2650,31 +2774,31 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<TaxProviderTestResult>(localVarStatusCode,
+            return new ApiResponse<TaxProviderAnrokTestResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (TaxProviderTestResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderTestResult)));
+                (TaxProviderAnrokTestResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderAnrokTestResult)));
         }
 
         /// <summary>
-        /// Attempts to connect to Anrok and returns back the response Attempts to connect to Anrok and returns back the response. 
+        /// Attempts to connect to Anrok and returns back the response Attempts to connect to Anrok and returns back the response, including the products configured on the merchant's Anrok account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of TaxProviderTestResult</returns>
-        public async System.Threading.Tasks.Task<TaxProviderTestResult> GetTaxProviderAnrokTestAsync (CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of TaxProviderAnrokTestResult</returns>
+        public async System.Threading.Tasks.Task<TaxProviderAnrokTestResult> GetTaxProviderAnrokTestAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<TaxProviderTestResult> localVarResponse = await GetTaxProviderAnrokTestWithHttpInfoAsync(cancellationToken);
+             ApiResponse<TaxProviderAnrokTestResult> localVarResponse = await GetTaxProviderAnrokTestWithHttpInfoAsync(cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Attempts to connect to Anrok and returns back the response Attempts to connect to Anrok and returns back the response. 
+        /// Attempts to connect to Anrok and returns back the response Attempts to connect to Anrok and returns back the response, including the products configured on the merchant's Anrok account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (TaxProviderTestResult)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TaxProviderTestResult>> GetTaxProviderAnrokTestWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (TaxProviderAnrokTestResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TaxProviderAnrokTestResult>> GetTaxProviderAnrokTestWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/tax/providers/anrok/test";
@@ -2724,9 +2848,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<TaxProviderTestResult>(localVarStatusCode,
+            return new ApiResponse<TaxProviderAnrokTestResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (TaxProviderTestResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderTestResult)));
+                (TaxProviderAnrokTestResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderAnrokTestResult)));
         }
 
         /// <summary>
@@ -3921,6 +4045,296 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetTaxProviderSovosTest", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TaxProviderTestResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TaxProviderTestResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderTestResult)));
+        }
+
+        /// <summary>
+        /// Retrieve the TaxCloud tax provider Retrieves the TaxCloud tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TaxProviderTaxCloud</returns>
+        public TaxProviderTaxCloud GetTaxProviderTaxCloud ()
+        {
+             ApiResponse<TaxProviderTaxCloud> localVarResponse = GetTaxProviderTaxCloudWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve the TaxCloud tax provider Retrieves the TaxCloud tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TaxProviderTaxCloud</returns>
+        public ApiResponse<TaxProviderTaxCloud> GetTaxProviderTaxCloudWithHttpInfo ()
+        {
+
+            var localVarPath = "/tax/providers/taxcloud";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTaxProviderTaxCloud", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TaxProviderTaxCloud>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TaxProviderTaxCloud) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderTaxCloud)));
+        }
+
+        /// <summary>
+        /// Retrieve the TaxCloud tax provider Retrieves the TaxCloud tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of TaxProviderTaxCloud</returns>
+        public async System.Threading.Tasks.Task<TaxProviderTaxCloud> GetTaxProviderTaxCloudAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<TaxProviderTaxCloud> localVarResponse = await GetTaxProviderTaxCloudWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve the TaxCloud tax provider Retrieves the TaxCloud tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (TaxProviderTaxCloud)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TaxProviderTaxCloud>> GetTaxProviderTaxCloudWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/tax/providers/taxcloud";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTaxProviderTaxCloud", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TaxProviderTaxCloud>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TaxProviderTaxCloud) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderTaxCloud)));
+        }
+
+        /// <summary>
+        /// Attempts to connect to TaxCloud and returns back the response Attempts to connect to TaxCloud with the saved API key and Connection ID and returns back the response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TaxProviderTestResult</returns>
+        public TaxProviderTestResult GetTaxProviderTaxCloudTest ()
+        {
+             ApiResponse<TaxProviderTestResult> localVarResponse = GetTaxProviderTaxCloudTestWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Attempts to connect to TaxCloud and returns back the response Attempts to connect to TaxCloud with the saved API key and Connection ID and returns back the response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TaxProviderTestResult</returns>
+        public ApiResponse<TaxProviderTestResult> GetTaxProviderTaxCloudTestWithHttpInfo ()
+        {
+
+            var localVarPath = "/tax/providers/taxcloud/test";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTaxProviderTaxCloudTest", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TaxProviderTestResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TaxProviderTestResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderTestResult)));
+        }
+
+        /// <summary>
+        /// Attempts to connect to TaxCloud and returns back the response Attempts to connect to TaxCloud with the saved API key and Connection ID and returns back the response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of TaxProviderTestResult</returns>
+        public async System.Threading.Tasks.Task<TaxProviderTestResult> GetTaxProviderTaxCloudTestAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<TaxProviderTestResult> localVarResponse = await GetTaxProviderTaxCloudTestWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Attempts to connect to TaxCloud and returns back the response Attempts to connect to TaxCloud with the saved API key and Connection ID and returns back the response. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (TaxProviderTestResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TaxProviderTestResult>> GetTaxProviderTaxCloudTestWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/tax/providers/taxcloud/test";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTaxProviderTaxCloudTest", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -6299,6 +6713,179 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<TaxProviderSovos>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (TaxProviderSovos) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderSovos)));
+        }
+
+        /// <summary>
+        /// Update the TaxCloud tax provider Update the TaxCloud tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderTaxcloud">TaxProviderTaxCloud object</param>
+        /// <returns>TaxProviderTaxCloud</returns>
+        public TaxProviderTaxCloud UpdateTaxProviderTaxCloud (TaxProviderTaxCloud taxProviderTaxcloud)
+        {
+             ApiResponse<TaxProviderTaxCloud> localVarResponse = UpdateTaxProviderTaxCloudWithHttpInfo(taxProviderTaxcloud);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update the TaxCloud tax provider Update the TaxCloud tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderTaxcloud">TaxProviderTaxCloud object</param>
+        /// <returns>ApiResponse of TaxProviderTaxCloud</returns>
+        public ApiResponse<TaxProviderTaxCloud> UpdateTaxProviderTaxCloudWithHttpInfo (TaxProviderTaxCloud taxProviderTaxcloud)
+        {
+            // verify the required parameter 'taxProviderTaxcloud' is set
+            if (taxProviderTaxcloud == null)
+                throw new ApiException(400, "Missing required parameter 'taxProviderTaxcloud' when calling TaxApi->UpdateTaxProviderTaxCloud");
+
+            var localVarPath = "/tax/providers/taxcloud";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (taxProviderTaxcloud != null && taxProviderTaxcloud.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(taxProviderTaxcloud); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = taxProviderTaxcloud; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateTaxProviderTaxCloud", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TaxProviderTaxCloud>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TaxProviderTaxCloud) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderTaxCloud)));
+        }
+
+        /// <summary>
+        /// Update the TaxCloud tax provider Update the TaxCloud tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderTaxcloud">TaxProviderTaxCloud object</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of TaxProviderTaxCloud</returns>
+        public async System.Threading.Tasks.Task<TaxProviderTaxCloud> UpdateTaxProviderTaxCloudAsync (TaxProviderTaxCloud taxProviderTaxcloud, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<TaxProviderTaxCloud> localVarResponse = await UpdateTaxProviderTaxCloudWithHttpInfoAsync(taxProviderTaxcloud, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update the TaxCloud tax provider Update the TaxCloud tax provider. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="taxProviderTaxcloud">TaxProviderTaxCloud object</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (TaxProviderTaxCloud)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TaxProviderTaxCloud>> UpdateTaxProviderTaxCloudWithHttpInfoAsync (TaxProviderTaxCloud taxProviderTaxcloud, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'taxProviderTaxcloud' is set
+            if (taxProviderTaxcloud == null)
+                throw new ApiException(400, "Missing required parameter 'taxProviderTaxcloud' when calling TaxApi->UpdateTaxProviderTaxCloud");
+
+            var localVarPath = "/tax/providers/taxcloud";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (taxProviderTaxcloud != null && taxProviderTaxcloud.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(taxProviderTaxcloud); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = taxProviderTaxcloud; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateTaxProviderTaxCloud", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TaxProviderTaxCloud>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TaxProviderTaxCloud) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TaxProviderTaxCloud)));
         }
 
         /// <summary>

@@ -1122,6 +1122,7 @@ docs/StoreFrontsResponse.md
 docs/StorefrontApi.md
 docs/TaxApi.md
 docs/TaxCity.md
+docs/TaxCloudConfig.md
 docs/TaxCountry.md
 docs/TaxCountryCode.md
 docs/TaxCounty.md
@@ -1129,6 +1130,8 @@ docs/TaxJarConfig.md
 docs/TaxPostalCode.md
 docs/TaxProviderActivateResult.md
 docs/TaxProviderAnrok.md
+docs/TaxProviderAnrokProduct.md
+docs/TaxProviderAnrokTestResult.md
 docs/TaxProviderAvalara.md
 docs/TaxProviderAvalaraCompaniesResult.md
 docs/TaxProviderAvalaraCompany.md
@@ -1136,6 +1139,7 @@ docs/TaxProviderSelf.md
 docs/TaxProviderSelfCountriesResponse.md
 docs/TaxProviderSelfRegionsResponse.md
 docs/TaxProviderSovos.md
+docs/TaxProviderTaxCloud.md
 docs/TaxProviderTaxJar.md
 docs/TaxProviderTestResult.md
 docs/TaxProviderUltraCart.md
@@ -2332,6 +2336,7 @@ src/com.ultracart.admin.v2/Model/StoreFront.cs
 src/com.ultracart.admin.v2/Model/StoreFrontPageContentAttribute.cs
 src/com.ultracart.admin.v2/Model/StoreFrontsResponse.cs
 src/com.ultracart.admin.v2/Model/TaxCity.cs
+src/com.ultracart.admin.v2/Model/TaxCloudConfig.cs
 src/com.ultracart.admin.v2/Model/TaxCountry.cs
 src/com.ultracart.admin.v2/Model/TaxCountryCode.cs
 src/com.ultracart.admin.v2/Model/TaxCounty.cs
@@ -2339,6 +2344,8 @@ src/com.ultracart.admin.v2/Model/TaxJarConfig.cs
 src/com.ultracart.admin.v2/Model/TaxPostalCode.cs
 src/com.ultracart.admin.v2/Model/TaxProviderActivateResult.cs
 src/com.ultracart.admin.v2/Model/TaxProviderAnrok.cs
+src/com.ultracart.admin.v2/Model/TaxProviderAnrokProduct.cs
+src/com.ultracart.admin.v2/Model/TaxProviderAnrokTestResult.cs
 src/com.ultracart.admin.v2/Model/TaxProviderAvalara.cs
 src/com.ultracart.admin.v2/Model/TaxProviderAvalaraCompaniesResult.cs
 src/com.ultracart.admin.v2/Model/TaxProviderAvalaraCompany.cs
@@ -2346,6 +2353,7 @@ src/com.ultracart.admin.v2/Model/TaxProviderSelf.cs
 src/com.ultracart.admin.v2/Model/TaxProviderSelfCountriesResponse.cs
 src/com.ultracart.admin.v2/Model/TaxProviderSelfRegionsResponse.cs
 src/com.ultracart.admin.v2/Model/TaxProviderSovos.cs
+src/com.ultracart.admin.v2/Model/TaxProviderTaxCloud.cs
 src/com.ultracart.admin.v2/Model/TaxProviderTaxJar.cs
 src/com.ultracart.admin.v2/Model/TaxProviderTestResult.cs
 src/com.ultracart.admin.v2/Model/TaxProviderUltraCart.cs

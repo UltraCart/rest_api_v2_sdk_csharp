@@ -1054,6 +1054,8 @@ docs/SfvbPageItemsResponse.md
 docs/SfvbPageListResponse.md
 docs/SfvbPageMultimedia.md
 docs/SfvbPageMultimediaRequest.md
+docs/SfvbPageRefreshRequest.md
+docs/SfvbPageRefreshResponse.md
 docs/SfvbPageResponse.md
 docs/SfvbPageSelectors.md
 docs/SfvbPageSettingsRequest.md
@@ -2265,6 +2267,8 @@ src/com.ultracart.admin.v2/Model/SfvbPageItemsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbPageListResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbPageMultimedia.cs
 src/com.ultracart.admin.v2/Model/SfvbPageMultimediaRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbPageRefreshRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbPageRefreshResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbPageResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbPageSelectors.cs
 src/com.ultracart.admin.v2/Model/SfvbPageSettingsRequest.cs

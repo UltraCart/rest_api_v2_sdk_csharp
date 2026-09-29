@@ -1925,6 +1925,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbThemeAttributesResponse</returns>
         ApiResponse<SfvbThemeAttributesResponse> PutSfvbThemeAttributesWithHttpInfo (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest);
         /// <summary>
+        /// Drop one page's cached copy
+        /// </summary>
+        /// <remarks>
+        /// The next request renders the page fresh.  Use it when a write succeeded, a read shows the new value, and the public page still shows the old one.  Writes normally refresh the pages they affect, so a stale page after a write is a bug worth reporting with its URL.  One page per request.  The response says whether the page had a cached copy and whether anything was dropped. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageRefreshRequest">The page to refresh</param>
+        /// <returns>SfvbPageRefreshResponse</returns>
+        SfvbPageRefreshResponse RefreshSfvbPage (int storefrontOid, SfvbPageRefreshRequest pageRefreshRequest);
+
+        /// <summary>
+        /// Drop one page's cached copy
+        /// </summary>
+        /// <remarks>
+        /// The next request renders the page fresh.  Use it when a write succeeded, a read shows the new value, and the public page still shows the old one.  Writes normally refresh the pages they affect, so a stale page after a write is a bug worth reporting with its URL.  One page per request.  The response says whether the page had a cached copy and whether anything was dropped. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageRefreshRequest">The page to refresh</param>
+        /// <returns>ApiResponse of SfvbPageRefreshResponse</returns>
+        ApiResponse<SfvbPageRefreshResponse> RefreshSfvbPageWithHttpInfo (int storefrontOid, SfvbPageRefreshRequest pageRefreshRequest);
+        /// <summary>
         /// Take blog posts off a page
         /// </summary>
         /// <remarks>
@@ -4381,6 +4404,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbThemeAttributesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbThemeAttributesResponse>> PutSfvbThemeAttributesWithHttpInfoAsync (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Drop one page's cached copy
+        /// </summary>
+        /// <remarks>
+        /// The next request renders the page fresh.  Use it when a write succeeded, a read shows the new value, and the public page still shows the old one.  Writes normally refresh the pages they affect, so a stale page after a write is a bug worth reporting with its URL.  One page per request.  The response says whether the page had a cached copy and whether anything was dropped. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageRefreshRequest">The page to refresh</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageRefreshResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageRefreshResponse> RefreshSfvbPageAsync (int storefrontOid, SfvbPageRefreshRequest pageRefreshRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Drop one page&#39;s cached copy
+        /// </summary>
+        /// <remarks>
+        /// The next request renders the page fresh.  Use it when a write succeeded, a read shows the new value, and the public page still shows the old one.  Writes normally refresh the pages they affect, so a stale page after a write is a bug worth reporting with its URL.  One page per request.  The response says whether the page had a cached copy and whether anything was dropped. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageRefreshRequest">The page to refresh</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageRefreshResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageRefreshResponse>> RefreshSfvbPageWithHttpInfoAsync (int storefrontOid, SfvbPageRefreshRequest pageRefreshRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Take blog posts off a page
         /// </summary>
@@ -18703,6 +18751,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbThemeAttributesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbThemeAttributesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbThemeAttributesResponse)));
+        }
+
+        /// <summary>
+        /// Drop one page's cached copy The next request renders the page fresh.  Use it when a write succeeded, a read shows the new value, and the public page still shows the old one.  Writes normally refresh the pages they affect, so a stale page after a write is a bug worth reporting with its URL.  One page per request.  The response says whether the page had a cached copy and whether anything was dropped. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageRefreshRequest">The page to refresh</param>
+        /// <returns>SfvbPageRefreshResponse</returns>
+        public SfvbPageRefreshResponse RefreshSfvbPage (int storefrontOid, SfvbPageRefreshRequest pageRefreshRequest)
+        {
+             ApiResponse<SfvbPageRefreshResponse> localVarResponse = RefreshSfvbPageWithHttpInfo(storefrontOid, pageRefreshRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Drop one page's cached copy The next request renders the page fresh.  Use it when a write succeeded, a read shows the new value, and the public page still shows the old one.  Writes normally refresh the pages they affect, so a stale page after a write is a bug worth reporting with its URL.  One page per request.  The response says whether the page had a cached copy and whether anything was dropped. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageRefreshRequest">The page to refresh</param>
+        /// <returns>ApiResponse of SfvbPageRefreshResponse</returns>
+        public ApiResponse<SfvbPageRefreshResponse> RefreshSfvbPageWithHttpInfo (int storefrontOid, SfvbPageRefreshRequest pageRefreshRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->RefreshSfvbPage");
+            // verify the required parameter 'pageRefreshRequest' is set
+            if (pageRefreshRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageRefreshRequest' when calling SfvbApi->RefreshSfvbPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/refresh";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (pageRefreshRequest != null && pageRefreshRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageRefreshRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageRefreshRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RefreshSfvbPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageRefreshResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageRefreshResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageRefreshResponse)));
+        }
+
+        /// <summary>
+        /// Drop one page's cached copy The next request renders the page fresh.  Use it when a write succeeded, a read shows the new value, and the public page still shows the old one.  Writes normally refresh the pages they affect, so a stale page after a write is a bug worth reporting with its URL.  One page per request.  The response says whether the page had a cached copy and whether anything was dropped. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageRefreshRequest">The page to refresh</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageRefreshResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageRefreshResponse> RefreshSfvbPageAsync (int storefrontOid, SfvbPageRefreshRequest pageRefreshRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageRefreshResponse> localVarResponse = await RefreshSfvbPageWithHttpInfoAsync(storefrontOid, pageRefreshRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Drop one page's cached copy The next request renders the page fresh.  Use it when a write succeeded, a read shows the new value, and the public page still shows the old one.  Writes normally refresh the pages they affect, so a stale page after a write is a bug worth reporting with its URL.  One page per request.  The response says whether the page had a cached copy and whether anything was dropped. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageRefreshRequest">The page to refresh</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageRefreshResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageRefreshResponse>> RefreshSfvbPageWithHttpInfoAsync (int storefrontOid, SfvbPageRefreshRequest pageRefreshRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->RefreshSfvbPage");
+            // verify the required parameter 'pageRefreshRequest' is set
+            if (pageRefreshRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageRefreshRequest' when calling SfvbApi->RefreshSfvbPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/refresh";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (pageRefreshRequest != null && pageRefreshRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageRefreshRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageRefreshRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RefreshSfvbPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageRefreshResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageRefreshResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageRefreshResponse)));
         }
 
         /// <summary>

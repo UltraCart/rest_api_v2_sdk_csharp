@@ -1071,6 +1071,10 @@ docs/SfvbPreviewSessionResponse.md
 docs/SfvbPreviewUrlResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
+docs/SfvbServerLog.md
+docs/SfvbServerLogDetail.md
+docs/SfvbServerLogEntry.md
+docs/SfvbServerLogsResponse.md
 docs/SfvbSiteAttribute.md
 docs/SfvbSiteAttributeUpdate.md
 docs/SfvbSiteAttributeUpdateRequest.md
@@ -2292,6 +2296,10 @@ src/com.ultracart.admin.v2/Model/SfvbPreviewSessionResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbPreviewUrlResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbRenderRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbRenderResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbServerLog.cs
+src/com.ultracart.admin.v2/Model/SfvbServerLogDetail.cs
+src/com.ultracart.admin.v2/Model/SfvbServerLogEntry.cs
+src/com.ultracart.admin.v2/Model/SfvbServerLogsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbSiteAttribute.cs
 src/com.ultracart.admin.v2/Model/SfvbSiteAttributeUpdate.cs
 src/com.ultracart.admin.v2/Model/SfvbSiteAttributeUpdateRequest.cs

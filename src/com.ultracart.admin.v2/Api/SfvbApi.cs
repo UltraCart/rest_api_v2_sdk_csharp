@@ -982,6 +982,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbPreviewUrlResponse</returns>
         ApiResponse<SfvbPreviewUrlResponse> GetSfvbPreviewUrlWithHttpInfo (int storefrontOid, string previewSessionId, string path = default(string));
         /// <summary>
+        /// Get one storefront render log
+        /// </summary>
+        /// <remarks>
+        /// One render's server log with its lines, each with a level, a category such as VELOCITY or FLOW, and the message.  log_id comes from the list, or from the X-UltraCart-Storefront-Log-Id header a page sends inside an SFVB preview session.  min_level is debug, info, warn or error, default debug. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="logId"></param>
+        /// <param name="minLevel"> (optional)</param>
+        /// <returns>SfvbServerLogDetail</returns>
+        SfvbServerLogDetail GetSfvbServerLog (int storefrontOid, string logId, string minLevel = default(string));
+
+        /// <summary>
+        /// Get one storefront render log
+        /// </summary>
+        /// <remarks>
+        /// One render's server log with its lines, each with a level, a category such as VELOCITY or FLOW, and the message.  log_id comes from the list, or from the X-UltraCart-Storefront-Log-Id header a page sends inside an SFVB preview session.  min_level is debug, info, warn or error, default debug. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="logId"></param>
+        /// <param name="minLevel"> (optional)</param>
+        /// <returns>ApiResponse of SfvbServerLogDetail</returns>
+        ApiResponse<SfvbServerLogDetail> GetSfvbServerLogWithHttpInfo (int storefrontOid, string logId, string minLevel = default(string));
+        /// <summary>
         /// Read a storefront's site attributes
         /// </summary>
         /// <remarks>
@@ -1492,6 +1517,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
         /// <returns>ApiResponse of SfvbPageListResponse</returns>
         ApiResponse<SfvbPageListResponse> ListSfvbPagesWithHttpInfo (int storefrontOid, string under = default(string));
+        /// <summary>
+        /// List recent storefront render logs
+        /// </summary>
+        /// <remarks>
+        /// The server log the storefront Developer Tools panel shows, one per page render, newest first and without the log text.  Each carries counts of error and warning lines, including Velocity problems such as a null #set, so a failing render stands out without reading every log.  Filter by uri (a case insensitive contains match on the rendered address) and errors_only.  since is 15m, 2h or 1d, or an ISO-8601 time, default 1h; logs are kept for seven days and only the newest 1000.  With a filter the newest 200 logs in the window are searched, and more_available says whether older ones were left unread. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="uri"> (optional)</param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="errorsOnly"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <returns>SfvbServerLogsResponse</returns>
+        SfvbServerLogsResponse ListSfvbServerLogs (int storefrontOid, string uri = default(string), string since = default(string), bool? errorsOnly = default(bool?), int? limit = default(int?));
+
+        /// <summary>
+        /// List recent storefront render logs
+        /// </summary>
+        /// <remarks>
+        /// The server log the storefront Developer Tools panel shows, one per page render, newest first and without the log text.  Each carries counts of error and warning lines, including Velocity problems such as a null #set, so a failing render stands out without reading every log.  Filter by uri (a case insensitive contains match on the rendered address) and errors_only.  since is 15m, 2h or 1d, or an ISO-8601 time, default 1h; logs are kept for seven days and only the newest 1000.  With a filter the newest 200 logs in the window are searched, and more_available says whether older ones were left unread. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="uri"> (optional)</param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="errorsOnly"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <returns>ApiResponse of SfvbServerLogsResponse</returns>
+        ApiResponse<SfvbServerLogsResponse> ListSfvbServerLogsWithHttpInfo (int storefrontOid, string uri = default(string), string since = default(string), bool? errorsOnly = default(bool?), int? limit = default(int?));
         /// <summary>
         /// List storefronts
         /// </summary>
@@ -3532,6 +3586,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbPreviewUrlResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPreviewUrlResponse>> GetSfvbPreviewUrlWithHttpInfoAsync (int storefrontOid, string previewSessionId, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Get one storefront render log
+        /// </summary>
+        /// <remarks>
+        /// One render's server log with its lines, each with a level, a category such as VELOCITY or FLOW, and the message.  log_id comes from the list, or from the X-UltraCart-Storefront-Log-Id header a page sends inside an SFVB preview session.  min_level is debug, info, warn or error, default debug. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="logId"></param>
+        /// <param name="minLevel"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbServerLogDetail</returns>
+        System.Threading.Tasks.Task<SfvbServerLogDetail> GetSfvbServerLogAsync (int storefrontOid, string logId, string minLevel = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get one storefront render log
+        /// </summary>
+        /// <remarks>
+        /// One render's server log with its lines, each with a level, a category such as VELOCITY or FLOW, and the message.  log_id comes from the list, or from the X-UltraCart-Storefront-Log-Id header a page sends inside an SFVB preview session.  min_level is debug, info, warn or error, default debug. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="logId"></param>
+        /// <param name="minLevel"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbServerLogDetail)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbServerLogDetail>> GetSfvbServerLogWithHttpInfoAsync (int storefrontOid, string logId, string minLevel = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Read a storefront's site attributes
         /// </summary>
         /// <remarks>
@@ -4084,6 +4165,37 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPageListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPageListResponse>> ListSfvbPagesWithHttpInfoAsync (int storefrontOid, string under = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List recent storefront render logs
+        /// </summary>
+        /// <remarks>
+        /// The server log the storefront Developer Tools panel shows, one per page render, newest first and without the log text.  Each carries counts of error and warning lines, including Velocity problems such as a null #set, so a failing render stands out without reading every log.  Filter by uri (a case insensitive contains match on the rendered address) and errors_only.  since is 15m, 2h or 1d, or an ISO-8601 time, default 1h; logs are kept for seven days and only the newest 1000.  With a filter the newest 200 logs in the window are searched, and more_available says whether older ones were left unread. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="uri"> (optional)</param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="errorsOnly"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbServerLogsResponse</returns>
+        System.Threading.Tasks.Task<SfvbServerLogsResponse> ListSfvbServerLogsAsync (int storefrontOid, string uri = default(string), string since = default(string), bool? errorsOnly = default(bool?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List recent storefront render logs
+        /// </summary>
+        /// <remarks>
+        /// The server log the storefront Developer Tools panel shows, one per page render, newest first and without the log text.  Each carries counts of error and warning lines, including Velocity problems such as a null #set, so a failing render stands out without reading every log.  Filter by uri (a case insensitive contains match on the rendered address) and errors_only.  since is 15m, 2h or 1d, or an ISO-8601 time, default 1h; logs are kept for seven days and only the newest 1000.  With a filter the newest 200 logs in the window are searched, and more_available says whether older ones were left unread. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="uri"> (optional)</param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="errorsOnly"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbServerLogsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbServerLogsResponse>> ListSfvbServerLogsWithHttpInfoAsync (int storefrontOid, string uri = default(string), string since = default(string), bool? errorsOnly = default(bool?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// List storefronts
         /// </summary>
@@ -12299,6 +12411,181 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get one storefront render log One render's server log with its lines, each with a level, a category such as VELOCITY or FLOW, and the message.  log_id comes from the list, or from the X-UltraCart-Storefront-Log-Id header a page sends inside an SFVB preview session.  min_level is debug, info, warn or error, default debug. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="logId"></param>
+        /// <param name="minLevel"> (optional)</param>
+        /// <returns>SfvbServerLogDetail</returns>
+        public SfvbServerLogDetail GetSfvbServerLog (int storefrontOid, string logId, string minLevel = default(string))
+        {
+             ApiResponse<SfvbServerLogDetail> localVarResponse = GetSfvbServerLogWithHttpInfo(storefrontOid, logId, minLevel);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get one storefront render log One render's server log with its lines, each with a level, a category such as VELOCITY or FLOW, and the message.  log_id comes from the list, or from the X-UltraCart-Storefront-Log-Id header a page sends inside an SFVB preview session.  min_level is debug, info, warn or error, default debug. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="logId"></param>
+        /// <param name="minLevel"> (optional)</param>
+        /// <returns>ApiResponse of SfvbServerLogDetail</returns>
+        public ApiResponse<SfvbServerLogDetail> GetSfvbServerLogWithHttpInfo (int storefrontOid, string logId, string minLevel = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbServerLog");
+            // verify the required parameter 'logId' is set
+            if (logId == null)
+                throw new ApiException(400, "Missing required parameter 'logId' when calling SfvbApi->GetSfvbServerLog");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/logs/{log_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (logId != null) localVarPathParams.Add("log_id", this.Configuration.ApiClient.ParameterToString(logId)); // path parameter
+            if (minLevel != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "min_level", minLevel)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbServerLog", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbServerLogDetail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbServerLogDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbServerLogDetail)));
+        }
+
+        /// <summary>
+        /// Get one storefront render log One render's server log with its lines, each with a level, a category such as VELOCITY or FLOW, and the message.  log_id comes from the list, or from the X-UltraCart-Storefront-Log-Id header a page sends inside an SFVB preview session.  min_level is debug, info, warn or error, default debug. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="logId"></param>
+        /// <param name="minLevel"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbServerLogDetail</returns>
+        public async System.Threading.Tasks.Task<SfvbServerLogDetail> GetSfvbServerLogAsync (int storefrontOid, string logId, string minLevel = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbServerLogDetail> localVarResponse = await GetSfvbServerLogWithHttpInfoAsync(storefrontOid, logId, minLevel, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get one storefront render log One render's server log with its lines, each with a level, a category such as VELOCITY or FLOW, and the message.  log_id comes from the list, or from the X-UltraCart-Storefront-Log-Id header a page sends inside an SFVB preview session.  min_level is debug, info, warn or error, default debug. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="logId"></param>
+        /// <param name="minLevel"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbServerLogDetail)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbServerLogDetail>> GetSfvbServerLogWithHttpInfoAsync (int storefrontOid, string logId, string minLevel = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbServerLog");
+            // verify the required parameter 'logId' is set
+            if (logId == null)
+                throw new ApiException(400, "Missing required parameter 'logId' when calling SfvbApi->GetSfvbServerLog");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/logs/{log_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (logId != null) localVarPathParams.Add("log_id", this.Configuration.ApiClient.ParameterToString(logId)); // path parameter
+            if (minLevel != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "min_level", minLevel)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbServerLog", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbServerLogDetail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbServerLogDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbServerLogDetail)));
+        }
+
+        /// <summary>
         /// Read a storefront's site attributes The values the siteattribute element and $site.attr render.  These are not in any file or theme.  Attributes a template declares but nothing has set are included with the template's default, so the response describes what the templates can render rather than only what has been saved.  Credentials stored as site attributes are never included. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -15909,6 +16196,187 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbPageListResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbPageListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageListResponse)));
+        }
+
+        /// <summary>
+        /// List recent storefront render logs The server log the storefront Developer Tools panel shows, one per page render, newest first and without the log text.  Each carries counts of error and warning lines, including Velocity problems such as a null #set, so a failing render stands out without reading every log.  Filter by uri (a case insensitive contains match on the rendered address) and errors_only.  since is 15m, 2h or 1d, or an ISO-8601 time, default 1h; logs are kept for seven days and only the newest 1000.  With a filter the newest 200 logs in the window are searched, and more_available says whether older ones were left unread. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="uri"> (optional)</param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="errorsOnly"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <returns>SfvbServerLogsResponse</returns>
+        public SfvbServerLogsResponse ListSfvbServerLogs (int storefrontOid, string uri = default(string), string since = default(string), bool? errorsOnly = default(bool?), int? limit = default(int?))
+        {
+             ApiResponse<SfvbServerLogsResponse> localVarResponse = ListSfvbServerLogsWithHttpInfo(storefrontOid, uri, since, errorsOnly, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List recent storefront render logs The server log the storefront Developer Tools panel shows, one per page render, newest first and without the log text.  Each carries counts of error and warning lines, including Velocity problems such as a null #set, so a failing render stands out without reading every log.  Filter by uri (a case insensitive contains match on the rendered address) and errors_only.  since is 15m, 2h or 1d, or an ISO-8601 time, default 1h; logs are kept for seven days and only the newest 1000.  With a filter the newest 200 logs in the window are searched, and more_available says whether older ones were left unread. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="uri"> (optional)</param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="errorsOnly"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <returns>ApiResponse of SfvbServerLogsResponse</returns>
+        public ApiResponse<SfvbServerLogsResponse> ListSfvbServerLogsWithHttpInfo (int storefrontOid, string uri = default(string), string since = default(string), bool? errorsOnly = default(bool?), int? limit = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbServerLogs");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/logs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (uri != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "uri", uri)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (errorsOnly != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "errors_only", errorsOnly)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbServerLogs", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbServerLogsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbServerLogsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbServerLogsResponse)));
+        }
+
+        /// <summary>
+        /// List recent storefront render logs The server log the storefront Developer Tools panel shows, one per page render, newest first and without the log text.  Each carries counts of error and warning lines, including Velocity problems such as a null #set, so a failing render stands out without reading every log.  Filter by uri (a case insensitive contains match on the rendered address) and errors_only.  since is 15m, 2h or 1d, or an ISO-8601 time, default 1h; logs are kept for seven days and only the newest 1000.  With a filter the newest 200 logs in the window are searched, and more_available says whether older ones were left unread. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="uri"> (optional)</param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="errorsOnly"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbServerLogsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbServerLogsResponse> ListSfvbServerLogsAsync (int storefrontOid, string uri = default(string), string since = default(string), bool? errorsOnly = default(bool?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbServerLogsResponse> localVarResponse = await ListSfvbServerLogsWithHttpInfoAsync(storefrontOid, uri, since, errorsOnly, limit, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List recent storefront render logs The server log the storefront Developer Tools panel shows, one per page render, newest first and without the log text.  Each carries counts of error and warning lines, including Velocity problems such as a null #set, so a failing render stands out without reading every log.  Filter by uri (a case insensitive contains match on the rendered address) and errors_only.  since is 15m, 2h or 1d, or an ISO-8601 time, default 1h; logs are kept for seven days and only the newest 1000.  With a filter the newest 200 logs in the window are searched, and more_available says whether older ones were left unread. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="uri"> (optional)</param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="errorsOnly"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbServerLogsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbServerLogsResponse>> ListSfvbServerLogsWithHttpInfoAsync (int storefrontOid, string uri = default(string), string since = default(string), bool? errorsOnly = default(bool?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbServerLogs");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/logs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (uri != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "uri", uri)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (errorsOnly != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "errors_only", errorsOnly)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbServerLogs", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbServerLogsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbServerLogsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbServerLogsResponse)));
         }
 
         /// <summary>

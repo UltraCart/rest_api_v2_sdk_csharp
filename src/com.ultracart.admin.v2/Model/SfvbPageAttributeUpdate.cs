@@ -92,7 +92,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="name">Attribute name.  Matched without regard to case against what the page already has, so you do not have to reproduce the exact casing.  A name nothing matches creates a new attribute..</param>
         /// <param name="type">Only consulted when creating an attribute no template declares.  For a declared attribute the template&#39;s type always wins, because the templates decide it and not the caller..</param>
-        /// <param name="value">The value to store.  An empty string clears it.  For html the markup is stored as given and rendered as given.  For boolean send the text true or false..</param>
+        /// <param name="value">The value to store.  An empty string clears it.  For html the markup is stored as given and rendered as given.  For boolean send the text true or false.  For itemset send a comma separated list of merchant item ids in display order, not JSON.  An id that does not resolve is dropped..</param>
         public SfvbPageAttributeUpdate(string name = default(string), TypeEnum? type = default(TypeEnum?), string value = default(string))
         {
             this.Name = name;
@@ -109,9 +109,9 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
-        /// The value to store.  An empty string clears it.  For html the markup is stored as given and rendered as given.  For boolean send the text true or false.
+        /// The value to store.  An empty string clears it.  For html the markup is stored as given and rendered as given.  For boolean send the text true or false.  For itemset send a comma separated list of merchant item ids in display order, not JSON.  An id that does not resolve is dropped.
         /// </summary>
-        /// <value>The value to store.  An empty string clears it.  For html the markup is stored as given and rendered as given.  For boolean send the text true or false.</value>
+        /// <value>The value to store.  An empty string clears it.  For html the markup is stored as given and rendered as given.  For boolean send the text true or false.  For itemset send a comma separated list of merchant item ids in display order, not JSON.  An id that does not resolve is dropped.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
 

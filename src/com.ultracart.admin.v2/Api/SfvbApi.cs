@@ -99,6 +99,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbUpsellPath</returns>
         ApiResponse<SfvbUpsellPath> ArchiveSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid);
         /// <summary>
+        /// Attach an image to a blog post
+        /// </summary>
+        /// <remarks>
+        /// Three calls, like the admin blog editor's upload.  Request an upload URL with files/upload_url, send the bytes to it, then attach with the key and a filename.  No storefront file is created, and the key is redeemed, so it cannot be used twice.  default_image replaces the post's default image and code replaces the image with that code; with neither, the image is added for use in the body at the url the response reports.  JPEG, PNG, GIF or WebP, checked by content.  A post that is not a draft needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to attach</param>
+        /// <returns>SfvbBlogPostDetail</returns>
+        SfvbBlogPostDetail AttachSfvbBlogPostImage (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest);
+
+        /// <summary>
+        /// Attach an image to a blog post
+        /// </summary>
+        /// <remarks>
+        /// Three calls, like the admin blog editor's upload.  Request an upload URL with files/upload_url, send the bytes to it, then attach with the key and a filename.  No storefront file is created, and the key is redeemed, so it cannot be used twice.  default_image replaces the post's default image and code replaces the image with that code; with neither, the image is added for use in the body at the url the response reports.  JPEG, PNG, GIF or WebP, checked by content.  A post that is not a draft needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to attach</param>
+        /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
+        ApiResponse<SfvbBlogPostDetail> AttachSfvbBlogPostImageWithHttpInfo (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest);
+        /// <summary>
         /// Compile CJSON to Velocity
         /// </summary>
         /// <remarks>
@@ -163,6 +188,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <returns>ApiResponse of SfvbPreviewSessionResponse</returns>
         ApiResponse<SfvbPreviewSessionResponse> CreateSfvbPreviewSessionWithHttpInfo (int storefrontOid);
+        /// <summary>
+        /// Delete a blog post
+        /// </summary>
+        /// <remarks>
+        /// Takes the post off every page and deletes it.  There is no undo.  A post that is not a draft needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <returns></returns>
+        void DeleteSfvbBlogPost (int storefrontOid, int blogPostOid);
+
+        /// <summary>
+        /// Delete a blog post
+        /// </summary>
+        /// <remarks>
+        /// Takes the post off every page and deletes it.  There is no undo.  A post that is not a draft needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid);
         /// <summary>
         /// Delete a storefront file
         /// </summary>
@@ -294,6 +342,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="previewSessionId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSfvbPreviewSessionWithHttpInfo (int storefrontOid, string previewSessionId);
+        /// <summary>
+        /// Detach an image from a blog post
+        /// </summary>
+        /// <remarks>
+        /// Name exactly one of default_image, code or blog_post_multimedia_oid.  Removes the image from the post and deletes its stored copy.  Take it out of the body too, or the body keeps a broken image.  A post that is not a draft needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to detach</param>
+        /// <returns>SfvbBlogPostDetail</returns>
+        SfvbBlogPostDetail DetachSfvbBlogPostImage (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest);
+
+        /// <summary>
+        /// Detach an image from a blog post
+        /// </summary>
+        /// <remarks>
+        /// Name exactly one of default_image, code or blog_post_multimedia_oid.  Removes the image from the post and deletes its stored copy.  Take it out of the body too, or the body keeps a broken image.  A post that is not a draft needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to detach</param>
+        /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
+        ApiResponse<SfvbBlogPostDetail> DetachSfvbBlogPostImageWithHttpInfo (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest);
         /// <summary>
         /// Disable an upsell offer
         /// </summary>
@@ -484,6 +557,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="experimentEndRequest">The winner, if any (optional)</param>
         /// <returns>ApiResponse of SfvbExperiment</returns>
         ApiResponse<SfvbExperiment> EndSfvbExperimentWithHttpInfo (int storefrontOid, int experimentOid, SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest));
+        /// <summary>
+        /// Read a blog post
+        /// </summary>
+        /// <remarks>
+        /// The whole post - body, excerpt, tags, images and where it is shown.  An image's url is the address to use for it in the body. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <returns>SfvbBlogPostDetail</returns>
+        SfvbBlogPostDetail GetSfvbBlogPost (int storefrontOid, int blogPostOid);
+
+        /// <summary>
+        /// Read a blog post
+        /// </summary>
+        /// <remarks>
+        /// The whole post - body, excerpt, tags, images and where it is shown.  An image's url is the address to use for it in the body. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
+        ApiResponse<SfvbBlogPostDetail> GetSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid);
         /// <summary>
         /// Element types used by a container
         /// </summary>
@@ -1075,6 +1171,29 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of SfvbWhoamiResponse</returns>
         ApiResponse<SfvbWhoamiResponse> GetSfvbWhoamiWithHttpInfo ();
+        /// <summary>
+        /// Create a blog post
+        /// </summary>
+        /// <remarks>
+        /// title and url_part are required.  The post is a draft unless visibility says otherwise, and anything but a draft needs sfvb_publish.  The body and excerpt are refused with sfvb.unsafe_html if they could run script, and a url_part another post uses is refused with a 409 and sfvb.blog_post_exists.  Assign the post to a page with pages/blog_posts/add, or let the page's selectors choose it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostRequest">The blog post to create</param>
+        /// <returns>SfvbBlogPostDetail</returns>
+        SfvbBlogPostDetail InsertSfvbBlogPost (int storefrontOid, SfvbBlogPostRequest blogPostRequest);
+
+        /// <summary>
+        /// Create a blog post
+        /// </summary>
+        /// <remarks>
+        /// title and url_part are required.  The post is a draft unless visibility says otherwise, and anything but a draft needs sfvb_publish.  The body and excerpt are refused with sfvb.unsafe_html if they could run script, and a url_part another post uses is refused with a 409 and sfvb.blog_post_exists.  Assign the post to a page with pages/blog_posts/add, or let the page's selectors choose it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostRequest">The blog post to create</param>
+        /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
+        ApiResponse<SfvbBlogPostDetail> InsertSfvbBlogPostWithHttpInfo (int storefrontOid, SfvbBlogPostRequest blogPostRequest);
         /// <summary>
         /// Create a page
         /// </summary>
@@ -2225,6 +2344,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbUpsellPath</returns>
         ApiResponse<SfvbUpsellPath> UnarchiveSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid);
         /// <summary>
+        /// Change a blog post
+        /// </summary>
+        /// <remarks>
+        /// Only the fields sent change; tags, when sent, replaces every tag.  The post's images and attributes are left alone.  Publish or unpublish with visibility.  A post that is not a draft before or after the change needs sfvb_publish.  The same content rules as create apply. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostRequest">The fields to change</param>
+        /// <returns>SfvbBlogPostDetail</returns>
+        SfvbBlogPostDetail UpdateSfvbBlogPost (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest);
+
+        /// <summary>
+        /// Change a blog post
+        /// </summary>
+        /// <remarks>
+        /// Only the fields sent change; tags, when sent, replaces every tag.  The post's images and attributes are left alone.  Publish or unpublish with visibility.  A post that is not a draft before or after the change needs sfvb_publish.  The same content rules as create apply. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostRequest">The fields to change</param>
+        /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
+        ApiResponse<SfvbBlogPostDetail> UpdateSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest);
+        /// <summary>
         /// Update an upsell offer
         /// </summary>
         /// <remarks>
@@ -2431,6 +2575,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> ArchiveSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Attach an image to a blog post
+        /// </summary>
+        /// <remarks>
+        /// Three calls, like the admin blog editor's upload.  Request an upload URL with files/upload_url, send the bytes to it, then attach with the key and a filename.  No storefront file is created, and the key is redeemed, so it cannot be used twice.  default_image replaces the post's default image and code replaces the image with that code; with neither, the image is added for use in the body at the url the response reports.  JPEG, PNG, GIF or WebP, checked by content.  A post that is not a draft needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to attach</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbBlogPostDetail</returns>
+        System.Threading.Tasks.Task<SfvbBlogPostDetail> AttachSfvbBlogPostImageAsync (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Attach an image to a blog post
+        /// </summary>
+        /// <remarks>
+        /// Three calls, like the admin blog editor's upload.  Request an upload URL with files/upload_url, send the bytes to it, then attach with the key and a filename.  No storefront file is created, and the key is redeemed, so it cannot be used twice.  default_image replaces the post's default image and code replaces the image with that code; with neither, the image is added for use in the body at the url the response reports.  JPEG, PNG, GIF or WebP, checked by content.  A post that is not a draft needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to attach</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> AttachSfvbBlogPostImageWithHttpInfoAsync (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Compile CJSON to Velocity
         /// </summary>
         /// <remarks>
@@ -2501,6 +2672,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPreviewSessionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPreviewSessionResponse>> CreateSfvbPreviewSessionWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Delete a blog post
+        /// </summary>
+        /// <remarks>
+        /// Takes the post off every page and deletes it.  There is no undo.  A post that is not a draft needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteSfvbBlogPostAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete a blog post
+        /// </summary>
+        /// <remarks>
+        /// Takes the post off every page and deletes it.  There is no undo.  A post that is not a draft needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete a storefront file
         /// </summary>
@@ -2642,6 +2838,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbPreviewSessionWithHttpInfoAsync (int storefrontOid, string previewSessionId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Detach an image from a blog post
+        /// </summary>
+        /// <remarks>
+        /// Name exactly one of default_image, code or blog_post_multimedia_oid.  Removes the image from the post and deletes its stored copy.  Take it out of the body too, or the body keeps a broken image.  A post that is not a draft needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to detach</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbBlogPostDetail</returns>
+        System.Threading.Tasks.Task<SfvbBlogPostDetail> DetachSfvbBlogPostImageAsync (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Detach an image from a blog post
+        /// </summary>
+        /// <remarks>
+        /// Name exactly one of default_image, code or blog_post_multimedia_oid.  Removes the image from the post and deletes its stored copy.  Take it out of the body too, or the body keeps a broken image.  A post that is not a draft needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to detach</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> DetachSfvbBlogPostImageWithHttpInfoAsync (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Disable an upsell offer
         /// </summary>
@@ -2848,6 +3071,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> EndSfvbExperimentWithHttpInfoAsync (int storefrontOid, int experimentOid, SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read a blog post
+        /// </summary>
+        /// <remarks>
+        /// The whole post - body, excerpt, tags, images and where it is shown.  An image's url is the address to use for it in the body. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbBlogPostDetail</returns>
+        System.Threading.Tasks.Task<SfvbBlogPostDetail> GetSfvbBlogPostAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a blog post
+        /// </summary>
+        /// <remarks>
+        /// The whole post - body, excerpt, tags, images and where it is shown.  An image's url is the address to use for it in the body. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> GetSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Element types used by a container
         /// </summary>
@@ -3489,6 +3737,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbWhoamiResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbWhoamiResponse>> GetSfvbWhoamiWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Create a blog post
+        /// </summary>
+        /// <remarks>
+        /// title and url_part are required.  The post is a draft unless visibility says otherwise, and anything but a draft needs sfvb_publish.  The body and excerpt are refused with sfvb.unsafe_html if they could run script, and a url_part another post uses is refused with a 409 and sfvb.blog_post_exists.  Assign the post to a page with pages/blog_posts/add, or let the page's selectors choose it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostRequest">The blog post to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbBlogPostDetail</returns>
+        System.Threading.Tasks.Task<SfvbBlogPostDetail> InsertSfvbBlogPostAsync (int storefrontOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create a blog post
+        /// </summary>
+        /// <remarks>
+        /// title and url_part are required.  The post is a draft unless visibility says otherwise, and anything but a draft needs sfvb_publish.  The body and excerpt are refused with sfvb.unsafe_html if they could run script, and a url_part another post uses is refused with a 409 and sfvb.blog_post_exists.  Assign the post to a page with pages/blog_posts/add, or let the page's selectors choose it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostRequest">The blog post to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> InsertSfvbBlogPostWithHttpInfoAsync (int storefrontOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a page
         /// </summary>
@@ -4729,6 +5002,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> UnarchiveSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Change a blog post
+        /// </summary>
+        /// <remarks>
+        /// Only the fields sent change; tags, when sent, replaces every tag.  The post's images and attributes are left alone.  Publish or unpublish with visibility.  A post that is not a draft before or after the change needs sfvb_publish.  The same content rules as create apply. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbBlogPostDetail</returns>
+        System.Threading.Tasks.Task<SfvbBlogPostDetail> UpdateSfvbBlogPostAsync (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a blog post
+        /// </summary>
+        /// <remarks>
+        /// Only the fields sent change; tags, when sent, replaces every tag.  The post's images and attributes are left alone.  Publish or unpublish with visibility.  A post that is not a draft before or after the change needs sfvb_publish.  The same content rules as create apply. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> UpdateSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Update an upsell offer
         /// </summary>
         /// <remarks>
@@ -5556,6 +5856,203 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Attach an image to a blog post Three calls, like the admin blog editor's upload.  Request an upload URL with files/upload_url, send the bytes to it, then attach with the key and a filename.  No storefront file is created, and the key is redeemed, so it cannot be used twice.  default_image replaces the post's default image and code replaces the image with that code; with neither, the image is added for use in the body at the url the response reports.  JPEG, PNG, GIF or WebP, checked by content.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to attach</param>
+        /// <returns>SfvbBlogPostDetail</returns>
+        public SfvbBlogPostDetail AttachSfvbBlogPostImage (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest)
+        {
+             ApiResponse<SfvbBlogPostDetail> localVarResponse = AttachSfvbBlogPostImageWithHttpInfo(storefrontOid, blogPostOid, blogPostImageRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Attach an image to a blog post Three calls, like the admin blog editor's upload.  Request an upload URL with files/upload_url, send the bytes to it, then attach with the key and a filename.  No storefront file is created, and the key is redeemed, so it cannot be used twice.  default_image replaces the post's default image and code replaces the image with that code; with neither, the image is added for use in the body at the url the response reports.  JPEG, PNG, GIF or WebP, checked by content.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to attach</param>
+        /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
+        public ApiResponse<SfvbBlogPostDetail> AttachSfvbBlogPostImageWithHttpInfo (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->AttachSfvbBlogPostImage");
+            // verify the required parameter 'blogPostOid' is set
+            if (blogPostOid == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostOid' when calling SfvbApi->AttachSfvbBlogPostImage");
+            // verify the required parameter 'blogPostImageRequest' is set
+            if (blogPostImageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostImageRequest' when calling SfvbApi->AttachSfvbBlogPostImage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/attach";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (blogPostOid != null) localVarPathParams.Add("blog_post_oid", this.Configuration.ApiClient.ParameterToString(blogPostOid)); // path parameter
+            if (blogPostImageRequest != null && blogPostImageRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(blogPostImageRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = blogPostImageRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AttachSfvbBlogPostImage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
+        }
+
+        /// <summary>
+        /// Attach an image to a blog post Three calls, like the admin blog editor's upload.  Request an upload URL with files/upload_url, send the bytes to it, then attach with the key and a filename.  No storefront file is created, and the key is redeemed, so it cannot be used twice.  default_image replaces the post's default image and code replaces the image with that code; with neither, the image is added for use in the body at the url the response reports.  JPEG, PNG, GIF or WebP, checked by content.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to attach</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbBlogPostDetail</returns>
+        public async System.Threading.Tasks.Task<SfvbBlogPostDetail> AttachSfvbBlogPostImageAsync (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbBlogPostDetail> localVarResponse = await AttachSfvbBlogPostImageWithHttpInfoAsync(storefrontOid, blogPostOid, blogPostImageRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Attach an image to a blog post Three calls, like the admin blog editor's upload.  Request an upload URL with files/upload_url, send the bytes to it, then attach with the key and a filename.  No storefront file is created, and the key is redeemed, so it cannot be used twice.  default_image replaces the post's default image and code replaces the image with that code; with neither, the image is added for use in the body at the url the response reports.  JPEG, PNG, GIF or WebP, checked by content.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to attach</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> AttachSfvbBlogPostImageWithHttpInfoAsync (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->AttachSfvbBlogPostImage");
+            // verify the required parameter 'blogPostOid' is set
+            if (blogPostOid == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostOid' when calling SfvbApi->AttachSfvbBlogPostImage");
+            // verify the required parameter 'blogPostImageRequest' is set
+            if (blogPostImageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostImageRequest' when calling SfvbApi->AttachSfvbBlogPostImage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/attach";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (blogPostOid != null) localVarPathParams.Add("blog_post_oid", this.Configuration.ApiClient.ParameterToString(blogPostOid)); // path parameter
+            if (blogPostImageRequest != null && blogPostImageRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(blogPostImageRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = blogPostImageRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AttachSfvbBlogPostImage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
+        }
+
+        /// <summary>
         /// Compile CJSON to Velocity Compiles a container document to Velocity without storing anything.  Supply theme_oid to compile with the theme's inherit groups applied; omit it to compile standalone. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6062,6 +6559,173 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbPreviewSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbPreviewSessionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPreviewSessionResponse)));
+        }
+
+        /// <summary>
+        /// Delete a blog post Takes the post off every page and deletes it.  There is no undo.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <returns></returns>
+        public void DeleteSfvbBlogPost (int storefrontOid, int blogPostOid)
+        {
+             DeleteSfvbBlogPostWithHttpInfo(storefrontOid, blogPostOid);
+        }
+
+        /// <summary>
+        /// Delete a blog post Takes the post off every page and deletes it.  There is no undo.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbBlogPost");
+            // verify the required parameter 'blogPostOid' is set
+            if (blogPostOid == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostOid' when calling SfvbApi->DeleteSfvbBlogPost");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (blogPostOid != null) localVarPathParams.Add("blog_post_oid", this.Configuration.ApiClient.ParameterToString(blogPostOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbBlogPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a blog post Takes the post off every page and deletes it.  There is no undo.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteSfvbBlogPostAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteSfvbBlogPostWithHttpInfoAsync(storefrontOid, blogPostOid, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Delete a blog post Takes the post off every page and deletes it.  There is no undo.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbBlogPost");
+            // verify the required parameter 'blogPostOid' is set
+            if (blogPostOid == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostOid' when calling SfvbApi->DeleteSfvbBlogPost");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (blogPostOid != null) localVarPathParams.Add("blog_post_oid", this.Configuration.ApiClient.ParameterToString(blogPostOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbBlogPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>
@@ -6945,6 +7609,203 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Detach an image from a blog post Name exactly one of default_image, code or blog_post_multimedia_oid.  Removes the image from the post and deletes its stored copy.  Take it out of the body too, or the body keeps a broken image.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to detach</param>
+        /// <returns>SfvbBlogPostDetail</returns>
+        public SfvbBlogPostDetail DetachSfvbBlogPostImage (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest)
+        {
+             ApiResponse<SfvbBlogPostDetail> localVarResponse = DetachSfvbBlogPostImageWithHttpInfo(storefrontOid, blogPostOid, blogPostImageRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Detach an image from a blog post Name exactly one of default_image, code or blog_post_multimedia_oid.  Removes the image from the post and deletes its stored copy.  Take it out of the body too, or the body keeps a broken image.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to detach</param>
+        /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
+        public ApiResponse<SfvbBlogPostDetail> DetachSfvbBlogPostImageWithHttpInfo (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DetachSfvbBlogPostImage");
+            // verify the required parameter 'blogPostOid' is set
+            if (blogPostOid == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostOid' when calling SfvbApi->DetachSfvbBlogPostImage");
+            // verify the required parameter 'blogPostImageRequest' is set
+            if (blogPostImageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostImageRequest' when calling SfvbApi->DetachSfvbBlogPostImage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (blogPostOid != null) localVarPathParams.Add("blog_post_oid", this.Configuration.ApiClient.ParameterToString(blogPostOid)); // path parameter
+            if (blogPostImageRequest != null && blogPostImageRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(blogPostImageRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = blogPostImageRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DetachSfvbBlogPostImage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
+        }
+
+        /// <summary>
+        /// Detach an image from a blog post Name exactly one of default_image, code or blog_post_multimedia_oid.  Removes the image from the post and deletes its stored copy.  Take it out of the body too, or the body keeps a broken image.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to detach</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbBlogPostDetail</returns>
+        public async System.Threading.Tasks.Task<SfvbBlogPostDetail> DetachSfvbBlogPostImageAsync (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbBlogPostDetail> localVarResponse = await DetachSfvbBlogPostImageWithHttpInfoAsync(storefrontOid, blogPostOid, blogPostImageRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Detach an image from a blog post Name exactly one of default_image, code or blog_post_multimedia_oid.  Removes the image from the post and deletes its stored copy.  Take it out of the body too, or the body keeps a broken image.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostImageRequest">Image to detach</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> DetachSfvbBlogPostImageWithHttpInfoAsync (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DetachSfvbBlogPostImage");
+            // verify the required parameter 'blogPostOid' is set
+            if (blogPostOid == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostOid' when calling SfvbApi->DetachSfvbBlogPostImage");
+            // verify the required parameter 'blogPostImageRequest' is set
+            if (blogPostImageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostImageRequest' when calling SfvbApi->DetachSfvbBlogPostImage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (blogPostOid != null) localVarPathParams.Add("blog_post_oid", this.Configuration.ApiClient.ParameterToString(blogPostOid)); // path parameter
+            if (blogPostImageRequest != null && blogPostImageRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(blogPostImageRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = blogPostImageRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DetachSfvbBlogPostImage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
         }
 
         /// <summary>
@@ -8377,6 +9238,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbExperiment>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbExperiment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperiment)));
+        }
+
+        /// <summary>
+        /// Read a blog post The whole post - body, excerpt, tags, images and where it is shown.  An image's url is the address to use for it in the body. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <returns>SfvbBlogPostDetail</returns>
+        public SfvbBlogPostDetail GetSfvbBlogPost (int storefrontOid, int blogPostOid)
+        {
+             ApiResponse<SfvbBlogPostDetail> localVarResponse = GetSfvbBlogPostWithHttpInfo(storefrontOid, blogPostOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read a blog post The whole post - body, excerpt, tags, images and where it is shown.  An image's url is the address to use for it in the body. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
+        public ApiResponse<SfvbBlogPostDetail> GetSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbBlogPost");
+            // verify the required parameter 'blogPostOid' is set
+            if (blogPostOid == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostOid' when calling SfvbApi->GetSfvbBlogPost");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (blogPostOid != null) localVarPathParams.Add("blog_post_oid", this.Configuration.ApiClient.ParameterToString(blogPostOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbBlogPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
+        }
+
+        /// <summary>
+        /// Read a blog post The whole post - body, excerpt, tags, images and where it is shown.  An image's url is the address to use for it in the body. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbBlogPostDetail</returns>
+        public async System.Threading.Tasks.Task<SfvbBlogPostDetail> GetSfvbBlogPostAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbBlogPostDetail> localVarResponse = await GetSfvbBlogPostWithHttpInfoAsync(storefrontOid, blogPostOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read a blog post The whole post - body, excerpt, tags, images and where it is shown.  An image's url is the address to use for it in the body. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> GetSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbBlogPost");
+            // verify the required parameter 'blogPostOid' is set
+            if (blogPostOid == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostOid' when calling SfvbApi->GetSfvbBlogPost");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (blogPostOid != null) localVarPathParams.Add("blog_post_oid", this.Configuration.ApiClient.ParameterToString(blogPostOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbBlogPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
         }
 
         /// <summary>
@@ -12606,6 +13636,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbWhoamiResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbWhoamiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbWhoamiResponse)));
+        }
+
+        /// <summary>
+        /// Create a blog post title and url_part are required.  The post is a draft unless visibility says otherwise, and anything but a draft needs sfvb_publish.  The body and excerpt are refused with sfvb.unsafe_html if they could run script, and a url_part another post uses is refused with a 409 and sfvb.blog_post_exists.  Assign the post to a page with pages/blog_posts/add, or let the page's selectors choose it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostRequest">The blog post to create</param>
+        /// <returns>SfvbBlogPostDetail</returns>
+        public SfvbBlogPostDetail InsertSfvbBlogPost (int storefrontOid, SfvbBlogPostRequest blogPostRequest)
+        {
+             ApiResponse<SfvbBlogPostDetail> localVarResponse = InsertSfvbBlogPostWithHttpInfo(storefrontOid, blogPostRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a blog post title and url_part are required.  The post is a draft unless visibility says otherwise, and anything but a draft needs sfvb_publish.  The body and excerpt are refused with sfvb.unsafe_html if they could run script, and a url_part another post uses is refused with a 409 and sfvb.blog_post_exists.  Assign the post to a page with pages/blog_posts/add, or let the page's selectors choose it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostRequest">The blog post to create</param>
+        /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
+        public ApiResponse<SfvbBlogPostDetail> InsertSfvbBlogPostWithHttpInfo (int storefrontOid, SfvbBlogPostRequest blogPostRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbBlogPost");
+            // verify the required parameter 'blogPostRequest' is set
+            if (blogPostRequest == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostRequest' when calling SfvbApi->InsertSfvbBlogPost");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (blogPostRequest != null && blogPostRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(blogPostRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = blogPostRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbBlogPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
+        }
+
+        /// <summary>
+        /// Create a blog post title and url_part are required.  The post is a draft unless visibility says otherwise, and anything but a draft needs sfvb_publish.  The body and excerpt are refused with sfvb.unsafe_html if they could run script, and a url_part another post uses is refused with a 409 and sfvb.blog_post_exists.  Assign the post to a page with pages/blog_posts/add, or let the page's selectors choose it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostRequest">The blog post to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbBlogPostDetail</returns>
+        public async System.Threading.Tasks.Task<SfvbBlogPostDetail> InsertSfvbBlogPostAsync (int storefrontOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbBlogPostDetail> localVarResponse = await InsertSfvbBlogPostWithHttpInfoAsync(storefrontOid, blogPostRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a blog post title and url_part are required.  The post is a draft unless visibility says otherwise, and anything but a draft needs sfvb_publish.  The body and excerpt are refused with sfvb.unsafe_html if they could run script, and a url_part another post uses is refused with a 409 and sfvb.blog_post_exists.  Assign the post to a page with pages/blog_posts/add, or let the page's selectors choose it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostRequest">The blog post to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> InsertSfvbBlogPostWithHttpInfoAsync (int storefrontOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbBlogPost");
+            // verify the required parameter 'blogPostRequest' is set
+            if (blogPostRequest == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostRequest' when calling SfvbApi->InsertSfvbBlogPost");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (blogPostRequest != null && blogPostRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(blogPostRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = blogPostRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbBlogPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
         }
 
         /// <summary>
@@ -21009,6 +22224,203 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Change a blog post Only the fields sent change; tags, when sent, replaces every tag.  The post's images and attributes are left alone.  Publish or unpublish with visibility.  A post that is not a draft before or after the change needs sfvb_publish.  The same content rules as create apply. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostRequest">The fields to change</param>
+        /// <returns>SfvbBlogPostDetail</returns>
+        public SfvbBlogPostDetail UpdateSfvbBlogPost (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest)
+        {
+             ApiResponse<SfvbBlogPostDetail> localVarResponse = UpdateSfvbBlogPostWithHttpInfo(storefrontOid, blogPostOid, blogPostRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a blog post Only the fields sent change; tags, when sent, replaces every tag.  The post's images and attributes are left alone.  Publish or unpublish with visibility.  A post that is not a draft before or after the change needs sfvb_publish.  The same content rules as create apply. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostRequest">The fields to change</param>
+        /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
+        public ApiResponse<SfvbBlogPostDetail> UpdateSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbBlogPost");
+            // verify the required parameter 'blogPostOid' is set
+            if (blogPostOid == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostOid' when calling SfvbApi->UpdateSfvbBlogPost");
+            // verify the required parameter 'blogPostRequest' is set
+            if (blogPostRequest == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostRequest' when calling SfvbApi->UpdateSfvbBlogPost");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (blogPostOid != null) localVarPathParams.Add("blog_post_oid", this.Configuration.ApiClient.ParameterToString(blogPostOid)); // path parameter
+            if (blogPostRequest != null && blogPostRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(blogPostRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = blogPostRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbBlogPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
+        }
+
+        /// <summary>
+        /// Change a blog post Only the fields sent change; tags, when sent, replaces every tag.  The post's images and attributes are left alone.  Publish or unpublish with visibility.  A post that is not a draft before or after the change needs sfvb_publish.  The same content rules as create apply. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbBlogPostDetail</returns>
+        public async System.Threading.Tasks.Task<SfvbBlogPostDetail> UpdateSfvbBlogPostAsync (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbBlogPostDetail> localVarResponse = await UpdateSfvbBlogPostWithHttpInfoAsync(storefrontOid, blogPostOid, blogPostRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a blog post Only the fields sent change; tags, when sent, replaces every tag.  The post's images and attributes are left alone.  Publish or unpublish with visibility.  A post that is not a draft before or after the change needs sfvb_publish.  The same content rules as create apply. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="blogPostRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> UpdateSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbBlogPost");
+            // verify the required parameter 'blogPostOid' is set
+            if (blogPostOid == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostOid' when calling SfvbApi->UpdateSfvbBlogPost");
+            // verify the required parameter 'blogPostRequest' is set
+            if (blogPostRequest == null)
+                throw new ApiException(400, "Missing required parameter 'blogPostRequest' when calling SfvbApi->UpdateSfvbBlogPost");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (blogPostOid != null) localVarPathParams.Add("blog_post_oid", this.Configuration.ApiClient.ParameterToString(blogPostOid)); // path parameter
+            if (blogPostRequest != null && blogPostRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(blogPostRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = blogPostRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbBlogPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
         }
 
         /// <summary>

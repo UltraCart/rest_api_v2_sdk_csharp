@@ -982,6 +982,54 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbPreviewUrlResponse</returns>
         ApiResponse<SfvbPreviewUrlResponse> GetSfvbPreviewUrlWithHttpInfo (int storefrontOid, string previewSessionId, string path = default(string));
         /// <summary>
+        /// Get a screen recording
+        /// </summary>
+        /// <remarks>
+        /// One recorded visitor session and its page views, with each page view's named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view's replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor's email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>SfvbRecordingResponse</returns>
+        SfvbRecordingResponse GetSfvbRecording (int storefrontOid, string screenRecordingUuid);
+
+        /// <summary>
+        /// Get a screen recording
+        /// </summary>
+        /// <remarks>
+        /// One recorded visitor session and its page views, with each page view's named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view's replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor's email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>ApiResponse of SfvbRecordingResponse</returns>
+        ApiResponse<SfvbRecordingResponse> GetSfvbRecordingWithHttpInfo (int storefrontOid, string screenRecordingUuid);
+        /// <summary>
+        /// Get one recorded page view's replay events
+        /// </summary>
+        /// <remarks>
+        /// The rrweb events for one page view, as a JSON array in a string, for replaying on the caller's own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <returns>SfvbRecordingEventsResponse</returns>
+        SfvbRecordingEventsResponse GetSfvbRecordingPageViewEvents (int storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
+
+        /// <summary>
+        /// Get one recorded page view's replay events
+        /// </summary>
+        /// <remarks>
+        /// The rrweb events for one page view, as a JSON array in a string, for replaying on the caller's own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <returns>ApiResponse of SfvbRecordingEventsResponse</returns>
+        ApiResponse<SfvbRecordingEventsResponse> GetSfvbRecordingPageViewEventsWithHttpInfo (int storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
+        /// <summary>
         /// Get one storefront render log
         /// </summary>
         /// <remarks>
@@ -3585,6 +3633,58 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPreviewUrlResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPreviewUrlResponse>> GetSfvbPreviewUrlWithHttpInfoAsync (int storefrontOid, string previewSessionId, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get a screen recording
+        /// </summary>
+        /// <remarks>
+        /// One recorded visitor session and its page views, with each page view's named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view's replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor's email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRecordingResponse</returns>
+        System.Threading.Tasks.Task<SfvbRecordingResponse> GetSfvbRecordingAsync (int storefrontOid, string screenRecordingUuid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get a screen recording
+        /// </summary>
+        /// <remarks>
+        /// One recorded visitor session and its page views, with each page view's named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view's replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor's email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRecordingResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbRecordingResponse>> GetSfvbRecordingWithHttpInfoAsync (int storefrontOid, string screenRecordingUuid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get one recorded page view's replay events
+        /// </summary>
+        /// <remarks>
+        /// The rrweb events for one page view, as a JSON array in a string, for replaying on the caller's own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRecordingEventsResponse</returns>
+        System.Threading.Tasks.Task<SfvbRecordingEventsResponse> GetSfvbRecordingPageViewEventsAsync (int storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get one recorded page view&#39;s replay events
+        /// </summary>
+        /// <remarks>
+        /// The rrweb events for one page view, as a JSON array in a string, for replaying on the caller's own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRecordingEventsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbRecordingEventsResponse>> GetSfvbRecordingPageViewEventsWithHttpInfoAsync (int storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get one storefront render log
         /// </summary>
@@ -12408,6 +12508,356 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbPreviewUrlResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbPreviewUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPreviewUrlResponse)));
+        }
+
+        /// <summary>
+        /// Get a screen recording One recorded visitor session and its page views, with each page view's named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view's replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor's email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>SfvbRecordingResponse</returns>
+        public SfvbRecordingResponse GetSfvbRecording (int storefrontOid, string screenRecordingUuid)
+        {
+             ApiResponse<SfvbRecordingResponse> localVarResponse = GetSfvbRecordingWithHttpInfo(storefrontOid, screenRecordingUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a screen recording One recorded visitor session and its page views, with each page view's named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view's replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor's email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>ApiResponse of SfvbRecordingResponse</returns>
+        public ApiResponse<SfvbRecordingResponse> GetSfvbRecordingWithHttpInfo (int storefrontOid, string screenRecordingUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbRecording");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling SfvbApi->GetSfvbRecording");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbRecording", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRecordingResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRecordingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRecordingResponse)));
+        }
+
+        /// <summary>
+        /// Get a screen recording One recorded visitor session and its page views, with each page view's named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view's replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor's email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRecordingResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbRecordingResponse> GetSfvbRecordingAsync (int storefrontOid, string screenRecordingUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbRecordingResponse> localVarResponse = await GetSfvbRecordingWithHttpInfoAsync(storefrontOid, screenRecordingUuid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a screen recording One recorded visitor session and its page views, with each page view's named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view's replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor's email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRecordingResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbRecordingResponse>> GetSfvbRecordingWithHttpInfoAsync (int storefrontOid, string screenRecordingUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbRecording");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling SfvbApi->GetSfvbRecording");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbRecording", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRecordingResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRecordingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRecordingResponse)));
+        }
+
+        /// <summary>
+        /// Get one recorded page view's replay events The rrweb events for one page view, as a JSON array in a string, for replaying on the caller's own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <returns>SfvbRecordingEventsResponse</returns>
+        public SfvbRecordingEventsResponse GetSfvbRecordingPageViewEvents (int storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
+        {
+             ApiResponse<SfvbRecordingEventsResponse> localVarResponse = GetSfvbRecordingPageViewEventsWithHttpInfo(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get one recorded page view's replay events The rrweb events for one page view, as a JSON array in a string, for replaying on the caller's own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <returns>ApiResponse of SfvbRecordingEventsResponse</returns>
+        public ApiResponse<SfvbRecordingEventsResponse> GetSfvbRecordingPageViewEventsWithHttpInfo (int storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbRecordingPageViewEvents");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling SfvbApi->GetSfvbRecordingPageViewEvents");
+            // verify the required parameter 'screenRecordingPageViewUuid' is set
+            if (screenRecordingPageViewUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingPageViewUuid' when calling SfvbApi->GetSfvbRecordingPageViewEvents");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}/page_views/{screen_recording_page_view_uuid}/events";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+            if (screenRecordingPageViewUuid != null) localVarPathParams.Add("screen_recording_page_view_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingPageViewUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbRecordingPageViewEvents", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRecordingEventsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRecordingEventsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRecordingEventsResponse)));
+        }
+
+        /// <summary>
+        /// Get one recorded page view's replay events The rrweb events for one page view, as a JSON array in a string, for replaying on the caller's own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRecordingEventsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbRecordingEventsResponse> GetSfvbRecordingPageViewEventsAsync (int storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbRecordingEventsResponse> localVarResponse = await GetSfvbRecordingPageViewEventsWithHttpInfoAsync(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get one recorded page view's replay events The rrweb events for one page view, as a JSON array in a string, for replaying on the caller's own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRecordingEventsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbRecordingEventsResponse>> GetSfvbRecordingPageViewEventsWithHttpInfoAsync (int storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbRecordingPageViewEvents");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling SfvbApi->GetSfvbRecordingPageViewEvents");
+            // verify the required parameter 'screenRecordingPageViewUuid' is set
+            if (screenRecordingPageViewUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingPageViewUuid' when calling SfvbApi->GetSfvbRecordingPageViewEvents");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}/page_views/{screen_recording_page_view_uuid}/events";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+            if (screenRecordingPageViewUuid != null) localVarPathParams.Add("screen_recording_page_view_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingPageViewUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbRecordingPageViewEvents", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRecordingEventsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRecordingEventsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRecordingEventsResponse)));
         }
 
         /// <summary>

@@ -1069,6 +1069,12 @@ docs/SfvbPreviewAccessResponse.md
 docs/SfvbPreviewSessionRequest.md
 docs/SfvbPreviewSessionResponse.md
 docs/SfvbPreviewUrlResponse.md
+docs/SfvbRecording.md
+docs/SfvbRecordingEvent.md
+docs/SfvbRecordingEventsResponse.md
+docs/SfvbRecordingPageView.md
+docs/SfvbRecordingParameter.md
+docs/SfvbRecordingResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
 docs/SfvbServerLog.md
@@ -2294,6 +2300,12 @@ src/com.ultracart.admin.v2/Model/SfvbPreviewAccessResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbPreviewSessionRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbPreviewSessionResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbPreviewUrlResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbRecording.cs
+src/com.ultracart.admin.v2/Model/SfvbRecordingEvent.cs
+src/com.ultracart.admin.v2/Model/SfvbRecordingEventsResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbRecordingPageView.cs
+src/com.ultracart.admin.v2/Model/SfvbRecordingParameter.cs
+src/com.ultracart.admin.v2/Model/SfvbRecordingResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbRenderRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbRenderResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbServerLog.cs

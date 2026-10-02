@@ -1030,6 +1030,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbRecordingEventsResponse</returns>
         ApiResponse<SfvbRecordingEventsResponse> GetSfvbRecordingPageViewEventsWithHttpInfo (int storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
         /// <summary>
+        /// Get the storefront's screen recording settings
+        /// </summary>
+        /// <remarks>
+        /// Whether real shoppers' sessions on this storefront are being recorded, what recording costs per 1,000 sessions after the 14 day free trial, how long recordings are kept, and how many sessions were recorded in the current and last billing periods.  Recording only collects from the moment it is turned on, so when it is on but was turned on recently, check the analytics warehouse for rows before reporting that there is no data. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbRecordingSettingsResponse</returns>
+        SfvbRecordingSettingsResponse GetSfvbRecordingSettings (int storefrontOid);
+
+        /// <summary>
+        /// Get the storefront's screen recording settings
+        /// </summary>
+        /// <remarks>
+        /// Whether real shoppers' sessions on this storefront are being recorded, what recording costs per 1,000 sessions after the 14 day free trial, how long recordings are kept, and how many sessions were recorded in the current and last billing periods.  Recording only collects from the moment it is turned on, so when it is on but was turned on recently, check the analytics warehouse for rows before reporting that there is no data. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbRecordingSettingsResponse</returns>
+        ApiResponse<SfvbRecordingSettingsResponse> GetSfvbRecordingSettingsWithHttpInfo (int storefrontOid);
+        /// <summary>
         /// Get one storefront render log
         /// </summary>
         /// <remarks>
@@ -2097,6 +2118,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="themeOid"> (optional)</param>
         /// <returns>ApiResponse of SfvbPreviewSessionResponse</returns>
         ApiResponse<SfvbPreviewSessionResponse> PutSfvbPreviewSessionWithHttpInfo (int storefrontOid, string previewSessionId, SfvbPreviewSessionRequest previewSession, int? themeOid = default(int?));
+        /// <summary>
+        /// Turn the storefront's screen recording on or off
+        /// </summary>
+        /// <remarks>
+        /// Turning it on records real shoppers' sessions from that moment, with no history before it.  The first time starts a 14 day free trial, after which recorded sessions are billed per 1,000.  Only change it when the merchant has asked for it.  Asking for the state it is already in changes nothing, and changed comes back false.  Always needs sfvb_publish, in both directions, because it decides whether live shoppers are recorded.  Limited per storefront to 5 changes a minute, 20 an hour and 50 a day. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="recordingSettingsRequest">Whether to record</param>
+        /// <returns>SfvbRecordingSettingsResponse</returns>
+        SfvbRecordingSettingsResponse PutSfvbRecordingSettings (int storefrontOid, SfvbRecordingSettingsRequest recordingSettingsRequest);
+
+        /// <summary>
+        /// Turn the storefront's screen recording on or off
+        /// </summary>
+        /// <remarks>
+        /// Turning it on records real shoppers' sessions from that moment, with no history before it.  The first time starts a 14 day free trial, after which recorded sessions are billed per 1,000.  Only change it when the merchant has asked for it.  Asking for the state it is already in changes nothing, and changed comes back false.  Always needs sfvb_publish, in both directions, because it decides whether live shoppers are recorded.  Limited per storefront to 5 changes a minute, 20 an hour and 50 a day. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="recordingSettingsRequest">Whether to record</param>
+        /// <returns>ApiResponse of SfvbRecordingSettingsResponse</returns>
+        ApiResponse<SfvbRecordingSettingsResponse> PutSfvbRecordingSettingsWithHttpInfo (int storefrontOid, SfvbRecordingSettingsRequest recordingSettingsRequest);
         /// <summary>
         /// Change a storefront's site attributes
         /// </summary>
@@ -3686,6 +3730,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbRecordingEventsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbRecordingEventsResponse>> GetSfvbRecordingPageViewEventsWithHttpInfoAsync (int storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Get the storefront's screen recording settings
+        /// </summary>
+        /// <remarks>
+        /// Whether real shoppers' sessions on this storefront are being recorded, what recording costs per 1,000 sessions after the 14 day free trial, how long recordings are kept, and how many sessions were recorded in the current and last billing periods.  Recording only collects from the moment it is turned on, so when it is on but was turned on recently, check the analytics warehouse for rows before reporting that there is no data. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRecordingSettingsResponse</returns>
+        System.Threading.Tasks.Task<SfvbRecordingSettingsResponse> GetSfvbRecordingSettingsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get the storefront&#39;s screen recording settings
+        /// </summary>
+        /// <remarks>
+        /// Whether real shoppers' sessions on this storefront are being recorded, what recording costs per 1,000 sessions after the 14 day free trial, how long recordings are kept, and how many sessions were recorded in the current and last billing periods.  Recording only collects from the moment it is turned on, so when it is on but was turned on recently, check the analytics warehouse for rows before reporting that there is no data. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRecordingSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbRecordingSettingsResponse>> GetSfvbRecordingSettingsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Get one storefront render log
         /// </summary>
         /// <remarks>
@@ -4837,6 +4904,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPreviewSessionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPreviewSessionResponse>> PutSfvbPreviewSessionWithHttpInfoAsync (int storefrontOid, string previewSessionId, SfvbPreviewSessionRequest previewSession, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Turn the storefront's screen recording on or off
+        /// </summary>
+        /// <remarks>
+        /// Turning it on records real shoppers' sessions from that moment, with no history before it.  The first time starts a 14 day free trial, after which recorded sessions are billed per 1,000.  Only change it when the merchant has asked for it.  Asking for the state it is already in changes nothing, and changed comes back false.  Always needs sfvb_publish, in both directions, because it decides whether live shoppers are recorded.  Limited per storefront to 5 changes a minute, 20 an hour and 50 a day. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="recordingSettingsRequest">Whether to record</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRecordingSettingsResponse</returns>
+        System.Threading.Tasks.Task<SfvbRecordingSettingsResponse> PutSfvbRecordingSettingsAsync (int storefrontOid, SfvbRecordingSettingsRequest recordingSettingsRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Turn the storefront&#39;s screen recording on or off
+        /// </summary>
+        /// <remarks>
+        /// Turning it on records real shoppers' sessions from that moment, with no history before it.  The first time starts a 14 day free trial, after which recorded sessions are billed per 1,000.  Only change it when the merchant has asked for it.  Asking for the state it is already in changes nothing, and changed comes back false.  Always needs sfvb_publish, in both directions, because it decides whether live shoppers are recorded.  Limited per storefront to 5 changes a minute, 20 an hour and 50 a day. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="recordingSettingsRequest">Whether to record</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRecordingSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbRecordingSettingsResponse>> PutSfvbRecordingSettingsWithHttpInfoAsync (int storefrontOid, SfvbRecordingSettingsRequest recordingSettingsRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Change a storefront's site attributes
         /// </summary>
@@ -12861,6 +12953,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get the storefront's screen recording settings Whether real shoppers' sessions on this storefront are being recorded, what recording costs per 1,000 sessions after the 14 day free trial, how long recordings are kept, and how many sessions were recorded in the current and last billing periods.  Recording only collects from the moment it is turned on, so when it is on but was turned on recently, check the analytics warehouse for rows before reporting that there is no data. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbRecordingSettingsResponse</returns>
+        public SfvbRecordingSettingsResponse GetSfvbRecordingSettings (int storefrontOid)
+        {
+             ApiResponse<SfvbRecordingSettingsResponse> localVarResponse = GetSfvbRecordingSettingsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the storefront's screen recording settings Whether real shoppers' sessions on this storefront are being recorded, what recording costs per 1,000 sessions after the 14 day free trial, how long recordings are kept, and how many sessions were recorded in the current and last billing periods.  Recording only collects from the moment it is turned on, so when it is on but was turned on recently, check the analytics warehouse for rows before reporting that there is no data. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbRecordingSettingsResponse</returns>
+        public ApiResponse<SfvbRecordingSettingsResponse> GetSfvbRecordingSettingsWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbRecordingSettings");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/recording_settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbRecordingSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRecordingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRecordingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRecordingSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Get the storefront's screen recording settings Whether real shoppers' sessions on this storefront are being recorded, what recording costs per 1,000 sessions after the 14 day free trial, how long recordings are kept, and how many sessions were recorded in the current and last billing periods.  Recording only collects from the moment it is turned on, so when it is on but was turned on recently, check the analytics warehouse for rows before reporting that there is no data. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRecordingSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbRecordingSettingsResponse> GetSfvbRecordingSettingsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbRecordingSettingsResponse> localVarResponse = await GetSfvbRecordingSettingsWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the storefront's screen recording settings Whether real shoppers' sessions on this storefront are being recorded, what recording costs per 1,000 sessions after the 14 day free trial, how long recordings are kept, and how many sessions were recorded in the current and last billing periods.  Recording only collects from the moment it is turned on, so when it is on but was turned on recently, check the analytics warehouse for rows before reporting that there is no data. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRecordingSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbRecordingSettingsResponse>> GetSfvbRecordingSettingsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbRecordingSettings");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/recording_settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbRecordingSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRecordingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRecordingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRecordingSettingsResponse)));
+        }
+
+        /// <summary>
         /// Get one storefront render log One render's server log with its lines, each with a level, a category such as VELOCITY or FLOW, and the message.  log_id comes from the list, or from the X-UltraCart-Storefront-Log-Id header a page sends inside an SFVB preview session.  min_level is debug, info, warn or error, default debug. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -20502,6 +20751,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbPreviewSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbPreviewSessionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPreviewSessionResponse)));
+        }
+
+        /// <summary>
+        /// Turn the storefront's screen recording on or off Turning it on records real shoppers' sessions from that moment, with no history before it.  The first time starts a 14 day free trial, after which recorded sessions are billed per 1,000.  Only change it when the merchant has asked for it.  Asking for the state it is already in changes nothing, and changed comes back false.  Always needs sfvb_publish, in both directions, because it decides whether live shoppers are recorded.  Limited per storefront to 5 changes a minute, 20 an hour and 50 a day. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="recordingSettingsRequest">Whether to record</param>
+        /// <returns>SfvbRecordingSettingsResponse</returns>
+        public SfvbRecordingSettingsResponse PutSfvbRecordingSettings (int storefrontOid, SfvbRecordingSettingsRequest recordingSettingsRequest)
+        {
+             ApiResponse<SfvbRecordingSettingsResponse> localVarResponse = PutSfvbRecordingSettingsWithHttpInfo(storefrontOid, recordingSettingsRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Turn the storefront's screen recording on or off Turning it on records real shoppers' sessions from that moment, with no history before it.  The first time starts a 14 day free trial, after which recorded sessions are billed per 1,000.  Only change it when the merchant has asked for it.  Asking for the state it is already in changes nothing, and changed comes back false.  Always needs sfvb_publish, in both directions, because it decides whether live shoppers are recorded.  Limited per storefront to 5 changes a minute, 20 an hour and 50 a day. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="recordingSettingsRequest">Whether to record</param>
+        /// <returns>ApiResponse of SfvbRecordingSettingsResponse</returns>
+        public ApiResponse<SfvbRecordingSettingsResponse> PutSfvbRecordingSettingsWithHttpInfo (int storefrontOid, SfvbRecordingSettingsRequest recordingSettingsRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbRecordingSettings");
+            // verify the required parameter 'recordingSettingsRequest' is set
+            if (recordingSettingsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'recordingSettingsRequest' when calling SfvbApi->PutSfvbRecordingSettings");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/recording_settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (recordingSettingsRequest != null && recordingSettingsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(recordingSettingsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = recordingSettingsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbRecordingSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRecordingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRecordingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRecordingSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Turn the storefront's screen recording on or off Turning it on records real shoppers' sessions from that moment, with no history before it.  The first time starts a 14 day free trial, after which recorded sessions are billed per 1,000.  Only change it when the merchant has asked for it.  Asking for the state it is already in changes nothing, and changed comes back false.  Always needs sfvb_publish, in both directions, because it decides whether live shoppers are recorded.  Limited per storefront to 5 changes a minute, 20 an hour and 50 a day. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="recordingSettingsRequest">Whether to record</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRecordingSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbRecordingSettingsResponse> PutSfvbRecordingSettingsAsync (int storefrontOid, SfvbRecordingSettingsRequest recordingSettingsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbRecordingSettingsResponse> localVarResponse = await PutSfvbRecordingSettingsWithHttpInfoAsync(storefrontOid, recordingSettingsRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Turn the storefront's screen recording on or off Turning it on records real shoppers' sessions from that moment, with no history before it.  The first time starts a 14 day free trial, after which recorded sessions are billed per 1,000.  Only change it when the merchant has asked for it.  Asking for the state it is already in changes nothing, and changed comes back false.  Always needs sfvb_publish, in both directions, because it decides whether live shoppers are recorded.  Limited per storefront to 5 changes a minute, 20 an hour and 50 a day. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="recordingSettingsRequest">Whether to record</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRecordingSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbRecordingSettingsResponse>> PutSfvbRecordingSettingsWithHttpInfoAsync (int storefrontOid, SfvbRecordingSettingsRequest recordingSettingsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbRecordingSettings");
+            // verify the required parameter 'recordingSettingsRequest' is set
+            if (recordingSettingsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'recordingSettingsRequest' when calling SfvbApi->PutSfvbRecordingSettings");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/recording_settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (recordingSettingsRequest != null && recordingSettingsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(recordingSettingsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = recordingSettingsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbRecordingSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRecordingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRecordingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRecordingSettingsResponse)));
         }
 
         /// <summary>

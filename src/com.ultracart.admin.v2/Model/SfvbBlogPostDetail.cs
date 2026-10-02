@@ -33,7 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbBlogPostDetail" /> class.
         /// </summary>
-        /// <param name="allowComments">Whether shoppers may comment..</param>
+        /// <param name="allowComments">Whether shoppers may comment.  Like every false value here, false is left out of the response..</param>
         /// <param name="author">The post author..</param>
         /// <param name="blogPostOid">The blog post&#39;s oid.  This is what a page&#39;s blog post assignment names..</param>
         /// <param name="body">The post body as HTML, exactly as stored..</param>
@@ -42,13 +42,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="images">The post&#39;s images, the default image first..</param>
         /// <param name="lastModifiedDts">When the post was last changed (ISO 8601, UTC), or null if it never was..</param>
         /// <param name="publicationDts">When the post is published (ISO 8601, UTC), or null for a draft..</param>
-        /// <param name="tags">The post&#39;s tags..</param>
+        /// <param name="seoDescription">The meta description (storefrontSEODescription).  Absent when not set..</param>
+        /// <param name="seoKeywords">The meta keywords (storefrontSEOKeywords).  Absent when not set..</param>
+        /// <param name="seoTitle">The page head title (storefrontSEOTitle).  Absent when not set, and the head then uses the post title..</param>
+        /// <param name="tags">The post&#39;s tags, in alphabetical order.  The order they were sent in is not kept..</param>
         /// <param name="title">The post title..</param>
         /// <param name="unassigned">True when no page shows this post yet..</param>
         /// <param name="urlPart">The post&#39;s name in its URL..</param>
         /// <param name="viewUrl">The post&#39;s address on the storefront, or null until a page shows it..</param>
         /// <param name="visibility">P public, L logged in customers only, D draft..</param>
-        public SfvbBlogPostDetail(bool allowComments = default(bool), string author = default(string), int blogPostOid = default(int), string body = default(string), string createdDts = default(string), string excerpt = default(string), List<SfvbBlogPostImage> images = default(List<SfvbBlogPostImage>), string lastModifiedDts = default(string), string publicationDts = default(string), List<string> tags = default(List<string>), string title = default(string), bool unassigned = default(bool), string urlPart = default(string), string viewUrl = default(string), string visibility = default(string))
+        public SfvbBlogPostDetail(bool allowComments = default(bool), string author = default(string), int blogPostOid = default(int), string body = default(string), string createdDts = default(string), string excerpt = default(string), List<SfvbBlogPostImage> images = default(List<SfvbBlogPostImage>), string lastModifiedDts = default(string), string publicationDts = default(string), string seoDescription = default(string), string seoKeywords = default(string), string seoTitle = default(string), List<string> tags = default(List<string>), string title = default(string), bool unassigned = default(bool), string urlPart = default(string), string viewUrl = default(string), string visibility = default(string))
         {
             this.AllowComments = allowComments;
             this.Author = author;
@@ -59,6 +62,9 @@ namespace com.ultracart.admin.v2.Model
             this.Images = images;
             this.LastModifiedDts = lastModifiedDts;
             this.PublicationDts = publicationDts;
+            this.SeoDescription = seoDescription;
+            this.SeoKeywords = seoKeywords;
+            this.SeoTitle = seoTitle;
             this.Tags = tags;
             this.Title = title;
             this.Unassigned = unassigned;
@@ -68,9 +74,9 @@ namespace com.ultracart.admin.v2.Model
         }
 
         /// <summary>
-        /// Whether shoppers may comment.
+        /// Whether shoppers may comment.  Like every false value here, false is left out of the response.
         /// </summary>
-        /// <value>Whether shoppers may comment.</value>
+        /// <value>Whether shoppers may comment.  Like every false value here, false is left out of the response.</value>
         [DataMember(Name="allow_comments", EmitDefaultValue=false)]
         public bool AllowComments { get; set; }
 
@@ -131,9 +137,30 @@ namespace com.ultracart.admin.v2.Model
         public string PublicationDts { get; set; }
 
         /// <summary>
-        /// The post&#39;s tags.
+        /// The meta description (storefrontSEODescription).  Absent when not set.
         /// </summary>
-        /// <value>The post&#39;s tags.</value>
+        /// <value>The meta description (storefrontSEODescription).  Absent when not set.</value>
+        [DataMember(Name="seo_description", EmitDefaultValue=false)]
+        public string SeoDescription { get; set; }
+
+        /// <summary>
+        /// The meta keywords (storefrontSEOKeywords).  Absent when not set.
+        /// </summary>
+        /// <value>The meta keywords (storefrontSEOKeywords).  Absent when not set.</value>
+        [DataMember(Name="seo_keywords", EmitDefaultValue=false)]
+        public string SeoKeywords { get; set; }
+
+        /// <summary>
+        /// The page head title (storefrontSEOTitle).  Absent when not set, and the head then uses the post title.
+        /// </summary>
+        /// <value>The page head title (storefrontSEOTitle).  Absent when not set, and the head then uses the post title.</value>
+        [DataMember(Name="seo_title", EmitDefaultValue=false)]
+        public string SeoTitle { get; set; }
+
+        /// <summary>
+        /// The post&#39;s tags, in alphabetical order.  The order they were sent in is not kept.
+        /// </summary>
+        /// <value>The post&#39;s tags, in alphabetical order.  The order they were sent in is not kept.</value>
         [DataMember(Name="tags", EmitDefaultValue=false)]
         public List<string> Tags { get; set; }
 
@@ -189,6 +216,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Images: ").Append(Images).Append("\n");
             sb.Append("  LastModifiedDts: ").Append(LastModifiedDts).Append("\n");
             sb.Append("  PublicationDts: ").Append(PublicationDts).Append("\n");
+            sb.Append("  SeoDescription: ").Append(SeoDescription).Append("\n");
+            sb.Append("  SeoKeywords: ").Append(SeoKeywords).Append("\n");
+            sb.Append("  SeoTitle: ").Append(SeoTitle).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Unassigned: ").Append(Unassigned).Append("\n");
@@ -276,6 +306,21 @@ namespace com.ultracart.admin.v2.Model
                     this.PublicationDts.Equals(input.PublicationDts))
                 ) && 
                 (
+                    this.SeoDescription == input.SeoDescription ||
+                    (this.SeoDescription != null &&
+                    this.SeoDescription.Equals(input.SeoDescription))
+                ) && 
+                (
+                    this.SeoKeywords == input.SeoKeywords ||
+                    (this.SeoKeywords != null &&
+                    this.SeoKeywords.Equals(input.SeoKeywords))
+                ) && 
+                (
+                    this.SeoTitle == input.SeoTitle ||
+                    (this.SeoTitle != null &&
+                    this.SeoTitle.Equals(input.SeoTitle))
+                ) && 
+                (
                     this.Tags == input.Tags ||
                     this.Tags != null &&
                     input.Tags != null &&
@@ -335,6 +380,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LastModifiedDts.GetHashCode();
                 if (this.PublicationDts != null)
                     hashCode = hashCode * 59 + this.PublicationDts.GetHashCode();
+                if (this.SeoDescription != null)
+                    hashCode = hashCode * 59 + this.SeoDescription.GetHashCode();
+                if (this.SeoKeywords != null)
+                    hashCode = hashCode * 59 + this.SeoKeywords.GetHashCode();
+                if (this.SeoTitle != null)
+                    hashCode = hashCode * 59 + this.SeoTitle.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.Title != null)

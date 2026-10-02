@@ -49,6 +49,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of BaseResponse</returns>
         ApiResponse<BaseResponse> AdjustOrderTotalWithHttpInfo (string orderId, string desiredTotal);
         /// <summary>
+        /// Associates an RMA with an order
+        /// </summary>
+        /// <remarks>
+        /// Associates an RMA number with an order.  Any existing RMA on the order is replaced. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to associate the RMA with.</param>
+        /// <param name="assignRmaRequest">Assign RMA request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        OrderResponse AssignRma (string orderId, OrderAssignRmaRequest assignRmaRequest, string expand = default(string));
+
+        /// <summary>
+        /// Associates an RMA with an order
+        /// </summary>
+        /// <remarks>
+        /// Associates an RMA number with an order.  Any existing RMA on the order is replaced. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to associate the RMA with.</param>
+        /// <param name="assignRmaRequest">Assign RMA request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        ApiResponse<OrderResponse> AssignRmaWithHttpInfo (string orderId, OrderAssignRmaRequest assignRmaRequest, string expand = default(string));
+        /// <summary>
         /// Assigns an order to an affiliate
         /// </summary>
         /// <remarks>
@@ -647,6 +672,50 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrdersResponse</returns>
         ApiResponse<OrdersResponse> GetOrdersByQueryWithHttpInfo (OrderQuery orderQuery, int? limit = default(int?), int? offset = default(int?), string sort = default(string), string expand = default(string));
         /// <summary>
+        /// Retrieve orders by RMA
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the orders associated with the specified RMA number.  The RMA must be an exact value; wildcards are not permitted. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rma">The RMA number to search for.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrdersResponse</returns>
+        OrdersResponse GetOrdersByRma (string rma, string expand = default(string));
+
+        /// <summary>
+        /// Retrieve orders by RMA
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the orders associated with the specified RMA number.  The RMA must be an exact value; wildcards are not permitted. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rma">The RMA number to search for.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrdersResponse</returns>
+        ApiResponse<OrdersResponse> GetOrdersByRmaWithHttpInfo (string rma, string expand = default(string));
+        /// <summary>
+        /// Generate an auto order update billing url
+        /// </summary>
+        /// <remarks>
+        /// Generates the url a customer can use to update the billing information on the auto order associated with this order.  This is the same url sent in the auto order update billing email. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to generate the update billing url for.</param>
+        /// <returns>OrderAutoOrderUpdateBillingUrlResponse</returns>
+        OrderAutoOrderUpdateBillingUrlResponse GetUpdateBillingUrl (string orderId);
+
+        /// <summary>
+        /// Generate an auto order update billing url
+        /// </summary>
+        /// <remarks>
+        /// Generates the url a customer can use to update the billing information on the auto order associated with this order.  This is the same url sent in the auto order update billing email. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to generate the update billing url for.</param>
+        /// <returns>ApiResponse of OrderAutoOrderUpdateBillingUrlResponse</returns>
+        ApiResponse<OrderAutoOrderUpdateBillingUrlResponse> GetUpdateBillingUrlWithHttpInfo (string orderId);
+        /// <summary>
         /// Add items and release a held order
         /// </summary>
         /// <remarks>
@@ -1005,6 +1074,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (BaseResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BaseResponse>> AdjustOrderTotalWithHttpInfoAsync (string orderId, string desiredTotal, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Associates an RMA with an order
+        /// </summary>
+        /// <remarks>
+        /// Associates an RMA number with an order.  Any existing RMA on the order is replaced. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to associate the RMA with.</param>
+        /// <param name="assignRmaRequest">Assign RMA request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderResponse</returns>
+        System.Threading.Tasks.Task<OrderResponse> AssignRmaAsync (string orderId, OrderAssignRmaRequest assignRmaRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Associates an RMA with an order
+        /// </summary>
+        /// <remarks>
+        /// Associates an RMA number with an order.  Any existing RMA on the order is replaced. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to associate the RMA with.</param>
+        /// <param name="assignRmaRequest">Assign RMA request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> AssignRmaWithHttpInfoAsync (string orderId, OrderAssignRmaRequest assignRmaRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Assigns an order to an affiliate
         /// </summary>
@@ -1651,6 +1747,54 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OrdersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersByQueryWithHttpInfoAsync (OrderQuery orderQuery, int? limit = default(int?), int? offset = default(int?), string sort = default(string), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve orders by RMA
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the orders associated with the specified RMA number.  The RMA must be an exact value; wildcards are not permitted. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rma">The RMA number to search for.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrdersResponse</returns>
+        System.Threading.Tasks.Task<OrdersResponse> GetOrdersByRmaAsync (string rma, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve orders by RMA
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the orders associated with the specified RMA number.  The RMA must be an exact value; wildcards are not permitted. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rma">The RMA number to search for.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersByRmaWithHttpInfoAsync (string rma, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Generate an auto order update billing url
+        /// </summary>
+        /// <remarks>
+        /// Generates the url a customer can use to update the billing information on the auto order associated with this order.  This is the same url sent in the auto order update billing email. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to generate the update billing url for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderAutoOrderUpdateBillingUrlResponse</returns>
+        System.Threading.Tasks.Task<OrderAutoOrderUpdateBillingUrlResponse> GetUpdateBillingUrlAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Generate an auto order update billing url
+        /// </summary>
+        /// <remarks>
+        /// Generates the url a customer can use to update the billing information on the auto order associated with this order.  This is the same url sent in the auto order update billing email. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to generate the update billing url for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderAutoOrderUpdateBillingUrlResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderAutoOrderUpdateBillingUrlResponse>> GetUpdateBillingUrlWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Add items and release a held order
         /// </summary>
@@ -2307,6 +2451,197 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<BaseResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Associates an RMA with an order Associates an RMA number with an order.  Any existing RMA on the order is replaced. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to associate the RMA with.</param>
+        /// <param name="assignRmaRequest">Assign RMA request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        public OrderResponse AssignRma (string orderId, OrderAssignRmaRequest assignRmaRequest, string expand = default(string))
+        {
+             ApiResponse<OrderResponse> localVarResponse = AssignRmaWithHttpInfo(orderId, assignRmaRequest, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Associates an RMA with an order Associates an RMA number with an order.  Any existing RMA on the order is replaced. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to associate the RMA with.</param>
+        /// <param name="assignRmaRequest">Assign RMA request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        public ApiResponse<OrderResponse> AssignRmaWithHttpInfo (string orderId, OrderAssignRmaRequest assignRmaRequest, string expand = default(string))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->AssignRma");
+            // verify the required parameter 'assignRmaRequest' is set
+            if (assignRmaRequest == null)
+                throw new ApiException(400, "Missing required parameter 'assignRmaRequest' when calling OrderApi->AssignRma");
+
+            var localVarPath = "/order/orders/{order_id}/rma";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (assignRmaRequest != null && assignRmaRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(assignRmaRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = assignRmaRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AssignRma", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Associates an RMA with an order Associates an RMA number with an order.  Any existing RMA on the order is replaced. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to associate the RMA with.</param>
+        /// <param name="assignRmaRequest">Assign RMA request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderResponse</returns>
+        public async System.Threading.Tasks.Task<OrderResponse> AssignRmaAsync (string orderId, OrderAssignRmaRequest assignRmaRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<OrderResponse> localVarResponse = await AssignRmaWithHttpInfoAsync(orderId, assignRmaRequest, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Associates an RMA with an order Associates an RMA number with an order.  Any existing RMA on the order is replaced. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to associate the RMA with.</param>
+        /// <param name="assignRmaRequest">Assign RMA request</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> AssignRmaWithHttpInfoAsync (string orderId, OrderAssignRmaRequest assignRmaRequest, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->AssignRma");
+            // verify the required parameter 'assignRmaRequest' is set
+            if (assignRmaRequest == null)
+                throw new ApiException(400, "Missing required parameter 'assignRmaRequest' when calling OrderApi->AssignRma");
+
+            var localVarPath = "/order/orders/{order_id}/rma";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (assignRmaRequest != null && assignRmaRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(assignRmaRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = assignRmaRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AssignRma", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
         }
 
         /// <summary>
@@ -6445,6 +6780,326 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<OrdersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve orders by RMA Retrieves the orders associated with the specified RMA number.  The RMA must be an exact value; wildcards are not permitted. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rma">The RMA number to search for.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrdersResponse</returns>
+        public OrdersResponse GetOrdersByRma (string rma, string expand = default(string))
+        {
+             ApiResponse<OrdersResponse> localVarResponse = GetOrdersByRmaWithHttpInfo(rma, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve orders by RMA Retrieves the orders associated with the specified RMA number.  The RMA must be an exact value; wildcards are not permitted. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rma">The RMA number to search for.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrdersResponse</returns>
+        public ApiResponse<OrdersResponse> GetOrdersByRmaWithHttpInfo (string rma, string expand = default(string))
+        {
+            // verify the required parameter 'rma' is set
+            if (rma == null)
+                throw new ApiException(400, "Missing required parameter 'rma' when calling OrderApi->GetOrdersByRma");
+
+            var localVarPath = "/order/orders/rma/{rma}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (rma != null) localVarPathParams.Add("rma", this.Configuration.ApiClient.ParameterToString(rma)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetOrdersByRma", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve orders by RMA Retrieves the orders associated with the specified RMA number.  The RMA must be an exact value; wildcards are not permitted. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rma">The RMA number to search for.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrdersResponse</returns>
+        public async System.Threading.Tasks.Task<OrdersResponse> GetOrdersByRmaAsync (string rma, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<OrdersResponse> localVarResponse = await GetOrdersByRmaWithHttpInfoAsync(rma, expand, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve orders by RMA Retrieves the orders associated with the specified RMA number.  The RMA must be an exact value; wildcards are not permitted. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rma">The RMA number to search for.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersByRmaWithHttpInfoAsync (string rma, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'rma' is set
+            if (rma == null)
+                throw new ApiException(400, "Missing required parameter 'rma' when calling OrderApi->GetOrdersByRma");
+
+            var localVarPath = "/order/orders/rma/{rma}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (rma != null) localVarPathParams.Add("rma", this.Configuration.ApiClient.ParameterToString(rma)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetOrdersByRma", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+        }
+
+        /// <summary>
+        /// Generate an auto order update billing url Generates the url a customer can use to update the billing information on the auto order associated with this order.  This is the same url sent in the auto order update billing email. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to generate the update billing url for.</param>
+        /// <returns>OrderAutoOrderUpdateBillingUrlResponse</returns>
+        public OrderAutoOrderUpdateBillingUrlResponse GetUpdateBillingUrl (string orderId)
+        {
+             ApiResponse<OrderAutoOrderUpdateBillingUrlResponse> localVarResponse = GetUpdateBillingUrlWithHttpInfo(orderId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate an auto order update billing url Generates the url a customer can use to update the billing information on the auto order associated with this order.  This is the same url sent in the auto order update billing email. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to generate the update billing url for.</param>
+        /// <returns>ApiResponse of OrderAutoOrderUpdateBillingUrlResponse</returns>
+        public ApiResponse<OrderAutoOrderUpdateBillingUrlResponse> GetUpdateBillingUrlWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GetUpdateBillingUrl");
+
+            var localVarPath = "/order/orders/{order_id}/auto_order_update_billing_url";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetUpdateBillingUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderAutoOrderUpdateBillingUrlResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderAutoOrderUpdateBillingUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderAutoOrderUpdateBillingUrlResponse)));
+        }
+
+        /// <summary>
+        /// Generate an auto order update billing url Generates the url a customer can use to update the billing information on the auto order associated with this order.  This is the same url sent in the auto order update billing email. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to generate the update billing url for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderAutoOrderUpdateBillingUrlResponse</returns>
+        public async System.Threading.Tasks.Task<OrderAutoOrderUpdateBillingUrlResponse> GetUpdateBillingUrlAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<OrderAutoOrderUpdateBillingUrlResponse> localVarResponse = await GetUpdateBillingUrlWithHttpInfoAsync(orderId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generate an auto order update billing url Generates the url a customer can use to update the billing information on the auto order associated with this order.  This is the same url sent in the auto order update billing email. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to generate the update billing url for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderAutoOrderUpdateBillingUrlResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderAutoOrderUpdateBillingUrlResponse>> GetUpdateBillingUrlWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GetUpdateBillingUrl");
+
+            var localVarPath = "/order/orders/{order_id}/auto_order_update_billing_url";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetUpdateBillingUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderAutoOrderUpdateBillingUrlResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderAutoOrderUpdateBillingUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderAutoOrderUpdateBillingUrlResponse)));
         }
 
         /// <summary>

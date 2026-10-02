@@ -71,17 +71,23 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="body">The post body as HTML, up to 1 MB, rendered exactly as stored.  Refused with sfvb.unsafe_html if it could run script - script and other executable tags, on attributes, links that are not http, https, mailto, tel or relative, and iframes other than YouTube or Vimeo players.  Reference an attached image by the url the post&#39;s images report..</param>
         /// <param name="excerpt">The post excerpt as HTML, up to 256 KB.  Held to the same rule as body..</param>
         /// <param name="publicationDts">When the post is published, as an ISO 8601 UTC time in the same form publication_dts reads back.  Refused on a draft.  A post made public without one is published now..</param>
+        /// <param name="seoDescription">The meta description (storefrontSEODescription), the search result snippet.  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the site&#39;s description..</param>
+        /// <param name="seoKeywords">The meta keywords (storefrontSEOKeywords).  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the site&#39;s keywords..</param>
+        /// <param name="seoTitle">The page head title (storefrontSEOTitle), used in place of the post title in the browser tab and search results.  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the post title..</param>
         /// <param name="tags">The post&#39;s tags as plain text, up to 100 characters each, with no quotes or angle brackets and no repeats.  On an update the list replaces every tag, and an empty list clears them..</param>
         /// <param name="title">The post title, up to 1000 characters.  Required on create..</param>
         /// <param name="urlPart">The post&#39;s name in its URL, which is the page path followed by this and .html.  Letters, digits, hyphens and underscores, up to 150.  Must not be used by another post on the storefront, compared without regard to case, and must not be an item id or an item&#39;s url part, because the storefront checks blog posts first and the post would replace the item&#39;s page.  index and index-N are reserved.  Required on create..</param>
         /// <param name="visibility">P public, L logged in customers only, D draft.  Defaults to D on create.  Anything but D needs sfvb_publish, and so does any change to a post that is not a draft..</param>
-        public SfvbBlogPostRequest(bool allowComments = default(bool), string author = default(string), string body = default(string), string excerpt = default(string), string publicationDts = default(string), List<string> tags = default(List<string>), string title = default(string), string urlPart = default(string), VisibilityEnum? visibility = default(VisibilityEnum?))
+        public SfvbBlogPostRequest(bool allowComments = default(bool), string author = default(string), string body = default(string), string excerpt = default(string), string publicationDts = default(string), string seoDescription = default(string), string seoKeywords = default(string), string seoTitle = default(string), List<string> tags = default(List<string>), string title = default(string), string urlPart = default(string), VisibilityEnum? visibility = default(VisibilityEnum?))
         {
             this.AllowComments = allowComments;
             this.Author = author;
             this.Body = body;
             this.Excerpt = excerpt;
             this.PublicationDts = publicationDts;
+            this.SeoDescription = seoDescription;
+            this.SeoKeywords = seoKeywords;
+            this.SeoTitle = seoTitle;
             this.Tags = tags;
             this.Title = title;
             this.UrlPart = urlPart;
@@ -124,6 +130,27 @@ namespace com.ultracart.admin.v2.Model
         public string PublicationDts { get; set; }
 
         /// <summary>
+        /// The meta description (storefrontSEODescription), the search result snippet.  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the site&#39;s description.
+        /// </summary>
+        /// <value>The meta description (storefrontSEODescription), the search result snippet.  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the site&#39;s description.</value>
+        [DataMember(Name="seo_description", EmitDefaultValue=false)]
+        public string SeoDescription { get; set; }
+
+        /// <summary>
+        /// The meta keywords (storefrontSEOKeywords).  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the site&#39;s keywords.
+        /// </summary>
+        /// <value>The meta keywords (storefrontSEOKeywords).  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the site&#39;s keywords.</value>
+        [DataMember(Name="seo_keywords", EmitDefaultValue=false)]
+        public string SeoKeywords { get; set; }
+
+        /// <summary>
+        /// The page head title (storefrontSEOTitle), used in place of the post title in the browser tab and search results.  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the post title.
+        /// </summary>
+        /// <value>The page head title (storefrontSEOTitle), used in place of the post title in the browser tab and search results.  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the post title.</value>
+        [DataMember(Name="seo_title", EmitDefaultValue=false)]
+        public string SeoTitle { get; set; }
+
+        /// <summary>
         /// The post&#39;s tags as plain text, up to 100 characters each, with no quotes or angle brackets and no repeats.  On an update the list replaces every tag, and an empty list clears them.
         /// </summary>
         /// <value>The post&#39;s tags as plain text, up to 100 characters each, with no quotes or angle brackets and no repeats.  On an update the list replaces every tag, and an empty list clears them.</value>
@@ -158,6 +185,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  Excerpt: ").Append(Excerpt).Append("\n");
             sb.Append("  PublicationDts: ").Append(PublicationDts).Append("\n");
+            sb.Append("  SeoDescription: ").Append(SeoDescription).Append("\n");
+            sb.Append("  SeoKeywords: ").Append(SeoKeywords).Append("\n");
+            sb.Append("  SeoTitle: ").Append(SeoTitle).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  UrlPart: ").Append(UrlPart).Append("\n");
@@ -222,6 +252,21 @@ namespace com.ultracart.admin.v2.Model
                     this.PublicationDts.Equals(input.PublicationDts))
                 ) && 
                 (
+                    this.SeoDescription == input.SeoDescription ||
+                    (this.SeoDescription != null &&
+                    this.SeoDescription.Equals(input.SeoDescription))
+                ) && 
+                (
+                    this.SeoKeywords == input.SeoKeywords ||
+                    (this.SeoKeywords != null &&
+                    this.SeoKeywords.Equals(input.SeoKeywords))
+                ) && 
+                (
+                    this.SeoTitle == input.SeoTitle ||
+                    (this.SeoTitle != null &&
+                    this.SeoTitle.Equals(input.SeoTitle))
+                ) && 
+                (
                     this.Tags == input.Tags ||
                     this.Tags != null &&
                     input.Tags != null &&
@@ -263,6 +308,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Excerpt.GetHashCode();
                 if (this.PublicationDts != null)
                     hashCode = hashCode * 59 + this.PublicationDts.GetHashCode();
+                if (this.SeoDescription != null)
+                    hashCode = hashCode * 59 + this.SeoDescription.GetHashCode();
+                if (this.SeoKeywords != null)
+                    hashCode = hashCode * 59 + this.SeoKeywords.GetHashCode();
+                if (this.SeoTitle != null)
+                    hashCode = hashCode * 59 + this.SeoTitle.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.Title != null)

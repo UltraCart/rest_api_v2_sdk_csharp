@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**GetAutoOrderByReferenceOrderId**](AutoOrderApi.md#getautoorderbyreferenceorderid) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
 [**GetAutoOrderCancelReasons**](AutoOrderApi.md#getautoordercancelreasons) | **GET** /auto_order/auto_orders/cancel_reasons | Retrieve auto order cancel reasons.
 [**GetAutoOrderEmails**](AutoOrderApi.md#getautoorderemails) | **GET** /auto_order/auto_orders/{auto_order_oid}/emails | Retrieve email delivery information for this auto order.
+[**GetAutoOrderUpdateBillingUrl**](AutoOrderApi.md#getautoorderupdatebillingurl) | **GET** /auto_order/auto_orders/{auto_order_oid}/update_billing_url | Generate an auto order update billing url
 [**GetAutoOrders**](AutoOrderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 [**GetAutoOrdersBatch**](AutoOrderApi.md#getautoordersbatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
 [**GetAutoOrdersByQuery**](AutoOrderApi.md#getautoordersbyquery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
@@ -894,6 +895,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AutoOrderEmailsResponse**](AutoOrderEmailsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAutoOrderUpdateBillingUrl
+
+> OrderAutoOrderUpdateBillingUrlResponse GetAutoOrderUpdateBillingUrl (int autoOrderOid)
+
+Generate an auto order update billing url
+
+Generates the url a customer can use to update the billing information on this auto order.  This is the same url sent in the auto order update billing email. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autoOrderOid** | **int**| The auto order oid to generate the update billing url for. | 
+
+### Return type
+
+[**OrderAutoOrderUpdateBillingUrlResponse**](OrderAutoOrderUpdateBillingUrlResponse.md)
 
 ### Authorization
 

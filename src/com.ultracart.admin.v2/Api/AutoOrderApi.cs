@@ -233,6 +233,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of AutoOrderEmailsResponse</returns>
         ApiResponse<AutoOrderEmailsResponse> GetAutoOrderEmailsWithHttpInfo (int autoOrderOid);
         /// <summary>
+        /// Generate an auto order update billing url
+        /// </summary>
+        /// <remarks>
+        /// Generates the url a customer can use to update the billing information on this auto order.  This is the same url sent in the auto order update billing email. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to generate the update billing url for.</param>
+        /// <returns>OrderAutoOrderUpdateBillingUrlResponse</returns>
+        OrderAutoOrderUpdateBillingUrlResponse GetAutoOrderUpdateBillingUrl (int autoOrderOid);
+
+        /// <summary>
+        /// Generate an auto order update billing url
+        /// </summary>
+        /// <remarks>
+        /// Generates the url a customer can use to update the billing information on this auto order.  This is the same url sent in the auto order update billing email. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to generate the update billing url for.</param>
+        /// <returns>ApiResponse of OrderAutoOrderUpdateBillingUrlResponse</returns>
+        ApiResponse<OrderAutoOrderUpdateBillingUrlResponse> GetAutoOrderUpdateBillingUrlWithHttpInfo (int autoOrderOid);
+        /// <summary>
         /// Retrieve auto orders
         /// </summary>
         /// <remarks>
@@ -759,6 +780,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AutoOrderEmailsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AutoOrderEmailsResponse>> GetAutoOrderEmailsWithHttpInfoAsync (int autoOrderOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Generate an auto order update billing url
+        /// </summary>
+        /// <remarks>
+        /// Generates the url a customer can use to update the billing information on this auto order.  This is the same url sent in the auto order update billing email. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to generate the update billing url for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderAutoOrderUpdateBillingUrlResponse</returns>
+        System.Threading.Tasks.Task<OrderAutoOrderUpdateBillingUrlResponse> GetAutoOrderUpdateBillingUrlAsync (int autoOrderOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Generate an auto order update billing url
+        /// </summary>
+        /// <remarks>
+        /// Generates the url a customer can use to update the billing information on this auto order.  This is the same url sent in the auto order update billing email. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to generate the update billing url for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderAutoOrderUpdateBillingUrlResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderAutoOrderUpdateBillingUrlResponse>> GetAutoOrderUpdateBillingUrlWithHttpInfoAsync (int autoOrderOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve auto orders
         /// </summary>
@@ -2711,6 +2755,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<AutoOrderEmailsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AutoOrderEmailsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderEmailsResponse)));
+        }
+
+        /// <summary>
+        /// Generate an auto order update billing url Generates the url a customer can use to update the billing information on this auto order.  This is the same url sent in the auto order update billing email. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to generate the update billing url for.</param>
+        /// <returns>OrderAutoOrderUpdateBillingUrlResponse</returns>
+        public OrderAutoOrderUpdateBillingUrlResponse GetAutoOrderUpdateBillingUrl (int autoOrderOid)
+        {
+             ApiResponse<OrderAutoOrderUpdateBillingUrlResponse> localVarResponse = GetAutoOrderUpdateBillingUrlWithHttpInfo(autoOrderOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate an auto order update billing url Generates the url a customer can use to update the billing information on this auto order.  This is the same url sent in the auto order update billing email. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to generate the update billing url for.</param>
+        /// <returns>ApiResponse of OrderAutoOrderUpdateBillingUrlResponse</returns>
+        public ApiResponse<OrderAutoOrderUpdateBillingUrlResponse> GetAutoOrderUpdateBillingUrlWithHttpInfo (int autoOrderOid)
+        {
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->GetAutoOrderUpdateBillingUrl");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/update_billing_url";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAutoOrderUpdateBillingUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderAutoOrderUpdateBillingUrlResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderAutoOrderUpdateBillingUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderAutoOrderUpdateBillingUrlResponse)));
+        }
+
+        /// <summary>
+        /// Generate an auto order update billing url Generates the url a customer can use to update the billing information on this auto order.  This is the same url sent in the auto order update billing email. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to generate the update billing url for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderAutoOrderUpdateBillingUrlResponse</returns>
+        public async System.Threading.Tasks.Task<OrderAutoOrderUpdateBillingUrlResponse> GetAutoOrderUpdateBillingUrlAsync (int autoOrderOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<OrderAutoOrderUpdateBillingUrlResponse> localVarResponse = await GetAutoOrderUpdateBillingUrlWithHttpInfoAsync(autoOrderOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generate an auto order update billing url Generates the url a customer can use to update the billing information on this auto order.  This is the same url sent in the auto order update billing email. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderOid">The auto order oid to generate the update billing url for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderAutoOrderUpdateBillingUrlResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderAutoOrderUpdateBillingUrlResponse>> GetAutoOrderUpdateBillingUrlWithHttpInfoAsync (int autoOrderOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'autoOrderOid' is set
+            if (autoOrderOid == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderOid' when calling AutoOrderApi->GetAutoOrderUpdateBillingUrl");
+
+            var localVarPath = "/auto_order/auto_orders/{auto_order_oid}/update_billing_url";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAutoOrderUpdateBillingUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderAutoOrderUpdateBillingUrlResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderAutoOrderUpdateBillingUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderAutoOrderUpdateBillingUrlResponse)));
         }
 
         /// <summary>

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **ContextOrderId** | **string** | Order id for the rendering context. | [optional] 
 **ContextPageNumber** | **string** | Page number for paginated elements.  Defaults to 1. | [optional] 
 **ContextUpsellOfferOid** | **int** | Upsell offer oid for the rendering context. | [optional] 
+**EditMode** | **bool** | True renders every branch the way the builder shows it, for styling content a shopper only sometimes sees.  Omitted or false renders what a shopper sees, with conditions, prices and sale state evaluated against the context item. | [optional] 
 **LanguageIsoCode** | **string** | Language ISO code.  Defaults to ENG. | [optional] 
 **Uri** | **string** | Storefront URI the node would appear on.  Affects rendering of anything page relative. | [optional] 
 

@@ -2266,7 +2266,7 @@ namespace com.ultracart.admin.v2.Api
         /// Render a CJSON node to HTML
         /// </summary>
         /// <remarks>
-        /// Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why. 
+        /// Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why.  By default the node renders as a shopper sees it, with conditions, prices and sale state evaluated against the context item.  Set edit_mode to render every branch the way the builder shows it, for styling content a shopper only sometimes sees. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -2279,7 +2279,7 @@ namespace com.ultracart.admin.v2.Api
         /// Render a CJSON node to HTML
         /// </summary>
         /// <remarks>
-        /// Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why. 
+        /// Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why.  By default the node renders as a shopper sees it, with conditions, prices and sale state evaluated against the context item.  Set edit_mode to render every branch the way the builder shows it, for styling content a shopper only sometimes sees. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5064,7 +5064,7 @@ namespace com.ultracart.admin.v2.Api
         /// Render a CJSON node to HTML
         /// </summary>
         /// <remarks>
-        /// Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why. 
+        /// Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why.  By default the node renders as a shopper sees it, with conditions, prices and sale state evaluated against the context item.  Set edit_mode to render every branch the way the builder shows it, for styling content a shopper only sometimes sees. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5078,7 +5078,7 @@ namespace com.ultracart.admin.v2.Api
         /// Render a CJSON node to HTML
         /// </summary>
         /// <remarks>
-        /// Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why. 
+        /// Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why.  By default the node renders as a shopper sees it, with conditions, prices and sale state evaluated against the context item.  Set edit_mode to render every branch the way the builder shows it, for styling content a shopper only sometimes sees. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -21900,7 +21900,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Render a CJSON node to HTML Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why. 
+        /// Render a CJSON node to HTML Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why.  By default the node renders as a shopper sees it, with conditions, prices and sale state evaluated against the context item.  Set edit_mode to render every branch the way the builder shows it, for styling content a shopper only sometimes sees. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -21914,7 +21914,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Render a CJSON node to HTML Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why. 
+        /// Render a CJSON node to HTML Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why.  By default the node renders as a shopper sees it, with conditions, prices and sale state evaluated against the context item.  Set edit_mode to render every branch the way the builder shows it, for styling content a shopper only sometimes sees. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -21997,7 +21997,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Render a CJSON node to HTML Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why. 
+        /// Render a CJSON node to HTML Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why.  By default the node renders as a shopper sees it, with conditions, prices and sale state evaluated against the context item.  Set edit_mode to render every branch the way the builder shows it, for styling content a shopper only sometimes sees. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -22013,7 +22013,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Render a CJSON node to HTML Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why. 
+        /// Render a CJSON node to HTML Renders one node in the context of a theme and a page.  Unlike compile this is stateful.  Rendering resolves merchant data, so an element bound to an item renders wrongly, and silently, without a context item id.  One node per call, so a node that fails to render fails on its own rather than taking a batch with it, and a failure says why.  By default the node renders as a shopper sees it, with conditions, prices and sale state evaluated against the context item.  Set edit_mode to render every branch the way the builder shows it, for styling content a shopper only sometimes sees. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>

@@ -43,9 +43,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="contextOrderId">Order id for the rendering context..</param>
         /// <param name="contextPageNumber">Page number for paginated elements.  Defaults to 1..</param>
         /// <param name="contextUpsellOfferOid">Upsell offer oid for the rendering context..</param>
+        /// <param name="editMode">True renders every branch the way the builder shows it, for styling content a shopper only sometimes sees.  Omitted or false renders what a shopper sees, with conditions, prices and sale state evaluated against the context item..</param>
         /// <param name="languageIsoCode">Language ISO code.  Defaults to ENG..</param>
         /// <param name="uri">Storefront URI the node would appear on.  Affects rendering of anything page relative..</param>
-        public SfvbRenderRequest(string ancestorsCjson = default(string), string childContainersJson = default(string), string cjson = default(string), int contextAffiliateOid = default(int), int contextBlogPostOid = default(int), string contextGroupPath = default(string), string contextItemId = default(string), string contextOrderId = default(string), string contextPageNumber = default(string), int contextUpsellOfferOid = default(int), string languageIsoCode = default(string), string uri = default(string))
+        public SfvbRenderRequest(string ancestorsCjson = default(string), string childContainersJson = default(string), string cjson = default(string), int contextAffiliateOid = default(int), int contextBlogPostOid = default(int), string contextGroupPath = default(string), string contextItemId = default(string), string contextOrderId = default(string), string contextPageNumber = default(string), int contextUpsellOfferOid = default(int), bool editMode = default(bool), string languageIsoCode = default(string), string uri = default(string))
         {
             this.AncestorsCjson = ancestorsCjson;
             this.ChildContainersJson = childContainersJson;
@@ -57,6 +58,7 @@ namespace com.ultracart.admin.v2.Model
             this.ContextOrderId = contextOrderId;
             this.ContextPageNumber = contextPageNumber;
             this.ContextUpsellOfferOid = contextUpsellOfferOid;
+            this.EditMode = editMode;
             this.LanguageIsoCode = languageIsoCode;
             this.Uri = uri;
         }
@@ -132,6 +134,13 @@ namespace com.ultracart.admin.v2.Model
         public int ContextUpsellOfferOid { get; set; }
 
         /// <summary>
+        /// True renders every branch the way the builder shows it, for styling content a shopper only sometimes sees.  Omitted or false renders what a shopper sees, with conditions, prices and sale state evaluated against the context item.
+        /// </summary>
+        /// <value>True renders every branch the way the builder shows it, for styling content a shopper only sometimes sees.  Omitted or false renders what a shopper sees, with conditions, prices and sale state evaluated against the context item.</value>
+        [DataMember(Name="edit_mode", EmitDefaultValue=false)]
+        public bool EditMode { get; set; }
+
+        /// <summary>
         /// Language ISO code.  Defaults to ENG.
         /// </summary>
         /// <value>Language ISO code.  Defaults to ENG.</value>
@@ -163,6 +172,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ContextOrderId: ").Append(ContextOrderId).Append("\n");
             sb.Append("  ContextPageNumber: ").Append(ContextPageNumber).Append("\n");
             sb.Append("  ContextUpsellOfferOid: ").Append(ContextUpsellOfferOid).Append("\n");
+            sb.Append("  EditMode: ").Append(EditMode).Append("\n");
             sb.Append("  LanguageIsoCode: ").Append(LanguageIsoCode).Append("\n");
             sb.Append("  Uri: ").Append(Uri).Append("\n");
             sb.Append("}\n");
@@ -250,6 +260,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ContextUpsellOfferOid.Equals(input.ContextUpsellOfferOid))
                 ) && 
                 (
+                    this.EditMode == input.EditMode ||
+                    (this.EditMode != null &&
+                    this.EditMode.Equals(input.EditMode))
+                ) && 
+                (
                     this.LanguageIsoCode == input.LanguageIsoCode ||
                     (this.LanguageIsoCode != null &&
                     this.LanguageIsoCode.Equals(input.LanguageIsoCode))
@@ -290,6 +305,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ContextPageNumber.GetHashCode();
                 if (this.ContextUpsellOfferOid != null)
                     hashCode = hashCode * 59 + this.ContextUpsellOfferOid.GetHashCode();
+                if (this.EditMode != null)
+                    hashCode = hashCode * 59 + this.EditMode.GetHashCode();
                 if (this.LanguageIsoCode != null)
                     hashCode = hashCode * 59 + this.LanguageIsoCode.GetHashCode();
                 if (this.Uri != null)

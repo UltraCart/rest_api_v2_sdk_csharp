@@ -38,7 +38,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="executable">Content that runs in a shopper&#39;s browser or on the server.  Script, html, embed, css and velocity elements, script in markup, Velocity, script bearing CSS and unsafe URL schemes.  An entry with any of these cannot be made public, and installing it needs an explicit acknowledgement..</param>
         /// <param name="rejected">Card skimming and obfuscation signals.  An entry with any is refused outright, whoever owns it..</param>
         /// <param name="secrets">Strings shaped like credentials, by kind only.  An entry with any cannot be shared or made public..</param>
-        public SfvbLibraryContentManifest(Object absoluteAssetUrls = default(Object), SfvbLibraryAiReview aiReview = default(SfvbLibraryAiReview), Object executable = default(Object), Object rejected = default(Object), Object secrets = default(Object))
+        public SfvbLibraryContentManifest(List<SfvbLibraryManifestFinding> absoluteAssetUrls = default(List<SfvbLibraryManifestFinding>), SfvbLibraryAiReview aiReview = default(SfvbLibraryAiReview), List<SfvbLibraryManifestFinding> executable = default(List<SfvbLibraryManifestFinding>), List<SfvbLibraryManifestFinding> rejected = default(List<SfvbLibraryManifestFinding>), List<SfvbLibraryManifestFinding> secrets = default(List<SfvbLibraryManifestFinding>))
         {
             this.AbsoluteAssetUrls = absoluteAssetUrls;
             this.AiReview = aiReview;
@@ -52,7 +52,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Images, fonts, stylesheets, scripts or media loaded from an absolute URL.  A shared or public entry must use relative paths so it never pulls files from another storefront or site.</value>
         [DataMember(Name="absolute_asset_urls", EmitDefaultValue=false)]
-        public Object AbsoluteAssetUrls { get; set; }
+        public List<SfvbLibraryManifestFinding> AbsoluteAssetUrls { get; set; }
 
         /// <summary>
         /// Gets or Sets AiReview
@@ -65,21 +65,21 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Content that runs in a shopper&#39;s browser or on the server.  Script, html, embed, css and velocity elements, script in markup, Velocity, script bearing CSS and unsafe URL schemes.  An entry with any of these cannot be made public, and installing it needs an explicit acknowledgement.</value>
         [DataMember(Name="executable", EmitDefaultValue=false)]
-        public Object Executable { get; set; }
+        public List<SfvbLibraryManifestFinding> Executable { get; set; }
 
         /// <summary>
         /// Card skimming and obfuscation signals.  An entry with any is refused outright, whoever owns it.
         /// </summary>
         /// <value>Card skimming and obfuscation signals.  An entry with any is refused outright, whoever owns it.</value>
         [DataMember(Name="rejected", EmitDefaultValue=false)]
-        public Object Rejected { get; set; }
+        public List<SfvbLibraryManifestFinding> Rejected { get; set; }
 
         /// <summary>
         /// Strings shaped like credentials, by kind only.  An entry with any cannot be shared or made public.
         /// </summary>
         /// <value>Strings shaped like credentials, by kind only.  An entry with any cannot be shared or made public.</value>
         [DataMember(Name="secrets", EmitDefaultValue=false)]
-        public Object Secrets { get; set; }
+        public List<SfvbLibraryManifestFinding> Secrets { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -130,8 +130,9 @@ namespace com.ultracart.admin.v2.Model
             return 
                 (
                     this.AbsoluteAssetUrls == input.AbsoluteAssetUrls ||
-                    (this.AbsoluteAssetUrls != null &&
-                    this.AbsoluteAssetUrls.Equals(input.AbsoluteAssetUrls))
+                    this.AbsoluteAssetUrls != null &&
+                    input.AbsoluteAssetUrls != null &&
+                    this.AbsoluteAssetUrls.SequenceEqual(input.AbsoluteAssetUrls)
                 ) && 
                 (
                     this.AiReview == input.AiReview ||
@@ -140,18 +141,21 @@ namespace com.ultracart.admin.v2.Model
                 ) && 
                 (
                     this.Executable == input.Executable ||
-                    (this.Executable != null &&
-                    this.Executable.Equals(input.Executable))
+                    this.Executable != null &&
+                    input.Executable != null &&
+                    this.Executable.SequenceEqual(input.Executable)
                 ) && 
                 (
                     this.Rejected == input.Rejected ||
-                    (this.Rejected != null &&
-                    this.Rejected.Equals(input.Rejected))
+                    this.Rejected != null &&
+                    input.Rejected != null &&
+                    this.Rejected.SequenceEqual(input.Rejected)
                 ) && 
                 (
                     this.Secrets == input.Secrets ||
-                    (this.Secrets != null &&
-                    this.Secrets.Equals(input.Secrets))
+                    this.Secrets != null &&
+                    input.Secrets != null &&
+                    this.Secrets.SequenceEqual(input.Secrets)
                 );
         }
 

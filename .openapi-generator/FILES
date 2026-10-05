@@ -1050,6 +1050,7 @@ docs/SfvbLibraryInstallReceipt.md
 docs/SfvbLibraryInstallRecord.md
 docs/SfvbLibraryInstallRequest.md
 docs/SfvbLibraryInstallsResponse.md
+docs/SfvbLibraryManifestFinding.md
 docs/SfvbLibraryParameter.md
 docs/SfvbLibraryPublishRequest.md
 docs/SfvbLibraryResponse.md
@@ -1059,6 +1060,8 @@ docs/SfvbLibraryShareTarget.md
 docs/SfvbLibraryShareTargetsResponse.md
 docs/SfvbLibraryTaxonomy.md
 docs/SfvbLibraryTaxonomyCatalog.md
+docs/SfvbLibraryTaxonomyDimension.md
+docs/SfvbLibraryTaxonomyTag.md
 docs/SfvbLibraryUnshareResult.md
 docs/SfvbMenu.md
 docs/SfvbMenuItem.md
@@ -2306,6 +2309,7 @@ src/com.ultracart.admin.v2/Model/SfvbLibraryInstallReceipt.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryInstallRecord.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryInstallRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryInstallsResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbLibraryManifestFinding.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryParameter.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryPublishRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryResponse.cs
@@ -2315,6 +2319,8 @@ src/com.ultracart.admin.v2/Model/SfvbLibraryShareTarget.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryShareTargetsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryTaxonomy.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryTaxonomyCatalog.cs
+src/com.ultracart.admin.v2/Model/SfvbLibraryTaxonomyDimension.cs
+src/com.ultracart.admin.v2/Model/SfvbLibraryTaxonomyTag.cs
 src/com.ultracart.admin.v2/Model/SfvbLibraryUnshareResult.cs
 src/com.ultracart.admin.v2/Model/SfvbMenu.cs
 src/com.ultracart.admin.v2/Model/SfvbMenuItem.cs

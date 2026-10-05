@@ -78,7 +78,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="screenshotSha256">The screenshot the review looked at, or absent when there was none..</param>
         /// <param name="summary">One or two sentences explaining the verdict..</param>
         /// <param name="verdict">approve, block, human or error.  block refuses any publish.  human or error refuses a public publish and is recorded on a shared one..</param>
-        public SfvbLibraryAiReview(Object findings = default(Object), string promptVersion = default(string), string reviewedDts = default(string), string screenshotSha256 = default(string), string summary = default(string), VerdictEnum? verdict = default(VerdictEnum?))
+        public SfvbLibraryAiReview(List<SfvbLibraryManifestFinding> findings = default(List<SfvbLibraryManifestFinding>), string promptVersion = default(string), string reviewedDts = default(string), string screenshotSha256 = default(string), string summary = default(string), VerdictEnum? verdict = default(VerdictEnum?))
         {
             this.Findings = findings;
             this.PromptVersion = promptVersion;
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>What the reviewers found.  detail is the category followed by the quoted evidence.</value>
         [DataMember(Name="findings", EmitDefaultValue=false)]
-        public Object Findings { get; set; }
+        public List<SfvbLibraryManifestFinding> Findings { get; set; }
 
         /// <summary>
         /// Version of the review policy that produced this verdict.
@@ -174,8 +174,9 @@ namespace com.ultracart.admin.v2.Model
             return 
                 (
                     this.Findings == input.Findings ||
-                    (this.Findings != null &&
-                    this.Findings.Equals(input.Findings))
+                    this.Findings != null &&
+                    input.Findings != null &&
+                    this.Findings.SequenceEqual(input.Findings)
                 ) && 
                 (
                     this.PromptVersion == input.PromptVersion ||

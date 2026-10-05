@@ -25,26 +25,35 @@ using OpenAPIDateConverter = com.ultracart.admin.v2.Client.OpenAPIDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// SfvbLibraryTaxonomyCatalog
+    /// SfvbLibraryTaxonomyTag
     /// </summary>
     [DataContract]
-    public partial class SfvbLibraryTaxonomyCatalog :  IEquatable<SfvbLibraryTaxonomyCatalog>, IValidatableObject
+    public partial class SfvbLibraryTaxonomyTag :  IEquatable<SfvbLibraryTaxonomyTag>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SfvbLibraryTaxonomyCatalog" /> class.
+        /// Initializes a new instance of the <see cref="SfvbLibraryTaxonomyTag" /> class.
         /// </summary>
-        /// <param name="dimensions">purpose, section, industry and style, each with its allowed tags..</param>
-        public SfvbLibraryTaxonomyCatalog(List<SfvbLibraryTaxonomyDimension> dimensions = default(List<SfvbLibraryTaxonomyDimension>))
+        /// <param name="description">When to use it..</param>
+        /// <param name="slug">The value to send in the entry&#39;s taxonomy..</param>
+        public SfvbLibraryTaxonomyTag(string description = default(string), string slug = default(string))
         {
-            this.Dimensions = dimensions;
+            this.Description = description;
+            this.Slug = slug;
         }
 
         /// <summary>
-        /// purpose, section, industry and style, each with its allowed tags.
+        /// When to use it.
         /// </summary>
-        /// <value>purpose, section, industry and style, each with its allowed tags.</value>
-        [DataMember(Name="dimensions", EmitDefaultValue=false)]
-        public List<SfvbLibraryTaxonomyDimension> Dimensions { get; set; }
+        /// <value>When to use it.</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// The value to send in the entry&#39;s taxonomy.
+        /// </summary>
+        /// <value>The value to send in the entry&#39;s taxonomy.</value>
+        [DataMember(Name="slug", EmitDefaultValue=false)]
+        public string Slug { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +62,9 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SfvbLibraryTaxonomyCatalog {\n");
-            sb.Append("  Dimensions: ").Append(Dimensions).Append("\n");
+            sb.Append("class SfvbLibraryTaxonomyTag {\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Slug: ").Append(Slug).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,25 +85,29 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SfvbLibraryTaxonomyCatalog);
+            return this.Equals(input as SfvbLibraryTaxonomyTag);
         }
 
         /// <summary>
-        /// Returns true if SfvbLibraryTaxonomyCatalog instances are equal
+        /// Returns true if SfvbLibraryTaxonomyTag instances are equal
         /// </summary>
-        /// <param name="input">Instance of SfvbLibraryTaxonomyCatalog to be compared</param>
+        /// <param name="input">Instance of SfvbLibraryTaxonomyTag to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SfvbLibraryTaxonomyCatalog input)
+        public bool Equals(SfvbLibraryTaxonomyTag input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Dimensions == input.Dimensions ||
-                    this.Dimensions != null &&
-                    input.Dimensions != null &&
-                    this.Dimensions.SequenceEqual(input.Dimensions)
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Slug == input.Slug ||
+                    (this.Slug != null &&
+                    this.Slug.Equals(input.Slug))
                 );
         }
 
@@ -106,8 +120,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Dimensions != null)
-                    hashCode = hashCode * 59 + this.Dimensions.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.Slug != null)
+                    hashCode = hashCode * 59 + this.Slug.GetHashCode();
                 return hashCode;
             }
         }

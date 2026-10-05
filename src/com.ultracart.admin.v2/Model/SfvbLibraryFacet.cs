@@ -34,8 +34,8 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbLibraryFacet" /> class.
         /// </summary>
         /// <param name="displayName">Human readable facet name..</param>
-        /// <param name="name">Facet key.  Pass a chosen option back as facet_{name}&#x3D;{option}..</param>
-        /// <param name="options">Available values for this facet..</param>
+        /// <param name="name">Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option..</param>
+        /// <param name="options">Values present in the results.  A facet with only one value is left out unless it is selected..</param>
         public SfvbLibraryFacet(string displayName = default(string), string name = default(string), List<string> options = default(List<string>))
         {
             this.DisplayName = displayName;
@@ -51,16 +51,16 @@ namespace com.ultracart.admin.v2.Model
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Facet key.  Pass a chosen option back as facet_{name}&#x3D;{option}.
+        /// Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
         /// </summary>
-        /// <value>Facet key.  Pass a chosen option back as facet_{name}&#x3D;{option}.</value>
+        /// <value>Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Available values for this facet.
+        /// Values present in the results.  A facet with only one value is left out unless it is selected.
         /// </summary>
-        /// <value>Available values for this facet.</value>
+        /// <value>Values present in the results.  A facet with only one value is left out unless it is selected.</value>
         [DataMember(Name="options", EmitDefaultValue=false)]
         public List<string> Options { get; set; }
 

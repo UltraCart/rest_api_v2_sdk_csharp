@@ -151,8 +151,53 @@ Associates an RMA number with an order.  Any existing RMA on the order is replac
 
 ### Example
 
+```csharp
+using System;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
+using Newtonsoft.Json;
 
-(No example for this operation).
+namespace SdkSample.order
+{
+    public class AssignRma
+    {
+        /*
+         * OrderApi.assignRma() associates an RMA (return merchandise authorization) number with an order.
+         * The rma is required, may be at most 30 characters, and is trimmed.  Any existing RMA on the order is
+         * replaced, and a merchant note is added to the order recording the change.
+         * Requires the order_write scope.
+         *
+         * Note: orders are located by RMA through a search index, so a just-assigned RMA may take a short time
+         * to appear when calling getOrdersByRma.
+         */
+        public static void Execute()
+        {
+            OrderApi orderApi = new OrderApi(Constants.ApiKey);
+
+            string orderId = "DEMO-0009104390";
+
+            OrderAssignRmaRequest assignRmaRequest = new OrderAssignRmaRequest();
+            assignRmaRequest.Rma = "RMA-12345";
+
+            // The expansion is optional.  It controls how much of the updated order is returned.
+            // see www.ultracart.com/api/ for all the expansion fields available
+            string expansion = "item,summary,billing,shipping";
+
+            OrderResponse apiResponse = orderApi.AssignRma(orderId, assignRmaRequest, expansion);
+
+            if (apiResponse.Error != null)
+            {
+                Console.Error.WriteLine(apiResponse.Error.DeveloperMessage);
+                Console.Error.WriteLine(apiResponse.Error.UserMessage);
+                Environment.Exit(1);
+            }
+
+            Order order = apiResponse.Order;
+            Console.WriteLine(JsonConvert.SerializeObject(order, new JsonSerializerSettings { Formatting = Formatting.Indented}));
+        }
+    }
+}
+```
 
 
 ### Parameters
@@ -2514,8 +2559,53 @@ Retrieves the orders associated with the specified RMA number.  The RMA must be 
 
 ### Example
 
+```csharp
+using System;
+using System.Collections.Generic;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
+using Newtonsoft.Json;
 
-(No example for this operation).
+namespace SdkSample.order
+{
+    public class GetOrdersByRma
+    {
+        /*
+         * OrderApi.getOrdersByRma() retrieves the orders associated with an RMA number.
+         * The RMA must be an exact match; wildcards (*) are not permitted and will return a 400 error.
+         * Multiple orders can share the same RMA, so a list of orders is returned.
+         * Requires the order_read scope.
+         *
+         * Note: this lookup is backed by a search index, so an RMA that was just assigned (see assignRma)
+         * may take a short time to appear in the results.
+         */
+        public static void Execute()
+        {
+            OrderApi orderApi = new OrderApi(Constants.ApiKey);
+
+            // see www.ultracart.com/api/ for all the expansion fields available
+            string expansion = "item,summary,billing,shipping";
+
+            string rma = "RMA-12345";
+            OrdersResponse apiResponse = orderApi.GetOrdersByRma(rma, expansion);
+
+            if (apiResponse.Error != null)
+            {
+                Console.Error.WriteLine(apiResponse.Error.DeveloperMessage);
+                Console.Error.WriteLine(apiResponse.Error.UserMessage);
+                Environment.Exit(1);
+            }
+
+            List<Order> orders = apiResponse.Orders;
+            Console.WriteLine("Orders found for RMA " + rma + ": " + orders.Count);
+            foreach (Order order in orders)
+            {
+                Console.WriteLine(JsonConvert.SerializeObject(order, new JsonSerializerSettings { Formatting = Formatting.Indented}));
+            }
+        }
+    }
+}
+```
 
 
 ### Parameters
@@ -2567,8 +2657,44 @@ Generates the url a customer can use to update the billing information on the au
 
 ### Example
 
+```csharp
+using System;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
 
-(No example for this operation).
+namespace SdkSample.order
+{
+    public class GetUpdateBillingUrl
+    {
+        /*
+         * OrderApi.getUpdateBillingUrl() generates the url a customer can use to update the billing information
+         * on the auto order associated with this order.  This is the same url sent in the auto order update
+         * billing email.  The order must belong to an auto order or a 400 error is returned.  Either the original
+         * order or any rebill order of the auto order may be used.
+         * Requires the order_write scope, because the url carries a customer access token.
+         */
+        public static void Execute()
+        {
+            OrderApi orderApi = new OrderApi(Constants.ApiKey);
+
+            string orderId = "DEMO-0009104390"; // must be the original order or a rebill order of an auto order
+
+            OrderAutoOrderUpdateBillingUrlResponse apiResponse = orderApi.GetUpdateBillingUrl(orderId);
+
+            if (apiResponse.Error != null)
+            {
+                Console.Error.WriteLine(apiResponse.Error.DeveloperMessage);
+                Console.Error.WriteLine(apiResponse.Error.UserMessage);
+                Environment.Exit(1);
+            }
+
+            // WARNING: the update billing url grants access to the customer's billing information.
+            // Do not log it or expose it publicly in production.  Deliver it only to the customer.
+            Console.WriteLine("Update billing url: " + apiResponse.UpdateBillingUrl);
+        }
+    }
+}
+```
 
 
 ### Parameters

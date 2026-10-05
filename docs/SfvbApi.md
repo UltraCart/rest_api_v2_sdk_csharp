@@ -8,24 +8,29 @@ Method | HTTP request | Description
 [**AddSfvbPageItems**](SfvbApi.md#addsfvbpageitems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/add | Assign items to a page
 [**ArchiveSfvbUpsellPath**](SfvbApi.md#archivesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/archive | Archive an upsell path
 [**AttachSfvbBlogPostImage**](SfvbApi.md#attachsfvbblogpostimage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/attach | Attach an image to a blog post
+[**ClearSfvbLibraryScreenshot**](SfvbApi.md#clearsfvblibraryscreenshot) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot | Remove a library entry&#39;s screenshot
 [**CompileSfvbCjson**](SfvbApi.md#compilesfvbcjson) | **POST** /sfvb/cjson/compile | Compile CJSON to Velocity
+[**CreateSfvbLibraryEntry**](SfvbApi.md#createsfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library | Save a fragment to the library
 [**CreateSfvbPreviewAccess**](SfvbApi.md#createsfvbpreviewaccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 [**CreateSfvbPreviewSession**](SfvbApi.md#createsfvbpreviewsession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 [**DeleteSfvbBlogPost**](SfvbApi.md#deletesfvbblogpost) | **DELETE** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Delete a blog post
 [**DeleteSfvbFile**](SfvbApi.md#deletesfvbfile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
 [**DeleteSfvbItemAttribute**](SfvbApi.md#deletesfvbitemattribute) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/attributes | Delete an attribute from an item
 [**DeleteSfvbItemMultimedia**](SfvbApi.md#deletesfvbitemmultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/multimedia | Detach an image from an item
+[**DeleteSfvbLibraryEntry**](SfvbApi.md#deletesfvblibraryentry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Delete or retire a library entry
 [**DeleteSfvbPageMultimedia**](SfvbApi.md#deletesfvbpagemultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 [**DeleteSfvbPreviewSession**](SfvbApi.md#deletesfvbpreviewsession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 [**DetachSfvbBlogPostImage**](SfvbApi.md#detachsfvbblogpostimage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach | Detach an image from a blog post
 [**DisableSfvbUpsellOffer**](SfvbApi.md#disablesfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
 [**DisableSfvbUpsellPath**](SfvbApi.md#disablesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable | Disable an upsell path
 [**DownloadSfvbFile**](SfvbApi.md#downloadsfvbfile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
+[**DuplicateSfvbLibraryEntry**](SfvbApi.md#duplicatesfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/duplicate | Copy a library entry into a new private entry
 [**DuplicateSfvbPage**](SfvbApi.md#duplicatesfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/duplicate | Copy a page to a new path
 [**DuplicateSfvbTheme**](SfvbApi.md#duplicatesfvbtheme) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/duplicate | Duplicate a theme
 [**DuplicateSfvbUpsellOffer**](SfvbApi.md#duplicatesfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/duplicate | Duplicate an upsell offer
 [**DuplicateSfvbUpsellPath**](SfvbApi.md#duplicatesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/duplicate | Duplicate an upsell path or one of its variations
 [**EndSfvbExperiment**](SfvbApi.md#endsfvbexperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
+[**FavoriteSfvbLibraryEntry**](SfvbApi.md#favoritesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
 [**GetSfvbBlogPost**](SfvbApi.md#getsfvbblogpost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 [**GetSfvbCjsonUsedElements**](SfvbApi.md#getsfvbcjsonusedelements) | **POST** /sfvb/cjson/elements | Element types used by a container
 [**GetSfvbContainer**](SfvbApi.md#getsfvbcontainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
@@ -37,6 +42,9 @@ Method | HTTP request | Description
 [**GetSfvbFileUploadUrl**](SfvbApi.md#getsfvbfileuploadurl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
 [**GetSfvbItem**](SfvbApi.md#getsfvbitem) | **GET** /sfvb/storefronts/{storefront_oid}/items | Read an item&#39;s storefront facing content
 [**GetSfvbLibraryEntry**](SfvbApi.md#getsfvblibraryentry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
+[**GetSfvbLibraryHistory**](SfvbApi.md#getsfvblibraryhistory) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/history | List a library entry&#39;s published revisions
+[**GetSfvbLibraryShareTargets**](SfvbApi.md#getsfvblibrarysharetargets) | **GET** /sfvb/storefronts/{storefront_oid}/library/share_targets | List the accounts a library entry can be shared with
+[**GetSfvbLibraryTaxonomy**](SfvbApi.md#getsfvblibrarytaxonomy) | **GET** /sfvb/storefronts/{storefront_oid}/library/taxonomy | List the allowed library tags
 [**GetSfvbMenu**](SfvbApi.md#getsfvbmenu) | **GET** /sfvb/storefronts/{storefront_oid}/menus/{code} | Read one store menu and its entries
 [**GetSfvbMenus**](SfvbApi.md#getsfvbmenus) | **GET** /sfvb/storefronts/{storefront_oid}/menus | List a storefront&#39;s store menus
 [**GetSfvbPage**](SfvbApi.md#getsfvbpage) | **GET** /sfvb/storefronts/{storefront_oid}/pages | Read a page&#39;s attributes and images
@@ -68,6 +76,7 @@ Method | HTTP request | Description
 [**ListSfvbFileVersions**](SfvbApi.md#listsfvbfileversions) | **GET** /sfvb/storefronts/{storefront_oid}/files/versions | Version history for a storefront file
 [**ListSfvbFiles**](SfvbApi.md#listsfvbfiles) | **GET** /sfvb/storefronts/{storefront_oid}/files | List a storefront directory
 [**ListSfvbItemContainers**](SfvbApi.md#listsfvbitemcontainers) | **GET** /sfvb/storefronts/{storefront_oid}/item_containers | List the item containers on the account
+[**ListSfvbLibraryInstalls**](SfvbApi.md#listsfvblibraryinstalls) | **GET** /sfvb/storefronts/{storefront_oid}/library/installs | List the library entries installed on a storefront
 [**ListSfvbPages**](SfvbApi.md#listsfvbpages) | **GET** /sfvb/storefronts/{storefront_oid}/pages/list | List the storefront&#39;s pages
 [**ListSfvbServerLogs**](SfvbApi.md#listsfvbserverlogs) | **GET** /sfvb/storefronts/{storefront_oid}/logs | List recent storefront render logs
 [**ListSfvbStorefronts**](SfvbApi.md#listsfvbstorefronts) | **GET** /sfvb/storefronts | List storefronts
@@ -76,6 +85,7 @@ Method | HTTP request | Description
 [**ListSfvbUpsellOffers**](SfvbApi.md#listsfvbupselloffers) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers | List upsell offers
 [**ListSfvbUpsellPaths**](SfvbApi.md#listsfvbupsellpaths) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths | List upsell paths
 [**MoveSfvbUpsellPath**](SfvbApi.md#movesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move | Move an upsell path
+[**PublishSfvbLibraryEntry**](SfvbApi.md#publishsfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/publish | Publish a library entry&#39;s draft
 [**PutSfvbContainer**](SfvbApi.md#putsfvbcontainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 [**PutSfvbExperimentVariation**](SfvbApi.md#putsfvbexperimentvariation) | **PUT** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number} | Pause or resume a variation
 [**PutSfvbFileContent**](SfvbApi.md#putsfvbfilecontent) | **PUT** /sfvb/storefronts/{storefront_oid}/files/content | Write a storefront file
@@ -102,9 +112,15 @@ Method | HTTP request | Description
 [**RevertSfvbFile**](SfvbApi.md#revertsfvbfile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
 [**SearchSfvbFiles**](SfvbApi.md#searchsfvbfiles) | **POST** /sfvb/storefronts/{storefront_oid}/files/search | Search storefront files
 [**SearchSfvbLibrary**](SfvbApi.md#searchsfvblibrary) | **GET** /sfvb/storefronts/{storefront_oid}/library | Search the element library
+[**SetSfvbLibraryScreenshot**](SfvbApi.md#setsfvblibraryscreenshot) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot | Set a library entry&#39;s screenshot
+[**ShareSfvbLibraryEntry**](SfvbApi.md#sharesfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares | Share a published library entry with a linked account
 [**StartSfvbExperiment**](SfvbApi.md#startsfvbexperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments | Start an experiment
 [**UnarchiveSfvbUpsellPath**](SfvbApi.md#unarchivesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/unarchive | Unarchive an upsell path
+[**UnfavoriteSfvbLibraryEntry**](SfvbApi.md#unfavoritesfvblibraryentry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Remove a library entry from favorites
+[**UnpublishSfvbLibraryEntry**](SfvbApi.md#unpublishsfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/unpublish | Narrow who can see a library entry
+[**UnshareSfvbLibraryEntry**](SfvbApi.md#unsharesfvblibraryentry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares/{merchant_id} | Stop sharing a library entry with an account
 [**UpdateSfvbBlogPost**](SfvbApi.md#updatesfvbblogpost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
+[**UpdateSfvbLibraryEntry**](SfvbApi.md#updatesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 [**UpdateSfvbUpsellOffer**](SfvbApi.md#updatesfvbupselloffer) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Update an upsell offer
 [**UpdateSfvbUpsellPath**](SfvbApi.md#updatesfvbupsellpath) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Update an upsell path
 [**UploadSfvbFile**](SfvbApi.md#uploadsfvbfile) | **POST** /sfvb/storefronts/{storefront_oid}/files/upload | Store a binary asset that was already uploaded
@@ -329,6 +345,62 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ClearSfvbLibraryScreenshot
+
+> SfvbLibraryEntry ClearSfvbLibraryScreenshot (int storefrontOid, int libraryOid, string ifMatch)
+
+Remove a library entry's screenshot
+
+Owner only, with the draft's hash_sha256 as If-Match.  Clears the screenshot and thumbnail.  Published revisions and copies that used the image keep it. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryOid** | **int**|  | 
+ **ifMatch** | **string**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | 
+
+### Return type
+
+[**SfvbLibraryEntry**](SfvbLibraryEntry.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CompileSfvbCjson
 
 > SfvbCompileResponse CompileSfvbCjson (SfvbCompileRequest compileRequest)
@@ -371,6 +443,61 @@ Name | Type | Description  | Notes
 | **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **413** |  |  -  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateSfvbLibraryEntry
+
+> SfvbLibraryEntry CreateSfvbLibraryEntry (int storefrontOid, SfvbLibraryEntryRequest libraryEntry)
+
+Save a fragment to the library
+
+Creates a private draft owned by the calling user.  The fragment is one widget and its children, and it must validate.  Images it references on this storefront are copied into the entry before this returns, so it installs anywhere with its images.  The fragment is scanned; card skimming or obfuscation signals are refused outright.  Nothing other merchants or shoppers see changes, so sfvb_write is enough.  Publish it to share it.  An optional screenshot takes a staged PNG key, exactly as the library screenshot endpoint does; a refused screenshot refuses the whole create. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryEntry** | [**SfvbLibraryEntryRequest**](SfvbLibraryEntryRequest.md)| The entry | 
+
+### Return type
+
+[**SfvbLibraryEntry**](SfvbLibraryEntry.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **413** |  |  -  |
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
@@ -705,6 +832,62 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeleteSfvbLibraryEntry
+
+> SfvbLibraryDeleteResult DeleteSfvbLibraryEntry (int storefrontOid, int libraryOid, string ifMatch)
+
+Delete or retire a library entry
+
+Owner only, with the draft's hash_sha256 as If-Match.  An entry that was never published, installed or shared is deleted.  Anything else is retired - kept so the storefronts that installed it still resolve, but out of search and refusing new installs and publishes.  The result says which happened. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryOid** | **int**|  | 
+ **ifMatch** | **string**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | 
+
+### Return type
+
+[**SfvbLibraryDeleteResult**](SfvbLibraryDeleteResult.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteSfvbPageMultimedia
 
 > SfvbPageResponse DeleteSfvbPageMultimedia (int storefrontOid, string path, string code = null, bool? _default = null)
@@ -1023,6 +1206,61 @@ void (empty response body)
 [[Back to README]](../README.md)
 
 
+## DuplicateSfvbLibraryEntry
+
+> SfvbLibraryEntry DuplicateSfvbLibraryEntry (int storefrontOid, int libraryOid, string name = null)
+
+Copy a library entry into a new private entry
+
+The copy is owned by the calling user and private.  From an entry you own it copies the draft; from one shared with you it copies the published revision.  It is scanned on its own and inherits nothing but content, its images and its screenshot. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryOid** | **int**|  | 
+ **name** | **string**| Name for the copy.  Defaults to Copy of and the source name. | [optional] 
+
+### Return type
+
+[**SfvbLibraryEntry**](SfvbLibraryEntry.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DuplicateSfvbPage
 
 > SfvbPageResponse DuplicateSfvbPage (int storefrontOid, SfvbPageDuplicateRequest pageDuplicateRequest)
@@ -1283,6 +1521,58 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## FavoriteSfvbLibraryEntry
+
+> void FavoriteSfvbLibraryEntry (int storefrontOid, int libraryOid)
+
+Favorite a library entry
+
+Bookmarks the entry for the calling user.  Idempotent.  Owner or anyone the entry is shared with. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryOid** | **int**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
@@ -1820,11 +2110,11 @@ Name | Type | Description  | Notes
 
 ## GetSfvbLibraryEntry
 
-> SfvbLibraryEntry GetSfvbLibraryEntry (int storefrontOid, int libraryOid)
+> SfvbLibraryEntry GetSfvbLibraryEntry (int storefrontOid, int libraryOid, int? revisionNumber = null)
 
 Read one library entry including its CJSON
 
-Returns the fragment as authored.  If it references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
+The owner gets the draft with its hash_sha256, which an update, delete or publish sends back as If-Match.  Everyone else gets the latest published revision.  Pin a published revision with revision_number.  Read content_manifest before installing.  If the fragment references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
 
 
 ### Example
@@ -1840,6 +2130,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefrontOid** | **int**|  | 
  **libraryOid** | **int**|  | 
+ **revisionNumber** | **int?**| A published revision to read instead of the default. | [optional] 
 
 ### Return type
 
@@ -1860,6 +2151,161 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSfvbLibraryHistory
+
+> SfvbLibraryHistoryEntry GetSfvbLibraryHistory (int storefrontOid, int libraryOid)
+
+List a library entry's published revisions
+
+Newest first, each with its release notes and hash.  Read one with getSfvbLibraryEntry and revision_number.  The owner and anyone the entry is shared with can list it. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryOid** | **int**|  | 
+
+### Return type
+
+[**SfvbLibraryHistoryEntry**](SfvbLibraryHistoryEntry.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSfvbLibraryShareTargets
+
+> SfvbLibraryShareTarget GetSfvbLibraryShareTargets (int storefrontOid)
+
+List the accounts a library entry can be shared with
+
+The calling account's linked accounts, each with its merchant id and company.  These are the only merchants a share can name. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+
+### Return type
+
+[**SfvbLibraryShareTarget**](SfvbLibraryShareTarget.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSfvbLibraryTaxonomy
+
+> SfvbLibraryTaxonomyCatalog GetSfvbLibraryTaxonomy (int storefrontOid)
+
+List the allowed library tags
+
+The fixed tag list for purpose, section, industry and style, each tag with a one line description.  Saving an entry refuses any tag not on it with sfvb.library_taxonomy_unknown, naming the closest one.  The same tags are the facet_purpose, facet_section, facet_industry and facet_style search facets. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+
+### Return type
+
+[**SfvbLibraryTaxonomyCatalog**](SfvbLibraryTaxonomyCatalog.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
@@ -3076,11 +3522,11 @@ Name | Type | Description  | Notes
 
 ## InstallSfvbLibraryEntry
 
-> SfvbLibraryEntry InstallSfvbLibraryEntry (int storefrontOid, int libraryOid)
+> SfvbLibraryInstallReceipt InstallSfvbLibraryEntry (int storefrontOid, int libraryOid, SfvbLibraryInstallRequest installRequest = null)
 
 Install a library entry into a storefront
 
-Copies the fragment's referenced assets into the storefront file system and returns the CJSON with its paths resolved, ready to place.  This writes, which is why it is a POST rather than the GET the internal admin endpoint uses.  It also requires sfvb_publish, because the assets land in the shared storefront file system, which is served to shoppers regardless of which theme is active, so no amount of working inside a duplicate theme isolates them. 
+Copies the fragment's referenced files into the storefront file system and returns a receipt with the CJSON's paths resolved, ready to place.  It never places the CJSON.  Read content_manifest first; executable content needs acknowledge_executable true.  A file that already exists with different content is a conflict - on_conflict fail (the default) refuses with 409 and writes nothing, skip keeps the existing file, overwrite replaces it.  A recipient installs a published revision.  This writes, which is why it is a POST, and it requires sfvb_publish because the files land in the shared storefront file system, which is served to shoppers whichever theme is active. 
 
 
 ### Example
@@ -3096,10 +3542,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefrontOid** | **int**|  | 
  **libraryOid** | **int**|  | 
+ **installRequest** | [**SfvbLibraryInstallRequest**](SfvbLibraryInstallRequest.md)| Revision, conflict handling and acknowledgement | [optional] 
 
 ### Return type
 
-[**SfvbLibraryEntry**](SfvbLibraryEntry.md)
+[**SfvbLibraryInstallReceipt**](SfvbLibraryInstallReceipt.md)
 
 ### Authorization
 
@@ -3107,7 +3554,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json; charset=UTF-8
 - **Accept**: application/json
 
 
@@ -3119,6 +3566,7 @@ Name | Type | Description  | Notes
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#)
@@ -3490,6 +3938,57 @@ Name | Type | Description  | Notes
 | **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListSfvbLibraryInstalls
+
+> SfvbLibraryInstallRecord ListSfvbLibraryInstalls (int storefrontOid)
+
+List the library entries installed on a storefront
+
+Each entry's most recently installed revision, its latest published revision and update_available.  Nothing updates automatically.  An entry this account can no longer see is listed without its name. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+
+### Return type
+
+[**SfvbLibraryInstallRecord**](SfvbLibraryInstallRecord.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
@@ -3914,6 +4413,64 @@ Name | Type | Description  | Notes
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PublishSfvbLibraryEntry
+
+> SfvbLibraryEntry PublishSfvbLibraryEntry (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryPublishRequest publishRequest)
+
+Publish a library entry's draft
+
+Freezes the draft as a published revision at its revision_number and sets who can see it.  Owner only, with the draft's hash_sha256 as If-Match.  Always needs sfvb_publish, because it changes what other merchants can install.  Images, fonts, stylesheets and media must be relative paths, and credential shaped strings are refused.  Public also needs the library publisher property on the account and no executable content at all - no script, html, embed, css or velocity elements.  After those checks an automated AI review reads the fragment, which can take up to about a minute.  A clear violation both of its models agree on refuses any publish with sfvb.library_ai_review_blocked.  A public publish also needs its approval, otherwise sfvb.library_ai_review_inconclusive.  The result is in content_manifest.ai_review. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryOid** | **int**|  | 
+ **ifMatch** | **string**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | 
+ **publishRequest** | [**SfvbLibraryPublishRequest**](SfvbLibraryPublishRequest.md)| Visibility and release notes | 
+
+### Return type
+
+[**SfvbLibraryEntry**](SfvbLibraryEntry.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#)
@@ -5295,7 +5852,7 @@ Name | Type | Description  | Notes
 
 Search the element library
 
-Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with facet_{name}={option} query parameters. 
+Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with a query parameter named after a facet, such as facet_purpose, whose value is the facet name, a colon and one of its options.  Besides element type and author, the facets include purpose, section, industry and style from library/taxonomy, and the search text matches those tags too.  Results follow the same rules as reading one entry, so others see published revisions only. 
 
 
 ### Example
@@ -5337,6 +5894,121 @@ Name | Type | Description  | Notes
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SetSfvbLibraryScreenshot
+
+> SfvbLibraryEntry SetSfvbLibraryScreenshot (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryScreenshotRequest screenshotRequest)
+
+Set a library entry's screenshot
+
+Three calls, like the other uploads.  Request an upload URL with files/upload_url/png, PUT the PNG bytes to it, then call this with the key, the sha256 of those bytes and where the image came from.  Owner only, with the draft's hash_sha256 as If-Match.  The PNG must be at most 5 MB and 4096 pixels a side; it is re-encoded, which drops any metadata, and a thumbnail is made from it before this returns.  Capture it with test data only.  A refused image leaves the previous screenshot in place.  Other merchants see a new screenshot only after the next publish, whose review checks it. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryOid** | **int**|  | 
+ **ifMatch** | **string**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | 
+ **screenshotRequest** | [**SfvbLibraryScreenshotRequest**](SfvbLibraryScreenshotRequest.md)| The staged PNG | 
+
+### Return type
+
+[**SfvbLibraryEntry**](SfvbLibraryEntry.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **412** |  |  -  |
+| **413** |  |  -  |
+| **428** |  |  -  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ShareSfvbLibraryEntry
+
+> SfvbLibraryEntry ShareSfvbLibraryEntry (int storefrontOid, int libraryOid, SfvbLibraryShareRequest shareRequest)
+
+Share a published library entry with a linked account
+
+Owner only, and always needs sfvb_publish.  The merchant must be one share_targets lists, and the entry must have a published revision, which is what the recipient sees.  The published revision is checked again for absolute asset URLs and credentials.  Idempotent. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryOid** | **int**|  | 
+ **shareRequest** | [**SfvbLibraryShareRequest**](SfvbLibraryShareRequest.md)| The linked account | 
+
+### Return type
+
+[**SfvbLibraryEntry**](SfvbLibraryEntry.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#)
@@ -5453,6 +6125,166 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## UnfavoriteSfvbLibraryEntry
+
+> void UnfavoriteSfvbLibraryEntry (int storefrontOid, int libraryOid)
+
+Remove a library entry from favorites
+
+Removes the calling user's bookmark.  Idempotent. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryOid** | **int**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UnpublishSfvbLibraryEntry
+
+> SfvbLibraryEntry UnpublishSfvbLibraryEntry (int storefrontOid, int libraryOid, SfvbLibraryPublishRequest unpublishRequest)
+
+Narrow who can see a library entry
+
+Sets visibility to shared or private.  Owner only, and always needs sfvb_publish.  Published revisions are kept and storefronts that already installed the entry keep their copies. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryOid** | **int**|  | 
+ **unpublishRequest** | [**SfvbLibraryPublishRequest**](SfvbLibraryPublishRequest.md)| The narrower visibility | 
+
+### Return type
+
+[**SfvbLibraryEntry**](SfvbLibraryEntry.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UnshareSfvbLibraryEntry
+
+> SfvbLibraryUnshareResult UnshareSfvbLibraryEntry (int storefrontOid, int libraryOid, string merchantId)
+
+Stop sharing a library entry with an account
+
+Owner only, and always needs sfvb_publish.  Stops further installs by that account.  Its existing installs keep their copies and are listed in the result.  Idempotent, and still works while the library is turned off. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryOid** | **int**|  | 
+ **merchantId** | **string**|  | 
+
+### Return type
+
+[**SfvbLibraryUnshareResult**](SfvbLibraryUnshareResult.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateSfvbBlogPost
 
 > SfvbBlogPostDetail UpdateSfvbBlogPost (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest)
@@ -5499,6 +6331,65 @@ Name | Type | Description  | Notes
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateSfvbLibraryEntry
+
+> SfvbLibraryEntry UpdateSfvbLibraryEntry (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryEntryRequest libraryEntry)
+
+Update a library entry's draft
+
+A full replace of the draft's fields.  Owner only.  Send the hash_sha256 you read as If-Match.  Every save increments revision_number; nothing other merchants see changes until the draft is published.  A changed fragment is re-scanned and its images copied again, and screenshot_stale tells you to retake the screenshot. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **libraryOid** | **int**|  | 
+ **ifMatch** | **string**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | 
+ **libraryEntry** | [**SfvbLibraryEntryRequest**](SfvbLibraryEntryRequest.md)| The whole entry | 
+
+### Return type
+
+[**SfvbLibraryEntry**](SfvbLibraryEntry.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **412** |  |  -  |
+| **413** |  |  -  |
+| **428** |  |  -  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#)

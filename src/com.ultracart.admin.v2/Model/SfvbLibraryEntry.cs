@@ -31,31 +31,92 @@ namespace com.ultracart.admin.v2.Model
     public partial class SfvbLibraryEntry :  IEquatable<SfvbLibraryEntry>, IValidatableObject
     {
         /// <summary>
+        /// private, shared or public.
+        /// </summary>
+        /// <value>private, shared or public.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum VisibilityEnum
+        {
+            /// <summary>
+            /// Enum Private for value: private
+            /// </summary>
+            [EnumMember(Value = "private")]
+            Private = 1,
+
+            /// <summary>
+            /// Enum Shared for value: shared
+            /// </summary>
+            [EnumMember(Value = "shared")]
+            Shared = 2,
+
+            /// <summary>
+            /// Enum Public for value: public
+            /// </summary>
+            [EnumMember(Value = "public")]
+            Public = 3
+
+        }
+
+        /// <summary>
+        /// private, shared or public.
+        /// </summary>
+        /// <value>private, shared or public.</value>
+        [DataMember(Name="visibility", EmitDefaultValue=false)]
+        public VisibilityEnum? Visibility { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="SfvbLibraryEntry" /> class.
         /// </summary>
         /// <param name="bookmarked">True when the calling user has bookmarked this entry..</param>
         /// <param name="cjson">The fragment&#39;s CJSON.  Omitted from search results to keep them terse; fetch a single entry to get it..</param>
+        /// <param name="contentManifest">contentManifest.</param>
         /// <param name="description">What this fragment is for..</param>
+        /// <param name="hashSha256">Hash of the draft&#39;s writable fields.  Send it back as If-Match to update, delete or publish.  Present only for the owner..</param>
+        /// <param name="lastModifiedDts">When the draft was last saved, ISO 8601..</param>
         /// <param name="libraryOid">Library entry oid..</param>
         /// <param name="name">Entry name..</param>
         /// <param name="owned">True when the calling user owns this entry..</param>
+        /// <param name="parameters">Named values the fragment expects the installer to supply..</param>
+        /// <param name="publishedRevisionNumber">The latest published revision, or null when the entry has never been published..</param>
         /// <param name="referencedFiles">Storefront file paths this fragment references.  Installing the fragment copies them into the storefront; reading it does not..</param>
+        /// <param name="retired">True when the owner deleted an entry that had been published or installed.  It is kept so existing installs still resolve, and it leaves search..</param>
+        /// <param name="revisionNumber">The revision returned.  For the owner this is the draft, which every save increments.  For anyone else it is the published revision..</param>
+        /// <param name="screenshotHeight">Screenshot height in pixels..</param>
         /// <param name="screenshotKey">S3 listing key for the large screenshot, when one has been generated..</param>
+        /// <param name="screenshotSha256">Hash of the uploaded screenshot..</param>
+        /// <param name="screenshotStale">True on an update that changed the fragment of an entry with a screenshot.  Retake it and set it again with the library screenshot endpoint..</param>
+        /// <param name="screenshotWidth">Screenshot width in pixels..</param>
         /// <param name="shareWithAccount">True when the entry is shared across the merchant account..</param>
+        /// <param name="sharedWith">Linked accounts the entry is shared with.  Present only for the owner..</param>
+        /// <param name="taxonomy">taxonomy.</param>
         /// <param name="thumbnailKey">S3 listing key for the medium thumbnail, when one has been generated.  Thumbnails are produced asynchronously and can lag a save by a minute or two..</param>
+        /// <param name="visibility">private, shared or public..</param>
         /// <param name="widgetType">Element type at the root of the fragment..</param>
-        public SfvbLibraryEntry(bool bookmarked = default(bool), string cjson = default(string), string description = default(string), int libraryOid = default(int), string name = default(string), bool owned = default(bool), List<string> referencedFiles = default(List<string>), string screenshotKey = default(string), bool shareWithAccount = default(bool), string thumbnailKey = default(string), string widgetType = default(string))
+        public SfvbLibraryEntry(bool bookmarked = default(bool), string cjson = default(string), SfvbLibraryContentManifest contentManifest = default(SfvbLibraryContentManifest), string description = default(string), string hashSha256 = default(string), string lastModifiedDts = default(string), int libraryOid = default(int), string name = default(string), bool owned = default(bool), List<SfvbLibraryParameter> parameters = default(List<SfvbLibraryParameter>), int publishedRevisionNumber = default(int), List<string> referencedFiles = default(List<string>), bool retired = default(bool), int revisionNumber = default(int), int screenshotHeight = default(int), string screenshotKey = default(string), string screenshotSha256 = default(string), bool screenshotStale = default(bool), int screenshotWidth = default(int), bool shareWithAccount = default(bool), List<SfvbLibraryShareTarget> sharedWith = default(List<SfvbLibraryShareTarget>), SfvbLibraryTaxonomy taxonomy = default(SfvbLibraryTaxonomy), string thumbnailKey = default(string), VisibilityEnum? visibility = default(VisibilityEnum?), string widgetType = default(string))
         {
             this.Bookmarked = bookmarked;
             this.Cjson = cjson;
+            this.ContentManifest = contentManifest;
             this.Description = description;
+            this.HashSha256 = hashSha256;
+            this.LastModifiedDts = lastModifiedDts;
             this.LibraryOid = libraryOid;
             this.Name = name;
             this.Owned = owned;
+            this.Parameters = parameters;
+            this.PublishedRevisionNumber = publishedRevisionNumber;
             this.ReferencedFiles = referencedFiles;
+            this.Retired = retired;
+            this.RevisionNumber = revisionNumber;
+            this.ScreenshotHeight = screenshotHeight;
             this.ScreenshotKey = screenshotKey;
+            this.ScreenshotSha256 = screenshotSha256;
+            this.ScreenshotStale = screenshotStale;
+            this.ScreenshotWidth = screenshotWidth;
             this.ShareWithAccount = shareWithAccount;
+            this.SharedWith = sharedWith;
+            this.Taxonomy = taxonomy;
             this.ThumbnailKey = thumbnailKey;
+            this.Visibility = visibility;
             this.WidgetType = widgetType;
         }
 
@@ -74,11 +135,31 @@ namespace com.ultracart.admin.v2.Model
         public string Cjson { get; set; }
 
         /// <summary>
+        /// Gets or Sets ContentManifest
+        /// </summary>
+        [DataMember(Name="content_manifest", EmitDefaultValue=false)]
+        public SfvbLibraryContentManifest ContentManifest { get; set; }
+
+        /// <summary>
         /// What this fragment is for.
         /// </summary>
         /// <value>What this fragment is for.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Hash of the draft&#39;s writable fields.  Send it back as If-Match to update, delete or publish.  Present only for the owner.
+        /// </summary>
+        /// <value>Hash of the draft&#39;s writable fields.  Send it back as If-Match to update, delete or publish.  Present only for the owner.</value>
+        [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
+        public string HashSha256 { get; set; }
+
+        /// <summary>
+        /// When the draft was last saved, ISO 8601.
+        /// </summary>
+        /// <value>When the draft was last saved, ISO 8601.</value>
+        [DataMember(Name="last_modified_dts", EmitDefaultValue=false)]
+        public string LastModifiedDts { get; set; }
 
         /// <summary>
         /// Library entry oid.
@@ -102,11 +183,46 @@ namespace com.ultracart.admin.v2.Model
         public bool Owned { get; set; }
 
         /// <summary>
+        /// Named values the fragment expects the installer to supply.
+        /// </summary>
+        /// <value>Named values the fragment expects the installer to supply.</value>
+        [DataMember(Name="parameters", EmitDefaultValue=false)]
+        public List<SfvbLibraryParameter> Parameters { get; set; }
+
+        /// <summary>
+        /// The latest published revision, or null when the entry has never been published.
+        /// </summary>
+        /// <value>The latest published revision, or null when the entry has never been published.</value>
+        [DataMember(Name="published_revision_number", EmitDefaultValue=false)]
+        public int PublishedRevisionNumber { get; set; }
+
+        /// <summary>
         /// Storefront file paths this fragment references.  Installing the fragment copies them into the storefront; reading it does not.
         /// </summary>
         /// <value>Storefront file paths this fragment references.  Installing the fragment copies them into the storefront; reading it does not.</value>
         [DataMember(Name="referenced_files", EmitDefaultValue=false)]
         public List<string> ReferencedFiles { get; set; }
+
+        /// <summary>
+        /// True when the owner deleted an entry that had been published or installed.  It is kept so existing installs still resolve, and it leaves search.
+        /// </summary>
+        /// <value>True when the owner deleted an entry that had been published or installed.  It is kept so existing installs still resolve, and it leaves search.</value>
+        [DataMember(Name="retired", EmitDefaultValue=false)]
+        public bool Retired { get; set; }
+
+        /// <summary>
+        /// The revision returned.  For the owner this is the draft, which every save increments.  For anyone else it is the published revision.
+        /// </summary>
+        /// <value>The revision returned.  For the owner this is the draft, which every save increments.  For anyone else it is the published revision.</value>
+        [DataMember(Name="revision_number", EmitDefaultValue=false)]
+        public int RevisionNumber { get; set; }
+
+        /// <summary>
+        /// Screenshot height in pixels.
+        /// </summary>
+        /// <value>Screenshot height in pixels.</value>
+        [DataMember(Name="screenshot_height", EmitDefaultValue=false)]
+        public int ScreenshotHeight { get; set; }
 
         /// <summary>
         /// S3 listing key for the large screenshot, when one has been generated.
@@ -116,6 +232,27 @@ namespace com.ultracart.admin.v2.Model
         public string ScreenshotKey { get; set; }
 
         /// <summary>
+        /// Hash of the uploaded screenshot.
+        /// </summary>
+        /// <value>Hash of the uploaded screenshot.</value>
+        [DataMember(Name="screenshot_sha256", EmitDefaultValue=false)]
+        public string ScreenshotSha256 { get; set; }
+
+        /// <summary>
+        /// True on an update that changed the fragment of an entry with a screenshot.  Retake it and set it again with the library screenshot endpoint.
+        /// </summary>
+        /// <value>True on an update that changed the fragment of an entry with a screenshot.  Retake it and set it again with the library screenshot endpoint.</value>
+        [DataMember(Name="screenshot_stale", EmitDefaultValue=false)]
+        public bool ScreenshotStale { get; set; }
+
+        /// <summary>
+        /// Screenshot width in pixels.
+        /// </summary>
+        /// <value>Screenshot width in pixels.</value>
+        [DataMember(Name="screenshot_width", EmitDefaultValue=false)]
+        public int ScreenshotWidth { get; set; }
+
+        /// <summary>
         /// True when the entry is shared across the merchant account.
         /// </summary>
         /// <value>True when the entry is shared across the merchant account.</value>
@@ -123,11 +260,25 @@ namespace com.ultracart.admin.v2.Model
         public bool ShareWithAccount { get; set; }
 
         /// <summary>
+        /// Linked accounts the entry is shared with.  Present only for the owner.
+        /// </summary>
+        /// <value>Linked accounts the entry is shared with.  Present only for the owner.</value>
+        [DataMember(Name="shared_with", EmitDefaultValue=false)]
+        public List<SfvbLibraryShareTarget> SharedWith { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Taxonomy
+        /// </summary>
+        [DataMember(Name="taxonomy", EmitDefaultValue=false)]
+        public SfvbLibraryTaxonomy Taxonomy { get; set; }
+
+        /// <summary>
         /// S3 listing key for the medium thumbnail, when one has been generated.  Thumbnails are produced asynchronously and can lag a save by a minute or two.
         /// </summary>
         /// <value>S3 listing key for the medium thumbnail, when one has been generated.  Thumbnails are produced asynchronously and can lag a save by a minute or two.</value>
         [DataMember(Name="thumbnail_key", EmitDefaultValue=false)]
         public string ThumbnailKey { get; set; }
+
 
         /// <summary>
         /// Element type at the root of the fragment.
@@ -146,14 +297,28 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class SfvbLibraryEntry {\n");
             sb.Append("  Bookmarked: ").Append(Bookmarked).Append("\n");
             sb.Append("  Cjson: ").Append(Cjson).Append("\n");
+            sb.Append("  ContentManifest: ").Append(ContentManifest).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
+            sb.Append("  LastModifiedDts: ").Append(LastModifiedDts).Append("\n");
             sb.Append("  LibraryOid: ").Append(LibraryOid).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Owned: ").Append(Owned).Append("\n");
+            sb.Append("  Parameters: ").Append(Parameters).Append("\n");
+            sb.Append("  PublishedRevisionNumber: ").Append(PublishedRevisionNumber).Append("\n");
             sb.Append("  ReferencedFiles: ").Append(ReferencedFiles).Append("\n");
+            sb.Append("  Retired: ").Append(Retired).Append("\n");
+            sb.Append("  RevisionNumber: ").Append(RevisionNumber).Append("\n");
+            sb.Append("  ScreenshotHeight: ").Append(ScreenshotHeight).Append("\n");
             sb.Append("  ScreenshotKey: ").Append(ScreenshotKey).Append("\n");
+            sb.Append("  ScreenshotSha256: ").Append(ScreenshotSha256).Append("\n");
+            sb.Append("  ScreenshotStale: ").Append(ScreenshotStale).Append("\n");
+            sb.Append("  ScreenshotWidth: ").Append(ScreenshotWidth).Append("\n");
             sb.Append("  ShareWithAccount: ").Append(ShareWithAccount).Append("\n");
+            sb.Append("  SharedWith: ").Append(SharedWith).Append("\n");
+            sb.Append("  Taxonomy: ").Append(Taxonomy).Append("\n");
             sb.Append("  ThumbnailKey: ").Append(ThumbnailKey).Append("\n");
+            sb.Append("  Visibility: ").Append(Visibility).Append("\n");
             sb.Append("  WidgetType: ").Append(WidgetType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -200,9 +365,24 @@ namespace com.ultracart.admin.v2.Model
                     this.Cjson.Equals(input.Cjson))
                 ) && 
                 (
+                    this.ContentManifest == input.ContentManifest ||
+                    (this.ContentManifest != null &&
+                    this.ContentManifest.Equals(input.ContentManifest))
+                ) && 
+                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.HashSha256 == input.HashSha256 ||
+                    (this.HashSha256 != null &&
+                    this.HashSha256.Equals(input.HashSha256))
+                ) && 
+                (
+                    this.LastModifiedDts == input.LastModifiedDts ||
+                    (this.LastModifiedDts != null &&
+                    this.LastModifiedDts.Equals(input.LastModifiedDts))
                 ) && 
                 (
                     this.LibraryOid == input.LibraryOid ||
@@ -220,10 +400,36 @@ namespace com.ultracart.admin.v2.Model
                     this.Owned.Equals(input.Owned))
                 ) && 
                 (
+                    this.Parameters == input.Parameters ||
+                    this.Parameters != null &&
+                    input.Parameters != null &&
+                    this.Parameters.SequenceEqual(input.Parameters)
+                ) && 
+                (
+                    this.PublishedRevisionNumber == input.PublishedRevisionNumber ||
+                    (this.PublishedRevisionNumber != null &&
+                    this.PublishedRevisionNumber.Equals(input.PublishedRevisionNumber))
+                ) && 
+                (
                     this.ReferencedFiles == input.ReferencedFiles ||
                     this.ReferencedFiles != null &&
                     input.ReferencedFiles != null &&
                     this.ReferencedFiles.SequenceEqual(input.ReferencedFiles)
+                ) && 
+                (
+                    this.Retired == input.Retired ||
+                    (this.Retired != null &&
+                    this.Retired.Equals(input.Retired))
+                ) && 
+                (
+                    this.RevisionNumber == input.RevisionNumber ||
+                    (this.RevisionNumber != null &&
+                    this.RevisionNumber.Equals(input.RevisionNumber))
+                ) && 
+                (
+                    this.ScreenshotHeight == input.ScreenshotHeight ||
+                    (this.ScreenshotHeight != null &&
+                    this.ScreenshotHeight.Equals(input.ScreenshotHeight))
                 ) && 
                 (
                     this.ScreenshotKey == input.ScreenshotKey ||
@@ -231,14 +437,45 @@ namespace com.ultracart.admin.v2.Model
                     this.ScreenshotKey.Equals(input.ScreenshotKey))
                 ) && 
                 (
+                    this.ScreenshotSha256 == input.ScreenshotSha256 ||
+                    (this.ScreenshotSha256 != null &&
+                    this.ScreenshotSha256.Equals(input.ScreenshotSha256))
+                ) && 
+                (
+                    this.ScreenshotStale == input.ScreenshotStale ||
+                    (this.ScreenshotStale != null &&
+                    this.ScreenshotStale.Equals(input.ScreenshotStale))
+                ) && 
+                (
+                    this.ScreenshotWidth == input.ScreenshotWidth ||
+                    (this.ScreenshotWidth != null &&
+                    this.ScreenshotWidth.Equals(input.ScreenshotWidth))
+                ) && 
+                (
                     this.ShareWithAccount == input.ShareWithAccount ||
                     (this.ShareWithAccount != null &&
                     this.ShareWithAccount.Equals(input.ShareWithAccount))
                 ) && 
                 (
+                    this.SharedWith == input.SharedWith ||
+                    this.SharedWith != null &&
+                    input.SharedWith != null &&
+                    this.SharedWith.SequenceEqual(input.SharedWith)
+                ) && 
+                (
+                    this.Taxonomy == input.Taxonomy ||
+                    (this.Taxonomy != null &&
+                    this.Taxonomy.Equals(input.Taxonomy))
+                ) && 
+                (
                     this.ThumbnailKey == input.ThumbnailKey ||
                     (this.ThumbnailKey != null &&
                     this.ThumbnailKey.Equals(input.ThumbnailKey))
+                ) && 
+                (
+                    this.Visibility == input.Visibility ||
+                    (this.Visibility != null &&
+                    this.Visibility.Equals(input.Visibility))
                 ) && 
                 (
                     this.WidgetType == input.WidgetType ||
@@ -260,22 +497,50 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Bookmarked.GetHashCode();
                 if (this.Cjson != null)
                     hashCode = hashCode * 59 + this.Cjson.GetHashCode();
+                if (this.ContentManifest != null)
+                    hashCode = hashCode * 59 + this.ContentManifest.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.HashSha256 != null)
+                    hashCode = hashCode * 59 + this.HashSha256.GetHashCode();
+                if (this.LastModifiedDts != null)
+                    hashCode = hashCode * 59 + this.LastModifiedDts.GetHashCode();
                 if (this.LibraryOid != null)
                     hashCode = hashCode * 59 + this.LibraryOid.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Owned != null)
                     hashCode = hashCode * 59 + this.Owned.GetHashCode();
+                if (this.Parameters != null)
+                    hashCode = hashCode * 59 + this.Parameters.GetHashCode();
+                if (this.PublishedRevisionNumber != null)
+                    hashCode = hashCode * 59 + this.PublishedRevisionNumber.GetHashCode();
                 if (this.ReferencedFiles != null)
                     hashCode = hashCode * 59 + this.ReferencedFiles.GetHashCode();
+                if (this.Retired != null)
+                    hashCode = hashCode * 59 + this.Retired.GetHashCode();
+                if (this.RevisionNumber != null)
+                    hashCode = hashCode * 59 + this.RevisionNumber.GetHashCode();
+                if (this.ScreenshotHeight != null)
+                    hashCode = hashCode * 59 + this.ScreenshotHeight.GetHashCode();
                 if (this.ScreenshotKey != null)
                     hashCode = hashCode * 59 + this.ScreenshotKey.GetHashCode();
+                if (this.ScreenshotSha256 != null)
+                    hashCode = hashCode * 59 + this.ScreenshotSha256.GetHashCode();
+                if (this.ScreenshotStale != null)
+                    hashCode = hashCode * 59 + this.ScreenshotStale.GetHashCode();
+                if (this.ScreenshotWidth != null)
+                    hashCode = hashCode * 59 + this.ScreenshotWidth.GetHashCode();
                 if (this.ShareWithAccount != null)
                     hashCode = hashCode * 59 + this.ShareWithAccount.GetHashCode();
+                if (this.SharedWith != null)
+                    hashCode = hashCode * 59 + this.SharedWith.GetHashCode();
+                if (this.Taxonomy != null)
+                    hashCode = hashCode * 59 + this.Taxonomy.GetHashCode();
                 if (this.ThumbnailKey != null)
                     hashCode = hashCode * 59 + this.ThumbnailKey.GetHashCode();
+                if (this.Visibility != null)
+                    hashCode = hashCode * 59 + this.Visibility.GetHashCode();
                 if (this.WidgetType != null)
                     hashCode = hashCode * 59 + this.WidgetType.GetHashCode();
                 return hashCode;

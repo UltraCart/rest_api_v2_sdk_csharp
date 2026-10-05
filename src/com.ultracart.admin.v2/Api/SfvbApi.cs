@@ -124,6 +124,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
         ApiResponse<SfvbBlogPostDetail> AttachSfvbBlogPostImageWithHttpInfo (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest);
         /// <summary>
+        /// Remove a library entry's screenshot
+        /// </summary>
+        /// <remarks>
+        /// Owner only, with the draft's hash_sha256 as If-Match.  Clears the screenshot and thumbnail.  Published revisions and copies that used the image keep it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        SfvbLibraryEntry ClearSfvbLibraryScreenshot (int storefrontOid, int libraryOid, string ifMatch);
+
+        /// <summary>
+        /// Remove a library entry's screenshot
+        /// </summary>
+        /// <remarks>
+        /// Owner only, with the draft's hash_sha256 as If-Match.  Clears the screenshot and thumbnail.  Published revisions and copies that used the image keep it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        ApiResponse<SfvbLibraryEntry> ClearSfvbLibraryScreenshotWithHttpInfo (int storefrontOid, int libraryOid, string ifMatch);
+        /// <summary>
         /// Compile CJSON to Velocity
         /// </summary>
         /// <remarks>
@@ -144,6 +169,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="compileRequest">CJSON to compile</param>
         /// <returns>ApiResponse of SfvbCompileResponse</returns>
         ApiResponse<SfvbCompileResponse> CompileSfvbCjsonWithHttpInfo (SfvbCompileRequest compileRequest);
+        /// <summary>
+        /// Save a fragment to the library
+        /// </summary>
+        /// <remarks>
+        /// Creates a private draft owned by the calling user.  The fragment is one widget and its children, and it must validate.  Images it references on this storefront are copied into the entry before this returns, so it installs anywhere with its images.  The fragment is scanned; card skimming or obfuscation signals are refused outright.  Nothing other merchants or shoppers see changes, so sfvb_write is enough.  Publish it to share it.  An optional screenshot takes a staged PNG key, exactly as the library screenshot endpoint does; a refused screenshot refuses the whole create. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryEntry">The entry</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        SfvbLibraryEntry CreateSfvbLibraryEntry (int storefrontOid, SfvbLibraryEntryRequest libraryEntry);
+
+        /// <summary>
+        /// Save a fragment to the library
+        /// </summary>
+        /// <remarks>
+        /// Creates a private draft owned by the calling user.  The fragment is one widget and its children, and it must validate.  Images it references on this storefront are copied into the entry before this returns, so it installs anywhere with its images.  The fragment is scanned; card skimming or obfuscation signals are refused outright.  Nothing other merchants or shoppers see changes, so sfvb_write is enough.  Publish it to share it.  An optional screenshot takes a staged PNG key, exactly as the library screenshot endpoint does; a refused screenshot refuses the whole create. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryEntry">The entry</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        ApiResponse<SfvbLibraryEntry> CreateSfvbLibraryEntryWithHttpInfo (int storefrontOid, SfvbLibraryEntryRequest libraryEntry);
         /// <summary>
         /// One time link that opens a preview in a browser with no UltraCart login
         /// </summary>
@@ -293,6 +341,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbItemResponse</returns>
         ApiResponse<SfvbItemResponse> DeleteSfvbItemMultimediaWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string code = default(string), bool? _default = default(bool?));
         /// <summary>
+        /// Delete or retire a library entry
+        /// </summary>
+        /// <remarks>
+        /// Owner only, with the draft's hash_sha256 as If-Match.  An entry that was never published, installed or shared is deleted.  Anything else is retired - kept so the storefronts that installed it still resolve, but out of search and refusing new installs and publishes.  The result says which happened. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>SfvbLibraryDeleteResult</returns>
+        SfvbLibraryDeleteResult DeleteSfvbLibraryEntry (int storefrontOid, int libraryOid, string ifMatch);
+
+        /// <summary>
+        /// Delete or retire a library entry
+        /// </summary>
+        /// <remarks>
+        /// Owner only, with the draft's hash_sha256 as If-Match.  An entry that was never published, installed or shared is deleted.  Anything else is retired - kept so the storefronts that installed it still resolve, but out of search and refusing new installs and publishes.  The result says which happened. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbLibraryDeleteResult</returns>
+        ApiResponse<SfvbLibraryDeleteResult> DeleteSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, string ifMatch);
+        /// <summary>
         /// Detach an image from a page
         /// </summary>
         /// <remarks>
@@ -437,6 +510,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DownloadSfvbFileWithHttpInfo (int storefrontOid, string path = default(string));
         /// <summary>
+        /// Copy a library entry into a new private entry
+        /// </summary>
+        /// <remarks>
+        /// The copy is owned by the calling user and private.  From an entry you own it copies the draft; from one shared with you it copies the published revision.  It is scanned on its own and inherits nothing but content, its images and its screenshot. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="name">Name for the copy.  Defaults to Copy of and the source name. (optional)</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        SfvbLibraryEntry DuplicateSfvbLibraryEntry (int storefrontOid, int libraryOid, string name = default(string));
+
+        /// <summary>
+        /// Copy a library entry into a new private entry
+        /// </summary>
+        /// <remarks>
+        /// The copy is owned by the calling user and private.  From an entry you own it copies the draft; from one shared with you it copies the published revision.  It is scanned on its own and inherits nothing but content, its images and its screenshot. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="name">Name for the copy.  Defaults to Copy of and the source name. (optional)</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        ApiResponse<SfvbLibraryEntry> DuplicateSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, string name = default(string));
+        /// <summary>
         /// Copy a page to a new path
         /// </summary>
         /// <remarks>
@@ -557,6 +655,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="experimentEndRequest">The winner, if any (optional)</param>
         /// <returns>ApiResponse of SfvbExperiment</returns>
         ApiResponse<SfvbExperiment> EndSfvbExperimentWithHttpInfo (int storefrontOid, int experimentOid, SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest));
+        /// <summary>
+        /// Favorite a library entry
+        /// </summary>
+        /// <remarks>
+        /// Bookmarks the entry for the calling user.  Idempotent.  Owner or anyone the entry is shared with. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <returns></returns>
+        void FavoriteSfvbLibraryEntry (int storefrontOid, int libraryOid);
+
+        /// <summary>
+        /// Favorite a library entry
+        /// </summary>
+        /// <remarks>
+        /// Bookmarks the entry for the calling user.  Idempotent.  Owner or anyone the entry is shared with. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> FavoriteSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid);
         /// <summary>
         /// Read a blog post
         /// </summary>
@@ -801,25 +922,92 @@ namespace com.ultracart.admin.v2.Api
         /// Read one library entry including its CJSON
         /// </summary>
         /// <remarks>
-        /// Returns the fragment as authored.  If it references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
+        /// The owner gets the draft with its hash_sha256, which an update, delete or publish sends back as If-Match.  Everyone else gets the latest published revision.  Pin a published revision with revision_number.  Read content_manifest before installing.  If the fragment references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
+        /// <param name="revisionNumber">A published revision to read instead of the default. (optional)</param>
         /// <returns>SfvbLibraryEntry</returns>
-        SfvbLibraryEntry GetSfvbLibraryEntry (int storefrontOid, int libraryOid);
+        SfvbLibraryEntry GetSfvbLibraryEntry (int storefrontOid, int libraryOid, int? revisionNumber = default(int?));
 
         /// <summary>
         /// Read one library entry including its CJSON
         /// </summary>
         /// <remarks>
-        /// Returns the fragment as authored.  If it references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
+        /// The owner gets the draft with its hash_sha256, which an update, delete or publish sends back as If-Match.  Everyone else gets the latest published revision.  Pin a published revision with revision_number.  Read content_manifest before installing.  If the fragment references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
+        /// <param name="revisionNumber">A published revision to read instead of the default. (optional)</param>
         /// <returns>ApiResponse of SfvbLibraryEntry</returns>
-        ApiResponse<SfvbLibraryEntry> GetSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid);
+        ApiResponse<SfvbLibraryEntry> GetSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, int? revisionNumber = default(int?));
+        /// <summary>
+        /// List a library entry's published revisions
+        /// </summary>
+        /// <remarks>
+        /// Newest first, each with its release notes and hash.  Read one with getSfvbLibraryEntry and revision_number.  The owner and anyone the entry is shared with can list it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <returns>SfvbLibraryHistoryEntry</returns>
+        SfvbLibraryHistoryEntry GetSfvbLibraryHistory (int storefrontOid, int libraryOid);
+
+        /// <summary>
+        /// List a library entry's published revisions
+        /// </summary>
+        /// <remarks>
+        /// Newest first, each with its release notes and hash.  Read one with getSfvbLibraryEntry and revision_number.  The owner and anyone the entry is shared with can list it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <returns>ApiResponse of SfvbLibraryHistoryEntry</returns>
+        ApiResponse<SfvbLibraryHistoryEntry> GetSfvbLibraryHistoryWithHttpInfo (int storefrontOid, int libraryOid);
+        /// <summary>
+        /// List the accounts a library entry can be shared with
+        /// </summary>
+        /// <remarks>
+        /// The calling account's linked accounts, each with its merchant id and company.  These are the only merchants a share can name. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbLibraryShareTarget</returns>
+        SfvbLibraryShareTarget GetSfvbLibraryShareTargets (int storefrontOid);
+
+        /// <summary>
+        /// List the accounts a library entry can be shared with
+        /// </summary>
+        /// <remarks>
+        /// The calling account's linked accounts, each with its merchant id and company.  These are the only merchants a share can name. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbLibraryShareTarget</returns>
+        ApiResponse<SfvbLibraryShareTarget> GetSfvbLibraryShareTargetsWithHttpInfo (int storefrontOid);
+        /// <summary>
+        /// List the allowed library tags
+        /// </summary>
+        /// <remarks>
+        /// The fixed tag list for purpose, section, industry and style, each tag with a one line description.  Saving an entry refuses any tag not on it with sfvb.library_taxonomy_unknown, naming the closest one.  The same tags are the facet_purpose, facet_section, facet_industry and facet_style search facets. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbLibraryTaxonomyCatalog</returns>
+        SfvbLibraryTaxonomyCatalog GetSfvbLibraryTaxonomy (int storefrontOid);
+
+        /// <summary>
+        /// List the allowed library tags
+        /// </summary>
+        /// <remarks>
+        /// The fixed tag list for purpose, section, industry and style, each tag with a one line description.  Saving an entry refuses any tag not on it with sfvb.library_taxonomy_unknown, naming the closest one.  The same tags are the facet_purpose, facet_section, facet_industry and facet_style search facets. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbLibraryTaxonomyCatalog</returns>
+        ApiResponse<SfvbLibraryTaxonomyCatalog> GetSfvbLibraryTaxonomyWithHttpInfo (int storefrontOid);
         /// <summary>
         /// Read one store menu and its entries
         /// </summary>
@@ -1361,25 +1549,27 @@ namespace com.ultracart.admin.v2.Api
         /// Install a library entry into a storefront
         /// </summary>
         /// <remarks>
-        /// Copies the fragment's referenced assets into the storefront file system and returns the CJSON with its paths resolved, ready to place.  This writes, which is why it is a POST rather than the GET the internal admin endpoint uses.  It also requires sfvb_publish, because the assets land in the shared storefront file system, which is served to shoppers regardless of which theme is active, so no amount of working inside a duplicate theme isolates them. 
+        /// Copies the fragment's referenced files into the storefront file system and returns a receipt with the CJSON's paths resolved, ready to place.  It never places the CJSON.  Read content_manifest first; executable content needs acknowledge_executable true.  A file that already exists with different content is a conflict - on_conflict fail (the default) refuses with 409 and writes nothing, skip keeps the existing file, overwrite replaces it.  A recipient installs a published revision.  This writes, which is why it is a POST, and it requires sfvb_publish because the files land in the shared storefront file system, which is served to shoppers whichever theme is active. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
-        /// <returns>SfvbLibraryEntry</returns>
-        SfvbLibraryEntry InstallSfvbLibraryEntry (int storefrontOid, int libraryOid);
+        /// <param name="installRequest">Revision, conflict handling and acknowledgement (optional)</param>
+        /// <returns>SfvbLibraryInstallReceipt</returns>
+        SfvbLibraryInstallReceipt InstallSfvbLibraryEntry (int storefrontOid, int libraryOid, SfvbLibraryInstallRequest installRequest = default(SfvbLibraryInstallRequest));
 
         /// <summary>
         /// Install a library entry into a storefront
         /// </summary>
         /// <remarks>
-        /// Copies the fragment's referenced assets into the storefront file system and returns the CJSON with its paths resolved, ready to place.  This writes, which is why it is a POST rather than the GET the internal admin endpoint uses.  It also requires sfvb_publish, because the assets land in the shared storefront file system, which is served to shoppers regardless of which theme is active, so no amount of working inside a duplicate theme isolates them. 
+        /// Copies the fragment's referenced files into the storefront file system and returns a receipt with the CJSON's paths resolved, ready to place.  It never places the CJSON.  Read content_manifest first; executable content needs acknowledge_executable true.  A file that already exists with different content is a conflict - on_conflict fail (the default) refuses with 409 and writes nothing, skip keeps the existing file, overwrite replaces it.  A recipient installs a published revision.  This writes, which is why it is a POST, and it requires sfvb_publish because the files land in the shared storefront file system, which is served to shoppers whichever theme is active. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
-        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
-        ApiResponse<SfvbLibraryEntry> InstallSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid);
+        /// <param name="installRequest">Revision, conflict handling and acknowledgement (optional)</param>
+        /// <returns>ApiResponse of SfvbLibraryInstallReceipt</returns>
+        ApiResponse<SfvbLibraryInstallReceipt> InstallSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, SfvbLibraryInstallRequest installRequest = default(SfvbLibraryInstallRequest));
         /// <summary>
         /// List the storefront's blog posts
         /// </summary>
@@ -1563,6 +1753,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="offset"> (optional)</param>
         /// <returns>ApiResponse of SfvbItemContainersResponse</returns>
         ApiResponse<SfvbItemContainersResponse> ListSfvbItemContainersWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string containerName = default(string), int? maxResults = default(int?), int? offset = default(int?));
+        /// <summary>
+        /// List the library entries installed on a storefront
+        /// </summary>
+        /// <remarks>
+        /// Each entry's most recently installed revision, its latest published revision and update_available.  Nothing updates automatically.  An entry this account can no longer see is listed without its name. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbLibraryInstallRecord</returns>
+        SfvbLibraryInstallRecord ListSfvbLibraryInstalls (int storefrontOid);
+
+        /// <summary>
+        /// List the library entries installed on a storefront
+        /// </summary>
+        /// <remarks>
+        /// Each entry's most recently installed revision, its latest published revision and update_available.  Nothing updates automatically.  An entry this account can no longer see is listed without its name. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbLibraryInstallRecord</returns>
+        ApiResponse<SfvbLibraryInstallRecord> ListSfvbLibraryInstallsWithHttpInfo (int storefrontOid);
         /// <summary>
         /// List the storefront's pages
         /// </summary>
@@ -1771,6 +1982,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="moveRequest">Where to move it</param>
         /// <returns>ApiResponse of SfvbUpsellPath</returns>
         ApiResponse<SfvbUpsellPath> MoveSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, SfvbUpsellPathMoveRequest moveRequest);
+        /// <summary>
+        /// Publish a library entry's draft
+        /// </summary>
+        /// <remarks>
+        /// Freezes the draft as a published revision at its revision_number and sets who can see it.  Owner only, with the draft's hash_sha256 as If-Match.  Always needs sfvb_publish, because it changes what other merchants can install.  Images, fonts, stylesheets and media must be relative paths, and credential shaped strings are refused.  Public also needs the library publisher property on the account and no executable content at all - no script, html, embed, css or velocity elements.  After those checks an automated AI review reads the fragment, which can take up to about a minute.  A clear violation both of its models agree on refuses any publish with sfvb.library_ai_review_blocked.  A public publish also needs its approval, otherwise sfvb.library_ai_review_inconclusive.  The result is in content_manifest.ai_review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="publishRequest">Visibility and release notes</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        SfvbLibraryEntry PublishSfvbLibraryEntry (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryPublishRequest publishRequest);
+
+        /// <summary>
+        /// Publish a library entry's draft
+        /// </summary>
+        /// <remarks>
+        /// Freezes the draft as a published revision at its revision_number and sets who can see it.  Owner only, with the draft's hash_sha256 as If-Match.  Always needs sfvb_publish, because it changes what other merchants can install.  Images, fonts, stylesheets and media must be relative paths, and credential shaped strings are refused.  Public also needs the library publisher property on the account and no executable content at all - no script, html, embed, css or velocity elements.  After those checks an automated AI review reads the fragment, which can take up to about a minute.  A clear violation both of its models agree on refuses any publish with sfvb.library_ai_review_blocked.  A public publish also needs its approval, otherwise sfvb.library_ai_review_inconclusive.  The result is in content_manifest.ai_review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="publishRequest">Visibility and release notes</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        ApiResponse<SfvbLibraryEntry> PublishSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryPublishRequest publishRequest);
         /// <summary>
         /// Write a container stored outside the file system
         /// </summary>
@@ -2418,7 +2656,7 @@ namespace com.ultracart.admin.v2.Api
         /// Search the element library
         /// </summary>
         /// <remarks>
-        /// Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with facet_{name}={option} query parameters. 
+        /// Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with a query parameter named after a facet, such as facet_purpose, whose value is the facet name, a colon and one of its options.  Besides element type and author, the facets include purpose, section, industry and style from library/taxonomy, and the search text matches those tags too.  Results follow the same rules as reading one entry, so others see published revisions only. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -2433,7 +2671,7 @@ namespace com.ultracart.admin.v2.Api
         /// Search the element library
         /// </summary>
         /// <remarks>
-        /// Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with facet_{name}={option} query parameters. 
+        /// Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with a query parameter named after a facet, such as facet_purpose, whose value is the facet name, a colon and one of its options.  Besides element type and author, the facets include purpose, section, industry and style from library/taxonomy, and the search text matches those tags too.  Results follow the same rules as reading one entry, so others see published revisions only. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -2443,6 +2681,58 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="resultsPerPage"> (optional)</param>
         /// <returns>ApiResponse of SfvbLibraryResponse</returns>
         ApiResponse<SfvbLibraryResponse> SearchSfvbLibraryWithHttpInfo (int storefrontOid, string segment = default(string), string search = default(string), int? pageNumber = default(int?), int? resultsPerPage = default(int?));
+        /// <summary>
+        /// Set a library entry's screenshot
+        /// </summary>
+        /// <remarks>
+        /// Three calls, like the other uploads.  Request an upload URL with files/upload_url/png, PUT the PNG bytes to it, then call this with the key, the sha256 of those bytes and where the image came from.  Owner only, with the draft's hash_sha256 as If-Match.  The PNG must be at most 5 MB and 4096 pixels a side; it is re-encoded, which drops any metadata, and a thumbnail is made from it before this returns.  Capture it with test data only.  A refused image leaves the previous screenshot in place.  Other merchants see a new screenshot only after the next publish, whose review checks it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="screenshotRequest">The staged PNG</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        SfvbLibraryEntry SetSfvbLibraryScreenshot (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryScreenshotRequest screenshotRequest);
+
+        /// <summary>
+        /// Set a library entry's screenshot
+        /// </summary>
+        /// <remarks>
+        /// Three calls, like the other uploads.  Request an upload URL with files/upload_url/png, PUT the PNG bytes to it, then call this with the key, the sha256 of those bytes and where the image came from.  Owner only, with the draft's hash_sha256 as If-Match.  The PNG must be at most 5 MB and 4096 pixels a side; it is re-encoded, which drops any metadata, and a thumbnail is made from it before this returns.  Capture it with test data only.  A refused image leaves the previous screenshot in place.  Other merchants see a new screenshot only after the next publish, whose review checks it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="screenshotRequest">The staged PNG</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        ApiResponse<SfvbLibraryEntry> SetSfvbLibraryScreenshotWithHttpInfo (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryScreenshotRequest screenshotRequest);
+        /// <summary>
+        /// Share a published library entry with a linked account
+        /// </summary>
+        /// <remarks>
+        /// Owner only, and always needs sfvb_publish.  The merchant must be one share_targets lists, and the entry must have a published revision, which is what the recipient sees.  The published revision is checked again for absolute asset URLs and credentials.  Idempotent. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="shareRequest">The linked account</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        SfvbLibraryEntry ShareSfvbLibraryEntry (int storefrontOid, int libraryOid, SfvbLibraryShareRequest shareRequest);
+
+        /// <summary>
+        /// Share a published library entry with a linked account
+        /// </summary>
+        /// <remarks>
+        /// Owner only, and always needs sfvb_publish.  The merchant must be one share_targets lists, and the entry must have a published revision, which is what the recipient sees.  The published revision is checked again for absolute asset URLs and credentials.  Idempotent. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="shareRequest">The linked account</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        ApiResponse<SfvbLibraryEntry> ShareSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, SfvbLibraryShareRequest shareRequest);
         /// <summary>
         /// Start an experiment
         /// </summary>
@@ -2490,6 +2780,79 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbUpsellPath</returns>
         ApiResponse<SfvbUpsellPath> UnarchiveSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid);
         /// <summary>
+        /// Remove a library entry from favorites
+        /// </summary>
+        /// <remarks>
+        /// Removes the calling user's bookmark.  Idempotent. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <returns></returns>
+        void UnfavoriteSfvbLibraryEntry (int storefrontOid, int libraryOid);
+
+        /// <summary>
+        /// Remove a library entry from favorites
+        /// </summary>
+        /// <remarks>
+        /// Removes the calling user's bookmark.  Idempotent. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UnfavoriteSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid);
+        /// <summary>
+        /// Narrow who can see a library entry
+        /// </summary>
+        /// <remarks>
+        /// Sets visibility to shared or private.  Owner only, and always needs sfvb_publish.  Published revisions are kept and storefronts that already installed the entry keep their copies. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="unpublishRequest">The narrower visibility</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        SfvbLibraryEntry UnpublishSfvbLibraryEntry (int storefrontOid, int libraryOid, SfvbLibraryPublishRequest unpublishRequest);
+
+        /// <summary>
+        /// Narrow who can see a library entry
+        /// </summary>
+        /// <remarks>
+        /// Sets visibility to shared or private.  Owner only, and always needs sfvb_publish.  Published revisions are kept and storefronts that already installed the entry keep their copies. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="unpublishRequest">The narrower visibility</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        ApiResponse<SfvbLibraryEntry> UnpublishSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, SfvbLibraryPublishRequest unpublishRequest);
+        /// <summary>
+        /// Stop sharing a library entry with an account
+        /// </summary>
+        /// <remarks>
+        /// Owner only, and always needs sfvb_publish.  Stops further installs by that account.  Its existing installs keep their copies and are listed in the result.  Idempotent, and still works while the library is turned off. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="merchantId"></param>
+        /// <returns>SfvbLibraryUnshareResult</returns>
+        SfvbLibraryUnshareResult UnshareSfvbLibraryEntry (int storefrontOid, int libraryOid, string merchantId);
+
+        /// <summary>
+        /// Stop sharing a library entry with an account
+        /// </summary>
+        /// <remarks>
+        /// Owner only, and always needs sfvb_publish.  Stops further installs by that account.  Its existing installs keep their copies and are listed in the result.  Idempotent, and still works while the library is turned off. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="merchantId"></param>
+        /// <returns>ApiResponse of SfvbLibraryUnshareResult</returns>
+        ApiResponse<SfvbLibraryUnshareResult> UnshareSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, string merchantId);
+        /// <summary>
         /// Change a blog post
         /// </summary>
         /// <remarks>
@@ -2514,6 +2877,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="blogPostRequest">The fields to change</param>
         /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
         ApiResponse<SfvbBlogPostDetail> UpdateSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest);
+        /// <summary>
+        /// Update a library entry's draft
+        /// </summary>
+        /// <remarks>
+        /// A full replace of the draft's fields.  Owner only.  Send the hash_sha256 you read as If-Match.  Every save increments revision_number; nothing other merchants see changes until the draft is published.  A changed fragment is re-scanned and its images copied again, and screenshot_stale tells you to retake the screenshot. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="libraryEntry">The whole entry</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        SfvbLibraryEntry UpdateSfvbLibraryEntry (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryEntryRequest libraryEntry);
+
+        /// <summary>
+        /// Update a library entry's draft
+        /// </summary>
+        /// <remarks>
+        /// A full replace of the draft's fields.  Owner only.  Send the hash_sha256 you read as If-Match.  Every save increments revision_number; nothing other merchants see changes until the draft is published.  A changed fragment is re-scanned and its images copied again, and screenshot_stale tells you to retake the screenshot. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="libraryEntry">The whole entry</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        ApiResponse<SfvbLibraryEntry> UpdateSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryEntryRequest libraryEntry);
         /// <summary>
         /// Update an upsell offer
         /// </summary>
@@ -2748,6 +3138,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> AttachSfvbBlogPostImageWithHttpInfoAsync (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Remove a library entry's screenshot
+        /// </summary>
+        /// <remarks>
+        /// Owner only, with the draft's hash_sha256 as If-Match.  Clears the screenshot and thumbnail.  Published revisions and copies that used the image keep it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        System.Threading.Tasks.Task<SfvbLibraryEntry> ClearSfvbLibraryScreenshotAsync (int storefrontOid, int libraryOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Remove a library entry&#39;s screenshot
+        /// </summary>
+        /// <remarks>
+        /// Owner only, with the draft's hash_sha256 as If-Match.  Clears the screenshot and thumbnail.  Published revisions and copies that used the image keep it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> ClearSfvbLibraryScreenshotWithHttpInfoAsync (int storefrontOid, int libraryOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Compile CJSON to Velocity
         /// </summary>
         /// <remarks>
@@ -2770,6 +3187,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbCompileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCompileResponse>> CompileSfvbCjsonWithHttpInfoAsync (SfvbCompileRequest compileRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Save a fragment to the library
+        /// </summary>
+        /// <remarks>
+        /// Creates a private draft owned by the calling user.  The fragment is one widget and its children, and it must validate.  Images it references on this storefront are copied into the entry before this returns, so it installs anywhere with its images.  The fragment is scanned; card skimming or obfuscation signals are refused outright.  Nothing other merchants or shoppers see changes, so sfvb_write is enough.  Publish it to share it.  An optional screenshot takes a staged PNG key, exactly as the library screenshot endpoint does; a refused screenshot refuses the whole create. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryEntry">The entry</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        System.Threading.Tasks.Task<SfvbLibraryEntry> CreateSfvbLibraryEntryAsync (int storefrontOid, SfvbLibraryEntryRequest libraryEntry, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Save a fragment to the library
+        /// </summary>
+        /// <remarks>
+        /// Creates a private draft owned by the calling user.  The fragment is one widget and its children, and it must validate.  Images it references on this storefront are copied into the entry before this returns, so it installs anywhere with its images.  The fragment is scanned; card skimming or obfuscation signals are refused outright.  Nothing other merchants or shoppers see changes, so sfvb_write is enough.  Publish it to share it.  An optional screenshot takes a staged PNG key, exactly as the library screenshot endpoint does; a refused screenshot refuses the whole create. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryEntry">The entry</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> CreateSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, SfvbLibraryEntryRequest libraryEntry, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// One time link that opens a preview in a browser with no UltraCart login
         /// </summary>
@@ -2931,6 +3373,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> DeleteSfvbItemMultimediaWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string code = default(string), bool? _default = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Delete or retire a library entry
+        /// </summary>
+        /// <remarks>
+        /// Owner only, with the draft's hash_sha256 as If-Match.  An entry that was never published, installed or shared is deleted.  Anything else is retired - kept so the storefronts that installed it still resolve, but out of search and refusing new installs and publishes.  The result says which happened. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryDeleteResult</returns>
+        System.Threading.Tasks.Task<SfvbLibraryDeleteResult> DeleteSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete or retire a library entry
+        /// </summary>
+        /// <remarks>
+        /// Owner only, with the draft's hash_sha256 as If-Match.  An entry that was never published, installed or shared is deleted.  Anything else is retired - kept so the storefronts that installed it still resolve, but out of search and refusing new installs and publishes.  The result says which happened. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryDeleteResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryDeleteResult>> DeleteSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Detach an image from a page
         /// </summary>
         /// <remarks>
@@ -3087,6 +3556,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DownloadSfvbFileWithHttpInfoAsync (int storefrontOid, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Copy a library entry into a new private entry
+        /// </summary>
+        /// <remarks>
+        /// The copy is owned by the calling user and private.  From an entry you own it copies the draft; from one shared with you it copies the published revision.  It is scanned on its own and inherits nothing but content, its images and its screenshot. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="name">Name for the copy.  Defaults to Copy of and the source name. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        System.Threading.Tasks.Task<SfvbLibraryEntry> DuplicateSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, string name = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Copy a library entry into a new private entry
+        /// </summary>
+        /// <remarks>
+        /// The copy is owned by the calling user and private.  From an entry you own it copies the draft; from one shared with you it copies the published revision.  It is scanned on its own and inherits nothing but content, its images and its screenshot. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="name">Name for the copy.  Defaults to Copy of and the source name. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> DuplicateSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, string name = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Copy a page to a new path
         /// </summary>
         /// <remarks>
@@ -3217,6 +3713,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> EndSfvbExperimentWithHttpInfoAsync (int storefrontOid, int experimentOid, SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Favorite a library entry
+        /// </summary>
+        /// <remarks>
+        /// Bookmarks the entry for the calling user.  Idempotent.  Owner or anyone the entry is shared with. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task FavoriteSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Favorite a library entry
+        /// </summary>
+        /// <remarks>
+        /// Bookmarks the entry for the calling user.  Idempotent.  Owner or anyone the entry is shared with. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> FavoriteSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read a blog post
         /// </summary>
@@ -3481,27 +4002,100 @@ namespace com.ultracart.admin.v2.Api
         /// Read one library entry including its CJSON
         /// </summary>
         /// <remarks>
-        /// Returns the fragment as authored.  If it references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
+        /// The owner gets the draft with its hash_sha256, which an update, delete or publish sends back as If-Match.  Everyone else gets the latest published revision.  Pin a published revision with revision_number.  Read content_manifest before installing.  If the fragment references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
+        /// <param name="revisionNumber">A published revision to read instead of the default. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbLibraryEntry</returns>
-        System.Threading.Tasks.Task<SfvbLibraryEntry> GetSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<SfvbLibraryEntry> GetSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, int? revisionNumber = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Read one library entry including its CJSON
         /// </summary>
         /// <remarks>
-        /// Returns the fragment as authored.  If it references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
+        /// The owner gets the draft with its hash_sha256, which an update, delete or publish sends back as If-Match.  Everyone else gets the latest published revision.  Pin a published revision with revision_number.  Read content_manifest before installing.  If the fragment references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="revisionNumber">A published revision to read instead of the default. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> GetSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, int? revisionNumber = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List a library entry's published revisions
+        /// </summary>
+        /// <remarks>
+        /// Newest first, each with its release notes and hash.  Read one with getSfvbLibraryEntry and revision_number.  The owner and anyone the entry is shared with can list it. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> GetSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of SfvbLibraryHistoryEntry</returns>
+        System.Threading.Tasks.Task<SfvbLibraryHistoryEntry> GetSfvbLibraryHistoryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List a library entry&#39;s published revisions
+        /// </summary>
+        /// <remarks>
+        /// Newest first, each with its release notes and hash.  Read one with getSfvbLibraryEntry and revision_number.  The owner and anyone the entry is shared with can list it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryHistoryEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryHistoryEntry>> GetSfvbLibraryHistoryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the accounts a library entry can be shared with
+        /// </summary>
+        /// <remarks>
+        /// The calling account's linked accounts, each with its merchant id and company.  These are the only merchants a share can name. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryShareTarget</returns>
+        System.Threading.Tasks.Task<SfvbLibraryShareTarget> GetSfvbLibraryShareTargetsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the accounts a library entry can be shared with
+        /// </summary>
+        /// <remarks>
+        /// The calling account's linked accounts, each with its merchant id and company.  These are the only merchants a share can name. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryShareTarget)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryShareTarget>> GetSfvbLibraryShareTargetsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the allowed library tags
+        /// </summary>
+        /// <remarks>
+        /// The fixed tag list for purpose, section, industry and style, each tag with a one line description.  Saving an entry refuses any tag not on it with sfvb.library_taxonomy_unknown, naming the closest one.  The same tags are the facet_purpose, facet_section, facet_industry and facet_style search facets. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryTaxonomyCatalog</returns>
+        System.Threading.Tasks.Task<SfvbLibraryTaxonomyCatalog> GetSfvbLibraryTaxonomyAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the allowed library tags
+        /// </summary>
+        /// <remarks>
+        /// The fixed tag list for purpose, section, industry and style, each tag with a one line description.  Saving an entry refuses any tag not on it with sfvb.library_taxonomy_unknown, naming the closest one.  The same tags are the facet_purpose, facet_section, facet_industry and facet_style search facets. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryTaxonomyCatalog)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryTaxonomyCatalog>> GetSfvbLibraryTaxonomyWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read one store menu and its entries
         /// </summary>
@@ -4089,27 +4683,29 @@ namespace com.ultracart.admin.v2.Api
         /// Install a library entry into a storefront
         /// </summary>
         /// <remarks>
-        /// Copies the fragment's referenced assets into the storefront file system and returns the CJSON with its paths resolved, ready to place.  This writes, which is why it is a POST rather than the GET the internal admin endpoint uses.  It also requires sfvb_publish, because the assets land in the shared storefront file system, which is served to shoppers regardless of which theme is active, so no amount of working inside a duplicate theme isolates them. 
+        /// Copies the fragment's referenced files into the storefront file system and returns a receipt with the CJSON's paths resolved, ready to place.  It never places the CJSON.  Read content_manifest first; executable content needs acknowledge_executable true.  A file that already exists with different content is a conflict - on_conflict fail (the default) refuses with 409 and writes nothing, skip keeps the existing file, overwrite replaces it.  A recipient installs a published revision.  This writes, which is why it is a POST, and it requires sfvb_publish because the files land in the shared storefront file system, which is served to shoppers whichever theme is active. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
+        /// <param name="installRequest">Revision, conflict handling and acknowledgement (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of SfvbLibraryEntry</returns>
-        System.Threading.Tasks.Task<SfvbLibraryEntry> InstallSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of SfvbLibraryInstallReceipt</returns>
+        System.Threading.Tasks.Task<SfvbLibraryInstallReceipt> InstallSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, SfvbLibraryInstallRequest installRequest = default(SfvbLibraryInstallRequest), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Install a library entry into a storefront
         /// </summary>
         /// <remarks>
-        /// Copies the fragment's referenced assets into the storefront file system and returns the CJSON with its paths resolved, ready to place.  This writes, which is why it is a POST rather than the GET the internal admin endpoint uses.  It also requires sfvb_publish, because the assets land in the shared storefront file system, which is served to shoppers regardless of which theme is active, so no amount of working inside a duplicate theme isolates them. 
+        /// Copies the fragment's referenced files into the storefront file system and returns a receipt with the CJSON's paths resolved, ready to place.  It never places the CJSON.  Read content_manifest first; executable content needs acknowledge_executable true.  A file that already exists with different content is a conflict - on_conflict fail (the default) refuses with 409 and writes nothing, skip keeps the existing file, overwrite replaces it.  A recipient installs a published revision.  This writes, which is why it is a POST, and it requires sfvb_publish because the files land in the shared storefront file system, which is served to shoppers whichever theme is active. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
+        /// <param name="installRequest">Revision, conflict handling and acknowledgement (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> InstallSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (SfvbLibraryInstallReceipt)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryInstallReceipt>> InstallSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, SfvbLibraryInstallRequest installRequest = default(SfvbLibraryInstallRequest), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// List the storefront's blog posts
         /// </summary>
@@ -4307,6 +4903,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbItemContainersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbItemContainersResponse>> ListSfvbItemContainersWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), string containerName = default(string), int? maxResults = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the library entries installed on a storefront
+        /// </summary>
+        /// <remarks>
+        /// Each entry's most recently installed revision, its latest published revision and update_available.  Nothing updates automatically.  An entry this account can no longer see is listed without its name. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryInstallRecord</returns>
+        System.Threading.Tasks.Task<SfvbLibraryInstallRecord> ListSfvbLibraryInstallsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the library entries installed on a storefront
+        /// </summary>
+        /// <remarks>
+        /// Each entry's most recently installed revision, its latest published revision and update_available.  Nothing updates automatically.  An entry this account can no longer see is listed without its name. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryInstallRecord)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryInstallRecord>> ListSfvbLibraryInstallsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// List the storefront's pages
         /// </summary>
@@ -4531,6 +5150,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> MoveSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, SfvbUpsellPathMoveRequest moveRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Publish a library entry's draft
+        /// </summary>
+        /// <remarks>
+        /// Freezes the draft as a published revision at its revision_number and sets who can see it.  Owner only, with the draft's hash_sha256 as If-Match.  Always needs sfvb_publish, because it changes what other merchants can install.  Images, fonts, stylesheets and media must be relative paths, and credential shaped strings are refused.  Public also needs the library publisher property on the account and no executable content at all - no script, html, embed, css or velocity elements.  After those checks an automated AI review reads the fragment, which can take up to about a minute.  A clear violation both of its models agree on refuses any publish with sfvb.library_ai_review_blocked.  A public publish also needs its approval, otherwise sfvb.library_ai_review_inconclusive.  The result is in content_manifest.ai_review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="publishRequest">Visibility and release notes</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        System.Threading.Tasks.Task<SfvbLibraryEntry> PublishSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryPublishRequest publishRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Publish a library entry&#39;s draft
+        /// </summary>
+        /// <remarks>
+        /// Freezes the draft as a published revision at its revision_number and sets who can see it.  Owner only, with the draft's hash_sha256 as If-Match.  Always needs sfvb_publish, because it changes what other merchants can install.  Images, fonts, stylesheets and media must be relative paths, and credential shaped strings are refused.  Public also needs the library publisher property on the account and no executable content at all - no script, html, embed, css or velocity elements.  After those checks an automated AI review reads the fragment, which can take up to about a minute.  A clear violation both of its models agree on refuses any publish with sfvb.library_ai_review_blocked.  A public publish also needs its approval, otherwise sfvb.library_ai_review_inconclusive.  The result is in content_manifest.ai_review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="publishRequest">Visibility and release notes</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> PublishSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryPublishRequest publishRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Write a container stored outside the file system
         /// </summary>
@@ -5228,7 +5876,7 @@ namespace com.ultracart.admin.v2.Api
         /// Search the element library
         /// </summary>
         /// <remarks>
-        /// Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with facet_{name}={option} query parameters. 
+        /// Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with a query parameter named after a facet, such as facet_purpose, whose value is the facet name, a colon and one of its options.  Besides element type and author, the facets include purpose, section, industry and style from library/taxonomy, and the search text matches those tags too.  Results follow the same rules as reading one entry, so others see published revisions only. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5244,7 +5892,7 @@ namespace com.ultracart.admin.v2.Api
         /// Search the element library
         /// </summary>
         /// <remarks>
-        /// Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with facet_{name}={option} query parameters. 
+        /// Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with a query parameter named after a facet, such as facet_purpose, whose value is the facet name, a colon and one of its options.  Besides element type and author, the facets include purpose, section, industry and style from library/taxonomy, and the search text matches those tags too.  Results follow the same rules as reading one entry, so others see published revisions only. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5255,6 +5903,62 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbLibraryResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbLibraryResponse>> SearchSfvbLibraryWithHttpInfoAsync (int storefrontOid, string segment = default(string), string search = default(string), int? pageNumber = default(int?), int? resultsPerPage = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Set a library entry's screenshot
+        /// </summary>
+        /// <remarks>
+        /// Three calls, like the other uploads.  Request an upload URL with files/upload_url/png, PUT the PNG bytes to it, then call this with the key, the sha256 of those bytes and where the image came from.  Owner only, with the draft's hash_sha256 as If-Match.  The PNG must be at most 5 MB and 4096 pixels a side; it is re-encoded, which drops any metadata, and a thumbnail is made from it before this returns.  Capture it with test data only.  A refused image leaves the previous screenshot in place.  Other merchants see a new screenshot only after the next publish, whose review checks it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="screenshotRequest">The staged PNG</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        System.Threading.Tasks.Task<SfvbLibraryEntry> SetSfvbLibraryScreenshotAsync (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryScreenshotRequest screenshotRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Set a library entry&#39;s screenshot
+        /// </summary>
+        /// <remarks>
+        /// Three calls, like the other uploads.  Request an upload URL with files/upload_url/png, PUT the PNG bytes to it, then call this with the key, the sha256 of those bytes and where the image came from.  Owner only, with the draft's hash_sha256 as If-Match.  The PNG must be at most 5 MB and 4096 pixels a side; it is re-encoded, which drops any metadata, and a thumbnail is made from it before this returns.  Capture it with test data only.  A refused image leaves the previous screenshot in place.  Other merchants see a new screenshot only after the next publish, whose review checks it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="screenshotRequest">The staged PNG</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> SetSfvbLibraryScreenshotWithHttpInfoAsync (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryScreenshotRequest screenshotRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Share a published library entry with a linked account
+        /// </summary>
+        /// <remarks>
+        /// Owner only, and always needs sfvb_publish.  The merchant must be one share_targets lists, and the entry must have a published revision, which is what the recipient sees.  The published revision is checked again for absolute asset URLs and credentials.  Idempotent. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="shareRequest">The linked account</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        System.Threading.Tasks.Task<SfvbLibraryEntry> ShareSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, SfvbLibraryShareRequest shareRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Share a published library entry with a linked account
+        /// </summary>
+        /// <remarks>
+        /// Owner only, and always needs sfvb_publish.  The merchant must be one share_targets lists, and the entry must have a published revision, which is what the recipient sees.  The published revision is checked again for absolute asset URLs and credentials.  Idempotent. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="shareRequest">The linked account</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> ShareSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, SfvbLibraryShareRequest shareRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Start an experiment
         /// </summary>
@@ -5306,6 +6010,85 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> UnarchiveSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Remove a library entry from favorites
+        /// </summary>
+        /// <remarks>
+        /// Removes the calling user's bookmark.  Idempotent. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UnfavoriteSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Remove a library entry from favorites
+        /// </summary>
+        /// <remarks>
+        /// Removes the calling user's bookmark.  Idempotent. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UnfavoriteSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Narrow who can see a library entry
+        /// </summary>
+        /// <remarks>
+        /// Sets visibility to shared or private.  Owner only, and always needs sfvb_publish.  Published revisions are kept and storefronts that already installed the entry keep their copies. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="unpublishRequest">The narrower visibility</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        System.Threading.Tasks.Task<SfvbLibraryEntry> UnpublishSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, SfvbLibraryPublishRequest unpublishRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Narrow who can see a library entry
+        /// </summary>
+        /// <remarks>
+        /// Sets visibility to shared or private.  Owner only, and always needs sfvb_publish.  Published revisions are kept and storefronts that already installed the entry keep their copies. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="unpublishRequest">The narrower visibility</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> UnpublishSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, SfvbLibraryPublishRequest unpublishRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Stop sharing a library entry with an account
+        /// </summary>
+        /// <remarks>
+        /// Owner only, and always needs sfvb_publish.  Stops further installs by that account.  Its existing installs keep their copies and are listed in the result.  Idempotent, and still works while the library is turned off. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="merchantId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryUnshareResult</returns>
+        System.Threading.Tasks.Task<SfvbLibraryUnshareResult> UnshareSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, string merchantId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Stop sharing a library entry with an account
+        /// </summary>
+        /// <remarks>
+        /// Owner only, and always needs sfvb_publish.  Stops further installs by that account.  Its existing installs keep their copies and are listed in the result.  Idempotent, and still works while the library is turned off. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="merchantId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryUnshareResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryUnshareResult>> UnshareSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, string merchantId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Change a blog post
         /// </summary>
         /// <remarks>
@@ -5332,6 +6115,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> UpdateSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update a library entry's draft
+        /// </summary>
+        /// <remarks>
+        /// A full replace of the draft's fields.  Owner only.  Send the hash_sha256 you read as If-Match.  Every save increments revision_number; nothing other merchants see changes until the draft is published.  A changed fragment is re-scanned and its images copied again, and screenshot_stale tells you to retake the screenshot. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="libraryEntry">The whole entry</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        System.Threading.Tasks.Task<SfvbLibraryEntry> UpdateSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryEntryRequest libraryEntry, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update a library entry&#39;s draft
+        /// </summary>
+        /// <remarks>
+        /// A full replace of the draft's fields.  Owner only.  Send the hash_sha256 you read as If-Match.  Every save increments revision_number; nothing other merchants see changes until the draft is published.  A changed fragment is re-scanned and its images copied again, and screenshot_stale tells you to retake the screenshot. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="libraryEntry">The whole entry</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> UpdateSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryEntryRequest libraryEntry, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update an upsell offer
         /// </summary>
@@ -6357,6 +7169,187 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Remove a library entry's screenshot Owner only, with the draft's hash_sha256 as If-Match.  Clears the screenshot and thumbnail.  Published revisions and copies that used the image keep it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        public SfvbLibraryEntry ClearSfvbLibraryScreenshot (int storefrontOid, int libraryOid, string ifMatch)
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = ClearSfvbLibraryScreenshotWithHttpInfo(storefrontOid, libraryOid, ifMatch);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Remove a library entry's screenshot Owner only, with the draft's hash_sha256 as If-Match.  Clears the screenshot and thumbnail.  Published revisions and copies that used the image keep it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        public ApiResponse<SfvbLibraryEntry> ClearSfvbLibraryScreenshotWithHttpInfo (int storefrontOid, int libraryOid, string ifMatch)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ClearSfvbLibraryScreenshot");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->ClearSfvbLibraryScreenshot");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->ClearSfvbLibraryScreenshot");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ClearSfvbLibraryScreenshot", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// Remove a library entry's screenshot Owner only, with the draft's hash_sha256 as If-Match.  Clears the screenshot and thumbnail.  Published revisions and copies that used the image keep it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryEntry> ClearSfvbLibraryScreenshotAsync (int storefrontOid, int libraryOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = await ClearSfvbLibraryScreenshotWithHttpInfoAsync(storefrontOid, libraryOid, ifMatch, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Remove a library entry's screenshot Owner only, with the draft's hash_sha256 as If-Match.  Clears the screenshot and thumbnail.  Published revisions and copies that used the image keep it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> ClearSfvbLibraryScreenshotWithHttpInfoAsync (int storefrontOid, int libraryOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ClearSfvbLibraryScreenshot");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->ClearSfvbLibraryScreenshot");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->ClearSfvbLibraryScreenshot");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ClearSfvbLibraryScreenshot", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
         /// Compile CJSON to Velocity Compiles a container document to Velocity without storing anything.  Supply theme_oid to compile with the theme's inherit groups applied; omit it to compile standalone. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6527,6 +7520,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbCompileResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbCompileResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCompileResponse)));
+        }
+
+        /// <summary>
+        /// Save a fragment to the library Creates a private draft owned by the calling user.  The fragment is one widget and its children, and it must validate.  Images it references on this storefront are copied into the entry before this returns, so it installs anywhere with its images.  The fragment is scanned; card skimming or obfuscation signals are refused outright.  Nothing other merchants or shoppers see changes, so sfvb_write is enough.  Publish it to share it.  An optional screenshot takes a staged PNG key, exactly as the library screenshot endpoint does; a refused screenshot refuses the whole create. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryEntry">The entry</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        public SfvbLibraryEntry CreateSfvbLibraryEntry (int storefrontOid, SfvbLibraryEntryRequest libraryEntry)
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = CreateSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryEntry);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Save a fragment to the library Creates a private draft owned by the calling user.  The fragment is one widget and its children, and it must validate.  Images it references on this storefront are copied into the entry before this returns, so it installs anywhere with its images.  The fragment is scanned; card skimming or obfuscation signals are refused outright.  Nothing other merchants or shoppers see changes, so sfvb_write is enough.  Publish it to share it.  An optional screenshot takes a staged PNG key, exactly as the library screenshot endpoint does; a refused screenshot refuses the whole create. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryEntry">The entry</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        public ApiResponse<SfvbLibraryEntry> CreateSfvbLibraryEntryWithHttpInfo (int storefrontOid, SfvbLibraryEntryRequest libraryEntry)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->CreateSfvbLibraryEntry");
+            // verify the required parameter 'libraryEntry' is set
+            if (libraryEntry == null)
+                throw new ApiException(400, "Missing required parameter 'libraryEntry' when calling SfvbApi->CreateSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryEntry != null && libraryEntry.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(libraryEntry); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = libraryEntry; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// Save a fragment to the library Creates a private draft owned by the calling user.  The fragment is one widget and its children, and it must validate.  Images it references on this storefront are copied into the entry before this returns, so it installs anywhere with its images.  The fragment is scanned; card skimming or obfuscation signals are refused outright.  Nothing other merchants or shoppers see changes, so sfvb_write is enough.  Publish it to share it.  An optional screenshot takes a staged PNG key, exactly as the library screenshot endpoint does; a refused screenshot refuses the whole create. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryEntry">The entry</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryEntry> CreateSfvbLibraryEntryAsync (int storefrontOid, SfvbLibraryEntryRequest libraryEntry, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = await CreateSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryEntry, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Save a fragment to the library Creates a private draft owned by the calling user.  The fragment is one widget and its children, and it must validate.  Images it references on this storefront are copied into the entry before this returns, so it installs anywhere with its images.  The fragment is scanned; card skimming or obfuscation signals are refused outright.  Nothing other merchants or shoppers see changes, so sfvb_write is enough.  Publish it to share it.  An optional screenshot takes a staged PNG key, exactly as the library screenshot endpoint does; a refused screenshot refuses the whole create. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryEntry">The entry</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> CreateSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, SfvbLibraryEntryRequest libraryEntry, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->CreateSfvbLibraryEntry");
+            // verify the required parameter 'libraryEntry' is set
+            if (libraryEntry == null)
+                throw new ApiException(400, "Missing required parameter 'libraryEntry' when calling SfvbApi->CreateSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryEntry != null && libraryEntry.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(libraryEntry); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = libraryEntry; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
         }
 
         /// <summary>
@@ -7565,6 +8743,187 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Delete or retire a library entry Owner only, with the draft's hash_sha256 as If-Match.  An entry that was never published, installed or shared is deleted.  Anything else is retired - kept so the storefronts that installed it still resolve, but out of search and refusing new installs and publishes.  The result says which happened. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>SfvbLibraryDeleteResult</returns>
+        public SfvbLibraryDeleteResult DeleteSfvbLibraryEntry (int storefrontOid, int libraryOid, string ifMatch)
+        {
+             ApiResponse<SfvbLibraryDeleteResult> localVarResponse = DeleteSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid, ifMatch);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete or retire a library entry Owner only, with the draft's hash_sha256 as If-Match.  An entry that was never published, installed or shared is deleted.  Anything else is retired - kept so the storefronts that installed it still resolve, but out of search and refusing new installs and publishes.  The result says which happened. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbLibraryDeleteResult</returns>
+        public ApiResponse<SfvbLibraryDeleteResult> DeleteSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, string ifMatch)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->DeleteSfvbLibraryEntry");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DeleteSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryDeleteResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryDeleteResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryDeleteResult)));
+        }
+
+        /// <summary>
+        /// Delete or retire a library entry Owner only, with the draft's hash_sha256 as If-Match.  An entry that was never published, installed or shared is deleted.  Anything else is retired - kept so the storefronts that installed it still resolve, but out of search and refusing new installs and publishes.  The result says which happened. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryDeleteResult</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryDeleteResult> DeleteSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryDeleteResult> localVarResponse = await DeleteSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, ifMatch, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete or retire a library entry Owner only, with the draft's hash_sha256 as If-Match.  An entry that was never published, installed or shared is deleted.  Anything else is retired - kept so the storefronts that installed it still resolve, but out of search and refusing new installs and publishes.  The result says which happened. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryDeleteResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryDeleteResult>> DeleteSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->DeleteSfvbLibraryEntry");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DeleteSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryDeleteResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryDeleteResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryDeleteResult)));
         }
 
         /// <summary>
@@ -8612,6 +9971,181 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Copy a library entry into a new private entry The copy is owned by the calling user and private.  From an entry you own it copies the draft; from one shared with you it copies the published revision.  It is scanned on its own and inherits nothing but content, its images and its screenshot. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="name">Name for the copy.  Defaults to Copy of and the source name. (optional)</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        public SfvbLibraryEntry DuplicateSfvbLibraryEntry (int storefrontOid, int libraryOid, string name = default(string))
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = DuplicateSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid, name);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Copy a library entry into a new private entry The copy is owned by the calling user and private.  From an entry you own it copies the draft; from one shared with you it copies the published revision.  It is scanned on its own and inherits nothing but content, its images and its screenshot. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="name">Name for the copy.  Defaults to Copy of and the source name. (optional)</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        public ApiResponse<SfvbLibraryEntry> DuplicateSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, string name = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DuplicateSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->DuplicateSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/duplicate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (name != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "name", name)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DuplicateSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// Copy a library entry into a new private entry The copy is owned by the calling user and private.  From an entry you own it copies the draft; from one shared with you it copies the published revision.  It is scanned on its own and inherits nothing but content, its images and its screenshot. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="name">Name for the copy.  Defaults to Copy of and the source name. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryEntry> DuplicateSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, string name = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = await DuplicateSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, name, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Copy a library entry into a new private entry The copy is owned by the calling user and private.  From an entry you own it copies the draft; from one shared with you it copies the published revision.  It is scanned on its own and inherits nothing but content, its images and its screenshot. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="name">Name for the copy.  Defaults to Copy of and the source name. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> DuplicateSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, string name = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DuplicateSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->DuplicateSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/duplicate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (name != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "name", name)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DuplicateSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
         /// Copy a page to a new path Copies what the store admin's duplicate copies - settings, items, blog posts, permissions, attributes, selectors, images and the page folder with its body.  The copy goes to the path you choose, under any existing page, with the same path rules as creating a page, and a 409 with the code sfvb.page_exists when that path is taken.  The root page and pages with pages under them cannot be copied.  A page whose folder holds a started experiment is refused, because the copy would share the experiment - end it first.  Translated title and description text is not copied.  Always needs sfvb_publish, because the copy is live as soon as it exists. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9542,6 +11076,173 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbExperiment>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbExperiment) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbExperiment)));
+        }
+
+        /// <summary>
+        /// Favorite a library entry Bookmarks the entry for the calling user.  Idempotent.  Owner or anyone the entry is shared with. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <returns></returns>
+        public void FavoriteSfvbLibraryEntry (int storefrontOid, int libraryOid)
+        {
+             FavoriteSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid);
+        }
+
+        /// <summary>
+        /// Favorite a library entry Bookmarks the entry for the calling user.  Idempotent.  Owner or anyone the entry is shared with. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> FavoriteSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->FavoriteSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->FavoriteSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("FavoriteSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Favorite a library entry Bookmarks the entry for the calling user.  Idempotent.  Owner or anyone the entry is shared with. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task FavoriteSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await FavoriteSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Favorite a library entry Bookmarks the entry for the calling user.  Idempotent.  Owner or anyone the entry is shared with. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> FavoriteSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->FavoriteSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->FavoriteSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("FavoriteSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>
@@ -11257,26 +12958,28 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Read one library entry including its CJSON Returns the fragment as authored.  If it references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
+        /// Read one library entry including its CJSON The owner gets the draft with its hash_sha256, which an update, delete or publish sends back as If-Match.  Everyone else gets the latest published revision.  Pin a published revision with revision_number.  Read content_manifest before installing.  If the fragment references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
+        /// <param name="revisionNumber">A published revision to read instead of the default. (optional)</param>
         /// <returns>SfvbLibraryEntry</returns>
-        public SfvbLibraryEntry GetSfvbLibraryEntry (int storefrontOid, int libraryOid)
+        public SfvbLibraryEntry GetSfvbLibraryEntry (int storefrontOid, int libraryOid, int? revisionNumber = default(int?))
         {
-             ApiResponse<SfvbLibraryEntry> localVarResponse = GetSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid);
+             ApiResponse<SfvbLibraryEntry> localVarResponse = GetSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid, revisionNumber);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Read one library entry including its CJSON Returns the fragment as authored.  If it references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
+        /// Read one library entry including its CJSON The owner gets the draft with its hash_sha256, which an update, delete or publish sends back as If-Match.  Everyone else gets the latest published revision.  Pin a published revision with revision_number.  Read content_manifest before installing.  If the fragment references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
+        /// <param name="revisionNumber">A published revision to read instead of the default. (optional)</param>
         /// <returns>ApiResponse of SfvbLibraryEntry</returns>
-        public ApiResponse<SfvbLibraryEntry> GetSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid)
+        public ApiResponse<SfvbLibraryEntry> GetSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, int? revisionNumber = default(int?))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -11286,6 +12989,179 @@ namespace com.ultracart.admin.v2.Api
                 throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->GetSfvbLibraryEntry");
 
             var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (revisionNumber != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "revision_number", revisionNumber)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// Read one library entry including its CJSON The owner gets the draft with its hash_sha256, which an update, delete or publish sends back as If-Match.  Everyone else gets the latest published revision.  Pin a published revision with revision_number.  Read content_manifest before installing.  If the fragment references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="revisionNumber">A published revision to read instead of the default. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryEntry> GetSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, int? revisionNumber = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = await GetSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, revisionNumber, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read one library entry including its CJSON The owner gets the draft with its hash_sha256, which an update, delete or publish sends back as If-Match.  Everyone else gets the latest published revision.  Pin a published revision with revision_number.  Read content_manifest before installing.  If the fragment references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="revisionNumber">A published revision to read instead of the default. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> GetSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, int? revisionNumber = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->GetSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (revisionNumber != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "revision_number", revisionNumber)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// List a library entry's published revisions Newest first, each with its release notes and hash.  Read one with getSfvbLibraryEntry and revision_number.  The owner and anyone the entry is shared with can list it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <returns>SfvbLibraryHistoryEntry</returns>
+        public SfvbLibraryHistoryEntry GetSfvbLibraryHistory (int storefrontOid, int libraryOid)
+        {
+             ApiResponse<SfvbLibraryHistoryEntry> localVarResponse = GetSfvbLibraryHistoryWithHttpInfo(storefrontOid, libraryOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List a library entry's published revisions Newest first, each with its release notes and hash.  Read one with getSfvbLibraryEntry and revision_number.  The owner and anyone the entry is shared with can list it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <returns>ApiResponse of SfvbLibraryHistoryEntry</returns>
+        public ApiResponse<SfvbLibraryHistoryEntry> GetSfvbLibraryHistoryWithHttpInfo (int storefrontOid, int libraryOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbLibraryHistory");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->GetSfvbLibraryHistory");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/history";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -11330,48 +13206,48 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetSfvbLibraryEntry", localVarResponse);
+                Exception exception = ExceptionFactory("GetSfvbLibraryHistory", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+            return new ApiResponse<SfvbLibraryHistoryEntry>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+                (SfvbLibraryHistoryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryHistoryEntry)));
         }
 
         /// <summary>
-        /// Read one library entry including its CJSON Returns the fragment as authored.  If it references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
+        /// List a library entry's published revisions Newest first, each with its release notes and hash.  Read one with getSfvbLibraryEntry and revision_number.  The owner and anyone the entry is shared with can list it. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of SfvbLibraryEntry</returns>
-        public async System.Threading.Tasks.Task<SfvbLibraryEntry> GetSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of SfvbLibraryHistoryEntry</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryHistoryEntry> GetSfvbLibraryHistoryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbLibraryEntry> localVarResponse = await GetSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, cancellationToken);
+             ApiResponse<SfvbLibraryHistoryEntry> localVarResponse = await GetSfvbLibraryHistoryWithHttpInfoAsync(storefrontOid, libraryOid, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Read one library entry including its CJSON Returns the fragment as authored.  If it references images or other storefront files those paths will not resolve on this storefront until the entry is installed, so use install rather than this when the intent is to place the fragment. 
+        /// List a library entry's published revisions Newest first, each with its release notes and hash.  Read one with getSfvbLibraryEntry and revision_number.  The owner and anyone the entry is shared with can list it. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> GetSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (SfvbLibraryHistoryEntry)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryHistoryEntry>> GetSfvbLibraryHistoryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
-                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbLibraryEntry");
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbLibraryHistory");
             // verify the required parameter 'libraryOid' is set
             if (libraryOid == null)
-                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->GetSfvbLibraryEntry");
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->GetSfvbLibraryHistory");
 
-            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}";
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/history";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -11416,13 +13292,327 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetSfvbLibraryEntry", localVarResponse);
+                Exception exception = ExceptionFactory("GetSfvbLibraryHistory", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+            return new ApiResponse<SfvbLibraryHistoryEntry>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+                (SfvbLibraryHistoryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryHistoryEntry)));
+        }
+
+        /// <summary>
+        /// List the accounts a library entry can be shared with The calling account's linked accounts, each with its merchant id and company.  These are the only merchants a share can name. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbLibraryShareTarget</returns>
+        public SfvbLibraryShareTarget GetSfvbLibraryShareTargets (int storefrontOid)
+        {
+             ApiResponse<SfvbLibraryShareTarget> localVarResponse = GetSfvbLibraryShareTargetsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the accounts a library entry can be shared with The calling account's linked accounts, each with its merchant id and company.  These are the only merchants a share can name. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbLibraryShareTarget</returns>
+        public ApiResponse<SfvbLibraryShareTarget> GetSfvbLibraryShareTargetsWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbLibraryShareTargets");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/share_targets";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbLibraryShareTargets", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryShareTarget>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryShareTarget) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryShareTarget)));
+        }
+
+        /// <summary>
+        /// List the accounts a library entry can be shared with The calling account's linked accounts, each with its merchant id and company.  These are the only merchants a share can name. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryShareTarget</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryShareTarget> GetSfvbLibraryShareTargetsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryShareTarget> localVarResponse = await GetSfvbLibraryShareTargetsWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the accounts a library entry can be shared with The calling account's linked accounts, each with its merchant id and company.  These are the only merchants a share can name. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryShareTarget)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryShareTarget>> GetSfvbLibraryShareTargetsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbLibraryShareTargets");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/share_targets";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbLibraryShareTargets", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryShareTarget>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryShareTarget) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryShareTarget)));
+        }
+
+        /// <summary>
+        /// List the allowed library tags The fixed tag list for purpose, section, industry and style, each tag with a one line description.  Saving an entry refuses any tag not on it with sfvb.library_taxonomy_unknown, naming the closest one.  The same tags are the facet_purpose, facet_section, facet_industry and facet_style search facets. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbLibraryTaxonomyCatalog</returns>
+        public SfvbLibraryTaxonomyCatalog GetSfvbLibraryTaxonomy (int storefrontOid)
+        {
+             ApiResponse<SfvbLibraryTaxonomyCatalog> localVarResponse = GetSfvbLibraryTaxonomyWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the allowed library tags The fixed tag list for purpose, section, industry and style, each tag with a one line description.  Saving an entry refuses any tag not on it with sfvb.library_taxonomy_unknown, naming the closest one.  The same tags are the facet_purpose, facet_section, facet_industry and facet_style search facets. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbLibraryTaxonomyCatalog</returns>
+        public ApiResponse<SfvbLibraryTaxonomyCatalog> GetSfvbLibraryTaxonomyWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbLibraryTaxonomy");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/taxonomy";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbLibraryTaxonomy", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryTaxonomyCatalog>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryTaxonomyCatalog) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryTaxonomyCatalog)));
+        }
+
+        /// <summary>
+        /// List the allowed library tags The fixed tag list for purpose, section, industry and style, each tag with a one line description.  Saving an entry refuses any tag not on it with sfvb.library_taxonomy_unknown, naming the closest one.  The same tags are the facet_purpose, facet_section, facet_industry and facet_style search facets. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryTaxonomyCatalog</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryTaxonomyCatalog> GetSfvbLibraryTaxonomyAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryTaxonomyCatalog> localVarResponse = await GetSfvbLibraryTaxonomyWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the allowed library tags The fixed tag list for purpose, section, industry and style, each tag with a one line description.  Saving an entry refuses any tag not on it with sfvb.library_taxonomy_unknown, naming the closest one.  The same tags are the facet_purpose, facet_section, facet_industry and facet_style search facets. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryTaxonomyCatalog)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryTaxonomyCatalog>> GetSfvbLibraryTaxonomyWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbLibraryTaxonomy");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/taxonomy";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbLibraryTaxonomy", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryTaxonomyCatalog>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryTaxonomyCatalog) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryTaxonomyCatalog)));
         }
 
         /// <summary>
@@ -15365,26 +17555,28 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Install a library entry into a storefront Copies the fragment's referenced assets into the storefront file system and returns the CJSON with its paths resolved, ready to place.  This writes, which is why it is a POST rather than the GET the internal admin endpoint uses.  It also requires sfvb_publish, because the assets land in the shared storefront file system, which is served to shoppers regardless of which theme is active, so no amount of working inside a duplicate theme isolates them. 
+        /// Install a library entry into a storefront Copies the fragment's referenced files into the storefront file system and returns a receipt with the CJSON's paths resolved, ready to place.  It never places the CJSON.  Read content_manifest first; executable content needs acknowledge_executable true.  A file that already exists with different content is a conflict - on_conflict fail (the default) refuses with 409 and writes nothing, skip keeps the existing file, overwrite replaces it.  A recipient installs a published revision.  This writes, which is why it is a POST, and it requires sfvb_publish because the files land in the shared storefront file system, which is served to shoppers whichever theme is active. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
-        /// <returns>SfvbLibraryEntry</returns>
-        public SfvbLibraryEntry InstallSfvbLibraryEntry (int storefrontOid, int libraryOid)
+        /// <param name="installRequest">Revision, conflict handling and acknowledgement (optional)</param>
+        /// <returns>SfvbLibraryInstallReceipt</returns>
+        public SfvbLibraryInstallReceipt InstallSfvbLibraryEntry (int storefrontOid, int libraryOid, SfvbLibraryInstallRequest installRequest = default(SfvbLibraryInstallRequest))
         {
-             ApiResponse<SfvbLibraryEntry> localVarResponse = InstallSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid);
+             ApiResponse<SfvbLibraryInstallReceipt> localVarResponse = InstallSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid, installRequest);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Install a library entry into a storefront Copies the fragment's referenced assets into the storefront file system and returns the CJSON with its paths resolved, ready to place.  This writes, which is why it is a POST rather than the GET the internal admin endpoint uses.  It also requires sfvb_publish, because the assets land in the shared storefront file system, which is served to shoppers regardless of which theme is active, so no amount of working inside a duplicate theme isolates them. 
+        /// Install a library entry into a storefront Copies the fragment's referenced files into the storefront file system and returns a receipt with the CJSON's paths resolved, ready to place.  It never places the CJSON.  Read content_manifest first; executable content needs acknowledge_executable true.  A file that already exists with different content is a conflict - on_conflict fail (the default) refuses with 409 and writes nothing, skip keeps the existing file, overwrite replaces it.  A recipient installs a published revision.  This writes, which is why it is a POST, and it requires sfvb_publish because the files land in the shared storefront file system, which is served to shoppers whichever theme is active. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
-        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
-        public ApiResponse<SfvbLibraryEntry> InstallSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid)
+        /// <param name="installRequest">Revision, conflict handling and acknowledgement (optional)</param>
+        /// <returns>ApiResponse of SfvbLibraryInstallReceipt</returns>
+        public ApiResponse<SfvbLibraryInstallReceipt> InstallSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, SfvbLibraryInstallRequest installRequest = default(SfvbLibraryInstallRequest))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -15403,6 +17595,7 @@ namespace com.ultracart.admin.v2.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -15416,6 +17609,14 @@ namespace com.ultracart.admin.v2.Api
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (installRequest != null && installRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(installRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = installRequest; // byte array
+            }
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -15442,35 +17643,37 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+            return new ApiResponse<SfvbLibraryInstallReceipt>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+                (SfvbLibraryInstallReceipt) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryInstallReceipt)));
         }
 
         /// <summary>
-        /// Install a library entry into a storefront Copies the fragment's referenced assets into the storefront file system and returns the CJSON with its paths resolved, ready to place.  This writes, which is why it is a POST rather than the GET the internal admin endpoint uses.  It also requires sfvb_publish, because the assets land in the shared storefront file system, which is served to shoppers regardless of which theme is active, so no amount of working inside a duplicate theme isolates them. 
+        /// Install a library entry into a storefront Copies the fragment's referenced files into the storefront file system and returns a receipt with the CJSON's paths resolved, ready to place.  It never places the CJSON.  Read content_manifest first; executable content needs acknowledge_executable true.  A file that already exists with different content is a conflict - on_conflict fail (the default) refuses with 409 and writes nothing, skip keeps the existing file, overwrite replaces it.  A recipient installs a published revision.  This writes, which is why it is a POST, and it requires sfvb_publish because the files land in the shared storefront file system, which is served to shoppers whichever theme is active. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
+        /// <param name="installRequest">Revision, conflict handling and acknowledgement (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of SfvbLibraryEntry</returns>
-        public async System.Threading.Tasks.Task<SfvbLibraryEntry> InstallSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of SfvbLibraryInstallReceipt</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryInstallReceipt> InstallSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, SfvbLibraryInstallRequest installRequest = default(SfvbLibraryInstallRequest), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbLibraryEntry> localVarResponse = await InstallSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, cancellationToken);
+             ApiResponse<SfvbLibraryInstallReceipt> localVarResponse = await InstallSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, installRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Install a library entry into a storefront Copies the fragment's referenced assets into the storefront file system and returns the CJSON with its paths resolved, ready to place.  This writes, which is why it is a POST rather than the GET the internal admin endpoint uses.  It also requires sfvb_publish, because the assets land in the shared storefront file system, which is served to shoppers regardless of which theme is active, so no amount of working inside a duplicate theme isolates them. 
+        /// Install a library entry into a storefront Copies the fragment's referenced files into the storefront file system and returns a receipt with the CJSON's paths resolved, ready to place.  It never places the CJSON.  Read content_manifest first; executable content needs acknowledge_executable true.  A file that already exists with different content is a conflict - on_conflict fail (the default) refuses with 409 and writes nothing, skip keeps the existing file, overwrite replaces it.  A recipient installs a published revision.  This writes, which is why it is a POST, and it requires sfvb_publish because the files land in the shared storefront file system, which is served to shoppers whichever theme is active. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
+        /// <param name="installRequest">Revision, conflict handling and acknowledgement (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> InstallSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (SfvbLibraryInstallReceipt)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryInstallReceipt>> InstallSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, SfvbLibraryInstallRequest installRequest = default(SfvbLibraryInstallRequest), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -15489,6 +17692,7 @@ namespace com.ultracart.admin.v2.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -15502,6 +17706,14 @@ namespace com.ultracart.admin.v2.Api
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (installRequest != null && installRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(installRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = installRequest; // byte array
+            }
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -15528,9 +17740,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+            return new ApiResponse<SfvbLibraryInstallReceipt>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+                (SfvbLibraryInstallReceipt) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryInstallReceipt)));
         }
 
         /// <summary>
@@ -16732,6 +18944,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbItemContainersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbItemContainersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemContainersResponse)));
+        }
+
+        /// <summary>
+        /// List the library entries installed on a storefront Each entry's most recently installed revision, its latest published revision and update_available.  Nothing updates automatically.  An entry this account can no longer see is listed without its name. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbLibraryInstallRecord</returns>
+        public SfvbLibraryInstallRecord ListSfvbLibraryInstalls (int storefrontOid)
+        {
+             ApiResponse<SfvbLibraryInstallRecord> localVarResponse = ListSfvbLibraryInstallsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the library entries installed on a storefront Each entry's most recently installed revision, its latest published revision and update_available.  Nothing updates automatically.  An entry this account can no longer see is listed without its name. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbLibraryInstallRecord</returns>
+        public ApiResponse<SfvbLibraryInstallRecord> ListSfvbLibraryInstallsWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbLibraryInstalls");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/installs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbLibraryInstalls", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryInstallRecord>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryInstallRecord) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryInstallRecord)));
+        }
+
+        /// <summary>
+        /// List the library entries installed on a storefront Each entry's most recently installed revision, its latest published revision and update_available.  Nothing updates automatically.  An entry this account can no longer see is listed without its name. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryInstallRecord</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryInstallRecord> ListSfvbLibraryInstallsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryInstallRecord> localVarResponse = await ListSfvbLibraryInstallsWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the library entries installed on a storefront Each entry's most recently installed revision, its latest published revision and update_available.  Nothing updates automatically.  An entry this account can no longer see is listed without its name. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryInstallRecord)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryInstallRecord>> ListSfvbLibraryInstallsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbLibraryInstalls");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/installs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbLibraryInstalls", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryInstallRecord>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryInstallRecord) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryInstallRecord)));
         }
 
         /// <summary>
@@ -18130,6 +20499,215 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Publish a library entry's draft Freezes the draft as a published revision at its revision_number and sets who can see it.  Owner only, with the draft's hash_sha256 as If-Match.  Always needs sfvb_publish, because it changes what other merchants can install.  Images, fonts, stylesheets and media must be relative paths, and credential shaped strings are refused.  Public also needs the library publisher property on the account and no executable content at all - no script, html, embed, css or velocity elements.  After those checks an automated AI review reads the fragment, which can take up to about a minute.  A clear violation both of its models agree on refuses any publish with sfvb.library_ai_review_blocked.  A public publish also needs its approval, otherwise sfvb.library_ai_review_inconclusive.  The result is in content_manifest.ai_review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="publishRequest">Visibility and release notes</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        public SfvbLibraryEntry PublishSfvbLibraryEntry (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryPublishRequest publishRequest)
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = PublishSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid, ifMatch, publishRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Publish a library entry's draft Freezes the draft as a published revision at its revision_number and sets who can see it.  Owner only, with the draft's hash_sha256 as If-Match.  Always needs sfvb_publish, because it changes what other merchants can install.  Images, fonts, stylesheets and media must be relative paths, and credential shaped strings are refused.  Public also needs the library publisher property on the account and no executable content at all - no script, html, embed, css or velocity elements.  After those checks an automated AI review reads the fragment, which can take up to about a minute.  A clear violation both of its models agree on refuses any publish with sfvb.library_ai_review_blocked.  A public publish also needs its approval, otherwise sfvb.library_ai_review_inconclusive.  The result is in content_manifest.ai_review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="publishRequest">Visibility and release notes</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        public ApiResponse<SfvbLibraryEntry> PublishSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryPublishRequest publishRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PublishSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->PublishSfvbLibraryEntry");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->PublishSfvbLibraryEntry");
+            // verify the required parameter 'publishRequest' is set
+            if (publishRequest == null)
+                throw new ApiException(400, "Missing required parameter 'publishRequest' when calling SfvbApi->PublishSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/publish";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (publishRequest != null && publishRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(publishRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = publishRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PublishSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// Publish a library entry's draft Freezes the draft as a published revision at its revision_number and sets who can see it.  Owner only, with the draft's hash_sha256 as If-Match.  Always needs sfvb_publish, because it changes what other merchants can install.  Images, fonts, stylesheets and media must be relative paths, and credential shaped strings are refused.  Public also needs the library publisher property on the account and no executable content at all - no script, html, embed, css or velocity elements.  After those checks an automated AI review reads the fragment, which can take up to about a minute.  A clear violation both of its models agree on refuses any publish with sfvb.library_ai_review_blocked.  A public publish also needs its approval, otherwise sfvb.library_ai_review_inconclusive.  The result is in content_manifest.ai_review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="publishRequest">Visibility and release notes</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryEntry> PublishSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryPublishRequest publishRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = await PublishSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, ifMatch, publishRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Publish a library entry's draft Freezes the draft as a published revision at its revision_number and sets who can see it.  Owner only, with the draft's hash_sha256 as If-Match.  Always needs sfvb_publish, because it changes what other merchants can install.  Images, fonts, stylesheets and media must be relative paths, and credential shaped strings are refused.  Public also needs the library publisher property on the account and no executable content at all - no script, html, embed, css or velocity elements.  After those checks an automated AI review reads the fragment, which can take up to about a minute.  A clear violation both of its models agree on refuses any publish with sfvb.library_ai_review_blocked.  A public publish also needs its approval, otherwise sfvb.library_ai_review_inconclusive.  The result is in content_manifest.ai_review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="publishRequest">Visibility and release notes</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> PublishSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryPublishRequest publishRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PublishSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->PublishSfvbLibraryEntry");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->PublishSfvbLibraryEntry");
+            // verify the required parameter 'publishRequest' is set
+            if (publishRequest == null)
+                throw new ApiException(400, "Missing required parameter 'publishRequest' when calling SfvbApi->PublishSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/publish";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (publishRequest != null && publishRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(publishRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = publishRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PublishSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
         }
 
         /// <summary>
@@ -23044,7 +25622,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Search the element library Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with facet_{name}={option} query parameters. 
+        /// Search the element library Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with a query parameter named after a facet, such as facet_purpose, whose value is the facet name, a colon and one of its options.  Besides element type and author, the facets include purpose, section, industry and style from library/taxonomy, and the search text matches those tags too.  Results follow the same rules as reading one entry, so others see published revisions only. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -23060,7 +25638,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Search the element library Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with facet_{name}={option} query parameters. 
+        /// Search the element library Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with a query parameter named after a facet, such as facet_purpose, whose value is the facet name, a colon and one of its options.  Besides element type and author, the facets include purpose, section, industry and style from library/taxonomy, and the search text matches those tags too.  Results follow the same rules as reading one entry, so others see published revisions only. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -23133,7 +25711,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Search the element library Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with facet_{name}={option} query parameters. 
+        /// Search the element library Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with a query parameter named after a facet, such as facet_purpose, whose value is the facet name, a colon and one of its options.  Besides element type and author, the facets include purpose, section, industry and style from library/taxonomy, and the search text matches those tags too.  Results follow the same rules as reading one entry, so others see published revisions only. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -23151,7 +25729,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Search the element library Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with facet_{name}={option} query parameters. 
+        /// Search the element library Known-good CJSON fragments a human already built out of real elements.  This is what a lint warning about a monolithic html element should point at - a warning that names a fragment solving the same problem is an instruction, where a warning on its own is only criticism.  Results are terse; fetch a single entry for its CJSON.  Narrow with a query parameter named after a facet, such as facet_purpose, whose value is the facet name, a colon and one of its options.  Besides element type and author, the facets include purpose, section, industry and style from library/taxonomy, and the search text matches those tags too.  Results follow the same rules as reading one entry, so others see published revisions only. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -23222,6 +25800,412 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbLibraryResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbLibraryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryResponse)));
+        }
+
+        /// <summary>
+        /// Set a library entry's screenshot Three calls, like the other uploads.  Request an upload URL with files/upload_url/png, PUT the PNG bytes to it, then call this with the key, the sha256 of those bytes and where the image came from.  Owner only, with the draft's hash_sha256 as If-Match.  The PNG must be at most 5 MB and 4096 pixels a side; it is re-encoded, which drops any metadata, and a thumbnail is made from it before this returns.  Capture it with test data only.  A refused image leaves the previous screenshot in place.  Other merchants see a new screenshot only after the next publish, whose review checks it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="screenshotRequest">The staged PNG</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        public SfvbLibraryEntry SetSfvbLibraryScreenshot (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryScreenshotRequest screenshotRequest)
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = SetSfvbLibraryScreenshotWithHttpInfo(storefrontOid, libraryOid, ifMatch, screenshotRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set a library entry's screenshot Three calls, like the other uploads.  Request an upload URL with files/upload_url/png, PUT the PNG bytes to it, then call this with the key, the sha256 of those bytes and where the image came from.  Owner only, with the draft's hash_sha256 as If-Match.  The PNG must be at most 5 MB and 4096 pixels a side; it is re-encoded, which drops any metadata, and a thumbnail is made from it before this returns.  Capture it with test data only.  A refused image leaves the previous screenshot in place.  Other merchants see a new screenshot only after the next publish, whose review checks it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="screenshotRequest">The staged PNG</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        public ApiResponse<SfvbLibraryEntry> SetSfvbLibraryScreenshotWithHttpInfo (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryScreenshotRequest screenshotRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->SetSfvbLibraryScreenshot");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->SetSfvbLibraryScreenshot");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->SetSfvbLibraryScreenshot");
+            // verify the required parameter 'screenshotRequest' is set
+            if (screenshotRequest == null)
+                throw new ApiException(400, "Missing required parameter 'screenshotRequest' when calling SfvbApi->SetSfvbLibraryScreenshot");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (screenshotRequest != null && screenshotRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(screenshotRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = screenshotRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetSfvbLibraryScreenshot", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// Set a library entry's screenshot Three calls, like the other uploads.  Request an upload URL with files/upload_url/png, PUT the PNG bytes to it, then call this with the key, the sha256 of those bytes and where the image came from.  Owner only, with the draft's hash_sha256 as If-Match.  The PNG must be at most 5 MB and 4096 pixels a side; it is re-encoded, which drops any metadata, and a thumbnail is made from it before this returns.  Capture it with test data only.  A refused image leaves the previous screenshot in place.  Other merchants see a new screenshot only after the next publish, whose review checks it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="screenshotRequest">The staged PNG</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryEntry> SetSfvbLibraryScreenshotAsync (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryScreenshotRequest screenshotRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = await SetSfvbLibraryScreenshotWithHttpInfoAsync(storefrontOid, libraryOid, ifMatch, screenshotRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Set a library entry's screenshot Three calls, like the other uploads.  Request an upload URL with files/upload_url/png, PUT the PNG bytes to it, then call this with the key, the sha256 of those bytes and where the image came from.  Owner only, with the draft's hash_sha256 as If-Match.  The PNG must be at most 5 MB and 4096 pixels a side; it is re-encoded, which drops any metadata, and a thumbnail is made from it before this returns.  Capture it with test data only.  A refused image leaves the previous screenshot in place.  Other merchants see a new screenshot only after the next publish, whose review checks it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="screenshotRequest">The staged PNG</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> SetSfvbLibraryScreenshotWithHttpInfoAsync (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryScreenshotRequest screenshotRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->SetSfvbLibraryScreenshot");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->SetSfvbLibraryScreenshot");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->SetSfvbLibraryScreenshot");
+            // verify the required parameter 'screenshotRequest' is set
+            if (screenshotRequest == null)
+                throw new ApiException(400, "Missing required parameter 'screenshotRequest' when calling SfvbApi->SetSfvbLibraryScreenshot");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (screenshotRequest != null && screenshotRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(screenshotRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = screenshotRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetSfvbLibraryScreenshot", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// Share a published library entry with a linked account Owner only, and always needs sfvb_publish.  The merchant must be one share_targets lists, and the entry must have a published revision, which is what the recipient sees.  The published revision is checked again for absolute asset URLs and credentials.  Idempotent. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="shareRequest">The linked account</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        public SfvbLibraryEntry ShareSfvbLibraryEntry (int storefrontOid, int libraryOid, SfvbLibraryShareRequest shareRequest)
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = ShareSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid, shareRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Share a published library entry with a linked account Owner only, and always needs sfvb_publish.  The merchant must be one share_targets lists, and the entry must have a published revision, which is what the recipient sees.  The published revision is checked again for absolute asset URLs and credentials.  Idempotent. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="shareRequest">The linked account</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        public ApiResponse<SfvbLibraryEntry> ShareSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, SfvbLibraryShareRequest shareRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ShareSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->ShareSfvbLibraryEntry");
+            // verify the required parameter 'shareRequest' is set
+            if (shareRequest == null)
+                throw new ApiException(400, "Missing required parameter 'shareRequest' when calling SfvbApi->ShareSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (shareRequest != null && shareRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(shareRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = shareRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ShareSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// Share a published library entry with a linked account Owner only, and always needs sfvb_publish.  The merchant must be one share_targets lists, and the entry must have a published revision, which is what the recipient sees.  The published revision is checked again for absolute asset URLs and credentials.  Idempotent. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="shareRequest">The linked account</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryEntry> ShareSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, SfvbLibraryShareRequest shareRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = await ShareSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, shareRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Share a published library entry with a linked account Owner only, and always needs sfvb_publish.  The merchant must be one share_targets lists, and the entry must have a published revision, which is what the recipient sees.  The published revision is checked again for absolute asset URLs and credentials.  Idempotent. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="shareRequest">The linked account</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> ShareSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, SfvbLibraryShareRequest shareRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ShareSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->ShareSfvbLibraryEntry");
+            // verify the required parameter 'shareRequest' is set
+            if (shareRequest == null)
+                throw new ApiException(400, "Missing required parameter 'shareRequest' when calling SfvbApi->ShareSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (shareRequest != null && shareRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(shareRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = shareRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ShareSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
         }
 
         /// <summary>
@@ -23579,6 +26563,551 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Remove a library entry from favorites Removes the calling user's bookmark.  Idempotent. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <returns></returns>
+        public void UnfavoriteSfvbLibraryEntry (int storefrontOid, int libraryOid)
+        {
+             UnfavoriteSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid);
+        }
+
+        /// <summary>
+        /// Remove a library entry from favorites Removes the calling user's bookmark.  Idempotent. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UnfavoriteSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UnfavoriteSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->UnfavoriteSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnfavoriteSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Remove a library entry from favorites Removes the calling user's bookmark.  Idempotent. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UnfavoriteSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await UnfavoriteSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Remove a library entry from favorites Removes the calling user's bookmark.  Idempotent. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UnfavoriteSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UnfavoriteSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->UnfavoriteSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnfavoriteSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Narrow who can see a library entry Sets visibility to shared or private.  Owner only, and always needs sfvb_publish.  Published revisions are kept and storefronts that already installed the entry keep their copies. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="unpublishRequest">The narrower visibility</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        public SfvbLibraryEntry UnpublishSfvbLibraryEntry (int storefrontOid, int libraryOid, SfvbLibraryPublishRequest unpublishRequest)
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = UnpublishSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid, unpublishRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Narrow who can see a library entry Sets visibility to shared or private.  Owner only, and always needs sfvb_publish.  Published revisions are kept and storefronts that already installed the entry keep their copies. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="unpublishRequest">The narrower visibility</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        public ApiResponse<SfvbLibraryEntry> UnpublishSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, SfvbLibraryPublishRequest unpublishRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UnpublishSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->UnpublishSfvbLibraryEntry");
+            // verify the required parameter 'unpublishRequest' is set
+            if (unpublishRequest == null)
+                throw new ApiException(400, "Missing required parameter 'unpublishRequest' when calling SfvbApi->UnpublishSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/unpublish";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (unpublishRequest != null && unpublishRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(unpublishRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = unpublishRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnpublishSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// Narrow who can see a library entry Sets visibility to shared or private.  Owner only, and always needs sfvb_publish.  Published revisions are kept and storefronts that already installed the entry keep their copies. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="unpublishRequest">The narrower visibility</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryEntry> UnpublishSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, SfvbLibraryPublishRequest unpublishRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = await UnpublishSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, unpublishRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Narrow who can see a library entry Sets visibility to shared or private.  Owner only, and always needs sfvb_publish.  Published revisions are kept and storefronts that already installed the entry keep their copies. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="unpublishRequest">The narrower visibility</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> UnpublishSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, SfvbLibraryPublishRequest unpublishRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UnpublishSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->UnpublishSfvbLibraryEntry");
+            // verify the required parameter 'unpublishRequest' is set
+            if (unpublishRequest == null)
+                throw new ApiException(400, "Missing required parameter 'unpublishRequest' when calling SfvbApi->UnpublishSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/unpublish";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (unpublishRequest != null && unpublishRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(unpublishRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = unpublishRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnpublishSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// Stop sharing a library entry with an account Owner only, and always needs sfvb_publish.  Stops further installs by that account.  Its existing installs keep their copies and are listed in the result.  Idempotent, and still works while the library is turned off. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="merchantId"></param>
+        /// <returns>SfvbLibraryUnshareResult</returns>
+        public SfvbLibraryUnshareResult UnshareSfvbLibraryEntry (int storefrontOid, int libraryOid, string merchantId)
+        {
+             ApiResponse<SfvbLibraryUnshareResult> localVarResponse = UnshareSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid, merchantId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Stop sharing a library entry with an account Owner only, and always needs sfvb_publish.  Stops further installs by that account.  Its existing installs keep their copies and are listed in the result.  Idempotent, and still works while the library is turned off. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="merchantId"></param>
+        /// <returns>ApiResponse of SfvbLibraryUnshareResult</returns>
+        public ApiResponse<SfvbLibraryUnshareResult> UnshareSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, string merchantId)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UnshareSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->UnshareSfvbLibraryEntry");
+            // verify the required parameter 'merchantId' is set
+            if (merchantId == null)
+                throw new ApiException(400, "Missing required parameter 'merchantId' when calling SfvbApi->UnshareSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares/{merchant_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (merchantId != null) localVarPathParams.Add("merchant_id", this.Configuration.ApiClient.ParameterToString(merchantId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnshareSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryUnshareResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryUnshareResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryUnshareResult)));
+        }
+
+        /// <summary>
+        /// Stop sharing a library entry with an account Owner only, and always needs sfvb_publish.  Stops further installs by that account.  Its existing installs keep their copies and are listed in the result.  Idempotent, and still works while the library is turned off. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="merchantId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryUnshareResult</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryUnshareResult> UnshareSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, string merchantId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryUnshareResult> localVarResponse = await UnshareSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, merchantId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Stop sharing a library entry with an account Owner only, and always needs sfvb_publish.  Stops further installs by that account.  Its existing installs keep their copies and are listed in the result.  Idempotent, and still works while the library is turned off. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="merchantId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryUnshareResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryUnshareResult>> UnshareSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, string merchantId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UnshareSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->UnshareSfvbLibraryEntry");
+            // verify the required parameter 'merchantId' is set
+            if (merchantId == null)
+                throw new ApiException(400, "Missing required parameter 'merchantId' when calling SfvbApi->UnshareSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares/{merchant_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (merchantId != null) localVarPathParams.Add("merchant_id", this.Configuration.ApiClient.ParameterToString(merchantId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnshareSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryUnshareResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryUnshareResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryUnshareResult)));
+        }
+
+        /// <summary>
         /// Change a blog post Only the fields sent change; tags, when sent, replaces every tag.  The post's images and attributes are left alone.  Publish or unpublish with visibility.  A post that is not a draft before or after the change needs sfvb_publish.  The same content rules as create apply. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -23773,6 +27302,215 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
+        }
+
+        /// <summary>
+        /// Update a library entry's draft A full replace of the draft's fields.  Owner only.  Send the hash_sha256 you read as If-Match.  Every save increments revision_number; nothing other merchants see changes until the draft is published.  A changed fragment is re-scanned and its images copied again, and screenshot_stale tells you to retake the screenshot. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="libraryEntry">The whole entry</param>
+        /// <returns>SfvbLibraryEntry</returns>
+        public SfvbLibraryEntry UpdateSfvbLibraryEntry (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryEntryRequest libraryEntry)
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = UpdateSfvbLibraryEntryWithHttpInfo(storefrontOid, libraryOid, ifMatch, libraryEntry);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a library entry's draft A full replace of the draft's fields.  Owner only.  Send the hash_sha256 you read as If-Match.  Every save increments revision_number; nothing other merchants see changes until the draft is published.  A changed fragment is re-scanned and its images copied again, and screenshot_stale tells you to retake the screenshot. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="libraryEntry">The whole entry</param>
+        /// <returns>ApiResponse of SfvbLibraryEntry</returns>
+        public ApiResponse<SfvbLibraryEntry> UpdateSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryEntryRequest libraryEntry)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->UpdateSfvbLibraryEntry");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbLibraryEntry");
+            // verify the required parameter 'libraryEntry' is set
+            if (libraryEntry == null)
+                throw new ApiException(400, "Missing required parameter 'libraryEntry' when calling SfvbApi->UpdateSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (libraryEntry != null && libraryEntry.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(libraryEntry); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = libraryEntry; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
+        }
+
+        /// <summary>
+        /// Update a library entry's draft A full replace of the draft's fields.  Owner only.  Send the hash_sha256 you read as If-Match.  Every save increments revision_number; nothing other merchants see changes until the draft is published.  A changed fragment is re-scanned and its images copied again, and screenshot_stale tells you to retake the screenshot. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="libraryEntry">The whole entry</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbLibraryEntry</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryEntry> UpdateSfvbLibraryEntryAsync (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryEntryRequest libraryEntry, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbLibraryEntry> localVarResponse = await UpdateSfvbLibraryEntryWithHttpInfoAsync(storefrontOid, libraryOid, ifMatch, libraryEntry, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a library entry's draft A full replace of the draft's fields.  Owner only.  Send the hash_sha256 you read as If-Match.  Every save increments revision_number; nothing other merchants see changes until the draft is published.  A changed fragment is re-scanned and its images copied again, and screenshot_stale tells you to retake the screenshot. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="libraryEntry">The whole entry</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> UpdateSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, string ifMatch, SfvbLibraryEntryRequest libraryEntry, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbLibraryEntry");
+            // verify the required parameter 'libraryOid' is set
+            if (libraryOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryOid' when calling SfvbApi->UpdateSfvbLibraryEntry");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbLibraryEntry");
+            // verify the required parameter 'libraryEntry' is set
+            if (libraryEntry == null)
+                throw new ApiException(400, "Missing required parameter 'libraryEntry' when calling SfvbApi->UpdateSfvbLibraryEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/library/{library_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryOid != null) localVarPathParams.Add("library_oid", this.Configuration.ApiClient.ParameterToString(libraryOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (libraryEntry != null && libraryEntry.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(libraryEntry); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = libraryEntry; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbLibraryEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbLibraryEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbLibraryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryEntry)));
         }
 
         /// <summary>

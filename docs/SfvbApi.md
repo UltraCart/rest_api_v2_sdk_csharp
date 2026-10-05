@@ -2164,7 +2164,7 @@ Name | Type | Description  | Notes
 
 ## GetSfvbLibraryHistory
 
-> SfvbLibraryHistoryEntry GetSfvbLibraryHistory (int storefrontOid, int libraryOid)
+> SfvbLibraryHistoryResponse GetSfvbLibraryHistory (int storefrontOid, int libraryOid)
 
 List a library entry's published revisions
 
@@ -2187,7 +2187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SfvbLibraryHistoryEntry**](SfvbLibraryHistoryEntry.md)
+[**SfvbLibraryHistoryResponse**](SfvbLibraryHistoryResponse.md)
 
 ### Authorization
 
@@ -2217,7 +2217,7 @@ Name | Type | Description  | Notes
 
 ## GetSfvbLibraryShareTargets
 
-> SfvbLibraryShareTarget GetSfvbLibraryShareTargets (int storefrontOid)
+> SfvbLibraryShareTargetsResponse GetSfvbLibraryShareTargets (int storefrontOid)
 
 List the accounts a library entry can be shared with
 
@@ -2239,7 +2239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SfvbLibraryShareTarget**](SfvbLibraryShareTarget.md)
+[**SfvbLibraryShareTargetsResponse**](SfvbLibraryShareTargetsResponse.md)
 
 ### Authorization
 
@@ -3949,7 +3949,7 @@ Name | Type | Description  | Notes
 
 ## ListSfvbLibraryInstalls
 
-> SfvbLibraryInstallRecord ListSfvbLibraryInstalls (int storefrontOid)
+> SfvbLibraryInstallsResponse ListSfvbLibraryInstalls (int storefrontOid)
 
 List the library entries installed on a storefront
 
@@ -3971,7 +3971,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SfvbLibraryInstallRecord**](SfvbLibraryInstallRecord.md)
+[**SfvbLibraryInstallsResponse**](SfvbLibraryInstallsResponse.md)
 
 ### Authorization
 

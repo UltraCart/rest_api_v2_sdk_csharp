@@ -952,8 +952,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
-        /// <returns>SfvbLibraryHistoryEntry</returns>
-        SfvbLibraryHistoryEntry GetSfvbLibraryHistory (int storefrontOid, int libraryOid);
+        /// <returns>SfvbLibraryHistoryResponse</returns>
+        SfvbLibraryHistoryResponse GetSfvbLibraryHistory (int storefrontOid, int libraryOid);
 
         /// <summary>
         /// List a library entry's published revisions
@@ -964,8 +964,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
-        /// <returns>ApiResponse of SfvbLibraryHistoryEntry</returns>
-        ApiResponse<SfvbLibraryHistoryEntry> GetSfvbLibraryHistoryWithHttpInfo (int storefrontOid, int libraryOid);
+        /// <returns>ApiResponse of SfvbLibraryHistoryResponse</returns>
+        ApiResponse<SfvbLibraryHistoryResponse> GetSfvbLibraryHistoryWithHttpInfo (int storefrontOid, int libraryOid);
         /// <summary>
         /// List the accounts a library entry can be shared with
         /// </summary>
@@ -974,8 +974,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <returns>SfvbLibraryShareTarget</returns>
-        SfvbLibraryShareTarget GetSfvbLibraryShareTargets (int storefrontOid);
+        /// <returns>SfvbLibraryShareTargetsResponse</returns>
+        SfvbLibraryShareTargetsResponse GetSfvbLibraryShareTargets (int storefrontOid);
 
         /// <summary>
         /// List the accounts a library entry can be shared with
@@ -985,8 +985,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <returns>ApiResponse of SfvbLibraryShareTarget</returns>
-        ApiResponse<SfvbLibraryShareTarget> GetSfvbLibraryShareTargetsWithHttpInfo (int storefrontOid);
+        /// <returns>ApiResponse of SfvbLibraryShareTargetsResponse</returns>
+        ApiResponse<SfvbLibraryShareTargetsResponse> GetSfvbLibraryShareTargetsWithHttpInfo (int storefrontOid);
         /// <summary>
         /// List the allowed library tags
         /// </summary>
@@ -1761,8 +1761,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <returns>SfvbLibraryInstallRecord</returns>
-        SfvbLibraryInstallRecord ListSfvbLibraryInstalls (int storefrontOid);
+        /// <returns>SfvbLibraryInstallsResponse</returns>
+        SfvbLibraryInstallsResponse ListSfvbLibraryInstalls (int storefrontOid);
 
         /// <summary>
         /// List the library entries installed on a storefront
@@ -1772,8 +1772,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <returns>ApiResponse of SfvbLibraryInstallRecord</returns>
-        ApiResponse<SfvbLibraryInstallRecord> ListSfvbLibraryInstallsWithHttpInfo (int storefrontOid);
+        /// <returns>ApiResponse of SfvbLibraryInstallsResponse</returns>
+        ApiResponse<SfvbLibraryInstallsResponse> ListSfvbLibraryInstallsWithHttpInfo (int storefrontOid);
         /// <summary>
         /// List the storefront's pages
         /// </summary>
@@ -4035,8 +4035,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of SfvbLibraryHistoryEntry</returns>
-        System.Threading.Tasks.Task<SfvbLibraryHistoryEntry> GetSfvbLibraryHistoryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of SfvbLibraryHistoryResponse</returns>
+        System.Threading.Tasks.Task<SfvbLibraryHistoryResponse> GetSfvbLibraryHistoryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List a library entry&#39;s published revisions
@@ -4048,8 +4048,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (SfvbLibraryHistoryEntry)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryHistoryEntry>> GetSfvbLibraryHistoryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (SfvbLibraryHistoryResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryHistoryResponse>> GetSfvbLibraryHistoryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// List the accounts a library entry can be shared with
         /// </summary>
@@ -4059,8 +4059,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of SfvbLibraryShareTarget</returns>
-        System.Threading.Tasks.Task<SfvbLibraryShareTarget> GetSfvbLibraryShareTargetsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of SfvbLibraryShareTargetsResponse</returns>
+        System.Threading.Tasks.Task<SfvbLibraryShareTargetsResponse> GetSfvbLibraryShareTargetsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List the accounts a library entry can be shared with
@@ -4071,8 +4071,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (SfvbLibraryShareTarget)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryShareTarget>> GetSfvbLibraryShareTargetsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (SfvbLibraryShareTargetsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryShareTargetsResponse>> GetSfvbLibraryShareTargetsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// List the allowed library tags
         /// </summary>
@@ -4912,8 +4912,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of SfvbLibraryInstallRecord</returns>
-        System.Threading.Tasks.Task<SfvbLibraryInstallRecord> ListSfvbLibraryInstallsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of SfvbLibraryInstallsResponse</returns>
+        System.Threading.Tasks.Task<SfvbLibraryInstallsResponse> ListSfvbLibraryInstallsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List the library entries installed on a storefront
@@ -4924,8 +4924,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (SfvbLibraryInstallRecord)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryInstallRecord>> ListSfvbLibraryInstallsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (SfvbLibraryInstallsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbLibraryInstallsResponse>> ListSfvbLibraryInstallsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// List the storefront's pages
         /// </summary>
@@ -13138,10 +13138,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
-        /// <returns>SfvbLibraryHistoryEntry</returns>
-        public SfvbLibraryHistoryEntry GetSfvbLibraryHistory (int storefrontOid, int libraryOid)
+        /// <returns>SfvbLibraryHistoryResponse</returns>
+        public SfvbLibraryHistoryResponse GetSfvbLibraryHistory (int storefrontOid, int libraryOid)
         {
-             ApiResponse<SfvbLibraryHistoryEntry> localVarResponse = GetSfvbLibraryHistoryWithHttpInfo(storefrontOid, libraryOid);
+             ApiResponse<SfvbLibraryHistoryResponse> localVarResponse = GetSfvbLibraryHistoryWithHttpInfo(storefrontOid, libraryOid);
              return localVarResponse.Data;
         }
 
@@ -13151,8 +13151,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
-        /// <returns>ApiResponse of SfvbLibraryHistoryEntry</returns>
-        public ApiResponse<SfvbLibraryHistoryEntry> GetSfvbLibraryHistoryWithHttpInfo (int storefrontOid, int libraryOid)
+        /// <returns>ApiResponse of SfvbLibraryHistoryResponse</returns>
+        public ApiResponse<SfvbLibraryHistoryResponse> GetSfvbLibraryHistoryWithHttpInfo (int storefrontOid, int libraryOid)
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -13210,9 +13210,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SfvbLibraryHistoryEntry>(localVarStatusCode,
+            return new ApiResponse<SfvbLibraryHistoryResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SfvbLibraryHistoryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryHistoryEntry)));
+                (SfvbLibraryHistoryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryHistoryResponse)));
         }
 
         /// <summary>
@@ -13222,10 +13222,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of SfvbLibraryHistoryEntry</returns>
-        public async System.Threading.Tasks.Task<SfvbLibraryHistoryEntry> GetSfvbLibraryHistoryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of SfvbLibraryHistoryResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryHistoryResponse> GetSfvbLibraryHistoryAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbLibraryHistoryEntry> localVarResponse = await GetSfvbLibraryHistoryWithHttpInfoAsync(storefrontOid, libraryOid, cancellationToken);
+             ApiResponse<SfvbLibraryHistoryResponse> localVarResponse = await GetSfvbLibraryHistoryWithHttpInfoAsync(storefrontOid, libraryOid, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -13237,8 +13237,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="libraryOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (SfvbLibraryHistoryEntry)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryHistoryEntry>> GetSfvbLibraryHistoryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (SfvbLibraryHistoryResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryHistoryResponse>> GetSfvbLibraryHistoryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -13296,9 +13296,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SfvbLibraryHistoryEntry>(localVarStatusCode,
+            return new ApiResponse<SfvbLibraryHistoryResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SfvbLibraryHistoryEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryHistoryEntry)));
+                (SfvbLibraryHistoryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryHistoryResponse)));
         }
 
         /// <summary>
@@ -13306,10 +13306,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <returns>SfvbLibraryShareTarget</returns>
-        public SfvbLibraryShareTarget GetSfvbLibraryShareTargets (int storefrontOid)
+        /// <returns>SfvbLibraryShareTargetsResponse</returns>
+        public SfvbLibraryShareTargetsResponse GetSfvbLibraryShareTargets (int storefrontOid)
         {
-             ApiResponse<SfvbLibraryShareTarget> localVarResponse = GetSfvbLibraryShareTargetsWithHttpInfo(storefrontOid);
+             ApiResponse<SfvbLibraryShareTargetsResponse> localVarResponse = GetSfvbLibraryShareTargetsWithHttpInfo(storefrontOid);
              return localVarResponse.Data;
         }
 
@@ -13318,8 +13318,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <returns>ApiResponse of SfvbLibraryShareTarget</returns>
-        public ApiResponse<SfvbLibraryShareTarget> GetSfvbLibraryShareTargetsWithHttpInfo (int storefrontOid)
+        /// <returns>ApiResponse of SfvbLibraryShareTargetsResponse</returns>
+        public ApiResponse<SfvbLibraryShareTargetsResponse> GetSfvbLibraryShareTargetsWithHttpInfo (int storefrontOid)
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -13373,9 +13373,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SfvbLibraryShareTarget>(localVarStatusCode,
+            return new ApiResponse<SfvbLibraryShareTargetsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SfvbLibraryShareTarget) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryShareTarget)));
+                (SfvbLibraryShareTargetsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryShareTargetsResponse)));
         }
 
         /// <summary>
@@ -13384,10 +13384,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of SfvbLibraryShareTarget</returns>
-        public async System.Threading.Tasks.Task<SfvbLibraryShareTarget> GetSfvbLibraryShareTargetsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of SfvbLibraryShareTargetsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryShareTargetsResponse> GetSfvbLibraryShareTargetsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbLibraryShareTarget> localVarResponse = await GetSfvbLibraryShareTargetsWithHttpInfoAsync(storefrontOid, cancellationToken);
+             ApiResponse<SfvbLibraryShareTargetsResponse> localVarResponse = await GetSfvbLibraryShareTargetsWithHttpInfoAsync(storefrontOid, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -13398,8 +13398,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (SfvbLibraryShareTarget)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryShareTarget>> GetSfvbLibraryShareTargetsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (SfvbLibraryShareTargetsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryShareTargetsResponse>> GetSfvbLibraryShareTargetsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -13453,9 +13453,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SfvbLibraryShareTarget>(localVarStatusCode,
+            return new ApiResponse<SfvbLibraryShareTargetsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SfvbLibraryShareTarget) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryShareTarget)));
+                (SfvbLibraryShareTargetsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryShareTargetsResponse)));
         }
 
         /// <summary>
@@ -18951,10 +18951,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <returns>SfvbLibraryInstallRecord</returns>
-        public SfvbLibraryInstallRecord ListSfvbLibraryInstalls (int storefrontOid)
+        /// <returns>SfvbLibraryInstallsResponse</returns>
+        public SfvbLibraryInstallsResponse ListSfvbLibraryInstalls (int storefrontOid)
         {
-             ApiResponse<SfvbLibraryInstallRecord> localVarResponse = ListSfvbLibraryInstallsWithHttpInfo(storefrontOid);
+             ApiResponse<SfvbLibraryInstallsResponse> localVarResponse = ListSfvbLibraryInstallsWithHttpInfo(storefrontOid);
              return localVarResponse.Data;
         }
 
@@ -18963,8 +18963,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <returns>ApiResponse of SfvbLibraryInstallRecord</returns>
-        public ApiResponse<SfvbLibraryInstallRecord> ListSfvbLibraryInstallsWithHttpInfo (int storefrontOid)
+        /// <returns>ApiResponse of SfvbLibraryInstallsResponse</returns>
+        public ApiResponse<SfvbLibraryInstallsResponse> ListSfvbLibraryInstallsWithHttpInfo (int storefrontOid)
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -19018,9 +19018,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SfvbLibraryInstallRecord>(localVarStatusCode,
+            return new ApiResponse<SfvbLibraryInstallsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SfvbLibraryInstallRecord) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryInstallRecord)));
+                (SfvbLibraryInstallsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryInstallsResponse)));
         }
 
         /// <summary>
@@ -19029,10 +19029,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of SfvbLibraryInstallRecord</returns>
-        public async System.Threading.Tasks.Task<SfvbLibraryInstallRecord> ListSfvbLibraryInstallsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of SfvbLibraryInstallsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbLibraryInstallsResponse> ListSfvbLibraryInstallsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbLibraryInstallRecord> localVarResponse = await ListSfvbLibraryInstallsWithHttpInfoAsync(storefrontOid, cancellationToken);
+             ApiResponse<SfvbLibraryInstallsResponse> localVarResponse = await ListSfvbLibraryInstallsWithHttpInfoAsync(storefrontOid, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -19043,8 +19043,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (SfvbLibraryInstallRecord)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryInstallRecord>> ListSfvbLibraryInstallsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (SfvbLibraryInstallsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbLibraryInstallsResponse>> ListSfvbLibraryInstallsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -19098,9 +19098,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SfvbLibraryInstallRecord>(localVarStatusCode,
+            return new ApiResponse<SfvbLibraryInstallsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SfvbLibraryInstallRecord) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryInstallRecord)));
+                (SfvbLibraryInstallsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbLibraryInstallsResponse)));
         }
 
         /// <summary>

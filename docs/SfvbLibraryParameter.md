@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Default** | **string** | The value used when none is supplied. | [optional] 
+**DefaultValue** | **string** | The value used when none is supplied. | [optional] 
 **Description** | **string** | What the value is used for. | [optional] 
 **Name** | **string** | Parameter name, letters, digits, hyphens and underscores. | [optional] 
 **Required** | **bool** | True when the fragment cannot be used without it. | [optional] 

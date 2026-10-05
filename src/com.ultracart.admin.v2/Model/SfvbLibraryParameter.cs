@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbLibraryParameter" /> class.
         /// </summary>
-        /// <param name="_default">The value used when none is supplied..</param>
+        /// <param name="defaultValue">The value used when none is supplied..</param>
         /// <param name="description">What the value is used for..</param>
         /// <param name="name">Parameter name, letters, digits, hyphens and underscores..</param>
         /// <param name="required">True when the fragment cannot be used without it..</param>
         /// <param name="type">What kind of value it takes, such as string, url, color or item..</param>
-        public SfvbLibraryParameter(string _default = default(string), string description = default(string), string name = default(string), bool required = default(bool), string type = default(string))
+        public SfvbLibraryParameter(string defaultValue = default(string), string description = default(string), string name = default(string), bool required = default(bool), string type = default(string))
         {
-            this.Default = _default;
+            this.DefaultValue = defaultValue;
             this.Description = description;
             this.Name = name;
             this.Required = required;
@@ -51,8 +51,8 @@ namespace com.ultracart.admin.v2.Model
         /// The value used when none is supplied.
         /// </summary>
         /// <value>The value used when none is supplied.</value>
-        [DataMember(Name="default", EmitDefaultValue=false)]
-        public string Default { get; set; }
+        [DataMember(Name="default_value", EmitDefaultValue=false)]
+        public string DefaultValue { get; set; }
 
         /// <summary>
         /// What the value is used for.
@@ -90,7 +90,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbLibraryParameter {\n");
-            sb.Append("  Default: ").Append(Default).Append("\n");
+            sb.Append("  DefaultValue: ").Append(DefaultValue).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Required: ").Append(Required).Append("\n");
@@ -130,9 +130,9 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.Default == input.Default ||
-                    (this.Default != null &&
-                    this.Default.Equals(input.Default))
+                    this.DefaultValue == input.DefaultValue ||
+                    (this.DefaultValue != null &&
+                    this.DefaultValue.Equals(input.DefaultValue))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -165,8 +165,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Default != null)
-                    hashCode = hashCode * 59 + this.Default.GetHashCode();
+                if (this.DefaultValue != null)
+                    hashCode = hashCode * 59 + this.DefaultValue.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Name != null)

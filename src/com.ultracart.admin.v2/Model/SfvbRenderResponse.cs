@@ -38,14 +38,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="pendingTranslationCount">Number of strings still awaiting translation in the requested language..</param>
         /// <param name="success">True when HTML was produced..</param>
         /// <param name="truncated">True when the HTML was cut short..</param>
+        /// <param name="untranslatedCount">Strings rendered in English because no translation is stored for the requested language yet.  A render never translates, so re-rendering does not change this.  Push the page to store its hand translations; machine translations are made when shoppers first view it in that language..</param>
         /// <param name="warnings">Quality warnings about the rendered node..</param>
-        public SfvbRenderResponse(List<SfvbErrorDetail> errors = default(List<SfvbErrorDetail>), string html = default(string), int pendingTranslationCount = default(int), bool success = default(bool), bool truncated = default(bool), List<SfvbErrorDetail> warnings = default(List<SfvbErrorDetail>))
+        public SfvbRenderResponse(List<SfvbErrorDetail> errors = default(List<SfvbErrorDetail>), string html = default(string), int pendingTranslationCount = default(int), bool success = default(bool), bool truncated = default(bool), int untranslatedCount = default(int), List<SfvbErrorDetail> warnings = default(List<SfvbErrorDetail>))
         {
             this.Errors = errors;
             this.Html = html;
             this.PendingTranslationCount = pendingTranslationCount;
             this.Success = success;
             this.Truncated = truncated;
+            this.UntranslatedCount = untranslatedCount;
             this.Warnings = warnings;
         }
 
@@ -85,6 +87,13 @@ namespace com.ultracart.admin.v2.Model
         public bool Truncated { get; set; }
 
         /// <summary>
+        /// Strings rendered in English because no translation is stored for the requested language yet.  A render never translates, so re-rendering does not change this.  Push the page to store its hand translations; machine translations are made when shoppers first view it in that language.
+        /// </summary>
+        /// <value>Strings rendered in English because no translation is stored for the requested language yet.  A render never translates, so re-rendering does not change this.  Push the page to store its hand translations; machine translations are made when shoppers first view it in that language.</value>
+        [DataMember(Name="untranslated_count", EmitDefaultValue=false)]
+        public int UntranslatedCount { get; set; }
+
+        /// <summary>
         /// Quality warnings about the rendered node.
         /// </summary>
         /// <value>Quality warnings about the rendered node.</value>
@@ -104,6 +113,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PendingTranslationCount: ").Append(PendingTranslationCount).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Truncated: ").Append(Truncated).Append("\n");
+            sb.Append("  UntranslatedCount: ").Append(UntranslatedCount).Append("\n");
             sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -166,6 +176,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Truncated.Equals(input.Truncated))
                 ) && 
                 (
+                    this.UntranslatedCount == input.UntranslatedCount ||
+                    (this.UntranslatedCount != null &&
+                    this.UntranslatedCount.Equals(input.UntranslatedCount))
+                ) && 
+                (
                     this.Warnings == input.Warnings ||
                     this.Warnings != null &&
                     input.Warnings != null &&
@@ -192,6 +207,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Truncated != null)
                     hashCode = hashCode * 59 + this.Truncated.GetHashCode();
+                if (this.UntranslatedCount != null)
+                    hashCode = hashCode * 59 + this.UntranslatedCount.GetHashCode();
                 if (this.Warnings != null)
                     hashCode = hashCode * 59 + this.Warnings.GetHashCode();
                 return hashCode;

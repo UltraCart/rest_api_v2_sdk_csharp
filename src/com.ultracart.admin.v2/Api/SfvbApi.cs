@@ -441,6 +441,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
         ApiResponse<SfvbBlogPostDetail> DetachSfvbBlogPostImageWithHttpInfo (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest);
         /// <summary>
+        /// Disable a language
+        /// </summary>
+        /// <remarks>
+        /// Stops serving a language.  Its hand and machine translations are kept and come back when it is enabled again.  The default language cannot be disabled.  Already disabled answers changed false.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>SfvbI18nLanguagesResponse</returns>
+        SfvbI18nLanguagesResponse DisableSfvbI18nLanguage (int storefrontOid, string code, string ifMatch);
+
+        /// <summary>
+        /// Disable a language
+        /// </summary>
+        /// <remarks>
+        /// Stops serving a language.  Its hand and machine translations are kept and come back when it is enabled again.  The default language cannot be disabled.  Already disabled answers changed false.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbI18nLanguagesResponse</returns>
+        ApiResponse<SfvbI18nLanguagesResponse> DisableSfvbI18nLanguageWithHttpInfo (int storefrontOid, string code, string ifMatch);
+        /// <summary>
         /// Disable an upsell offer
         /// </summary>
         /// <remarks>
@@ -630,6 +655,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="duplicateRequest">What to duplicate (optional)</param>
         /// <returns>ApiResponse of SfvbUpsellPath</returns>
         ApiResponse<SfvbUpsellPath> DuplicateSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest = default(SfvbUpsellPathDuplicateRequest));
+        /// <summary>
+        /// Enable a language
+        /// </summary>
+        /// <remarks>
+        /// Turns a language on.  It is served to shoppers and machine translated, which is billed per character, so acknowledge_cost must be true and the caller must be a person (device authorization).  Records the same billing note as the merchant admin.  Already enabled answers changed false.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="languageEnableRequest">The cost acknowledgement</param>
+        /// <returns>SfvbI18nLanguagesResponse</returns>
+        SfvbI18nLanguagesResponse EnableSfvbI18nLanguage (int storefrontOid, string code, string ifMatch, SfvbI18nLanguageEnableRequest languageEnableRequest);
+
+        /// <summary>
+        /// Enable a language
+        /// </summary>
+        /// <remarks>
+        /// Turns a language on.  It is served to shoppers and machine translated, which is billed per character, so acknowledge_cost must be true and the caller must be a person (device authorization).  Records the same billing note as the merchant admin.  Already enabled answers changed false.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="languageEnableRequest">The cost acknowledgement</param>
+        /// <returns>ApiResponse of SfvbI18nLanguagesResponse</returns>
+        ApiResponse<SfvbI18nLanguagesResponse> EnableSfvbI18nLanguageWithHttpInfo (int storefrontOid, string code, string ifMatch, SfvbI18nLanguageEnableRequest languageEnableRequest);
         /// <summary>
         /// End an experiment
         /// </summary>
@@ -893,6 +945,125 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="extension"></param>
         /// <returns>ApiResponse of SfvbFileUploadUrlResponse</returns>
         ApiResponse<SfvbFileUploadUrlResponse> GetSfvbFileUploadUrlWithHttpInfo (int storefrontOid, string extension);
+        /// <summary>
+        /// Read the storefront's translation glossary
+        /// </summary>
+        /// <remarks>
+        /// The storefront's glossary, plain markdown with terms not to translate, required translations, tone and words to avoid.  Read it before translating anything.  Empty when none has been saved.  Each storefront has its own, because a storefront is often its own brand. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbI18nGlossary</returns>
+        SfvbI18nGlossary GetSfvbI18nGlossary (int storefrontOid);
+
+        /// <summary>
+        /// Read the storefront's translation glossary
+        /// </summary>
+        /// <remarks>
+        /// The storefront's glossary, plain markdown with terms not to translate, required translations, tone and words to avoid.  Read it before translating anything.  Empty when none has been saved.  Each storefront has its own, because a storefront is often its own brand. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbI18nGlossary</returns>
+        ApiResponse<SfvbI18nGlossary> GetSfvbI18nGlossaryWithHttpInfo (int storefrontOid);
+        /// <summary>
+        /// List a storefront's languages
+        /// </summary>
+        /// <remarks>
+        /// Every language the storefront can be translated into, with UltraCart's three-letter code (ESP for Spanish), the other spellings accepted, whether it is enabled, the default and right to left.  Language maps in CJSON and render take the code.  English is the source of every string.  Also gives the machine translation estimate for one more language, and the hash_sha256 an enable or disable sends back. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbI18nLanguagesResponse</returns>
+        SfvbI18nLanguagesResponse GetSfvbI18nLanguages (int storefrontOid);
+
+        /// <summary>
+        /// List a storefront's languages
+        /// </summary>
+        /// <remarks>
+        /// Every language the storefront can be translated into, with UltraCart's three-letter code (ESP for Spanish), the other spellings accepted, whether it is enabled, the default and right to left.  Language maps in CJSON and render take the code.  English is the source of every string.  Also gives the machine translation estimate for one more language, and the hash_sha256 an enable or disable sends back. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbI18nLanguagesResponse</returns>
+        ApiResponse<SfvbI18nLanguagesResponse> GetSfvbI18nLanguagesWithHttpInfo (int storefrontOid);
+        /// <summary>
+        /// Read where a widget setting's translations come from
+        /// </summary>
+        /// <remarks>
+        /// For one multilingual widget setting, named by widget_id and property on a theme (the active theme unless theme_oid is given), each enabled language's text and whether a shopper sees a hand translation from the language map, a machine translation, one still queued (pending) or none yet.  The setting is registered when its container is saved.  Nothing is generated by reading it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="widgetId"> (optional)</param>
+        /// <param name="property"> (optional)</param>
+        /// <returns>SfvbI18nMachineTranslationsResponse</returns>
+        SfvbI18nMachineTranslationsResponse GetSfvbI18nMachineTranslations (int storefrontOid, int? themeOid = default(int?), string widgetId = default(string), string property = default(string));
+
+        /// <summary>
+        /// Read where a widget setting's translations come from
+        /// </summary>
+        /// <remarks>
+        /// For one multilingual widget setting, named by widget_id and property on a theme (the active theme unless theme_oid is given), each enabled language's text and whether a shopper sees a hand translation from the language map, a machine translation, one still queued (pending) or none yet.  The setting is registered when its container is saved.  Nothing is generated by reading it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="widgetId"> (optional)</param>
+        /// <param name="property"> (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nMachineTranslationsResponse</returns>
+        ApiResponse<SfvbI18nMachineTranslationsResponse> GetSfvbI18nMachineTranslationsWithHttpInfo (int storefrontOid, int? themeOid = default(int?), string widgetId = default(string), string property = default(string));
+        /// <summary>
+        /// Read one built-in message
+        /// </summary>
+        /// <remarks>
+        /// One message by key, with the hash_sha256 a set or reset sends back. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>SfvbI18nMessage</returns>
+        SfvbI18nMessage GetSfvbI18nMessage (int storefrontOid, string key, int? themeOid = default(int?));
+
+        /// <summary>
+        /// Read one built-in message
+        /// </summary>
+        /// <remarks>
+        /// One message by key, with the hash_sha256 a set or reset sends back. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nMessage</returns>
+        ApiResponse<SfvbI18nMessage> GetSfvbI18nMessageWithHttpInfo (int storefrontOid, string key, int? themeOid = default(int?));
+        /// <summary>
+        /// Read where a message's translations come from
+        /// </summary>
+        /// <remarks>
+        /// For one message, each enabled language's text and whether a shopper sees a hand translation, a machine translation, one still queued (pending) or none yet.  Nothing is generated by reading it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>SfvbI18nMachineTranslationsResponse</returns>
+        SfvbI18nMachineTranslationsResponse GetSfvbI18nMessageMachineTranslations (int storefrontOid, string key, int? themeOid = default(int?));
+
+        /// <summary>
+        /// Read where a message's translations come from
+        /// </summary>
+        /// <remarks>
+        /// For one message, each enabled language's text and whether a shopper sees a hand translation, a machine translation, one still queued (pending) or none yet.  Nothing is generated by reading it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nMachineTranslationsResponse</returns>
+        ApiResponse<SfvbI18nMachineTranslationsResponse> GetSfvbI18nMessageMachineTranslationsWithHttpInfo (int storefrontOid, string key, int? themeOid = default(int?));
         /// <summary>
         /// Read an item's storefront facing content
         /// </summary>
@@ -1723,6 +1894,39 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbFilesResponse</returns>
         ApiResponse<SfvbFilesResponse> ListSfvbFilesWithHttpInfo (int storefrontOid, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? themeOid = default(int?), int? maxEntries = default(int?));
         /// <summary>
+        /// List built-in messages
+        /// </summary>
+        /// <remarks>
+        /// The system text templates render by key, such as checkout labels, for one theme (the active theme unless theme_oid is given).  Each message has its English, whether it was edited, and each enabled language's text with its source (hand, machine, pending or none).  A message appears the first time a page renders it.  q matches the key or the English.  overridden keeps messages with an edited English or a hand translation.  Paged by offset and limit (default 200, at most 500). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="language"> (optional)</param>
+        /// <param name="overridden"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <returns>SfvbI18nMessagesResponse</returns>
+        SfvbI18nMessagesResponse ListSfvbI18nMessages (int storefrontOid, int? themeOid = default(int?), string q = default(string), string language = default(string), bool? overridden = default(bool?), int? offset = default(int?), int? limit = default(int?));
+
+        /// <summary>
+        /// List built-in messages
+        /// </summary>
+        /// <remarks>
+        /// The system text templates render by key, such as checkout labels, for one theme (the active theme unless theme_oid is given).  Each message has its English, whether it was edited, and each enabled language's text with its source (hand, machine, pending or none).  A message appears the first time a page renders it.  q matches the key or the English.  overridden keeps messages with an edited English or a hand translation.  Paged by offset and limit (default 200, at most 500). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="language"> (optional)</param>
+        /// <param name="overridden"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nMessagesResponse</returns>
+        ApiResponse<SfvbI18nMessagesResponse> ListSfvbI18nMessagesWithHttpInfo (int storefrontOid, int? themeOid = default(int?), string q = default(string), string language = default(string), bool? overridden = default(bool?), int? offset = default(int?), int? limit = default(int?));
+        /// <summary>
         /// List the item containers on the account
         /// </summary>
         /// <remarks>
@@ -2094,6 +2298,60 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="path"> (optional)</param>
         /// <returns>ApiResponse of SfvbFileWriteResponse</returns>
         ApiResponse<SfvbFileWriteResponse> PutSfvbFileContentWithHttpInfo (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string));
+        /// <summary>
+        /// Replace the storefront's translation glossary
+        /// </summary>
+        /// <remarks>
+        /// Replaces the whole glossary, plain markdown up to 64 KB.  The server stores it and never interprets it; the agent follows it.  Send the hash_sha256 you read as If-Match, except for the first save.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="glossaryRequest">The glossary</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Not needed for the first save; otherwise 428 when absent, 412 when stale. (optional)</param>
+        /// <returns>SfvbI18nGlossary</returns>
+        SfvbI18nGlossary PutSfvbI18nGlossary (int storefrontOid, SfvbI18nGlossaryRequest glossaryRequest, string ifMatch = default(string));
+
+        /// <summary>
+        /// Replace the storefront's translation glossary
+        /// </summary>
+        /// <remarks>
+        /// Replaces the whole glossary, plain markdown up to 64 KB.  The server stores it and never interprets it; the agent follows it.  Send the hash_sha256 you read as If-Match, except for the first save.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="glossaryRequest">The glossary</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Not needed for the first save; otherwise 428 when absent, 412 when stale. (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nGlossary</returns>
+        ApiResponse<SfvbI18nGlossary> PutSfvbI18nGlossaryWithHttpInfo (int storefrontOid, SfvbI18nGlossaryRequest glossaryRequest, string ifMatch = default(string));
+        /// <summary>
+        /// Change one built-in message
+        /// </summary>
+        /// <remarks>
+        /// Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="messageWriteRequest">The languages to change</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>SfvbI18nMessage</returns>
+        SfvbI18nMessage PutSfvbI18nMessage (int storefrontOid, string key, string ifMatch, SfvbI18nMessageWriteRequest messageWriteRequest, int? themeOid = default(int?));
+
+        /// <summary>
+        /// Change one built-in message
+        /// </summary>
+        /// <remarks>
+        /// Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="messageWriteRequest">The languages to change</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nMessage</returns>
+        ApiResponse<SfvbI18nMessage> PutSfvbI18nMessageWithHttpInfo (int storefrontOid, string key, string ifMatch, SfvbI18nMessageWriteRequest messageWriteRequest, int? themeOid = default(int?));
         /// <summary>
         /// Change some of an item's attributes
         /// </summary>
@@ -2548,6 +2806,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="count"> (optional)</param>
         /// <returns>ApiResponse of SfvbWidgetIdsResponse</returns>
         ApiResponse<SfvbWidgetIdsResponse> ReserveSfvbWidgetIdsWithHttpInfo (int storefrontOid, int? count = default(int?));
+        /// <summary>
+        /// Reset one built-in message
+        /// </summary>
+        /// <remarks>
+        /// Puts a message back to the template's text.  The merchant's English edit and hand translations stop serving at once and every language falls back to machine translation; the message comes back the next time a page renders it.  A message imported from an older theme's locale file is refused.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>SfvbI18nResetResponse</returns>
+        SfvbI18nResetResponse ResetSfvbI18nMessage (int storefrontOid, string key, string ifMatch, int? themeOid = default(int?));
+
+        /// <summary>
+        /// Reset one built-in message
+        /// </summary>
+        /// <remarks>
+        /// Puts a message back to the template's text.  The merchant's English edit and hand translations stop serving at once and every language falls back to machine translation; the message comes back the next time a page renders it.  A message imported from an older theme's locale file is refused.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nResetResponse</returns>
+        ApiResponse<SfvbI18nResetResponse> ResetSfvbI18nMessageWithHttpInfo (int storefrontOid, string key, string ifMatch, int? themeOid = default(int?));
         /// <summary>
         /// Resolve a template name to the file a page renders
         /// </summary>
@@ -3481,6 +3766,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> DetachSfvbBlogPostImageWithHttpInfoAsync (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Disable a language
+        /// </summary>
+        /// <remarks>
+        /// Stops serving a language.  Its hand and machine translations are kept and come back when it is enabled again.  The default language cannot be disabled.  Already disabled answers changed false.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nLanguagesResponse</returns>
+        System.Threading.Tasks.Task<SfvbI18nLanguagesResponse> DisableSfvbI18nLanguageAsync (int storefrontOid, string code, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Disable a language
+        /// </summary>
+        /// <remarks>
+        /// Stops serving a language.  Its hand and machine translations are kept and come back when it is enabled again.  The default language cannot be disabled.  Already disabled answers changed false.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nLanguagesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbI18nLanguagesResponse>> DisableSfvbI18nLanguageWithHttpInfoAsync (int storefrontOid, string code, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Disable an upsell offer
         /// </summary>
         /// <remarks>
@@ -3686,6 +3998,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> DuplicateSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest = default(SfvbUpsellPathDuplicateRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Enable a language
+        /// </summary>
+        /// <remarks>
+        /// Turns a language on.  It is served to shoppers and machine translated, which is billed per character, so acknowledge_cost must be true and the caller must be a person (device authorization).  Records the same billing note as the merchant admin.  Already enabled answers changed false.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="languageEnableRequest">The cost acknowledgement</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nLanguagesResponse</returns>
+        System.Threading.Tasks.Task<SfvbI18nLanguagesResponse> EnableSfvbI18nLanguageAsync (int storefrontOid, string code, string ifMatch, SfvbI18nLanguageEnableRequest languageEnableRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Enable a language
+        /// </summary>
+        /// <remarks>
+        /// Turns a language on.  It is served to shoppers and machine translated, which is billed per character, so acknowledge_cost must be true and the caller must be a person (device authorization).  Records the same billing note as the merchant admin.  Already enabled answers changed false.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="languageEnableRequest">The cost acknowledgement</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nLanguagesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbI18nLanguagesResponse>> EnableSfvbI18nLanguageWithHttpInfoAsync (int storefrontOid, string code, string ifMatch, SfvbI18nLanguageEnableRequest languageEnableRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// End an experiment
         /// </summary>
@@ -3971,6 +4312,135 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFileUploadUrlResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFileUploadUrlResponse>> GetSfvbFileUploadUrlWithHttpInfoAsync (int storefrontOid, string extension, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read the storefront's translation glossary
+        /// </summary>
+        /// <remarks>
+        /// The storefront's glossary, plain markdown with terms not to translate, required translations, tone and words to avoid.  Read it before translating anything.  Empty when none has been saved.  Each storefront has its own, because a storefront is often its own brand. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nGlossary</returns>
+        System.Threading.Tasks.Task<SfvbI18nGlossary> GetSfvbI18nGlossaryAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read the storefront&#39;s translation glossary
+        /// </summary>
+        /// <remarks>
+        /// The storefront's glossary, plain markdown with terms not to translate, required translations, tone and words to avoid.  Read it before translating anything.  Empty when none has been saved.  Each storefront has its own, because a storefront is often its own brand. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nGlossary)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbI18nGlossary>> GetSfvbI18nGlossaryWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List a storefront's languages
+        /// </summary>
+        /// <remarks>
+        /// Every language the storefront can be translated into, with UltraCart's three-letter code (ESP for Spanish), the other spellings accepted, whether it is enabled, the default and right to left.  Language maps in CJSON and render take the code.  English is the source of every string.  Also gives the machine translation estimate for one more language, and the hash_sha256 an enable or disable sends back. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nLanguagesResponse</returns>
+        System.Threading.Tasks.Task<SfvbI18nLanguagesResponse> GetSfvbI18nLanguagesAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List a storefront&#39;s languages
+        /// </summary>
+        /// <remarks>
+        /// Every language the storefront can be translated into, with UltraCart's three-letter code (ESP for Spanish), the other spellings accepted, whether it is enabled, the default and right to left.  Language maps in CJSON and render take the code.  English is the source of every string.  Also gives the machine translation estimate for one more language, and the hash_sha256 an enable or disable sends back. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nLanguagesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbI18nLanguagesResponse>> GetSfvbI18nLanguagesWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read where a widget setting's translations come from
+        /// </summary>
+        /// <remarks>
+        /// For one multilingual widget setting, named by widget_id and property on a theme (the active theme unless theme_oid is given), each enabled language's text and whether a shopper sees a hand translation from the language map, a machine translation, one still queued (pending) or none yet.  The setting is registered when its container is saved.  Nothing is generated by reading it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="widgetId"> (optional)</param>
+        /// <param name="property"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nMachineTranslationsResponse</returns>
+        System.Threading.Tasks.Task<SfvbI18nMachineTranslationsResponse> GetSfvbI18nMachineTranslationsAsync (int storefrontOid, int? themeOid = default(int?), string widgetId = default(string), string property = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read where a widget setting&#39;s translations come from
+        /// </summary>
+        /// <remarks>
+        /// For one multilingual widget setting, named by widget_id and property on a theme (the active theme unless theme_oid is given), each enabled language's text and whether a shopper sees a hand translation from the language map, a machine translation, one still queued (pending) or none yet.  The setting is registered when its container is saved.  Nothing is generated by reading it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="widgetId"> (optional)</param>
+        /// <param name="property"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nMachineTranslationsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbI18nMachineTranslationsResponse>> GetSfvbI18nMachineTranslationsWithHttpInfoAsync (int storefrontOid, int? themeOid = default(int?), string widgetId = default(string), string property = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read one built-in message
+        /// </summary>
+        /// <remarks>
+        /// One message by key, with the hash_sha256 a set or reset sends back. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nMessage</returns>
+        System.Threading.Tasks.Task<SfvbI18nMessage> GetSfvbI18nMessageAsync (int storefrontOid, string key, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read one built-in message
+        /// </summary>
+        /// <remarks>
+        /// One message by key, with the hash_sha256 a set or reset sends back. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nMessage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbI18nMessage>> GetSfvbI18nMessageWithHttpInfoAsync (int storefrontOid, string key, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read where a message's translations come from
+        /// </summary>
+        /// <remarks>
+        /// For one message, each enabled language's text and whether a shopper sees a hand translation, a machine translation, one still queued (pending) or none yet.  Nothing is generated by reading it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nMachineTranslationsResponse</returns>
+        System.Threading.Tasks.Task<SfvbI18nMachineTranslationsResponse> GetSfvbI18nMessageMachineTranslationsAsync (int storefrontOid, string key, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read where a message&#39;s translations come from
+        /// </summary>
+        /// <remarks>
+        /// For one message, each enabled language's text and whether a shopper sees a hand translation, a machine translation, one still queued (pending) or none yet.  Nothing is generated by reading it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nMachineTranslationsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbI18nMachineTranslationsResponse>> GetSfvbI18nMessageMachineTranslationsWithHttpInfoAsync (int storefrontOid, string key, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read an item's storefront facing content
         /// </summary>
@@ -4871,6 +5341,41 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbFilesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFilesResponse>> ListSfvbFilesWithHttpInfoAsync (int storefrontOid, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? themeOid = default(int?), int? maxEntries = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// List built-in messages
+        /// </summary>
+        /// <remarks>
+        /// The system text templates render by key, such as checkout labels, for one theme (the active theme unless theme_oid is given).  Each message has its English, whether it was edited, and each enabled language's text with its source (hand, machine, pending or none).  A message appears the first time a page renders it.  q matches the key or the English.  overridden keeps messages with an edited English or a hand translation.  Paged by offset and limit (default 200, at most 500). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="language"> (optional)</param>
+        /// <param name="overridden"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nMessagesResponse</returns>
+        System.Threading.Tasks.Task<SfvbI18nMessagesResponse> ListSfvbI18nMessagesAsync (int storefrontOid, int? themeOid = default(int?), string q = default(string), string language = default(string), bool? overridden = default(bool?), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List built-in messages
+        /// </summary>
+        /// <remarks>
+        /// The system text templates render by key, such as checkout labels, for one theme (the active theme unless theme_oid is given).  Each message has its English, whether it was edited, and each enabled language's text with its source (hand, machine, pending or none).  A message appears the first time a page renders it.  q matches the key or the English.  overridden keeps messages with an edited English or a hand translation.  Paged by offset and limit (default 200, at most 500). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="language"> (optional)</param>
+        /// <param name="overridden"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nMessagesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbI18nMessagesResponse>> ListSfvbI18nMessagesWithHttpInfoAsync (int storefrontOid, int? themeOid = default(int?), string q = default(string), string language = default(string), bool? overridden = default(bool?), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// List the item containers on the account
         /// </summary>
         /// <remarks>
@@ -5270,6 +5775,64 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFileWriteResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> PutSfvbFileContentWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Replace the storefront's translation glossary
+        /// </summary>
+        /// <remarks>
+        /// Replaces the whole glossary, plain markdown up to 64 KB.  The server stores it and never interprets it; the agent follows it.  Send the hash_sha256 you read as If-Match, except for the first save.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="glossaryRequest">The glossary</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Not needed for the first save; otherwise 428 when absent, 412 when stale. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nGlossary</returns>
+        System.Threading.Tasks.Task<SfvbI18nGlossary> PutSfvbI18nGlossaryAsync (int storefrontOid, SfvbI18nGlossaryRequest glossaryRequest, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Replace the storefront&#39;s translation glossary
+        /// </summary>
+        /// <remarks>
+        /// Replaces the whole glossary, plain markdown up to 64 KB.  The server stores it and never interprets it; the agent follows it.  Send the hash_sha256 you read as If-Match, except for the first save.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="glossaryRequest">The glossary</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Not needed for the first save; otherwise 428 when absent, 412 when stale. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nGlossary)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbI18nGlossary>> PutSfvbI18nGlossaryWithHttpInfoAsync (int storefrontOid, SfvbI18nGlossaryRequest glossaryRequest, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change one built-in message
+        /// </summary>
+        /// <remarks>
+        /// Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="messageWriteRequest">The languages to change</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nMessage</returns>
+        System.Threading.Tasks.Task<SfvbI18nMessage> PutSfvbI18nMessageAsync (int storefrontOid, string key, string ifMatch, SfvbI18nMessageWriteRequest messageWriteRequest, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change one built-in message
+        /// </summary>
+        /// <remarks>
+        /// Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="messageWriteRequest">The languages to change</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nMessage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbI18nMessage>> PutSfvbI18nMessageWithHttpInfoAsync (int storefrontOid, string key, string ifMatch, SfvbI18nMessageWriteRequest messageWriteRequest, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Change some of an item's attributes
         /// </summary>
@@ -5760,6 +6323,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbWidgetIdsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbWidgetIdsResponse>> ReserveSfvbWidgetIdsWithHttpInfoAsync (int storefrontOid, int? count = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Reset one built-in message
+        /// </summary>
+        /// <remarks>
+        /// Puts a message back to the template's text.  The merchant's English edit and hand translations stop serving at once and every language falls back to machine translation; the message comes back the next time a page renders it.  A message imported from an older theme's locale file is refused.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nResetResponse</returns>
+        System.Threading.Tasks.Task<SfvbI18nResetResponse> ResetSfvbI18nMessageAsync (int storefrontOid, string key, string ifMatch, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Reset one built-in message
+        /// </summary>
+        /// <remarks>
+        /// Puts a message back to the template's text.  The merchant's English edit and hand translations stop serving at once and every language falls back to machine translation; the message comes back the next time a page renders it.  A message imported from an older theme's locale file is refused.  Always needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nResetResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbI18nResetResponse>> ResetSfvbI18nMessageWithHttpInfoAsync (int storefrontOid, string key, string ifMatch, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Resolve a template name to the file a page renders
         /// </summary>
@@ -9472,6 +10064,187 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Disable a language Stops serving a language.  Its hand and machine translations are kept and come back when it is enabled again.  The default language cannot be disabled.  Already disabled answers changed false.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>SfvbI18nLanguagesResponse</returns>
+        public SfvbI18nLanguagesResponse DisableSfvbI18nLanguage (int storefrontOid, string code, string ifMatch)
+        {
+             ApiResponse<SfvbI18nLanguagesResponse> localVarResponse = DisableSfvbI18nLanguageWithHttpInfo(storefrontOid, code, ifMatch);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Disable a language Stops serving a language.  Its hand and machine translations are kept and come back when it is enabled again.  The default language cannot be disabled.  Already disabled answers changed false.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbI18nLanguagesResponse</returns>
+        public ApiResponse<SfvbI18nLanguagesResponse> DisableSfvbI18nLanguageWithHttpInfo (int storefrontOid, string code, string ifMatch)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DisableSfvbI18nLanguage");
+            // verify the required parameter 'code' is set
+            if (code == null)
+                throw new ApiException(400, "Missing required parameter 'code' when calling SfvbApi->DisableSfvbI18nLanguage");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DisableSfvbI18nLanguage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/disable";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DisableSfvbI18nLanguage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nLanguagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nLanguagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nLanguagesResponse)));
+        }
+
+        /// <summary>
+        /// Disable a language Stops serving a language.  Its hand and machine translations are kept and come back when it is enabled again.  The default language cannot be disabled.  Already disabled answers changed false.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nLanguagesResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbI18nLanguagesResponse> DisableSfvbI18nLanguageAsync (int storefrontOid, string code, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbI18nLanguagesResponse> localVarResponse = await DisableSfvbI18nLanguageWithHttpInfoAsync(storefrontOid, code, ifMatch, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Disable a language Stops serving a language.  Its hand and machine translations are kept and come back when it is enabled again.  The default language cannot be disabled.  Already disabled answers changed false.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nLanguagesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbI18nLanguagesResponse>> DisableSfvbI18nLanguageWithHttpInfoAsync (int storefrontOid, string code, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DisableSfvbI18nLanguage");
+            // verify the required parameter 'code' is set
+            if (code == null)
+                throw new ApiException(400, "Missing required parameter 'code' when calling SfvbApi->DisableSfvbI18nLanguage");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DisableSfvbI18nLanguage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/disable";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DisableSfvbI18nLanguage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nLanguagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nLanguagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nLanguagesResponse)));
+        }
+
+        /// <summary>
         /// Disable an upsell offer Switches the offer off.  Disabling one that is switched on is a live change and needs sfvb_publish.  An offer that is already off is returned unchanged.  There is no delete. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -10885,6 +11658,215 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Enable a language Turns a language on.  It is served to shoppers and machine translated, which is billed per character, so acknowledge_cost must be true and the caller must be a person (device authorization).  Records the same billing note as the merchant admin.  Already enabled answers changed false.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="languageEnableRequest">The cost acknowledgement</param>
+        /// <returns>SfvbI18nLanguagesResponse</returns>
+        public SfvbI18nLanguagesResponse EnableSfvbI18nLanguage (int storefrontOid, string code, string ifMatch, SfvbI18nLanguageEnableRequest languageEnableRequest)
+        {
+             ApiResponse<SfvbI18nLanguagesResponse> localVarResponse = EnableSfvbI18nLanguageWithHttpInfo(storefrontOid, code, ifMatch, languageEnableRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Enable a language Turns a language on.  It is served to shoppers and machine translated, which is billed per character, so acknowledge_cost must be true and the caller must be a person (device authorization).  Records the same billing note as the merchant admin.  Already enabled answers changed false.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="languageEnableRequest">The cost acknowledgement</param>
+        /// <returns>ApiResponse of SfvbI18nLanguagesResponse</returns>
+        public ApiResponse<SfvbI18nLanguagesResponse> EnableSfvbI18nLanguageWithHttpInfo (int storefrontOid, string code, string ifMatch, SfvbI18nLanguageEnableRequest languageEnableRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->EnableSfvbI18nLanguage");
+            // verify the required parameter 'code' is set
+            if (code == null)
+                throw new ApiException(400, "Missing required parameter 'code' when calling SfvbApi->EnableSfvbI18nLanguage");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->EnableSfvbI18nLanguage");
+            // verify the required parameter 'languageEnableRequest' is set
+            if (languageEnableRequest == null)
+                throw new ApiException(400, "Missing required parameter 'languageEnableRequest' when calling SfvbApi->EnableSfvbI18nLanguage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/enable";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (languageEnableRequest != null && languageEnableRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(languageEnableRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = languageEnableRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EnableSfvbI18nLanguage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nLanguagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nLanguagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nLanguagesResponse)));
+        }
+
+        /// <summary>
+        /// Enable a language Turns a language on.  It is served to shoppers and machine translated, which is billed per character, so acknowledge_cost must be true and the caller must be a person (device authorization).  Records the same billing note as the merchant admin.  Already enabled answers changed false.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="languageEnableRequest">The cost acknowledgement</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nLanguagesResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbI18nLanguagesResponse> EnableSfvbI18nLanguageAsync (int storefrontOid, string code, string ifMatch, SfvbI18nLanguageEnableRequest languageEnableRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbI18nLanguagesResponse> localVarResponse = await EnableSfvbI18nLanguageWithHttpInfoAsync(storefrontOid, code, ifMatch, languageEnableRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Enable a language Turns a language on.  It is served to shoppers and machine translated, which is billed per character, so acknowledge_cost must be true and the caller must be a person (device authorization).  Records the same billing note as the merchant admin.  Already enabled answers changed false.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="code"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="languageEnableRequest">The cost acknowledgement</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nLanguagesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbI18nLanguagesResponse>> EnableSfvbI18nLanguageWithHttpInfoAsync (int storefrontOid, string code, string ifMatch, SfvbI18nLanguageEnableRequest languageEnableRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->EnableSfvbI18nLanguage");
+            // verify the required parameter 'code' is set
+            if (code == null)
+                throw new ApiException(400, "Missing required parameter 'code' when calling SfvbApi->EnableSfvbI18nLanguage");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->EnableSfvbI18nLanguage");
+            // verify the required parameter 'languageEnableRequest' is set
+            if (languageEnableRequest == null)
+                throw new ApiException(400, "Missing required parameter 'languageEnableRequest' when calling SfvbApi->EnableSfvbI18nLanguage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/enable";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (languageEnableRequest != null && languageEnableRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(languageEnableRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = languageEnableRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EnableSfvbI18nLanguage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nLanguagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nLanguagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nLanguagesResponse)));
         }
 
         /// <summary>
@@ -12786,6 +13768,845 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbFileUploadUrlResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbFileUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFileUploadUrlResponse)));
+        }
+
+        /// <summary>
+        /// Read the storefront's translation glossary The storefront's glossary, plain markdown with terms not to translate, required translations, tone and words to avoid.  Read it before translating anything.  Empty when none has been saved.  Each storefront has its own, because a storefront is often its own brand. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbI18nGlossary</returns>
+        public SfvbI18nGlossary GetSfvbI18nGlossary (int storefrontOid)
+        {
+             ApiResponse<SfvbI18nGlossary> localVarResponse = GetSfvbI18nGlossaryWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read the storefront's translation glossary The storefront's glossary, plain markdown with terms not to translate, required translations, tone and words to avoid.  Read it before translating anything.  Empty when none has been saved.  Each storefront has its own, because a storefront is often its own brand. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbI18nGlossary</returns>
+        public ApiResponse<SfvbI18nGlossary> GetSfvbI18nGlossaryWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbI18nGlossary");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/glossary";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbI18nGlossary", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nGlossary>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nGlossary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nGlossary)));
+        }
+
+        /// <summary>
+        /// Read the storefront's translation glossary The storefront's glossary, plain markdown with terms not to translate, required translations, tone and words to avoid.  Read it before translating anything.  Empty when none has been saved.  Each storefront has its own, because a storefront is often its own brand. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nGlossary</returns>
+        public async System.Threading.Tasks.Task<SfvbI18nGlossary> GetSfvbI18nGlossaryAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbI18nGlossary> localVarResponse = await GetSfvbI18nGlossaryWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read the storefront's translation glossary The storefront's glossary, plain markdown with terms not to translate, required translations, tone and words to avoid.  Read it before translating anything.  Empty when none has been saved.  Each storefront has its own, because a storefront is often its own brand. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nGlossary)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbI18nGlossary>> GetSfvbI18nGlossaryWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbI18nGlossary");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/glossary";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbI18nGlossary", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nGlossary>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nGlossary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nGlossary)));
+        }
+
+        /// <summary>
+        /// List a storefront's languages Every language the storefront can be translated into, with UltraCart's three-letter code (ESP for Spanish), the other spellings accepted, whether it is enabled, the default and right to left.  Language maps in CJSON and render take the code.  English is the source of every string.  Also gives the machine translation estimate for one more language, and the hash_sha256 an enable or disable sends back. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbI18nLanguagesResponse</returns>
+        public SfvbI18nLanguagesResponse GetSfvbI18nLanguages (int storefrontOid)
+        {
+             ApiResponse<SfvbI18nLanguagesResponse> localVarResponse = GetSfvbI18nLanguagesWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List a storefront's languages Every language the storefront can be translated into, with UltraCart's three-letter code (ESP for Spanish), the other spellings accepted, whether it is enabled, the default and right to left.  Language maps in CJSON and render take the code.  English is the source of every string.  Also gives the machine translation estimate for one more language, and the hash_sha256 an enable or disable sends back. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbI18nLanguagesResponse</returns>
+        public ApiResponse<SfvbI18nLanguagesResponse> GetSfvbI18nLanguagesWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbI18nLanguages");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/languages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbI18nLanguages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nLanguagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nLanguagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nLanguagesResponse)));
+        }
+
+        /// <summary>
+        /// List a storefront's languages Every language the storefront can be translated into, with UltraCart's three-letter code (ESP for Spanish), the other spellings accepted, whether it is enabled, the default and right to left.  Language maps in CJSON and render take the code.  English is the source of every string.  Also gives the machine translation estimate for one more language, and the hash_sha256 an enable or disable sends back. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nLanguagesResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbI18nLanguagesResponse> GetSfvbI18nLanguagesAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbI18nLanguagesResponse> localVarResponse = await GetSfvbI18nLanguagesWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List a storefront's languages Every language the storefront can be translated into, with UltraCart's three-letter code (ESP for Spanish), the other spellings accepted, whether it is enabled, the default and right to left.  Language maps in CJSON and render take the code.  English is the source of every string.  Also gives the machine translation estimate for one more language, and the hash_sha256 an enable or disable sends back. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nLanguagesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbI18nLanguagesResponse>> GetSfvbI18nLanguagesWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbI18nLanguages");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/languages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbI18nLanguages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nLanguagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nLanguagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nLanguagesResponse)));
+        }
+
+        /// <summary>
+        /// Read where a widget setting's translations come from For one multilingual widget setting, named by widget_id and property on a theme (the active theme unless theme_oid is given), each enabled language's text and whether a shopper sees a hand translation from the language map, a machine translation, one still queued (pending) or none yet.  The setting is registered when its container is saved.  Nothing is generated by reading it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="widgetId"> (optional)</param>
+        /// <param name="property"> (optional)</param>
+        /// <returns>SfvbI18nMachineTranslationsResponse</returns>
+        public SfvbI18nMachineTranslationsResponse GetSfvbI18nMachineTranslations (int storefrontOid, int? themeOid = default(int?), string widgetId = default(string), string property = default(string))
+        {
+             ApiResponse<SfvbI18nMachineTranslationsResponse> localVarResponse = GetSfvbI18nMachineTranslationsWithHttpInfo(storefrontOid, themeOid, widgetId, property);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read where a widget setting's translations come from For one multilingual widget setting, named by widget_id and property on a theme (the active theme unless theme_oid is given), each enabled language's text and whether a shopper sees a hand translation from the language map, a machine translation, one still queued (pending) or none yet.  The setting is registered when its container is saved.  Nothing is generated by reading it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="widgetId"> (optional)</param>
+        /// <param name="property"> (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nMachineTranslationsResponse</returns>
+        public ApiResponse<SfvbI18nMachineTranslationsResponse> GetSfvbI18nMachineTranslationsWithHttpInfo (int storefrontOid, int? themeOid = default(int?), string widgetId = default(string), string property = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbI18nMachineTranslations");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/machine_translations";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (themeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "theme_oid", themeOid)); // query parameter
+            if (widgetId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "widget_id", widgetId)); // query parameter
+            if (property != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "property", property)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbI18nMachineTranslations", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nMachineTranslationsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nMachineTranslationsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nMachineTranslationsResponse)));
+        }
+
+        /// <summary>
+        /// Read where a widget setting's translations come from For one multilingual widget setting, named by widget_id and property on a theme (the active theme unless theme_oid is given), each enabled language's text and whether a shopper sees a hand translation from the language map, a machine translation, one still queued (pending) or none yet.  The setting is registered when its container is saved.  Nothing is generated by reading it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="widgetId"> (optional)</param>
+        /// <param name="property"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nMachineTranslationsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbI18nMachineTranslationsResponse> GetSfvbI18nMachineTranslationsAsync (int storefrontOid, int? themeOid = default(int?), string widgetId = default(string), string property = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbI18nMachineTranslationsResponse> localVarResponse = await GetSfvbI18nMachineTranslationsWithHttpInfoAsync(storefrontOid, themeOid, widgetId, property, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read where a widget setting's translations come from For one multilingual widget setting, named by widget_id and property on a theme (the active theme unless theme_oid is given), each enabled language's text and whether a shopper sees a hand translation from the language map, a machine translation, one still queued (pending) or none yet.  The setting is registered when its container is saved.  Nothing is generated by reading it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="widgetId"> (optional)</param>
+        /// <param name="property"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nMachineTranslationsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbI18nMachineTranslationsResponse>> GetSfvbI18nMachineTranslationsWithHttpInfoAsync (int storefrontOid, int? themeOid = default(int?), string widgetId = default(string), string property = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbI18nMachineTranslations");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/machine_translations";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (themeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "theme_oid", themeOid)); // query parameter
+            if (widgetId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "widget_id", widgetId)); // query parameter
+            if (property != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "property", property)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbI18nMachineTranslations", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nMachineTranslationsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nMachineTranslationsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nMachineTranslationsResponse)));
+        }
+
+        /// <summary>
+        /// Read one built-in message One message by key, with the hash_sha256 a set or reset sends back. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>SfvbI18nMessage</returns>
+        public SfvbI18nMessage GetSfvbI18nMessage (int storefrontOid, string key, int? themeOid = default(int?))
+        {
+             ApiResponse<SfvbI18nMessage> localVarResponse = GetSfvbI18nMessageWithHttpInfo(storefrontOid, key, themeOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read one built-in message One message by key, with the hash_sha256 a set or reset sends back. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nMessage</returns>
+        public ApiResponse<SfvbI18nMessage> GetSfvbI18nMessageWithHttpInfo (int storefrontOid, string key, int? themeOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbI18nMessage");
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new ApiException(400, "Missing required parameter 'key' when calling SfvbApi->GetSfvbI18nMessage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/messages/{key}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (key != null) localVarPathParams.Add("key", this.Configuration.ApiClient.ParameterToString(key)); // path parameter
+            if (themeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "theme_oid", themeOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbI18nMessage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nMessage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nMessage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nMessage)));
+        }
+
+        /// <summary>
+        /// Read one built-in message One message by key, with the hash_sha256 a set or reset sends back. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nMessage</returns>
+        public async System.Threading.Tasks.Task<SfvbI18nMessage> GetSfvbI18nMessageAsync (int storefrontOid, string key, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbI18nMessage> localVarResponse = await GetSfvbI18nMessageWithHttpInfoAsync(storefrontOid, key, themeOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read one built-in message One message by key, with the hash_sha256 a set or reset sends back. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nMessage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbI18nMessage>> GetSfvbI18nMessageWithHttpInfoAsync (int storefrontOid, string key, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbI18nMessage");
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new ApiException(400, "Missing required parameter 'key' when calling SfvbApi->GetSfvbI18nMessage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/messages/{key}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (key != null) localVarPathParams.Add("key", this.Configuration.ApiClient.ParameterToString(key)); // path parameter
+            if (themeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "theme_oid", themeOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbI18nMessage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nMessage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nMessage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nMessage)));
+        }
+
+        /// <summary>
+        /// Read where a message's translations come from For one message, each enabled language's text and whether a shopper sees a hand translation, a machine translation, one still queued (pending) or none yet.  Nothing is generated by reading it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>SfvbI18nMachineTranslationsResponse</returns>
+        public SfvbI18nMachineTranslationsResponse GetSfvbI18nMessageMachineTranslations (int storefrontOid, string key, int? themeOid = default(int?))
+        {
+             ApiResponse<SfvbI18nMachineTranslationsResponse> localVarResponse = GetSfvbI18nMessageMachineTranslationsWithHttpInfo(storefrontOid, key, themeOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read where a message's translations come from For one message, each enabled language's text and whether a shopper sees a hand translation, a machine translation, one still queued (pending) or none yet.  Nothing is generated by reading it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nMachineTranslationsResponse</returns>
+        public ApiResponse<SfvbI18nMachineTranslationsResponse> GetSfvbI18nMessageMachineTranslationsWithHttpInfo (int storefrontOid, string key, int? themeOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbI18nMessageMachineTranslations");
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new ApiException(400, "Missing required parameter 'key' when calling SfvbApi->GetSfvbI18nMessageMachineTranslations");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/messages/{key}/machine_translations";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (key != null) localVarPathParams.Add("key", this.Configuration.ApiClient.ParameterToString(key)); // path parameter
+            if (themeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "theme_oid", themeOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbI18nMessageMachineTranslations", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nMachineTranslationsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nMachineTranslationsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nMachineTranslationsResponse)));
+        }
+
+        /// <summary>
+        /// Read where a message's translations come from For one message, each enabled language's text and whether a shopper sees a hand translation, a machine translation, one still queued (pending) or none yet.  Nothing is generated by reading it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nMachineTranslationsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbI18nMachineTranslationsResponse> GetSfvbI18nMessageMachineTranslationsAsync (int storefrontOid, string key, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbI18nMachineTranslationsResponse> localVarResponse = await GetSfvbI18nMessageMachineTranslationsWithHttpInfoAsync(storefrontOid, key, themeOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read where a message's translations come from For one message, each enabled language's text and whether a shopper sees a hand translation, a machine translation, one still queued (pending) or none yet.  Nothing is generated by reading it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nMachineTranslationsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbI18nMachineTranslationsResponse>> GetSfvbI18nMessageMachineTranslationsWithHttpInfoAsync (int storefrontOid, string key, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbI18nMessageMachineTranslations");
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new ApiException(400, "Missing required parameter 'key' when calling SfvbApi->GetSfvbI18nMessageMachineTranslations");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/messages/{key}/machine_translations";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (key != null) localVarPathParams.Add("key", this.Configuration.ApiClient.ParameterToString(key)); // path parameter
+            if (themeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "theme_oid", themeOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbI18nMessageMachineTranslations", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nMachineTranslationsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nMachineTranslationsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nMachineTranslationsResponse)));
         }
 
         /// <summary>
@@ -18760,6 +20581,199 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// List built-in messages The system text templates render by key, such as checkout labels, for one theme (the active theme unless theme_oid is given).  Each message has its English, whether it was edited, and each enabled language's text with its source (hand, machine, pending or none).  A message appears the first time a page renders it.  q matches the key or the English.  overridden keeps messages with an edited English or a hand translation.  Paged by offset and limit (default 200, at most 500). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="language"> (optional)</param>
+        /// <param name="overridden"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <returns>SfvbI18nMessagesResponse</returns>
+        public SfvbI18nMessagesResponse ListSfvbI18nMessages (int storefrontOid, int? themeOid = default(int?), string q = default(string), string language = default(string), bool? overridden = default(bool?), int? offset = default(int?), int? limit = default(int?))
+        {
+             ApiResponse<SfvbI18nMessagesResponse> localVarResponse = ListSfvbI18nMessagesWithHttpInfo(storefrontOid, themeOid, q, language, overridden, offset, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List built-in messages The system text templates render by key, such as checkout labels, for one theme (the active theme unless theme_oid is given).  Each message has its English, whether it was edited, and each enabled language's text with its source (hand, machine, pending or none).  A message appears the first time a page renders it.  q matches the key or the English.  overridden keeps messages with an edited English or a hand translation.  Paged by offset and limit (default 200, at most 500). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="language"> (optional)</param>
+        /// <param name="overridden"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nMessagesResponse</returns>
+        public ApiResponse<SfvbI18nMessagesResponse> ListSfvbI18nMessagesWithHttpInfo (int storefrontOid, int? themeOid = default(int?), string q = default(string), string language = default(string), bool? overridden = default(bool?), int? offset = default(int?), int? limit = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbI18nMessages");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/messages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (themeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "theme_oid", themeOid)); // query parameter
+            if (q != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "q", q)); // query parameter
+            if (language != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "language", language)); // query parameter
+            if (overridden != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "overridden", overridden)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbI18nMessages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nMessagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nMessagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nMessagesResponse)));
+        }
+
+        /// <summary>
+        /// List built-in messages The system text templates render by key, such as checkout labels, for one theme (the active theme unless theme_oid is given).  Each message has its English, whether it was edited, and each enabled language's text with its source (hand, machine, pending or none).  A message appears the first time a page renders it.  q matches the key or the English.  overridden keeps messages with an edited English or a hand translation.  Paged by offset and limit (default 200, at most 500). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="language"> (optional)</param>
+        /// <param name="overridden"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nMessagesResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbI18nMessagesResponse> ListSfvbI18nMessagesAsync (int storefrontOid, int? themeOid = default(int?), string q = default(string), string language = default(string), bool? overridden = default(bool?), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbI18nMessagesResponse> localVarResponse = await ListSfvbI18nMessagesWithHttpInfoAsync(storefrontOid, themeOid, q, language, overridden, offset, limit, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List built-in messages The system text templates render by key, such as checkout labels, for one theme (the active theme unless theme_oid is given).  Each message has its English, whether it was edited, and each enabled language's text with its source (hand, machine, pending or none).  A message appears the first time a page renders it.  q matches the key or the English.  overridden keeps messages with an edited English or a hand translation.  Paged by offset and limit (default 200, at most 500). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="language"> (optional)</param>
+        /// <param name="overridden"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nMessagesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbI18nMessagesResponse>> ListSfvbI18nMessagesWithHttpInfoAsync (int storefrontOid, int? themeOid = default(int?), string q = default(string), string language = default(string), bool? overridden = default(bool?), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbI18nMessages");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/messages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (themeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "theme_oid", themeOid)); // query parameter
+            if (q != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "q", q)); // query parameter
+            if (language != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "language", language)); // query parameter
+            if (overridden != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "overridden", overridden)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbI18nMessages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nMessagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nMessagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nMessagesResponse)));
+        }
+
+        /// <summary>
         /// List the item containers on the account An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller's storefront but does not narrow the result. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -21347,6 +23361,412 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbFileWriteResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbFileWriteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFileWriteResponse)));
+        }
+
+        /// <summary>
+        /// Replace the storefront's translation glossary Replaces the whole glossary, plain markdown up to 64 KB.  The server stores it and never interprets it; the agent follows it.  Send the hash_sha256 you read as If-Match, except for the first save.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="glossaryRequest">The glossary</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Not needed for the first save; otherwise 428 when absent, 412 when stale. (optional)</param>
+        /// <returns>SfvbI18nGlossary</returns>
+        public SfvbI18nGlossary PutSfvbI18nGlossary (int storefrontOid, SfvbI18nGlossaryRequest glossaryRequest, string ifMatch = default(string))
+        {
+             ApiResponse<SfvbI18nGlossary> localVarResponse = PutSfvbI18nGlossaryWithHttpInfo(storefrontOid, glossaryRequest, ifMatch);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Replace the storefront's translation glossary Replaces the whole glossary, plain markdown up to 64 KB.  The server stores it and never interprets it; the agent follows it.  Send the hash_sha256 you read as If-Match, except for the first save.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="glossaryRequest">The glossary</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Not needed for the first save; otherwise 428 when absent, 412 when stale. (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nGlossary</returns>
+        public ApiResponse<SfvbI18nGlossary> PutSfvbI18nGlossaryWithHttpInfo (int storefrontOid, SfvbI18nGlossaryRequest glossaryRequest, string ifMatch = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbI18nGlossary");
+            // verify the required parameter 'glossaryRequest' is set
+            if (glossaryRequest == null)
+                throw new ApiException(400, "Missing required parameter 'glossaryRequest' when calling SfvbApi->PutSfvbI18nGlossary");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/glossary";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (glossaryRequest != null && glossaryRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(glossaryRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = glossaryRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbI18nGlossary", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nGlossary>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nGlossary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nGlossary)));
+        }
+
+        /// <summary>
+        /// Replace the storefront's translation glossary Replaces the whole glossary, plain markdown up to 64 KB.  The server stores it and never interprets it; the agent follows it.  Send the hash_sha256 you read as If-Match, except for the first save.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="glossaryRequest">The glossary</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Not needed for the first save; otherwise 428 when absent, 412 when stale. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nGlossary</returns>
+        public async System.Threading.Tasks.Task<SfvbI18nGlossary> PutSfvbI18nGlossaryAsync (int storefrontOid, SfvbI18nGlossaryRequest glossaryRequest, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbI18nGlossary> localVarResponse = await PutSfvbI18nGlossaryWithHttpInfoAsync(storefrontOid, glossaryRequest, ifMatch, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Replace the storefront's translation glossary Replaces the whole glossary, plain markdown up to 64 KB.  The server stores it and never interprets it; the agent follows it.  Send the hash_sha256 you read as If-Match, except for the first save.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="glossaryRequest">The glossary</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Not needed for the first save; otherwise 428 when absent, 412 when stale. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nGlossary)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbI18nGlossary>> PutSfvbI18nGlossaryWithHttpInfoAsync (int storefrontOid, SfvbI18nGlossaryRequest glossaryRequest, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbI18nGlossary");
+            // verify the required parameter 'glossaryRequest' is set
+            if (glossaryRequest == null)
+                throw new ApiException(400, "Missing required parameter 'glossaryRequest' when calling SfvbApi->PutSfvbI18nGlossary");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/glossary";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (glossaryRequest != null && glossaryRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(glossaryRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = glossaryRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbI18nGlossary", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nGlossary>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nGlossary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nGlossary)));
+        }
+
+        /// <summary>
+        /// Change one built-in message Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="messageWriteRequest">The languages to change</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>SfvbI18nMessage</returns>
+        public SfvbI18nMessage PutSfvbI18nMessage (int storefrontOid, string key, string ifMatch, SfvbI18nMessageWriteRequest messageWriteRequest, int? themeOid = default(int?))
+        {
+             ApiResponse<SfvbI18nMessage> localVarResponse = PutSfvbI18nMessageWithHttpInfo(storefrontOid, key, ifMatch, messageWriteRequest, themeOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change one built-in message Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="messageWriteRequest">The languages to change</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nMessage</returns>
+        public ApiResponse<SfvbI18nMessage> PutSfvbI18nMessageWithHttpInfo (int storefrontOid, string key, string ifMatch, SfvbI18nMessageWriteRequest messageWriteRequest, int? themeOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbI18nMessage");
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new ApiException(400, "Missing required parameter 'key' when calling SfvbApi->PutSfvbI18nMessage");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->PutSfvbI18nMessage");
+            // verify the required parameter 'messageWriteRequest' is set
+            if (messageWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'messageWriteRequest' when calling SfvbApi->PutSfvbI18nMessage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/messages/{key}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (key != null) localVarPathParams.Add("key", this.Configuration.ApiClient.ParameterToString(key)); // path parameter
+            if (themeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "theme_oid", themeOid)); // query parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (messageWriteRequest != null && messageWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(messageWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = messageWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbI18nMessage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nMessage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nMessage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nMessage)));
+        }
+
+        /// <summary>
+        /// Change one built-in message Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="messageWriteRequest">The languages to change</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nMessage</returns>
+        public async System.Threading.Tasks.Task<SfvbI18nMessage> PutSfvbI18nMessageAsync (int storefrontOid, string key, string ifMatch, SfvbI18nMessageWriteRequest messageWriteRequest, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbI18nMessage> localVarResponse = await PutSfvbI18nMessageWithHttpInfoAsync(storefrontOid, key, ifMatch, messageWriteRequest, themeOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change one built-in message Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="messageWriteRequest">The languages to change</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nMessage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbI18nMessage>> PutSfvbI18nMessageWithHttpInfoAsync (int storefrontOid, string key, string ifMatch, SfvbI18nMessageWriteRequest messageWriteRequest, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbI18nMessage");
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new ApiException(400, "Missing required parameter 'key' when calling SfvbApi->PutSfvbI18nMessage");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->PutSfvbI18nMessage");
+            // verify the required parameter 'messageWriteRequest' is set
+            if (messageWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'messageWriteRequest' when calling SfvbApi->PutSfvbI18nMessage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/messages/{key}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (key != null) localVarPathParams.Add("key", this.Configuration.ApiClient.ParameterToString(key)); // path parameter
+            if (themeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "theme_oid", themeOid)); // query parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (messageWriteRequest != null && messageWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(messageWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = messageWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbI18nMessage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nMessage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nMessage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nMessage)));
         }
 
         /// <summary>
@@ -24835,6 +27255,193 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbWidgetIdsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbWidgetIdsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbWidgetIdsResponse)));
+        }
+
+        /// <summary>
+        /// Reset one built-in message Puts a message back to the template's text.  The merchant's English edit and hand translations stop serving at once and every language falls back to machine translation; the message comes back the next time a page renders it.  A message imported from an older theme's locale file is refused.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>SfvbI18nResetResponse</returns>
+        public SfvbI18nResetResponse ResetSfvbI18nMessage (int storefrontOid, string key, string ifMatch, int? themeOid = default(int?))
+        {
+             ApiResponse<SfvbI18nResetResponse> localVarResponse = ResetSfvbI18nMessageWithHttpInfo(storefrontOid, key, ifMatch, themeOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Reset one built-in message Puts a message back to the template's text.  The merchant's English edit and hand translations stop serving at once and every language falls back to machine translation; the message comes back the next time a page renders it.  A message imported from an older theme's locale file is refused.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbI18nResetResponse</returns>
+        public ApiResponse<SfvbI18nResetResponse> ResetSfvbI18nMessageWithHttpInfo (int storefrontOid, string key, string ifMatch, int? themeOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ResetSfvbI18nMessage");
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new ApiException(400, "Missing required parameter 'key' when calling SfvbApi->ResetSfvbI18nMessage");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->ResetSfvbI18nMessage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/messages/{key}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (key != null) localVarPathParams.Add("key", this.Configuration.ApiClient.ParameterToString(key)); // path parameter
+            if (themeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "theme_oid", themeOid)); // query parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResetSfvbI18nMessage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nResetResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nResetResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nResetResponse)));
+        }
+
+        /// <summary>
+        /// Reset one built-in message Puts a message back to the template's text.  The merchant's English edit and hand translations stop serving at once and every language falls back to machine translation; the message comes back the next time a page renders it.  A message imported from an older theme's locale file is refused.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbI18nResetResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbI18nResetResponse> ResetSfvbI18nMessageAsync (int storefrontOid, string key, string ifMatch, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbI18nResetResponse> localVarResponse = await ResetSfvbI18nMessageWithHttpInfoAsync(storefrontOid, key, ifMatch, themeOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Reset one built-in message Puts a message back to the template's text.  The merchant's English edit and hand translations stop serving at once and every language falls back to machine translation; the message comes back the next time a page renders it.  A message imported from an older theme's locale file is refused.  Always needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="key"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="themeOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbI18nResetResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbI18nResetResponse>> ResetSfvbI18nMessageWithHttpInfoAsync (int storefrontOid, string key, string ifMatch, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ResetSfvbI18nMessage");
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new ApiException(400, "Missing required parameter 'key' when calling SfvbApi->ResetSfvbI18nMessage");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->ResetSfvbI18nMessage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/i18n/messages/{key}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (key != null) localVarPathParams.Add("key", this.Configuration.ApiClient.ParameterToString(key)); // path parameter
+            if (themeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "theme_oid", themeOid)); // query parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResetSfvbI18nMessage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbI18nResetResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbI18nResetResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbI18nResetResponse)));
         }
 
         /// <summary>

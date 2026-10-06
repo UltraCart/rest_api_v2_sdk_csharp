@@ -44,7 +44,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="contextPageNumber">Page number for paginated elements.  Defaults to 1..</param>
         /// <param name="contextUpsellOfferOid">Upsell offer oid for the rendering context..</param>
         /// <param name="editMode">True renders every branch the way the builder shows it, for styling content a shopper only sometimes sees.  Omitted or false renders what a shopper sees, with conditions, prices and sale state evaluated against the context item..</param>
-        /// <param name="languageIsoCode">Language ISO code.  Defaults to ENG..</param>
+        /// <param name="languageIsoCode">UltraCart language code such as ESP, enabled on the storefront.  Two-letter codes and English names are accepted.  Defaults to ENG..</param>
         /// <param name="uri">Storefront URI the node would appear on.  Affects rendering of anything page relative..</param>
         public SfvbRenderRequest(string ancestorsCjson = default(string), string childContainersJson = default(string), string cjson = default(string), int contextAffiliateOid = default(int), int contextBlogPostOid = default(int), string contextGroupPath = default(string), string contextItemId = default(string), string contextOrderId = default(string), string contextPageNumber = default(string), int contextUpsellOfferOid = default(int), bool editMode = default(bool), string languageIsoCode = default(string), string uri = default(string))
         {
@@ -141,9 +141,9 @@ namespace com.ultracart.admin.v2.Model
         public bool EditMode { get; set; }
 
         /// <summary>
-        /// Language ISO code.  Defaults to ENG.
+        /// UltraCart language code such as ESP, enabled on the storefront.  Two-letter codes and English names are accepted.  Defaults to ENG.
         /// </summary>
-        /// <value>Language ISO code.  Defaults to ENG.</value>
+        /// <value>UltraCart language code such as ESP, enabled on the storefront.  Two-letter codes and English names are accepted.  Defaults to ENG.</value>
         [DataMember(Name="language_iso_code", EmitDefaultValue=false)]
         public string LanguageIsoCode { get; set; }
 

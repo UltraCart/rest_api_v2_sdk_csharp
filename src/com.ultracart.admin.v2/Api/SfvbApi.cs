@@ -1656,6 +1656,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbSiteAttributesResponse</returns>
         ApiResponse<SfvbSiteAttributesResponse> GetSfvbSiteAttributesWithHttpInfo (int storefrontOid);
         /// <summary>
+        /// List recent test orders
+        /// </summary>
+        /// <remarks>
+        /// Test orders on this account only, newest first, with no customer details, so an agent can render the order pages (receipt, order tracking, digital downloads, auto order pages) with one.  Use an order_id as a render's context_order_id; a real customer's order is refused there.  The last 7 days are searched, widening to 30 and then 90 until enough are found.  digital_items and auto_order keep only orders with downloads or an auto order.  limit is 1 to 25, default 10. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="digitalItems"> (optional)</param>
+        /// <param name="autoOrder"> (optional)</param>
+        /// <returns>SfvbTestOrdersResponse</returns>
+        SfvbTestOrdersResponse GetSfvbTestOrders (int storefrontOid, int? limit = default(int?), bool? digitalItems = default(bool?), bool? autoOrder = default(bool?));
+
+        /// <summary>
+        /// List recent test orders
+        /// </summary>
+        /// <remarks>
+        /// Test orders on this account only, newest first, with no customer details, so an agent can render the order pages (receipt, order tracking, digital downloads, auto order pages) with one.  Use an order_id as a render's context_order_id; a real customer's order is refused there.  The last 7 days are searched, widening to 30 and then 90 until enough are found.  digital_items and auto_order keep only orders with downloads or an auto order.  limit is 1 to 25, default 10. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="digitalItems"> (optional)</param>
+        /// <param name="autoOrder"> (optional)</param>
+        /// <returns>ApiResponse of SfvbTestOrdersResponse</returns>
+        ApiResponse<SfvbTestOrdersResponse> GetSfvbTestOrdersWithHttpInfo (int storefrontOid, int? limit = default(int?), bool? digitalItems = default(bool?), bool? autoOrder = default(bool?));
+        /// <summary>
         /// Get a theme
         /// </summary>
         /// <remarks>
@@ -5424,6 +5451,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbSiteAttributesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbSiteAttributesResponse>> GetSfvbSiteAttributesWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List recent test orders
+        /// </summary>
+        /// <remarks>
+        /// Test orders on this account only, newest first, with no customer details, so an agent can render the order pages (receipt, order tracking, digital downloads, auto order pages) with one.  Use an order_id as a render's context_order_id; a real customer's order is refused there.  The last 7 days are searched, widening to 30 and then 90 until enough are found.  digital_items and auto_order keep only orders with downloads or an auto order.  limit is 1 to 25, default 10. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="digitalItems"> (optional)</param>
+        /// <param name="autoOrder"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTestOrdersResponse</returns>
+        System.Threading.Tasks.Task<SfvbTestOrdersResponse> GetSfvbTestOrdersAsync (int storefrontOid, int? limit = default(int?), bool? digitalItems = default(bool?), bool? autoOrder = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List recent test orders
+        /// </summary>
+        /// <remarks>
+        /// Test orders on this account only, newest first, with no customer details, so an agent can render the order pages (receipt, order tracking, digital downloads, auto order pages) with one.  Use an order_id as a render's context_order_id; a real customer's order is refused there.  The last 7 days are searched, widening to 30 and then 90 until enough are found.  digital_items and auto_order keep only orders with downloads or an auto order.  limit is 1 to 25, default 10. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="digitalItems"> (optional)</param>
+        /// <param name="autoOrder"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTestOrdersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTestOrdersResponse>> GetSfvbTestOrdersWithHttpInfoAsync (int storefrontOid, int? limit = default(int?), bool? digitalItems = default(bool?), bool? autoOrder = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a theme
         /// </summary>
@@ -19580,6 +19636,181 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbSiteAttributesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbSiteAttributesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSiteAttributesResponse)));
+        }
+
+        /// <summary>
+        /// List recent test orders Test orders on this account only, newest first, with no customer details, so an agent can render the order pages (receipt, order tracking, digital downloads, auto order pages) with one.  Use an order_id as a render's context_order_id; a real customer's order is refused there.  The last 7 days are searched, widening to 30 and then 90 until enough are found.  digital_items and auto_order keep only orders with downloads or an auto order.  limit is 1 to 25, default 10. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="digitalItems"> (optional)</param>
+        /// <param name="autoOrder"> (optional)</param>
+        /// <returns>SfvbTestOrdersResponse</returns>
+        public SfvbTestOrdersResponse GetSfvbTestOrders (int storefrontOid, int? limit = default(int?), bool? digitalItems = default(bool?), bool? autoOrder = default(bool?))
+        {
+             ApiResponse<SfvbTestOrdersResponse> localVarResponse = GetSfvbTestOrdersWithHttpInfo(storefrontOid, limit, digitalItems, autoOrder);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List recent test orders Test orders on this account only, newest first, with no customer details, so an agent can render the order pages (receipt, order tracking, digital downloads, auto order pages) with one.  Use an order_id as a render's context_order_id; a real customer's order is refused there.  The last 7 days are searched, widening to 30 and then 90 until enough are found.  digital_items and auto_order keep only orders with downloads or an auto order.  limit is 1 to 25, default 10. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="digitalItems"> (optional)</param>
+        /// <param name="autoOrder"> (optional)</param>
+        /// <returns>ApiResponse of SfvbTestOrdersResponse</returns>
+        public ApiResponse<SfvbTestOrdersResponse> GetSfvbTestOrdersWithHttpInfo (int storefrontOid, int? limit = default(int?), bool? digitalItems = default(bool?), bool? autoOrder = default(bool?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTestOrders");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/test_orders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (digitalItems != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "digital_items", digitalItems)); // query parameter
+            if (autoOrder != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order", autoOrder)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTestOrders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTestOrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTestOrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTestOrdersResponse)));
+        }
+
+        /// <summary>
+        /// List recent test orders Test orders on this account only, newest first, with no customer details, so an agent can render the order pages (receipt, order tracking, digital downloads, auto order pages) with one.  Use an order_id as a render's context_order_id; a real customer's order is refused there.  The last 7 days are searched, widening to 30 and then 90 until enough are found.  digital_items and auto_order keep only orders with downloads or an auto order.  limit is 1 to 25, default 10. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="digitalItems"> (optional)</param>
+        /// <param name="autoOrder"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTestOrdersResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbTestOrdersResponse> GetSfvbTestOrdersAsync (int storefrontOid, int? limit = default(int?), bool? digitalItems = default(bool?), bool? autoOrder = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTestOrdersResponse> localVarResponse = await GetSfvbTestOrdersWithHttpInfoAsync(storefrontOid, limit, digitalItems, autoOrder, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List recent test orders Test orders on this account only, newest first, with no customer details, so an agent can render the order pages (receipt, order tracking, digital downloads, auto order pages) with one.  Use an order_id as a render's context_order_id; a real customer's order is refused there.  The last 7 days are searched, widening to 30 and then 90 until enough are found.  digital_items and auto_order keep only orders with downloads or an auto order.  limit is 1 to 25, default 10. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="digitalItems"> (optional)</param>
+        /// <param name="autoOrder"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTestOrdersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTestOrdersResponse>> GetSfvbTestOrdersWithHttpInfoAsync (int storefrontOid, int? limit = default(int?), bool? digitalItems = default(bool?), bool? autoOrder = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTestOrders");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/test_orders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (digitalItems != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "digital_items", digitalItems)); // query parameter
+            if (autoOrder != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order", autoOrder)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTestOrders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTestOrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTestOrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTestOrdersResponse)));
         }
 
         /// <summary>

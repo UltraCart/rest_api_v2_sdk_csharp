@@ -33,29 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbTestOrdersResponse" /> class.
         /// </summary>
-        /// <param name="hint">Present when nothing matched.  Says how to place a test order..</param>
-        /// <param name="searchedDays">How many days back were searched, 7, 30 or 90, widening until enough test orders were found..</param>
+        /// <param name="hint">Present when nothing matched..</param>
         /// <param name="testOrders">Test orders, newest first.  Only orders marked as test orders are ever listed..</param>
-        public SfvbTestOrdersResponse(string hint = default(string), int searchedDays = default(int), List<SfvbTestOrder> testOrders = default(List<SfvbTestOrder>))
+        public SfvbTestOrdersResponse(string hint = default(string), List<SfvbTestOrder> testOrders = default(List<SfvbTestOrder>))
         {
             this.Hint = hint;
-            this.SearchedDays = searchedDays;
             this.TestOrders = testOrders;
         }
 
         /// <summary>
-        /// Present when nothing matched.  Says how to place a test order.
+        /// Present when nothing matched.
         /// </summary>
-        /// <value>Present when nothing matched.  Says how to place a test order.</value>
+        /// <value>Present when nothing matched.</value>
         [DataMember(Name="hint", EmitDefaultValue=false)]
         public string Hint { get; set; }
-
-        /// <summary>
-        /// How many days back were searched, 7, 30 or 90, widening until enough test orders were found.
-        /// </summary>
-        /// <value>How many days back were searched, 7, 30 or 90, widening until enough test orders were found.</value>
-        [DataMember(Name="searched_days", EmitDefaultValue=false)]
-        public int SearchedDays { get; set; }
 
         /// <summary>
         /// Test orders, newest first.  Only orders marked as test orders are ever listed.
@@ -73,7 +64,6 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class SfvbTestOrdersResponse {\n");
             sb.Append("  Hint: ").Append(Hint).Append("\n");
-            sb.Append("  SearchedDays: ").Append(SearchedDays).Append("\n");
             sb.Append("  TestOrders: ").Append(TestOrders).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -115,11 +105,6 @@ namespace com.ultracart.admin.v2.Model
                     this.Hint.Equals(input.Hint))
                 ) && 
                 (
-                    this.SearchedDays == input.SearchedDays ||
-                    (this.SearchedDays != null &&
-                    this.SearchedDays.Equals(input.SearchedDays))
-                ) && 
-                (
                     this.TestOrders == input.TestOrders ||
                     this.TestOrders != null &&
                     input.TestOrders != null &&
@@ -138,8 +123,6 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Hint != null)
                     hashCode = hashCode * 59 + this.Hint.GetHashCode();
-                if (this.SearchedDays != null)
-                    hashCode = hashCode * 59 + this.SearchedDays.GetHashCode();
                 if (this.TestOrders != null)
                     hashCode = hashCode * 59 + this.TestOrders.GetHashCode();
                 return hashCode;

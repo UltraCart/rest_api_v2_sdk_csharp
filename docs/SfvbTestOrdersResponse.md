@@ -5,8 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Hint** | **string** | Present when nothing matched.  Says how to place a test order. | [optional] 
-**SearchedDays** | **int** | How many days back were searched, 7, 30 or 90, widening until enough test orders were found. | [optional] 
+**Hint** | **string** | Present when nothing matched. | [optional] 
 **TestOrders** | [**List&lt;SfvbTestOrder&gt;**](SfvbTestOrder.md) | Test orders, newest first.  Only orders marked as test orders are ever listed. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

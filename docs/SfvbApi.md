@@ -23,11 +23,13 @@ Method | HTTP request | Description
 [**DeleteSfvbPageMultimedia**](SfvbApi.md#deletesfvbpagemultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 [**DeleteSfvbPreviewSession**](SfvbApi.md#deletesfvbpreviewsession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 [**DeleteSfvbRedirect**](SfvbApi.md#deletesfvbredirect) | **DELETE** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Delete a redirect rule
+[**DeleteSfvbRedirects**](SfvbApi.md#deletesfvbredirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete | Delete up to 5,000 redirect rules in one call
 [**DetachSfvbBlogPostImage**](SfvbApi.md#detachsfvbblogpostimage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach | Detach an image from a blog post
 [**DisableSfvbI18nLanguage**](SfvbApi.md#disablesfvbi18nlanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/disable | Disable a language
 [**DisableSfvbUpsellOffer**](SfvbApi.md#disablesfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
 [**DisableSfvbUpsellPath**](SfvbApi.md#disablesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable | Disable an upsell path
 [**DownloadSfvbFile**](SfvbApi.md#downloadsfvbfile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
+[**DryRunSfvbRedirectDelete**](SfvbApi.md#dryrunsfvbredirectdelete) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete/dry_run | Check a batch delete of redirect rules without writing it
 [**DryRunSfvbRedirectImport**](SfvbApi.md#dryrunsfvbredirectimport) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import/dry_run | Check a redirect import without writing it
 [**DuplicateSfvbLibraryEntry**](SfvbApi.md#duplicatesfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/duplicate | Copy a library entry into a new private entry
 [**DuplicateSfvbPage**](SfvbApi.md#duplicatesfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/duplicate | Copy a page to a new path
@@ -1194,6 +1196,65 @@ void (empty response body)
 [[Back to README]](../README.md)
 
 
+## DeleteSfvbRedirects
+
+> SfvbRedirectDeleteResponse DeleteSfvbRedirects (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, string approvalId = null)
+
+Delete up to 5,000 redirect rules in one call
+
+Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **redirectDeleteRequest** | [**SfvbRedirectDeleteRequest**](SfvbRedirectDeleteRequest.md)| The request | 
+ **approvalId** | **string**| The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. | [optional] 
+
+### Return type
+
+[**SfvbRedirectDeleteResponse**](SfvbRedirectDeleteResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **412** |  |  -  |
+| **413** |  |  -  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DetachSfvbBlogPostImage
 
 > SfvbBlogPostDetail DetachSfvbBlogPostImage (int storefrontOid, int blogPostOid, SfvbBlogPostImageRequest blogPostImageRequest)
@@ -1454,6 +1515,61 @@ void (empty response body)
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DryRunSfvbRedirectDelete
+
+> SfvbRedirectDeleteResponse DryRunSfvbRedirectDelete (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest)
+
+Check a batch delete of redirect rules without writing it
+
+Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **redirectDeleteRequest** | [**SfvbRedirectDeleteRequest**](SfvbRedirectDeleteRequest.md)| The request | 
+
+### Return type
+
+[**SfvbRedirectDeleteResponse**](SfvbRedirectDeleteResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **413** |  |  -  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#)
@@ -4488,7 +4604,7 @@ Name | Type | Description  | Notes
 
 Request a human approval
 
-Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
 
 
 ### Example
@@ -5940,7 +6056,7 @@ Name | Type | Description  | Notes
 
 ## PutSfvbFileContent
 
-> SfvbFileWriteResponse PutSfvbFileContent (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = null)
+> SfvbFileWriteResponse PutSfvbFileContent (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = null, string approvalId = null)
 
 Write a storefront file
 
@@ -5962,6 +6078,7 @@ Name | Type | Description  | Notes
  **ifMatch** | **string**| Content hash from the last read.  Required; 428 when absent, 412 when stale. | 
  **fileWriteRequest** | [**SfvbFileWriteRequest**](SfvbFileWriteRequest.md)| File content to write | 
  **path** | **string**|  | [optional] 
+ **approvalId** | **string**| For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. | [optional] 
 
 ### Return type
 
@@ -7313,7 +7430,7 @@ Name | Type | Description  | Notes
 
 ## RevertSfvbFile
 
-> SfvbFileWriteResponse RevertSfvbFile (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest)
+> SfvbFileWriteResponse RevertSfvbFile (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, string approvalId = null)
 
 Revert a storefront file to an earlier version
 
@@ -7334,6 +7451,7 @@ Name | Type | Description  | Notes
  **storefrontOid** | **int**|  | 
  **ifMatch** | **string**| Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. | 
  **fileRevertRequest** | [**SfvbFileRevertRequest**](SfvbFileRevertRequest.md)| Version to revert the file to | 
+ **approvalId** | **string**| For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. | [optional] 
 
 ### Return type
 

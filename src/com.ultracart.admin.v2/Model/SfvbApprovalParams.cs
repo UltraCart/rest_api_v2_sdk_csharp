@@ -34,11 +34,19 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbApprovalParams" /> class.
         /// </summary>
         /// <param name="blogPostOid">The blog post, for blog_post.delete..</param>
-        /// <param name="path">The file path, for file.delete.  Exactly as the delete call will send it..</param>
-        public SfvbApprovalParams(int blogPostOid = default(int), string path = default(string))
+        /// <param name="contentSha256">For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash..</param>
+        /// <param name="path">The file path, for file.delete and file.put_script.  Exactly as the gated call will send it..</param>
+        /// <param name="rowsSha256">For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash..</param>
+        /// <param name="ruleCount">For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server..</param>
+        /// <param name="version">For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write..</param>
+        public SfvbApprovalParams(int blogPostOid = default(int), string contentSha256 = default(string), string path = default(string), string rowsSha256 = default(string), int ruleCount = default(int), int version = default(int))
         {
             this.BlogPostOid = blogPostOid;
+            this.ContentSha256 = contentSha256;
             this.Path = path;
+            this.RowsSha256 = rowsSha256;
+            this.RuleCount = ruleCount;
+            this._Version = version;
         }
 
         /// <summary>
@@ -49,11 +57,39 @@ namespace com.ultracart.admin.v2.Model
         public int BlogPostOid { get; set; }
 
         /// <summary>
-        /// The file path, for file.delete.  Exactly as the delete call will send it.
+        /// For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.
         /// </summary>
-        /// <value>The file path, for file.delete.  Exactly as the delete call will send it.</value>
+        /// <value>For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.</value>
+        [DataMember(Name="content_sha256", EmitDefaultValue=false)]
+        public string ContentSha256 { get; set; }
+
+        /// <summary>
+        /// The file path, for file.delete and file.put_script.  Exactly as the gated call will send it.
+        /// </summary>
+        /// <value>The file path, for file.delete and file.put_script.  Exactly as the gated call will send it.</value>
         [DataMember(Name="path", EmitDefaultValue=false)]
         public string Path { get; set; }
+
+        /// <summary>
+        /// For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash.
+        /// </summary>
+        /// <value>For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash.</value>
+        [DataMember(Name="rows_sha256", EmitDefaultValue=false)]
+        public string RowsSha256 { get; set; }
+
+        /// <summary>
+        /// For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.
+        /// </summary>
+        /// <value>For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.</value>
+        [DataMember(Name="rule_count", EmitDefaultValue=false)]
+        public int RuleCount { get; set; }
+
+        /// <summary>
+        /// For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.
+        /// </summary>
+        /// <value>For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.</value>
+        [DataMember(Name="version", EmitDefaultValue=false)]
+        public int _Version { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,7 +100,11 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class SfvbApprovalParams {\n");
             sb.Append("  BlogPostOid: ").Append(BlogPostOid).Append("\n");
+            sb.Append("  ContentSha256: ").Append(ContentSha256).Append("\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("  RowsSha256: ").Append(RowsSha256).Append("\n");
+            sb.Append("  RuleCount: ").Append(RuleCount).Append("\n");
+            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,9 +145,29 @@ namespace com.ultracart.admin.v2.Model
                     this.BlogPostOid.Equals(input.BlogPostOid))
                 ) && 
                 (
+                    this.ContentSha256 == input.ContentSha256 ||
+                    (this.ContentSha256 != null &&
+                    this.ContentSha256.Equals(input.ContentSha256))
+                ) && 
+                (
                     this.Path == input.Path ||
                     (this.Path != null &&
                     this.Path.Equals(input.Path))
+                ) && 
+                (
+                    this.RowsSha256 == input.RowsSha256 ||
+                    (this.RowsSha256 != null &&
+                    this.RowsSha256.Equals(input.RowsSha256))
+                ) && 
+                (
+                    this.RuleCount == input.RuleCount ||
+                    (this.RuleCount != null &&
+                    this.RuleCount.Equals(input.RuleCount))
+                ) && 
+                (
+                    this._Version == input._Version ||
+                    (this._Version != null &&
+                    this._Version.Equals(input._Version))
                 );
         }
 
@@ -122,8 +182,16 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.BlogPostOid != null)
                     hashCode = hashCode * 59 + this.BlogPostOid.GetHashCode();
+                if (this.ContentSha256 != null)
+                    hashCode = hashCode * 59 + this.ContentSha256.GetHashCode();
                 if (this.Path != null)
                     hashCode = hashCode * 59 + this.Path.GetHashCode();
+                if (this.RowsSha256 != null)
+                    hashCode = hashCode * 59 + this.RowsSha256.GetHashCode();
+                if (this.RuleCount != null)
+                    hashCode = hashCode * 59 + this.RuleCount.GetHashCode();
+                if (this._Version != null)
+                    hashCode = hashCode * 59 + this._Version.GetHashCode();
                 return hashCode;
             }
         }

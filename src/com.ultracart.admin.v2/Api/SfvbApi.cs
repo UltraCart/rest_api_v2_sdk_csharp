@@ -489,6 +489,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSfvbRedirectWithHttpInfo (int storefrontOid, int redirectId, string ifMatch);
         /// <summary>
+        /// Delete up to 5,000 redirect rules in one call
+        /// </summary>
+        /// <remarks>
+        /// Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <param name="approvalId">The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbRedirectDeleteResponse</returns>
+        SfvbRedirectDeleteResponse DeleteSfvbRedirects (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Delete up to 5,000 redirect rules in one call
+        /// </summary>
+        /// <remarks>
+        /// Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <param name="approvalId">The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbRedirectDeleteResponse</returns>
+        ApiResponse<SfvbRedirectDeleteResponse> DeleteSfvbRedirectsWithHttpInfo (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, string approvalId = default(string));
+        /// <summary>
         /// Detach an image from a blog post
         /// </summary>
         /// <remarks>
@@ -607,6 +632,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="path"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DownloadSfvbFileWithHttpInfo (int storefrontOid, string path = default(string));
+        /// <summary>
+        /// Check a batch delete of redirect rules without writing it
+        /// </summary>
+        /// <remarks>
+        /// Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <returns>SfvbRedirectDeleteResponse</returns>
+        SfvbRedirectDeleteResponse DryRunSfvbRedirectDelete (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest);
+
+        /// <summary>
+        /// Check a batch delete of redirect rules without writing it
+        /// </summary>
+        /// <remarks>
+        /// Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <returns>ApiResponse of SfvbRedirectDeleteResponse</returns>
+        ApiResponse<SfvbRedirectDeleteResponse> DryRunSfvbRedirectDeleteWithHttpInfo (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest);
         /// <summary>
         /// Check a redirect import without writing it
         /// </summary>
@@ -1966,7 +2014,7 @@ namespace com.ultracart.admin.v2.Api
         /// Request a human approval
         /// </summary>
         /// <remarks>
-        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -1978,7 +2026,7 @@ namespace com.ultracart.admin.v2.Api
         /// Request a human approval
         /// </summary>
         /// <remarks>
-        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -2666,8 +2714,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="ifMatch">Content hash from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileWriteRequest">File content to write</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>SfvbFileWriteResponse</returns>
-        SfvbFileWriteResponse PutSfvbFileContent (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string));
+        SfvbFileWriteResponse PutSfvbFileContent (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), string approvalId = default(string));
 
         /// <summary>
         /// Write a storefront file
@@ -2680,8 +2729,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="ifMatch">Content hash from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileWriteRequest">File content to write</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of SfvbFileWriteResponse</returns>
-        ApiResponse<SfvbFileWriteResponse> PutSfvbFileContentWithHttpInfo (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string));
+        ApiResponse<SfvbFileWriteResponse> PutSfvbFileContentWithHttpInfo (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), string approvalId = default(string));
         /// <summary>
         /// Replace the storefront's translation glossary
         /// </summary>
@@ -3306,8 +3356,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being reverted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileRevertRequest">Version to revert the file to</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>SfvbFileWriteResponse</returns>
-        SfvbFileWriteResponse RevertSfvbFile (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest);
+        SfvbFileWriteResponse RevertSfvbFile (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, string approvalId = default(string));
 
         /// <summary>
         /// Revert a storefront file to an earlier version
@@ -3319,8 +3370,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being reverted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileRevertRequest">Version to revert the file to</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of SfvbFileWriteResponse</returns>
-        ApiResponse<SfvbFileWriteResponse> RevertSfvbFileWithHttpInfo (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest);
+        ApiResponse<SfvbFileWriteResponse> RevertSfvbFileWithHttpInfo (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, string approvalId = default(string));
         /// <summary>
         /// Search storefront files
         /// </summary>
@@ -4275,6 +4327,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbRedirectWithHttpInfoAsync (int storefrontOid, int redirectId, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Delete up to 5,000 redirect rules in one call
+        /// </summary>
+        /// <remarks>
+        /// Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <param name="approvalId">The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRedirectDeleteResponse</returns>
+        System.Threading.Tasks.Task<SfvbRedirectDeleteResponse> DeleteSfvbRedirectsAsync (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete up to 5,000 redirect rules in one call
+        /// </summary>
+        /// <remarks>
+        /// Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <param name="approvalId">The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRedirectDeleteResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbRedirectDeleteResponse>> DeleteSfvbRedirectsWithHttpInfoAsync (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Detach an image from a blog post
         /// </summary>
         /// <remarks>
@@ -4403,6 +4482,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DownloadSfvbFileWithHttpInfoAsync (int storefrontOid, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Check a batch delete of redirect rules without writing it
+        /// </summary>
+        /// <remarks>
+        /// Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRedirectDeleteResponse</returns>
+        System.Threading.Tasks.Task<SfvbRedirectDeleteResponse> DryRunSfvbRedirectDeleteAsync (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Check a batch delete of redirect rules without writing it
+        /// </summary>
+        /// <remarks>
+        /// Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRedirectDeleteResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbRedirectDeleteResponse>> DryRunSfvbRedirectDeleteWithHttpInfoAsync (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Check a redirect import without writing it
         /// </summary>
@@ -5876,7 +5980,7 @@ namespace com.ultracart.admin.v2.Api
         /// Request a human approval
         /// </summary>
         /// <remarks>
-        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -5889,7 +5993,7 @@ namespace com.ultracart.admin.v2.Api
         /// Request a human approval
         /// </summary>
         /// <remarks>
-        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -6630,9 +6734,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="ifMatch">Content hash from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileWriteRequest">File content to write</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbFileWriteResponse</returns>
-        System.Threading.Tasks.Task<SfvbFileWriteResponse> PutSfvbFileContentAsync (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<SfvbFileWriteResponse> PutSfvbFileContentAsync (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Write a storefront file
@@ -6645,9 +6750,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="ifMatch">Content hash from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileWriteRequest">File content to write</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFileWriteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> PutSfvbFileContentWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> PutSfvbFileContentWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Replace the storefront's translation glossary
         /// </summary>
@@ -7320,9 +7426,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being reverted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileRevertRequest">Version to revert the file to</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbFileWriteResponse</returns>
-        System.Threading.Tasks.Task<SfvbFileWriteResponse> RevertSfvbFileAsync (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<SfvbFileWriteResponse> RevertSfvbFileAsync (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Revert a storefront file to an earlier version
@@ -7334,9 +7441,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being reverted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileRevertRequest">Version to revert the file to</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFileWriteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> RevertSfvbFileWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> RevertSfvbFileWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Search storefront files
         /// </summary>
@@ -11350,6 +11458,197 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Delete up to 5,000 redirect rules in one call Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <param name="approvalId">The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbRedirectDeleteResponse</returns>
+        public SfvbRedirectDeleteResponse DeleteSfvbRedirects (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbRedirectDeleteResponse> localVarResponse = DeleteSfvbRedirectsWithHttpInfo(storefrontOid, redirectDeleteRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete up to 5,000 redirect rules in one call Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <param name="approvalId">The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbRedirectDeleteResponse</returns>
+        public ApiResponse<SfvbRedirectDeleteResponse> DeleteSfvbRedirectsWithHttpInfo (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbRedirects");
+            // verify the required parameter 'redirectDeleteRequest' is set
+            if (redirectDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'redirectDeleteRequest' when calling SfvbApi->DeleteSfvbRedirects");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/redirects/delete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (redirectDeleteRequest != null && redirectDeleteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(redirectDeleteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = redirectDeleteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbRedirects", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRedirectDeleteResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRedirectDeleteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRedirectDeleteResponse)));
+        }
+
+        /// <summary>
+        /// Delete up to 5,000 redirect rules in one call Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <param name="approvalId">The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRedirectDeleteResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbRedirectDeleteResponse> DeleteSfvbRedirectsAsync (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbRedirectDeleteResponse> localVarResponse = await DeleteSfvbRedirectsWithHttpInfoAsync(storefrontOid, redirectDeleteRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete up to 5,000 redirect rules in one call Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <param name="approvalId">The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRedirectDeleteResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbRedirectDeleteResponse>> DeleteSfvbRedirectsWithHttpInfoAsync (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbRedirects");
+            // verify the required parameter 'redirectDeleteRequest' is set
+            if (redirectDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'redirectDeleteRequest' when calling SfvbApi->DeleteSfvbRedirects");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/redirects/delete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (redirectDeleteRequest != null && redirectDeleteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(redirectDeleteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = redirectDeleteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbRedirects", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRedirectDeleteResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRedirectDeleteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRedirectDeleteResponse)));
+        }
+
+        /// <summary>
         /// Detach an image from a blog post Name exactly one of default_image, code or blog_post_multimedia_oid.  Removes the image from the post and deletes its stored copy.  Take it out of the body too, or the body keeps a broken image.  A post that is not a draft needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -12224,6 +12523,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Check a batch delete of redirect rules without writing it Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <returns>SfvbRedirectDeleteResponse</returns>
+        public SfvbRedirectDeleteResponse DryRunSfvbRedirectDelete (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest)
+        {
+             ApiResponse<SfvbRedirectDeleteResponse> localVarResponse = DryRunSfvbRedirectDeleteWithHttpInfo(storefrontOid, redirectDeleteRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check a batch delete of redirect rules without writing it Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <returns>ApiResponse of SfvbRedirectDeleteResponse</returns>
+        public ApiResponse<SfvbRedirectDeleteResponse> DryRunSfvbRedirectDeleteWithHttpInfo (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DryRunSfvbRedirectDelete");
+            // verify the required parameter 'redirectDeleteRequest' is set
+            if (redirectDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'redirectDeleteRequest' when calling SfvbApi->DryRunSfvbRedirectDelete");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/redirects/delete/dry_run";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (redirectDeleteRequest != null && redirectDeleteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(redirectDeleteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = redirectDeleteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DryRunSfvbRedirectDelete", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRedirectDeleteResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRedirectDeleteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRedirectDeleteResponse)));
+        }
+
+        /// <summary>
+        /// Check a batch delete of redirect rules without writing it Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRedirectDeleteResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbRedirectDeleteResponse> DryRunSfvbRedirectDeleteAsync (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbRedirectDeleteResponse> localVarResponse = await DryRunSfvbRedirectDeleteWithHttpInfoAsync(storefrontOid, redirectDeleteRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Check a batch delete of redirect rules without writing it Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectDeleteRequest">The request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRedirectDeleteResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbRedirectDeleteResponse>> DryRunSfvbRedirectDeleteWithHttpInfoAsync (int storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DryRunSfvbRedirectDelete");
+            // verify the required parameter 'redirectDeleteRequest' is set
+            if (redirectDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'redirectDeleteRequest' when calling SfvbApi->DryRunSfvbRedirectDelete");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/redirects/delete/dry_run";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (redirectDeleteRequest != null && redirectDeleteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(redirectDeleteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = redirectDeleteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DryRunSfvbRedirectDelete", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRedirectDeleteResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRedirectDeleteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRedirectDeleteResponse)));
         }
 
         /// <summary>
@@ -22004,7 +22488,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -22017,7 +22501,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -22092,7 +22576,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -22107,7 +22591,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -26900,10 +27384,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="ifMatch">Content hash from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileWriteRequest">File content to write</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>SfvbFileWriteResponse</returns>
-        public SfvbFileWriteResponse PutSfvbFileContent (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string))
+        public SfvbFileWriteResponse PutSfvbFileContent (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), string approvalId = default(string))
         {
-             ApiResponse<SfvbFileWriteResponse> localVarResponse = PutSfvbFileContentWithHttpInfo(storefrontOid, ifMatch, fileWriteRequest, path);
+             ApiResponse<SfvbFileWriteResponse> localVarResponse = PutSfvbFileContentWithHttpInfo(storefrontOid, ifMatch, fileWriteRequest, path, approvalId);
              return localVarResponse.Data;
         }
 
@@ -26915,8 +27400,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="ifMatch">Content hash from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileWriteRequest">File content to write</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of SfvbFileWriteResponse</returns>
-        public ApiResponse<SfvbFileWriteResponse> PutSfvbFileContentWithHttpInfo (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string))
+        public ApiResponse<SfvbFileWriteResponse> PutSfvbFileContentWithHttpInfo (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), string approvalId = default(string))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -26953,6 +27439,7 @@ namespace com.ultracart.admin.v2.Api
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
             if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
             if (fileWriteRequest != null && fileWriteRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(fileWriteRequest); // http body (model) parameter
@@ -27000,11 +27487,12 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="ifMatch">Content hash from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileWriteRequest">File content to write</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbFileWriteResponse</returns>
-        public async System.Threading.Tasks.Task<SfvbFileWriteResponse> PutSfvbFileContentAsync (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<SfvbFileWriteResponse> PutSfvbFileContentAsync (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbFileWriteResponse> localVarResponse = await PutSfvbFileContentWithHttpInfoAsync(storefrontOid, ifMatch, fileWriteRequest, path, cancellationToken);
+             ApiResponse<SfvbFileWriteResponse> localVarResponse = await PutSfvbFileContentWithHttpInfoAsync(storefrontOid, ifMatch, fileWriteRequest, path, approvalId, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -27017,9 +27505,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="ifMatch">Content hash from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileWriteRequest">File content to write</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFileWriteResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> PutSfvbFileContentWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> PutSfvbFileContentWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbFileWriteRequest fileWriteRequest, string path = default(string), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -27056,6 +27545,7 @@ namespace com.ultracart.admin.v2.Api
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
             if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
             if (fileWriteRequest != null && fileWriteRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(fileWriteRequest); // http body (model) parameter
@@ -31748,10 +32238,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being reverted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileRevertRequest">Version to revert the file to</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>SfvbFileWriteResponse</returns>
-        public SfvbFileWriteResponse RevertSfvbFile (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest)
+        public SfvbFileWriteResponse RevertSfvbFile (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, string approvalId = default(string))
         {
-             ApiResponse<SfvbFileWriteResponse> localVarResponse = RevertSfvbFileWithHttpInfo(storefrontOid, ifMatch, fileRevertRequest);
+             ApiResponse<SfvbFileWriteResponse> localVarResponse = RevertSfvbFileWithHttpInfo(storefrontOid, ifMatch, fileRevertRequest, approvalId);
              return localVarResponse.Data;
         }
 
@@ -31762,8 +32253,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being reverted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileRevertRequest">Version to revert the file to</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of SfvbFileWriteResponse</returns>
-        public ApiResponse<SfvbFileWriteResponse> RevertSfvbFileWithHttpInfo (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest)
+        public ApiResponse<SfvbFileWriteResponse> RevertSfvbFileWithHttpInfo (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, string approvalId = default(string))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -31799,6 +32291,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
             if (fileRevertRequest != null && fileRevertRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(fileRevertRequest); // http body (model) parameter
@@ -31845,11 +32338,12 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being reverted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileRevertRequest">Version to revert the file to</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbFileWriteResponse</returns>
-        public async System.Threading.Tasks.Task<SfvbFileWriteResponse> RevertSfvbFileAsync (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<SfvbFileWriteResponse> RevertSfvbFileAsync (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbFileWriteResponse> localVarResponse = await RevertSfvbFileWithHttpInfoAsync(storefrontOid, ifMatch, fileRevertRequest, cancellationToken);
+             ApiResponse<SfvbFileWriteResponse> localVarResponse = await RevertSfvbFileWithHttpInfoAsync(storefrontOid, ifMatch, fileRevertRequest, approvalId, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -31861,9 +32355,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being reverted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="fileRevertRequest">Version to revert the file to</param>
+        /// <param name="approvalId">For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFileWriteResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> RevertSfvbFileWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> RevertSfvbFileWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -31899,6 +32394,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
             if (fileRevertRequest != null && fileRevertRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(fileRevertRequest); // http body (model) parameter

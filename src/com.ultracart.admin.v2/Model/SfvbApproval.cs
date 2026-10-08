@@ -58,54 +58,66 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="outcome", EmitDefaultValue=false)]
         public OutcomeEnum? Outcome { get; set; }
         /// <summary>
-        /// pending, approved, denied, cancelled, expired or used.  Only approved may be sent with the gated call.
+        /// reviewing, pending, approved, denied, cancelled, expired, used or refused.  Only approved may be sent with the gated call.  A script write starts as reviewing while UltraCart reviews it; keep polling, and show approval_url only once it is pending.  refused means the review refused the script; outcome_code and review say why.
         /// </summary>
-        /// <value>pending, approved, denied, cancelled, expired or used.  Only approved may be sent with the gated call.</value>
+        /// <value>reviewing, pending, approved, denied, cancelled, expired, used or refused.  Only approved may be sent with the gated call.  A script write starts as reviewing while UltraCart reviews it; keep polling, and show approval_url only once it is pending.  refused means the review refused the script; outcome_code and review say why.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
             /// <summary>
+            /// Enum Reviewing for value: reviewing
+            /// </summary>
+            [EnumMember(Value = "reviewing")]
+            Reviewing = 1,
+
+            /// <summary>
             /// Enum Pending for value: pending
             /// </summary>
             [EnumMember(Value = "pending")]
-            Pending = 1,
+            Pending = 2,
 
             /// <summary>
             /// Enum Approved for value: approved
             /// </summary>
             [EnumMember(Value = "approved")]
-            Approved = 2,
+            Approved = 3,
 
             /// <summary>
             /// Enum Denied for value: denied
             /// </summary>
             [EnumMember(Value = "denied")]
-            Denied = 3,
+            Denied = 4,
 
             /// <summary>
             /// Enum Cancelled for value: cancelled
             /// </summary>
             [EnumMember(Value = "cancelled")]
-            Cancelled = 4,
+            Cancelled = 5,
 
             /// <summary>
             /// Enum Expired for value: expired
             /// </summary>
             [EnumMember(Value = "expired")]
-            Expired = 5,
+            Expired = 6,
 
             /// <summary>
             /// Enum Used for value: used
             /// </summary>
             [EnumMember(Value = "used")]
-            Used = 6
+            Used = 7,
+
+            /// <summary>
+            /// Enum Refused for value: refused
+            /// </summary>
+            [EnumMember(Value = "refused")]
+            Refused = 8
 
         }
 
         /// <summary>
-        /// pending, approved, denied, cancelled, expired or used.  Only approved may be sent with the gated call.
+        /// reviewing, pending, approved, denied, cancelled, expired, used or refused.  Only approved may be sent with the gated call.  A script write starts as reviewing while UltraCart reviews it; keep polling, and show approval_url only once it is pending.  refused means the review refused the script; outcome_code and review say why.
         /// </summary>
-        /// <value>pending, approved, denied, cancelled, expired or used.  Only approved may be sent with the gated call.</value>
+        /// <value>reviewing, pending, approved, denied, cancelled, expired, used or refused.  Only approved may be sent with the gated call.  A script write starts as reviewing while UltraCart reviews it; keep polling, and show approval_url only once it is pending.  refused means the review refused the script; outcome_code and review say why.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
@@ -125,12 +137,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="outcomeHttpStatus">The HTTP status the gated call answered with..</param>
         /// <param name="_params">_params.</param>
         /// <param name="reason">The reason the agent sent, as stored and shown (cleaned and capped)..</param>
+        /// <param name="review">review.</param>
         /// <param name="scope">Where the action applies.  The storefront host name, or account for account-wide actions..</param>
-        /// <param name="status">pending, approved, denied, cancelled, expired or used.  Only approved may be sent with the gated call..</param>
+        /// <param name="status">reviewing, pending, approved, denied, cancelled, expired, used or refused.  Only approved may be sent with the gated call.  A script write starts as reviewing while UltraCart reviews it; keep polling, and show approval_url only once it is pending.  refused means the review refused the script; outcome_code and review say why..</param>
         /// <param name="storefrontOid">The storefront the action runs on.  Absent for account-wide actions..</param>
         /// <param name="usedAt">When the gated call used this approval, ISO 8601 UTC..</param>
         /// <param name="userCode">Short matching code.  Print it next to approval_url so the person can check the page shows the same code..</param>
-        public SfvbApproval(string action = default(string), string approvalId = default(string), string approvalUrl = default(string), string createdAt = default(string), string description = default(string), string expiresAt = default(string), int expiresInSeconds = default(int), bool freshCodeRequired = default(bool), int intervalSeconds = default(int), OutcomeEnum? outcome = default(OutcomeEnum?), string outcomeCode = default(string), int outcomeHttpStatus = default(int), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), string scope = default(string), StatusEnum? status = default(StatusEnum?), int storefrontOid = default(int), string usedAt = default(string), string userCode = default(string))
+        public SfvbApproval(string action = default(string), string approvalId = default(string), string approvalUrl = default(string), string createdAt = default(string), string description = default(string), string expiresAt = default(string), int expiresInSeconds = default(int), bool freshCodeRequired = default(bool), int intervalSeconds = default(int), OutcomeEnum? outcome = default(OutcomeEnum?), string outcomeCode = default(string), int outcomeHttpStatus = default(int), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), SfvbApprovalReview review = default(SfvbApprovalReview), string scope = default(string), StatusEnum? status = default(StatusEnum?), int storefrontOid = default(int), string usedAt = default(string), string userCode = default(string))
         {
             this.Action = action;
             this.ApprovalId = approvalId;
@@ -146,6 +159,7 @@ namespace com.ultracart.admin.v2.Model
             this.OutcomeHttpStatus = outcomeHttpStatus;
             this.Params = _params;
             this.Reason = reason;
+            this.Review = review;
             this.Scope = scope;
             this.Status = status;
             this.StorefrontOid = storefrontOid;
@@ -245,6 +259,12 @@ namespace com.ultracart.admin.v2.Model
         public string Reason { get; set; }
 
         /// <summary>
+        /// Gets or Sets Review
+        /// </summary>
+        [DataMember(Name="review", EmitDefaultValue=false)]
+        public SfvbApprovalReview Review { get; set; }
+
+        /// <summary>
         /// Where the action applies.  The storefront host name, or account for account-wide actions.
         /// </summary>
         /// <value>Where the action applies.  The storefront host name, or account for account-wide actions.</value>
@@ -295,6 +315,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  OutcomeHttpStatus: ").Append(OutcomeHttpStatus).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
+            sb.Append("  Review: ").Append(Review).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
@@ -405,6 +426,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Reason.Equals(input.Reason))
                 ) && 
                 (
+                    this.Review == input.Review ||
+                    (this.Review != null &&
+                    this.Review.Equals(input.Review))
+                ) && 
+                (
                     this.Scope == input.Scope ||
                     (this.Scope != null &&
                     this.Scope.Equals(input.Scope))
@@ -468,6 +494,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
                 if (this.Reason != null)
                     hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                if (this.Review != null)
+                    hashCode = hashCode * 59 + this.Review.GetHashCode();
                 if (this.Scope != null)
                     hashCode = hashCode * 59 + this.Scope.GetHashCode();
                 if (this.Status != null)

@@ -992,6 +992,8 @@ docs/SfvbApi.md
 docs/SfvbApproval.md
 docs/SfvbApprovalCreateRequest.md
 docs/SfvbApprovalParams.md
+docs/SfvbApprovalReview.md
+docs/SfvbApprovalReviewFinding.md
 docs/SfvbApprovalsResponse.md
 docs/SfvbBlogPost.md
 docs/SfvbBlogPostDetail.md
@@ -1126,6 +1128,10 @@ docs/SfvbRecordingSettingsRequest.md
 docs/SfvbRecordingSettingsResponse.md
 docs/SfvbRedirect.md
 docs/SfvbRedirectCheckResponse.md
+docs/SfvbRedirectDeleteRequest.md
+docs/SfvbRedirectDeleteResponse.md
+docs/SfvbRedirectDeleteRow.md
+docs/SfvbRedirectDeleteRowResult.md
 docs/SfvbRedirectImportRequest.md
 docs/SfvbRedirectImportResponse.md
 docs/SfvbRedirectImportRow.md
@@ -2285,6 +2291,8 @@ src/com.ultracart.admin.v2/Model/SelfConfig.cs
 src/com.ultracart.admin.v2/Model/SfvbApproval.cs
 src/com.ultracart.admin.v2/Model/SfvbApprovalCreateRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbApprovalParams.cs
+src/com.ultracart.admin.v2/Model/SfvbApprovalReview.cs
+src/com.ultracart.admin.v2/Model/SfvbApprovalReviewFinding.cs
 src/com.ultracart.admin.v2/Model/SfvbApprovalsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbBlogPost.cs
 src/com.ultracart.admin.v2/Model/SfvbBlogPostDetail.cs
@@ -2419,6 +2427,10 @@ src/com.ultracart.admin.v2/Model/SfvbRecordingSettingsRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbRecordingSettingsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirect.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirectCheckResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbRedirectDeleteRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbRedirectDeleteResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbRedirectDeleteRow.cs
+src/com.ultracart.admin.v2/Model/SfvbRedirectDeleteRowResult.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirectImportRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirectImportResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirectImportRow.cs

@@ -47,7 +47,19 @@ namespace com.ultracart.admin.v2.Model
             /// Enum BlogpostDelete for value: blog_post.delete
             /// </summary>
             [EnumMember(Value = "blog_post.delete")]
-            BlogpostDelete = 2
+            BlogpostDelete = 2,
+
+            /// <summary>
+            /// Enum FilePutscript for value: file.put_script
+            /// </summary>
+            [EnumMember(Value = "file.put_script")]
+            FilePutscript = 3,
+
+            /// <summary>
+            /// Enum RedirectDeletebatch for value: redirect.delete_batch
+            /// </summary>
+            [EnumMember(Value = "redirect.delete_batch")]
+            RedirectDeletebatch = 4
 
         }
 
@@ -61,15 +73,26 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbApprovalCreateRequest" /> class.
         /// </summary>
         /// <param name="action">The gated action to approve..</param>
+        /// <param name="content">For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version..</param>
         /// <param name="_params">_params.</param>
         /// <param name="reason">Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters..</param>
-        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string))
+        /// <param name="redirectRows">For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash..</param>
+        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), string content = default(string), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>))
         {
             this.Action = action;
+            this.Content = content;
             this.Params = _params;
             this.Reason = reason;
+            this.RedirectRows = redirectRows;
         }
 
+
+        /// <summary>
+        /// For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
+        /// </summary>
+        /// <value>For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.</value>
+        [DataMember(Name="content", EmitDefaultValue=false)]
+        public string Content { get; set; }
 
         /// <summary>
         /// Gets or Sets Params
@@ -85,6 +108,13 @@ namespace com.ultracart.admin.v2.Model
         public string Reason { get; set; }
 
         /// <summary>
+        /// For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.
+        /// </summary>
+        /// <value>For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.</value>
+        [DataMember(Name="redirect_rows", EmitDefaultValue=false)]
+        public List<SfvbRedirectDeleteRow> RedirectRows { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,8 +123,10 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class SfvbApprovalCreateRequest {\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
+            sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
+            sb.Append("  RedirectRows: ").Append(RedirectRows).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,6 +167,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Action.Equals(input.Action))
                 ) && 
                 (
+                    this.Content == input.Content ||
+                    (this.Content != null &&
+                    this.Content.Equals(input.Content))
+                ) && 
+                (
                     this.Params == input.Params ||
                     (this.Params != null &&
                     this.Params.Equals(input.Params))
@@ -143,6 +180,12 @@ namespace com.ultracart.admin.v2.Model
                     this.Reason == input.Reason ||
                     (this.Reason != null &&
                     this.Reason.Equals(input.Reason))
+                ) && 
+                (
+                    this.RedirectRows == input.RedirectRows ||
+                    this.RedirectRows != null &&
+                    input.RedirectRows != null &&
+                    this.RedirectRows.SequenceEqual(input.RedirectRows)
                 );
         }
 
@@ -157,10 +200,14 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Action != null)
                     hashCode = hashCode * 59 + this.Action.GetHashCode();
+                if (this.Content != null)
+                    hashCode = hashCode * 59 + this.Content.GetHashCode();
                 if (this.Params != null)
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
                 if (this.Reason != null)
                     hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                if (this.RedirectRows != null)
+                    hashCode = hashCode * 59 + this.RedirectRows.GetHashCode();
                 return hashCode;
             }
         }

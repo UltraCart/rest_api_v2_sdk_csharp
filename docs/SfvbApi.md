@@ -4484,7 +4484,7 @@ Name | Type | Description  | Notes
 
 ## InsertSfvbApproval
 
-> void InsertSfvbApproval (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = null)
+> SfvbApproval InsertSfvbApproval (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = null)
 
 Request a human approval
 
@@ -4507,7 +4507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**SfvbApproval**](SfvbApproval.md)
 
 ### Authorization
 
@@ -4522,7 +4522,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | Successful response |  -  |
 | **201** |  |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |

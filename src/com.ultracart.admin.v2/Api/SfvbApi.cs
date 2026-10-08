@@ -1971,8 +1971,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
         /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
-        /// <returns></returns>
-        void InsertSfvbApproval (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?));
+        /// <returns>SfvbApproval</returns>
+        SfvbApproval InsertSfvbApproval (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?));
 
         /// <summary>
         /// Request a human approval
@@ -1983,8 +1983,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
         /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> InsertSfvbApprovalWithHttpInfo (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?));
+        /// <returns>ApiResponse of SfvbApproval</returns>
+        ApiResponse<SfvbApproval> InsertSfvbApprovalWithHttpInfo (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?));
         /// <summary>
         /// Create a blog post
         /// </summary>
@@ -5882,8 +5882,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="approvalRequest">The request</param>
         /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task InsertSfvbApprovalAsync (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of SfvbApproval</returns>
+        System.Threading.Tasks.Task<SfvbApproval> InsertSfvbApprovalAsync (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Request a human approval
@@ -5895,8 +5895,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="approvalRequest">The request</param>
         /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> InsertSfvbApprovalWithHttpInfoAsync (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (SfvbApproval)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbApproval>> InsertSfvbApprovalWithHttpInfoAsync (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a blog post
         /// </summary>
@@ -22009,10 +22009,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
         /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
-        /// <returns></returns>
-        public void InsertSfvbApproval (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?))
+        /// <returns>SfvbApproval</returns>
+        public SfvbApproval InsertSfvbApproval (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?))
         {
-             InsertSfvbApprovalWithHttpInfo(approvalRequest, storefrontOid);
+             ApiResponse<SfvbApproval> localVarResponse = InsertSfvbApprovalWithHttpInfo(approvalRequest, storefrontOid);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -22021,8 +22022,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
         /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> InsertSfvbApprovalWithHttpInfo (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?))
+        /// <returns>ApiResponse of SfvbApproval</returns>
+        public ApiResponse<SfvbApproval> InsertSfvbApprovalWithHttpInfo (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?))
         {
             // verify the required parameter 'approvalRequest' is set
             if (approvalRequest == null)
@@ -22085,9 +22086,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<SfvbApproval>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (SfvbApproval) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbApproval)));
         }
 
         /// <summary>
@@ -22097,10 +22098,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="approvalRequest">The request</param>
         /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task InsertSfvbApprovalAsync (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of SfvbApproval</returns>
+        public async System.Threading.Tasks.Task<SfvbApproval> InsertSfvbApprovalAsync (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             await InsertSfvbApprovalWithHttpInfoAsync(approvalRequest, storefrontOid, cancellationToken);
+             ApiResponse<SfvbApproval> localVarResponse = await InsertSfvbApprovalWithHttpInfoAsync(approvalRequest, storefrontOid, cancellationToken);
+             return localVarResponse.Data;
 
         }
 
@@ -22111,8 +22113,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="approvalRequest">The request</param>
         /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> InsertSfvbApprovalWithHttpInfoAsync (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (SfvbApproval)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbApproval>> InsertSfvbApprovalWithHttpInfoAsync (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'approvalRequest' is set
             if (approvalRequest == null)
@@ -22175,9 +22177,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<SfvbApproval>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (SfvbApproval) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbApproval)));
         }
 
         /// <summary>

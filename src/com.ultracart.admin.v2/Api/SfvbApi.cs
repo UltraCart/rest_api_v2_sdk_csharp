@@ -260,6 +260,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbPreviewSessionResponse</returns>
         ApiResponse<SfvbPreviewSessionResponse> CreateSfvbPreviewSessionWithHttpInfo (int storefrontOid);
         /// <summary>
+        /// Cancel a pending approval request
+        /// </summary>
+        /// <remarks>
+        /// Withdraws a request nobody has decided yet, which frees one of the five pending slots a sign-in has.  A request that was already decided, used or expired cannot be cancelled. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <returns></returns>
+        void DeleteSfvbApproval (string approvalId);
+
+        /// <summary>
+        /// Cancel a pending approval request
+        /// </summary>
+        /// <remarks>
+        /// Withdraws a request nobody has decided yet, which frees one of the five pending slots a sign-in has.  A request that was already decided, used or expired cannot be cancelled. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteSfvbApprovalWithHttpInfo (string approvalId);
+        /// <summary>
         /// Delete a blog post
         /// </summary>
         /// <remarks>
@@ -268,8 +289,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="blogPostOid"></param>
+        /// <param name="approvalId">The approval_id of an approved blog_post.delete request for this post.  See POST /sfvb/approvals. (optional)</param>
         /// <returns></returns>
-        void DeleteSfvbBlogPost (int storefrontOid, int blogPostOid);
+        void DeleteSfvbBlogPost (int storefrontOid, int blogPostOid, string approvalId = default(string));
 
         /// <summary>
         /// Delete a blog post
@@ -280,8 +302,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="blogPostOid"></param>
+        /// <param name="approvalId">The approval_id of an approved blog_post.delete request for this post.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid);
+        ApiResponse<Object> DeleteSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid, string approvalId = default(string));
         /// <summary>
         /// Delete a storefront file
         /// </summary>
@@ -292,8 +315,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being deleted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved file.delete request for this exact path.  See POST /sfvb/approvals. (optional)</param>
         /// <returns></returns>
-        void DeleteSfvbFile (int storefrontOid, string ifMatch, string path = default(string));
+        void DeleteSfvbFile (int storefrontOid, string ifMatch, string path = default(string), string approvalId = default(string));
 
         /// <summary>
         /// Delete a storefront file
@@ -305,8 +329,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being deleted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved file.delete request for this exact path.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteSfvbFileWithHttpInfo (int storefrontOid, string ifMatch, string path = default(string));
+        ApiResponse<Object> DeleteSfvbFileWithHttpInfo (int storefrontOid, string ifMatch, string path = default(string), string approvalId = default(string));
         /// <summary>
         /// Delete an attribute from an item
         /// </summary>
@@ -801,6 +826,46 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="libraryOid"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> FavoriteSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid);
+        /// <summary>
+        /// Read one approval request
+        /// </summary>
+        /// <remarks>
+        /// Poll this every interval_seconds after requesting an approval.  status is pending until the person decides, then approved or denied, and expired if nobody acts in 10 minutes.  Once the gated call has used it, status is used and outcome says whether the call succeeded.  Used with no outcome means the result is unknown, so check the target - never repeat the call. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <returns>SfvbApproval</returns>
+        SfvbApproval GetSfvbApproval (string approvalId);
+
+        /// <summary>
+        /// Read one approval request
+        /// </summary>
+        /// <remarks>
+        /// Poll this every interval_seconds after requesting an approval.  status is pending until the person decides, then approved or denied, and expired if nobody acts in 10 minutes.  Once the gated call has used it, status is used and outcome says whether the call succeeded.  Used with no outcome means the result is unknown, so check the target - never repeat the call. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <returns>ApiResponse of SfvbApproval</returns>
+        ApiResponse<SfvbApproval> GetSfvbApprovalWithHttpInfo (string approvalId);
+        /// <summary>
+        /// List this sign-in's approval requests
+        /// </summary>
+        /// <remarks>
+        /// Requests made with this sign-in in the last 24 hours, newest first, at most 50, with their status and outcome.  Use it to find a request whose id was lost, or to see what an earlier run did. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SfvbApprovalsResponse</returns>
+        SfvbApprovalsResponse GetSfvbApprovals ();
+
+        /// <summary>
+        /// List this sign-in's approval requests
+        /// </summary>
+        /// <remarks>
+        /// Requests made with this sign-in in the last 24 hours, newest first, at most 50, with their status and outcome.  Use it to find a request whose id was lost, or to see what an earlier run did. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SfvbApprovalsResponse</returns>
+        ApiResponse<SfvbApprovalsResponse> GetSfvbApprovalsWithHttpInfo ();
         /// <summary>
         /// Read a blog post
         /// </summary>
@@ -1897,6 +1962,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="redirectImportRequest">The request</param>
         /// <returns>ApiResponse of SfvbRedirectImportResponse</returns>
         ApiResponse<SfvbRedirectImportResponse> ImportSfvbRedirectsWithHttpInfo (int storefrontOid, SfvbRedirectImportRequest redirectImportRequest);
+        /// <summary>
+        /// Request a human approval
+        /// </summary>
+        /// <remarks>
+        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalRequest">The request</param>
+        /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
+        /// <returns></returns>
+        void InsertSfvbApproval (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?));
+
+        /// <summary>
+        /// Request a human approval
+        /// </summary>
+        /// <remarks>
+        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalRequest">The request</param>
+        /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> InsertSfvbApprovalWithHttpInfo (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?));
         /// <summary>
         /// Create a blog post
         /// </summary>
@@ -3940,6 +4028,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbPreviewSessionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPreviewSessionResponse>> CreateSfvbPreviewSessionWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Cancel a pending approval request
+        /// </summary>
+        /// <remarks>
+        /// Withdraws a request nobody has decided yet, which frees one of the five pending slots a sign-in has.  A request that was already decided, used or expired cannot be cancelled. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteSfvbApprovalAsync (string approvalId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Cancel a pending approval request
+        /// </summary>
+        /// <remarks>
+        /// Withdraws a request nobody has decided yet, which frees one of the five pending slots a sign-in has.  A request that was already decided, used or expired cannot be cancelled. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbApprovalWithHttpInfoAsync (string approvalId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Delete a blog post
         /// </summary>
         /// <remarks>
@@ -3948,9 +4059,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="blogPostOid"></param>
+        /// <param name="approvalId">The approval_id of an approved blog_post.delete request for this post.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteSfvbBlogPostAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task DeleteSfvbBlogPostAsync (int storefrontOid, int blogPostOid, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete a blog post
@@ -3961,9 +4073,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="blogPostOid"></param>
+        /// <param name="approvalId">The approval_id of an approved blog_post.delete request for this post.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete a storefront file
         /// </summary>
@@ -3974,9 +4087,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being deleted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved file.delete request for this exact path.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteSfvbFileAsync (int storefrontOid, string ifMatch, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task DeleteSfvbFileAsync (int storefrontOid, string ifMatch, string path = default(string), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete a storefront file
@@ -3988,9 +4102,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being deleted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved file.delete request for this exact path.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbFileWithHttpInfoAsync (int storefrontOid, string ifMatch, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbFileWithHttpInfoAsync (int storefrontOid, string ifMatch, string path = default(string), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete an attribute from an item
         /// </summary>
@@ -4525,6 +4640,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> FavoriteSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read one approval request
+        /// </summary>
+        /// <remarks>
+        /// Poll this every interval_seconds after requesting an approval.  status is pending until the person decides, then approved or denied, and expired if nobody acts in 10 minutes.  Once the gated call has used it, status is used and outcome says whether the call succeeded.  Used with no outcome means the result is unknown, so check the target - never repeat the call. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbApproval</returns>
+        System.Threading.Tasks.Task<SfvbApproval> GetSfvbApprovalAsync (string approvalId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read one approval request
+        /// </summary>
+        /// <remarks>
+        /// Poll this every interval_seconds after requesting an approval.  status is pending until the person decides, then approved or denied, and expired if nobody acts in 10 minutes.  Once the gated call has used it, status is used and outcome says whether the call succeeded.  Used with no outcome means the result is unknown, so check the target - never repeat the call. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbApproval)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbApproval>> GetSfvbApprovalWithHttpInfoAsync (string approvalId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List this sign-in's approval requests
+        /// </summary>
+        /// <remarks>
+        /// Requests made with this sign-in in the last 24 hours, newest first, at most 50, with their status and outcome.  Use it to find a request whose id was lost, or to see what an earlier run did. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbApprovalsResponse</returns>
+        System.Threading.Tasks.Task<SfvbApprovalsResponse> GetSfvbApprovalsAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List this sign-in&#39;s approval requests
+        /// </summary>
+        /// <remarks>
+        /// Requests made with this sign-in in the last 24 hours, newest first, at most 50, with their status and outcome.  Use it to find a request whose id was lost, or to see what an earlier run did. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbApprovalsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbApprovalsResponse>> GetSfvbApprovalsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read a blog post
         /// </summary>
@@ -5713,6 +5872,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbRedirectImportResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbRedirectImportResponse>> ImportSfvbRedirectsWithHttpInfoAsync (int storefrontOid, SfvbRedirectImportRequest redirectImportRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Request a human approval
+        /// </summary>
+        /// <remarks>
+        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalRequest">The request</param>
+        /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task InsertSfvbApprovalAsync (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Request a human approval
+        /// </summary>
+        /// <remarks>
+        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalRequest">The request</param>
+        /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> InsertSfvbApprovalWithHttpInfoAsync (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a blog post
         /// </summary>
@@ -9589,15 +9773,158 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Delete a blog post Takes the post off every page and deletes it.  There is no undo.  A post that is not a draft needs sfvb_publish. 
+        /// Cancel a pending approval request Withdraws a request nobody has decided yet, which frees one of the five pending slots a sign-in has.  A request that was already decided, used or expired cannot be cancelled. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storefrontOid"></param>
-        /// <param name="blogPostOid"></param>
+        /// <param name="approvalId"></param>
         /// <returns></returns>
-        public void DeleteSfvbBlogPost (int storefrontOid, int blogPostOid)
+        public void DeleteSfvbApproval (string approvalId)
         {
-             DeleteSfvbBlogPostWithHttpInfo(storefrontOid, blogPostOid);
+             DeleteSfvbApprovalWithHttpInfo(approvalId);
+        }
+
+        /// <summary>
+        /// Cancel a pending approval request Withdraws a request nobody has decided yet, which frees one of the five pending slots a sign-in has.  A request that was already decided, used or expired cannot be cancelled. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteSfvbApprovalWithHttpInfo (string approvalId)
+        {
+            // verify the required parameter 'approvalId' is set
+            if (approvalId == null)
+                throw new ApiException(400, "Missing required parameter 'approvalId' when calling SfvbApi->DeleteSfvbApproval");
+
+            var localVarPath = "/sfvb/approvals/{approval_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (approvalId != null) localVarPathParams.Add("approval_id", this.Configuration.ApiClient.ParameterToString(approvalId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbApproval", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Cancel a pending approval request Withdraws a request nobody has decided yet, which frees one of the five pending slots a sign-in has.  A request that was already decided, used or expired cannot be cancelled. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteSfvbApprovalAsync (string approvalId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteSfvbApprovalWithHttpInfoAsync(approvalId, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Cancel a pending approval request Withdraws a request nobody has decided yet, which frees one of the five pending slots a sign-in has.  A request that was already decided, used or expired cannot be cancelled. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbApprovalWithHttpInfoAsync (string approvalId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'approvalId' is set
+            if (approvalId == null)
+                throw new ApiException(400, "Missing required parameter 'approvalId' when calling SfvbApi->DeleteSfvbApproval");
+
+            var localVarPath = "/sfvb/approvals/{approval_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (approvalId != null) localVarPathParams.Add("approval_id", this.Configuration.ApiClient.ParameterToString(approvalId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbApproval", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>
@@ -9606,8 +9933,22 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="blogPostOid"></param>
+        /// <param name="approvalId">The approval_id of an approved blog_post.delete request for this post.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns></returns>
+        public void DeleteSfvbBlogPost (int storefrontOid, int blogPostOid, string approvalId = default(string))
+        {
+             DeleteSfvbBlogPostWithHttpInfo(storefrontOid, blogPostOid, approvalId);
+        }
+
+        /// <summary>
+        /// Delete a blog post Takes the post off every page and deletes it.  There is no undo.  A post that is not a draft needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="blogPostOid"></param>
+        /// <param name="approvalId">The approval_id of an approved blog_post.delete request for this post.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid)
+        public ApiResponse<Object> DeleteSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid, string approvalId = default(string))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -9639,6 +9980,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (blogPostOid != null) localVarPathParams.Add("blog_post_oid", this.Configuration.ApiClient.ParameterToString(blogPostOid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -9676,11 +10018,12 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="blogPostOid"></param>
+        /// <param name="approvalId">The approval_id of an approved blog_post.delete request for this post.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteSfvbBlogPostAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task DeleteSfvbBlogPostAsync (int storefrontOid, int blogPostOid, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             await DeleteSfvbBlogPostWithHttpInfoAsync(storefrontOid, blogPostOid, cancellationToken);
+             await DeleteSfvbBlogPostWithHttpInfoAsync(storefrontOid, blogPostOid, approvalId, cancellationToken);
 
         }
 
@@ -9690,9 +10033,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="blogPostOid"></param>
+        /// <param name="approvalId">The approval_id of an approved blog_post.delete request for this post.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -9724,6 +10068,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (blogPostOid != null) localVarPathParams.Add("blog_post_oid", this.Configuration.ApiClient.ParameterToString(blogPostOid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -9762,10 +10107,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being deleted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved file.delete request for this exact path.  See POST /sfvb/approvals. (optional)</param>
         /// <returns></returns>
-        public void DeleteSfvbFile (int storefrontOid, string ifMatch, string path = default(string))
+        public void DeleteSfvbFile (int storefrontOid, string ifMatch, string path = default(string), string approvalId = default(string))
         {
-             DeleteSfvbFileWithHttpInfo(storefrontOid, ifMatch, path);
+             DeleteSfvbFileWithHttpInfo(storefrontOid, ifMatch, path, approvalId);
         }
 
         /// <summary>
@@ -9775,8 +10121,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being deleted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved file.delete request for this exact path.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteSfvbFileWithHttpInfo (int storefrontOid, string ifMatch, string path = default(string))
+        public ApiResponse<Object> DeleteSfvbFileWithHttpInfo (int storefrontOid, string ifMatch, string path = default(string), string approvalId = default(string))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -9809,6 +10156,7 @@ namespace com.ultracart.admin.v2.Api
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
             if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -9847,11 +10195,12 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being deleted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved file.delete request for this exact path.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteSfvbFileAsync (int storefrontOid, string ifMatch, string path = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task DeleteSfvbFileAsync (int storefrontOid, string ifMatch, string path = default(string), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             await DeleteSfvbFileWithHttpInfoAsync(storefrontOid, ifMatch, path, cancellationToken);
+             await DeleteSfvbFileWithHttpInfoAsync(storefrontOid, ifMatch, path, approvalId, cancellationToken);
 
         }
 
@@ -9862,9 +10211,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ifMatch">Content hash of the file being deleted.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="path"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved file.delete request for this exact path.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbFileWithHttpInfoAsync (int storefrontOid, string ifMatch, string path = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbFileWithHttpInfoAsync (int storefrontOid, string ifMatch, string path = default(string), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -9897,6 +10247,7 @@ namespace com.ultracart.admin.v2.Api
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
             if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -13542,6 +13893,308 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Read one approval request Poll this every interval_seconds after requesting an approval.  status is pending until the person decides, then approved or denied, and expired if nobody acts in 10 minutes.  Once the gated call has used it, status is used and outcome says whether the call succeeded.  Used with no outcome means the result is unknown, so check the target - never repeat the call. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <returns>SfvbApproval</returns>
+        public SfvbApproval GetSfvbApproval (string approvalId)
+        {
+             ApiResponse<SfvbApproval> localVarResponse = GetSfvbApprovalWithHttpInfo(approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read one approval request Poll this every interval_seconds after requesting an approval.  status is pending until the person decides, then approved or denied, and expired if nobody acts in 10 minutes.  Once the gated call has used it, status is used and outcome says whether the call succeeded.  Used with no outcome means the result is unknown, so check the target - never repeat the call. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <returns>ApiResponse of SfvbApproval</returns>
+        public ApiResponse<SfvbApproval> GetSfvbApprovalWithHttpInfo (string approvalId)
+        {
+            // verify the required parameter 'approvalId' is set
+            if (approvalId == null)
+                throw new ApiException(400, "Missing required parameter 'approvalId' when calling SfvbApi->GetSfvbApproval");
+
+            var localVarPath = "/sfvb/approvals/{approval_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (approvalId != null) localVarPathParams.Add("approval_id", this.Configuration.ApiClient.ParameterToString(approvalId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbApproval", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbApproval>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbApproval) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbApproval)));
+        }
+
+        /// <summary>
+        /// Read one approval request Poll this every interval_seconds after requesting an approval.  status is pending until the person decides, then approved or denied, and expired if nobody acts in 10 minutes.  Once the gated call has used it, status is used and outcome says whether the call succeeded.  Used with no outcome means the result is unknown, so check the target - never repeat the call. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbApproval</returns>
+        public async System.Threading.Tasks.Task<SfvbApproval> GetSfvbApprovalAsync (string approvalId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbApproval> localVarResponse = await GetSfvbApprovalWithHttpInfoAsync(approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read one approval request Poll this every interval_seconds after requesting an approval.  status is pending until the person decides, then approved or denied, and expired if nobody acts in 10 minutes.  Once the gated call has used it, status is used and outcome says whether the call succeeded.  Used with no outcome means the result is unknown, so check the target - never repeat the call. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbApproval)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbApproval>> GetSfvbApprovalWithHttpInfoAsync (string approvalId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'approvalId' is set
+            if (approvalId == null)
+                throw new ApiException(400, "Missing required parameter 'approvalId' when calling SfvbApi->GetSfvbApproval");
+
+            var localVarPath = "/sfvb/approvals/{approval_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (approvalId != null) localVarPathParams.Add("approval_id", this.Configuration.ApiClient.ParameterToString(approvalId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbApproval", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbApproval>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbApproval) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbApproval)));
+        }
+
+        /// <summary>
+        /// List this sign-in's approval requests Requests made with this sign-in in the last 24 hours, newest first, at most 50, with their status and outcome.  Use it to find a request whose id was lost, or to see what an earlier run did. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SfvbApprovalsResponse</returns>
+        public SfvbApprovalsResponse GetSfvbApprovals ()
+        {
+             ApiResponse<SfvbApprovalsResponse> localVarResponse = GetSfvbApprovalsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List this sign-in's approval requests Requests made with this sign-in in the last 24 hours, newest first, at most 50, with their status and outcome.  Use it to find a request whose id was lost, or to see what an earlier run did. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SfvbApprovalsResponse</returns>
+        public ApiResponse<SfvbApprovalsResponse> GetSfvbApprovalsWithHttpInfo ()
+        {
+
+            var localVarPath = "/sfvb/approvals";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbApprovals", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbApprovalsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbApprovalsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbApprovalsResponse)));
+        }
+
+        /// <summary>
+        /// List this sign-in's approval requests Requests made with this sign-in in the last 24 hours, newest first, at most 50, with their status and outcome.  Use it to find a request whose id was lost, or to see what an earlier run did. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbApprovalsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbApprovalsResponse> GetSfvbApprovalsAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbApprovalsResponse> localVarResponse = await GetSfvbApprovalsWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List this sign-in's approval requests Requests made with this sign-in in the last 24 hours, newest first, at most 50, with their status and outcome.  Use it to find a request whose id was lost, or to see what an earlier run did. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbApprovalsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbApprovalsResponse>> GetSfvbApprovalsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/sfvb/approvals";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbApprovals", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbApprovalsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbApprovalsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbApprovalsResponse)));
         }
 
         /// <summary>
@@ -21348,6 +22001,183 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbRedirectImportResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbRedirectImportResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRedirectImportResponse)));
+        }
+
+        /// <summary>
+        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalRequest">The request</param>
+        /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
+        /// <returns></returns>
+        public void InsertSfvbApproval (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?))
+        {
+             InsertSfvbApprovalWithHttpInfo(approvalRequest, storefrontOid);
+        }
+
+        /// <summary>
+        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalRequest">The request</param>
+        /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> InsertSfvbApprovalWithHttpInfo (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?))
+        {
+            // verify the required parameter 'approvalRequest' is set
+            if (approvalRequest == null)
+                throw new ApiException(400, "Missing required parameter 'approvalRequest' when calling SfvbApi->InsertSfvbApproval");
+
+            var localVarPath = "/sfvb/approvals";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_oid", storefrontOid)); // query parameter
+            if (approvalRequest != null && approvalRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(approvalRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = approvalRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbApproval", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalRequest">The request</param>
+        /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task InsertSfvbApprovalAsync (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await InsertSfvbApprovalWithHttpInfoAsync(approvalRequest, storefrontOid, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalRequest">The request</param>
+        /// <param name="storefrontOid">The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> InsertSfvbApprovalWithHttpInfoAsync (SfvbApprovalCreateRequest approvalRequest, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'approvalRequest' is set
+            if (approvalRequest == null)
+                throw new ApiException(400, "Missing required parameter 'approvalRequest' when calling SfvbApi->InsertSfvbApproval");
+
+            var localVarPath = "/sfvb/approvals";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_oid", storefrontOid)); // query parameter
+            if (approvalRequest != null && approvalRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(approvalRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = approvalRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbApproval", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>

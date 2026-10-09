@@ -31,23 +31,77 @@ namespace com.ultracart.admin.v2.Model
     public partial class SfvbApprovalParams :  IEquatable<SfvbApprovalParams>, IValidatableObject
     {
         /// <summary>
+        /// For upsell.enable, what to switch on.
+        /// </summary>
+        /// <value>For upsell.enable, what to switch on.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum UpsellKindEnum
+        {
+            /// <summary>
+            /// Enum Offer for value: offer
+            /// </summary>
+            [EnumMember(Value = "offer")]
+            Offer = 1,
+
+            /// <summary>
+            /// Enum Path for value: path
+            /// </summary>
+            [EnumMember(Value = "path")]
+            Path = 2
+
+        }
+
+        /// <summary>
+        /// For upsell.enable, what to switch on.
+        /// </summary>
+        /// <value>For upsell.enable, what to switch on.</value>
+        [DataMember(Name="upsell_kind", EmitDefaultValue=false)]
+        public UpsellKindEnum? UpsellKind { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="SfvbApprovalParams" /> class.
         /// </summary>
+        /// <param name="attributeNames">For item.attribute_batch, the attributes the batch would change.  Set by the server..</param>
         /// <param name="blogPostOid">The blog post, for blog_post.delete..</param>
         /// <param name="contentSha256">For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash..</param>
-        /// <param name="path">The file path, for file.delete and file.put_script.  Exactly as the gated call will send it..</param>
-        /// <param name="rowsSha256">For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash..</param>
+        /// <param name="experimentOid">For experiment.end, the experiment to end..</param>
+        /// <param name="itemCount">For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server..</param>
+        /// <param name="merchantItemOid">For item.pricing, the item whose pricing changes..</param>
+        /// <param name="path">The file path, for file.delete and file.put_script, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it..</param>
+        /// <param name="requestSha256">For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same..</param>
+        /// <param name="rowsSha256">For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash..</param>
         /// <param name="ruleCount">For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server..</param>
+        /// <param name="slot">For experiment.start of a page experiment, the page body name.  Defaults to body..</param>
+        /// <param name="upsellKind">For upsell.enable, what to switch on..</param>
+        /// <param name="upsellOid">For upsell.enable, the oid of the offer or path to switch on..</param>
         /// <param name="version">For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write..</param>
-        public SfvbApprovalParams(int blogPostOid = default(int), string contentSha256 = default(string), string path = default(string), string rowsSha256 = default(string), int ruleCount = default(int), int version = default(int))
+        /// <param name="widgetId">For experiment.start of a page experiment, the id of the experiment element..</param>
+        /// <param name="winnerVariationNumber">For experiment.end, the winning variation.  Leave it out to end without a winner, and leave it out of the end call too..</param>
+        public SfvbApprovalParams(List<string> attributeNames = default(List<string>), int blogPostOid = default(int), string contentSha256 = default(string), int experimentOid = default(int), int itemCount = default(int), int merchantItemOid = default(int), string path = default(string), string requestSha256 = default(string), string rowsSha256 = default(string), int ruleCount = default(int), string slot = default(string), UpsellKindEnum? upsellKind = default(UpsellKindEnum?), int upsellOid = default(int), int version = default(int), string widgetId = default(string), int winnerVariationNumber = default(int))
         {
+            this.AttributeNames = attributeNames;
             this.BlogPostOid = blogPostOid;
             this.ContentSha256 = contentSha256;
+            this.ExperimentOid = experimentOid;
+            this.ItemCount = itemCount;
+            this.MerchantItemOid = merchantItemOid;
             this.Path = path;
+            this.RequestSha256 = requestSha256;
             this.RowsSha256 = rowsSha256;
             this.RuleCount = ruleCount;
+            this.Slot = slot;
+            this.UpsellKind = upsellKind;
+            this.UpsellOid = upsellOid;
             this._Version = version;
+            this.WidgetId = widgetId;
+            this.WinnerVariationNumber = winnerVariationNumber;
         }
+
+        /// <summary>
+        /// For item.attribute_batch, the attributes the batch would change.  Set by the server.
+        /// </summary>
+        /// <value>For item.attribute_batch, the attributes the batch would change.  Set by the server.</value>
+        [DataMember(Name="attribute_names", EmitDefaultValue=false)]
+        public List<string> AttributeNames { get; set; }
 
         /// <summary>
         /// The blog post, for blog_post.delete.
@@ -64,16 +118,44 @@ namespace com.ultracart.admin.v2.Model
         public string ContentSha256 { get; set; }
 
         /// <summary>
-        /// The file path, for file.delete and file.put_script.  Exactly as the gated call will send it.
+        /// For experiment.end, the experiment to end.
         /// </summary>
-        /// <value>The file path, for file.delete and file.put_script.  Exactly as the gated call will send it.</value>
+        /// <value>For experiment.end, the experiment to end.</value>
+        [DataMember(Name="experiment_oid", EmitDefaultValue=false)]
+        public int ExperimentOid { get; set; }
+
+        /// <summary>
+        /// For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.
+        /// </summary>
+        /// <value>For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.</value>
+        [DataMember(Name="item_count", EmitDefaultValue=false)]
+        public int ItemCount { get; set; }
+
+        /// <summary>
+        /// For item.pricing, the item whose pricing changes.
+        /// </summary>
+        /// <value>For item.pricing, the item whose pricing changes.</value>
+        [DataMember(Name="merchant_item_oid", EmitDefaultValue=false)]
+        public int MerchantItemOid { get; set; }
+
+        /// <summary>
+        /// The file path, for file.delete and file.put_script, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.
+        /// </summary>
+        /// <value>The file path, for file.delete and file.put_script, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.</value>
         [DataMember(Name="path", EmitDefaultValue=false)]
         public string Path { get; set; }
 
         /// <summary>
-        /// For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash.
+        /// For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.
         /// </summary>
-        /// <value>For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash.</value>
+        /// <value>For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.</value>
+        [DataMember(Name="request_sha256", EmitDefaultValue=false)]
+        public string RequestSha256 { get; set; }
+
+        /// <summary>
+        /// For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.
+        /// </summary>
+        /// <value>For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.</value>
         [DataMember(Name="rows_sha256", EmitDefaultValue=false)]
         public string RowsSha256 { get; set; }
 
@@ -85,11 +167,40 @@ namespace com.ultracart.admin.v2.Model
         public int RuleCount { get; set; }
 
         /// <summary>
+        /// For experiment.start of a page experiment, the page body name.  Defaults to body.
+        /// </summary>
+        /// <value>For experiment.start of a page experiment, the page body name.  Defaults to body.</value>
+        [DataMember(Name="slot", EmitDefaultValue=false)]
+        public string Slot { get; set; }
+
+
+        /// <summary>
+        /// For upsell.enable, the oid of the offer or path to switch on.
+        /// </summary>
+        /// <value>For upsell.enable, the oid of the offer or path to switch on.</value>
+        [DataMember(Name="upsell_oid", EmitDefaultValue=false)]
+        public int UpsellOid { get; set; }
+
+        /// <summary>
         /// For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.
         /// </summary>
         /// <value>For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.</value>
         [DataMember(Name="version", EmitDefaultValue=false)]
         public int _Version { get; set; }
+
+        /// <summary>
+        /// For experiment.start of a page experiment, the id of the experiment element.
+        /// </summary>
+        /// <value>For experiment.start of a page experiment, the id of the experiment element.</value>
+        [DataMember(Name="widget_id", EmitDefaultValue=false)]
+        public string WidgetId { get; set; }
+
+        /// <summary>
+        /// For experiment.end, the winning variation.  Leave it out to end without a winner, and leave it out of the end call too.
+        /// </summary>
+        /// <value>For experiment.end, the winning variation.  Leave it out to end without a winner, and leave it out of the end call too.</value>
+        [DataMember(Name="winner_variation_number", EmitDefaultValue=false)]
+        public int WinnerVariationNumber { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -99,12 +210,22 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbApprovalParams {\n");
+            sb.Append("  AttributeNames: ").Append(AttributeNames).Append("\n");
             sb.Append("  BlogPostOid: ").Append(BlogPostOid).Append("\n");
             sb.Append("  ContentSha256: ").Append(ContentSha256).Append("\n");
+            sb.Append("  ExperimentOid: ").Append(ExperimentOid).Append("\n");
+            sb.Append("  ItemCount: ").Append(ItemCount).Append("\n");
+            sb.Append("  MerchantItemOid: ").Append(MerchantItemOid).Append("\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("  RequestSha256: ").Append(RequestSha256).Append("\n");
             sb.Append("  RowsSha256: ").Append(RowsSha256).Append("\n");
             sb.Append("  RuleCount: ").Append(RuleCount).Append("\n");
+            sb.Append("  Slot: ").Append(Slot).Append("\n");
+            sb.Append("  UpsellKind: ").Append(UpsellKind).Append("\n");
+            sb.Append("  UpsellOid: ").Append(UpsellOid).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  WidgetId: ").Append(WidgetId).Append("\n");
+            sb.Append("  WinnerVariationNumber: ").Append(WinnerVariationNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +261,12 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AttributeNames == input.AttributeNames ||
+                    this.AttributeNames != null &&
+                    input.AttributeNames != null &&
+                    this.AttributeNames.SequenceEqual(input.AttributeNames)
+                ) && 
+                (
                     this.BlogPostOid == input.BlogPostOid ||
                     (this.BlogPostOid != null &&
                     this.BlogPostOid.Equals(input.BlogPostOid))
@@ -150,9 +277,29 @@ namespace com.ultracart.admin.v2.Model
                     this.ContentSha256.Equals(input.ContentSha256))
                 ) && 
                 (
+                    this.ExperimentOid == input.ExperimentOid ||
+                    (this.ExperimentOid != null &&
+                    this.ExperimentOid.Equals(input.ExperimentOid))
+                ) && 
+                (
+                    this.ItemCount == input.ItemCount ||
+                    (this.ItemCount != null &&
+                    this.ItemCount.Equals(input.ItemCount))
+                ) && 
+                (
+                    this.MerchantItemOid == input.MerchantItemOid ||
+                    (this.MerchantItemOid != null &&
+                    this.MerchantItemOid.Equals(input.MerchantItemOid))
+                ) && 
+                (
                     this.Path == input.Path ||
                     (this.Path != null &&
                     this.Path.Equals(input.Path))
+                ) && 
+                (
+                    this.RequestSha256 == input.RequestSha256 ||
+                    (this.RequestSha256 != null &&
+                    this.RequestSha256.Equals(input.RequestSha256))
                 ) && 
                 (
                     this.RowsSha256 == input.RowsSha256 ||
@@ -165,9 +312,34 @@ namespace com.ultracart.admin.v2.Model
                     this.RuleCount.Equals(input.RuleCount))
                 ) && 
                 (
+                    this.Slot == input.Slot ||
+                    (this.Slot != null &&
+                    this.Slot.Equals(input.Slot))
+                ) && 
+                (
+                    this.UpsellKind == input.UpsellKind ||
+                    (this.UpsellKind != null &&
+                    this.UpsellKind.Equals(input.UpsellKind))
+                ) && 
+                (
+                    this.UpsellOid == input.UpsellOid ||
+                    (this.UpsellOid != null &&
+                    this.UpsellOid.Equals(input.UpsellOid))
+                ) && 
+                (
                     this._Version == input._Version ||
                     (this._Version != null &&
                     this._Version.Equals(input._Version))
+                ) && 
+                (
+                    this.WidgetId == input.WidgetId ||
+                    (this.WidgetId != null &&
+                    this.WidgetId.Equals(input.WidgetId))
+                ) && 
+                (
+                    this.WinnerVariationNumber == input.WinnerVariationNumber ||
+                    (this.WinnerVariationNumber != null &&
+                    this.WinnerVariationNumber.Equals(input.WinnerVariationNumber))
                 );
         }
 
@@ -180,18 +352,38 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AttributeNames != null)
+                    hashCode = hashCode * 59 + this.AttributeNames.GetHashCode();
                 if (this.BlogPostOid != null)
                     hashCode = hashCode * 59 + this.BlogPostOid.GetHashCode();
                 if (this.ContentSha256 != null)
                     hashCode = hashCode * 59 + this.ContentSha256.GetHashCode();
+                if (this.ExperimentOid != null)
+                    hashCode = hashCode * 59 + this.ExperimentOid.GetHashCode();
+                if (this.ItemCount != null)
+                    hashCode = hashCode * 59 + this.ItemCount.GetHashCode();
+                if (this.MerchantItemOid != null)
+                    hashCode = hashCode * 59 + this.MerchantItemOid.GetHashCode();
                 if (this.Path != null)
                     hashCode = hashCode * 59 + this.Path.GetHashCode();
+                if (this.RequestSha256 != null)
+                    hashCode = hashCode * 59 + this.RequestSha256.GetHashCode();
                 if (this.RowsSha256 != null)
                     hashCode = hashCode * 59 + this.RowsSha256.GetHashCode();
                 if (this.RuleCount != null)
                     hashCode = hashCode * 59 + this.RuleCount.GetHashCode();
+                if (this.Slot != null)
+                    hashCode = hashCode * 59 + this.Slot.GetHashCode();
+                if (this.UpsellKind != null)
+                    hashCode = hashCode * 59 + this.UpsellKind.GetHashCode();
+                if (this.UpsellOid != null)
+                    hashCode = hashCode * 59 + this.UpsellOid.GetHashCode();
                 if (this._Version != null)
                     hashCode = hashCode * 59 + this._Version.GetHashCode();
+                if (this.WidgetId != null)
+                    hashCode = hashCode * 59 + this.WidgetId.GetHashCode();
+                if (this.WinnerVariationNumber != null)
+                    hashCode = hashCode * 59 + this.WinnerVariationNumber.GetHashCode();
                 return hashCode;
             }
         }

@@ -59,7 +59,37 @@ namespace com.ultracart.admin.v2.Model
             /// Enum RedirectDeletebatch for value: redirect.delete_batch
             /// </summary>
             [EnumMember(Value = "redirect.delete_batch")]
-            RedirectDeletebatch = 4
+            RedirectDeletebatch = 4,
+
+            /// <summary>
+            /// Enum ExperimentStart for value: experiment.start
+            /// </summary>
+            [EnumMember(Value = "experiment.start")]
+            ExperimentStart = 5,
+
+            /// <summary>
+            /// Enum ExperimentEnd for value: experiment.end
+            /// </summary>
+            [EnumMember(Value = "experiment.end")]
+            ExperimentEnd = 6,
+
+            /// <summary>
+            /// Enum UpsellEnable for value: upsell.enable
+            /// </summary>
+            [EnumMember(Value = "upsell.enable")]
+            UpsellEnable = 7,
+
+            /// <summary>
+            /// Enum ItemAttributebatch for value: item.attribute_batch
+            /// </summary>
+            [EnumMember(Value = "item.attribute_batch")]
+            ItemAttributebatch = 8,
+
+            /// <summary>
+            /// Enum ItemPricing for value: item.pricing
+            /// </summary>
+            [EnumMember(Value = "item.pricing")]
+            ItemPricing = 9
 
         }
 
@@ -74,13 +104,19 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="action">The gated action to approve..</param>
         /// <param name="content">For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version..</param>
+        /// <param name="experimentStart">experimentStart.</param>
+        /// <param name="itemAttributeRows">For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash..</param>
+        /// <param name="itemPricing">itemPricing.</param>
         /// <param name="_params">_params.</param>
         /// <param name="reason">Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters..</param>
         /// <param name="redirectRows">For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash..</param>
-        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), string content = default(string), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>))
+        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>))
         {
             this.Action = action;
             this.Content = content;
+            this.ExperimentStart = experimentStart;
+            this.ItemAttributeRows = itemAttributeRows;
+            this.ItemPricing = itemPricing;
             this.Params = _params;
             this.Reason = reason;
             this.RedirectRows = redirectRows;
@@ -93,6 +129,25 @@ namespace com.ultracart.admin.v2.Model
         /// <value>For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.</value>
         [DataMember(Name="content", EmitDefaultValue=false)]
         public string Content { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExperimentStart
+        /// </summary>
+        [DataMember(Name="experiment_start", EmitDefaultValue=false)]
+        public SfvbExperimentStartRequest ExperimentStart { get; set; }
+
+        /// <summary>
+        /// For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.
+        /// </summary>
+        /// <value>For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.</value>
+        [DataMember(Name="item_attribute_rows", EmitDefaultValue=false)]
+        public List<SfvbItemAttributeBatchRow> ItemAttributeRows { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItemPricing
+        /// </summary>
+        [DataMember(Name="item_pricing", EmitDefaultValue=false)]
+        public SfvbItemPricingRequest ItemPricing { get; set; }
 
         /// <summary>
         /// Gets or Sets Params
@@ -124,6 +179,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class SfvbApprovalCreateRequest {\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
+            sb.Append("  ExperimentStart: ").Append(ExperimentStart).Append("\n");
+            sb.Append("  ItemAttributeRows: ").Append(ItemAttributeRows).Append("\n");
+            sb.Append("  ItemPricing: ").Append(ItemPricing).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  RedirectRows: ").Append(RedirectRows).Append("\n");
@@ -172,6 +230,22 @@ namespace com.ultracart.admin.v2.Model
                     this.Content.Equals(input.Content))
                 ) && 
                 (
+                    this.ExperimentStart == input.ExperimentStart ||
+                    (this.ExperimentStart != null &&
+                    this.ExperimentStart.Equals(input.ExperimentStart))
+                ) && 
+                (
+                    this.ItemAttributeRows == input.ItemAttributeRows ||
+                    this.ItemAttributeRows != null &&
+                    input.ItemAttributeRows != null &&
+                    this.ItemAttributeRows.SequenceEqual(input.ItemAttributeRows)
+                ) && 
+                (
+                    this.ItemPricing == input.ItemPricing ||
+                    (this.ItemPricing != null &&
+                    this.ItemPricing.Equals(input.ItemPricing))
+                ) && 
+                (
                     this.Params == input.Params ||
                     (this.Params != null &&
                     this.Params.Equals(input.Params))
@@ -202,6 +276,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Action.GetHashCode();
                 if (this.Content != null)
                     hashCode = hashCode * 59 + this.Content.GetHashCode();
+                if (this.ExperimentStart != null)
+                    hashCode = hashCode * 59 + this.ExperimentStart.GetHashCode();
+                if (this.ItemAttributeRows != null)
+                    hashCode = hashCode * 59 + this.ItemAttributeRows.GetHashCode();
+                if (this.ItemPricing != null)
+                    hashCode = hashCode * 59 + this.ItemPricing.GetHashCode();
                 if (this.Params != null)
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
                 if (this.Reason != null)

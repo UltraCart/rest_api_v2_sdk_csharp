@@ -109,7 +109,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="comment">Comment recorded with the write that replaced this version..</param>
         /// <param name="containerHistoryOid">History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to..</param>
         /// <param name="containerName">Container name, where the owner has more than one container..</param>
-        /// <param name="createdDts">When this snapshot was taken..</param>
+        /// <param name="createdDts">When this snapshot was taken, ISO 8601 UTC..</param>
         /// <param name="current">True for the value currently stored..</param>
         /// <param name="editedBy">Login of whoever caused this snapshot..</param>
         /// <param name="hashSha256">SHA-256 of this version&#39;s CJSON..</param>
@@ -162,9 +162,9 @@ namespace com.ultracart.admin.v2.Model
         public string ContainerName { get; set; }
 
         /// <summary>
-        /// When this snapshot was taken.
+        /// When this snapshot was taken, ISO 8601 UTC.
         /// </summary>
-        /// <value>When this snapshot was taken.</value>
+        /// <value>When this snapshot was taken, ISO 8601 UTC.</value>
         [DataMember(Name="created_dts", EmitDefaultValue=false)]
         public string CreatedDts { get; set; }
 

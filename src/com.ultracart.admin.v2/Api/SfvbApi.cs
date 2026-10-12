@@ -903,7 +903,7 @@ namespace com.ultracart.admin.v2.Api
         /// End an experiment
         /// </summary>
         /// <remarks>
-        /// Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals). 
+        /// Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner.  An end with a winner always needs a fresh authenticator code; an end without a winner can be covered by the person's approval session (see POST /sfvb/approvals). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -917,7 +917,7 @@ namespace com.ultracart.admin.v2.Api
         /// End an experiment
         /// </summary>
         /// <remarks>
-        /// Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals). 
+        /// Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner.  An end with a winner always needs a fresh authenticator code; an end without a winner can be covered by the person's approval session (see POST /sfvb/approvals). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -1110,6 +1110,52 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="elementType"></param>
         /// <returns>ApiResponse of SfvbElementSchemaResponse</returns>
         ApiResponse<SfvbElementSchemaResponse> GetSfvbElementWithHttpInfo (string elementType);
+        /// <summary>
+        /// Replay events
+        /// </summary>
+        /// <remarks>
+        /// The signed-in person's events after the cursor, oldest first.  Events are kept 72 hours; an older cursor returns resync_required, and then the caller re-lists what it was waiting on.  Events about one sign-in's requests, such as approvals, are only returned to that sign-in.  limit is 1 to 500, default 100. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="after">Return events after this event_id.  Leave it out for every event kept. (optional)</param>
+        /// <param name="storefrontOid">Only events about this storefront, plus merchant-level ones. (optional)</param>
+        /// <param name="limit">At most this many events, 1 to 500. (optional)</param>
+        /// <returns>SfvbEventsResponse</returns>
+        SfvbEventsResponse GetSfvbEvents (string after = default(string), int? storefrontOid = default(int?), int? limit = default(int?));
+
+        /// <summary>
+        /// Replay events
+        /// </summary>
+        /// <remarks>
+        /// The signed-in person's events after the cursor, oldest first.  Events are kept 72 hours; an older cursor returns resync_required, and then the caller re-lists what it was waiting on.  Events about one sign-in's requests, such as approvals, are only returned to that sign-in.  limit is 1 to 500, default 100. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="after">Return events after this event_id.  Leave it out for every event kept. (optional)</param>
+        /// <param name="storefrontOid">Only events about this storefront, plus merchant-level ones. (optional)</param>
+        /// <param name="limit">At most this many events, 1 to 500. (optional)</param>
+        /// <returns>ApiResponse of SfvbEventsResponse</returns>
+        ApiResponse<SfvbEventsResponse> GetSfvbEventsWithHttpInfo (string after = default(string), int? storefrontOid = default(int?), int? limit = default(int?));
+        /// <summary>
+        /// Open the event stream
+        /// </summary>
+        /// <remarks>
+        /// Returns a websocket URL and a single-use token, valid for 5 minutes, for the signed-in person's event stream.  Events are thin hints, type and ids only, and the stream is at most once.  Re-read the object before acting, and after every reconnect replay from the last event_id with GET events.  Send ping messages to keep the connection open, and reconnect with a new token before two hours.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="eventsAuthRequest">Optional storefront filter (optional)</param>
+        /// <returns>SfvbEventsAuthResponse</returns>
+        SfvbEventsAuthResponse GetSfvbEventsAuthorization (SfvbEventsAuthRequest eventsAuthRequest = default(SfvbEventsAuthRequest));
+
+        /// <summary>
+        /// Open the event stream
+        /// </summary>
+        /// <remarks>
+        /// Returns a websocket URL and a single-use token, valid for 5 minutes, for the signed-in person's event stream.  Events are thin hints, type and ids only, and the stream is at most once.  Re-read the object before acting, and after every reconnect replay from the last event_id with GET events.  Send ping messages to keep the connection open, and reconnect with a new token before two hours.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="eventsAuthRequest">Optional storefront filter (optional)</param>
+        /// <returns>ApiResponse of SfvbEventsAuthResponse</returns>
+        ApiResponse<SfvbEventsAuthResponse> GetSfvbEventsAuthorizationWithHttpInfo (SfvbEventsAuthRequest eventsAuthRequest = default(SfvbEventsAuthRequest));
         /// <summary>
         /// Read one experiment and its statistics
         /// </summary>
@@ -1536,7 +1582,7 @@ namespace com.ultracart.admin.v2.Api
         /// List the paths that answered 404
         /// </summary>
         /// <remarks>
-        /// The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50. 
+        /// The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  A path stays listed after a redirect rule catches it, with redirected_to set.  redirected=false lists only paths no rule catches yet, and redirected=true only those one does.  limit is 1 to 100, default 50. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -1546,14 +1592,15 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="includeTokens"> (optional)</param>
         /// <param name="q"> (optional)</param>
         /// <param name="limit"> (optional)</param>
+        /// <param name="redirected"> (optional)</param>
         /// <returns>SfvbNotFoundResponse</returns>
-        SfvbNotFoundResponse GetSfvbNotFound (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?));
+        SfvbNotFoundResponse GetSfvbNotFound (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?), bool? redirected = default(bool?));
 
         /// <summary>
         /// List the paths that answered 404
         /// </summary>
         /// <remarks>
-        /// The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50. 
+        /// The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  A path stays listed after a redirect rule catches it, with redirected_to set.  redirected=false lists only paths no rule catches yet, and redirected=true only those one does.  limit is 1 to 100, default 50. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -1563,8 +1610,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="includeTokens"> (optional)</param>
         /// <param name="q"> (optional)</param>
         /// <param name="limit"> (optional)</param>
+        /// <param name="redirected"> (optional)</param>
         /// <returns>ApiResponse of SfvbNotFoundResponse</returns>
-        ApiResponse<SfvbNotFoundResponse> GetSfvbNotFoundWithHttpInfo (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?));
+        ApiResponse<SfvbNotFoundResponse> GetSfvbNotFoundWithHttpInfo (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?), bool? redirected = default(bool?));
         /// <summary>
         /// Read one 404 path with its recent hits
         /// </summary>
@@ -2886,7 +2934,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change one built-in message
         /// </summary>
         /// <remarks>
-        /// Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone.  Empty text removes that language's translation so machine translation fills it again (not allowed for ENG); it is the undo for an imported message, which can't be reset.  Shoppers see it at once.  Always needs sfvb_publish. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -2901,7 +2949,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change one built-in message
         /// </summary>
         /// <remarks>
-        /// Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone.  Empty text removes that language's translation so machine translation fills it again (not allowed for ENG); it is the undo for an imported message, which can't be reset.  Shoppers see it at once.  Always needs sfvb_publish. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -4987,7 +5035,7 @@ namespace com.ultracart.admin.v2.Api
         /// End an experiment
         /// </summary>
         /// <remarks>
-        /// Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals). 
+        /// Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner.  An end with a winner always needs a fresh authenticator code; an end without a winner can be covered by the person's approval session (see POST /sfvb/approvals). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5002,7 +5050,7 @@ namespace com.ultracart.admin.v2.Api
         /// End an experiment
         /// </summary>
         /// <remarks>
-        /// Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals). 
+        /// Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner.  An end with a winner always needs a fresh authenticator code; an end without a winner can be covered by the person's approval session (see POST /sfvb/approvals). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5212,6 +5260,56 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbElementSchemaResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbElementSchemaResponse>> GetSfvbElementWithHttpInfoAsync (string elementType, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Replay events
+        /// </summary>
+        /// <remarks>
+        /// The signed-in person's events after the cursor, oldest first.  Events are kept 72 hours; an older cursor returns resync_required, and then the caller re-lists what it was waiting on.  Events about one sign-in's requests, such as approvals, are only returned to that sign-in.  limit is 1 to 500, default 100. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="after">Return events after this event_id.  Leave it out for every event kept. (optional)</param>
+        /// <param name="storefrontOid">Only events about this storefront, plus merchant-level ones. (optional)</param>
+        /// <param name="limit">At most this many events, 1 to 500. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEventsResponse</returns>
+        System.Threading.Tasks.Task<SfvbEventsResponse> GetSfvbEventsAsync (string after = default(string), int? storefrontOid = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Replay events
+        /// </summary>
+        /// <remarks>
+        /// The signed-in person's events after the cursor, oldest first.  Events are kept 72 hours; an older cursor returns resync_required, and then the caller re-lists what it was waiting on.  Events about one sign-in's requests, such as approvals, are only returned to that sign-in.  limit is 1 to 500, default 100. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="after">Return events after this event_id.  Leave it out for every event kept. (optional)</param>
+        /// <param name="storefrontOid">Only events about this storefront, plus merchant-level ones. (optional)</param>
+        /// <param name="limit">At most this many events, 1 to 500. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEventsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbEventsResponse>> GetSfvbEventsWithHttpInfoAsync (string after = default(string), int? storefrontOid = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Open the event stream
+        /// </summary>
+        /// <remarks>
+        /// Returns a websocket URL and a single-use token, valid for 5 minutes, for the signed-in person's event stream.  Events are thin hints, type and ids only, and the stream is at most once.  Re-read the object before acting, and after every reconnect replay from the last event_id with GET events.  Send ping messages to keep the connection open, and reconnect with a new token before two hours.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="eventsAuthRequest">Optional storefront filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEventsAuthResponse</returns>
+        System.Threading.Tasks.Task<SfvbEventsAuthResponse> GetSfvbEventsAuthorizationAsync (SfvbEventsAuthRequest eventsAuthRequest = default(SfvbEventsAuthRequest), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Open the event stream
+        /// </summary>
+        /// <remarks>
+        /// Returns a websocket URL and a single-use token, valid for 5 minutes, for the signed-in person's event stream.  Events are thin hints, type and ids only, and the stream is at most once.  Re-read the object before acting, and after every reconnect replay from the last event_id with GET events.  Send ping messages to keep the connection open, and reconnect with a new token before two hours.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="eventsAuthRequest">Optional storefront filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEventsAuthResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbEventsAuthResponse>> GetSfvbEventsAuthorizationWithHttpInfoAsync (SfvbEventsAuthRequest eventsAuthRequest = default(SfvbEventsAuthRequest), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read one experiment and its statistics
         /// </summary>
@@ -5674,7 +5772,7 @@ namespace com.ultracart.admin.v2.Api
         /// List the paths that answered 404
         /// </summary>
         /// <remarks>
-        /// The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50. 
+        /// The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  A path stays listed after a redirect rule catches it, with redirected_to set.  redirected=false lists only paths no rule catches yet, and redirected=true only those one does.  limit is 1 to 100, default 50. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5684,15 +5782,16 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="includeTokens"> (optional)</param>
         /// <param name="q"> (optional)</param>
         /// <param name="limit"> (optional)</param>
+        /// <param name="redirected"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbNotFoundResponse</returns>
-        System.Threading.Tasks.Task<SfvbNotFoundResponse> GetSfvbNotFoundAsync (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<SfvbNotFoundResponse> GetSfvbNotFoundAsync (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?), bool? redirected = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List the paths that answered 404
         /// </summary>
         /// <remarks>
-        /// The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50. 
+        /// The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  A path stays listed after a redirect rule catches it, with redirected_to set.  redirected=false lists only paths no rule catches yet, and redirected=true only those one does.  limit is 1 to 100, default 50. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5702,9 +5801,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="includeTokens"> (optional)</param>
         /// <param name="q"> (optional)</param>
         /// <param name="limit"> (optional)</param>
+        /// <param name="redirected"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbNotFoundResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundResponse>> GetSfvbNotFoundWithHttpInfoAsync (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundResponse>> GetSfvbNotFoundWithHttpInfoAsync (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?), bool? redirected = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read one 404 path with its recent hits
         /// </summary>
@@ -7132,7 +7232,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change one built-in message
         /// </summary>
         /// <remarks>
-        /// Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone.  Empty text removes that language's translation so machine translation fills it again (not allowed for ENG); it is the undo for an imported message, which can't be reset.  Shoppers see it at once.  Always needs sfvb_publish. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -7148,7 +7248,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change one built-in message
         /// </summary>
         /// <remarks>
-        /// Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone.  Empty text removes that language's translation so machine translation fills it again (not allowed for ENG); it is the undo for an imported message, which can't be reset.  Shoppers see it at once.  Always needs sfvb_publish. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -14997,7 +15097,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// End an experiment Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals). 
+        /// End an experiment Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner.  An end with a winner always needs a fresh authenticator code; an end without a winner can be covered by the person's approval session (see POST /sfvb/approvals). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -15012,7 +15112,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// End an experiment Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals). 
+        /// End an experiment Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner.  An end with a winner always needs a fresh authenticator code; an end without a winner can be covered by the person's approval session (see POST /sfvb/approvals). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -15094,7 +15194,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// End an experiment Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals). 
+        /// End an experiment Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner.  An end with a winner always needs a fresh authenticator code; an end without a winner can be covered by the person's approval session (see POST /sfvb/approvals). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -15111,7 +15211,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// End an experiment Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals). 
+        /// End an experiment Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner.  An end with a winner always needs a fresh authenticator code; an end without a winner can be covered by the person's approval session (see POST /sfvb/approvals). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -16533,6 +16633,336 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbElementSchemaResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbElementSchemaResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbElementSchemaResponse)));
+        }
+
+        /// <summary>
+        /// Replay events The signed-in person's events after the cursor, oldest first.  Events are kept 72 hours; an older cursor returns resync_required, and then the caller re-lists what it was waiting on.  Events about one sign-in's requests, such as approvals, are only returned to that sign-in.  limit is 1 to 500, default 100. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="after">Return events after this event_id.  Leave it out for every event kept. (optional)</param>
+        /// <param name="storefrontOid">Only events about this storefront, plus merchant-level ones. (optional)</param>
+        /// <param name="limit">At most this many events, 1 to 500. (optional)</param>
+        /// <returns>SfvbEventsResponse</returns>
+        public SfvbEventsResponse GetSfvbEvents (string after = default(string), int? storefrontOid = default(int?), int? limit = default(int?))
+        {
+             ApiResponse<SfvbEventsResponse> localVarResponse = GetSfvbEventsWithHttpInfo(after, storefrontOid, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Replay events The signed-in person's events after the cursor, oldest first.  Events are kept 72 hours; an older cursor returns resync_required, and then the caller re-lists what it was waiting on.  Events about one sign-in's requests, such as approvals, are only returned to that sign-in.  limit is 1 to 500, default 100. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="after">Return events after this event_id.  Leave it out for every event kept. (optional)</param>
+        /// <param name="storefrontOid">Only events about this storefront, plus merchant-level ones. (optional)</param>
+        /// <param name="limit">At most this many events, 1 to 500. (optional)</param>
+        /// <returns>ApiResponse of SfvbEventsResponse</returns>
+        public ApiResponse<SfvbEventsResponse> GetSfvbEventsWithHttpInfo (string after = default(string), int? storefrontOid = default(int?), int? limit = default(int?))
+        {
+
+            var localVarPath = "/sfvb/events";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (after != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "after", after)); // query parameter
+            if (storefrontOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_oid", storefrontOid)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbEvents", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEventsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEventsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEventsResponse)));
+        }
+
+        /// <summary>
+        /// Replay events The signed-in person's events after the cursor, oldest first.  Events are kept 72 hours; an older cursor returns resync_required, and then the caller re-lists what it was waiting on.  Events about one sign-in's requests, such as approvals, are only returned to that sign-in.  limit is 1 to 500, default 100. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="after">Return events after this event_id.  Leave it out for every event kept. (optional)</param>
+        /// <param name="storefrontOid">Only events about this storefront, plus merchant-level ones. (optional)</param>
+        /// <param name="limit">At most this many events, 1 to 500. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEventsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbEventsResponse> GetSfvbEventsAsync (string after = default(string), int? storefrontOid = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbEventsResponse> localVarResponse = await GetSfvbEventsWithHttpInfoAsync(after, storefrontOid, limit, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Replay events The signed-in person's events after the cursor, oldest first.  Events are kept 72 hours; an older cursor returns resync_required, and then the caller re-lists what it was waiting on.  Events about one sign-in's requests, such as approvals, are only returned to that sign-in.  limit is 1 to 500, default 100. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="after">Return events after this event_id.  Leave it out for every event kept. (optional)</param>
+        /// <param name="storefrontOid">Only events about this storefront, plus merchant-level ones. (optional)</param>
+        /// <param name="limit">At most this many events, 1 to 500. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEventsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbEventsResponse>> GetSfvbEventsWithHttpInfoAsync (string after = default(string), int? storefrontOid = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/sfvb/events";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (after != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "after", after)); // query parameter
+            if (storefrontOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_oid", storefrontOid)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbEvents", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEventsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEventsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEventsResponse)));
+        }
+
+        /// <summary>
+        /// Open the event stream Returns a websocket URL and a single-use token, valid for 5 minutes, for the signed-in person's event stream.  Events are thin hints, type and ids only, and the stream is at most once.  Re-read the object before acting, and after every reconnect replay from the last event_id with GET events.  Send ping messages to keep the connection open, and reconnect with a new token before two hours.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="eventsAuthRequest">Optional storefront filter (optional)</param>
+        /// <returns>SfvbEventsAuthResponse</returns>
+        public SfvbEventsAuthResponse GetSfvbEventsAuthorization (SfvbEventsAuthRequest eventsAuthRequest = default(SfvbEventsAuthRequest))
+        {
+             ApiResponse<SfvbEventsAuthResponse> localVarResponse = GetSfvbEventsAuthorizationWithHttpInfo(eventsAuthRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Open the event stream Returns a websocket URL and a single-use token, valid for 5 minutes, for the signed-in person's event stream.  Events are thin hints, type and ids only, and the stream is at most once.  Re-read the object before acting, and after every reconnect replay from the last event_id with GET events.  Send ping messages to keep the connection open, and reconnect with a new token before two hours.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="eventsAuthRequest">Optional storefront filter (optional)</param>
+        /// <returns>ApiResponse of SfvbEventsAuthResponse</returns>
+        public ApiResponse<SfvbEventsAuthResponse> GetSfvbEventsAuthorizationWithHttpInfo (SfvbEventsAuthRequest eventsAuthRequest = default(SfvbEventsAuthRequest))
+        {
+
+            var localVarPath = "/sfvb/events/auth";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (eventsAuthRequest != null && eventsAuthRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(eventsAuthRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = eventsAuthRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbEventsAuthorization", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEventsAuthResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEventsAuthResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEventsAuthResponse)));
+        }
+
+        /// <summary>
+        /// Open the event stream Returns a websocket URL and a single-use token, valid for 5 minutes, for the signed-in person's event stream.  Events are thin hints, type and ids only, and the stream is at most once.  Re-read the object before acting, and after every reconnect replay from the last event_id with GET events.  Send ping messages to keep the connection open, and reconnect with a new token before two hours.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="eventsAuthRequest">Optional storefront filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEventsAuthResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbEventsAuthResponse> GetSfvbEventsAuthorizationAsync (SfvbEventsAuthRequest eventsAuthRequest = default(SfvbEventsAuthRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbEventsAuthResponse> localVarResponse = await GetSfvbEventsAuthorizationWithHttpInfoAsync(eventsAuthRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Open the event stream Returns a websocket URL and a single-use token, valid for 5 minutes, for the signed-in person's event stream.  Events are thin hints, type and ids only, and the stream is at most once.  Re-read the object before acting, and after every reconnect replay from the last event_id with GET events.  Send ping messages to keep the connection open, and reconnect with a new token before two hours.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="eventsAuthRequest">Optional storefront filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEventsAuthResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbEventsAuthResponse>> GetSfvbEventsAuthorizationWithHttpInfoAsync (SfvbEventsAuthRequest eventsAuthRequest = default(SfvbEventsAuthRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/sfvb/events/auth";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (eventsAuthRequest != null && eventsAuthRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(eventsAuthRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = eventsAuthRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbEventsAuthorization", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEventsAuthResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEventsAuthResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEventsAuthResponse)));
         }
 
         /// <summary>
@@ -19536,7 +19966,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// List the paths that answered 404 The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50. 
+        /// List the paths that answered 404 The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  A path stays listed after a redirect rule catches it, with redirected_to set.  redirected=false lists only paths no rule catches yet, and redirected=true only those one does.  limit is 1 to 100, default 50. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -19546,15 +19976,16 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="includeTokens"> (optional)</param>
         /// <param name="q"> (optional)</param>
         /// <param name="limit"> (optional)</param>
+        /// <param name="redirected"> (optional)</param>
         /// <returns>SfvbNotFoundResponse</returns>
-        public SfvbNotFoundResponse GetSfvbNotFound (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?))
+        public SfvbNotFoundResponse GetSfvbNotFound (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?), bool? redirected = default(bool?))
         {
-             ApiResponse<SfvbNotFoundResponse> localVarResponse = GetSfvbNotFoundWithHttpInfo(storefrontOid, since, sort, includeBots, includeTokens, q, limit);
+             ApiResponse<SfvbNotFoundResponse> localVarResponse = GetSfvbNotFoundWithHttpInfo(storefrontOid, since, sort, includeBots, includeTokens, q, limit, redirected);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List the paths that answered 404 The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50. 
+        /// List the paths that answered 404 The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  A path stays listed after a redirect rule catches it, with redirected_to set.  redirected=false lists only paths no rule catches yet, and redirected=true only those one does.  limit is 1 to 100, default 50. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -19564,8 +19995,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="includeTokens"> (optional)</param>
         /// <param name="q"> (optional)</param>
         /// <param name="limit"> (optional)</param>
+        /// <param name="redirected"> (optional)</param>
         /// <returns>ApiResponse of SfvbNotFoundResponse</returns>
-        public ApiResponse<SfvbNotFoundResponse> GetSfvbNotFoundWithHttpInfo (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?))
+        public ApiResponse<SfvbNotFoundResponse> GetSfvbNotFoundWithHttpInfo (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?), bool? redirected = default(bool?))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -19599,6 +20031,7 @@ namespace com.ultracart.admin.v2.Api
             if (includeTokens != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "include_tokens", includeTokens)); // query parameter
             if (q != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "q", q)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (redirected != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "redirected", redirected)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -19631,7 +20064,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// List the paths that answered 404 The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50. 
+        /// List the paths that answered 404 The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  A path stays listed after a redirect rule catches it, with redirected_to set.  redirected=false lists only paths no rule catches yet, and redirected=true only those one does.  limit is 1 to 100, default 50. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -19641,17 +20074,18 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="includeTokens"> (optional)</param>
         /// <param name="q"> (optional)</param>
         /// <param name="limit"> (optional)</param>
+        /// <param name="redirected"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbNotFoundResponse</returns>
-        public async System.Threading.Tasks.Task<SfvbNotFoundResponse> GetSfvbNotFoundAsync (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<SfvbNotFoundResponse> GetSfvbNotFoundAsync (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?), bool? redirected = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbNotFoundResponse> localVarResponse = await GetSfvbNotFoundWithHttpInfoAsync(storefrontOid, since, sort, includeBots, includeTokens, q, limit, cancellationToken);
+             ApiResponse<SfvbNotFoundResponse> localVarResponse = await GetSfvbNotFoundWithHttpInfoAsync(storefrontOid, since, sort, includeBots, includeTokens, q, limit, redirected, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List the paths that answered 404 The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50. 
+        /// List the paths that answered 404 The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  A path stays listed after a redirect rule catches it, with redirected_to set.  redirected=false lists only paths no rule catches yet, and redirected=true only those one does.  limit is 1 to 100, default 50. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -19661,9 +20095,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="includeTokens"> (optional)</param>
         /// <param name="q"> (optional)</param>
         /// <param name="limit"> (optional)</param>
+        /// <param name="redirected"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbNotFoundResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundResponse>> GetSfvbNotFoundWithHttpInfoAsync (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundResponse>> GetSfvbNotFoundWithHttpInfoAsync (int storefrontOid, string since = default(string), string sort = default(string), bool? includeBots = default(bool?), bool? includeTokens = default(bool?), string q = default(string), int? limit = default(int?), bool? redirected = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -19697,6 +20132,7 @@ namespace com.ultracart.admin.v2.Api
             if (includeTokens != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "include_tokens", includeTokens)); // query parameter
             if (q != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "q", q)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (redirected != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "redirected", redirected)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -29096,7 +29532,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change one built-in message Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// Change one built-in message Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone.  Empty text removes that language's translation so machine translation fills it again (not allowed for ENG); it is the undo for an imported message, which can't be reset.  Shoppers see it at once.  Always needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -29112,7 +29548,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change one built-in message Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// Change one built-in message Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone.  Empty text removes that language's translation so machine translation fills it again (not allowed for ENG); it is the undo for an imported message, which can't be reset.  Shoppers see it at once.  Always needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -29202,7 +29638,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change one built-in message Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// Change one built-in message Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone.  Empty text removes that language's translation so machine translation fills it again (not allowed for ENG); it is the undo for an imported message, which can't be reset.  Shoppers see it at once.  Always needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -29220,7 +29656,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change one built-in message Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+        /// Change one built-in message Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone.  Empty text removes that language's translation so machine translation fills it again (not allowed for ENG); it is the undo for an imported message, which can't be reset.  Shoppers see it at once.  Always needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>

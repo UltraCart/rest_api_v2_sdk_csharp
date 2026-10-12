@@ -34,7 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbI18nMessageValue" /> class.
         /// </summary>
         /// <param name="language">The language code.  ENG changes the English source, which clears its machine translations..</param>
-        /// <param name="text">The new text.  Empty text is refused; reset the message instead..</param>
+        /// <param name="text">The new text.  Empty text removes this language&#39;s translation, so it goes back to machine translation.  Empty English text is refused..</param>
         public SfvbI18nMessageValue(string language = default(string), string text = default(string))
         {
             this.Language = language;
@@ -49,9 +49,9 @@ namespace com.ultracart.admin.v2.Model
         public string Language { get; set; }
 
         /// <summary>
-        /// The new text.  Empty text is refused; reset the message instead.
+        /// The new text.  Empty text removes this language&#39;s translation, so it goes back to machine translation.  Empty English text is refused.
         /// </summary>
-        /// <value>The new text.  Empty text is refused; reset the message instead.</value>
+        /// <value>The new text.  Empty text removes this language&#39;s translation, so it goes back to machine translation.  Empty English text is refused.</value>
         [DataMember(Name="text", EmitDefaultValue=false)]
         public string Text { get; set; }
 

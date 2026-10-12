@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Comment** | **string** | Comment recorded with the write that replaced this version. | [optional] 
 **ContainerHistoryOid** | **int** | History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to. | [optional] 
 **ContainerName** | **string** | Container name, where the owner has more than one container. | [optional] 
-**CreatedDts** | **string** | When this snapshot was taken. | [optional] 
+**CreatedDts** | **string** | When this snapshot was taken, ISO 8601 UTC. | [optional] 
 **Current** | **bool** | True for the value currently stored. | [optional] 
 **EditedBy** | **string** | Login of whoever caused this snapshot. | [optional] 
 **HashSha256** | **string** | SHA-256 of this version&#39;s CJSON. | [optional] 

@@ -81,13 +81,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="complete">True once the job has stopped, whether it succeeded or failed..</param>
         /// <param name="description">Human readable description of the job..</param>
         /// <param name="errorMessage">What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log..</param>
-        /// <param name="finishedDts">When the job stopped.  Null until it does..</param>
+        /// <param name="finishedDts">When the job stopped, ISO 8601 UTC.  Null until it does..</param>
         /// <param name="jobId">Job handle.  Poll getSfvbThemeJob with this..</param>
         /// <param name="progress">Percent complete, 0-100..</param>
         /// <param name="progressDescription">What the job is doing right now, for example &#39;Duplicating locale text&#39;..</param>
-        /// <param name="startedDts">When the job started running.  Null until it does..</param>
+        /// <param name="startedDts">When the job started running, ISO 8601 UTC.  Null until it does..</param>
         /// <param name="status">Raw job status..</param>
-        /// <param name="submittedDts">When the job was queued..</param>
+        /// <param name="submittedDts">When the job was queued, ISO 8601 UTC..</param>
         /// <param name="success">True only when the job finished successfully.  Check complete first..</param>
         /// <param name="targetPath">Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending..</param>
         public SfvbThemeJobResponse(bool complete = default(bool), string description = default(string), string errorMessage = default(string), string finishedDts = default(string), int jobId = default(int), int progress = default(int), string progressDescription = default(string), string startedDts = default(string), StatusEnum? status = default(StatusEnum?), string submittedDts = default(string), bool success = default(bool), string targetPath = default(string))
@@ -128,9 +128,9 @@ namespace com.ultracart.admin.v2.Model
         public string ErrorMessage { get; set; }
 
         /// <summary>
-        /// When the job stopped.  Null until it does.
+        /// When the job stopped, ISO 8601 UTC.  Null until it does.
         /// </summary>
-        /// <value>When the job stopped.  Null until it does.</value>
+        /// <value>When the job stopped, ISO 8601 UTC.  Null until it does.</value>
         [DataMember(Name="finished_dts", EmitDefaultValue=false)]
         public string FinishedDts { get; set; }
 
@@ -156,17 +156,17 @@ namespace com.ultracart.admin.v2.Model
         public string ProgressDescription { get; set; }
 
         /// <summary>
-        /// When the job started running.  Null until it does.
+        /// When the job started running, ISO 8601 UTC.  Null until it does.
         /// </summary>
-        /// <value>When the job started running.  Null until it does.</value>
+        /// <value>When the job started running, ISO 8601 UTC.  Null until it does.</value>
         [DataMember(Name="started_dts", EmitDefaultValue=false)]
         public string StartedDts { get; set; }
 
 
         /// <summary>
-        /// When the job was queued.
+        /// When the job was queued, ISO 8601 UTC.
         /// </summary>
-        /// <value>When the job was queued.</value>
+        /// <value>When the job was queued, ISO 8601 UTC.</value>
         [DataMember(Name="submitted_dts", EmitDefaultValue=false)]
         public string SubmittedDts { get; set; }
 

@@ -31,6 +31,39 @@ namespace com.ultracart.admin.v2.Model
     public partial class SfvbItemMultimedia :  IEquatable<SfvbItemMultimedia>, IValidatableObject
     {
         /// <summary>
+        /// Where the alt text comes from now.  merchant when description is set, rekognition when only rekognition_description is, none otherwise.
+        /// </summary>
+        /// <value>Where the alt text comes from now.  merchant when description is set, rekognition when only rekognition_description is, none otherwise.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum DescriptionSourceEnum
+        {
+            /// <summary>
+            /// Enum Merchant for value: merchant
+            /// </summary>
+            [EnumMember(Value = "merchant")]
+            Merchant = 1,
+
+            /// <summary>
+            /// Enum Rekognition for value: rekognition
+            /// </summary>
+            [EnumMember(Value = "rekognition")]
+            Rekognition = 2,
+
+            /// <summary>
+            /// Enum None for value: none
+            /// </summary>
+            [EnumMember(Value = "none")]
+            None = 3
+
+        }
+
+        /// <summary>
+        /// Where the alt text comes from now.  merchant when description is set, rekognition when only rekognition_description is, none otherwise.
+        /// </summary>
+        /// <value>Where the alt text comes from now.  merchant when description is set, rekognition when only rekognition_description is, none otherwise.</value>
+        [DataMember(Name="description_source", EmitDefaultValue=false)]
+        public DescriptionSourceEnum? DescriptionSource { get; set; }
+        /// <summary>
         /// The media type the storage recorded.
         /// </summary>
         /// <value>The media type the storage recorded.</value>
@@ -81,21 +114,29 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="code">The image code, which is what an itemimage element&#39;s itemImageCode refers to.  Empty for the default image..</param>
         /// <param name="declared">True when a template declares this code.  A slot that is attached but not declared is an image nothing on the page is asking for..</param>
         /// <param name="_default">True for the image an itemimage element with no code renders.  Default is per media type, so an item may have one default image and one default PDF at the same time..</param>
-        /// <param name="description">Stored with the image and rendered as its alt text.  When it is empty the render falls back to the item&#39;s own description, so an empty value here is not an empty alt attribute..</param>
+        /// <param name="description">The merchant&#39;s description, stored with the image and rendered as its alt text.  When it is empty the render falls back to rekognition_description or to text built from the item&#39;s title, depending on the element, so an empty value here is not an empty alt attribute..</param>
+        /// <param name="descriptionSha256">SHA-256 of description (empty when there is none).  Send it as current_sha256 when changing the description so a change made since you read it is not overwritten..</param>
+        /// <param name="descriptionSource">Where the alt text comes from now.  merchant when description is set, rekognition when only rekognition_description is, none otherwise..</param>
         /// <param name="dimensions">Width x height in pixels, when the storage measured the file..</param>
         /// <param name="excludeFromGallery">True when the storage marks this image as kept out of the item gallery..</param>
         /// <param name="filename">The stored file&#39;s name.  Empty when the slot is declared and nothing is attached..</param>
+        /// <param name="merchantItemMultimediaOid">The stored image&#39;s id.  Name it to change this image&#39;s description when it has no code..</param>
+        /// <param name="rekognitionDescription">The machine description image recognition produced for the stored image, if any.  It is used only while description is empty, and a description written here or in the admin always takes its place..</param>
         /// <param name="type">The media type the storage recorded..</param>
         /// <param name="viewUrl">Where the stored image is served.  Absent when nothing is attached to the slot..</param>
-        public SfvbItemMultimedia(string code = default(string), bool declared = default(bool), bool _default = default(bool), string description = default(string), string dimensions = default(string), bool excludeFromGallery = default(bool), string filename = default(string), TypeEnum? type = default(TypeEnum?), string viewUrl = default(string))
+        public SfvbItemMultimedia(string code = default(string), bool declared = default(bool), bool _default = default(bool), string description = default(string), string descriptionSha256 = default(string), DescriptionSourceEnum? descriptionSource = default(DescriptionSourceEnum?), string dimensions = default(string), bool excludeFromGallery = default(bool), string filename = default(string), int merchantItemMultimediaOid = default(int), string rekognitionDescription = default(string), TypeEnum? type = default(TypeEnum?), string viewUrl = default(string))
         {
             this.Code = code;
             this.Declared = declared;
             this.Default = _default;
             this.Description = description;
+            this.DescriptionSha256 = descriptionSha256;
+            this.DescriptionSource = descriptionSource;
             this.Dimensions = dimensions;
             this.ExcludeFromGallery = excludeFromGallery;
             this.Filename = filename;
+            this.MerchantItemMultimediaOid = merchantItemMultimediaOid;
+            this.RekognitionDescription = rekognitionDescription;
             this.Type = type;
             this.ViewUrl = viewUrl;
         }
@@ -122,11 +163,19 @@ namespace com.ultracart.admin.v2.Model
         public bool Default { get; set; }
 
         /// <summary>
-        /// Stored with the image and rendered as its alt text.  When it is empty the render falls back to the item&#39;s own description, so an empty value here is not an empty alt attribute.
+        /// The merchant&#39;s description, stored with the image and rendered as its alt text.  When it is empty the render falls back to rekognition_description or to text built from the item&#39;s title, depending on the element, so an empty value here is not an empty alt attribute.
         /// </summary>
-        /// <value>Stored with the image and rendered as its alt text.  When it is empty the render falls back to the item&#39;s own description, so an empty value here is not an empty alt attribute.</value>
+        /// <value>The merchant&#39;s description, stored with the image and rendered as its alt text.  When it is empty the render falls back to rekognition_description or to text built from the item&#39;s title, depending on the element, so an empty value here is not an empty alt attribute.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// SHA-256 of description (empty when there is none).  Send it as current_sha256 when changing the description so a change made since you read it is not overwritten.
+        /// </summary>
+        /// <value>SHA-256 of description (empty when there is none).  Send it as current_sha256 when changing the description so a change made since you read it is not overwritten.</value>
+        [DataMember(Name="description_sha256", EmitDefaultValue=false)]
+        public string DescriptionSha256 { get; set; }
+
 
         /// <summary>
         /// Width x height in pixels, when the storage measured the file.
@@ -149,6 +198,20 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="filename", EmitDefaultValue=false)]
         public string Filename { get; set; }
 
+        /// <summary>
+        /// The stored image&#39;s id.  Name it to change this image&#39;s description when it has no code.
+        /// </summary>
+        /// <value>The stored image&#39;s id.  Name it to change this image&#39;s description when it has no code.</value>
+        [DataMember(Name="merchant_item_multimedia_oid", EmitDefaultValue=false)]
+        public int MerchantItemMultimediaOid { get; set; }
+
+        /// <summary>
+        /// The machine description image recognition produced for the stored image, if any.  It is used only while description is empty, and a description written here or in the admin always takes its place.
+        /// </summary>
+        /// <value>The machine description image recognition produced for the stored image, if any.  It is used only while description is empty, and a description written here or in the admin always takes its place.</value>
+        [DataMember(Name="rekognition_description", EmitDefaultValue=false)]
+        public string RekognitionDescription { get; set; }
+
 
         /// <summary>
         /// Where the stored image is served.  Absent when nothing is attached to the slot.
@@ -169,9 +232,13 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Declared: ").Append(Declared).Append("\n");
             sb.Append("  Default: ").Append(Default).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  DescriptionSha256: ").Append(DescriptionSha256).Append("\n");
+            sb.Append("  DescriptionSource: ").Append(DescriptionSource).Append("\n");
             sb.Append("  Dimensions: ").Append(Dimensions).Append("\n");
             sb.Append("  ExcludeFromGallery: ").Append(ExcludeFromGallery).Append("\n");
             sb.Append("  Filename: ").Append(Filename).Append("\n");
+            sb.Append("  MerchantItemMultimediaOid: ").Append(MerchantItemMultimediaOid).Append("\n");
+            sb.Append("  RekognitionDescription: ").Append(RekognitionDescription).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ViewUrl: ").Append(ViewUrl).Append("\n");
             sb.Append("}\n");
@@ -229,6 +296,16 @@ namespace com.ultracart.admin.v2.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
+                    this.DescriptionSha256 == input.DescriptionSha256 ||
+                    (this.DescriptionSha256 != null &&
+                    this.DescriptionSha256.Equals(input.DescriptionSha256))
+                ) && 
+                (
+                    this.DescriptionSource == input.DescriptionSource ||
+                    (this.DescriptionSource != null &&
+                    this.DescriptionSource.Equals(input.DescriptionSource))
+                ) && 
+                (
                     this.Dimensions == input.Dimensions ||
                     (this.Dimensions != null &&
                     this.Dimensions.Equals(input.Dimensions))
@@ -242,6 +319,16 @@ namespace com.ultracart.admin.v2.Model
                     this.Filename == input.Filename ||
                     (this.Filename != null &&
                     this.Filename.Equals(input.Filename))
+                ) && 
+                (
+                    this.MerchantItemMultimediaOid == input.MerchantItemMultimediaOid ||
+                    (this.MerchantItemMultimediaOid != null &&
+                    this.MerchantItemMultimediaOid.Equals(input.MerchantItemMultimediaOid))
+                ) && 
+                (
+                    this.RekognitionDescription == input.RekognitionDescription ||
+                    (this.RekognitionDescription != null &&
+                    this.RekognitionDescription.Equals(input.RekognitionDescription))
                 ) && 
                 (
                     this.Type == input.Type ||
@@ -272,12 +359,20 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Default.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.DescriptionSha256 != null)
+                    hashCode = hashCode * 59 + this.DescriptionSha256.GetHashCode();
+                if (this.DescriptionSource != null)
+                    hashCode = hashCode * 59 + this.DescriptionSource.GetHashCode();
                 if (this.Dimensions != null)
                     hashCode = hashCode * 59 + this.Dimensions.GetHashCode();
                 if (this.ExcludeFromGallery != null)
                     hashCode = hashCode * 59 + this.ExcludeFromGallery.GetHashCode();
                 if (this.Filename != null)
                     hashCode = hashCode * 59 + this.Filename.GetHashCode();
+                if (this.MerchantItemMultimediaOid != null)
+                    hashCode = hashCode * 59 + this.MerchantItemMultimediaOid.GetHashCode();
+                if (this.RekognitionDescription != null)
+                    hashCode = hashCode * 59 + this.RekognitionDescription.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.ViewUrl != null)

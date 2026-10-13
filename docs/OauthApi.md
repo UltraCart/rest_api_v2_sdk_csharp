@@ -278,7 +278,7 @@ namespace SdkSample.oauth
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientId** | **string**| The OAuth application client_id. | 
- **token** | **string**| The OAuth access token that is to be revoked.. | 
+ **token** | **string**| The OAuth access token or refresh token that is to be revoked. | 
 
 ### Return type
 

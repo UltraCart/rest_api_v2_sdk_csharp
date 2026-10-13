@@ -106,7 +106,7 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <param name="token">The OAuth access token or refresh token that is to be revoked.</param>
         /// <returns>OauthRevokeSuccessResponse</returns>
         OauthRevokeSuccessResponse OauthRevoke (string clientId, string token);
 
@@ -118,7 +118,7 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <param name="token">The OAuth access token or refresh token that is to be revoked.</param>
         /// <returns>ApiResponse of OauthRevokeSuccessResponse</returns>
         ApiResponse<OauthRevokeSuccessResponse> OauthRevokeWithHttpInfo (string clientId, string token);
         #endregion Synchronous Operations
@@ -210,7 +210,7 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <param name="token">The OAuth access token or refresh token that is to be revoked.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of OauthRevokeSuccessResponse</returns>
         System.Threading.Tasks.Task<OauthRevokeSuccessResponse> OauthRevokeAsync (string clientId, string token, CancellationToken cancellationToken = default(CancellationToken));
@@ -223,7 +223,7 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <param name="token">The OAuth access token or refresh token that is to be revoked.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OauthRevokeSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OauthRevokeSuccessResponse>> OauthRevokeWithHttpInfoAsync (string clientId, string token, CancellationToken cancellationToken = default(CancellationToken));
@@ -880,7 +880,7 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <param name="token">The OAuth access token or refresh token that is to be revoked.</param>
         /// <returns>OauthRevokeSuccessResponse</returns>
         public OauthRevokeSuccessResponse OauthRevoke (string clientId, string token)
         {
@@ -893,7 +893,7 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <param name="token">The OAuth access token or refresh token that is to be revoked.</param>
         /// <returns>ApiResponse of OauthRevokeSuccessResponse</returns>
         public ApiResponse<OauthRevokeSuccessResponse> OauthRevokeWithHttpInfo (string clientId, string token)
         {
@@ -969,7 +969,7 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <param name="token">The OAuth access token or refresh token that is to be revoked.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of OauthRevokeSuccessResponse</returns>
         public async System.Threading.Tasks.Task<OauthRevokeSuccessResponse> OauthRevokeAsync (string clientId, string token, CancellationToken cancellationToken = default(CancellationToken))
@@ -984,7 +984,7 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <param name="token">The OAuth access token or refresh token that is to be revoked.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OauthRevokeSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<OauthRevokeSuccessResponse>> OauthRevokeWithHttpInfoAsync (string clientId, string token, CancellationToken cancellationToken = default(CancellationToken))

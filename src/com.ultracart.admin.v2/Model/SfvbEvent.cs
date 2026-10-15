@@ -36,9 +36,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventDts">When it happened, ISO 8601..</param>
         /// <param name="eventId">Time-ordered id.  Pass the last one seen as after to replay what came since..</param>
         /// <param name="objectId">The id of what changed, such as the approval_id..</param>
-        /// <param name="objectType">What changed, such as approval..</param>
+        /// <param name="objectType">What changed, such as approval or secret_sink..</param>
         /// <param name="storefrontOid">The storefront it concerns.  Empty for merchant-level objects..</param>
-        /// <param name="type">approval.decided (approved, denied, cancelled or refused by the script review) or approval.ready (the review finished and the person can decide)..</param>
+        /// <param name="type">approval.decided (approved, denied, cancelled or refused by the script review), approval.ready (the review finished and the person can decide) or secret_sink.completed (a person entered the values of a secret request; object_id is the request id)..</param>
         public SfvbEvent(string eventDts = default(string), string eventId = default(string), string objectId = default(string), string objectType = default(string), int storefrontOid = default(int), string type = default(string))
         {
             this.EventDts = eventDts;
@@ -71,9 +71,9 @@ namespace com.ultracart.admin.v2.Model
         public string ObjectId { get; set; }
 
         /// <summary>
-        /// What changed, such as approval.
+        /// What changed, such as approval or secret_sink.
         /// </summary>
-        /// <value>What changed, such as approval.</value>
+        /// <value>What changed, such as approval or secret_sink.</value>
         [DataMember(Name="object_type", EmitDefaultValue=false)]
         public string ObjectType { get; set; }
 
@@ -85,9 +85,9 @@ namespace com.ultracart.admin.v2.Model
         public int StorefrontOid { get; set; }
 
         /// <summary>
-        /// approval.decided (approved, denied, cancelled or refused by the script review) or approval.ready (the review finished and the person can decide).
+        /// approval.decided (approved, denied, cancelled or refused by the script review), approval.ready (the review finished and the person can decide) or secret_sink.completed (a person entered the values of a secret request; object_id is the request id).
         /// </summary>
-        /// <value>approval.decided (approved, denied, cancelled or refused by the script review) or approval.ready (the review finished and the person can decide).</value>
+        /// <value>approval.decided (approved, denied, cancelled or refused by the script review), approval.ready (the review finished and the person can decide) or secret_sink.completed (a person entered the values of a secret request; object_id is the request id).</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -1158,6 +1158,13 @@ docs/SfvbRedirectResponse.md
 docs/SfvbRedirectsResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
+docs/SfvbSecretHandle.md
+docs/SfvbSecretKind.md
+docs/SfvbSecretKindsResponse.md
+docs/SfvbSecretRequest.md
+docs/SfvbSecretRequestCreate.md
+docs/SfvbSecretRequestsResponse.md
+docs/SfvbSecretSink.md
 docs/SfvbServerLog.md
 docs/SfvbServerLogDetail.md
 docs/SfvbServerLogEntry.md
@@ -2472,6 +2479,13 @@ src/com.ultracart.admin.v2/Model/SfvbRedirectResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirectsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbRenderRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbRenderResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbSecretHandle.cs
+src/com.ultracart.admin.v2/Model/SfvbSecretKind.cs
+src/com.ultracart.admin.v2/Model/SfvbSecretKindsResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbSecretRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbSecretRequestCreate.cs
+src/com.ultracart.admin.v2/Model/SfvbSecretRequestsResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbSecretSink.cs
 src/com.ultracart.admin.v2/Model/SfvbServerLog.cs
 src/com.ultracart.admin.v2/Model/SfvbServerLogDetail.cs
 src/com.ultracart.admin.v2/Model/SfvbServerLogEntry.cs

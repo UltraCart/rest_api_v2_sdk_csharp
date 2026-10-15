@@ -63,6 +63,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="attributeNames">For item.attribute_batch, the attributes the batch would change.  Set by the server..</param>
         /// <param name="blogPostOid">The blog post, for blog_post.delete..</param>
         /// <param name="contentSha256">For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash..</param>
+        /// <param name="domain">For sending_domain.delete, the sending domain..</param>
+        /// <param name="espTwilioUuid">For twilio_account.delete, the Twilio account&#39;s esp_twilio_uuid, as GET comms/twilio_account returns it..</param>
         /// <param name="experimentOid">For experiment.end, the experiment to end..</param>
         /// <param name="itemCount">For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server..</param>
         /// <param name="merchantItemOid">For item.pricing, the item whose pricing changes..</param>
@@ -76,11 +78,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="version">For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write..</param>
         /// <param name="widgetId">For experiment.start of a page experiment, the id of the experiment element..</param>
         /// <param name="winnerVariationNumber">For experiment.end, the winning variation.  Leave it out to end without a winner, and leave it out of the end call too..</param>
-        public SfvbApprovalParams(List<string> attributeNames = default(List<string>), int blogPostOid = default(int), string contentSha256 = default(string), int experimentOid = default(int), int itemCount = default(int), int merchantItemOid = default(int), string path = default(string), string requestSha256 = default(string), string rowsSha256 = default(string), int ruleCount = default(int), string slot = default(string), UpsellKindEnum? upsellKind = default(UpsellKindEnum?), int upsellOid = default(int), int version = default(int), string widgetId = default(string), int winnerVariationNumber = default(int))
+        public SfvbApprovalParams(List<string> attributeNames = default(List<string>), int blogPostOid = default(int), string contentSha256 = default(string), string domain = default(string), string espTwilioUuid = default(string), int experimentOid = default(int), int itemCount = default(int), int merchantItemOid = default(int), string path = default(string), string requestSha256 = default(string), string rowsSha256 = default(string), int ruleCount = default(int), string slot = default(string), UpsellKindEnum? upsellKind = default(UpsellKindEnum?), int upsellOid = default(int), int version = default(int), string widgetId = default(string), int winnerVariationNumber = default(int))
         {
             this.AttributeNames = attributeNames;
             this.BlogPostOid = blogPostOid;
             this.ContentSha256 = contentSha256;
+            this.Domain = domain;
+            this.EspTwilioUuid = espTwilioUuid;
             this.ExperimentOid = experimentOid;
             this.ItemCount = itemCount;
             this.MerchantItemOid = merchantItemOid;
@@ -116,6 +120,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.</value>
         [DataMember(Name="content_sha256", EmitDefaultValue=false)]
         public string ContentSha256 { get; set; }
+
+        /// <summary>
+        /// For sending_domain.delete, the sending domain.
+        /// </summary>
+        /// <value>For sending_domain.delete, the sending domain.</value>
+        [DataMember(Name="domain", EmitDefaultValue=false)]
+        public string Domain { get; set; }
+
+        /// <summary>
+        /// For twilio_account.delete, the Twilio account&#39;s esp_twilio_uuid, as GET comms/twilio_account returns it.
+        /// </summary>
+        /// <value>For twilio_account.delete, the Twilio account&#39;s esp_twilio_uuid, as GET comms/twilio_account returns it.</value>
+        [DataMember(Name="esp_twilio_uuid", EmitDefaultValue=false)]
+        public string EspTwilioUuid { get; set; }
 
         /// <summary>
         /// For experiment.end, the experiment to end.
@@ -213,6 +231,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AttributeNames: ").Append(AttributeNames).Append("\n");
             sb.Append("  BlogPostOid: ").Append(BlogPostOid).Append("\n");
             sb.Append("  ContentSha256: ").Append(ContentSha256).Append("\n");
+            sb.Append("  Domain: ").Append(Domain).Append("\n");
+            sb.Append("  EspTwilioUuid: ").Append(EspTwilioUuid).Append("\n");
             sb.Append("  ExperimentOid: ").Append(ExperimentOid).Append("\n");
             sb.Append("  ItemCount: ").Append(ItemCount).Append("\n");
             sb.Append("  MerchantItemOid: ").Append(MerchantItemOid).Append("\n");
@@ -275,6 +295,16 @@ namespace com.ultracart.admin.v2.Model
                     this.ContentSha256 == input.ContentSha256 ||
                     (this.ContentSha256 != null &&
                     this.ContentSha256.Equals(input.ContentSha256))
+                ) && 
+                (
+                    this.Domain == input.Domain ||
+                    (this.Domain != null &&
+                    this.Domain.Equals(input.Domain))
+                ) && 
+                (
+                    this.EspTwilioUuid == input.EspTwilioUuid ||
+                    (this.EspTwilioUuid != null &&
+                    this.EspTwilioUuid.Equals(input.EspTwilioUuid))
                 ) && 
                 (
                     this.ExperimentOid == input.ExperimentOid ||
@@ -358,6 +388,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.BlogPostOid.GetHashCode();
                 if (this.ContentSha256 != null)
                     hashCode = hashCode * 59 + this.ContentSha256.GetHashCode();
+                if (this.Domain != null)
+                    hashCode = hashCode * 59 + this.Domain.GetHashCode();
+                if (this.EspTwilioUuid != null)
+                    hashCode = hashCode * 59 + this.EspTwilioUuid.GetHashCode();
                 if (this.ExperimentOid != null)
                     hashCode = hashCode * 59 + this.ExperimentOid.GetHashCode();
                 if (this.ItemCount != null)

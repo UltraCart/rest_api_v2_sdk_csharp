@@ -306,6 +306,50 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid, string approvalId = default(string));
         /// <summary>
+        /// Remove a sending domain
+        /// </summary>
+        /// <remarks>
+        /// Removes the domain from UltraCart and from Amazon SES.  Needs an approved sending_domain.delete request for it (POST approvals, params.domain). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="approvalId">The approval_id of an approved sending_domain.delete request for this domain.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns></returns>
+        void DeleteSfvbCommsSendingDomain (string domain, string approvalId = default(string));
+
+        /// <summary>
+        /// Remove a sending domain
+        /// </summary>
+        /// <remarks>
+        /// Removes the domain from UltraCart and from Amazon SES.  Needs an approved sending_domain.delete request for it (POST approvals, params.domain). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="approvalId">The approval_id of an approved sending_domain.delete request for this domain.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteSfvbCommsSendingDomainWithHttpInfo (string domain, string approvalId = default(string));
+        /// <summary>
+        /// Remove the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// Removes the account's Twilio account and its credentials from UltraCart.  The account stays at Twilio.  Needs an approved twilio_account.delete request for it (POST approvals, params.esp_twilio_uuid). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved twilio_account.delete request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns></returns>
+        void DeleteSfvbCommsTwilioAccount (string approvalId = default(string));
+
+        /// <summary>
+        /// Remove the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// Removes the account's Twilio account and its credentials from UltraCart.  The account stays at Twilio.  Needs an approved twilio_account.delete request for it (POST approvals, params.esp_twilio_uuid). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved twilio_account.delete request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteSfvbCommsTwilioAccountWithHttpInfo (string approvalId = default(string));
+        /// <summary>
         /// Delete a storefront file
         /// </summary>
         /// <remarks>
@@ -1054,6 +1098,65 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="compileRequest">CJSON to inspect</param>
         /// <returns>ApiResponse of SfvbElementsResponse</returns>
         ApiResponse<SfvbElementsResponse> GetSfvbCjsonUsedElementsWithHttpInfo (SfvbCompileRequest compileRequest);
+        /// <summary>
+        /// Read a sending domain
+        /// </summary>
+        /// <remarks>
+        /// One sending domain as stored.  To check an amazon domain's DNS again, use the status call. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <returns>SfvbCommsSendingDomain</returns>
+        SfvbCommsSendingDomain GetSfvbCommsSendingDomain (string domain);
+
+        /// <summary>
+        /// Read a sending domain
+        /// </summary>
+        /// <remarks>
+        /// One sending domain as stored.  To check an amazon domain's DNS again, use the status call. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <returns>ApiResponse of SfvbCommsSendingDomain</returns>
+        ApiResponse<SfvbCommsSendingDomain> GetSfvbCommsSendingDomainWithHttpInfo (string domain);
+        /// <summary>
+        /// List the sending domains
+        /// </summary>
+        /// <remarks>
+        /// Every domain the account sends email from, with its provider, verification status and the DNS records an amazon domain needs.  mailgun_api_key is always a mask. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SfvbCommsSendingDomainsResponse</returns>
+        SfvbCommsSendingDomainsResponse GetSfvbCommsSendingDomains ();
+
+        /// <summary>
+        /// List the sending domains
+        /// </summary>
+        /// <remarks>
+        /// Every domain the account sends email from, with its provider, verification status and the DNS records an amazon domain needs.  mailgun_api_key is always a mask. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SfvbCommsSendingDomainsResponse</returns>
+        ApiResponse<SfvbCommsSendingDomainsResponse> GetSfvbCommsSendingDomainsWithHttpInfo ();
+        /// <summary>
+        /// Read the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// The account's Twilio account, used for SMS and the phone system, or none.  An account has at most one.  auth_token is always a mask. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SfvbCommsTwilioAccountResponse</returns>
+        SfvbCommsTwilioAccountResponse GetSfvbCommsTwilioAccount ();
+
+        /// <summary>
+        /// Read the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// The account's Twilio account, used for SMS and the phone system, or none.  An account has at most one.  auth_token is always a mask. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SfvbCommsTwilioAccountResponse</returns>
+        ApiResponse<SfvbCommsTwilioAccountResponse> GetSfvbCommsTwilioAccountWithHttpInfo ();
         /// <summary>
         /// Read a container stored outside the file system
         /// </summary>
@@ -2310,6 +2413,48 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
         ApiResponse<SfvbBlogPostDetail> InsertSfvbBlogPostWithHttpInfo (int storefrontOid, SfvbBlogPostRequest blogPostRequest);
         /// <summary>
+        /// Add a sending domain
+        /// </summary>
+        /// <remarks>
+        /// Adds a domain to send email from.  An amazon domain starts verification with Amazon SES and returns the DNS records to publish; the person signed in also gets them by email.  A mailgun domain needs mailgun_api_key as a secret handle made for the domain (POST secrets, sink mailgun.domain.api_key), never the key itself.  UltraCart sets up its webhooks on the Mailgun domain with the key; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sendingDomain">The sending domain</param>
+        /// <returns>SfvbCommsSendingDomain</returns>
+        SfvbCommsSendingDomain InsertSfvbCommsSendingDomain (SfvbCommsSendingDomain sendingDomain);
+
+        /// <summary>
+        /// Add a sending domain
+        /// </summary>
+        /// <remarks>
+        /// Adds a domain to send email from.  An amazon domain starts verification with Amazon SES and returns the DNS records to publish; the person signed in also gets them by email.  A mailgun domain needs mailgun_api_key as a secret handle made for the domain (POST secrets, sink mailgun.domain.api_key), never the key itself.  UltraCart sets up its webhooks on the Mailgun domain with the key; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sendingDomain">The sending domain</param>
+        /// <returns>ApiResponse of SfvbCommsSendingDomain</returns>
+        ApiResponse<SfvbCommsSendingDomain> InsertSfvbCommsSendingDomainWithHttpInfo (SfvbCommsSendingDomain sendingDomain);
+        /// <summary>
+        /// Connect the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// Connects the account's Twilio account with account_sid and auth_token.  Send auth_token as a secret handle made for that account SID (POST secrets, sink twilio.account.auth_token), never the token itself.  UltraCart checks the token with Twilio, then makes its API key, TwiML apps and voice encryption key on the account, as the admin does.  If Twilio refuses, nothing is saved and the handle is given back unused.  An account has at most one Twilio account, so this is refused when one exists; update it instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The Twilio account</param>
+        /// <returns>SfvbCommsTwilioAccountResponse</returns>
+        SfvbCommsTwilioAccountResponse InsertSfvbCommsTwilioAccount (SfvbCommsTwilioAccount twilioAccount);
+
+        /// <summary>
+        /// Connect the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// Connects the account's Twilio account with account_sid and auth_token.  Send auth_token as a secret handle made for that account SID (POST secrets, sink twilio.account.auth_token), never the token itself.  UltraCart checks the token with Twilio, then makes its API key, TwiML apps and voice encryption key on the account, as the admin does.  If Twilio refuses, nothing is saved and the handle is given back unused.  An account has at most one Twilio account, so this is refused when one exists; update it instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The Twilio account</param>
+        /// <returns>ApiResponse of SfvbCommsTwilioAccountResponse</returns>
+        ApiResponse<SfvbCommsTwilioAccountResponse> InsertSfvbCommsTwilioAccountWithHttpInfo (SfvbCommsTwilioAccount twilioAccount);
+        /// <summary>
         /// Create a page
         /// </summary>
         /// <remarks>
@@ -3481,6 +3626,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbThemeAttributesResponse</returns>
         ApiResponse<SfvbThemeAttributesResponse> PutSfvbThemeAttributesWithHttpInfo (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest);
         /// <summary>
+        /// Check a sending domain's verification
+        /// </summary>
+        /// <remarks>
+        /// Asks Amazon SES again whether an amazon domain's DNS records are in place, and restarts a verification that failed (its records then change).  A mailgun domain comes back as it is; Mailgun checks its own records. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <returns>SfvbCommsSendingDomain</returns>
+        SfvbCommsSendingDomain RefreshSfvbCommsSendingDomainStatus (string domain);
+
+        /// <summary>
+        /// Check a sending domain's verification
+        /// </summary>
+        /// <remarks>
+        /// Asks Amazon SES again whether an amazon domain's DNS records are in place, and restarts a verification that failed (its records then change).  A mailgun domain comes back as it is; Mailgun checks its own records. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <returns>ApiResponse of SfvbCommsSendingDomain</returns>
+        ApiResponse<SfvbCommsSendingDomain> RefreshSfvbCommsSendingDomainStatusWithHttpInfo (string domain);
+        /// <summary>
         /// Drop one page's cached copy
         /// </summary>
         /// <remarks>
@@ -4029,6 +4195,50 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
         ApiResponse<SfvbBlogPostDetail> UpdateSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest);
         /// <summary>
+        /// Update a sending domain
+        /// </summary>
+        /// <remarks>
+        /// Only a mailgun domain's mailgun_api_key can change.  Send it as a secret handle made for the domain to replace it, or as the mask it was read with to keep it.  A new key sets up UltraCart's webhooks again with it; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="sendingDomain">The changes</param>
+        /// <returns>SfvbCommsSendingDomain</returns>
+        SfvbCommsSendingDomain UpdateSfvbCommsSendingDomain (string domain, SfvbCommsSendingDomain sendingDomain);
+
+        /// <summary>
+        /// Update a sending domain
+        /// </summary>
+        /// <remarks>
+        /// Only a mailgun domain's mailgun_api_key can change.  Send it as a secret handle made for the domain to replace it, or as the mask it was read with to keep it.  A new key sets up UltraCart's webhooks again with it; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="sendingDomain">The changes</param>
+        /// <returns>ApiResponse of SfvbCommsSendingDomain</returns>
+        ApiResponse<SfvbCommsSendingDomain> UpdateSfvbCommsSendingDomainWithHttpInfo (string domain, SfvbCommsSendingDomain sendingDomain);
+        /// <summary>
+        /// Update the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// Changes the account's Twilio account.  Leave a field out to keep it.  Send auth_token as the mask it was read with to keep it, or as a secret handle made for the account SID to replace it.  A new account_sid needs a new auth_token with it.  A new token is checked with Twilio and UltraCart's API key, TwiML apps and voice encryption key are made again; if Twilio refuses, nothing is saved and the handle is given back unused.  phone_numbers, when sent, replaces the list. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The changes</param>
+        /// <returns>SfvbCommsTwilioAccountResponse</returns>
+        SfvbCommsTwilioAccountResponse UpdateSfvbCommsTwilioAccount (SfvbCommsTwilioAccount twilioAccount);
+
+        /// <summary>
+        /// Update the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// Changes the account's Twilio account.  Leave a field out to keep it.  Send auth_token as the mask it was read with to keep it, or as a secret handle made for the account SID to replace it.  A new account_sid needs a new auth_token with it.  A new token is checked with Twilio and UltraCart's API key, TwiML apps and voice encryption key are made again; if Twilio refuses, nothing is saved and the handle is given back unused.  phone_numbers, when sent, replaces the list. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The changes</param>
+        /// <returns>ApiResponse of SfvbCommsTwilioAccountResponse</returns>
+        ApiResponse<SfvbCommsTwilioAccountResponse> UpdateSfvbCommsTwilioAccountWithHttpInfo (SfvbCommsTwilioAccount twilioAccount);
+        /// <summary>
         /// Change attributes across many items in one call
         /// </summary>
         /// <remarks>
@@ -4538,6 +4748,54 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Remove a sending domain
+        /// </summary>
+        /// <remarks>
+        /// Removes the domain from UltraCart and from Amazon SES.  Needs an approved sending_domain.delete request for it (POST approvals, params.domain). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="approvalId">The approval_id of an approved sending_domain.delete request for this domain.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteSfvbCommsSendingDomainAsync (string domain, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Remove a sending domain
+        /// </summary>
+        /// <remarks>
+        /// Removes the domain from UltraCart and from Amazon SES.  Needs an approved sending_domain.delete request for it (POST approvals, params.domain). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="approvalId">The approval_id of an approved sending_domain.delete request for this domain.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbCommsSendingDomainWithHttpInfoAsync (string domain, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Remove the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// Removes the account's Twilio account and its credentials from UltraCart.  The account stays at Twilio.  Needs an approved twilio_account.delete request for it (POST approvals, params.esp_twilio_uuid). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved twilio_account.delete request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteSfvbCommsTwilioAccountAsync (string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Remove the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// Removes the account's Twilio account and its credentials from UltraCart.  The account stays at Twilio.  Needs an approved twilio_account.delete request for it (POST approvals, params.esp_twilio_uuid). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved twilio_account.delete request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbCommsTwilioAccountWithHttpInfoAsync (string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete a storefront file
         /// </summary>
@@ -5349,6 +5607,71 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbElementsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbElementsResponse>> GetSfvbCjsonUsedElementsWithHttpInfoAsync (SfvbCompileRequest compileRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read a sending domain
+        /// </summary>
+        /// <remarks>
+        /// One sending domain as stored.  To check an amazon domain's DNS again, use the status call. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSendingDomain</returns>
+        System.Threading.Tasks.Task<SfvbCommsSendingDomain> GetSfvbCommsSendingDomainAsync (string domain, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a sending domain
+        /// </summary>
+        /// <remarks>
+        /// One sending domain as stored.  To check an amazon domain's DNS again, use the status call. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSendingDomain)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSendingDomain>> GetSfvbCommsSendingDomainWithHttpInfoAsync (string domain, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the sending domains
+        /// </summary>
+        /// <remarks>
+        /// Every domain the account sends email from, with its provider, verification status and the DNS records an amazon domain needs.  mailgun_api_key is always a mask. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSendingDomainsResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsSendingDomainsResponse> GetSfvbCommsSendingDomainsAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the sending domains
+        /// </summary>
+        /// <remarks>
+        /// Every domain the account sends email from, with its provider, verification status and the DNS records an amazon domain needs.  mailgun_api_key is always a mask. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSendingDomainsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSendingDomainsResponse>> GetSfvbCommsSendingDomainsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// The account's Twilio account, used for SMS and the phone system, or none.  An account has at most one.  auth_token is always a mask. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTwilioAccountResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsTwilioAccountResponse> GetSfvbCommsTwilioAccountAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// The account's Twilio account, used for SMS and the phone system, or none.  An account has at most one.  auth_token is always a mask. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTwilioAccountResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsTwilioAccountResponse>> GetSfvbCommsTwilioAccountWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read a container stored outside the file system
         /// </summary>
@@ -6711,6 +7034,52 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> InsertSfvbBlogPostWithHttpInfoAsync (int storefrontOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Add a sending domain
+        /// </summary>
+        /// <remarks>
+        /// Adds a domain to send email from.  An amazon domain starts verification with Amazon SES and returns the DNS records to publish; the person signed in also gets them by email.  A mailgun domain needs mailgun_api_key as a secret handle made for the domain (POST secrets, sink mailgun.domain.api_key), never the key itself.  UltraCart sets up its webhooks on the Mailgun domain with the key; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sendingDomain">The sending domain</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSendingDomain</returns>
+        System.Threading.Tasks.Task<SfvbCommsSendingDomain> InsertSfvbCommsSendingDomainAsync (SfvbCommsSendingDomain sendingDomain, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Add a sending domain
+        /// </summary>
+        /// <remarks>
+        /// Adds a domain to send email from.  An amazon domain starts verification with Amazon SES and returns the DNS records to publish; the person signed in also gets them by email.  A mailgun domain needs mailgun_api_key as a secret handle made for the domain (POST secrets, sink mailgun.domain.api_key), never the key itself.  UltraCart sets up its webhooks on the Mailgun domain with the key; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sendingDomain">The sending domain</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSendingDomain)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSendingDomain>> InsertSfvbCommsSendingDomainWithHttpInfoAsync (SfvbCommsSendingDomain sendingDomain, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Connect the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// Connects the account's Twilio account with account_sid and auth_token.  Send auth_token as a secret handle made for that account SID (POST secrets, sink twilio.account.auth_token), never the token itself.  UltraCart checks the token with Twilio, then makes its API key, TwiML apps and voice encryption key on the account, as the admin does.  If Twilio refuses, nothing is saved and the handle is given back unused.  An account has at most one Twilio account, so this is refused when one exists; update it instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The Twilio account</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTwilioAccountResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsTwilioAccountResponse> InsertSfvbCommsTwilioAccountAsync (SfvbCommsTwilioAccount twilioAccount, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Connect the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// Connects the account's Twilio account with account_sid and auth_token.  Send auth_token as a secret handle made for that account SID (POST secrets, sink twilio.account.auth_token), never the token itself.  UltraCart checks the token with Twilio, then makes its API key, TwiML apps and voice encryption key on the account, as the admin does.  If Twilio refuses, nothing is saved and the handle is given back unused.  An account has at most one Twilio account, so this is refused when one exists; update it instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The Twilio account</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTwilioAccountResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsTwilioAccountResponse>> InsertSfvbCommsTwilioAccountWithHttpInfoAsync (SfvbCommsTwilioAccount twilioAccount, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Create a page
         /// </summary>
         /// <remarks>
@@ -7972,6 +8341,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbThemeAttributesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbThemeAttributesResponse>> PutSfvbThemeAttributesWithHttpInfoAsync (int storefrontOid, int themeOid, SfvbThemeAttributeUpdateRequest attributeUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Check a sending domain's verification
+        /// </summary>
+        /// <remarks>
+        /// Asks Amazon SES again whether an amazon domain's DNS records are in place, and restarts a verification that failed (its records then change).  A mailgun domain comes back as it is; Mailgun checks its own records. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSendingDomain</returns>
+        System.Threading.Tasks.Task<SfvbCommsSendingDomain> RefreshSfvbCommsSendingDomainStatusAsync (string domain, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Check a sending domain&#39;s verification
+        /// </summary>
+        /// <remarks>
+        /// Asks Amazon SES again whether an amazon domain's DNS records are in place, and restarts a verification that failed (its records then change).  A mailgun domain comes back as it is; Mailgun checks its own records. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSendingDomain)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSendingDomain>> RefreshSfvbCommsSendingDomainStatusWithHttpInfoAsync (string domain, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Drop one page's cached copy
         /// </summary>
         /// <remarks>
@@ -8563,6 +8955,54 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> UpdateSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update a sending domain
+        /// </summary>
+        /// <remarks>
+        /// Only a mailgun domain's mailgun_api_key can change.  Send it as a secret handle made for the domain to replace it, or as the mask it was read with to keep it.  A new key sets up UltraCart's webhooks again with it; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="sendingDomain">The changes</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSendingDomain</returns>
+        System.Threading.Tasks.Task<SfvbCommsSendingDomain> UpdateSfvbCommsSendingDomainAsync (string domain, SfvbCommsSendingDomain sendingDomain, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update a sending domain
+        /// </summary>
+        /// <remarks>
+        /// Only a mailgun domain's mailgun_api_key can change.  Send it as a secret handle made for the domain to replace it, or as the mask it was read with to keep it.  A new key sets up UltraCart's webhooks again with it; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="sendingDomain">The changes</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSendingDomain)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSendingDomain>> UpdateSfvbCommsSendingDomainWithHttpInfoAsync (string domain, SfvbCommsSendingDomain sendingDomain, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// Changes the account's Twilio account.  Leave a field out to keep it.  Send auth_token as the mask it was read with to keep it, or as a secret handle made for the account SID to replace it.  A new account_sid needs a new auth_token with it.  A new token is checked with Twilio and UltraCart's API key, TwiML apps and voice encryption key are made again; if Twilio refuses, nothing is saved and the handle is given back unused.  phone_numbers, when sent, replaces the list. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The changes</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTwilioAccountResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsTwilioAccountResponse> UpdateSfvbCommsTwilioAccountAsync (SfvbCommsTwilioAccount twilioAccount, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update the Twilio account
+        /// </summary>
+        /// <remarks>
+        /// Changes the account's Twilio account.  Leave a field out to keep it.  Send auth_token as the mask it was read with to keep it, or as a secret handle made for the account SID to replace it.  A new account_sid needs a new auth_token with it.  A new token is checked with Twilio and UltraCart's API key, TwiML apps and voice encryption key are made again; if Twilio refuses, nothing is saved and the handle is given back unused.  phone_numbers, when sent, replaces the list. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The changes</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTwilioAccountResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsTwilioAccountResponse>> UpdateSfvbCommsTwilioAccountWithHttpInfoAsync (SfvbCommsTwilioAccount twilioAccount, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Change attributes across many items in one call
         /// </summary>
@@ -11052,6 +11492,316 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DeleteSfvbBlogPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Remove a sending domain Removes the domain from UltraCart and from Amazon SES.  Needs an approved sending_domain.delete request for it (POST approvals, params.domain). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="approvalId">The approval_id of an approved sending_domain.delete request for this domain.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns></returns>
+        public void DeleteSfvbCommsSendingDomain (string domain, string approvalId = default(string))
+        {
+             DeleteSfvbCommsSendingDomainWithHttpInfo(domain, approvalId);
+        }
+
+        /// <summary>
+        /// Remove a sending domain Removes the domain from UltraCart and from Amazon SES.  Needs an approved sending_domain.delete request for it (POST approvals, params.domain). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="approvalId">The approval_id of an approved sending_domain.delete request for this domain.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteSfvbCommsSendingDomainWithHttpInfo (string domain, string approvalId = default(string))
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling SfvbApi->DeleteSfvbCommsSendingDomain");
+
+            var localVarPath = "/sfvb/comms/sending_domains/{domain}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbCommsSendingDomain", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Remove a sending domain Removes the domain from UltraCart and from Amazon SES.  Needs an approved sending_domain.delete request for it (POST approvals, params.domain). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="approvalId">The approval_id of an approved sending_domain.delete request for this domain.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteSfvbCommsSendingDomainAsync (string domain, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteSfvbCommsSendingDomainWithHttpInfoAsync(domain, approvalId, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Remove a sending domain Removes the domain from UltraCart and from Amazon SES.  Needs an approved sending_domain.delete request for it (POST approvals, params.domain). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="approvalId">The approval_id of an approved sending_domain.delete request for this domain.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbCommsSendingDomainWithHttpInfoAsync (string domain, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling SfvbApi->DeleteSfvbCommsSendingDomain");
+
+            var localVarPath = "/sfvb/comms/sending_domains/{domain}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbCommsSendingDomain", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Remove the Twilio account Removes the account's Twilio account and its credentials from UltraCart.  The account stays at Twilio.  Needs an approved twilio_account.delete request for it (POST approvals, params.esp_twilio_uuid). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved twilio_account.delete request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns></returns>
+        public void DeleteSfvbCommsTwilioAccount (string approvalId = default(string))
+        {
+             DeleteSfvbCommsTwilioAccountWithHttpInfo(approvalId);
+        }
+
+        /// <summary>
+        /// Remove the Twilio account Removes the account's Twilio account and its credentials from UltraCart.  The account stays at Twilio.  Needs an approved twilio_account.delete request for it (POST approvals, params.esp_twilio_uuid). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved twilio_account.delete request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteSfvbCommsTwilioAccountWithHttpInfo (string approvalId = default(string))
+        {
+
+            var localVarPath = "/sfvb/comms/twilio_account";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbCommsTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Remove the Twilio account Removes the account's Twilio account and its credentials from UltraCart.  The account stays at Twilio.  Needs an approved twilio_account.delete request for it (POST approvals, params.esp_twilio_uuid). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved twilio_account.delete request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteSfvbCommsTwilioAccountAsync (string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteSfvbCommsTwilioAccountWithHttpInfoAsync(approvalId, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Remove the Twilio account Removes the account's Twilio account and its credentials from UltraCart.  The account stays at Twilio.  Needs an approved twilio_account.delete request for it (POST approvals, params.esp_twilio_uuid). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved twilio_account.delete request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbCommsTwilioAccountWithHttpInfoAsync (string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/sfvb/comms/twilio_account";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbCommsTwilioAccount", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -16571,6 +17321,453 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbElementsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbElementsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbElementsResponse)));
+        }
+
+        /// <summary>
+        /// Read a sending domain One sending domain as stored.  To check an amazon domain's DNS again, use the status call. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <returns>SfvbCommsSendingDomain</returns>
+        public SfvbCommsSendingDomain GetSfvbCommsSendingDomain (string domain)
+        {
+             ApiResponse<SfvbCommsSendingDomain> localVarResponse = GetSfvbCommsSendingDomainWithHttpInfo(domain);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read a sending domain One sending domain as stored.  To check an amazon domain's DNS again, use the status call. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <returns>ApiResponse of SfvbCommsSendingDomain</returns>
+        public ApiResponse<SfvbCommsSendingDomain> GetSfvbCommsSendingDomainWithHttpInfo (string domain)
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling SfvbApi->GetSfvbCommsSendingDomain");
+
+            var localVarPath = "/sfvb/comms/sending_domains/{domain}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsSendingDomain", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSendingDomain>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSendingDomain) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSendingDomain)));
+        }
+
+        /// <summary>
+        /// Read a sending domain One sending domain as stored.  To check an amazon domain's DNS again, use the status call. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSendingDomain</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSendingDomain> GetSfvbCommsSendingDomainAsync (string domain, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSendingDomain> localVarResponse = await GetSfvbCommsSendingDomainWithHttpInfoAsync(domain, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read a sending domain One sending domain as stored.  To check an amazon domain's DNS again, use the status call. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSendingDomain)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSendingDomain>> GetSfvbCommsSendingDomainWithHttpInfoAsync (string domain, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling SfvbApi->GetSfvbCommsSendingDomain");
+
+            var localVarPath = "/sfvb/comms/sending_domains/{domain}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsSendingDomain", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSendingDomain>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSendingDomain) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSendingDomain)));
+        }
+
+        /// <summary>
+        /// List the sending domains Every domain the account sends email from, with its provider, verification status and the DNS records an amazon domain needs.  mailgun_api_key is always a mask. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SfvbCommsSendingDomainsResponse</returns>
+        public SfvbCommsSendingDomainsResponse GetSfvbCommsSendingDomains ()
+        {
+             ApiResponse<SfvbCommsSendingDomainsResponse> localVarResponse = GetSfvbCommsSendingDomainsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the sending domains Every domain the account sends email from, with its provider, verification status and the DNS records an amazon domain needs.  mailgun_api_key is always a mask. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SfvbCommsSendingDomainsResponse</returns>
+        public ApiResponse<SfvbCommsSendingDomainsResponse> GetSfvbCommsSendingDomainsWithHttpInfo ()
+        {
+
+            var localVarPath = "/sfvb/comms/sending_domains";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsSendingDomains", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSendingDomainsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSendingDomainsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSendingDomainsResponse)));
+        }
+
+        /// <summary>
+        /// List the sending domains Every domain the account sends email from, with its provider, verification status and the DNS records an amazon domain needs.  mailgun_api_key is always a mask. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSendingDomainsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSendingDomainsResponse> GetSfvbCommsSendingDomainsAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSendingDomainsResponse> localVarResponse = await GetSfvbCommsSendingDomainsWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the sending domains Every domain the account sends email from, with its provider, verification status and the DNS records an amazon domain needs.  mailgun_api_key is always a mask. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSendingDomainsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSendingDomainsResponse>> GetSfvbCommsSendingDomainsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/sfvb/comms/sending_domains";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsSendingDomains", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSendingDomainsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSendingDomainsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSendingDomainsResponse)));
+        }
+
+        /// <summary>
+        /// Read the Twilio account The account's Twilio account, used for SMS and the phone system, or none.  An account has at most one.  auth_token is always a mask. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SfvbCommsTwilioAccountResponse</returns>
+        public SfvbCommsTwilioAccountResponse GetSfvbCommsTwilioAccount ()
+        {
+             ApiResponse<SfvbCommsTwilioAccountResponse> localVarResponse = GetSfvbCommsTwilioAccountWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read the Twilio account The account's Twilio account, used for SMS and the phone system, or none.  An account has at most one.  auth_token is always a mask. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SfvbCommsTwilioAccountResponse</returns>
+        public ApiResponse<SfvbCommsTwilioAccountResponse> GetSfvbCommsTwilioAccountWithHttpInfo ()
+        {
+
+            var localVarPath = "/sfvb/comms/twilio_account";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTwilioAccountResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTwilioAccountResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTwilioAccountResponse)));
+        }
+
+        /// <summary>
+        /// Read the Twilio account The account's Twilio account, used for SMS and the phone system, or none.  An account has at most one.  auth_token is always a mask. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTwilioAccountResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsTwilioAccountResponse> GetSfvbCommsTwilioAccountAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsTwilioAccountResponse> localVarResponse = await GetSfvbCommsTwilioAccountWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read the Twilio account The account's Twilio account, used for SMS and the phone system, or none.  An account has at most one.  auth_token is always a mask. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTwilioAccountResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsTwilioAccountResponse>> GetSfvbCommsTwilioAccountWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/sfvb/comms/twilio_account";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTwilioAccountResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTwilioAccountResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTwilioAccountResponse)));
         }
 
         /// <summary>
@@ -25523,6 +26720,352 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Add a sending domain Adds a domain to send email from.  An amazon domain starts verification with Amazon SES and returns the DNS records to publish; the person signed in also gets them by email.  A mailgun domain needs mailgun_api_key as a secret handle made for the domain (POST secrets, sink mailgun.domain.api_key), never the key itself.  UltraCart sets up its webhooks on the Mailgun domain with the key; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sendingDomain">The sending domain</param>
+        /// <returns>SfvbCommsSendingDomain</returns>
+        public SfvbCommsSendingDomain InsertSfvbCommsSendingDomain (SfvbCommsSendingDomain sendingDomain)
+        {
+             ApiResponse<SfvbCommsSendingDomain> localVarResponse = InsertSfvbCommsSendingDomainWithHttpInfo(sendingDomain);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add a sending domain Adds a domain to send email from.  An amazon domain starts verification with Amazon SES and returns the DNS records to publish; the person signed in also gets them by email.  A mailgun domain needs mailgun_api_key as a secret handle made for the domain (POST secrets, sink mailgun.domain.api_key), never the key itself.  UltraCart sets up its webhooks on the Mailgun domain with the key; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sendingDomain">The sending domain</param>
+        /// <returns>ApiResponse of SfvbCommsSendingDomain</returns>
+        public ApiResponse<SfvbCommsSendingDomain> InsertSfvbCommsSendingDomainWithHttpInfo (SfvbCommsSendingDomain sendingDomain)
+        {
+            // verify the required parameter 'sendingDomain' is set
+            if (sendingDomain == null)
+                throw new ApiException(400, "Missing required parameter 'sendingDomain' when calling SfvbApi->InsertSfvbCommsSendingDomain");
+
+            var localVarPath = "/sfvb/comms/sending_domains";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (sendingDomain != null && sendingDomain.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sendingDomain); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = sendingDomain; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbCommsSendingDomain", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSendingDomain>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSendingDomain) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSendingDomain)));
+        }
+
+        /// <summary>
+        /// Add a sending domain Adds a domain to send email from.  An amazon domain starts verification with Amazon SES and returns the DNS records to publish; the person signed in also gets them by email.  A mailgun domain needs mailgun_api_key as a secret handle made for the domain (POST secrets, sink mailgun.domain.api_key), never the key itself.  UltraCart sets up its webhooks on the Mailgun domain with the key; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sendingDomain">The sending domain</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSendingDomain</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSendingDomain> InsertSfvbCommsSendingDomainAsync (SfvbCommsSendingDomain sendingDomain, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSendingDomain> localVarResponse = await InsertSfvbCommsSendingDomainWithHttpInfoAsync(sendingDomain, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Add a sending domain Adds a domain to send email from.  An amazon domain starts verification with Amazon SES and returns the DNS records to publish; the person signed in also gets them by email.  A mailgun domain needs mailgun_api_key as a secret handle made for the domain (POST secrets, sink mailgun.domain.api_key), never the key itself.  UltraCart sets up its webhooks on the Mailgun domain with the key; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sendingDomain">The sending domain</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSendingDomain)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSendingDomain>> InsertSfvbCommsSendingDomainWithHttpInfoAsync (SfvbCommsSendingDomain sendingDomain, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'sendingDomain' is set
+            if (sendingDomain == null)
+                throw new ApiException(400, "Missing required parameter 'sendingDomain' when calling SfvbApi->InsertSfvbCommsSendingDomain");
+
+            var localVarPath = "/sfvb/comms/sending_domains";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (sendingDomain != null && sendingDomain.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sendingDomain); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = sendingDomain; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbCommsSendingDomain", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSendingDomain>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSendingDomain) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSendingDomain)));
+        }
+
+        /// <summary>
+        /// Connect the Twilio account Connects the account's Twilio account with account_sid and auth_token.  Send auth_token as a secret handle made for that account SID (POST secrets, sink twilio.account.auth_token), never the token itself.  UltraCart checks the token with Twilio, then makes its API key, TwiML apps and voice encryption key on the account, as the admin does.  If Twilio refuses, nothing is saved and the handle is given back unused.  An account has at most one Twilio account, so this is refused when one exists; update it instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The Twilio account</param>
+        /// <returns>SfvbCommsTwilioAccountResponse</returns>
+        public SfvbCommsTwilioAccountResponse InsertSfvbCommsTwilioAccount (SfvbCommsTwilioAccount twilioAccount)
+        {
+             ApiResponse<SfvbCommsTwilioAccountResponse> localVarResponse = InsertSfvbCommsTwilioAccountWithHttpInfo(twilioAccount);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Connect the Twilio account Connects the account's Twilio account with account_sid and auth_token.  Send auth_token as a secret handle made for that account SID (POST secrets, sink twilio.account.auth_token), never the token itself.  UltraCart checks the token with Twilio, then makes its API key, TwiML apps and voice encryption key on the account, as the admin does.  If Twilio refuses, nothing is saved and the handle is given back unused.  An account has at most one Twilio account, so this is refused when one exists; update it instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The Twilio account</param>
+        /// <returns>ApiResponse of SfvbCommsTwilioAccountResponse</returns>
+        public ApiResponse<SfvbCommsTwilioAccountResponse> InsertSfvbCommsTwilioAccountWithHttpInfo (SfvbCommsTwilioAccount twilioAccount)
+        {
+            // verify the required parameter 'twilioAccount' is set
+            if (twilioAccount == null)
+                throw new ApiException(400, "Missing required parameter 'twilioAccount' when calling SfvbApi->InsertSfvbCommsTwilioAccount");
+
+            var localVarPath = "/sfvb/comms/twilio_account";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (twilioAccount != null && twilioAccount.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(twilioAccount); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = twilioAccount; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbCommsTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTwilioAccountResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTwilioAccountResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTwilioAccountResponse)));
+        }
+
+        /// <summary>
+        /// Connect the Twilio account Connects the account's Twilio account with account_sid and auth_token.  Send auth_token as a secret handle made for that account SID (POST secrets, sink twilio.account.auth_token), never the token itself.  UltraCart checks the token with Twilio, then makes its API key, TwiML apps and voice encryption key on the account, as the admin does.  If Twilio refuses, nothing is saved and the handle is given back unused.  An account has at most one Twilio account, so this is refused when one exists; update it instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The Twilio account</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTwilioAccountResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsTwilioAccountResponse> InsertSfvbCommsTwilioAccountAsync (SfvbCommsTwilioAccount twilioAccount, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsTwilioAccountResponse> localVarResponse = await InsertSfvbCommsTwilioAccountWithHttpInfoAsync(twilioAccount, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Connect the Twilio account Connects the account's Twilio account with account_sid and auth_token.  Send auth_token as a secret handle made for that account SID (POST secrets, sink twilio.account.auth_token), never the token itself.  UltraCart checks the token with Twilio, then makes its API key, TwiML apps and voice encryption key on the account, as the admin does.  If Twilio refuses, nothing is saved and the handle is given back unused.  An account has at most one Twilio account, so this is refused when one exists; update it instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The Twilio account</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTwilioAccountResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsTwilioAccountResponse>> InsertSfvbCommsTwilioAccountWithHttpInfoAsync (SfvbCommsTwilioAccount twilioAccount, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'twilioAccount' is set
+            if (twilioAccount == null)
+                throw new ApiException(400, "Missing required parameter 'twilioAccount' when calling SfvbApi->InsertSfvbCommsTwilioAccount");
+
+            var localVarPath = "/sfvb/comms/twilio_account";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (twilioAccount != null && twilioAccount.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(twilioAccount); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = twilioAccount; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbCommsTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTwilioAccountResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTwilioAccountResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTwilioAccountResponse)));
+        }
+
+        /// <summary>
         /// Create a page Creates the page and its folder, the way the store admin's add page does.  The parent page must already exist, and the last part of the path may only contain letters, digits, hyphens and underscores - it is refused, not cleaned.  A path that already has a page is refused with a 409 and the code sfvb.page_exists.  Without a group_template the page inherits its parent's templates, or catalog_group.vm directly under the root.  Set attributes and images afterwards with the page attribute and image endpoints, and push the body to the page folder.  Always needs sfvb_publish, because the page is live as soon as it exists.  Deleting, moving and renaming pages stay in the store admin. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -34006,6 +35549,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Check a sending domain's verification Asks Amazon SES again whether an amazon domain's DNS records are in place, and restarts a verification that failed (its records then change).  A mailgun domain comes back as it is; Mailgun checks its own records. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <returns>SfvbCommsSendingDomain</returns>
+        public SfvbCommsSendingDomain RefreshSfvbCommsSendingDomainStatus (string domain)
+        {
+             ApiResponse<SfvbCommsSendingDomain> localVarResponse = RefreshSfvbCommsSendingDomainStatusWithHttpInfo(domain);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check a sending domain's verification Asks Amazon SES again whether an amazon domain's DNS records are in place, and restarts a verification that failed (its records then change).  A mailgun domain comes back as it is; Mailgun checks its own records. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <returns>ApiResponse of SfvbCommsSendingDomain</returns>
+        public ApiResponse<SfvbCommsSendingDomain> RefreshSfvbCommsSendingDomainStatusWithHttpInfo (string domain)
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling SfvbApi->RefreshSfvbCommsSendingDomainStatus");
+
+            var localVarPath = "/sfvb/comms/sending_domains/{domain}/status";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RefreshSfvbCommsSendingDomainStatus", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSendingDomain>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSendingDomain) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSendingDomain)));
+        }
+
+        /// <summary>
+        /// Check a sending domain's verification Asks Amazon SES again whether an amazon domain's DNS records are in place, and restarts a verification that failed (its records then change).  A mailgun domain comes back as it is; Mailgun checks its own records. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSendingDomain</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSendingDomain> RefreshSfvbCommsSendingDomainStatusAsync (string domain, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSendingDomain> localVarResponse = await RefreshSfvbCommsSendingDomainStatusWithHttpInfoAsync(domain, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Check a sending domain's verification Asks Amazon SES again whether an amazon domain's DNS records are in place, and restarts a verification that failed (its records then change).  A mailgun domain comes back as it is; Mailgun checks its own records. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSendingDomain)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSendingDomain>> RefreshSfvbCommsSendingDomainStatusWithHttpInfoAsync (string domain, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling SfvbApi->RefreshSfvbCommsSendingDomainStatus");
+
+            var localVarPath = "/sfvb/comms/sending_domains/{domain}/status";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RefreshSfvbCommsSendingDomainStatus", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSendingDomain>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSendingDomain) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSendingDomain)));
+        }
+
+        /// <summary>
         /// Drop one page's cached copy The next request renders the page fresh.  Use it when a write succeeded, a read shows the new value, and the public page still shows the old one.  Writes normally refresh the pages they affect, so a stale page after a write is a bug worth reporting with its URL.  One page per request.  The response says whether the page had a cached copy and whether anything was dropped. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -38097,6 +39797,364 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
+        }
+
+        /// <summary>
+        /// Update a sending domain Only a mailgun domain's mailgun_api_key can change.  Send it as a secret handle made for the domain to replace it, or as the mask it was read with to keep it.  A new key sets up UltraCart's webhooks again with it; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="sendingDomain">The changes</param>
+        /// <returns>SfvbCommsSendingDomain</returns>
+        public SfvbCommsSendingDomain UpdateSfvbCommsSendingDomain (string domain, SfvbCommsSendingDomain sendingDomain)
+        {
+             ApiResponse<SfvbCommsSendingDomain> localVarResponse = UpdateSfvbCommsSendingDomainWithHttpInfo(domain, sendingDomain);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a sending domain Only a mailgun domain's mailgun_api_key can change.  Send it as a secret handle made for the domain to replace it, or as the mask it was read with to keep it.  A new key sets up UltraCart's webhooks again with it; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="sendingDomain">The changes</param>
+        /// <returns>ApiResponse of SfvbCommsSendingDomain</returns>
+        public ApiResponse<SfvbCommsSendingDomain> UpdateSfvbCommsSendingDomainWithHttpInfo (string domain, SfvbCommsSendingDomain sendingDomain)
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling SfvbApi->UpdateSfvbCommsSendingDomain");
+            // verify the required parameter 'sendingDomain' is set
+            if (sendingDomain == null)
+                throw new ApiException(400, "Missing required parameter 'sendingDomain' when calling SfvbApi->UpdateSfvbCommsSendingDomain");
+
+            var localVarPath = "/sfvb/comms/sending_domains/{domain}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+            if (sendingDomain != null && sendingDomain.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sendingDomain); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = sendingDomain; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCommsSendingDomain", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSendingDomain>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSendingDomain) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSendingDomain)));
+        }
+
+        /// <summary>
+        /// Update a sending domain Only a mailgun domain's mailgun_api_key can change.  Send it as a secret handle made for the domain to replace it, or as the mask it was read with to keep it.  A new key sets up UltraCart's webhooks again with it; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="sendingDomain">The changes</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSendingDomain</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSendingDomain> UpdateSfvbCommsSendingDomainAsync (string domain, SfvbCommsSendingDomain sendingDomain, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSendingDomain> localVarResponse = await UpdateSfvbCommsSendingDomainWithHttpInfoAsync(domain, sendingDomain, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a sending domain Only a mailgun domain's mailgun_api_key can change.  Send it as a secret handle made for the domain to replace it, or as the mask it was read with to keep it.  A new key sets up UltraCart's webhooks again with it; if Mailgun refuses, nothing is saved and the handle is given back unused. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="sendingDomain">The changes</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSendingDomain)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSendingDomain>> UpdateSfvbCommsSendingDomainWithHttpInfoAsync (string domain, SfvbCommsSendingDomain sendingDomain, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling SfvbApi->UpdateSfvbCommsSendingDomain");
+            // verify the required parameter 'sendingDomain' is set
+            if (sendingDomain == null)
+                throw new ApiException(400, "Missing required parameter 'sendingDomain' when calling SfvbApi->UpdateSfvbCommsSendingDomain");
+
+            var localVarPath = "/sfvb/comms/sending_domains/{domain}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+            if (sendingDomain != null && sendingDomain.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sendingDomain); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = sendingDomain; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCommsSendingDomain", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSendingDomain>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSendingDomain) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSendingDomain)));
+        }
+
+        /// <summary>
+        /// Update the Twilio account Changes the account's Twilio account.  Leave a field out to keep it.  Send auth_token as the mask it was read with to keep it, or as a secret handle made for the account SID to replace it.  A new account_sid needs a new auth_token with it.  A new token is checked with Twilio and UltraCart's API key, TwiML apps and voice encryption key are made again; if Twilio refuses, nothing is saved and the handle is given back unused.  phone_numbers, when sent, replaces the list. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The changes</param>
+        /// <returns>SfvbCommsTwilioAccountResponse</returns>
+        public SfvbCommsTwilioAccountResponse UpdateSfvbCommsTwilioAccount (SfvbCommsTwilioAccount twilioAccount)
+        {
+             ApiResponse<SfvbCommsTwilioAccountResponse> localVarResponse = UpdateSfvbCommsTwilioAccountWithHttpInfo(twilioAccount);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update the Twilio account Changes the account's Twilio account.  Leave a field out to keep it.  Send auth_token as the mask it was read with to keep it, or as a secret handle made for the account SID to replace it.  A new account_sid needs a new auth_token with it.  A new token is checked with Twilio and UltraCart's API key, TwiML apps and voice encryption key are made again; if Twilio refuses, nothing is saved and the handle is given back unused.  phone_numbers, when sent, replaces the list. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The changes</param>
+        /// <returns>ApiResponse of SfvbCommsTwilioAccountResponse</returns>
+        public ApiResponse<SfvbCommsTwilioAccountResponse> UpdateSfvbCommsTwilioAccountWithHttpInfo (SfvbCommsTwilioAccount twilioAccount)
+        {
+            // verify the required parameter 'twilioAccount' is set
+            if (twilioAccount == null)
+                throw new ApiException(400, "Missing required parameter 'twilioAccount' when calling SfvbApi->UpdateSfvbCommsTwilioAccount");
+
+            var localVarPath = "/sfvb/comms/twilio_account";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (twilioAccount != null && twilioAccount.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(twilioAccount); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = twilioAccount; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCommsTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTwilioAccountResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTwilioAccountResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTwilioAccountResponse)));
+        }
+
+        /// <summary>
+        /// Update the Twilio account Changes the account's Twilio account.  Leave a field out to keep it.  Send auth_token as the mask it was read with to keep it, or as a secret handle made for the account SID to replace it.  A new account_sid needs a new auth_token with it.  A new token is checked with Twilio and UltraCart's API key, TwiML apps and voice encryption key are made again; if Twilio refuses, nothing is saved and the handle is given back unused.  phone_numbers, when sent, replaces the list. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The changes</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTwilioAccountResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsTwilioAccountResponse> UpdateSfvbCommsTwilioAccountAsync (SfvbCommsTwilioAccount twilioAccount, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsTwilioAccountResponse> localVarResponse = await UpdateSfvbCommsTwilioAccountWithHttpInfoAsync(twilioAccount, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update the Twilio account Changes the account's Twilio account.  Leave a field out to keep it.  Send auth_token as the mask it was read with to keep it, or as a secret handle made for the account SID to replace it.  A new account_sid needs a new auth_token with it.  A new token is checked with Twilio and UltraCart's API key, TwiML apps and voice encryption key are made again; if Twilio refuses, nothing is saved and the handle is given back unused.  phone_numbers, when sent, replaces the list. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilioAccount">The changes</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTwilioAccountResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsTwilioAccountResponse>> UpdateSfvbCommsTwilioAccountWithHttpInfoAsync (SfvbCommsTwilioAccount twilioAccount, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'twilioAccount' is set
+            if (twilioAccount == null)
+                throw new ApiException(400, "Missing required parameter 'twilioAccount' when calling SfvbApi->UpdateSfvbCommsTwilioAccount");
+
+            var localVarPath = "/sfvb/comms/twilio_account";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (twilioAccount != null && twilioAccount.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(twilioAccount); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = twilioAccount; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCommsTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTwilioAccountResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTwilioAccountResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTwilioAccountResponse)));
         }
 
         /// <summary>

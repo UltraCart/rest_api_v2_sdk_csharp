@@ -37,7 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="label">A short name the person sees, marked as unverified.  At most 120 characters..</param>
         /// <param name="reason">Why the agent needs it.  Shown to the person, marked as unverified.  At most 500 characters..</param>
         /// <param name="sinks">The secret fields to collect, by sink id.  GET secrets/kinds lists them.  All must take the same kind of target..</param>
-        /// <param name="targetId">The object the values are for, such as a Twilio account uuid.  Required for sinks that need an authenticator code, unless keys names the targets.  Leave it out when keys is sent..</param>
+        /// <param name="targetId">The object the values are for.  A Twilio account by its account SID (AC followed by 32 hex digits), and a sending domain by the domain name, which may be one not added yet.  Required for sinks that need an authenticator code, unless keys names the targets.  Leave it out when keys is sent..</param>
         /// <param name="ttlSeconds">How long each handle stays usable once the values are entered.  60 to 86400, default 3600..</param>
         /// <param name="uses">How many writes each handle may make.  1 to 100, default 1..</param>
         public SfvbSecretRequestCreate(List<string> keys = default(List<string>), string label = default(string), string reason = default(string), List<string> sinks = default(List<string>), string targetId = default(string), int ttlSeconds = default(int), int uses = default(int))
@@ -80,9 +80,9 @@ namespace com.ultracart.admin.v2.Model
         public List<string> Sinks { get; set; }
 
         /// <summary>
-        /// The object the values are for, such as a Twilio account uuid.  Required for sinks that need an authenticator code, unless keys names the targets.  Leave it out when keys is sent.
+        /// The object the values are for.  A Twilio account by its account SID (AC followed by 32 hex digits), and a sending domain by the domain name, which may be one not added yet.  Required for sinks that need an authenticator code, unless keys names the targets.  Leave it out when keys is sent.
         /// </summary>
-        /// <value>The object the values are for, such as a Twilio account uuid.  Required for sinks that need an authenticator code, unless keys names the targets.  Leave it out when keys is sent.</value>
+        /// <value>The object the values are for.  A Twilio account by its account SID (AC followed by 32 hex digits), and a sending domain by the domain name, which may be one not added yet.  Required for sinks that need an authenticator code, unless keys names the targets.  Leave it out when keys is sent.</value>
         [DataMember(Name="target_id", EmitDefaultValue=false)]
         public string TargetId { get; set; }
 

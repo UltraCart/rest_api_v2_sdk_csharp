@@ -2221,6 +2221,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbThemeJobResponse</returns>
         ApiResponse<SfvbThemeJobResponse> GetSfvbThemeJobWithHttpInfo (int storefrontOid, int jobId);
         /// <summary>
+        /// List the transactional emails a storefront sends
+        /// </summary>
+        /// <remarks>
+        /// The order, shipment, auto order and other transactional emails this storefront sends, with their template files and the body container a draft replaces.  Forgot password and chat verification are not listed, because they have no preview. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbTransactionalEmailsResponse</returns>
+        SfvbTransactionalEmailsResponse GetSfvbTransactionalEmails (int storefrontOid);
+
+        /// <summary>
+        /// List the transactional emails a storefront sends
+        /// </summary>
+        /// <remarks>
+        /// The order, shipment, auto order and other transactional emails this storefront sends, with their template files and the body container a draft replaces.  Forgot password and chat verification are not listed, because they have no preview. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbTransactionalEmailsResponse</returns>
+        ApiResponse<SfvbTransactionalEmailsResponse> GetSfvbTransactionalEmailsWithHttpInfo (int storefrontOid);
+        /// <summary>
         /// Get an upsell offer
         /// </summary>
         /// <remarks>
@@ -3719,6 +3740,56 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pageItemsRemoveRequest">Items to take off the page</param>
         /// <returns>ApiResponse of SfvbPageItemsResponse</returns>
         ApiResponse<SfvbPageItemsResponse> RemoveSfvbPageItemsWithHttpInfo (int storefrontOid, string path, SfvbPageItemsRemoveRequest pageItemsRemoveRequest);
+        /// <summary>
+        /// Render a flow or campaign email without sending it
+        /// </summary>
+        /// <remarks>
+        /// Renders a flow or campaign email exactly as its send would, and returns the subject, preview text, HTML and text.  Nothing is sent, saved or created.  A unique coupon code, click id and magic link token are placeholders.  A missing footer token, which a send skips the email for, is a warning.  Give cjson to render an unsaved draft of the email container in place of the saved one.  An order must be a test order.  cart_item_ids fills the cart a cart flow email shows. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <returns>SfvbEmailRenderResponse</returns>
+        SfvbEmailRenderResponse RenderSfvbEmail (int storefrontOid, string emailUuid, SfvbEmailRenderRequest emailRenderRequest);
+
+        /// <summary>
+        /// Render a flow or campaign email without sending it
+        /// </summary>
+        /// <remarks>
+        /// Renders a flow or campaign email exactly as its send would, and returns the subject, preview text, HTML and text.  Nothing is sent, saved or created.  A unique coupon code, click id and magic link token are placeholders.  A missing footer token, which a send skips the email for, is a warning.  Give cjson to render an unsaved draft of the email container in place of the saved one.  An order must be a test order.  cart_item_ids fills the cart a cart flow email shows. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <returns>ApiResponse of SfvbEmailRenderResponse</returns>
+        ApiResponse<SfvbEmailRenderResponse> RenderSfvbEmailWithHttpInfo (int storefrontOid, string emailUuid, SfvbEmailRenderRequest emailRenderRequest);
+        /// <summary>
+        /// Render a transactional email without sending it
+        /// </summary>
+        /// <remarks>
+        /// Renders a transactional email, such as the order receipt, exactly as it is sent, and returns the subject, HTML and text.  Nothing is sent or saved.  file_name is the template file, such as receipt_html.vm, or the display name.  Give cjson to render an unsaved draft of the email's body container in place of the saved one.  The order must be a test order.  Without one the email renders with a made up order. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileName"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <returns>SfvbEmailRenderResponse</returns>
+        SfvbEmailRenderResponse RenderSfvbTransactionalEmail (int storefrontOid, string fileName, SfvbEmailRenderRequest emailRenderRequest);
+
+        /// <summary>
+        /// Render a transactional email without sending it
+        /// </summary>
+        /// <remarks>
+        /// Renders a transactional email, such as the order receipt, exactly as it is sent, and returns the subject, HTML and text.  Nothing is sent or saved.  file_name is the template file, such as receipt_html.vm, or the display name.  Give cjson to render an unsaved draft of the email's body container in place of the saved one.  The order must be a test order.  Without one the email renders with a made up order. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileName"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <returns>ApiResponse of SfvbEmailRenderResponse</returns>
+        ApiResponse<SfvbEmailRenderResponse> RenderSfvbTransactionalEmailWithHttpInfo (int storefrontOid, string fileName, SfvbEmailRenderRequest emailRenderRequest);
         /// <summary>
         /// Render a CJSON node to HTML
         /// </summary>
@@ -6826,6 +6897,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbThemeJobResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbThemeJobResponse>> GetSfvbThemeJobWithHttpInfoAsync (int storefrontOid, int jobId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// List the transactional emails a storefront sends
+        /// </summary>
+        /// <remarks>
+        /// The order, shipment, auto order and other transactional emails this storefront sends, with their template files and the body container a draft replaces.  Forgot password and chat verification are not listed, because they have no preview. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTransactionalEmailsResponse</returns>
+        System.Threading.Tasks.Task<SfvbTransactionalEmailsResponse> GetSfvbTransactionalEmailsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the transactional emails a storefront sends
+        /// </summary>
+        /// <remarks>
+        /// The order, shipment, auto order and other transactional emails this storefront sends, with their template files and the body container a draft replaces.  Forgot password and chat verification are not listed, because they have no preview. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTransactionalEmailsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTransactionalEmailsResponse>> GetSfvbTransactionalEmailsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Get an upsell offer
         /// </summary>
         /// <remarks>
@@ -8442,6 +8536,60 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPageItemsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPageItemsResponse>> RemoveSfvbPageItemsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageItemsRemoveRequest pageItemsRemoveRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Render a flow or campaign email without sending it
+        /// </summary>
+        /// <remarks>
+        /// Renders a flow or campaign email exactly as its send would, and returns the subject, preview text, HTML and text.  Nothing is sent, saved or created.  A unique coupon code, click id and magic link token are placeholders.  A missing footer token, which a send skips the email for, is a warning.  Give cjson to render an unsaved draft of the email container in place of the saved one.  An order must be a test order.  cart_item_ids fills the cart a cart flow email shows. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEmailRenderResponse</returns>
+        System.Threading.Tasks.Task<SfvbEmailRenderResponse> RenderSfvbEmailAsync (int storefrontOid, string emailUuid, SfvbEmailRenderRequest emailRenderRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Render a flow or campaign email without sending it
+        /// </summary>
+        /// <remarks>
+        /// Renders a flow or campaign email exactly as its send would, and returns the subject, preview text, HTML and text.  Nothing is sent, saved or created.  A unique coupon code, click id and magic link token are placeholders.  A missing footer token, which a send skips the email for, is a warning.  Give cjson to render an unsaved draft of the email container in place of the saved one.  An order must be a test order.  cart_item_ids fills the cart a cart flow email shows. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEmailRenderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbEmailRenderResponse>> RenderSfvbEmailWithHttpInfoAsync (int storefrontOid, string emailUuid, SfvbEmailRenderRequest emailRenderRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Render a transactional email without sending it
+        /// </summary>
+        /// <remarks>
+        /// Renders a transactional email, such as the order receipt, exactly as it is sent, and returns the subject, HTML and text.  Nothing is sent or saved.  file_name is the template file, such as receipt_html.vm, or the display name.  Give cjson to render an unsaved draft of the email's body container in place of the saved one.  The order must be a test order.  Without one the email renders with a made up order. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileName"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEmailRenderResponse</returns>
+        System.Threading.Tasks.Task<SfvbEmailRenderResponse> RenderSfvbTransactionalEmailAsync (int storefrontOid, string fileName, SfvbEmailRenderRequest emailRenderRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Render a transactional email without sending it
+        /// </summary>
+        /// <remarks>
+        /// Renders a transactional email, such as the order receipt, exactly as it is sent, and returns the subject, HTML and text.  Nothing is sent or saved.  file_name is the template file, such as receipt_html.vm, or the display name.  Give cjson to render an unsaved draft of the email's body container in place of the saved one.  The order must be a test order.  Without one the email renders with a made up order. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileName"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEmailRenderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbEmailRenderResponse>> RenderSfvbTransactionalEmailWithHttpInfoAsync (int storefrontOid, string fileName, SfvbEmailRenderRequest emailRenderRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Render a CJSON node to HTML
         /// </summary>
@@ -25326,6 +25474,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// List the transactional emails a storefront sends The order, shipment, auto order and other transactional emails this storefront sends, with their template files and the body container a draft replaces.  Forgot password and chat verification are not listed, because they have no preview. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbTransactionalEmailsResponse</returns>
+        public SfvbTransactionalEmailsResponse GetSfvbTransactionalEmails (int storefrontOid)
+        {
+             ApiResponse<SfvbTransactionalEmailsResponse> localVarResponse = GetSfvbTransactionalEmailsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the transactional emails a storefront sends The order, shipment, auto order and other transactional emails this storefront sends, with their template files and the body container a draft replaces.  Forgot password and chat verification are not listed, because they have no preview. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbTransactionalEmailsResponse</returns>
+        public ApiResponse<SfvbTransactionalEmailsResponse> GetSfvbTransactionalEmailsWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTransactionalEmails");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/transactional_emails";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTransactionalEmails", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTransactionalEmailsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTransactionalEmailsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTransactionalEmailsResponse)));
+        }
+
+        /// <summary>
+        /// List the transactional emails a storefront sends The order, shipment, auto order and other transactional emails this storefront sends, with their template files and the body container a draft replaces.  Forgot password and chat verification are not listed, because they have no preview. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTransactionalEmailsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbTransactionalEmailsResponse> GetSfvbTransactionalEmailsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTransactionalEmailsResponse> localVarResponse = await GetSfvbTransactionalEmailsWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the transactional emails a storefront sends The order, shipment, auto order and other transactional emails this storefront sends, with their template files and the body container a draft replaces.  Forgot password and chat verification are not listed, because they have no preview. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTransactionalEmailsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTransactionalEmailsResponse>> GetSfvbTransactionalEmailsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTransactionalEmails");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/transactional_emails";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTransactionalEmails", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTransactionalEmailsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTransactionalEmailsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTransactionalEmailsResponse)));
+        }
+
+        /// <summary>
         /// Get an upsell offer The whole offer, with the hash an update sends back in If-Match, which upsell items are out of stock now, and whether loyalty, TowerData and Everflow are set up.  Stats as on the path list. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -36282,6 +36587,400 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbPageItemsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbPageItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageItemsResponse)));
+        }
+
+        /// <summary>
+        /// Render a flow or campaign email without sending it Renders a flow or campaign email exactly as its send would, and returns the subject, preview text, HTML and text.  Nothing is sent, saved or created.  A unique coupon code, click id and magic link token are placeholders.  A missing footer token, which a send skips the email for, is a warning.  Give cjson to render an unsaved draft of the email container in place of the saved one.  An order must be a test order.  cart_item_ids fills the cart a cart flow email shows. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <returns>SfvbEmailRenderResponse</returns>
+        public SfvbEmailRenderResponse RenderSfvbEmail (int storefrontOid, string emailUuid, SfvbEmailRenderRequest emailRenderRequest)
+        {
+             ApiResponse<SfvbEmailRenderResponse> localVarResponse = RenderSfvbEmailWithHttpInfo(storefrontOid, emailUuid, emailRenderRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Render a flow or campaign email without sending it Renders a flow or campaign email exactly as its send would, and returns the subject, preview text, HTML and text.  Nothing is sent, saved or created.  A unique coupon code, click id and magic link token are placeholders.  A missing footer token, which a send skips the email for, is a warning.  Give cjson to render an unsaved draft of the email container in place of the saved one.  An order must be a test order.  cart_item_ids fills the cart a cart flow email shows. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <returns>ApiResponse of SfvbEmailRenderResponse</returns>
+        public ApiResponse<SfvbEmailRenderResponse> RenderSfvbEmailWithHttpInfo (int storefrontOid, string emailUuid, SfvbEmailRenderRequest emailRenderRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->RenderSfvbEmail");
+            // verify the required parameter 'emailUuid' is set
+            if (emailUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailUuid' when calling SfvbApi->RenderSfvbEmail");
+            // verify the required parameter 'emailRenderRequest' is set
+            if (emailRenderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailRenderRequest' when calling SfvbApi->RenderSfvbEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/render";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailUuid != null) localVarPathParams.Add("email_uuid", this.Configuration.ApiClient.ParameterToString(emailUuid)); // path parameter
+            if (emailRenderRequest != null && emailRenderRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailRenderRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailRenderRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RenderSfvbEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEmailRenderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEmailRenderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEmailRenderResponse)));
+        }
+
+        /// <summary>
+        /// Render a flow or campaign email without sending it Renders a flow or campaign email exactly as its send would, and returns the subject, preview text, HTML and text.  Nothing is sent, saved or created.  A unique coupon code, click id and magic link token are placeholders.  A missing footer token, which a send skips the email for, is a warning.  Give cjson to render an unsaved draft of the email container in place of the saved one.  An order must be a test order.  cart_item_ids fills the cart a cart flow email shows. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEmailRenderResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbEmailRenderResponse> RenderSfvbEmailAsync (int storefrontOid, string emailUuid, SfvbEmailRenderRequest emailRenderRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbEmailRenderResponse> localVarResponse = await RenderSfvbEmailWithHttpInfoAsync(storefrontOid, emailUuid, emailRenderRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Render a flow or campaign email without sending it Renders a flow or campaign email exactly as its send would, and returns the subject, preview text, HTML and text.  Nothing is sent, saved or created.  A unique coupon code, click id and magic link token are placeholders.  A missing footer token, which a send skips the email for, is a warning.  Give cjson to render an unsaved draft of the email container in place of the saved one.  An order must be a test order.  cart_item_ids fills the cart a cart flow email shows. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEmailRenderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbEmailRenderResponse>> RenderSfvbEmailWithHttpInfoAsync (int storefrontOid, string emailUuid, SfvbEmailRenderRequest emailRenderRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->RenderSfvbEmail");
+            // verify the required parameter 'emailUuid' is set
+            if (emailUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailUuid' when calling SfvbApi->RenderSfvbEmail");
+            // verify the required parameter 'emailRenderRequest' is set
+            if (emailRenderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailRenderRequest' when calling SfvbApi->RenderSfvbEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/render";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailUuid != null) localVarPathParams.Add("email_uuid", this.Configuration.ApiClient.ParameterToString(emailUuid)); // path parameter
+            if (emailRenderRequest != null && emailRenderRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailRenderRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailRenderRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RenderSfvbEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEmailRenderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEmailRenderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEmailRenderResponse)));
+        }
+
+        /// <summary>
+        /// Render a transactional email without sending it Renders a transactional email, such as the order receipt, exactly as it is sent, and returns the subject, HTML and text.  Nothing is sent or saved.  file_name is the template file, such as receipt_html.vm, or the display name.  Give cjson to render an unsaved draft of the email's body container in place of the saved one.  The order must be a test order.  Without one the email renders with a made up order. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileName"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <returns>SfvbEmailRenderResponse</returns>
+        public SfvbEmailRenderResponse RenderSfvbTransactionalEmail (int storefrontOid, string fileName, SfvbEmailRenderRequest emailRenderRequest)
+        {
+             ApiResponse<SfvbEmailRenderResponse> localVarResponse = RenderSfvbTransactionalEmailWithHttpInfo(storefrontOid, fileName, emailRenderRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Render a transactional email without sending it Renders a transactional email, such as the order receipt, exactly as it is sent, and returns the subject, HTML and text.  Nothing is sent or saved.  file_name is the template file, such as receipt_html.vm, or the display name.  Give cjson to render an unsaved draft of the email's body container in place of the saved one.  The order must be a test order.  Without one the email renders with a made up order. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileName"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <returns>ApiResponse of SfvbEmailRenderResponse</returns>
+        public ApiResponse<SfvbEmailRenderResponse> RenderSfvbTransactionalEmailWithHttpInfo (int storefrontOid, string fileName, SfvbEmailRenderRequest emailRenderRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->RenderSfvbTransactionalEmail");
+            // verify the required parameter 'fileName' is set
+            if (fileName == null)
+                throw new ApiException(400, "Missing required parameter 'fileName' when calling SfvbApi->RenderSfvbTransactionalEmail");
+            // verify the required parameter 'emailRenderRequest' is set
+            if (emailRenderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailRenderRequest' when calling SfvbApi->RenderSfvbTransactionalEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}/render";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (fileName != null) localVarPathParams.Add("file_name", this.Configuration.ApiClient.ParameterToString(fileName)); // path parameter
+            if (emailRenderRequest != null && emailRenderRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailRenderRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailRenderRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RenderSfvbTransactionalEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEmailRenderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEmailRenderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEmailRenderResponse)));
+        }
+
+        /// <summary>
+        /// Render a transactional email without sending it Renders a transactional email, such as the order receipt, exactly as it is sent, and returns the subject, HTML and text.  Nothing is sent or saved.  file_name is the template file, such as receipt_html.vm, or the display name.  Give cjson to render an unsaved draft of the email's body container in place of the saved one.  The order must be a test order.  Without one the email renders with a made up order. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileName"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEmailRenderResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbEmailRenderResponse> RenderSfvbTransactionalEmailAsync (int storefrontOid, string fileName, SfvbEmailRenderRequest emailRenderRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbEmailRenderResponse> localVarResponse = await RenderSfvbTransactionalEmailWithHttpInfoAsync(storefrontOid, fileName, emailRenderRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Render a transactional email without sending it Renders a transactional email, such as the order receipt, exactly as it is sent, and returns the subject, HTML and text.  Nothing is sent or saved.  file_name is the template file, such as receipt_html.vm, or the display name.  Give cjson to render an unsaved draft of the email's body container in place of the saved one.  The order must be a test order.  Without one the email renders with a made up order. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="fileName"></param>
+        /// <param name="emailRenderRequest">What to render the email with</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEmailRenderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbEmailRenderResponse>> RenderSfvbTransactionalEmailWithHttpInfoAsync (int storefrontOid, string fileName, SfvbEmailRenderRequest emailRenderRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->RenderSfvbTransactionalEmail");
+            // verify the required parameter 'fileName' is set
+            if (fileName == null)
+                throw new ApiException(400, "Missing required parameter 'fileName' when calling SfvbApi->RenderSfvbTransactionalEmail");
+            // verify the required parameter 'emailRenderRequest' is set
+            if (emailRenderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailRenderRequest' when calling SfvbApi->RenderSfvbTransactionalEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}/render";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (fileName != null) localVarPathParams.Add("file_name", this.Configuration.ApiClient.ParameterToString(fileName)); // path parameter
+            if (emailRenderRequest != null && emailRenderRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailRenderRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailRenderRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RenderSfvbTransactionalEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEmailRenderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEmailRenderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEmailRenderResponse)));
         }
 
         /// <summary>

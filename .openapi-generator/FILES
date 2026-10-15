@@ -1016,6 +1016,8 @@ docs/SfvbContainerWriteRequest.md
 docs/SfvbElement.md
 docs/SfvbElementSchemaResponse.md
 docs/SfvbElementsResponse.md
+docs/SfvbEmailRenderRequest.md
+docs/SfvbEmailRenderResponse.md
 docs/SfvbErrorDetail.md
 docs/SfvbEvent.md
 docs/SfvbEventsAuthRequest.md
@@ -1197,6 +1199,8 @@ docs/SfvbThemeFont.md
 docs/SfvbThemeFontFamily.md
 docs/SfvbThemeJobResponse.md
 docs/SfvbThemesResponse.md
+docs/SfvbTransactionalEmail.md
+docs/SfvbTransactionalEmailsResponse.md
 docs/SfvbUpsellItemLogic.md
 docs/SfvbUpsellItemLogicItem.md
 docs/SfvbUpsellOffer.md
@@ -2342,6 +2346,8 @@ src/com.ultracart.admin.v2/Model/SfvbContainerWriteRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbElement.cs
 src/com.ultracart.admin.v2/Model/SfvbElementSchemaResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbElementsResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbEmailRenderRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbEmailRenderResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbErrorDetail.cs
 src/com.ultracart.admin.v2/Model/SfvbEvent.cs
 src/com.ultracart.admin.v2/Model/SfvbEventsAuthRequest.cs
@@ -2523,6 +2529,8 @@ src/com.ultracart.admin.v2/Model/SfvbThemeFont.cs
 src/com.ultracart.admin.v2/Model/SfvbThemeFontFamily.cs
 src/com.ultracart.admin.v2/Model/SfvbThemeJobResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbThemesResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbTransactionalEmail.cs
+src/com.ultracart.admin.v2/Model/SfvbTransactionalEmailsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbUpsellItemLogic.cs
 src/com.ultracart.admin.v2/Model/SfvbUpsellItemLogicItem.cs
 src/com.ultracart.admin.v2/Model/SfvbUpsellOffer.cs

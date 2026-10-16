@@ -1078,6 +1078,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
         ApiResponse<SfvbBlogPostDetail> GetSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid);
         /// <summary>
+        /// Get a campaign
+        /// </summary>
+        /// <remarks>
+        /// One campaign, the same object as its list entry, with its emails and postcards in step order.  A deleted campaign is returned with deleted true. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <returns>SfvbCampaign</returns>
+        SfvbCampaign GetSfvbCampaign (int storefrontOid, string campaignUuid);
+
+        /// <summary>
+        /// Get a campaign
+        /// </summary>
+        /// <remarks>
+        /// One campaign, the same object as its list entry, with its emails and postcards in step order.  A deleted campaign is returned with deleted true. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <returns>ApiResponse of SfvbCampaign</returns>
+        ApiResponse<SfvbCampaign> GetSfvbCampaignWithHttpInfo (int storefrontOid, string campaignUuid);
+        /// <summary>
         /// Element types used by a container
         /// </summary>
         /// <remarks>
@@ -1374,6 +1397,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="extension"></param>
         /// <returns>ApiResponse of SfvbFileUploadUrlResponse</returns>
         ApiResponse<SfvbFileUploadUrlResponse> GetSfvbFileUploadUrlWithHttpInfo (int storefrontOid, string extension);
+        /// <summary>
+        /// Get a flow
+        /// </summary>
+        /// <remarks>
+        /// One flow, the same object as its list entry, with its emails and postcards in step order.  A deleted flow is returned with deleted true. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <returns>SfvbFlow</returns>
+        SfvbFlow GetSfvbFlow (int storefrontOid, string flowUuid);
+
+        /// <summary>
+        /// Get a flow
+        /// </summary>
+        /// <remarks>
+        /// One flow, the same object as its list entry, with its emails and postcards in step order.  A deleted flow is returned with deleted true. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <returns>ApiResponse of SfvbFlow</returns>
+        ApiResponse<SfvbFlow> GetSfvbFlowWithHttpInfo (int storefrontOid, string flowUuid);
         /// <summary>
         /// Read the storefront's translation glossary
         /// </summary>
@@ -2641,6 +2687,35 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbBlogPostsResponse</returns>
         ApiResponse<SfvbBlogPostsResponse> ListSfvbBlogPostsWithHttpInfo (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?));
         /// <summary>
+        /// List the storefront's campaigns
+        /// </summary>
+        /// <remarks>
+        /// One page of campaigns, newest first, each with its emails and postcards in step order, without their container JSON.  search matches the campaign name.  Deleted campaigns are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or archived), so a change to one of its emails reaches customers at once. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Campaigns per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted campaigns (optional)</param>
+        /// <returns>SfvbCampaignsResponse</returns>
+        SfvbCampaignsResponse ListSfvbCampaigns (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?));
+
+        /// <summary>
+        /// List the storefront's campaigns
+        /// </summary>
+        /// <remarks>
+        /// One page of campaigns, newest first, each with its emails and postcards in step order, without their container JSON.  search matches the campaign name.  Deleted campaigns are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or archived), so a change to one of its emails reaches customers at once. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Campaigns per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted campaigns (optional)</param>
+        /// <returns>ApiResponse of SfvbCampaignsResponse</returns>
+        ApiResponse<SfvbCampaignsResponse> ListSfvbCampaignsWithHttpInfo (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?));
+        /// <summary>
         /// Version history for a container stored outside the file system
         /// </summary>
         /// <remarks>
@@ -2765,6 +2840,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="maxEntries"> (optional)</param>
         /// <returns>ApiResponse of SfvbFilesResponse</returns>
         ApiResponse<SfvbFilesResponse> ListSfvbFilesWithHttpInfo (int storefrontOid, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? themeOid = default(int?), int? maxEntries = default(int?));
+        /// <summary>
+        /// List the storefront's flows
+        /// </summary>
+        /// <remarks>
+        /// One page of flows, newest first, each with its trigger and its emails and postcards in step order, without their container JSON.  search matches the flow name.  Deleted flows are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or inactive); a paused flow still holds enrolled customers, so it counts as live. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Flows per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted flows (optional)</param>
+        /// <returns>SfvbFlowsResponse</returns>
+        SfvbFlowsResponse ListSfvbFlows (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?));
+
+        /// <summary>
+        /// List the storefront's flows
+        /// </summary>
+        /// <remarks>
+        /// One page of flows, newest first, each with its trigger and its emails and postcards in step order, without their container JSON.  search matches the flow name.  Deleted flows are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or inactive); a paused flow still holds enrolled customers, so it counts as live. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Flows per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted flows (optional)</param>
+        /// <returns>ApiResponse of SfvbFlowsResponse</returns>
+        ApiResponse<SfvbFlowsResponse> ListSfvbFlowsWithHttpInfo (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?));
         /// <summary>
         /// List built-in messages
         /// </summary>
@@ -5656,6 +5760,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> GetSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Get a campaign
+        /// </summary>
+        /// <remarks>
+        /// One campaign, the same object as its list entry, with its emails and postcards in step order.  A deleted campaign is returned with deleted true. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCampaign</returns>
+        System.Threading.Tasks.Task<SfvbCampaign> GetSfvbCampaignAsync (int storefrontOid, string campaignUuid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get a campaign
+        /// </summary>
+        /// <remarks>
+        /// One campaign, the same object as its list entry, with its emails and postcards in step order.  A deleted campaign is returned with deleted true. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> GetSfvbCampaignWithHttpInfoAsync (int storefrontOid, string campaignUuid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Element types used by a container
         /// </summary>
         /// <remarks>
@@ -5978,6 +6107,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFileUploadUrlResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFileUploadUrlResponse>> GetSfvbFileUploadUrlWithHttpInfoAsync (int storefrontOid, string extension, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get a flow
+        /// </summary>
+        /// <remarks>
+        /// One flow, the same object as its list entry, with its emails and postcards in step order.  A deleted flow is returned with deleted true. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlow</returns>
+        System.Threading.Tasks.Task<SfvbFlow> GetSfvbFlowAsync (int storefrontOid, string flowUuid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get a flow
+        /// </summary>
+        /// <remarks>
+        /// One flow, the same object as its list entry, with its emails and postcards in step order.  A deleted flow is returned with deleted true. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbFlow>> GetSfvbFlowWithHttpInfoAsync (int storefrontOid, string flowUuid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read the storefront's translation glossary
         /// </summary>
@@ -7353,6 +7507,37 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbBlogPostsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostsResponse>> ListSfvbBlogPostsWithHttpInfoAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// List the storefront's campaigns
+        /// </summary>
+        /// <remarks>
+        /// One page of campaigns, newest first, each with its emails and postcards in step order, without their container JSON.  search matches the campaign name.  Deleted campaigns are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or archived), so a change to one of its emails reaches customers at once. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Campaigns per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted campaigns (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCampaignsResponse</returns>
+        System.Threading.Tasks.Task<SfvbCampaignsResponse> ListSfvbCampaignsAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the storefront&#39;s campaigns
+        /// </summary>
+        /// <remarks>
+        /// One page of campaigns, newest first, each with its emails and postcards in step order, without their container JSON.  search matches the campaign name.  Deleted campaigns are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or archived), so a change to one of its emails reaches customers at once. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Campaigns per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted campaigns (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCampaignsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCampaignsResponse>> ListSfvbCampaignsWithHttpInfoAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Version history for a container stored outside the file system
         /// </summary>
         /// <remarks>
@@ -7487,6 +7672,37 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFilesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFilesResponse>> ListSfvbFilesWithHttpInfoAsync (int storefrontOid, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? themeOid = default(int?), int? maxEntries = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the storefront's flows
+        /// </summary>
+        /// <remarks>
+        /// One page of flows, newest first, each with its trigger and its emails and postcards in step order, without their container JSON.  search matches the flow name.  Deleted flows are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or inactive); a paused flow still holds enrolled customers, so it counts as live. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Flows per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted flows (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlowsResponse</returns>
+        System.Threading.Tasks.Task<SfvbFlowsResponse> ListSfvbFlowsAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the storefront&#39;s flows
+        /// </summary>
+        /// <remarks>
+        /// One page of flows, newest first, each with its trigger and its emails and postcards in step order, without their container JSON.  search matches the flow name.  Deleted flows are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or inactive); a paused flow still holds enrolled customers, so it counts as live. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Flows per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted flows (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlowsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbFlowsResponse>> ListSfvbFlowsWithHttpInfoAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// List built-in messages
         /// </summary>
@@ -17299,6 +17515,175 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get a campaign One campaign, the same object as its list entry, with its emails and postcards in step order.  A deleted campaign is returned with deleted true. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <returns>SfvbCampaign</returns>
+        public SfvbCampaign GetSfvbCampaign (int storefrontOid, string campaignUuid)
+        {
+             ApiResponse<SfvbCampaign> localVarResponse = GetSfvbCampaignWithHttpInfo(storefrontOid, campaignUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a campaign One campaign, the same object as its list entry, with its emails and postcards in step order.  A deleted campaign is returned with deleted true. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <returns>ApiResponse of SfvbCampaign</returns>
+        public ApiResponse<SfvbCampaign> GetSfvbCampaignWithHttpInfo (int storefrontOid, string campaignUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCampaign");
+            // verify the required parameter 'campaignUuid' is set
+            if (campaignUuid == null)
+                throw new ApiException(400, "Missing required parameter 'campaignUuid' when calling SfvbApi->GetSfvbCampaign");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (campaignUuid != null) localVarPathParams.Add("campaign_uuid", this.Configuration.ApiClient.ParameterToString(campaignUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCampaign", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCampaign>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaign)));
+        }
+
+        /// <summary>
+        /// Get a campaign One campaign, the same object as its list entry, with its emails and postcards in step order.  A deleted campaign is returned with deleted true. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCampaign</returns>
+        public async System.Threading.Tasks.Task<SfvbCampaign> GetSfvbCampaignAsync (int storefrontOid, string campaignUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCampaign> localVarResponse = await GetSfvbCampaignWithHttpInfoAsync(storefrontOid, campaignUuid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a campaign One campaign, the same object as its list entry, with its emails and postcards in step order.  A deleted campaign is returned with deleted true. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> GetSfvbCampaignWithHttpInfoAsync (int storefrontOid, string campaignUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCampaign");
+            // verify the required parameter 'campaignUuid' is set
+            if (campaignUuid == null)
+                throw new ApiException(400, "Missing required parameter 'campaignUuid' when calling SfvbApi->GetSfvbCampaign");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (campaignUuid != null) localVarPathParams.Add("campaign_uuid", this.Configuration.ApiClient.ParameterToString(campaignUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCampaign", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCampaign>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaign)));
+        }
+
+        /// <summary>
         /// Element types used by a container 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -19447,6 +19832,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbFileUploadUrlResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbFileUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFileUploadUrlResponse)));
+        }
+
+        /// <summary>
+        /// Get a flow One flow, the same object as its list entry, with its emails and postcards in step order.  A deleted flow is returned with deleted true. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <returns>SfvbFlow</returns>
+        public SfvbFlow GetSfvbFlow (int storefrontOid, string flowUuid)
+        {
+             ApiResponse<SfvbFlow> localVarResponse = GetSfvbFlowWithHttpInfo(storefrontOid, flowUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a flow One flow, the same object as its list entry, with its emails and postcards in step order.  A deleted flow is returned with deleted true. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <returns>ApiResponse of SfvbFlow</returns>
+        public ApiResponse<SfvbFlow> GetSfvbFlowWithHttpInfo (int storefrontOid, string flowUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbFlow");
+            // verify the required parameter 'flowUuid' is set
+            if (flowUuid == null)
+                throw new ApiException(400, "Missing required parameter 'flowUuid' when calling SfvbApi->GetSfvbFlow");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (flowUuid != null) localVarPathParams.Add("flow_uuid", this.Configuration.ApiClient.ParameterToString(flowUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbFlow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlow>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlow) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlow)));
+        }
+
+        /// <summary>
+        /// Get a flow One flow, the same object as its list entry, with its emails and postcards in step order.  A deleted flow is returned with deleted true. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlow</returns>
+        public async System.Threading.Tasks.Task<SfvbFlow> GetSfvbFlowAsync (int storefrontOid, string flowUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbFlow> localVarResponse = await GetSfvbFlowWithHttpInfoAsync(storefrontOid, flowUuid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a flow One flow, the same object as its list entry, with its emails and postcards in step order.  A deleted flow is returned with deleted true. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlow)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbFlow>> GetSfvbFlowWithHttpInfoAsync (int storefrontOid, string flowUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbFlow");
+            // verify the required parameter 'flowUuid' is set
+            if (flowUuid == null)
+                throw new ApiException(400, "Missing required parameter 'flowUuid' when calling SfvbApi->GetSfvbFlow");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (flowUuid != null) localVarPathParams.Add("flow_uuid", this.Configuration.ApiClient.ParameterToString(flowUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbFlow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlow>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlow) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlow)));
         }
 
         /// <summary>
@@ -28650,6 +29204,187 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// List the storefront's campaigns One page of campaigns, newest first, each with its emails and postcards in step order, without their container JSON.  search matches the campaign name.  Deleted campaigns are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or archived), so a change to one of its emails reaches customers at once. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Campaigns per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted campaigns (optional)</param>
+        /// <returns>SfvbCampaignsResponse</returns>
+        public SfvbCampaignsResponse ListSfvbCampaigns (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?))
+        {
+             ApiResponse<SfvbCampaignsResponse> localVarResponse = ListSfvbCampaignsWithHttpInfo(storefrontOid, search, page, pageSize, includeDeleted);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the storefront's campaigns One page of campaigns, newest first, each with its emails and postcards in step order, without their container JSON.  search matches the campaign name.  Deleted campaigns are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or archived), so a change to one of its emails reaches customers at once. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Campaigns per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted campaigns (optional)</param>
+        /// <returns>ApiResponse of SfvbCampaignsResponse</returns>
+        public ApiResponse<SfvbCampaignsResponse> ListSfvbCampaignsWithHttpInfo (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbCampaigns");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (search != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search", search)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page_size", pageSize)); // query parameter
+            if (includeDeleted != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "include_deleted", includeDeleted)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbCampaigns", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCampaignsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCampaignsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaignsResponse)));
+        }
+
+        /// <summary>
+        /// List the storefront's campaigns One page of campaigns, newest first, each with its emails and postcards in step order, without their container JSON.  search matches the campaign name.  Deleted campaigns are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or archived), so a change to one of its emails reaches customers at once. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Campaigns per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted campaigns (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCampaignsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCampaignsResponse> ListSfvbCampaignsAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCampaignsResponse> localVarResponse = await ListSfvbCampaignsWithHttpInfoAsync(storefrontOid, search, page, pageSize, includeDeleted, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the storefront's campaigns One page of campaigns, newest first, each with its emails and postcards in step order, without their container JSON.  search matches the campaign name.  Deleted campaigns are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or archived), so a change to one of its emails reaches customers at once. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Campaigns per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted campaigns (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCampaignsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCampaignsResponse>> ListSfvbCampaignsWithHttpInfoAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbCampaigns");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (search != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search", search)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page_size", pageSize)); // query parameter
+            if (includeDeleted != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "include_deleted", includeDeleted)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbCampaigns", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCampaignsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCampaignsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaignsResponse)));
+        }
+
+        /// <summary>
         /// Version history for a container stored outside the file system Addressed the same way as the container itself, so owner_type also says how owner_object_id is read and itemid lists the history of the item container that merchant item id names. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -29486,6 +30221,187 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbFilesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbFilesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFilesResponse)));
+        }
+
+        /// <summary>
+        /// List the storefront's flows One page of flows, newest first, each with its trigger and its emails and postcards in step order, without their container JSON.  search matches the flow name.  Deleted flows are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or inactive); a paused flow still holds enrolled customers, so it counts as live. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Flows per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted flows (optional)</param>
+        /// <returns>SfvbFlowsResponse</returns>
+        public SfvbFlowsResponse ListSfvbFlows (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?))
+        {
+             ApiResponse<SfvbFlowsResponse> localVarResponse = ListSfvbFlowsWithHttpInfo(storefrontOid, search, page, pageSize, includeDeleted);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the storefront's flows One page of flows, newest first, each with its trigger and its emails and postcards in step order, without their container JSON.  search matches the flow name.  Deleted flows are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or inactive); a paused flow still holds enrolled customers, so it counts as live. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Flows per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted flows (optional)</param>
+        /// <returns>ApiResponse of SfvbFlowsResponse</returns>
+        public ApiResponse<SfvbFlowsResponse> ListSfvbFlowsWithHttpInfo (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbFlows");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (search != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search", search)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page_size", pageSize)); // query parameter
+            if (includeDeleted != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "include_deleted", includeDeleted)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbFlows", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlowsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlowsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlowsResponse)));
+        }
+
+        /// <summary>
+        /// List the storefront's flows One page of flows, newest first, each with its trigger and its emails and postcards in step order, without their container JSON.  search matches the flow name.  Deleted flows are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or inactive); a paused flow still holds enrolled customers, so it counts as live. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Flows per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted flows (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlowsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbFlowsResponse> ListSfvbFlowsAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbFlowsResponse> localVarResponse = await ListSfvbFlowsWithHttpInfoAsync(storefrontOid, search, page, pageSize, includeDeleted, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the storefront's flows One page of flows, newest first, each with its trigger and its emails and postcards in step order, without their container JSON.  search matches the flow name.  Deleted flows are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or inactive); a paused flow still holds enrolled customers, so it counts as live. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Text to search for in the name (optional)</param>
+        /// <param name="page">Page number, starting at 1 (optional)</param>
+        /// <param name="pageSize">Flows per page, 1 to 100, default 50 (optional)</param>
+        /// <param name="includeDeleted">Include deleted flows (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlowsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbFlowsResponse>> ListSfvbFlowsWithHttpInfoAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbFlows");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (search != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search", search)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page_size", pageSize)); // query parameter
+            if (includeDeleted != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "include_deleted", includeDeleted)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbFlows", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlowsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlowsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlowsResponse)));
         }
 
         /// <summary>

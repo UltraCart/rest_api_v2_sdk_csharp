@@ -33,24 +33,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbTransactionalEmail" /> class.
         /// </summary>
-        /// <param name="bodyFileName">The body container a draft replaces, such as receipt_body.cjson..</param>
+        /// <param name="bodyFileName">The body container a draft replaces, such as receipt_body.cjson.  Present only when the theme has the file..</param>
+        /// <param name="bodyPath">The full theme file path of the body container, such as /themes/Elements/core/emails/receipt_body.cjson.  Read it with the files endpoint.  Present only when the theme has the file..</param>
         /// <param name="fileName">The HTML template file, such as receipt_html.vm..</param>
         /// <param name="name">The display name, such as Order - Receipt..</param>
         /// <param name="textFileName">The plain text template file, when the email has one..</param>
-        public SfvbTransactionalEmail(string bodyFileName = default(string), string fileName = default(string), string name = default(string), string textFileName = default(string))
+        public SfvbTransactionalEmail(string bodyFileName = default(string), string bodyPath = default(string), string fileName = default(string), string name = default(string), string textFileName = default(string))
         {
             this.BodyFileName = bodyFileName;
+            this.BodyPath = bodyPath;
             this.FileName = fileName;
             this.Name = name;
             this.TextFileName = textFileName;
         }
 
         /// <summary>
-        /// The body container a draft replaces, such as receipt_body.cjson.
+        /// The body container a draft replaces, such as receipt_body.cjson.  Present only when the theme has the file.
         /// </summary>
-        /// <value>The body container a draft replaces, such as receipt_body.cjson.</value>
+        /// <value>The body container a draft replaces, such as receipt_body.cjson.  Present only when the theme has the file.</value>
         [DataMember(Name="body_file_name", EmitDefaultValue=false)]
         public string BodyFileName { get; set; }
+
+        /// <summary>
+        /// The full theme file path of the body container, such as /themes/Elements/core/emails/receipt_body.cjson.  Read it with the files endpoint.  Present only when the theme has the file.
+        /// </summary>
+        /// <value>The full theme file path of the body container, such as /themes/Elements/core/emails/receipt_body.cjson.  Read it with the files endpoint.  Present only when the theme has the file.</value>
+        [DataMember(Name="body_path", EmitDefaultValue=false)]
+        public string BodyPath { get; set; }
 
         /// <summary>
         /// The HTML template file, such as receipt_html.vm.
@@ -82,6 +91,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class SfvbTransactionalEmail {\n");
             sb.Append("  BodyFileName: ").Append(BodyFileName).Append("\n");
+            sb.Append("  BodyPath: ").Append(BodyPath).Append("\n");
             sb.Append("  FileName: ").Append(FileName).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  TextFileName: ").Append(TextFileName).Append("\n");
@@ -125,6 +135,11 @@ namespace com.ultracart.admin.v2.Model
                     this.BodyFileName.Equals(input.BodyFileName))
                 ) && 
                 (
+                    this.BodyPath == input.BodyPath ||
+                    (this.BodyPath != null &&
+                    this.BodyPath.Equals(input.BodyPath))
+                ) && 
+                (
                     this.FileName == input.FileName ||
                     (this.FileName != null &&
                     this.FileName.Equals(input.FileName))
@@ -152,6 +167,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.BodyFileName != null)
                     hashCode = hashCode * 59 + this.BodyFileName.GetHashCode();
+                if (this.BodyPath != null)
+                    hashCode = hashCode * 59 + this.BodyPath.GetHashCode();
                 if (this.FileName != null)
                     hashCode = hashCode * 59 + this.FileName.GetHashCode();
                 if (this.Name != null)

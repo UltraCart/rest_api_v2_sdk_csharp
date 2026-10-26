@@ -1258,6 +1258,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbElementSchemaResponse</returns>
         ApiResponse<SfvbElementSchemaResponse> GetSfvbElementWithHttpInfo (string elementType);
         /// <summary>
+        /// Get a flow or campaign email's subject and preview text
+        /// </summary>
+        /// <remarks>
+        /// The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront's campaigns and flows. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <returns>SfvbEmail</returns>
+        SfvbEmail GetSfvbEmail (int storefrontOid, string emailUuid);
+
+        /// <summary>
+        /// Get a flow or campaign email's subject and preview text
+        /// </summary>
+        /// <remarks>
+        /// The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront's campaigns and flows. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <returns>ApiResponse of SfvbEmail</returns>
+        ApiResponse<SfvbEmail> GetSfvbEmailWithHttpInfo (int storefrontOid, string emailUuid);
+        /// <summary>
         /// Replay events
         /// </summary>
         /// <remarks>
@@ -4414,6 +4437,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbCommsTwilioAccountResponse</returns>
         ApiResponse<SfvbCommsTwilioAccountResponse> UpdateSfvbCommsTwilioAccountWithHttpInfo (SfvbCommsTwilioAccount twilioAccount);
         /// <summary>
+        /// Change a flow or campaign email's subject or preview text
+        /// </summary>
+        /// <remarks>
+        /// A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant's content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="emailUpdateRequest">The subject or preview text to change</param>
+        /// <returns>SfvbEmail</returns>
+        SfvbEmail UpdateSfvbEmail (int storefrontOid, string emailUuid, string ifMatch, SfvbEmailUpdateRequest emailUpdateRequest);
+
+        /// <summary>
+        /// Change a flow or campaign email's subject or preview text
+        /// </summary>
+        /// <remarks>
+        /// A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant's content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="emailUpdateRequest">The subject or preview text to change</param>
+        /// <returns>ApiResponse of SfvbEmail</returns>
+        ApiResponse<SfvbEmail> UpdateSfvbEmailWithHttpInfo (int storefrontOid, string emailUuid, string ifMatch, SfvbEmailUpdateRequest emailUpdateRequest);
+        /// <summary>
         /// Change attributes across many items in one call
         /// </summary>
         /// <remarks>
@@ -5955,6 +6005,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbElementSchemaResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbElementSchemaResponse>> GetSfvbElementWithHttpInfoAsync (string elementType, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get a flow or campaign email's subject and preview text
+        /// </summary>
+        /// <remarks>
+        /// The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront's campaigns and flows. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEmail</returns>
+        System.Threading.Tasks.Task<SfvbEmail> GetSfvbEmailAsync (int storefrontOid, string emailUuid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get a flow or campaign email&#39;s subject and preview text
+        /// </summary>
+        /// <remarks>
+        /// The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront's campaigns and flows. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEmail)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbEmail>> GetSfvbEmailWithHttpInfoAsync (int storefrontOid, string emailUuid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Replay events
         /// </summary>
@@ -9367,6 +9442,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbCommsTwilioAccountResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCommsTwilioAccountResponse>> UpdateSfvbCommsTwilioAccountWithHttpInfoAsync (SfvbCommsTwilioAccount twilioAccount, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change a flow or campaign email's subject or preview text
+        /// </summary>
+        /// <remarks>
+        /// A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant's content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="emailUpdateRequest">The subject or preview text to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEmail</returns>
+        System.Threading.Tasks.Task<SfvbEmail> UpdateSfvbEmailAsync (int storefrontOid, string emailUuid, string ifMatch, SfvbEmailUpdateRequest emailUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a flow or campaign email&#39;s subject or preview text
+        /// </summary>
+        /// <remarks>
+        /// A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant's content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="emailUpdateRequest">The subject or preview text to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEmail)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbEmail>> UpdateSfvbEmailWithHttpInfoAsync (int storefrontOid, string emailUuid, string ifMatch, SfvbEmailUpdateRequest emailUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Change attributes across many items in one call
         /// </summary>
@@ -18832,6 +18936,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbElementSchemaResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbElementSchemaResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbElementSchemaResponse)));
+        }
+
+        /// <summary>
+        /// Get a flow or campaign email's subject and preview text The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront's campaigns and flows. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <returns>SfvbEmail</returns>
+        public SfvbEmail GetSfvbEmail (int storefrontOid, string emailUuid)
+        {
+             ApiResponse<SfvbEmail> localVarResponse = GetSfvbEmailWithHttpInfo(storefrontOid, emailUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a flow or campaign email's subject and preview text The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront's campaigns and flows. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <returns>ApiResponse of SfvbEmail</returns>
+        public ApiResponse<SfvbEmail> GetSfvbEmailWithHttpInfo (int storefrontOid, string emailUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbEmail");
+            // verify the required parameter 'emailUuid' is set
+            if (emailUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailUuid' when calling SfvbApi->GetSfvbEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailUuid != null) localVarPathParams.Add("email_uuid", this.Configuration.ApiClient.ParameterToString(emailUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEmail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEmail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEmail)));
+        }
+
+        /// <summary>
+        /// Get a flow or campaign email's subject and preview text The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront's campaigns and flows. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEmail</returns>
+        public async System.Threading.Tasks.Task<SfvbEmail> GetSfvbEmailAsync (int storefrontOid, string emailUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbEmail> localVarResponse = await GetSfvbEmailWithHttpInfoAsync(storefrontOid, emailUuid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a flow or campaign email's subject and preview text The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront's campaigns and flows. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEmail)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbEmail>> GetSfvbEmailWithHttpInfoAsync (int storefrontOid, string emailUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbEmail");
+            // verify the required parameter 'emailUuid' is set
+            if (emailUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailUuid' when calling SfvbApi->GetSfvbEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailUuid != null) localVarPathParams.Add("email_uuid", this.Configuration.ApiClient.ParameterToString(emailUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEmail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEmail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEmail)));
         }
 
         /// <summary>
@@ -41770,6 +42043,215 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbCommsTwilioAccountResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbCommsTwilioAccountResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTwilioAccountResponse)));
+        }
+
+        /// <summary>
+        /// Change a flow or campaign email's subject or preview text A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant's content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="emailUpdateRequest">The subject or preview text to change</param>
+        /// <returns>SfvbEmail</returns>
+        public SfvbEmail UpdateSfvbEmail (int storefrontOid, string emailUuid, string ifMatch, SfvbEmailUpdateRequest emailUpdateRequest)
+        {
+             ApiResponse<SfvbEmail> localVarResponse = UpdateSfvbEmailWithHttpInfo(storefrontOid, emailUuid, ifMatch, emailUpdateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a flow or campaign email's subject or preview text A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant's content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="emailUpdateRequest">The subject or preview text to change</param>
+        /// <returns>ApiResponse of SfvbEmail</returns>
+        public ApiResponse<SfvbEmail> UpdateSfvbEmailWithHttpInfo (int storefrontOid, string emailUuid, string ifMatch, SfvbEmailUpdateRequest emailUpdateRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbEmail");
+            // verify the required parameter 'emailUuid' is set
+            if (emailUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailUuid' when calling SfvbApi->UpdateSfvbEmail");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbEmail");
+            // verify the required parameter 'emailUpdateRequest' is set
+            if (emailUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailUpdateRequest' when calling SfvbApi->UpdateSfvbEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailUuid != null) localVarPathParams.Add("email_uuid", this.Configuration.ApiClient.ParameterToString(emailUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (emailUpdateRequest != null && emailUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEmail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEmail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEmail)));
+        }
+
+        /// <summary>
+        /// Change a flow or campaign email's subject or preview text A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant's content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="emailUpdateRequest">The subject or preview text to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEmail</returns>
+        public async System.Threading.Tasks.Task<SfvbEmail> UpdateSfvbEmailAsync (int storefrontOid, string emailUuid, string ifMatch, SfvbEmailUpdateRequest emailUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbEmail> localVarResponse = await UpdateSfvbEmailWithHttpInfoAsync(storefrontOid, emailUuid, ifMatch, emailUpdateRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a flow or campaign email's subject or preview text A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant's content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="emailUpdateRequest">The subject or preview text to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEmail)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbEmail>> UpdateSfvbEmailWithHttpInfoAsync (int storefrontOid, string emailUuid, string ifMatch, SfvbEmailUpdateRequest emailUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbEmail");
+            // verify the required parameter 'emailUuid' is set
+            if (emailUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailUuid' when calling SfvbApi->UpdateSfvbEmail");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbEmail");
+            // verify the required parameter 'emailUpdateRequest' is set
+            if (emailUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailUpdateRequest' when calling SfvbApi->UpdateSfvbEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailUuid != null) localVarPathParams.Add("email_uuid", this.Configuration.ApiClient.ParameterToString(emailUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (emailUpdateRequest != null && emailUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEmail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEmail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEmail)));
         }
 
         /// <summary>

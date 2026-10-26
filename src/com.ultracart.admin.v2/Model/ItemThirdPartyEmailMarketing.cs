@@ -86,22 +86,10 @@ namespace com.ultracart.admin.v2.Model
             Klaviyo = 8,
 
             /// <summary>
-            /// Enum Lyris for value: Lyris
-            /// </summary>
-            [EnumMember(Value = "Lyris")]
-            Lyris = 9,
-
-            /// <summary>
-            /// Enum LyrisHQ for value: LyrisHQ
-            /// </summary>
-            [EnumMember(Value = "LyrisHQ")]
-            LyrisHQ = 10,
-
-            /// <summary>
             /// Enum MailChimp for value: MailChimp
             /// </summary>
             [EnumMember(Value = "MailChimp")]
-            MailChimp = 11
+            MailChimp = 9
 
         }
 

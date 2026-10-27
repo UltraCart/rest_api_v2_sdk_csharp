@@ -31,6 +31,33 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationAgentAuth :  IEquatable<ConversationAgentAuth>, IValidatableObject
     {
         /// <summary>
+        /// Status the agent starts in when the CRM loads
+        /// </summary>
+        /// <value>Status the agent starts in when the CRM loads</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PbxStartupActivityEnum
+        {
+            /// <summary>
+            /// Enum Available for value: available
+            /// </summary>
+            [EnumMember(Value = "available")]
+            Available = 1,
+
+            /// <summary>
+            /// Enum Unavailable for value: unavailable
+            /// </summary>
+            [EnumMember(Value = "unavailable")]
+            Unavailable = 2
+
+        }
+
+        /// <summary>
+        /// Status the agent starts in when the CRM loads
+        /// </summary>
+        /// <value>Status the agent starts in when the CRM loads</value>
+        [DataMember(Name="pbx_startup_activity", EmitDefaultValue=false)]
+        public PbxStartupActivityEnum? PbxStartupActivity { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationAgentAuth" /> class.
         /// </summary>
         /// <param name="chatAdmin">chatAdmin.</param>
@@ -46,6 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="parentMerchantId">The parent merchant ID for PBX. For non-linked merchants, equals merchant_id..</param>
         /// <param name="pbxAdmin">pbxAdmin.</param>
         /// <param name="pbxJwt">pbxJwt.</param>
+        /// <param name="pbxStartupActivity">Status the agent starts in when the CRM loads.</param>
         /// <param name="pbxSupervisor">pbxSupervisor.</param>
         /// <param name="pbxUser">pbxUser.</param>
         /// <param name="pbxVoiceIdentity">pbxVoiceIdentity.</param>
@@ -55,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="twilioAccounts">twilioAccounts.</param>
         /// <param name="userId">UltraCart User ID.</param>
         /// <param name="websocketUrl">websocketUrl.</param>
-        public ConversationAgentAuth(bool chatAdmin = default(bool), bool chatUser = default(bool), string conversationParticipantArn = default(string), string conversationParticipantName = default(string), bool customerProfile = default(bool), string defaultPhoneNumber = default(string), List<int> groupIds = default(List<int>), string jwt = default(string), string merchantId = default(string), List<ConversationAgentAuthMerchant> merchants = default(List<ConversationAgentAuthMerchant>), string parentMerchantId = default(string), bool pbxAdmin = default(bool), string pbxJwt = default(string), bool pbxSupervisor = default(bool), bool pbxUser = default(bool), string pbxVoiceIdentity = default(string), string pbxVoiceToken = default(string), string pbxWorkerToken = default(string), string pbxWorkerTokenV2 = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), int userId = default(int), string websocketUrl = default(string))
+        public ConversationAgentAuth(bool chatAdmin = default(bool), bool chatUser = default(bool), string conversationParticipantArn = default(string), string conversationParticipantName = default(string), bool customerProfile = default(bool), string defaultPhoneNumber = default(string), List<int> groupIds = default(List<int>), string jwt = default(string), string merchantId = default(string), List<ConversationAgentAuthMerchant> merchants = default(List<ConversationAgentAuthMerchant>), string parentMerchantId = default(string), bool pbxAdmin = default(bool), string pbxJwt = default(string), PbxStartupActivityEnum? pbxStartupActivity = default(PbxStartupActivityEnum?), bool pbxSupervisor = default(bool), bool pbxUser = default(bool), string pbxVoiceIdentity = default(string), string pbxVoiceToken = default(string), string pbxWorkerToken = default(string), string pbxWorkerTokenV2 = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), int userId = default(int), string websocketUrl = default(string))
         {
             this.ChatAdmin = chatAdmin;
             this.ChatUser = chatUser;
@@ -70,6 +98,7 @@ namespace com.ultracart.admin.v2.Model
             this.ParentMerchantId = parentMerchantId;
             this.PbxAdmin = pbxAdmin;
             this.PbxJwt = pbxJwt;
+            this.PbxStartupActivity = pbxStartupActivity;
             this.PbxSupervisor = pbxSupervisor;
             this.PbxUser = pbxUser;
             this.PbxVoiceIdentity = pbxVoiceIdentity;
@@ -163,6 +192,7 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="pbx_jwt", EmitDefaultValue=false)]
         public string PbxJwt { get; set; }
 
+
         /// <summary>
         /// Gets or Sets PbxSupervisor
         /// </summary>
@@ -239,6 +269,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ParentMerchantId: ").Append(ParentMerchantId).Append("\n");
             sb.Append("  PbxAdmin: ").Append(PbxAdmin).Append("\n");
             sb.Append("  PbxJwt: ").Append(PbxJwt).Append("\n");
+            sb.Append("  PbxStartupActivity: ").Append(PbxStartupActivity).Append("\n");
             sb.Append("  PbxSupervisor: ").Append(PbxSupervisor).Append("\n");
             sb.Append("  PbxUser: ").Append(PbxUser).Append("\n");
             sb.Append("  PbxVoiceIdentity: ").Append(PbxVoiceIdentity).Append("\n");
@@ -350,6 +381,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PbxJwt.Equals(input.PbxJwt))
                 ) && 
                 (
+                    this.PbxStartupActivity == input.PbxStartupActivity ||
+                    (this.PbxStartupActivity != null &&
+                    this.PbxStartupActivity.Equals(input.PbxStartupActivity))
+                ) && 
+                (
                     this.PbxSupervisor == input.PbxSupervisor ||
                     (this.PbxSupervisor != null &&
                     this.PbxSupervisor.Equals(input.PbxSupervisor))
@@ -432,6 +468,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PbxAdmin.GetHashCode();
                 if (this.PbxJwt != null)
                     hashCode = hashCode * 59 + this.PbxJwt.GetHashCode();
+                if (this.PbxStartupActivity != null)
+                    hashCode = hashCode * 59 + this.PbxStartupActivity.GetHashCode();
                 if (this.PbxSupervisor != null)
                     hashCode = hashCode * 59 + this.PbxSupervisor.GetHashCode();
                 if (this.PbxUser != null)

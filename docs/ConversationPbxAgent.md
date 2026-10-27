@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **PreferredHardwarePhoneUuid** | **string** | The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone | [optional] 
 **RecordOutgoingAutomatically** | **bool** | True if outgoing calls should be automatically recorded | [optional] 
 **SharedConversationPbxVoicemailMailboxUuid** | **string** | Shared Conversation Pbx Voicemail Mailbox UUID | [optional] 
+**StartupActivity** | **string** | Status the agent starts in when the CRM loads. Missing means available. | [optional] 
 **TwilioTaskrouterWorkerId** | **string** | Twilio taskrouter worker Id | [optional] 
 **UnavailablePlayAudioUuid** | **string** | Unavailable play audio UUID | [optional] 
 **UnavailableSay** | **string** | Unavailable say | [optional] 

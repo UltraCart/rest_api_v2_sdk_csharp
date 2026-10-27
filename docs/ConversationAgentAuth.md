@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **ParentMerchantId** | **string** | The parent merchant ID for PBX. For non-linked merchants, equals merchant_id. | [optional] 
 **PbxAdmin** | **bool** |  | [optional] 
 **PbxJwt** | **string** |  | [optional] 
+**PbxStartupActivity** | **string** | Status the agent starts in when the CRM loads | [optional] 
 **PbxSupervisor** | **bool** |  | [optional] 
 **PbxUser** | **bool** |  | [optional] 
 **PbxVoiceIdentity** | **string** |  | [optional] 

@@ -64,6 +64,33 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="call_routing_preference", EmitDefaultValue=false)]
         public CallRoutingPreferenceEnum? CallRoutingPreference { get; set; }
         /// <summary>
+        /// Status the agent starts in when the CRM loads. Missing means available.
+        /// </summary>
+        /// <value>Status the agent starts in when the CRM loads. Missing means available.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StartupActivityEnum
+        {
+            /// <summary>
+            /// Enum Available for value: available
+            /// </summary>
+            [EnumMember(Value = "available")]
+            Available = 1,
+
+            /// <summary>
+            /// Enum Unavailable for value: unavailable
+            /// </summary>
+            [EnumMember(Value = "unavailable")]
+            Unavailable = 2
+
+        }
+
+        /// <summary>
+        /// Status the agent starts in when the CRM loads. Missing means available.
+        /// </summary>
+        /// <value>Status the agent starts in when the CRM loads. Missing means available.</value>
+        [DataMember(Name="startup_activity", EmitDefaultValue=false)]
+        public StartupActivityEnum? StartupActivity { get; set; }
+        /// <summary>
         /// Unavailable say voice
         /// </summary>
         /// <value>Unavailable say voice</value>
@@ -108,6 +135,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="preferredHardwarePhoneUuid">The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone.</param>
         /// <param name="recordOutgoingAutomatically">True if outgoing calls should be automatically recorded.</param>
         /// <param name="sharedConversationPbxVoicemailMailboxUuid">Shared Conversation Pbx Voicemail Mailbox UUID.</param>
+        /// <param name="startupActivity">Status the agent starts in when the CRM loads. Missing means available..</param>
         /// <param name="twilioTaskrouterWorkerId">Twilio taskrouter worker Id.</param>
         /// <param name="unavailablePlayAudioUuid">Unavailable play audio UUID.</param>
         /// <param name="unavailableSay">Unavailable say.</param>
@@ -116,7 +144,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="voicemail">True if this agent has voicemail configured.</param>
         /// <param name="zohoDeskOutboundDepartmentId">Zoho Desk department ID to create outbound-call tickets in for this agent.</param>
         /// <param name="zohoDeskOutboundTicketEnabled">If true, a Zoho Desk ticket is automatically created for outbound calls placed by this agent.</param>
-        public ConversationPbxAgent(bool ai = default(bool), CallRoutingPreferenceEnum? callRoutingPreference = default(CallRoutingPreferenceEnum?), string cellphone = default(string), string conversationPbxAgentUuid = default(string), string cosUuid = default(string), string defaultPhoneNumberUuid = default(string), int extension = default(int), string fullName = default(string), List<string> hardwarePhoneUuids = default(List<string>), string login = default(string), string merchantId = default(string), string personalConversationPbxVoicemailMailboxUuid = default(string), string preferredHardwarePhoneUuid = default(string), bool recordOutgoingAutomatically = default(bool), string sharedConversationPbxVoicemailMailboxUuid = default(string), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), UnavailableSayVoiceEnum? unavailableSayVoice = default(UnavailableSayVoiceEnum?), int userId = default(int), bool voicemail = default(bool), string zohoDeskOutboundDepartmentId = default(string), bool zohoDeskOutboundTicketEnabled = default(bool))
+        public ConversationPbxAgent(bool ai = default(bool), CallRoutingPreferenceEnum? callRoutingPreference = default(CallRoutingPreferenceEnum?), string cellphone = default(string), string conversationPbxAgentUuid = default(string), string cosUuid = default(string), string defaultPhoneNumberUuid = default(string), int extension = default(int), string fullName = default(string), List<string> hardwarePhoneUuids = default(List<string>), string login = default(string), string merchantId = default(string), string personalConversationPbxVoicemailMailboxUuid = default(string), string preferredHardwarePhoneUuid = default(string), bool recordOutgoingAutomatically = default(bool), string sharedConversationPbxVoicemailMailboxUuid = default(string), StartupActivityEnum? startupActivity = default(StartupActivityEnum?), string twilioTaskrouterWorkerId = default(string), string unavailablePlayAudioUuid = default(string), string unavailableSay = default(string), UnavailableSayVoiceEnum? unavailableSayVoice = default(UnavailableSayVoiceEnum?), int userId = default(int), bool voicemail = default(bool), string zohoDeskOutboundDepartmentId = default(string), bool zohoDeskOutboundTicketEnabled = default(bool))
         {
             this.Ai = ai;
             this.CallRoutingPreference = callRoutingPreference;
@@ -133,6 +161,7 @@ namespace com.ultracart.admin.v2.Model
             this.PreferredHardwarePhoneUuid = preferredHardwarePhoneUuid;
             this.RecordOutgoingAutomatically = recordOutgoingAutomatically;
             this.SharedConversationPbxVoicemailMailboxUuid = sharedConversationPbxVoicemailMailboxUuid;
+            this.StartupActivity = startupActivity;
             this.TwilioTaskrouterWorkerId = twilioTaskrouterWorkerId;
             this.UnavailablePlayAudioUuid = unavailablePlayAudioUuid;
             this.UnavailableSay = unavailableSay;
@@ -242,6 +271,7 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="shared_conversation_pbx_voicemail_mailbox_uuid", EmitDefaultValue=false)]
         public string SharedConversationPbxVoicemailMailboxUuid { get; set; }
 
+
         /// <summary>
         /// Twilio taskrouter worker Id
         /// </summary>
@@ -315,6 +345,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PreferredHardwarePhoneUuid: ").Append(PreferredHardwarePhoneUuid).Append("\n");
             sb.Append("  RecordOutgoingAutomatically: ").Append(RecordOutgoingAutomatically).Append("\n");
             sb.Append("  SharedConversationPbxVoicemailMailboxUuid: ").Append(SharedConversationPbxVoicemailMailboxUuid).Append("\n");
+            sb.Append("  StartupActivity: ").Append(StartupActivity).Append("\n");
             sb.Append("  TwilioTaskrouterWorkerId: ").Append(TwilioTaskrouterWorkerId).Append("\n");
             sb.Append("  UnavailablePlayAudioUuid: ").Append(UnavailablePlayAudioUuid).Append("\n");
             sb.Append("  UnavailableSay: ").Append(UnavailableSay).Append("\n");
@@ -434,6 +465,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SharedConversationPbxVoicemailMailboxUuid.Equals(input.SharedConversationPbxVoicemailMailboxUuid))
                 ) && 
                 (
+                    this.StartupActivity == input.StartupActivity ||
+                    (this.StartupActivity != null &&
+                    this.StartupActivity.Equals(input.StartupActivity))
+                ) && 
+                (
                     this.TwilioTaskrouterWorkerId == input.TwilioTaskrouterWorkerId ||
                     (this.TwilioTaskrouterWorkerId != null &&
                     this.TwilioTaskrouterWorkerId.Equals(input.TwilioTaskrouterWorkerId))
@@ -514,6 +550,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RecordOutgoingAutomatically.GetHashCode();
                 if (this.SharedConversationPbxVoicemailMailboxUuid != null)
                     hashCode = hashCode * 59 + this.SharedConversationPbxVoicemailMailboxUuid.GetHashCode();
+                if (this.StartupActivity != null)
+                    hashCode = hashCode * 59 + this.StartupActivity.GetHashCode();
                 if (this.TwilioTaskrouterWorkerId != null)
                     hashCode = hashCode * 59 + this.TwilioTaskrouterWorkerId.GetHashCode();
                 if (this.UnavailablePlayAudioUuid != null)

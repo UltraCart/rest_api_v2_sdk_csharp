@@ -1190,6 +1190,9 @@ docs/SfvbSecretRequest.md
 docs/SfvbSecretRequestCreate.md
 docs/SfvbSecretRequestsResponse.md
 docs/SfvbSecretSink.md
+docs/SfvbSequence.md
+docs/SfvbSequenceBranch.md
+docs/SfvbSequenceStep.md
 docs/SfvbServerLog.md
 docs/SfvbServerLogDetail.md
 docs/SfvbServerLogEntry.md
@@ -2538,6 +2541,9 @@ src/com.ultracart.admin.v2/Model/SfvbSecretRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbSecretRequestCreate.cs
 src/com.ultracart.admin.v2/Model/SfvbSecretRequestsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbSecretSink.cs
+src/com.ultracart.admin.v2/Model/SfvbSequence.cs
+src/com.ultracart.admin.v2/Model/SfvbSequenceBranch.cs
+src/com.ultracart.admin.v2/Model/SfvbSequenceStep.cs
 src/com.ultracart.admin.v2/Model/SfvbServerLog.cs
 src/com.ultracart.admin.v2/Model/SfvbServerLogDetail.cs
 src/com.ultracart.admin.v2/Model/SfvbServerLogEntry.cs

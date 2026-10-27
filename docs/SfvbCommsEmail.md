@@ -15,6 +15,9 @@ Name | Type | Description | Notes
 **StepUuid** | **string** | The step that sends this email. | [optional] 
 **Subject** | **string** | The subject line. | [optional] 
 **Transactional** | **bool** | True for a transactional email, which skips the marketing footer rules. | [optional] 
+**VariantName** | **string** | For an email in an experiment step, the variant name.  Absent otherwise. | [optional] 
+**VariantPercentage** | **decimal** | For an email in an experiment step, the share of customers it is sent to. | [optional] 
+**VariantWinner** | **bool** | For an email in an experiment step, true when the experiment chose it as the winner. | [optional] 
 **_Version** | **int** | The email version. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

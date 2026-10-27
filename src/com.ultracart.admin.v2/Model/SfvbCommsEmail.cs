@@ -43,8 +43,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="stepUuid">The step that sends this email..</param>
         /// <param name="subject">The subject line..</param>
         /// <param name="transactional">True for a transactional email, which skips the marketing footer rules..</param>
+        /// <param name="variantName">For an email in an experiment step, the variant name.  Absent otherwise..</param>
+        /// <param name="variantPercentage">For an email in an experiment step, the share of customers it is sent to..</param>
+        /// <param name="variantWinner">For an email in an experiment step, true when the experiment chose it as the winner..</param>
         /// <param name="version">The email version..</param>
-        public SfvbCommsEmail(string containerLastModifiedDts = default(string), bool deleted = default(bool), string emailUuid = default(string), bool pendingReview = default(bool), string previewText = default(string), bool rejected = default(bool), bool requiresReview = default(bool), string stepUuid = default(string), string subject = default(string), bool transactional = default(bool), int version = default(int))
+        public SfvbCommsEmail(string containerLastModifiedDts = default(string), bool deleted = default(bool), string emailUuid = default(string), bool pendingReview = default(bool), string previewText = default(string), bool rejected = default(bool), bool requiresReview = default(bool), string stepUuid = default(string), string subject = default(string), bool transactional = default(bool), string variantName = default(string), decimal variantPercentage = default(decimal), bool variantWinner = default(bool), int version = default(int))
         {
             this.ContainerLastModifiedDts = containerLastModifiedDts;
             this.Deleted = deleted;
@@ -56,6 +59,9 @@ namespace com.ultracart.admin.v2.Model
             this.StepUuid = stepUuid;
             this.Subject = subject;
             this.Transactional = transactional;
+            this.VariantName = variantName;
+            this.VariantPercentage = variantPercentage;
+            this.VariantWinner = variantWinner;
             this._Version = version;
         }
 
@@ -130,6 +136,27 @@ namespace com.ultracart.admin.v2.Model
         public bool Transactional { get; set; }
 
         /// <summary>
+        /// For an email in an experiment step, the variant name.  Absent otherwise.
+        /// </summary>
+        /// <value>For an email in an experiment step, the variant name.  Absent otherwise.</value>
+        [DataMember(Name="variant_name", EmitDefaultValue=false)]
+        public string VariantName { get; set; }
+
+        /// <summary>
+        /// For an email in an experiment step, the share of customers it is sent to.
+        /// </summary>
+        /// <value>For an email in an experiment step, the share of customers it is sent to.</value>
+        [DataMember(Name="variant_percentage", EmitDefaultValue=false)]
+        public decimal VariantPercentage { get; set; }
+
+        /// <summary>
+        /// For an email in an experiment step, true when the experiment chose it as the winner.
+        /// </summary>
+        /// <value>For an email in an experiment step, true when the experiment chose it as the winner.</value>
+        [DataMember(Name="variant_winner", EmitDefaultValue=false)]
+        public bool VariantWinner { get; set; }
+
+        /// <summary>
         /// The email version.
         /// </summary>
         /// <value>The email version.</value>
@@ -154,6 +181,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  StepUuid: ").Append(StepUuid).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  Transactional: ").Append(Transactional).Append("\n");
+            sb.Append("  VariantName: ").Append(VariantName).Append("\n");
+            sb.Append("  VariantPercentage: ").Append(VariantPercentage).Append("\n");
+            sb.Append("  VariantWinner: ").Append(VariantWinner).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -240,6 +270,21 @@ namespace com.ultracart.admin.v2.Model
                     this.Transactional.Equals(input.Transactional))
                 ) && 
                 (
+                    this.VariantName == input.VariantName ||
+                    (this.VariantName != null &&
+                    this.VariantName.Equals(input.VariantName))
+                ) && 
+                (
+                    this.VariantPercentage == input.VariantPercentage ||
+                    (this.VariantPercentage != null &&
+                    this.VariantPercentage.Equals(input.VariantPercentage))
+                ) && 
+                (
+                    this.VariantWinner == input.VariantWinner ||
+                    (this.VariantWinner != null &&
+                    this.VariantWinner.Equals(input.VariantWinner))
+                ) && 
+                (
                     this._Version == input._Version ||
                     (this._Version != null &&
                     this._Version.Equals(input._Version))
@@ -275,6 +320,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Subject.GetHashCode();
                 if (this.Transactional != null)
                     hashCode = hashCode * 59 + this.Transactional.GetHashCode();
+                if (this.VariantName != null)
+                    hashCode = hashCode * 59 + this.VariantName.GetHashCode();
+                if (this.VariantPercentage != null)
+                    hashCode = hashCode * 59 + this.VariantPercentage.GetHashCode();
+                if (this.VariantWinner != null)
+                    hashCode = hashCode * 59 + this.VariantWinner.GetHashCode();
                 if (this._Version != null)
                     hashCode = hashCode * 59 + this._Version.GetHashCode();
                 return hashCode;

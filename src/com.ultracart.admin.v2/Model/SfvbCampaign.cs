@@ -38,23 +38,39 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="createdDts">When the campaign was created (ISO 8601, UTC)..</param>
         /// <param name="deleted">True when the campaign was deleted..</param>
         /// <param name="emails">Its emails, in step order..</param>
+        /// <param name="endOnceCustomerPurchases">True when a customer leaves the campaign once they buy from one of its emails..</param>
+        /// <param name="endOnceCustomerPurchasesAnywhere">True when a customer leaves the campaign once they buy from any source..</param>
+        /// <param name="hashSha256">Send this as If-Match when changing or archiving the campaign..</param>
         /// <param name="live">True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing..</param>
+        /// <param name="memberships">The lists and segments it sends to or leaves out..</param>
         /// <param name="name">The campaign name..</param>
+        /// <param name="notes">What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write..</param>
         /// <param name="postcards">Its postcards, in step order..</param>
         /// <param name="scheduledDts">When the campaign is scheduled to send (ISO 8601, UTC), when it is..</param>
+        /// <param name="sendingDomainUuid">The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain..</param>
+        /// <param name="sendingName">The from name.  Defaults to the storefront&#39;s marketing setting..</param>
+        /// <param name="sendingUser">The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting..</param>
         /// <param name="status">The status, such as draft, scheduled, sending, sent or archived..</param>
         /// <param name="statusDts">When the status last changed (ISO 8601, UTC)..</param>
-        public SfvbCampaign(string campaignUuid = default(string), string communicationSequenceUuid = default(string), string createdDts = default(string), bool deleted = default(bool), List<SfvbCommsEmail> emails = default(List<SfvbCommsEmail>), bool live = default(bool), string name = default(string), List<SfvbCommsPostcard> postcards = default(List<SfvbCommsPostcard>), string scheduledDts = default(string), string status = default(string), string statusDts = default(string))
+        public SfvbCampaign(string campaignUuid = default(string), string communicationSequenceUuid = default(string), string createdDts = default(string), bool deleted = default(bool), List<SfvbCommsEmail> emails = default(List<SfvbCommsEmail>), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string hashSha256 = default(string), bool live = default(bool), List<SfvbCampaignMembership> memberships = default(List<SfvbCampaignMembership>), string name = default(string), List<string> notes = default(List<string>), List<SfvbCommsPostcard> postcards = default(List<SfvbCommsPostcard>), string scheduledDts = default(string), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string), string status = default(string), string statusDts = default(string))
         {
             this.CampaignUuid = campaignUuid;
             this.CommunicationSequenceUuid = communicationSequenceUuid;
             this.CreatedDts = createdDts;
             this.Deleted = deleted;
             this.Emails = emails;
+            this.EndOnceCustomerPurchases = endOnceCustomerPurchases;
+            this.EndOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
+            this.HashSha256 = hashSha256;
             this.Live = live;
+            this.Memberships = memberships;
             this.Name = name;
+            this.Notes = notes;
             this.Postcards = postcards;
             this.ScheduledDts = scheduledDts;
+            this.SendingDomainUuid = sendingDomainUuid;
+            this.SendingName = sendingName;
+            this.SendingUser = sendingUser;
             this.Status = status;
             this.StatusDts = statusDts;
         }
@@ -95,6 +111,27 @@ namespace com.ultracart.admin.v2.Model
         public List<SfvbCommsEmail> Emails { get; set; }
 
         /// <summary>
+        /// True when a customer leaves the campaign once they buy from one of its emails.
+        /// </summary>
+        /// <value>True when a customer leaves the campaign once they buy from one of its emails.</value>
+        [DataMember(Name="end_once_customer_purchases", EmitDefaultValue=false)]
+        public bool EndOnceCustomerPurchases { get; set; }
+
+        /// <summary>
+        /// True when a customer leaves the campaign once they buy from any source.
+        /// </summary>
+        /// <value>True when a customer leaves the campaign once they buy from any source.</value>
+        [DataMember(Name="end_once_customer_purchases_anywhere", EmitDefaultValue=false)]
+        public bool EndOnceCustomerPurchasesAnywhere { get; set; }
+
+        /// <summary>
+        /// Send this as If-Match when changing or archiving the campaign.
+        /// </summary>
+        /// <value>Send this as If-Match when changing or archiving the campaign.</value>
+        [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
+        public string HashSha256 { get; set; }
+
+        /// <summary>
         /// True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing.
         /// </summary>
         /// <value>True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing.</value>
@@ -102,11 +139,25 @@ namespace com.ultracart.admin.v2.Model
         public bool Live { get; set; }
 
         /// <summary>
+        /// The lists and segments it sends to or leaves out.
+        /// </summary>
+        /// <value>The lists and segments it sends to or leaves out.</value>
+        [DataMember(Name="memberships", EmitDefaultValue=false)]
+        public List<SfvbCampaignMembership> Memberships { get; set; }
+
+        /// <summary>
         /// The campaign name.
         /// </summary>
         /// <value>The campaign name.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.
+        /// </summary>
+        /// <value>What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.</value>
+        [DataMember(Name="notes", EmitDefaultValue=false)]
+        public List<string> Notes { get; set; }
 
         /// <summary>
         /// Its postcards, in step order.
@@ -121,6 +172,27 @@ namespace com.ultracart.admin.v2.Model
         /// <value>When the campaign is scheduled to send (ISO 8601, UTC), when it is.</value>
         [DataMember(Name="scheduled_dts", EmitDefaultValue=false)]
         public string ScheduledDts { get; set; }
+
+        /// <summary>
+        /// The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain.
+        /// </summary>
+        /// <value>The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain.</value>
+        [DataMember(Name="sending_domain_uuid", EmitDefaultValue=false)]
+        public string SendingDomainUuid { get; set; }
+
+        /// <summary>
+        /// The from name.  Defaults to the storefront&#39;s marketing setting.
+        /// </summary>
+        /// <value>The from name.  Defaults to the storefront&#39;s marketing setting.</value>
+        [DataMember(Name="sending_name", EmitDefaultValue=false)]
+        public string SendingName { get; set; }
+
+        /// <summary>
+        /// The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting.
+        /// </summary>
+        /// <value>The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting.</value>
+        [DataMember(Name="sending_user", EmitDefaultValue=false)]
+        public string SendingUser { get; set; }
 
         /// <summary>
         /// The status, such as draft, scheduled, sending, sent or archived.
@@ -149,10 +221,18 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  Emails: ").Append(Emails).Append("\n");
+            sb.Append("  EndOnceCustomerPurchases: ").Append(EndOnceCustomerPurchases).Append("\n");
+            sb.Append("  EndOnceCustomerPurchasesAnywhere: ").Append(EndOnceCustomerPurchasesAnywhere).Append("\n");
+            sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
             sb.Append("  Live: ").Append(Live).Append("\n");
+            sb.Append("  Memberships: ").Append(Memberships).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("  Postcards: ").Append(Postcards).Append("\n");
             sb.Append("  ScheduledDts: ").Append(ScheduledDts).Append("\n");
+            sb.Append("  SendingDomainUuid: ").Append(SendingDomainUuid).Append("\n");
+            sb.Append("  SendingName: ").Append(SendingName).Append("\n");
+            sb.Append("  SendingUser: ").Append(SendingUser).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusDts: ").Append(StatusDts).Append("\n");
             sb.Append("}\n");
@@ -216,14 +296,41 @@ namespace com.ultracart.admin.v2.Model
                     this.Emails.SequenceEqual(input.Emails)
                 ) && 
                 (
+                    this.EndOnceCustomerPurchases == input.EndOnceCustomerPurchases ||
+                    (this.EndOnceCustomerPurchases != null &&
+                    this.EndOnceCustomerPurchases.Equals(input.EndOnceCustomerPurchases))
+                ) && 
+                (
+                    this.EndOnceCustomerPurchasesAnywhere == input.EndOnceCustomerPurchasesAnywhere ||
+                    (this.EndOnceCustomerPurchasesAnywhere != null &&
+                    this.EndOnceCustomerPurchasesAnywhere.Equals(input.EndOnceCustomerPurchasesAnywhere))
+                ) && 
+                (
+                    this.HashSha256 == input.HashSha256 ||
+                    (this.HashSha256 != null &&
+                    this.HashSha256.Equals(input.HashSha256))
+                ) && 
+                (
                     this.Live == input.Live ||
                     (this.Live != null &&
                     this.Live.Equals(input.Live))
                 ) && 
                 (
+                    this.Memberships == input.Memberships ||
+                    this.Memberships != null &&
+                    input.Memberships != null &&
+                    this.Memberships.SequenceEqual(input.Memberships)
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Notes == input.Notes ||
+                    this.Notes != null &&
+                    input.Notes != null &&
+                    this.Notes.SequenceEqual(input.Notes)
                 ) && 
                 (
                     this.Postcards == input.Postcards ||
@@ -235,6 +342,21 @@ namespace com.ultracart.admin.v2.Model
                     this.ScheduledDts == input.ScheduledDts ||
                     (this.ScheduledDts != null &&
                     this.ScheduledDts.Equals(input.ScheduledDts))
+                ) && 
+                (
+                    this.SendingDomainUuid == input.SendingDomainUuid ||
+                    (this.SendingDomainUuid != null &&
+                    this.SendingDomainUuid.Equals(input.SendingDomainUuid))
+                ) && 
+                (
+                    this.SendingName == input.SendingName ||
+                    (this.SendingName != null &&
+                    this.SendingName.Equals(input.SendingName))
+                ) && 
+                (
+                    this.SendingUser == input.SendingUser ||
+                    (this.SendingUser != null &&
+                    this.SendingUser.Equals(input.SendingUser))
                 ) && 
                 (
                     this.Status == input.Status ||
@@ -267,14 +389,30 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Deleted.GetHashCode();
                 if (this.Emails != null)
                     hashCode = hashCode * 59 + this.Emails.GetHashCode();
+                if (this.EndOnceCustomerPurchases != null)
+                    hashCode = hashCode * 59 + this.EndOnceCustomerPurchases.GetHashCode();
+                if (this.EndOnceCustomerPurchasesAnywhere != null)
+                    hashCode = hashCode * 59 + this.EndOnceCustomerPurchasesAnywhere.GetHashCode();
+                if (this.HashSha256 != null)
+                    hashCode = hashCode * 59 + this.HashSha256.GetHashCode();
                 if (this.Live != null)
                     hashCode = hashCode * 59 + this.Live.GetHashCode();
+                if (this.Memberships != null)
+                    hashCode = hashCode * 59 + this.Memberships.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Notes != null)
+                    hashCode = hashCode * 59 + this.Notes.GetHashCode();
                 if (this.Postcards != null)
                     hashCode = hashCode * 59 + this.Postcards.GetHashCode();
                 if (this.ScheduledDts != null)
                     hashCode = hashCode * 59 + this.ScheduledDts.GetHashCode();
+                if (this.SendingDomainUuid != null)
+                    hashCode = hashCode * 59 + this.SendingDomainUuid.GetHashCode();
+                if (this.SendingName != null)
+                    hashCode = hashCode * 59 + this.SendingName.GetHashCode();
+                if (this.SendingUser != null)
+                    hashCode = hashCode * 59 + this.SendingUser.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.StatusDts != null)

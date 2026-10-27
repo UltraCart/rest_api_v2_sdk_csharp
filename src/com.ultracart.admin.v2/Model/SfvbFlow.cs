@@ -33,33 +33,62 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbFlow" /> class.
         /// </summary>
+        /// <param name="allowMultipleConcurrentEnrollments">True when a customer may be in this flow more than once at a time..</param>
         /// <param name="communicationSequenceUuid">The communication sequence the steps belong to..</param>
         /// <param name="createdDts">When the flow was created (ISO 8601, UTC)..</param>
         /// <param name="deleted">True when the flow was deleted..</param>
         /// <param name="emails">Its emails, in step order..</param>
+        /// <param name="endOnceCustomerPurchases">True when a customer leaves the flow once they buy from one of its emails..</param>
+        /// <param name="endOnceCustomerPurchasesAnywhere">True when a customer leaves the flow once they buy from any source..</param>
         /// <param name="flowUuid">The flow uuid..</param>
+        /// <param name="hashSha256">Send this as If-Match when changing, archiving or turning the flow on or off..</param>
         /// <param name="live">True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing..</param>
         /// <param name="name">The flow name..</param>
+        /// <param name="notes">What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write..</param>
         /// <param name="postcards">Its postcards, in step order..</param>
+        /// <param name="reentryDelayDays">Days before a customer may enter again, with after_days..</param>
+        /// <param name="reentryPolicy">Whether a customer may enter again, anytime, after_days or never..</param>
+        /// <param name="sendingDomainUuid">The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain..</param>
+        /// <param name="sendingName">The from name.  Defaults to the storefront&#39;s marketing setting..</param>
+        /// <param name="sendingUser">The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting..</param>
         /// <param name="status">The status, such as draft, active, paused, draining or inactive..</param>
         /// <param name="statusDts">When the status last changed (ISO 8601, UTC)..</param>
+        /// <param name="triggerParameter">The list or segment uuid, or other value, the trigger is limited to..</param>
         /// <param name="triggerParameterName">The name of the trigger parameter, when the trigger takes one..</param>
         /// <param name="triggerType">What starts the flow, such as cart abandon or an order..</param>
-        public SfvbFlow(string communicationSequenceUuid = default(string), string createdDts = default(string), bool deleted = default(bool), List<SfvbCommsEmail> emails = default(List<SfvbCommsEmail>), string flowUuid = default(string), bool live = default(bool), string name = default(string), List<SfvbCommsPostcard> postcards = default(List<SfvbCommsPostcard>), string status = default(string), string statusDts = default(string), string triggerParameterName = default(string), string triggerType = default(string))
+        public SfvbFlow(bool allowMultipleConcurrentEnrollments = default(bool), string communicationSequenceUuid = default(string), string createdDts = default(string), bool deleted = default(bool), List<SfvbCommsEmail> emails = default(List<SfvbCommsEmail>), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string flowUuid = default(string), string hashSha256 = default(string), bool live = default(bool), string name = default(string), List<string> notes = default(List<string>), List<SfvbCommsPostcard> postcards = default(List<SfvbCommsPostcard>), int reentryDelayDays = default(int), string reentryPolicy = default(string), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string), string status = default(string), string statusDts = default(string), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
         {
+            this.AllowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
             this.CommunicationSequenceUuid = communicationSequenceUuid;
             this.CreatedDts = createdDts;
             this.Deleted = deleted;
             this.Emails = emails;
+            this.EndOnceCustomerPurchases = endOnceCustomerPurchases;
+            this.EndOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
             this.FlowUuid = flowUuid;
+            this.HashSha256 = hashSha256;
             this.Live = live;
             this.Name = name;
+            this.Notes = notes;
             this.Postcards = postcards;
+            this.ReentryDelayDays = reentryDelayDays;
+            this.ReentryPolicy = reentryPolicy;
+            this.SendingDomainUuid = sendingDomainUuid;
+            this.SendingName = sendingName;
+            this.SendingUser = sendingUser;
             this.Status = status;
             this.StatusDts = statusDts;
+            this.TriggerParameter = triggerParameter;
             this.TriggerParameterName = triggerParameterName;
             this.TriggerType = triggerType;
         }
+
+        /// <summary>
+        /// True when a customer may be in this flow more than once at a time.
+        /// </summary>
+        /// <value>True when a customer may be in this flow more than once at a time.</value>
+        [DataMember(Name="allow_multiple_concurrent_enrollments", EmitDefaultValue=false)]
+        public bool AllowMultipleConcurrentEnrollments { get; set; }
 
         /// <summary>
         /// The communication sequence the steps belong to.
@@ -90,11 +119,32 @@ namespace com.ultracart.admin.v2.Model
         public List<SfvbCommsEmail> Emails { get; set; }
 
         /// <summary>
+        /// True when a customer leaves the flow once they buy from one of its emails.
+        /// </summary>
+        /// <value>True when a customer leaves the flow once they buy from one of its emails.</value>
+        [DataMember(Name="end_once_customer_purchases", EmitDefaultValue=false)]
+        public bool EndOnceCustomerPurchases { get; set; }
+
+        /// <summary>
+        /// True when a customer leaves the flow once they buy from any source.
+        /// </summary>
+        /// <value>True when a customer leaves the flow once they buy from any source.</value>
+        [DataMember(Name="end_once_customer_purchases_anywhere", EmitDefaultValue=false)]
+        public bool EndOnceCustomerPurchasesAnywhere { get; set; }
+
+        /// <summary>
         /// The flow uuid.
         /// </summary>
         /// <value>The flow uuid.</value>
         [DataMember(Name="flow_uuid", EmitDefaultValue=false)]
         public string FlowUuid { get; set; }
+
+        /// <summary>
+        /// Send this as If-Match when changing, archiving or turning the flow on or off.
+        /// </summary>
+        /// <value>Send this as If-Match when changing, archiving or turning the flow on or off.</value>
+        [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
+        public string HashSha256 { get; set; }
 
         /// <summary>
         /// True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing.
@@ -111,11 +161,53 @@ namespace com.ultracart.admin.v2.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.
+        /// </summary>
+        /// <value>What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.</value>
+        [DataMember(Name="notes", EmitDefaultValue=false)]
+        public List<string> Notes { get; set; }
+
+        /// <summary>
         /// Its postcards, in step order.
         /// </summary>
         /// <value>Its postcards, in step order.</value>
         [DataMember(Name="postcards", EmitDefaultValue=false)]
         public List<SfvbCommsPostcard> Postcards { get; set; }
+
+        /// <summary>
+        /// Days before a customer may enter again, with after_days.
+        /// </summary>
+        /// <value>Days before a customer may enter again, with after_days.</value>
+        [DataMember(Name="reentry_delay_days", EmitDefaultValue=false)]
+        public int ReentryDelayDays { get; set; }
+
+        /// <summary>
+        /// Whether a customer may enter again, anytime, after_days or never.
+        /// </summary>
+        /// <value>Whether a customer may enter again, anytime, after_days or never.</value>
+        [DataMember(Name="reentry_policy", EmitDefaultValue=false)]
+        public string ReentryPolicy { get; set; }
+
+        /// <summary>
+        /// The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain.
+        /// </summary>
+        /// <value>The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain.</value>
+        [DataMember(Name="sending_domain_uuid", EmitDefaultValue=false)]
+        public string SendingDomainUuid { get; set; }
+
+        /// <summary>
+        /// The from name.  Defaults to the storefront&#39;s marketing setting.
+        /// </summary>
+        /// <value>The from name.  Defaults to the storefront&#39;s marketing setting.</value>
+        [DataMember(Name="sending_name", EmitDefaultValue=false)]
+        public string SendingName { get; set; }
+
+        /// <summary>
+        /// The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting.
+        /// </summary>
+        /// <value>The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting.</value>
+        [DataMember(Name="sending_user", EmitDefaultValue=false)]
+        public string SendingUser { get; set; }
 
         /// <summary>
         /// The status, such as draft, active, paused, draining or inactive.
@@ -130,6 +222,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>When the status last changed (ISO 8601, UTC).</value>
         [DataMember(Name="status_dts", EmitDefaultValue=false)]
         public string StatusDts { get; set; }
+
+        /// <summary>
+        /// The list or segment uuid, or other value, the trigger is limited to.
+        /// </summary>
+        /// <value>The list or segment uuid, or other value, the trigger is limited to.</value>
+        [DataMember(Name="trigger_parameter", EmitDefaultValue=false)]
+        public string TriggerParameter { get; set; }
 
         /// <summary>
         /// The name of the trigger parameter, when the trigger takes one.
@@ -153,16 +252,27 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbFlow {\n");
+            sb.Append("  AllowMultipleConcurrentEnrollments: ").Append(AllowMultipleConcurrentEnrollments).Append("\n");
             sb.Append("  CommunicationSequenceUuid: ").Append(CommunicationSequenceUuid).Append("\n");
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  Emails: ").Append(Emails).Append("\n");
+            sb.Append("  EndOnceCustomerPurchases: ").Append(EndOnceCustomerPurchases).Append("\n");
+            sb.Append("  EndOnceCustomerPurchasesAnywhere: ").Append(EndOnceCustomerPurchasesAnywhere).Append("\n");
             sb.Append("  FlowUuid: ").Append(FlowUuid).Append("\n");
+            sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
             sb.Append("  Live: ").Append(Live).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("  Postcards: ").Append(Postcards).Append("\n");
+            sb.Append("  ReentryDelayDays: ").Append(ReentryDelayDays).Append("\n");
+            sb.Append("  ReentryPolicy: ").Append(ReentryPolicy).Append("\n");
+            sb.Append("  SendingDomainUuid: ").Append(SendingDomainUuid).Append("\n");
+            sb.Append("  SendingName: ").Append(SendingName).Append("\n");
+            sb.Append("  SendingUser: ").Append(SendingUser).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusDts: ").Append(StatusDts).Append("\n");
+            sb.Append("  TriggerParameter: ").Append(TriggerParameter).Append("\n");
             sb.Append("  TriggerParameterName: ").Append(TriggerParameterName).Append("\n");
             sb.Append("  TriggerType: ").Append(TriggerType).Append("\n");
             sb.Append("}\n");
@@ -200,6 +310,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AllowMultipleConcurrentEnrollments == input.AllowMultipleConcurrentEnrollments ||
+                    (this.AllowMultipleConcurrentEnrollments != null &&
+                    this.AllowMultipleConcurrentEnrollments.Equals(input.AllowMultipleConcurrentEnrollments))
+                ) && 
+                (
                     this.CommunicationSequenceUuid == input.CommunicationSequenceUuid ||
                     (this.CommunicationSequenceUuid != null &&
                     this.CommunicationSequenceUuid.Equals(input.CommunicationSequenceUuid))
@@ -221,9 +336,24 @@ namespace com.ultracart.admin.v2.Model
                     this.Emails.SequenceEqual(input.Emails)
                 ) && 
                 (
+                    this.EndOnceCustomerPurchases == input.EndOnceCustomerPurchases ||
+                    (this.EndOnceCustomerPurchases != null &&
+                    this.EndOnceCustomerPurchases.Equals(input.EndOnceCustomerPurchases))
+                ) && 
+                (
+                    this.EndOnceCustomerPurchasesAnywhere == input.EndOnceCustomerPurchasesAnywhere ||
+                    (this.EndOnceCustomerPurchasesAnywhere != null &&
+                    this.EndOnceCustomerPurchasesAnywhere.Equals(input.EndOnceCustomerPurchasesAnywhere))
+                ) && 
+                (
                     this.FlowUuid == input.FlowUuid ||
                     (this.FlowUuid != null &&
                     this.FlowUuid.Equals(input.FlowUuid))
+                ) && 
+                (
+                    this.HashSha256 == input.HashSha256 ||
+                    (this.HashSha256 != null &&
+                    this.HashSha256.Equals(input.HashSha256))
                 ) && 
                 (
                     this.Live == input.Live ||
@@ -236,10 +366,41 @@ namespace com.ultracart.admin.v2.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.Notes == input.Notes ||
+                    this.Notes != null &&
+                    input.Notes != null &&
+                    this.Notes.SequenceEqual(input.Notes)
+                ) && 
+                (
                     this.Postcards == input.Postcards ||
                     this.Postcards != null &&
                     input.Postcards != null &&
                     this.Postcards.SequenceEqual(input.Postcards)
+                ) && 
+                (
+                    this.ReentryDelayDays == input.ReentryDelayDays ||
+                    (this.ReentryDelayDays != null &&
+                    this.ReentryDelayDays.Equals(input.ReentryDelayDays))
+                ) && 
+                (
+                    this.ReentryPolicy == input.ReentryPolicy ||
+                    (this.ReentryPolicy != null &&
+                    this.ReentryPolicy.Equals(input.ReentryPolicy))
+                ) && 
+                (
+                    this.SendingDomainUuid == input.SendingDomainUuid ||
+                    (this.SendingDomainUuid != null &&
+                    this.SendingDomainUuid.Equals(input.SendingDomainUuid))
+                ) && 
+                (
+                    this.SendingName == input.SendingName ||
+                    (this.SendingName != null &&
+                    this.SendingName.Equals(input.SendingName))
+                ) && 
+                (
+                    this.SendingUser == input.SendingUser ||
+                    (this.SendingUser != null &&
+                    this.SendingUser.Equals(input.SendingUser))
                 ) && 
                 (
                     this.Status == input.Status ||
@@ -250,6 +411,11 @@ namespace com.ultracart.admin.v2.Model
                     this.StatusDts == input.StatusDts ||
                     (this.StatusDts != null &&
                     this.StatusDts.Equals(input.StatusDts))
+                ) && 
+                (
+                    this.TriggerParameter == input.TriggerParameter ||
+                    (this.TriggerParameter != null &&
+                    this.TriggerParameter.Equals(input.TriggerParameter))
                 ) && 
                 (
                     this.TriggerParameterName == input.TriggerParameterName ||
@@ -272,6 +438,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AllowMultipleConcurrentEnrollments != null)
+                    hashCode = hashCode * 59 + this.AllowMultipleConcurrentEnrollments.GetHashCode();
                 if (this.CommunicationSequenceUuid != null)
                     hashCode = hashCode * 59 + this.CommunicationSequenceUuid.GetHashCode();
                 if (this.CreatedDts != null)
@@ -280,18 +448,38 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Deleted.GetHashCode();
                 if (this.Emails != null)
                     hashCode = hashCode * 59 + this.Emails.GetHashCode();
+                if (this.EndOnceCustomerPurchases != null)
+                    hashCode = hashCode * 59 + this.EndOnceCustomerPurchases.GetHashCode();
+                if (this.EndOnceCustomerPurchasesAnywhere != null)
+                    hashCode = hashCode * 59 + this.EndOnceCustomerPurchasesAnywhere.GetHashCode();
                 if (this.FlowUuid != null)
                     hashCode = hashCode * 59 + this.FlowUuid.GetHashCode();
+                if (this.HashSha256 != null)
+                    hashCode = hashCode * 59 + this.HashSha256.GetHashCode();
                 if (this.Live != null)
                     hashCode = hashCode * 59 + this.Live.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Notes != null)
+                    hashCode = hashCode * 59 + this.Notes.GetHashCode();
                 if (this.Postcards != null)
                     hashCode = hashCode * 59 + this.Postcards.GetHashCode();
+                if (this.ReentryDelayDays != null)
+                    hashCode = hashCode * 59 + this.ReentryDelayDays.GetHashCode();
+                if (this.ReentryPolicy != null)
+                    hashCode = hashCode * 59 + this.ReentryPolicy.GetHashCode();
+                if (this.SendingDomainUuid != null)
+                    hashCode = hashCode * 59 + this.SendingDomainUuid.GetHashCode();
+                if (this.SendingName != null)
+                    hashCode = hashCode * 59 + this.SendingName.GetHashCode();
+                if (this.SendingUser != null)
+                    hashCode = hashCode * 59 + this.SendingUser.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.StatusDts != null)
                     hashCode = hashCode * 59 + this.StatusDts.GetHashCode();
+                if (this.TriggerParameter != null)
+                    hashCode = hashCode * 59 + this.TriggerParameter.GetHashCode();
                 if (this.TriggerParameterName != null)
                     hashCode = hashCode * 59 + this.TriggerParameterName.GetHashCode();
                 if (this.TriggerType != null)

@@ -76,6 +76,60 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbPageItemsResponse</returns>
         ApiResponse<SfvbPageItemsResponse> AddSfvbPageItemsWithHttpInfo (int storefrontOid, string path, SfvbPageItemsAddRequest pageItemsAddRequest);
         /// <summary>
+        /// Archive or unarchive a campaign
+        /// </summary>
+        /// <remarks>
+        /// Archiving alone never stops a send, so archiving a scheduled campaign also sets it back to draft, and notes says so.  A campaign whose send is under way is refused with sfvb.campaign_sending.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <returns>SfvbCampaign</returns>
+        SfvbCampaign ArchiveSfvbCampaign (int storefrontOid, string campaignUuid, string ifMatch, SfvbArchiveRequest archiveRequest);
+
+        /// <summary>
+        /// Archive or unarchive a campaign
+        /// </summary>
+        /// <remarks>
+        /// Archiving alone never stops a send, so archiving a scheduled campaign also sets it back to draft, and notes says so.  A campaign whose send is under way is refused with sfvb.campaign_sending.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <returns>ApiResponse of SfvbCampaign</returns>
+        ApiResponse<SfvbCampaign> ArchiveSfvbCampaignWithHttpInfo (int storefrontOid, string campaignUuid, string ifMatch, SfvbArchiveRequest archiveRequest);
+        /// <summary>
+        /// Archive or unarchive a flow
+        /// </summary>
+        /// <remarks>
+        /// A flow that is still enrolling customers is refused, because archiving would only hide it.  Set its status to inactive first.  Send the hash_sha256 you read as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <returns>SfvbFlow</returns>
+        SfvbFlow ArchiveSfvbFlow (int storefrontOid, string flowUuid, string ifMatch, SfvbArchiveRequest archiveRequest);
+
+        /// <summary>
+        /// Archive or unarchive a flow
+        /// </summary>
+        /// <remarks>
+        /// A flow that is still enrolling customers is refused, because archiving would only hide it.  Set its status to inactive first.  Send the hash_sha256 you read as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <returns>ApiResponse of SfvbFlow</returns>
+        ApiResponse<SfvbFlow> ArchiveSfvbFlowWithHttpInfo (int storefrontOid, string flowUuid, string ifMatch, SfvbArchiveRequest archiveRequest);
+        /// <summary>
         /// Archive an upsell path
         /// </summary>
         /// <remarks>
@@ -172,6 +226,52 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbLibraryEntry</returns>
         ApiResponse<SfvbLibraryEntry> ClearSfvbLibraryScreenshotWithHttpInfo (int storefrontOid, int libraryOid, string ifMatch);
         /// <summary>
+        /// Copy a campaign on the same storefront
+        /// </summary>
+        /// <remarks>
+        /// A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived and never scheduled.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <returns>SfvbCampaign</returns>
+        SfvbCampaign CloneSfvbCampaign (int storefrontOid, string campaignUuid);
+
+        /// <summary>
+        /// Copy a campaign on the same storefront
+        /// </summary>
+        /// <remarks>
+        /// A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived and never scheduled.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <returns>ApiResponse of SfvbCampaign</returns>
+        ApiResponse<SfvbCampaign> CloneSfvbCampaignWithHttpInfo (int storefrontOid, string campaignUuid);
+        /// <summary>
+        /// Copy a flow on the same storefront
+        /// </summary>
+        /// <remarks>
+        /// A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived.  It enrolls nobody until it is turned on.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <returns>SfvbFlow</returns>
+        SfvbFlow CloneSfvbFlow (int storefrontOid, string flowUuid);
+
+        /// <summary>
+        /// Copy a flow on the same storefront
+        /// </summary>
+        /// <remarks>
+        /// A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived.  It enrolls nobody until it is turned on.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <returns>ApiResponse of SfvbFlow</returns>
+        ApiResponse<SfvbFlow> CloneSfvbFlowWithHttpInfo (int storefrontOid, string flowUuid);
+        /// <summary>
         /// Compile CJSON to Velocity
         /// </summary>
         /// <remarks>
@@ -192,6 +292,52 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="compileRequest">CJSON to compile</param>
         /// <returns>ApiResponse of SfvbCompileResponse</returns>
         ApiResponse<SfvbCompileResponse> CompileSfvbCjsonWithHttpInfo (SfvbCompileRequest compileRequest);
+        /// <summary>
+        /// Create a draft campaign
+        /// </summary>
+        /// <remarks>
+        /// A new draft campaign with an empty communication sequence.  name is required.  The sender defaults to the storefront's marketing sending settings.  Nothing here starts a campaign. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignWriteRequest">The campaign to create</param>
+        /// <returns>SfvbCampaign</returns>
+        SfvbCampaign CreateSfvbCampaign (int storefrontOid, SfvbCampaignWriteRequest campaignWriteRequest);
+
+        /// <summary>
+        /// Create a draft campaign
+        /// </summary>
+        /// <remarks>
+        /// A new draft campaign with an empty communication sequence.  name is required.  The sender defaults to the storefront's marketing sending settings.  Nothing here starts a campaign. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignWriteRequest">The campaign to create</param>
+        /// <returns>ApiResponse of SfvbCampaign</returns>
+        ApiResponse<SfvbCampaign> CreateSfvbCampaignWithHttpInfo (int storefrontOid, SfvbCampaignWriteRequest campaignWriteRequest);
+        /// <summary>
+        /// Create a draft flow
+        /// </summary>
+        /// <remarks>
+        /// A new draft flow with an empty communication sequence.  name and trigger_type are required.  A list or segment trigger needs trigger_parameter, the uuid of a list or segment on this storefront.  The sender defaults to the storefront's marketing sending settings.  A draft flow enrolls nobody until it is turned on. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowWriteRequest">The flow to create</param>
+        /// <returns>SfvbFlow</returns>
+        SfvbFlow CreateSfvbFlow (int storefrontOid, SfvbFlowWriteRequest flowWriteRequest);
+
+        /// <summary>
+        /// Create a draft flow
+        /// </summary>
+        /// <remarks>
+        /// A new draft flow with an empty communication sequence.  name and trigger_type are required.  A list or segment trigger needs trigger_parameter, the uuid of a list or segment on this storefront.  The sender defaults to the storefront's marketing sending settings.  A draft flow enrolls nobody until it is turned on. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowWriteRequest">The flow to create</param>
+        /// <returns>ApiResponse of SfvbFlow</returns>
+        ApiResponse<SfvbFlow> CreateSfvbFlowWithHttpInfo (int storefrontOid, SfvbFlowWriteRequest flowWriteRequest);
         /// <summary>
         /// Save a fragment to the library
         /// </summary>
@@ -2739,6 +2885,48 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbCampaignsResponse</returns>
         ApiResponse<SfvbCampaignsResponse> ListSfvbCampaignsWithHttpInfo (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?));
         /// <summary>
+        /// List the storefront's email lists
+        /// </summary>
+        /// <remarks>
+        /// Each list's uuid, name and member count, by name, for a campaign's memberships or a list trigger.  Never its members.  Archived lists are left out. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsListsResponse</returns>
+        SfvbCommsListsResponse ListSfvbCommsLists (int storefrontOid);
+
+        /// <summary>
+        /// List the storefront's email lists
+        /// </summary>
+        /// <remarks>
+        /// Each list's uuid, name and member count, by name, for a campaign's memberships or a list trigger.  Never its members.  Archived lists are left out. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsListsResponse</returns>
+        ApiResponse<SfvbCommsListsResponse> ListSfvbCommsListsWithHttpInfo (int storefrontOid);
+        /// <summary>
+        /// List the storefront's segments
+        /// </summary>
+        /// <remarks>
+        /// Each segment's uuid, name and member count at its last rebuild, by name, for a campaign's memberships or a segment trigger.  Never its members or its rule.  Archived segments are left out. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsSegmentsResponse</returns>
+        SfvbCommsSegmentsResponse ListSfvbCommsSegments (int storefrontOid);
+
+        /// <summary>
+        /// List the storefront's segments
+        /// </summary>
+        /// <remarks>
+        /// Each segment's uuid, name and member count at its last rebuild, by name, for a campaign's memberships or a segment trigger.  Never its members or its rule.  Archived segments are left out. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsSegmentsResponse</returns>
+        ApiResponse<SfvbCommsSegmentsResponse> ListSfvbCommsSegmentsWithHttpInfo (int storefrontOid);
+        /// <summary>
         /// Version history for a container stored outside the file system
         /// </summary>
         /// <remarks>
@@ -4393,6 +4581,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
         ApiResponse<SfvbBlogPostDetail> UpdateSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest);
         /// <summary>
+        /// Change a campaign
+        /// </summary>
+        /// <remarks>
+        /// A field left out keeps its value; memberships replaces the whole set.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish, and a change to a scheduled one applies to the send that is coming.  notes lists any emails a sending domain change put back to needing review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="campaignWriteRequest">The fields to change</param>
+        /// <returns>SfvbCampaign</returns>
+        SfvbCampaign UpdateSfvbCampaign (int storefrontOid, string campaignUuid, string ifMatch, SfvbCampaignWriteRequest campaignWriteRequest);
+
+        /// <summary>
+        /// Change a campaign
+        /// </summary>
+        /// <remarks>
+        /// A field left out keeps its value; memberships replaces the whole set.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish, and a change to a scheduled one applies to the send that is coming.  notes lists any emails a sending domain change put back to needing review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="campaignWriteRequest">The fields to change</param>
+        /// <returns>ApiResponse of SfvbCampaign</returns>
+        ApiResponse<SfvbCampaign> UpdateSfvbCampaignWithHttpInfo (int storefrontOid, string campaignUuid, string ifMatch, SfvbCampaignWriteRequest campaignWriteRequest);
+        /// <summary>
         /// Update a sending domain
         /// </summary>
         /// <remarks>
@@ -4463,6 +4678,60 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailUpdateRequest">The subject or preview text to change</param>
         /// <returns>ApiResponse of SfvbEmail</returns>
         ApiResponse<SfvbEmail> UpdateSfvbEmailWithHttpInfo (int storefrontOid, string emailUuid, string ifMatch, SfvbEmailUpdateRequest emailUpdateRequest);
+        /// <summary>
+        /// Change a flow
+        /// </summary>
+        /// <remarks>
+        /// A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowWriteRequest">The fields to change</param>
+        /// <returns>SfvbFlow</returns>
+        SfvbFlow UpdateSfvbFlow (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowWriteRequest flowWriteRequest);
+
+        /// <summary>
+        /// Change a flow
+        /// </summary>
+        /// <remarks>
+        /// A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowWriteRequest">The fields to change</param>
+        /// <returns>ApiResponse of SfvbFlow</returns>
+        ApiResponse<SfvbFlow> UpdateSfvbFlowWithHttpInfo (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowWriteRequest flowWriteRequest);
+        /// <summary>
+        /// Turn a flow on or off
+        /// </summary>
+        /// <remarks>
+        /// active enrolls customers as they trigger the flow from now on, and they receive its emails.  inactive stops new enrollments.  Always needs sfvb_publish.  Send the hash_sha256 you read as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowStatusRequest">The status to set</param>
+        /// <returns>SfvbFlow</returns>
+        SfvbFlow UpdateSfvbFlowStatus (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowStatusRequest flowStatusRequest);
+
+        /// <summary>
+        /// Turn a flow on or off
+        /// </summary>
+        /// <remarks>
+        /// active enrolls customers as they trigger the flow from now on, and they receive its emails.  inactive stops new enrollments.  Always needs sfvb_publish.  Send the hash_sha256 you read as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowStatusRequest">The status to set</param>
+        /// <returns>ApiResponse of SfvbFlow</returns>
+        ApiResponse<SfvbFlow> UpdateSfvbFlowStatusWithHttpInfo (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowStatusRequest flowStatusRequest);
         /// <summary>
         /// Change attributes across many items in one call
         /// </summary>
@@ -4724,6 +4993,64 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbPageItemsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPageItemsResponse>> AddSfvbPageItemsWithHttpInfoAsync (int storefrontOid, string path, SfvbPageItemsAddRequest pageItemsAddRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Archive or unarchive a campaign
+        /// </summary>
+        /// <remarks>
+        /// Archiving alone never stops a send, so archiving a scheduled campaign also sets it back to draft, and notes says so.  A campaign whose send is under way is refused with sfvb.campaign_sending.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCampaign</returns>
+        System.Threading.Tasks.Task<SfvbCampaign> ArchiveSfvbCampaignAsync (int storefrontOid, string campaignUuid, string ifMatch, SfvbArchiveRequest archiveRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Archive or unarchive a campaign
+        /// </summary>
+        /// <remarks>
+        /// Archiving alone never stops a send, so archiving a scheduled campaign also sets it back to draft, and notes says so.  A campaign whose send is under way is refused with sfvb.campaign_sending.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> ArchiveSfvbCampaignWithHttpInfoAsync (int storefrontOid, string campaignUuid, string ifMatch, SfvbArchiveRequest archiveRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Archive or unarchive a flow
+        /// </summary>
+        /// <remarks>
+        /// A flow that is still enrolling customers is refused, because archiving would only hide it.  Set its status to inactive first.  Send the hash_sha256 you read as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlow</returns>
+        System.Threading.Tasks.Task<SfvbFlow> ArchiveSfvbFlowAsync (int storefrontOid, string flowUuid, string ifMatch, SfvbArchiveRequest archiveRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Archive or unarchive a flow
+        /// </summary>
+        /// <remarks>
+        /// A flow that is still enrolling customers is refused, because archiving would only hide it.  Set its status to inactive first.  Send the hash_sha256 you read as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbFlow>> ArchiveSfvbFlowWithHttpInfoAsync (int storefrontOid, string flowUuid, string ifMatch, SfvbArchiveRequest archiveRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Archive an upsell path
         /// </summary>
         /// <remarks>
@@ -4828,6 +5155,56 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbLibraryEntry)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbLibraryEntry>> ClearSfvbLibraryScreenshotWithHttpInfoAsync (int storefrontOid, int libraryOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Copy a campaign on the same storefront
+        /// </summary>
+        /// <remarks>
+        /// A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived and never scheduled.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCampaign</returns>
+        System.Threading.Tasks.Task<SfvbCampaign> CloneSfvbCampaignAsync (int storefrontOid, string campaignUuid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Copy a campaign on the same storefront
+        /// </summary>
+        /// <remarks>
+        /// A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived and never scheduled.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> CloneSfvbCampaignWithHttpInfoAsync (int storefrontOid, string campaignUuid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Copy a flow on the same storefront
+        /// </summary>
+        /// <remarks>
+        /// A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived.  It enrolls nobody until it is turned on.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlow</returns>
+        System.Threading.Tasks.Task<SfvbFlow> CloneSfvbFlowAsync (int storefrontOid, string flowUuid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Copy a flow on the same storefront
+        /// </summary>
+        /// <remarks>
+        /// A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived.  It enrolls nobody until it is turned on.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbFlow>> CloneSfvbFlowWithHttpInfoAsync (int storefrontOid, string flowUuid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Compile CJSON to Velocity
         /// </summary>
         /// <remarks>
@@ -4850,6 +5227,56 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbCompileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCompileResponse>> CompileSfvbCjsonWithHttpInfoAsync (SfvbCompileRequest compileRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Create a draft campaign
+        /// </summary>
+        /// <remarks>
+        /// A new draft campaign with an empty communication sequence.  name is required.  The sender defaults to the storefront's marketing sending settings.  Nothing here starts a campaign. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignWriteRequest">The campaign to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCampaign</returns>
+        System.Threading.Tasks.Task<SfvbCampaign> CreateSfvbCampaignAsync (int storefrontOid, SfvbCampaignWriteRequest campaignWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create a draft campaign
+        /// </summary>
+        /// <remarks>
+        /// A new draft campaign with an empty communication sequence.  name is required.  The sender defaults to the storefront's marketing sending settings.  Nothing here starts a campaign. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignWriteRequest">The campaign to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> CreateSfvbCampaignWithHttpInfoAsync (int storefrontOid, SfvbCampaignWriteRequest campaignWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Create a draft flow
+        /// </summary>
+        /// <remarks>
+        /// A new draft flow with an empty communication sequence.  name and trigger_type are required.  A list or segment trigger needs trigger_parameter, the uuid of a list or segment on this storefront.  The sender defaults to the storefront's marketing sending settings.  A draft flow enrolls nobody until it is turned on. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowWriteRequest">The flow to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlow</returns>
+        System.Threading.Tasks.Task<SfvbFlow> CreateSfvbFlowAsync (int storefrontOid, SfvbFlowWriteRequest flowWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create a draft flow
+        /// </summary>
+        /// <remarks>
+        /// A new draft flow with an empty communication sequence.  name and trigger_type are required.  A list or segment trigger needs trigger_parameter, the uuid of a list or segment on this storefront.  The sender defaults to the storefront's marketing sending settings.  A draft flow enrolls nobody until it is turned on. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowWriteRequest">The flow to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbFlow>> CreateSfvbFlowWithHttpInfoAsync (int storefrontOid, SfvbFlowWriteRequest flowWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Save a fragment to the library
         /// </summary>
@@ -7613,6 +8040,52 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbCampaignsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCampaignsResponse>> ListSfvbCampaignsWithHttpInfoAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// List the storefront's email lists
+        /// </summary>
+        /// <remarks>
+        /// Each list's uuid, name and member count, by name, for a campaign's memberships or a list trigger.  Never its members.  Archived lists are left out. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsListsResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsListsResponse> ListSfvbCommsListsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the storefront&#39;s email lists
+        /// </summary>
+        /// <remarks>
+        /// Each list's uuid, name and member count, by name, for a campaign's memberships or a list trigger.  Never its members.  Archived lists are left out. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsListsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsListsResponse>> ListSfvbCommsListsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the storefront's segments
+        /// </summary>
+        /// <remarks>
+        /// Each segment's uuid, name and member count at its last rebuild, by name, for a campaign's memberships or a segment trigger.  Never its members or its rule.  Archived segments are left out. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSegmentsResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsSegmentsResponse> ListSfvbCommsSegmentsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the storefront&#39;s segments
+        /// </summary>
+        /// <remarks>
+        /// Each segment's uuid, name and member count at its last rebuild, by name, for a campaign's memberships or a segment trigger.  Never its members or its rule.  Archived segments are left out. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSegmentsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSegmentsResponse>> ListSfvbCommsSegmentsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Version history for a container stored outside the file system
         /// </summary>
         /// <remarks>
@@ -9395,6 +9868,35 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> UpdateSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Change a campaign
+        /// </summary>
+        /// <remarks>
+        /// A field left out keeps its value; memberships replaces the whole set.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish, and a change to a scheduled one applies to the send that is coming.  notes lists any emails a sending domain change put back to needing review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="campaignWriteRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCampaign</returns>
+        System.Threading.Tasks.Task<SfvbCampaign> UpdateSfvbCampaignAsync (int storefrontOid, string campaignUuid, string ifMatch, SfvbCampaignWriteRequest campaignWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a campaign
+        /// </summary>
+        /// <remarks>
+        /// A field left out keeps its value; memberships replaces the whole set.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish, and a change to a scheduled one applies to the send that is coming.  notes lists any emails a sending domain change put back to needing review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="campaignWriteRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> UpdateSfvbCampaignWithHttpInfoAsync (int storefrontOid, string campaignUuid, string ifMatch, SfvbCampaignWriteRequest campaignWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Update a sending domain
         /// </summary>
         /// <remarks>
@@ -9471,6 +9973,64 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbEmail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbEmail>> UpdateSfvbEmailWithHttpInfoAsync (int storefrontOid, string emailUuid, string ifMatch, SfvbEmailUpdateRequest emailUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change a flow
+        /// </summary>
+        /// <remarks>
+        /// A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowWriteRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlow</returns>
+        System.Threading.Tasks.Task<SfvbFlow> UpdateSfvbFlowAsync (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowWriteRequest flowWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a flow
+        /// </summary>
+        /// <remarks>
+        /// A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowWriteRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbFlow>> UpdateSfvbFlowWithHttpInfoAsync (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowWriteRequest flowWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Turn a flow on or off
+        /// </summary>
+        /// <remarks>
+        /// active enrolls customers as they trigger the flow from now on, and they receive its emails.  inactive stops new enrollments.  Always needs sfvb_publish.  Send the hash_sha256 you read as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowStatusRequest">The status to set</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlow</returns>
+        System.Threading.Tasks.Task<SfvbFlow> UpdateSfvbFlowStatusAsync (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowStatusRequest flowStatusRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Turn a flow on or off
+        /// </summary>
+        /// <remarks>
+        /// active enrolls customers as they trigger the flow from now on, and they receive its emails.  inactive stops new enrollments.  Always needs sfvb_publish.  Send the hash_sha256 you read as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowStatusRequest">The status to set</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbFlow>> UpdateSfvbFlowStatusWithHttpInfoAsync (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowStatusRequest flowStatusRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Change attributes across many items in one call
         /// </summary>
@@ -10215,6 +10775,424 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Archive or unarchive a campaign Archiving alone never stops a send, so archiving a scheduled campaign also sets it back to draft, and notes says so.  A campaign whose send is under way is refused with sfvb.campaign_sending.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <returns>SfvbCampaign</returns>
+        public SfvbCampaign ArchiveSfvbCampaign (int storefrontOid, string campaignUuid, string ifMatch, SfvbArchiveRequest archiveRequest)
+        {
+             ApiResponse<SfvbCampaign> localVarResponse = ArchiveSfvbCampaignWithHttpInfo(storefrontOid, campaignUuid, ifMatch, archiveRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Archive or unarchive a campaign Archiving alone never stops a send, so archiving a scheduled campaign also sets it back to draft, and notes says so.  A campaign whose send is under way is refused with sfvb.campaign_sending.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <returns>ApiResponse of SfvbCampaign</returns>
+        public ApiResponse<SfvbCampaign> ArchiveSfvbCampaignWithHttpInfo (int storefrontOid, string campaignUuid, string ifMatch, SfvbArchiveRequest archiveRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ArchiveSfvbCampaign");
+            // verify the required parameter 'campaignUuid' is set
+            if (campaignUuid == null)
+                throw new ApiException(400, "Missing required parameter 'campaignUuid' when calling SfvbApi->ArchiveSfvbCampaign");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->ArchiveSfvbCampaign");
+            // verify the required parameter 'archiveRequest' is set
+            if (archiveRequest == null)
+                throw new ApiException(400, "Missing required parameter 'archiveRequest' when calling SfvbApi->ArchiveSfvbCampaign");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}/archive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (campaignUuid != null) localVarPathParams.Add("campaign_uuid", this.Configuration.ApiClient.ParameterToString(campaignUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (archiveRequest != null && archiveRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(archiveRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = archiveRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ArchiveSfvbCampaign", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCampaign>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaign)));
+        }
+
+        /// <summary>
+        /// Archive or unarchive a campaign Archiving alone never stops a send, so archiving a scheduled campaign also sets it back to draft, and notes says so.  A campaign whose send is under way is refused with sfvb.campaign_sending.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCampaign</returns>
+        public async System.Threading.Tasks.Task<SfvbCampaign> ArchiveSfvbCampaignAsync (int storefrontOid, string campaignUuid, string ifMatch, SfvbArchiveRequest archiveRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCampaign> localVarResponse = await ArchiveSfvbCampaignWithHttpInfoAsync(storefrontOid, campaignUuid, ifMatch, archiveRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Archive or unarchive a campaign Archiving alone never stops a send, so archiving a scheduled campaign also sets it back to draft, and notes says so.  A campaign whose send is under way is refused with sfvb.campaign_sending.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> ArchiveSfvbCampaignWithHttpInfoAsync (int storefrontOid, string campaignUuid, string ifMatch, SfvbArchiveRequest archiveRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ArchiveSfvbCampaign");
+            // verify the required parameter 'campaignUuid' is set
+            if (campaignUuid == null)
+                throw new ApiException(400, "Missing required parameter 'campaignUuid' when calling SfvbApi->ArchiveSfvbCampaign");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->ArchiveSfvbCampaign");
+            // verify the required parameter 'archiveRequest' is set
+            if (archiveRequest == null)
+                throw new ApiException(400, "Missing required parameter 'archiveRequest' when calling SfvbApi->ArchiveSfvbCampaign");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}/archive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (campaignUuid != null) localVarPathParams.Add("campaign_uuid", this.Configuration.ApiClient.ParameterToString(campaignUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (archiveRequest != null && archiveRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(archiveRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = archiveRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ArchiveSfvbCampaign", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCampaign>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaign)));
+        }
+
+        /// <summary>
+        /// Archive or unarchive a flow A flow that is still enrolling customers is refused, because archiving would only hide it.  Set its status to inactive first.  Send the hash_sha256 you read as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <returns>SfvbFlow</returns>
+        public SfvbFlow ArchiveSfvbFlow (int storefrontOid, string flowUuid, string ifMatch, SfvbArchiveRequest archiveRequest)
+        {
+             ApiResponse<SfvbFlow> localVarResponse = ArchiveSfvbFlowWithHttpInfo(storefrontOid, flowUuid, ifMatch, archiveRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Archive or unarchive a flow A flow that is still enrolling customers is refused, because archiving would only hide it.  Set its status to inactive first.  Send the hash_sha256 you read as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <returns>ApiResponse of SfvbFlow</returns>
+        public ApiResponse<SfvbFlow> ArchiveSfvbFlowWithHttpInfo (int storefrontOid, string flowUuid, string ifMatch, SfvbArchiveRequest archiveRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ArchiveSfvbFlow");
+            // verify the required parameter 'flowUuid' is set
+            if (flowUuid == null)
+                throw new ApiException(400, "Missing required parameter 'flowUuid' when calling SfvbApi->ArchiveSfvbFlow");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->ArchiveSfvbFlow");
+            // verify the required parameter 'archiveRequest' is set
+            if (archiveRequest == null)
+                throw new ApiException(400, "Missing required parameter 'archiveRequest' when calling SfvbApi->ArchiveSfvbFlow");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/archive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (flowUuid != null) localVarPathParams.Add("flow_uuid", this.Configuration.ApiClient.ParameterToString(flowUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (archiveRequest != null && archiveRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(archiveRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = archiveRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ArchiveSfvbFlow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlow>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlow) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlow)));
+        }
+
+        /// <summary>
+        /// Archive or unarchive a flow A flow that is still enrolling customers is refused, because archiving would only hide it.  Set its status to inactive first.  Send the hash_sha256 you read as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlow</returns>
+        public async System.Threading.Tasks.Task<SfvbFlow> ArchiveSfvbFlowAsync (int storefrontOid, string flowUuid, string ifMatch, SfvbArchiveRequest archiveRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbFlow> localVarResponse = await ArchiveSfvbFlowWithHttpInfoAsync(storefrontOid, flowUuid, ifMatch, archiveRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Archive or unarchive a flow A flow that is still enrolling customers is refused, because archiving would only hide it.  Set its status to inactive first.  Send the hash_sha256 you read as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="archiveRequest">Whether to archive</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlow)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbFlow>> ArchiveSfvbFlowWithHttpInfoAsync (int storefrontOid, string flowUuid, string ifMatch, SfvbArchiveRequest archiveRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ArchiveSfvbFlow");
+            // verify the required parameter 'flowUuid' is set
+            if (flowUuid == null)
+                throw new ApiException(400, "Missing required parameter 'flowUuid' when calling SfvbApi->ArchiveSfvbFlow");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->ArchiveSfvbFlow");
+            // verify the required parameter 'archiveRequest' is set
+            if (archiveRequest == null)
+                throw new ApiException(400, "Missing required parameter 'archiveRequest' when calling SfvbApi->ArchiveSfvbFlow");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/archive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (flowUuid != null) localVarPathParams.Add("flow_uuid", this.Configuration.ApiClient.ParameterToString(flowUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (archiveRequest != null && archiveRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(archiveRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = archiveRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ArchiveSfvbFlow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlow>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlow) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlow)));
+        }
+
+        /// <summary>
         /// Archive an upsell path Files the path out of the default list.  An archived path does not run.  Archiving one that is switched on is a live change and needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -10947,6 +11925,344 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Copy a campaign on the same storefront A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived and never scheduled.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <returns>SfvbCampaign</returns>
+        public SfvbCampaign CloneSfvbCampaign (int storefrontOid, string campaignUuid)
+        {
+             ApiResponse<SfvbCampaign> localVarResponse = CloneSfvbCampaignWithHttpInfo(storefrontOid, campaignUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Copy a campaign on the same storefront A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived and never scheduled.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <returns>ApiResponse of SfvbCampaign</returns>
+        public ApiResponse<SfvbCampaign> CloneSfvbCampaignWithHttpInfo (int storefrontOid, string campaignUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->CloneSfvbCampaign");
+            // verify the required parameter 'campaignUuid' is set
+            if (campaignUuid == null)
+                throw new ApiException(400, "Missing required parameter 'campaignUuid' when calling SfvbApi->CloneSfvbCampaign");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}/clone";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (campaignUuid != null) localVarPathParams.Add("campaign_uuid", this.Configuration.ApiClient.ParameterToString(campaignUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CloneSfvbCampaign", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCampaign>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaign)));
+        }
+
+        /// <summary>
+        /// Copy a campaign on the same storefront A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived and never scheduled.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCampaign</returns>
+        public async System.Threading.Tasks.Task<SfvbCampaign> CloneSfvbCampaignAsync (int storefrontOid, string campaignUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCampaign> localVarResponse = await CloneSfvbCampaignWithHttpInfoAsync(storefrontOid, campaignUuid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Copy a campaign on the same storefront A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived and never scheduled.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> CloneSfvbCampaignWithHttpInfoAsync (int storefrontOid, string campaignUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->CloneSfvbCampaign");
+            // verify the required parameter 'campaignUuid' is set
+            if (campaignUuid == null)
+                throw new ApiException(400, "Missing required parameter 'campaignUuid' when calling SfvbApi->CloneSfvbCampaign");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}/clone";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (campaignUuid != null) localVarPathParams.Add("campaign_uuid", this.Configuration.ApiClient.ParameterToString(campaignUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CloneSfvbCampaign", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCampaign>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaign)));
+        }
+
+        /// <summary>
+        /// Copy a flow on the same storefront A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived.  It enrolls nobody until it is turned on.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <returns>SfvbFlow</returns>
+        public SfvbFlow CloneSfvbFlow (int storefrontOid, string flowUuid)
+        {
+             ApiResponse<SfvbFlow> localVarResponse = CloneSfvbFlowWithHttpInfo(storefrontOid, flowUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Copy a flow on the same storefront A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived.  It enrolls nobody until it is turned on.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <returns>ApiResponse of SfvbFlow</returns>
+        public ApiResponse<SfvbFlow> CloneSfvbFlowWithHttpInfo (int storefrontOid, string flowUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->CloneSfvbFlow");
+            // verify the required parameter 'flowUuid' is set
+            if (flowUuid == null)
+                throw new ApiException(400, "Missing required parameter 'flowUuid' when calling SfvbApi->CloneSfvbFlow");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/clone";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (flowUuid != null) localVarPathParams.Add("flow_uuid", this.Configuration.ApiClient.ParameterToString(flowUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CloneSfvbFlow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlow>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlow) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlow)));
+        }
+
+        /// <summary>
+        /// Copy a flow on the same storefront A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived.  It enrolls nobody until it is turned on.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlow</returns>
+        public async System.Threading.Tasks.Task<SfvbFlow> CloneSfvbFlowAsync (int storefrontOid, string flowUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbFlow> localVarResponse = await CloneSfvbFlowWithHttpInfoAsync(storefrontOid, flowUuid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Copy a flow on the same storefront A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived.  It enrolls nobody until it is turned on.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlow)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbFlow>> CloneSfvbFlowWithHttpInfoAsync (int storefrontOid, string flowUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->CloneSfvbFlow");
+            // verify the required parameter 'flowUuid' is set
+            if (flowUuid == null)
+                throw new ApiException(400, "Missing required parameter 'flowUuid' when calling SfvbApi->CloneSfvbFlow");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/clone";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (flowUuid != null) localVarPathParams.Add("flow_uuid", this.Configuration.ApiClient.ParameterToString(flowUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CloneSfvbFlow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlow>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlow) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlow)));
+        }
+
+        /// <summary>
         /// Compile CJSON to Velocity Compiles a container document to Velocity without storing anything.  Supply theme_oid to compile with the theme's inherit groups applied; omit it to compile standalone. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11117,6 +12433,376 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbCompileResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbCompileResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCompileResponse)));
+        }
+
+        /// <summary>
+        /// Create a draft campaign A new draft campaign with an empty communication sequence.  name is required.  The sender defaults to the storefront's marketing sending settings.  Nothing here starts a campaign. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignWriteRequest">The campaign to create</param>
+        /// <returns>SfvbCampaign</returns>
+        public SfvbCampaign CreateSfvbCampaign (int storefrontOid, SfvbCampaignWriteRequest campaignWriteRequest)
+        {
+             ApiResponse<SfvbCampaign> localVarResponse = CreateSfvbCampaignWithHttpInfo(storefrontOid, campaignWriteRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a draft campaign A new draft campaign with an empty communication sequence.  name is required.  The sender defaults to the storefront's marketing sending settings.  Nothing here starts a campaign. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignWriteRequest">The campaign to create</param>
+        /// <returns>ApiResponse of SfvbCampaign</returns>
+        public ApiResponse<SfvbCampaign> CreateSfvbCampaignWithHttpInfo (int storefrontOid, SfvbCampaignWriteRequest campaignWriteRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->CreateSfvbCampaign");
+            // verify the required parameter 'campaignWriteRequest' is set
+            if (campaignWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'campaignWriteRequest' when calling SfvbApi->CreateSfvbCampaign");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (campaignWriteRequest != null && campaignWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(campaignWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = campaignWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateSfvbCampaign", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCampaign>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaign)));
+        }
+
+        /// <summary>
+        /// Create a draft campaign A new draft campaign with an empty communication sequence.  name is required.  The sender defaults to the storefront's marketing sending settings.  Nothing here starts a campaign. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignWriteRequest">The campaign to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCampaign</returns>
+        public async System.Threading.Tasks.Task<SfvbCampaign> CreateSfvbCampaignAsync (int storefrontOid, SfvbCampaignWriteRequest campaignWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCampaign> localVarResponse = await CreateSfvbCampaignWithHttpInfoAsync(storefrontOid, campaignWriteRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a draft campaign A new draft campaign with an empty communication sequence.  name is required.  The sender defaults to the storefront's marketing sending settings.  Nothing here starts a campaign. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignWriteRequest">The campaign to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> CreateSfvbCampaignWithHttpInfoAsync (int storefrontOid, SfvbCampaignWriteRequest campaignWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->CreateSfvbCampaign");
+            // verify the required parameter 'campaignWriteRequest' is set
+            if (campaignWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'campaignWriteRequest' when calling SfvbApi->CreateSfvbCampaign");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (campaignWriteRequest != null && campaignWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(campaignWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = campaignWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateSfvbCampaign", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCampaign>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaign)));
+        }
+
+        /// <summary>
+        /// Create a draft flow A new draft flow with an empty communication sequence.  name and trigger_type are required.  A list or segment trigger needs trigger_parameter, the uuid of a list or segment on this storefront.  The sender defaults to the storefront's marketing sending settings.  A draft flow enrolls nobody until it is turned on. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowWriteRequest">The flow to create</param>
+        /// <returns>SfvbFlow</returns>
+        public SfvbFlow CreateSfvbFlow (int storefrontOid, SfvbFlowWriteRequest flowWriteRequest)
+        {
+             ApiResponse<SfvbFlow> localVarResponse = CreateSfvbFlowWithHttpInfo(storefrontOid, flowWriteRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a draft flow A new draft flow with an empty communication sequence.  name and trigger_type are required.  A list or segment trigger needs trigger_parameter, the uuid of a list or segment on this storefront.  The sender defaults to the storefront's marketing sending settings.  A draft flow enrolls nobody until it is turned on. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowWriteRequest">The flow to create</param>
+        /// <returns>ApiResponse of SfvbFlow</returns>
+        public ApiResponse<SfvbFlow> CreateSfvbFlowWithHttpInfo (int storefrontOid, SfvbFlowWriteRequest flowWriteRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->CreateSfvbFlow");
+            // verify the required parameter 'flowWriteRequest' is set
+            if (flowWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'flowWriteRequest' when calling SfvbApi->CreateSfvbFlow");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (flowWriteRequest != null && flowWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(flowWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = flowWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateSfvbFlow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlow>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlow) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlow)));
+        }
+
+        /// <summary>
+        /// Create a draft flow A new draft flow with an empty communication sequence.  name and trigger_type are required.  A list or segment trigger needs trigger_parameter, the uuid of a list or segment on this storefront.  The sender defaults to the storefront's marketing sending settings.  A draft flow enrolls nobody until it is turned on. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowWriteRequest">The flow to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlow</returns>
+        public async System.Threading.Tasks.Task<SfvbFlow> CreateSfvbFlowAsync (int storefrontOid, SfvbFlowWriteRequest flowWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbFlow> localVarResponse = await CreateSfvbFlowWithHttpInfoAsync(storefrontOid, flowWriteRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a draft flow A new draft flow with an empty communication sequence.  name and trigger_type are required.  A list or segment trigger needs trigger_parameter, the uuid of a list or segment on this storefront.  The sender defaults to the storefront's marketing sending settings.  A draft flow enrolls nobody until it is turned on. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowWriteRequest">The flow to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlow)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbFlow>> CreateSfvbFlowWithHttpInfoAsync (int storefrontOid, SfvbFlowWriteRequest flowWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->CreateSfvbFlow");
+            // verify the required parameter 'flowWriteRequest' is set
+            if (flowWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'flowWriteRequest' when calling SfvbApi->CreateSfvbFlow");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (flowWriteRequest != null && flowWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(flowWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = flowWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateSfvbFlow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlow>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlow) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlow)));
         }
 
         /// <summary>
@@ -29658,6 +31344,320 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// List the storefront's email lists Each list's uuid, name and member count, by name, for a campaign's memberships or a list trigger.  Never its members.  Archived lists are left out. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsListsResponse</returns>
+        public SfvbCommsListsResponse ListSfvbCommsLists (int storefrontOid)
+        {
+             ApiResponse<SfvbCommsListsResponse> localVarResponse = ListSfvbCommsListsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the storefront's email lists Each list's uuid, name and member count, by name, for a campaign's memberships or a list trigger.  Never its members.  Archived lists are left out. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsListsResponse</returns>
+        public ApiResponse<SfvbCommsListsResponse> ListSfvbCommsListsWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbCommsLists");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/lists";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbCommsLists", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsListsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsListsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsListsResponse)));
+        }
+
+        /// <summary>
+        /// List the storefront's email lists Each list's uuid, name and member count, by name, for a campaign's memberships or a list trigger.  Never its members.  Archived lists are left out. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsListsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsListsResponse> ListSfvbCommsListsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsListsResponse> localVarResponse = await ListSfvbCommsListsWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the storefront's email lists Each list's uuid, name and member count, by name, for a campaign's memberships or a list trigger.  Never its members.  Archived lists are left out. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsListsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsListsResponse>> ListSfvbCommsListsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbCommsLists");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/lists";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbCommsLists", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsListsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsListsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsListsResponse)));
+        }
+
+        /// <summary>
+        /// List the storefront's segments Each segment's uuid, name and member count at its last rebuild, by name, for a campaign's memberships or a segment trigger.  Never its members or its rule.  Archived segments are left out. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsSegmentsResponse</returns>
+        public SfvbCommsSegmentsResponse ListSfvbCommsSegments (int storefrontOid)
+        {
+             ApiResponse<SfvbCommsSegmentsResponse> localVarResponse = ListSfvbCommsSegmentsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the storefront's segments Each segment's uuid, name and member count at its last rebuild, by name, for a campaign's memberships or a segment trigger.  Never its members or its rule.  Archived segments are left out. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsSegmentsResponse</returns>
+        public ApiResponse<SfvbCommsSegmentsResponse> ListSfvbCommsSegmentsWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbCommsSegments");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/segments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbCommsSegments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSegmentsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSegmentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSegmentsResponse)));
+        }
+
+        /// <summary>
+        /// List the storefront's segments Each segment's uuid, name and member count at its last rebuild, by name, for a campaign's memberships or a segment trigger.  Never its members or its rule.  Archived segments are left out. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSegmentsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSegmentsResponse> ListSfvbCommsSegmentsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSegmentsResponse> localVarResponse = await ListSfvbCommsSegmentsWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the storefront's segments Each segment's uuid, name and member count at its last rebuild, by name, for a campaign's memberships or a segment trigger.  Never its members or its rule.  Archived segments are left out. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSegmentsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSegmentsResponse>> ListSfvbCommsSegmentsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbCommsSegments");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/segments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbCommsSegments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSegmentsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSegmentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSegmentsResponse)));
+        }
+
+        /// <summary>
         /// Version history for a container stored outside the file system Addressed the same way as the container itself, so owner_type also says how owner_object_id is read and itemid lists the history of the item container that merchant item id names. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -41688,6 +43688,215 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Change a campaign A field left out keeps its value; memberships replaces the whole set.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish, and a change to a scheduled one applies to the send that is coming.  notes lists any emails a sending domain change put back to needing review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="campaignWriteRequest">The fields to change</param>
+        /// <returns>SfvbCampaign</returns>
+        public SfvbCampaign UpdateSfvbCampaign (int storefrontOid, string campaignUuid, string ifMatch, SfvbCampaignWriteRequest campaignWriteRequest)
+        {
+             ApiResponse<SfvbCampaign> localVarResponse = UpdateSfvbCampaignWithHttpInfo(storefrontOid, campaignUuid, ifMatch, campaignWriteRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a campaign A field left out keeps its value; memberships replaces the whole set.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish, and a change to a scheduled one applies to the send that is coming.  notes lists any emails a sending domain change put back to needing review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="campaignWriteRequest">The fields to change</param>
+        /// <returns>ApiResponse of SfvbCampaign</returns>
+        public ApiResponse<SfvbCampaign> UpdateSfvbCampaignWithHttpInfo (int storefrontOid, string campaignUuid, string ifMatch, SfvbCampaignWriteRequest campaignWriteRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbCampaign");
+            // verify the required parameter 'campaignUuid' is set
+            if (campaignUuid == null)
+                throw new ApiException(400, "Missing required parameter 'campaignUuid' when calling SfvbApi->UpdateSfvbCampaign");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbCampaign");
+            // verify the required parameter 'campaignWriteRequest' is set
+            if (campaignWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'campaignWriteRequest' when calling SfvbApi->UpdateSfvbCampaign");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (campaignUuid != null) localVarPathParams.Add("campaign_uuid", this.Configuration.ApiClient.ParameterToString(campaignUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (campaignWriteRequest != null && campaignWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(campaignWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = campaignWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCampaign", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCampaign>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaign)));
+        }
+
+        /// <summary>
+        /// Change a campaign A field left out keeps its value; memberships replaces the whole set.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish, and a change to a scheduled one applies to the send that is coming.  notes lists any emails a sending domain change put back to needing review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="campaignWriteRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCampaign</returns>
+        public async System.Threading.Tasks.Task<SfvbCampaign> UpdateSfvbCampaignAsync (int storefrontOid, string campaignUuid, string ifMatch, SfvbCampaignWriteRequest campaignWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCampaign> localVarResponse = await UpdateSfvbCampaignWithHttpInfoAsync(storefrontOid, campaignUuid, ifMatch, campaignWriteRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a campaign A field left out keeps its value; memberships replaces the whole set.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish, and a change to a scheduled one applies to the send that is coming.  notes lists any emails a sending domain change put back to needing review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="campaignUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="campaignWriteRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> UpdateSfvbCampaignWithHttpInfoAsync (int storefrontOid, string campaignUuid, string ifMatch, SfvbCampaignWriteRequest campaignWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbCampaign");
+            // verify the required parameter 'campaignUuid' is set
+            if (campaignUuid == null)
+                throw new ApiException(400, "Missing required parameter 'campaignUuid' when calling SfvbApi->UpdateSfvbCampaign");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbCampaign");
+            // verify the required parameter 'campaignWriteRequest' is set
+            if (campaignWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'campaignWriteRequest' when calling SfvbApi->UpdateSfvbCampaign");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (campaignUuid != null) localVarPathParams.Add("campaign_uuid", this.Configuration.ApiClient.ParameterToString(campaignUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (campaignWriteRequest != null && campaignWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(campaignWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = campaignWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCampaign", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCampaign>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaign)));
+        }
+
+        /// <summary>
         /// Update a sending domain Only a mailgun domain's mailgun_api_key can change.  Send it as a secret handle made for the domain to replace it, or as the mask it was read with to keep it.  A new key sets up UltraCart's webhooks again with it; if Mailgun refuses, nothing is saved and the handle is given back unused. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -42252,6 +44461,424 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbEmail>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbEmail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEmail)));
+        }
+
+        /// <summary>
+        /// Change a flow A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowWriteRequest">The fields to change</param>
+        /// <returns>SfvbFlow</returns>
+        public SfvbFlow UpdateSfvbFlow (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowWriteRequest flowWriteRequest)
+        {
+             ApiResponse<SfvbFlow> localVarResponse = UpdateSfvbFlowWithHttpInfo(storefrontOid, flowUuid, ifMatch, flowWriteRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a flow A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowWriteRequest">The fields to change</param>
+        /// <returns>ApiResponse of SfvbFlow</returns>
+        public ApiResponse<SfvbFlow> UpdateSfvbFlowWithHttpInfo (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowWriteRequest flowWriteRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbFlow");
+            // verify the required parameter 'flowUuid' is set
+            if (flowUuid == null)
+                throw new ApiException(400, "Missing required parameter 'flowUuid' when calling SfvbApi->UpdateSfvbFlow");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbFlow");
+            // verify the required parameter 'flowWriteRequest' is set
+            if (flowWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'flowWriteRequest' when calling SfvbApi->UpdateSfvbFlow");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (flowUuid != null) localVarPathParams.Add("flow_uuid", this.Configuration.ApiClient.ParameterToString(flowUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (flowWriteRequest != null && flowWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(flowWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = flowWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbFlow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlow>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlow) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlow)));
+        }
+
+        /// <summary>
+        /// Change a flow A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowWriteRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlow</returns>
+        public async System.Threading.Tasks.Task<SfvbFlow> UpdateSfvbFlowAsync (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowWriteRequest flowWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbFlow> localVarResponse = await UpdateSfvbFlowWithHttpInfoAsync(storefrontOid, flowUuid, ifMatch, flowWriteRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a flow A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowWriteRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlow)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbFlow>> UpdateSfvbFlowWithHttpInfoAsync (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowWriteRequest flowWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbFlow");
+            // verify the required parameter 'flowUuid' is set
+            if (flowUuid == null)
+                throw new ApiException(400, "Missing required parameter 'flowUuid' when calling SfvbApi->UpdateSfvbFlow");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbFlow");
+            // verify the required parameter 'flowWriteRequest' is set
+            if (flowWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'flowWriteRequest' when calling SfvbApi->UpdateSfvbFlow");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (flowUuid != null) localVarPathParams.Add("flow_uuid", this.Configuration.ApiClient.ParameterToString(flowUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (flowWriteRequest != null && flowWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(flowWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = flowWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbFlow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlow>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlow) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlow)));
+        }
+
+        /// <summary>
+        /// Turn a flow on or off active enrolls customers as they trigger the flow from now on, and they receive its emails.  inactive stops new enrollments.  Always needs sfvb_publish.  Send the hash_sha256 you read as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowStatusRequest">The status to set</param>
+        /// <returns>SfvbFlow</returns>
+        public SfvbFlow UpdateSfvbFlowStatus (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowStatusRequest flowStatusRequest)
+        {
+             ApiResponse<SfvbFlow> localVarResponse = UpdateSfvbFlowStatusWithHttpInfo(storefrontOid, flowUuid, ifMatch, flowStatusRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Turn a flow on or off active enrolls customers as they trigger the flow from now on, and they receive its emails.  inactive stops new enrollments.  Always needs sfvb_publish.  Send the hash_sha256 you read as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowStatusRequest">The status to set</param>
+        /// <returns>ApiResponse of SfvbFlow</returns>
+        public ApiResponse<SfvbFlow> UpdateSfvbFlowStatusWithHttpInfo (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowStatusRequest flowStatusRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbFlowStatus");
+            // verify the required parameter 'flowUuid' is set
+            if (flowUuid == null)
+                throw new ApiException(400, "Missing required parameter 'flowUuid' when calling SfvbApi->UpdateSfvbFlowStatus");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbFlowStatus");
+            // verify the required parameter 'flowStatusRequest' is set
+            if (flowStatusRequest == null)
+                throw new ApiException(400, "Missing required parameter 'flowStatusRequest' when calling SfvbApi->UpdateSfvbFlowStatus");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/status";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (flowUuid != null) localVarPathParams.Add("flow_uuid", this.Configuration.ApiClient.ParameterToString(flowUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (flowStatusRequest != null && flowStatusRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(flowStatusRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = flowStatusRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbFlowStatus", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlow>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlow) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlow)));
+        }
+
+        /// <summary>
+        /// Turn a flow on or off active enrolls customers as they trigger the flow from now on, and they receive its emails.  inactive stops new enrollments.  Always needs sfvb_publish.  Send the hash_sha256 you read as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowStatusRequest">The status to set</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFlow</returns>
+        public async System.Threading.Tasks.Task<SfvbFlow> UpdateSfvbFlowStatusAsync (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowStatusRequest flowStatusRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbFlow> localVarResponse = await UpdateSfvbFlowStatusWithHttpInfoAsync(storefrontOid, flowUuid, ifMatch, flowStatusRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Turn a flow on or off active enrolls customers as they trigger the flow from now on, and they receive its emails.  inactive stops new enrollments.  Always needs sfvb_publish.  Send the hash_sha256 you read as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="flowUuid"></param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="flowStatusRequest">The status to set</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFlow)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbFlow>> UpdateSfvbFlowStatusWithHttpInfoAsync (int storefrontOid, string flowUuid, string ifMatch, SfvbFlowStatusRequest flowStatusRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbFlowStatus");
+            // verify the required parameter 'flowUuid' is set
+            if (flowUuid == null)
+                throw new ApiException(400, "Missing required parameter 'flowUuid' when calling SfvbApi->UpdateSfvbFlowStatus");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbFlowStatus");
+            // verify the required parameter 'flowStatusRequest' is set
+            if (flowStatusRequest == null)
+                throw new ApiException(400, "Missing required parameter 'flowStatusRequest' when calling SfvbApi->UpdateSfvbFlowStatus");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/status";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (flowUuid != null) localVarPathParams.Add("flow_uuid", this.Configuration.ApiClient.ParameterToString(flowUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (flowStatusRequest != null && flowStatusRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(flowStatusRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = flowStatusRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbFlowStatus", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFlow>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFlow) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFlow)));
         }
 
         /// <summary>

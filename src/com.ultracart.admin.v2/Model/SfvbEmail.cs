@@ -37,6 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="emailUuid">The email uuid.  The same uuid the email container (owner type email) and the email render take..</param>
         /// <param name="hashSha256">Hash of the subject and preview text.  Send it as If-Match when updating.  A change to the email body does not change it..</param>
         /// <param name="live">True when the email is in a flow or campaign that is sending, so a change reaches customers and needs sfvb_publish.  An email in neither is reported live..</param>
+        /// <param name="notes">What a write did beyond the fields asked for, such as a step label it could not refresh.  Only on a write..</param>
         /// <param name="pendingReview">True while a change waits for review.  An edit puts it back to needing review..</param>
         /// <param name="previewText">The preview text an inbox shows after the subject..</param>
         /// <param name="rejected">True when review rejected the email.  An edit puts it back to needing review..</param>
@@ -45,12 +46,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="suspendedForSpam">True when UltraCart suspended the email for spam.  Edits are refused until the merchant resolves it with UltraCart support..</param>
         /// <param name="transactional">True for a transactional email, which skips the marketing footer rules..</param>
         /// <param name="version">The email version.  Every save adds one..</param>
-        public SfvbEmail(string containerLastModifiedDts = default(string), string emailUuid = default(string), string hashSha256 = default(string), bool live = default(bool), bool pendingReview = default(bool), string previewText = default(string), bool rejected = default(bool), bool requiresReview = default(bool), string subject = default(string), bool suspendedForSpam = default(bool), bool transactional = default(bool), int version = default(int))
+        public SfvbEmail(string containerLastModifiedDts = default(string), string emailUuid = default(string), string hashSha256 = default(string), bool live = default(bool), List<string> notes = default(List<string>), bool pendingReview = default(bool), string previewText = default(string), bool rejected = default(bool), bool requiresReview = default(bool), string subject = default(string), bool suspendedForSpam = default(bool), bool transactional = default(bool), int version = default(int))
         {
             this.ContainerLastModifiedDts = containerLastModifiedDts;
             this.EmailUuid = emailUuid;
             this.HashSha256 = hashSha256;
             this.Live = live;
+            this.Notes = notes;
             this.PendingReview = pendingReview;
             this.PreviewText = previewText;
             this.Rejected = rejected;
@@ -88,6 +90,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True when the email is in a flow or campaign that is sending, so a change reaches customers and needs sfvb_publish.  An email in neither is reported live.</value>
         [DataMember(Name="live", EmitDefaultValue=false)]
         public bool Live { get; set; }
+
+        /// <summary>
+        /// What a write did beyond the fields asked for, such as a step label it could not refresh.  Only on a write.
+        /// </summary>
+        /// <value>What a write did beyond the fields asked for, such as a step label it could not refresh.  Only on a write.</value>
+        [DataMember(Name="notes", EmitDefaultValue=false)]
+        public List<string> Notes { get; set; }
 
         /// <summary>
         /// True while a change waits for review.  An edit puts it back to needing review.
@@ -157,6 +166,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EmailUuid: ").Append(EmailUuid).Append("\n");
             sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
             sb.Append("  Live: ").Append(Live).Append("\n");
+            sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("  PendingReview: ").Append(PendingReview).Append("\n");
             sb.Append("  PreviewText: ").Append(PreviewText).Append("\n");
             sb.Append("  Rejected: ").Append(Rejected).Append("\n");
@@ -220,6 +230,12 @@ namespace com.ultracart.admin.v2.Model
                     this.Live.Equals(input.Live))
                 ) && 
                 (
+                    this.Notes == input.Notes ||
+                    this.Notes != null &&
+                    input.Notes != null &&
+                    this.Notes.SequenceEqual(input.Notes)
+                ) && 
+                (
                     this.PendingReview == input.PendingReview ||
                     (this.PendingReview != null &&
                     this.PendingReview.Equals(input.PendingReview))
@@ -278,6 +294,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.HashSha256.GetHashCode();
                 if (this.Live != null)
                     hashCode = hashCode * 59 + this.Live.GetHashCode();
+                if (this.Notes != null)
+                    hashCode = hashCode * 59 + this.Notes.GetHashCode();
                 if (this.PendingReview != null)
                     hashCode = hashCode * 59 + this.PendingReview.GetHashCode();
                 if (this.PreviewText != null)

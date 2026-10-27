@@ -4287,6 +4287,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbFileWriteResponse</returns>
         ApiResponse<SfvbFileWriteResponse> RevertSfvbFileWithHttpInfo (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, string approvalId = default(string));
         /// <summary>
+        /// Request a content review of a flow or campaign email
+        /// </summary>
+        /// <remarks>
+        /// Starts a review the way the admin's Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn't need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailReviewRequest">The test order, for an email in an order-triggered flow</param>
+        /// <returns>SfvbEmail</returns>
+        SfvbEmail ReviewSfvbEmail (int storefrontOid, string emailUuid, SfvbEmailReviewRequest emailReviewRequest);
+
+        /// <summary>
+        /// Request a content review of a flow or campaign email
+        /// </summary>
+        /// <remarks>
+        /// Starts a review the way the admin's Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn't need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailReviewRequest">The test order, for an email in an order-triggered flow</param>
+        /// <returns>ApiResponse of SfvbEmail</returns>
+        ApiResponse<SfvbEmail> ReviewSfvbEmailWithHttpInfo (int storefrontOid, string emailUuid, SfvbEmailReviewRequest emailReviewRequest);
+        /// <summary>
         /// Revoke a fulfilled request's unused handles
         /// </summary>
         /// <remarks>
@@ -9549,6 +9574,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbFileWriteResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFileWriteResponse>> RevertSfvbFileWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbFileRevertRequest fileRevertRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Request a content review of a flow or campaign email
+        /// </summary>
+        /// <remarks>
+        /// Starts a review the way the admin's Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn't need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailReviewRequest">The test order, for an email in an order-triggered flow</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEmail</returns>
+        System.Threading.Tasks.Task<SfvbEmail> ReviewSfvbEmailAsync (int storefrontOid, string emailUuid, SfvbEmailReviewRequest emailReviewRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Request a content review of a flow or campaign email
+        /// </summary>
+        /// <remarks>
+        /// Starts a review the way the admin's Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn't need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailReviewRequest">The test order, for an email in an order-triggered flow</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEmail)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbEmail>> ReviewSfvbEmailWithHttpInfoAsync (int storefrontOid, string emailUuid, SfvbEmailReviewRequest emailReviewRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Revoke a fulfilled request's unused handles
         /// </summary>
@@ -41485,6 +41537,203 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbFileWriteResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbFileWriteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFileWriteResponse)));
+        }
+
+        /// <summary>
+        /// Request a content review of a flow or campaign email Starts a review the way the admin's Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn't need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailReviewRequest">The test order, for an email in an order-triggered flow</param>
+        /// <returns>SfvbEmail</returns>
+        public SfvbEmail ReviewSfvbEmail (int storefrontOid, string emailUuid, SfvbEmailReviewRequest emailReviewRequest)
+        {
+             ApiResponse<SfvbEmail> localVarResponse = ReviewSfvbEmailWithHttpInfo(storefrontOid, emailUuid, emailReviewRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Request a content review of a flow or campaign email Starts a review the way the admin's Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn't need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailReviewRequest">The test order, for an email in an order-triggered flow</param>
+        /// <returns>ApiResponse of SfvbEmail</returns>
+        public ApiResponse<SfvbEmail> ReviewSfvbEmailWithHttpInfo (int storefrontOid, string emailUuid, SfvbEmailReviewRequest emailReviewRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ReviewSfvbEmail");
+            // verify the required parameter 'emailUuid' is set
+            if (emailUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailUuid' when calling SfvbApi->ReviewSfvbEmail");
+            // verify the required parameter 'emailReviewRequest' is set
+            if (emailReviewRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailReviewRequest' when calling SfvbApi->ReviewSfvbEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/review";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailUuid != null) localVarPathParams.Add("email_uuid", this.Configuration.ApiClient.ParameterToString(emailUuid)); // path parameter
+            if (emailReviewRequest != null && emailReviewRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailReviewRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailReviewRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ReviewSfvbEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEmail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEmail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEmail)));
+        }
+
+        /// <summary>
+        /// Request a content review of a flow or campaign email Starts a review the way the admin's Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn't need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailReviewRequest">The test order, for an email in an order-triggered flow</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbEmail</returns>
+        public async System.Threading.Tasks.Task<SfvbEmail> ReviewSfvbEmailAsync (int storefrontOid, string emailUuid, SfvbEmailReviewRequest emailReviewRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbEmail> localVarResponse = await ReviewSfvbEmailWithHttpInfoAsync(storefrontOid, emailUuid, emailReviewRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Request a content review of a flow or campaign email Starts a review the way the admin's Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn't need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="emailReviewRequest">The test order, for an email in an order-triggered flow</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbEmail)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbEmail>> ReviewSfvbEmailWithHttpInfoAsync (int storefrontOid, string emailUuid, SfvbEmailReviewRequest emailReviewRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ReviewSfvbEmail");
+            // verify the required parameter 'emailUuid' is set
+            if (emailUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailUuid' when calling SfvbApi->ReviewSfvbEmail");
+            // verify the required parameter 'emailReviewRequest' is set
+            if (emailReviewRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailReviewRequest' when calling SfvbApi->ReviewSfvbEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/review";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailUuid != null) localVarPathParams.Add("email_uuid", this.Configuration.ApiClient.ParameterToString(emailUuid)); // path parameter
+            if (emailReviewRequest != null && emailReviewRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailReviewRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailReviewRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ReviewSfvbEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbEmail>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbEmail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEmail)));
         }
 
         /// <summary>

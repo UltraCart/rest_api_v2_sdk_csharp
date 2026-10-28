@@ -153,9 +153,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="addOns">Array of addon objects instructing which items to add to auto order and how many times they should be added..</param>
         /// <param name="arbitraryItemId">Arbitrary item id that should be rebilled instead of the normal schedule.</param>
         /// <param name="arbitraryPercentageDiscount">An arbitrary percentage discount to provide on future rebills.</param>
-        /// <param name="arbitraryQuantity">Arbitrary quantity to rebill.</param>
+        /// <param name="arbitraryQuantity">Quantity to rebill.  When set, every rebill uses this quantity instead of original_quantity.  Set this field to change the quantity on an active auto order; the merchant auto order editor updates this same field.  Each rebill charges the unit price multiplied by this quantity..</param>
         /// <param name="arbitraryScheduleDays">The number of days to rebill if the frequency is set to an arbitrary number of days.</param>
-        /// <param name="arbitraryUnitCost">Arbitrary unit cost that rebills of this item should occur at.</param>
+        /// <param name="arbitraryUnitCost">Arbitrary unit cost that rebills of this item should occur at.  This is a price per unit.  Each rebill charges it multiplied by the rebill quantity (arbitrary_quantity, or original_quantity when arbitrary_quantity is null)..</param>
         /// <param name="arbitraryUnitCostRemainingOrders">The number of rebills to give the arbitrary unit cost on before reverting to normal pricing..</param>
         /// <param name="autoOrderItemOid">Primary key of AutoOrderItem.</param>
         /// <param name="calculatedNextShipmentDts">Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item.</param>
@@ -173,7 +173,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="numberOfRebills">The number of times this item has rebilled.</param>
         /// <param name="options">Options associated with this item.</param>
         /// <param name="originalItemId">The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date..</param>
-        /// <param name="originalQuantity">The original quantity purchased.</param>
+        /// <param name="originalQuantity">The quantity purchased on the original order.  Rebills use this quantity only when arbitrary_quantity is null.  To change the quantity on future rebills, set arbitrary_quantity instead..</param>
         /// <param name="paused">True if paused.  This field is an object instead of a primitive for backwards compatibility..</param>
         /// <param name="paypalPayerId">The PayPal Payer ID tied to this item.</param>
         /// <param name="paypalRecurringPaymentProfileId">The PayPal Profile ID tied to this item.</param>
@@ -240,9 +240,9 @@ namespace com.ultracart.admin.v2.Model
         public decimal ArbitraryPercentageDiscount { get; set; }
 
         /// <summary>
-        /// Arbitrary quantity to rebill
+        /// Quantity to rebill.  When set, every rebill uses this quantity instead of original_quantity.  Set this field to change the quantity on an active auto order; the merchant auto order editor updates this same field.  Each rebill charges the unit price multiplied by this quantity.
         /// </summary>
-        /// <value>Arbitrary quantity to rebill</value>
+        /// <value>Quantity to rebill.  When set, every rebill uses this quantity instead of original_quantity.  Set this field to change the quantity on an active auto order; the merchant auto order editor updates this same field.  Each rebill charges the unit price multiplied by this quantity.</value>
         [DataMember(Name="arbitrary_quantity", EmitDefaultValue=false)]
         public decimal ArbitraryQuantity { get; set; }
 
@@ -254,9 +254,9 @@ namespace com.ultracart.admin.v2.Model
         public int ArbitraryScheduleDays { get; set; }
 
         /// <summary>
-        /// Arbitrary unit cost that rebills of this item should occur at
+        /// Arbitrary unit cost that rebills of this item should occur at.  This is a price per unit.  Each rebill charges it multiplied by the rebill quantity (arbitrary_quantity, or original_quantity when arbitrary_quantity is null).
         /// </summary>
-        /// <value>Arbitrary unit cost that rebills of this item should occur at</value>
+        /// <value>Arbitrary unit cost that rebills of this item should occur at.  This is a price per unit.  Each rebill charges it multiplied by the rebill quantity (arbitrary_quantity, or original_quantity when arbitrary_quantity is null).</value>
         [DataMember(Name="arbitrary_unit_cost", EmitDefaultValue=false)]
         public decimal ArbitraryUnitCost { get; set; }
 
@@ -374,9 +374,9 @@ namespace com.ultracart.admin.v2.Model
         public string OriginalItemId { get; set; }
 
         /// <summary>
-        /// The original quantity purchased
+        /// The quantity purchased on the original order.  Rebills use this quantity only when arbitrary_quantity is null.  To change the quantity on future rebills, set arbitrary_quantity instead.
         /// </summary>
-        /// <value>The original quantity purchased</value>
+        /// <value>The quantity purchased on the original order.  Rebills use this quantity only when arbitrary_quantity is null.  To change the quantity on future rebills, set arbitrary_quantity instead.</value>
         [DataMember(Name="original_quantity", EmitDefaultValue=false)]
         public decimal OriginalQuantity { get; set; }
 

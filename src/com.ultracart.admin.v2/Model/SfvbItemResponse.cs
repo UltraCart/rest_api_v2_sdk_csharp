@@ -40,8 +40,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantItemOid">The item&#39;s internal oid, which appears nowhere on a rendered storefront..</param>
         /// <param name="multimedia">Every image slot a template declares plus every image attached to the item..</param>
         /// <param name="seo">seo.</param>
+        /// <param name="tags">tags.</param>
         /// <param name="title">What an itemtitle element renders.  This is the item&#39;s short description in the catalog, not a storefront only field, so changing it changes the item everywhere..</param>
-        public SfvbItemResponse(List<SfvbItemAttribute> attributes = default(List<SfvbItemAttribute>), string description = default(string), List<string> groups = default(List<string>), string merchantItemId = default(string), int merchantItemOid = default(int), List<SfvbItemMultimedia> multimedia = default(List<SfvbItemMultimedia>), SfvbItemSeo seo = default(SfvbItemSeo), string title = default(string))
+        public SfvbItemResponse(List<SfvbItemAttribute> attributes = default(List<SfvbItemAttribute>), string description = default(string), List<string> groups = default(List<string>), string merchantItemId = default(string), int merchantItemOid = default(int), List<SfvbItemMultimedia> multimedia = default(List<SfvbItemMultimedia>), SfvbItemSeo seo = default(SfvbItemSeo), SfvbItemTags tags = default(SfvbItemTags), string title = default(string))
         {
             this.Attributes = attributes;
             this.Description = description;
@@ -50,6 +51,7 @@ namespace com.ultracart.admin.v2.Model
             this.MerchantItemOid = merchantItemOid;
             this.Multimedia = multimedia;
             this.Seo = seo;
+            this.Tags = tags;
             this.Title = title;
         }
 
@@ -102,6 +104,12 @@ namespace com.ultracart.admin.v2.Model
         public SfvbItemSeo Seo { get; set; }
 
         /// <summary>
+        /// Gets or Sets Tags
+        /// </summary>
+        [DataMember(Name="tags", EmitDefaultValue=false)]
+        public SfvbItemTags Tags { get; set; }
+
+        /// <summary>
         /// What an itemtitle element renders.  This is the item&#39;s short description in the catalog, not a storefront only field, so changing it changes the item everywhere.
         /// </summary>
         /// <value>What an itemtitle element renders.  This is the item&#39;s short description in the catalog, not a storefront only field, so changing it changes the item everywhere.</value>
@@ -123,6 +131,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantItemOid: ").Append(MerchantItemOid).Append("\n");
             sb.Append("  Multimedia: ").Append(Multimedia).Append("\n");
             sb.Append("  Seo: ").Append(Seo).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -197,6 +206,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Seo.Equals(input.Seo))
                 ) && 
                 (
+                    this.Tags == input.Tags ||
+                    (this.Tags != null &&
+                    this.Tags.Equals(input.Tags))
+                ) && 
+                (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
@@ -226,6 +240,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Multimedia.GetHashCode();
                 if (this.Seo != null)
                     hashCode = hashCode * 59 + this.Seo.GetHashCode();
+                if (this.Tags != null)
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 return hashCode;

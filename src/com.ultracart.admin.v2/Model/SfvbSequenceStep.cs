@@ -40,6 +40,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="disabled">True when the step is switched off in its settings..</param>
         /// <param name="emailUuids">The emails it sends.  One for an email step, one per variant for an experiment..</param>
         /// <param name="filterProfileEquationJson">The step&#39;s audience filter as stored, when it has one..</param>
+        /// <param name="hashSha256">The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step..</param>
         /// <param name="itemIds">The items it names, for a cart or rate limiter step..</param>
         /// <param name="label">The type as the admin names it, such as Time Delay.  The type itself for one it doesn&#39;t know..</param>
         /// <param name="listUuids">The lists it subscribes or unsubscribes, for a list step..</param>
@@ -50,7 +51,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="stepUuid">The step uuid..</param>
         /// <param name="type">The step type, such as email, wait, condition or webhook..</param>
         /// <param name="unreachable">True for a step no branch leads to.  Listed at the end so nothing is hidden..</param>
-        public SfvbSequenceStep(List<SfvbSequenceBranch> branches = default(List<SfvbSequenceBranch>), bool configError = default(bool), string configJson = default(string), string configMerchantNotes = default(string), bool disabled = default(bool), List<string> emailUuids = default(List<string>), string filterProfileEquationJson = default(string), List<string> itemIds = default(List<string>), string label = default(string), List<string> listUuids = default(List<string>), string merchantNotes = default(string), string name = default(string), int numberWaiting = default(int), string postcardUuid = default(string), string stepUuid = default(string), string type = default(string), bool unreachable = default(bool))
+        public SfvbSequenceStep(List<SfvbSequenceBranch> branches = default(List<SfvbSequenceBranch>), bool configError = default(bool), string configJson = default(string), string configMerchantNotes = default(string), bool disabled = default(bool), List<string> emailUuids = default(List<string>), string filterProfileEquationJson = default(string), string hashSha256 = default(string), List<string> itemIds = default(List<string>), string label = default(string), List<string> listUuids = default(List<string>), string merchantNotes = default(string), string name = default(string), int numberWaiting = default(int), string postcardUuid = default(string), string stepUuid = default(string), string type = default(string), bool unreachable = default(bool))
         {
             this.Branches = branches;
             this.ConfigError = configError;
@@ -59,6 +60,7 @@ namespace com.ultracart.admin.v2.Model
             this.Disabled = disabled;
             this.EmailUuids = emailUuids;
             this.FilterProfileEquationJson = filterProfileEquationJson;
+            this.HashSha256 = hashSha256;
             this.ItemIds = itemIds;
             this.Label = label;
             this.ListUuids = listUuids;
@@ -119,6 +121,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The step&#39;s audience filter as stored, when it has one.</value>
         [DataMember(Name="filter_profile_equation_json", EmitDefaultValue=false)]
         public string FilterProfileEquationJson { get; set; }
+
+        /// <summary>
+        /// The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step.
+        /// </summary>
+        /// <value>The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step.</value>
+        [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
+        public string HashSha256 { get; set; }
 
         /// <summary>
         /// The items it names, for a cart or rate limiter step.
@@ -205,6 +214,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Disabled: ").Append(Disabled).Append("\n");
             sb.Append("  EmailUuids: ").Append(EmailUuids).Append("\n");
             sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
+            sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
             sb.Append("  ItemIds: ").Append(ItemIds).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  ListUuids: ").Append(ListUuids).Append("\n");
@@ -287,6 +297,11 @@ namespace com.ultracart.admin.v2.Model
                     this.FilterProfileEquationJson.Equals(input.FilterProfileEquationJson))
                 ) && 
                 (
+                    this.HashSha256 == input.HashSha256 ||
+                    (this.HashSha256 != null &&
+                    this.HashSha256.Equals(input.HashSha256))
+                ) && 
+                (
                     this.ItemIds == input.ItemIds ||
                     this.ItemIds != null &&
                     input.ItemIds != null &&
@@ -363,6 +378,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EmailUuids.GetHashCode();
                 if (this.FilterProfileEquationJson != null)
                     hashCode = hashCode * 59 + this.FilterProfileEquationJson.GetHashCode();
+                if (this.HashSha256 != null)
+                    hashCode = hashCode * 59 + this.HashSha256.GetHashCode();
                 if (this.ItemIds != null)
                     hashCode = hashCode * 59 + this.ItemIds.GetHashCode();
                 if (this.Label != null)

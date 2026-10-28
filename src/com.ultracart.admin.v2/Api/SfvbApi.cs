@@ -2297,7 +2297,7 @@ namespace com.ultracart.admin.v2.Api
         /// Get a campaign's or flow's steps as a tree
         /// </summary>
         /// <remarks>
-        /// The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only. 
+        /// The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, the emails, postcard, lists or items it names, and the hash_sha256 to send as If-Match when changing it.  waiting adds how many customers are waiting on each step now.  Read only. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -2310,7 +2310,7 @@ namespace com.ultracart.admin.v2.Api
         /// Get a campaign's or flow's steps as a tree
         /// </summary>
         /// <remarks>
-        /// The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only. 
+        /// The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, the emails, postcard, lists or items it names, and the hash_sha256 to send as If-Match when changing it.  waiting adds how many customers are waiting on each step now.  Read only. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -4861,6 +4861,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="redirectRequest">The request</param>
         /// <returns>ApiResponse of SfvbRedirectResponse</returns>
         ApiResponse<SfvbRedirectResponse> UpdateSfvbRedirectWithHttpInfo (int storefrontOid, int redirectId, string ifMatch, SfvbRedirectRequest redirectRequest);
+        /// <summary>
+        /// Change one step's settings or audience filter
+        /// </summary>
+        /// <remarks>
+        /// Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <returns>SfvbSequenceStepUpdateResponse</returns>
+        SfvbSequenceStepUpdateResponse UpdateSfvbSequenceStep (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest);
+
+        /// <summary>
+        /// Change one step's settings or audience filter
+        /// </summary>
+        /// <remarks>
+        /// Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <returns>ApiResponse of SfvbSequenceStepUpdateResponse</returns>
+        ApiResponse<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest);
         /// <summary>
         /// Update an upsell offer
         /// </summary>
@@ -7452,7 +7481,7 @@ namespace com.ultracart.admin.v2.Api
         /// Get a campaign's or flow's steps as a tree
         /// </summary>
         /// <remarks>
-        /// The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only. 
+        /// The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, the emails, postcard, lists or items it names, and the hash_sha256 to send as If-Match when changing it.  waiting adds how many customers are waiting on each step now.  Read only. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -7466,7 +7495,7 @@ namespace com.ultracart.admin.v2.Api
         /// Get a campaign&#39;s or flow&#39;s steps as a tree
         /// </summary>
         /// <remarks>
-        /// The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only. 
+        /// The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, the emails, postcard, lists or items it names, and the hash_sha256 to send as If-Match when changing it.  waiting adds how many customers are waiting on each step now.  Read only. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -10220,6 +10249,37 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbRedirectResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbRedirectResponse>> UpdateSfvbRedirectWithHttpInfoAsync (int storefrontOid, int redirectId, string ifMatch, SfvbRedirectRequest redirectRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change one step's settings or audience filter
+        /// </summary>
+        /// <remarks>
+        /// Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSequenceStepUpdateResponse</returns>
+        System.Threading.Tasks.Task<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change one step&#39;s settings or audience filter
+        /// </summary>
+        /// <remarks>
+        /// Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSequenceStepUpdateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepUpdateResponse>> UpdateSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update an upsell offer
         /// </summary>
@@ -27077,7 +27137,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get a campaign's or flow's steps as a tree The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only. 
+        /// Get a campaign's or flow's steps as a tree The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, the emails, postcard, lists or items it names, and the hash_sha256 to send as If-Match when changing it.  waiting adds how many customers are waiting on each step now.  Read only. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -27091,7 +27151,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get a campaign's or flow's steps as a tree The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only. 
+        /// Get a campaign's or flow's steps as a tree The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, the emails, postcard, lists or items it names, and the hash_sha256 to send as If-Match when changing it.  waiting adds how many customers are waiting on each step now.  Read only. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -27163,7 +27223,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get a campaign's or flow's steps as a tree The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only. 
+        /// Get a campaign's or flow's steps as a tree The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, the emails, postcard, lists or items it names, and the hash_sha256 to send as If-Match when changing it.  waiting adds how many customers are waiting on each step now.  Read only. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -27179,7 +27239,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get a campaign's or flow's steps as a tree The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only. 
+        /// Get a campaign's or flow's steps as a tree The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, the emails, postcard, lists or items it names, and the hash_sha256 to send as If-Match when changing it.  waiting adds how many customers are waiting on each step now.  Read only. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -45964,6 +46024,227 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbRedirectResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbRedirectResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRedirectResponse)));
+        }
+
+        /// <summary>
+        /// Change one step's settings or audience filter Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <returns>SfvbSequenceStepUpdateResponse</returns>
+        public SfvbSequenceStepUpdateResponse UpdateSfvbSequenceStep (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest)
+        {
+             ApiResponse<SfvbSequenceStepUpdateResponse> localVarResponse = UpdateSfvbSequenceStepWithHttpInfo(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change one step's settings or audience filter Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <returns>ApiResponse of SfvbSequenceStepUpdateResponse</returns>
+        public ApiResponse<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbSequenceStep");
+            // verify the required parameter 'sequenceUuid' is set
+            if (sequenceUuid == null)
+                throw new ApiException(400, "Missing required parameter 'sequenceUuid' when calling SfvbApi->UpdateSfvbSequenceStep");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->UpdateSfvbSequenceStep");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbSequenceStep");
+            // verify the required parameter 'sequenceStepUpdateRequest' is set
+            if (sequenceStepUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'sequenceStepUpdateRequest' when calling SfvbApi->UpdateSfvbSequenceStep");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (sequenceUuid != null) localVarPathParams.Add("sequence_uuid", this.Configuration.ApiClient.ParameterToString(sequenceUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (sequenceStepUpdateRequest != null && sequenceStepUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sequenceStepUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = sequenceStepUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbSequenceStep", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSequenceStepUpdateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSequenceStepUpdateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSequenceStepUpdateResponse)));
+        }
+
+        /// <summary>
+        /// Change one step's settings or audience filter Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSequenceStepUpdateResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbSequenceStepUpdateResponse> localVarResponse = await UpdateSfvbSequenceStepWithHttpInfoAsync(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change one step's settings or audience filter Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSequenceStepUpdateResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepUpdateResponse>> UpdateSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbSequenceStep");
+            // verify the required parameter 'sequenceUuid' is set
+            if (sequenceUuid == null)
+                throw new ApiException(400, "Missing required parameter 'sequenceUuid' when calling SfvbApi->UpdateSfvbSequenceStep");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->UpdateSfvbSequenceStep");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbSequenceStep");
+            // verify the required parameter 'sequenceStepUpdateRequest' is set
+            if (sequenceStepUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'sequenceStepUpdateRequest' when calling SfvbApi->UpdateSfvbSequenceStep");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (sequenceUuid != null) localVarPathParams.Add("sequence_uuid", this.Configuration.ApiClient.ParameterToString(sequenceUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (sequenceStepUpdateRequest != null && sequenceStepUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sequenceStepUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = sequenceStepUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbSequenceStep", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSequenceStepUpdateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSequenceStepUpdateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSequenceStepUpdateResponse)));
         }
 
         /// <summary>

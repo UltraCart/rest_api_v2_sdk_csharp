@@ -89,7 +89,25 @@ namespace com.ultracart.admin.v2.Model
             /// Enum ItemPricing for value: item.pricing
             /// </summary>
             [EnumMember(Value = "item.pricing")]
-            ItemPricing = 9
+            ItemPricing = 9,
+
+            /// <summary>
+            /// Enum TwilioaccountDelete for value: twilio_account.delete
+            /// </summary>
+            [EnumMember(Value = "twilio_account.delete")]
+            TwilioaccountDelete = 10,
+
+            /// <summary>
+            /// Enum SendingdomainDelete for value: sending_domain.delete
+            /// </summary>
+            [EnumMember(Value = "sending_domain.delete")]
+            SendingdomainDelete = 11,
+
+            /// <summary>
+            /// Enum SequencestepDelete for value: sequence_step.delete
+            /// </summary>
+            [EnumMember(Value = "sequence_step.delete")]
+            SequencestepDelete = 12
 
         }
 

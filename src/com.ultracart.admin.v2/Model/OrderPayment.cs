@@ -194,40 +194,46 @@ namespace com.ultracart.admin.v2.Model
             Sezzle = 26,
 
             /// <summary>
+            /// Enum Truemed for value: Truemed
+            /// </summary>
+            [EnumMember(Value = "Truemed")]
+            Truemed = 27,
+
+            /// <summary>
             /// Enum Venmo for value: Venmo
             /// </summary>
             [EnumMember(Value = "Venmo")]
-            Venmo = 27,
+            Venmo = 28,
 
             /// <summary>
             /// Enum ApplePay for value: Apple Pay
             /// </summary>
             [EnumMember(Value = "Apple Pay")]
-            ApplePay = 28,
+            ApplePay = 29,
 
             /// <summary>
             /// Enum GooglePay for value: Google Pay
             /// </summary>
             [EnumMember(Value = "Google Pay")]
-            GooglePay = 29,
+            GooglePay = 30,
 
             /// <summary>
             /// Enum HealthBenefitCard for value: Health Benefit Card
             /// </summary>
             [EnumMember(Value = "Health Benefit Card")]
-            HealthBenefitCard = 30,
+            HealthBenefitCard = 31,
 
             /// <summary>
             /// Enum PayPalFastlane for value: PayPal Fastlane
             /// </summary>
             [EnumMember(Value = "PayPal Fastlane")]
-            PayPalFastlane = 31,
+            PayPalFastlane = 32,
 
             /// <summary>
             /// Enum Klarna for value: Klarna
             /// </summary>
             [EnumMember(Value = "Klarna")]
-            Klarna = 32
+            Klarna = 33
 
         }
 

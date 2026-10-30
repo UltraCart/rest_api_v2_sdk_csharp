@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **RequestSha256** | **string** | For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same. | [optional] 
 **RowsSha256** | **string** | For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash. | [optional] 
 **RuleCount** | **int** | For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server. | [optional] 
+**SegmentUuid** | **string** | The segment whose rule changes, for segment.update. | [optional] 
 **SequenceUuid** | **string** | The communication sequence, for sequence_step.delete. | [optional] 
 **Slot** | **string** | For experiment.start of a page experiment, the page body name.  Defaults to body. | [optional] 
 **StepUuid** | **string** | The step to remove, for sequence_step.delete. | [optional] 

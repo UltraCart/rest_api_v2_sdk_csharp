@@ -1297,6 +1297,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbElementsResponse</returns>
         ApiResponse<SfvbElementsResponse> GetSfvbCjsonUsedElementsWithHttpInfo (SfvbCompileRequest compileRequest);
         /// <summary>
+        /// Read one segment, with its rule
+        /// </summary>
+        /// <remarks>
+        /// The segment's name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <returns>SfvbCommsSegmentResponse</returns>
+        SfvbCommsSegmentResponse GetSfvbCommsSegment (int storefrontOid, string segmentUuid);
+
+        /// <summary>
+        /// Read one segment, with its rule
+        /// </summary>
+        /// <remarks>
+        /// The segment's name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <returns>ApiResponse of SfvbCommsSegmentResponse</returns>
+        ApiResponse<SfvbCommsSegmentResponse> GetSfvbCommsSegmentWithHttpInfo (int storefrontOid, string segmentUuid);
+        /// <summary>
         /// Read a sending domain
         /// </summary>
         /// <remarks>
@@ -2702,6 +2725,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="blogPostRequest">The blog post to create</param>
         /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
         ApiResponse<SfvbBlogPostDetail> InsertSfvbBlogPostWithHttpInfo (int storefrontOid, SfvbBlogPostRequest blogPostRequest);
+        /// <summary>
+        /// Create a segment
+        /// </summary>
+        /// <remarks>
+        /// A new segment with the name, rule and folder given.  The rule needs at least one group, each with at least one function of a rule type the segment rebuild knows, and any list or segment it names must be on this storefront.  The segment starts empty and rebuilds in the background; member_count is out of date until rebuild_required is false. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentWriteRequest">The new segment&#39;s name, rule and folder</param>
+        /// <returns>SfvbCommsSegmentResponse</returns>
+        SfvbCommsSegmentResponse InsertSfvbCommsSegment (int storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest);
+
+        /// <summary>
+        /// Create a segment
+        /// </summary>
+        /// <remarks>
+        /// A new segment with the name, rule and folder given.  The rule needs at least one group, each with at least one function of a rule type the segment rebuild knows, and any list or segment it names must be on this storefront.  The segment starts empty and rebuilds in the background; member_count is out of date until rebuild_required is false. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentWriteRequest">The new segment&#39;s name, rule and folder</param>
+        /// <returns>ApiResponse of SfvbCommsSegmentResponse</returns>
+        ApiResponse<SfvbCommsSegmentResponse> InsertSfvbCommsSegmentWithHttpInfo (int storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest);
         /// <summary>
         /// Add a sending domain
         /// </summary>
@@ -4714,6 +4760,35 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbCampaign</returns>
         ApiResponse<SfvbCampaign> UpdateSfvbCampaignWithHttpInfo (int storefrontOid, string campaignUuid, string ifMatch, SfvbCampaignWriteRequest campaignWriteRequest);
         /// <summary>
+        /// Change a segment's name, rule or folder
+        /// </summary>
+        /// <remarks>
+        /// A field left out stays as it is.  Send the segment's hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="segmentWriteRequest">The fields to change</param>
+        /// <param name="approvalId">When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbCommsSegmentResponse</returns>
+        SfvbCommsSegmentResponse UpdateSfvbCommsSegment (int storefrontOid, string segmentUuid, string ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Change a segment's name, rule or folder
+        /// </summary>
+        /// <remarks>
+        /// A field left out stays as it is.  Send the segment's hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="segmentWriteRequest">The fields to change</param>
+        /// <param name="approvalId">When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsSegmentResponse</returns>
+        ApiResponse<SfvbCommsSegmentResponse> UpdateSfvbCommsSegmentWithHttpInfo (int storefrontOid, string segmentUuid, string ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, string approvalId = default(string));
+        /// <summary>
         /// Update a sending domain
         /// </summary>
         /// <remarks>
@@ -6451,6 +6526,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbElementsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbElementsResponse>> GetSfvbCjsonUsedElementsWithHttpInfoAsync (SfvbCompileRequest compileRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Read one segment, with its rule
+        /// </summary>
+        /// <remarks>
+        /// The segment's name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSegmentResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsSegmentResponse> GetSfvbCommsSegmentAsync (int storefrontOid, string segmentUuid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read one segment, with its rule
+        /// </summary>
+        /// <remarks>
+        /// The segment's name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSegmentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSegmentResponse>> GetSfvbCommsSegmentWithHttpInfoAsync (int storefrontOid, string segmentUuid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Read a sending domain
         /// </summary>
         /// <remarks>
@@ -7976,6 +8076,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> InsertSfvbBlogPostWithHttpInfoAsync (int storefrontOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Create a segment
+        /// </summary>
+        /// <remarks>
+        /// A new segment with the name, rule and folder given.  The rule needs at least one group, each with at least one function of a rule type the segment rebuild knows, and any list or segment it names must be on this storefront.  The segment starts empty and rebuilds in the background; member_count is out of date until rebuild_required is false. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentWriteRequest">The new segment&#39;s name, rule and folder</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSegmentResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsSegmentResponse> InsertSfvbCommsSegmentAsync (int storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create a segment
+        /// </summary>
+        /// <remarks>
+        /// A new segment with the name, rule and folder given.  The rule needs at least one group, each with at least one function of a rule type the segment rebuild knows, and any list or segment it names must be on this storefront.  The segment starts empty and rebuilds in the background; member_count is out of date until rebuild_required is false. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentWriteRequest">The new segment&#39;s name, rule and folder</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSegmentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSegmentResponse>> InsertSfvbCommsSegmentWithHttpInfoAsync (int storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Add a sending domain
         /// </summary>
@@ -10145,6 +10270,37 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> UpdateSfvbCampaignWithHttpInfoAsync (int storefrontOid, string campaignUuid, string ifMatch, SfvbCampaignWriteRequest campaignWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change a segment's name, rule or folder
+        /// </summary>
+        /// <remarks>
+        /// A field left out stays as it is.  Send the segment's hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="segmentWriteRequest">The fields to change</param>
+        /// <param name="approvalId">When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSegmentResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsSegmentResponse> UpdateSfvbCommsSegmentAsync (int storefrontOid, string segmentUuid, string ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a segment&#39;s name, rule or folder
+        /// </summary>
+        /// <remarks>
+        /// A field left out stays as it is.  Send the segment's hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="segmentWriteRequest">The fields to change</param>
+        /// <param name="approvalId">When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSegmentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSegmentResponse>> UpdateSfvbCommsSegmentWithHttpInfoAsync (int storefrontOid, string segmentUuid, string ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update a sending domain
         /// </summary>
@@ -20123,6 +20279,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbElementsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbElementsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbElementsResponse)));
+        }
+
+        /// <summary>
+        /// Read one segment, with its rule The segment's name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <returns>SfvbCommsSegmentResponse</returns>
+        public SfvbCommsSegmentResponse GetSfvbCommsSegment (int storefrontOid, string segmentUuid)
+        {
+             ApiResponse<SfvbCommsSegmentResponse> localVarResponse = GetSfvbCommsSegmentWithHttpInfo(storefrontOid, segmentUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read one segment, with its rule The segment's name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <returns>ApiResponse of SfvbCommsSegmentResponse</returns>
+        public ApiResponse<SfvbCommsSegmentResponse> GetSfvbCommsSegmentWithHttpInfo (int storefrontOid, string segmentUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsSegment");
+            // verify the required parameter 'segmentUuid' is set
+            if (segmentUuid == null)
+                throw new ApiException(400, "Missing required parameter 'segmentUuid' when calling SfvbApi->GetSfvbCommsSegment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (segmentUuid != null) localVarPathParams.Add("segment_uuid", this.Configuration.ApiClient.ParameterToString(segmentUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSegmentResponse)));
+        }
+
+        /// <summary>
+        /// Read one segment, with its rule The segment's name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSegmentResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSegmentResponse> GetSfvbCommsSegmentAsync (int storefrontOid, string segmentUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSegmentResponse> localVarResponse = await GetSfvbCommsSegmentWithHttpInfoAsync(storefrontOid, segmentUuid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read one segment, with its rule The segment's name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSegmentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSegmentResponse>> GetSfvbCommsSegmentWithHttpInfoAsync (int storefrontOid, string segmentUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsSegment");
+            // verify the required parameter 'segmentUuid' is set
+            if (segmentUuid == null)
+                throw new ApiException(400, "Missing required parameter 'segmentUuid' when calling SfvbApi->GetSfvbCommsSegment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (segmentUuid != null) localVarPathParams.Add("segment_uuid", this.Configuration.ApiClient.ParameterToString(segmentUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSegmentResponse)));
         }
 
         /// <summary>
@@ -30189,6 +30514,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
+        }
+
+        /// <summary>
+        /// Create a segment A new segment with the name, rule and folder given.  The rule needs at least one group, each with at least one function of a rule type the segment rebuild knows, and any list or segment it names must be on this storefront.  The segment starts empty and rebuilds in the background; member_count is out of date until rebuild_required is false. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentWriteRequest">The new segment&#39;s name, rule and folder</param>
+        /// <returns>SfvbCommsSegmentResponse</returns>
+        public SfvbCommsSegmentResponse InsertSfvbCommsSegment (int storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest)
+        {
+             ApiResponse<SfvbCommsSegmentResponse> localVarResponse = InsertSfvbCommsSegmentWithHttpInfo(storefrontOid, segmentWriteRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a segment A new segment with the name, rule and folder given.  The rule needs at least one group, each with at least one function of a rule type the segment rebuild knows, and any list or segment it names must be on this storefront.  The segment starts empty and rebuilds in the background; member_count is out of date until rebuild_required is false. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentWriteRequest">The new segment&#39;s name, rule and folder</param>
+        /// <returns>ApiResponse of SfvbCommsSegmentResponse</returns>
+        public ApiResponse<SfvbCommsSegmentResponse> InsertSfvbCommsSegmentWithHttpInfo (int storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbCommsSegment");
+            // verify the required parameter 'segmentWriteRequest' is set
+            if (segmentWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'segmentWriteRequest' when calling SfvbApi->InsertSfvbCommsSegment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/segments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (segmentWriteRequest != null && segmentWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(segmentWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = segmentWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbCommsSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSegmentResponse)));
+        }
+
+        /// <summary>
+        /// Create a segment A new segment with the name, rule and folder given.  The rule needs at least one group, each with at least one function of a rule type the segment rebuild knows, and any list or segment it names must be on this storefront.  The segment starts empty and rebuilds in the background; member_count is out of date until rebuild_required is false. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentWriteRequest">The new segment&#39;s name, rule and folder</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSegmentResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSegmentResponse> InsertSfvbCommsSegmentAsync (int storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSegmentResponse> localVarResponse = await InsertSfvbCommsSegmentWithHttpInfoAsync(storefrontOid, segmentWriteRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a segment A new segment with the name, rule and folder given.  The rule needs at least one group, each with at least one function of a rule type the segment rebuild knows, and any list or segment it names must be on this storefront.  The segment starts empty and rebuilds in the background; member_count is out of date until rebuild_required is false. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentWriteRequest">The new segment&#39;s name, rule and folder</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSegmentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSegmentResponse>> InsertSfvbCommsSegmentWithHttpInfoAsync (int storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbCommsSegment");
+            // verify the required parameter 'segmentWriteRequest' is set
+            if (segmentWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'segmentWriteRequest' when calling SfvbApi->InsertSfvbCommsSegment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/segments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (segmentWriteRequest != null && segmentWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(segmentWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = segmentWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbCommsSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSegmentResponse)));
         }
 
         /// <summary>
@@ -44954,6 +45464,221 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbCampaign>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaign)));
+        }
+
+        /// <summary>
+        /// Change a segment's name, rule or folder A field left out stays as it is.  Send the segment's hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="segmentWriteRequest">The fields to change</param>
+        /// <param name="approvalId">When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbCommsSegmentResponse</returns>
+        public SfvbCommsSegmentResponse UpdateSfvbCommsSegment (int storefrontOid, string segmentUuid, string ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbCommsSegmentResponse> localVarResponse = UpdateSfvbCommsSegmentWithHttpInfo(storefrontOid, segmentUuid, ifMatch, segmentWriteRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a segment's name, rule or folder A field left out stays as it is.  Send the segment's hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="segmentWriteRequest">The fields to change</param>
+        /// <param name="approvalId">When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsSegmentResponse</returns>
+        public ApiResponse<SfvbCommsSegmentResponse> UpdateSfvbCommsSegmentWithHttpInfo (int storefrontOid, string segmentUuid, string ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbCommsSegment");
+            // verify the required parameter 'segmentUuid' is set
+            if (segmentUuid == null)
+                throw new ApiException(400, "Missing required parameter 'segmentUuid' when calling SfvbApi->UpdateSfvbCommsSegment");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbCommsSegment");
+            // verify the required parameter 'segmentWriteRequest' is set
+            if (segmentWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'segmentWriteRequest' when calling SfvbApi->UpdateSfvbCommsSegment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (segmentUuid != null) localVarPathParams.Add("segment_uuid", this.Configuration.ApiClient.ParameterToString(segmentUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (segmentWriteRequest != null && segmentWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(segmentWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = segmentWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCommsSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSegmentResponse)));
+        }
+
+        /// <summary>
+        /// Change a segment's name, rule or folder A field left out stays as it is.  Send the segment's hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="segmentWriteRequest">The fields to change</param>
+        /// <param name="approvalId">When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSegmentResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSegmentResponse> UpdateSfvbCommsSegmentAsync (int storefrontOid, string segmentUuid, string ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSegmentResponse> localVarResponse = await UpdateSfvbCommsSegmentWithHttpInfoAsync(storefrontOid, segmentUuid, ifMatch, segmentWriteRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a segment's name, rule or folder A field left out stays as it is.  Send the segment's hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="segmentWriteRequest">The fields to change</param>
+        /// <param name="approvalId">When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSegmentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSegmentResponse>> UpdateSfvbCommsSegmentWithHttpInfoAsync (int storefrontOid, string segmentUuid, string ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbCommsSegment");
+            // verify the required parameter 'segmentUuid' is set
+            if (segmentUuid == null)
+                throw new ApiException(400, "Missing required parameter 'segmentUuid' when calling SfvbApi->UpdateSfvbCommsSegment");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbCommsSegment");
+            // verify the required parameter 'segmentWriteRequest' is set
+            if (segmentWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'segmentWriteRequest' when calling SfvbApi->UpdateSfvbCommsSegment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (segmentUuid != null) localVarPathParams.Add("segment_uuid", this.Configuration.ApiClient.ParameterToString(segmentUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (segmentWriteRequest != null && segmentWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(segmentWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = segmentWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCommsSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSegmentResponse)));
         }
 
         /// <summary>

@@ -1012,6 +1012,10 @@ docs/SfvbCommsList.md
 docs/SfvbCommsListsResponse.md
 docs/SfvbCommsPostcard.md
 docs/SfvbCommsSegment.md
+docs/SfvbCommsSegmentDetail.md
+docs/SfvbCommsSegmentResponse.md
+docs/SfvbCommsSegmentUsedBy.md
+docs/SfvbCommsSegmentWriteRequest.md
 docs/SfvbCommsSegmentsResponse.md
 docs/SfvbCommsSendingDomain.md
 docs/SfvbCommsSendingDomainsResponse.md
@@ -2369,6 +2373,10 @@ src/com.ultracart.admin.v2/Model/SfvbCommsList.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsListsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsPostcard.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSegment.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsSegmentDetail.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsSegmentResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsSegmentUsedBy.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsSegmentWriteRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSegmentsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSendingDomain.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSendingDomainsResponse.cs

@@ -107,7 +107,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum SequencestepDelete for value: sequence_step.delete
             /// </summary>
             [EnumMember(Value = "sequence_step.delete")]
-            SequencestepDelete = 12
+            SequencestepDelete = 12,
+
+            /// <summary>
+            /// Enum SegmentUpdate for value: segment.update
+            /// </summary>
+            [EnumMember(Value = "segment.update")]
+            SegmentUpdate = 13
 
         }
 
@@ -128,7 +134,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="_params">_params.</param>
         /// <param name="reason">Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters..</param>
         /// <param name="redirectRows">For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash..</param>
-        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>))
+        /// <param name="segmentUpdate">segmentUpdate.</param>
+        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest))
         {
             this.Action = action;
             this.Content = content;
@@ -138,6 +145,7 @@ namespace com.ultracart.admin.v2.Model
             this.Params = _params;
             this.Reason = reason;
             this.RedirectRows = redirectRows;
+            this.SegmentUpdate = segmentUpdate;
         }
 
 
@@ -188,6 +196,12 @@ namespace com.ultracart.admin.v2.Model
         public List<SfvbRedirectDeleteRow> RedirectRows { get; set; }
 
         /// <summary>
+        /// Gets or Sets SegmentUpdate
+        /// </summary>
+        [DataMember(Name="segment_update", EmitDefaultValue=false)]
+        public SfvbCommsSegmentWriteRequest SegmentUpdate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -203,6 +217,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  RedirectRows: ").Append(RedirectRows).Append("\n");
+            sb.Append("  SegmentUpdate: ").Append(SegmentUpdate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -278,6 +293,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RedirectRows != null &&
                     input.RedirectRows != null &&
                     this.RedirectRows.SequenceEqual(input.RedirectRows)
+                ) && 
+                (
+                    this.SegmentUpdate == input.SegmentUpdate ||
+                    (this.SegmentUpdate != null &&
+                    this.SegmentUpdate.Equals(input.SegmentUpdate))
                 );
         }
 
@@ -306,6 +326,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Reason.GetHashCode();
                 if (this.RedirectRows != null)
                     hashCode = hashCode * 59 + this.RedirectRows.GetHashCode();
+                if (this.SegmentUpdate != null)
+                    hashCode = hashCode * 59 + this.SegmentUpdate.GetHashCode();
                 return hashCode;
             }
         }

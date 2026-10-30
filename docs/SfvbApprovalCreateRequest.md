@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Params** | [**SfvbApprovalParams**](SfvbApprovalParams.md) |  | [optional] 
 **Reason** | **string** | Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters. | [optional] 
 **RedirectRows** | [**List&lt;SfvbRedirectDeleteRow&gt;**](SfvbRedirectDeleteRow.md) | For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash. | [optional] 
+**SegmentUpdate** | [**SfvbCommsSegmentWriteRequest**](SfvbCommsSegmentWriteRequest.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -36,14 +36,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="blockPrepaid">True if prepaid cards should be blocked from buying this item.</param>
         /// <param name="blockRefunds">True if this item should block any refund attempts, set to false otherwise, null value will not update the field.</param>
         /// <param name="creditCardTransactionType">Credit card transaction type.</param>
+        /// <param name="hsaFsaEligibility">HSA/FSA eligibility. eligible_with_lmn means the customer needs a Letter of Medical Necessity. Kept in sync automatically when Truemed is configured. Empty string clears it, null value will not update the field.</param>
         /// <param name="noRealtimeCharge">True if no real-time charge should be performed on this item..</param>
         /// <param name="paymentMethodValidity">Payment method validity.</param>
         /// <param name="rotatingTransactionGatewayCodes">Rotating transaction gateway codes.</param>
-        public ItemPaymentProcessing(bool blockPrepaid = default(bool), bool blockRefunds = default(bool), string creditCardTransactionType = default(string), bool noRealtimeCharge = default(bool), List<string> paymentMethodValidity = default(List<string>), List<string> rotatingTransactionGatewayCodes = default(List<string>))
+        public ItemPaymentProcessing(bool blockPrepaid = default(bool), bool blockRefunds = default(bool), string creditCardTransactionType = default(string), string hsaFsaEligibility = default(string), bool noRealtimeCharge = default(bool), List<string> paymentMethodValidity = default(List<string>), List<string> rotatingTransactionGatewayCodes = default(List<string>))
         {
             this.BlockPrepaid = blockPrepaid;
             this.BlockRefunds = blockRefunds;
             this.CreditCardTransactionType = creditCardTransactionType;
+            this.HsaFsaEligibility = hsaFsaEligibility;
             this.NoRealtimeCharge = noRealtimeCharge;
             this.PaymentMethodValidity = paymentMethodValidity;
             this.RotatingTransactionGatewayCodes = rotatingTransactionGatewayCodes;
@@ -69,6 +71,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Credit card transaction type</value>
         [DataMember(Name="credit_card_transaction_type", EmitDefaultValue=false)]
         public string CreditCardTransactionType { get; set; }
+
+        /// <summary>
+        /// HSA/FSA eligibility. eligible_with_lmn means the customer needs a Letter of Medical Necessity. Kept in sync automatically when Truemed is configured. Empty string clears it, null value will not update the field
+        /// </summary>
+        /// <value>HSA/FSA eligibility. eligible_with_lmn means the customer needs a Letter of Medical Necessity. Kept in sync automatically when Truemed is configured. Empty string clears it, null value will not update the field</value>
+        [DataMember(Name="hsa_fsa_eligibility", EmitDefaultValue=false)]
+        public string HsaFsaEligibility { get; set; }
 
         /// <summary>
         /// True if no real-time charge should be performed on this item.
@@ -102,6 +111,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  BlockPrepaid: ").Append(BlockPrepaid).Append("\n");
             sb.Append("  BlockRefunds: ").Append(BlockRefunds).Append("\n");
             sb.Append("  CreditCardTransactionType: ").Append(CreditCardTransactionType).Append("\n");
+            sb.Append("  HsaFsaEligibility: ").Append(HsaFsaEligibility).Append("\n");
             sb.Append("  NoRealtimeCharge: ").Append(NoRealtimeCharge).Append("\n");
             sb.Append("  PaymentMethodValidity: ").Append(PaymentMethodValidity).Append("\n");
             sb.Append("  RotatingTransactionGatewayCodes: ").Append(RotatingTransactionGatewayCodes).Append("\n");
@@ -155,6 +165,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CreditCardTransactionType.Equals(input.CreditCardTransactionType))
                 ) && 
                 (
+                    this.HsaFsaEligibility == input.HsaFsaEligibility ||
+                    (this.HsaFsaEligibility != null &&
+                    this.HsaFsaEligibility.Equals(input.HsaFsaEligibility))
+                ) && 
+                (
                     this.NoRealtimeCharge == input.NoRealtimeCharge ||
                     (this.NoRealtimeCharge != null &&
                     this.NoRealtimeCharge.Equals(input.NoRealtimeCharge))
@@ -188,6 +203,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.BlockRefunds.GetHashCode();
                 if (this.CreditCardTransactionType != null)
                     hashCode = hashCode * 59 + this.CreditCardTransactionType.GetHashCode();
+                if (this.HsaFsaEligibility != null)
+                    hashCode = hashCode * 59 + this.HsaFsaEligibility.GetHashCode();
                 if (this.NoRealtimeCharge != null)
                     hashCode = hashCode * 59 + this.NoRealtimeCharge.GetHashCode();
                 if (this.PaymentMethodValidity != null)

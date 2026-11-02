@@ -3555,6 +3555,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbUpsellPath</returns>
         ApiResponse<SfvbUpsellPath> MoveSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, SfvbUpsellPathMoveRequest moveRequest);
         /// <summary>
+        /// Proof a postcard step without mailing it
+        /// </summary>
+        /// <remarks>
+        /// Renders both sides of the step's postcard as a send renders them, then has the print vendor render the card as a dry run.  Returns the HTML of each side, the PNG image of each side that the vendor prints from, the vendor's thumbnails and its proof PDF.  The QR code is the short link a send prints.  No card is printed or mailed, nothing is billed, the step is not changed, and no coupon is created.  A unique coupon code shows as PREVIEW-UNIQUE.  The image urls are public.  html_only returns the HTML alone, with no vendor render.  An order must be a test order.  cart_item_ids fills the cart a cart flow card shows.  Works whether the step is on or off. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="postcardProofRequest">Who the card is addressed to, and the order or cart it shows</param>
+        /// <returns>SfvbPostcardProofResponse</returns>
+        SfvbPostcardProofResponse ProofSfvbSequencePostcard (int storefrontOid, string sequenceUuid, string stepUuid, SfvbPostcardProofRequest postcardProofRequest);
+
+        /// <summary>
+        /// Proof a postcard step without mailing it
+        /// </summary>
+        /// <remarks>
+        /// Renders both sides of the step's postcard as a send renders them, then has the print vendor render the card as a dry run.  Returns the HTML of each side, the PNG image of each side that the vendor prints from, the vendor's thumbnails and its proof PDF.  The QR code is the short link a send prints.  No card is printed or mailed, nothing is billed, the step is not changed, and no coupon is created.  A unique coupon code shows as PREVIEW-UNIQUE.  The image urls are public.  html_only returns the HTML alone, with no vendor render.  An order must be a test order.  cart_item_ids fills the cart a cart flow card shows.  Works whether the step is on or off. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="postcardProofRequest">Who the card is addressed to, and the order or cart it shows</param>
+        /// <returns>ApiResponse of SfvbPostcardProofResponse</returns>
+        ApiResponse<SfvbPostcardProofResponse> ProofSfvbSequencePostcardWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, SfvbPostcardProofRequest postcardProofRequest);
+        /// <summary>
         /// Publish a library entry's draft
         /// </summary>
         /// <remarks>
@@ -9027,6 +9054,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> MoveSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, SfvbUpsellPathMoveRequest moveRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Proof a postcard step without mailing it
+        /// </summary>
+        /// <remarks>
+        /// Renders both sides of the step's postcard as a send renders them, then has the print vendor render the card as a dry run.  Returns the HTML of each side, the PNG image of each side that the vendor prints from, the vendor's thumbnails and its proof PDF.  The QR code is the short link a send prints.  No card is printed or mailed, nothing is billed, the step is not changed, and no coupon is created.  A unique coupon code shows as PREVIEW-UNIQUE.  The image urls are public.  html_only returns the HTML alone, with no vendor render.  An order must be a test order.  cart_item_ids fills the cart a cart flow card shows.  Works whether the step is on or off. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="postcardProofRequest">Who the card is addressed to, and the order or cart it shows</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPostcardProofResponse</returns>
+        System.Threading.Tasks.Task<SfvbPostcardProofResponse> ProofSfvbSequencePostcardAsync (int storefrontOid, string sequenceUuid, string stepUuid, SfvbPostcardProofRequest postcardProofRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Proof a postcard step without mailing it
+        /// </summary>
+        /// <remarks>
+        /// Renders both sides of the step's postcard as a send renders them, then has the print vendor render the card as a dry run.  Returns the HTML of each side, the PNG image of each side that the vendor prints from, the vendor's thumbnails and its proof PDF.  The QR code is the short link a send prints.  No card is printed or mailed, nothing is billed, the step is not changed, and no coupon is created.  A unique coupon code shows as PREVIEW-UNIQUE.  The image urls are public.  html_only returns the HTML alone, with no vendor render.  An order must be a test order.  cart_item_ids fills the cart a cart flow card shows.  Works whether the step is on or off. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="postcardProofRequest">Who the card is addressed to, and the order or cart it shows</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPostcardProofResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPostcardProofResponse>> ProofSfvbSequencePostcardWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, SfvbPostcardProofRequest postcardProofRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Publish a library entry's draft
         /// </summary>
@@ -36489,6 +36545,215 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Proof a postcard step without mailing it Renders both sides of the step's postcard as a send renders them, then has the print vendor render the card as a dry run.  Returns the HTML of each side, the PNG image of each side that the vendor prints from, the vendor's thumbnails and its proof PDF.  The QR code is the short link a send prints.  No card is printed or mailed, nothing is billed, the step is not changed, and no coupon is created.  A unique coupon code shows as PREVIEW-UNIQUE.  The image urls are public.  html_only returns the HTML alone, with no vendor render.  An order must be a test order.  cart_item_ids fills the cart a cart flow card shows.  Works whether the step is on or off. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="postcardProofRequest">Who the card is addressed to, and the order or cart it shows</param>
+        /// <returns>SfvbPostcardProofResponse</returns>
+        public SfvbPostcardProofResponse ProofSfvbSequencePostcard (int storefrontOid, string sequenceUuid, string stepUuid, SfvbPostcardProofRequest postcardProofRequest)
+        {
+             ApiResponse<SfvbPostcardProofResponse> localVarResponse = ProofSfvbSequencePostcardWithHttpInfo(storefrontOid, sequenceUuid, stepUuid, postcardProofRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Proof a postcard step without mailing it Renders both sides of the step's postcard as a send renders them, then has the print vendor render the card as a dry run.  Returns the HTML of each side, the PNG image of each side that the vendor prints from, the vendor's thumbnails and its proof PDF.  The QR code is the short link a send prints.  No card is printed or mailed, nothing is billed, the step is not changed, and no coupon is created.  A unique coupon code shows as PREVIEW-UNIQUE.  The image urls are public.  html_only returns the HTML alone, with no vendor render.  An order must be a test order.  cart_item_ids fills the cart a cart flow card shows.  Works whether the step is on or off. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="postcardProofRequest">Who the card is addressed to, and the order or cart it shows</param>
+        /// <returns>ApiResponse of SfvbPostcardProofResponse</returns>
+        public ApiResponse<SfvbPostcardProofResponse> ProofSfvbSequencePostcardWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, SfvbPostcardProofRequest postcardProofRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ProofSfvbSequencePostcard");
+            // verify the required parameter 'sequenceUuid' is set
+            if (sequenceUuid == null)
+                throw new ApiException(400, "Missing required parameter 'sequenceUuid' when calling SfvbApi->ProofSfvbSequencePostcard");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->ProofSfvbSequencePostcard");
+            // verify the required parameter 'postcardProofRequest' is set
+            if (postcardProofRequest == null)
+                throw new ApiException(400, "Missing required parameter 'postcardProofRequest' when calling SfvbApi->ProofSfvbSequencePostcard");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/postcard_proof";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (sequenceUuid != null) localVarPathParams.Add("sequence_uuid", this.Configuration.ApiClient.ParameterToString(sequenceUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (postcardProofRequest != null && postcardProofRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(postcardProofRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = postcardProofRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ProofSfvbSequencePostcard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPostcardProofResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPostcardProofResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPostcardProofResponse)));
+        }
+
+        /// <summary>
+        /// Proof a postcard step without mailing it Renders both sides of the step's postcard as a send renders them, then has the print vendor render the card as a dry run.  Returns the HTML of each side, the PNG image of each side that the vendor prints from, the vendor's thumbnails and its proof PDF.  The QR code is the short link a send prints.  No card is printed or mailed, nothing is billed, the step is not changed, and no coupon is created.  A unique coupon code shows as PREVIEW-UNIQUE.  The image urls are public.  html_only returns the HTML alone, with no vendor render.  An order must be a test order.  cart_item_ids fills the cart a cart flow card shows.  Works whether the step is on or off. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="postcardProofRequest">Who the card is addressed to, and the order or cart it shows</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPostcardProofResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPostcardProofResponse> ProofSfvbSequencePostcardAsync (int storefrontOid, string sequenceUuid, string stepUuid, SfvbPostcardProofRequest postcardProofRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPostcardProofResponse> localVarResponse = await ProofSfvbSequencePostcardWithHttpInfoAsync(storefrontOid, sequenceUuid, stepUuid, postcardProofRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Proof a postcard step without mailing it Renders both sides of the step's postcard as a send renders them, then has the print vendor render the card as a dry run.  Returns the HTML of each side, the PNG image of each side that the vendor prints from, the vendor's thumbnails and its proof PDF.  The QR code is the short link a send prints.  No card is printed or mailed, nothing is billed, the step is not changed, and no coupon is created.  A unique coupon code shows as PREVIEW-UNIQUE.  The image urls are public.  html_only returns the HTML alone, with no vendor render.  An order must be a test order.  cart_item_ids fills the cart a cart flow card shows.  Works whether the step is on or off. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="postcardProofRequest">Who the card is addressed to, and the order or cart it shows</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPostcardProofResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPostcardProofResponse>> ProofSfvbSequencePostcardWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, SfvbPostcardProofRequest postcardProofRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ProofSfvbSequencePostcard");
+            // verify the required parameter 'sequenceUuid' is set
+            if (sequenceUuid == null)
+                throw new ApiException(400, "Missing required parameter 'sequenceUuid' when calling SfvbApi->ProofSfvbSequencePostcard");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->ProofSfvbSequencePostcard");
+            // verify the required parameter 'postcardProofRequest' is set
+            if (postcardProofRequest == null)
+                throw new ApiException(400, "Missing required parameter 'postcardProofRequest' when calling SfvbApi->ProofSfvbSequencePostcard");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/postcard_proof";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (sequenceUuid != null) localVarPathParams.Add("sequence_uuid", this.Configuration.ApiClient.ParameterToString(sequenceUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (postcardProofRequest != null && postcardProofRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(postcardProofRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = postcardProofRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ProofSfvbSequencePostcard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPostcardProofResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPostcardProofResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPostcardProofResponse)));
         }
 
         /// <summary>

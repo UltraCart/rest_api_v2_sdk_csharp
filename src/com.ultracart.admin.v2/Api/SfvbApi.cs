@@ -2858,30 +2858,30 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbSecretRequest</returns>
         ApiResponse<SfvbSecretRequest> InsertSfvbSecretRequestWithHttpInfo (SfvbSecretRequestCreate secretRequest);
         /// <summary>
-        /// Add an email step, with its new email
+        /// Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
         /// </summary>
         /// <remarks>
-        /// Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin's editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account's own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin's default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin's editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="sequenceUuid"></param>
         /// <param name="ifMatch">The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale.</param>
-        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text</param>
+        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name</param>
         /// <returns>SfvbSequenceStepCreateResponse</returns>
         SfvbSequenceStepCreateResponse InsertSfvbSequenceStep (int storefrontOid, string sequenceUuid, string ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest);
 
         /// <summary>
-        /// Add an email step, with its new email
+        /// Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
         /// </summary>
         /// <remarks>
-        /// Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin's editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account's own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin's default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin's editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="sequenceUuid"></param>
         /// <param name="ifMatch">The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale.</param>
-        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text</param>
+        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name</param>
         /// <returns>ApiResponse of SfvbSequenceStepCreateResponse</returns>
         ApiResponse<SfvbSequenceStepCreateResponse> InsertSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest);
         /// <summary>
@@ -3011,6 +3011,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="includeDeleted">Include deleted campaigns (optional)</param>
         /// <returns>ApiResponse of SfvbCampaignsResponse</returns>
         ApiResponse<SfvbCampaignsResponse> ListSfvbCampaignsWithHttpInfo (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?));
+        /// <summary>
+        /// Email items from the code library that can start a new email step
+        /// </summary>
+        /// <remarks>
+        /// The code library is the one the admin's \"start from library\" uses; it isn't the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item's library_item_oid on the step insert to start a new email from it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Part of the title to match, with case.  Up to 100 characters. (optional)</param>
+        /// <returns>SfvbCodeLibraryEmailsResponse</returns>
+        SfvbCodeLibraryEmailsResponse ListSfvbCodeLibraryEmails (int storefrontOid, string search = default(string));
+
+        /// <summary>
+        /// Email items from the code library that can start a new email step
+        /// </summary>
+        /// <remarks>
+        /// The code library is the one the admin's \"start from library\" uses; it isn't the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item's library_item_oid on the step insert to start a new email from it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Part of the title to match, with case.  Up to 100 characters. (optional)</param>
+        /// <returns>ApiResponse of SfvbCodeLibraryEmailsResponse</returns>
+        ApiResponse<SfvbCodeLibraryEmailsResponse> ListSfvbCodeLibraryEmailsWithHttpInfo (int storefrontOid, string search = default(string));
         /// <summary>
         /// List the storefront's email lists
         /// </summary>
@@ -3475,6 +3498,37 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="offset">Offset of the first path returned (optional)</param>
         /// <returns>ApiResponse of SfvbUpsellPathsResponse</returns>
         ApiResponse<SfvbUpsellPathsResponse> ListSfvbUpsellPathsWithHttpInfo (int storefrontOid, string status = default(string), string location = default(string), string search = default(string), bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), int? maxResults = default(int?), int? offset = default(int?));
+        /// <summary>
+        /// Move one step
+        /// </summary>
+        /// <remarks>
+        /// Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step's hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepMoveRequest">Where the step moves, and the hash of the step it goes next to</param>
+        /// <param name="approvalId">When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbSequenceStepMoveResponse</returns>
+        SfvbSequenceStepMoveResponse MoveSfvbSequenceStep (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Move one step
+        /// </summary>
+        /// <remarks>
+        /// Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step's hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepMoveRequest">Where the step moves, and the hash of the step it goes next to</param>
+        /// <param name="approvalId">When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbSequenceStepMoveResponse</returns>
+        ApiResponse<SfvbSequenceStepMoveResponse> MoveSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, string approvalId = default(string));
         /// <summary>
         /// Move an upsell path
         /// </summary>
@@ -4996,7 +5050,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change one step's settings or audience filter
         /// </summary>
         /// <remarks>
-        /// Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5004,14 +5058,15 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="stepUuid"></param>
         /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <param name="approvalId">When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>SfvbSequenceStepUpdateResponse</returns>
-        SfvbSequenceStepUpdateResponse UpdateSfvbSequenceStep (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest);
+        SfvbSequenceStepUpdateResponse UpdateSfvbSequenceStep (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, string approvalId = default(string));
 
         /// <summary>
         /// Change one step's settings or audience filter
         /// </summary>
         /// <remarks>
-        /// Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5019,8 +5074,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="stepUuid"></param>
         /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <param name="approvalId">When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of SfvbSequenceStepUpdateResponse</returns>
-        ApiResponse<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest);
+        ApiResponse<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, string approvalId = default(string));
         /// <summary>
         /// Update an upsell offer
         /// </summary>
@@ -8221,31 +8277,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbSecretRequest)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbSecretRequest>> InsertSfvbSecretRequestWithHttpInfoAsync (SfvbSecretRequestCreate secretRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Add an email step, with its new email
+        /// Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
         /// </summary>
         /// <remarks>
-        /// Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin's editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account's own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin's default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin's editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="sequenceUuid"></param>
         /// <param name="ifMatch">The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale.</param>
-        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text</param>
+        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbSequenceStepCreateResponse</returns>
         System.Threading.Tasks.Task<SfvbSequenceStepCreateResponse> InsertSfvbSequenceStepAsync (int storefrontOid, string sequenceUuid, string ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Add an email step, with its new email
+        /// Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
         /// </summary>
         /// <remarks>
-        /// Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin's editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account's own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin's default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin's editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="sequenceUuid"></param>
         /// <param name="ifMatch">The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale.</param>
-        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text</param>
+        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbSequenceStepCreateResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepCreateResponse>> InsertSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest, CancellationToken cancellationToken = default(CancellationToken));
@@ -8386,6 +8442,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbCampaignsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCampaignsResponse>> ListSfvbCampaignsWithHttpInfoAsync (int storefrontOid, string search = default(string), int? page = default(int?), int? pageSize = default(int?), bool? includeDeleted = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Email items from the code library that can start a new email step
+        /// </summary>
+        /// <remarks>
+        /// The code library is the one the admin's \"start from library\" uses; it isn't the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item's library_item_oid on the step insert to start a new email from it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Part of the title to match, with case.  Up to 100 characters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCodeLibraryEmailsResponse</returns>
+        System.Threading.Tasks.Task<SfvbCodeLibraryEmailsResponse> ListSfvbCodeLibraryEmailsAsync (int storefrontOid, string search = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Email items from the code library that can start a new email step
+        /// </summary>
+        /// <remarks>
+        /// The code library is the one the admin's \"start from library\" uses; it isn't the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item's library_item_oid on the step insert to start a new email from it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Part of the title to match, with case.  Up to 100 characters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCodeLibraryEmailsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCodeLibraryEmailsResponse>> ListSfvbCodeLibraryEmailsWithHttpInfoAsync (int storefrontOid, string search = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// List the storefront's email lists
         /// </summary>
@@ -8886,6 +8967,39 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbUpsellPathsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPathsResponse>> ListSfvbUpsellPathsWithHttpInfoAsync (int storefrontOid, string status = default(string), string location = default(string), string search = default(string), bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), int? maxResults = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Move one step
+        /// </summary>
+        /// <remarks>
+        /// Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step's hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepMoveRequest">Where the step moves, and the hash of the step it goes next to</param>
+        /// <param name="approvalId">When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSequenceStepMoveResponse</returns>
+        System.Threading.Tasks.Task<SfvbSequenceStepMoveResponse> MoveSfvbSequenceStepAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Move one step
+        /// </summary>
+        /// <remarks>
+        /// Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step's hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepMoveRequest">Where the step moves, and the hash of the step it goes next to</param>
+        /// <param name="approvalId">When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSequenceStepMoveResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepMoveResponse>> MoveSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Move an upsell path
         /// </summary>
@@ -10525,7 +10639,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change one step's settings or audience filter
         /// </summary>
         /// <remarks>
-        /// Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -10533,15 +10647,16 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="stepUuid"></param>
         /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <param name="approvalId">When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbSequenceStepUpdateResponse</returns>
-        System.Threading.Tasks.Task<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Change one step&#39;s settings or audience filter
         /// </summary>
         /// <remarks>
-        /// Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -10549,9 +10664,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="stepUuid"></param>
         /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <param name="approvalId">When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbSequenceStepUpdateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepUpdateResponse>> UpdateSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepUpdateResponse>> UpdateSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update an upsell offer
         /// </summary>
@@ -31591,13 +31707,13 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Add an email step, with its new email Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin's editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// Add an email step, with its new email, a wait step, or a postcard step, with its new postcard type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account's own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin's default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin's editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="sequenceUuid"></param>
         /// <param name="ifMatch">The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale.</param>
-        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text</param>
+        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name</param>
         /// <returns>SfvbSequenceStepCreateResponse</returns>
         public SfvbSequenceStepCreateResponse InsertSfvbSequenceStep (int storefrontOid, string sequenceUuid, string ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest)
         {
@@ -31606,13 +31722,13 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Add an email step, with its new email Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin's editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// Add an email step, with its new email, a wait step, or a postcard step, with its new postcard type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account's own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin's default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin's editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="sequenceUuid"></param>
         /// <param name="ifMatch">The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale.</param>
-        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text</param>
+        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name</param>
         /// <returns>ApiResponse of SfvbSequenceStepCreateResponse</returns>
         public ApiResponse<SfvbSequenceStepCreateResponse> InsertSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest)
         {
@@ -31694,13 +31810,13 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Add an email step, with its new email Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin's editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// Add an email step, with its new email, a wait step, or a postcard step, with its new postcard type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account's own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin's default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin's editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="sequenceUuid"></param>
         /// <param name="ifMatch">The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale.</param>
-        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text</param>
+        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbSequenceStepCreateResponse</returns>
         public async System.Threading.Tasks.Task<SfvbSequenceStepCreateResponse> InsertSfvbSequenceStepAsync (int storefrontOid, string sequenceUuid, string ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest, CancellationToken cancellationToken = default(CancellationToken))
@@ -31711,13 +31827,13 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Add an email step, with its new email Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin's editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// Add an email step, with its new email, a wait step, or a postcard step, with its new postcard type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account's own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin's default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin's editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="sequenceUuid"></param>
         /// <param name="ifMatch">The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale.</param>
-        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text</param>
+        /// <param name="sequenceStepCreateRequest">Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbSequenceStepCreateResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepCreateResponse>> InsertSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest, CancellationToken cancellationToken = default(CancellationToken))
@@ -32714,6 +32830,169 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbCampaignsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbCampaignsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaignsResponse)));
+        }
+
+        /// <summary>
+        /// Email items from the code library that can start a new email step The code library is the one the admin's \"start from library\" uses; it isn't the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item's library_item_oid on the step insert to start a new email from it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Part of the title to match, with case.  Up to 100 characters. (optional)</param>
+        /// <returns>SfvbCodeLibraryEmailsResponse</returns>
+        public SfvbCodeLibraryEmailsResponse ListSfvbCodeLibraryEmails (int storefrontOid, string search = default(string))
+        {
+             ApiResponse<SfvbCodeLibraryEmailsResponse> localVarResponse = ListSfvbCodeLibraryEmailsWithHttpInfo(storefrontOid, search);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Email items from the code library that can start a new email step The code library is the one the admin's \"start from library\" uses; it isn't the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item's library_item_oid on the step insert to start a new email from it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Part of the title to match, with case.  Up to 100 characters. (optional)</param>
+        /// <returns>ApiResponse of SfvbCodeLibraryEmailsResponse</returns>
+        public ApiResponse<SfvbCodeLibraryEmailsResponse> ListSfvbCodeLibraryEmailsWithHttpInfo (int storefrontOid, string search = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbCodeLibraryEmails");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/code_library/emails";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (search != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search", search)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbCodeLibraryEmails", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCodeLibraryEmailsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCodeLibraryEmailsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCodeLibraryEmailsResponse)));
+        }
+
+        /// <summary>
+        /// Email items from the code library that can start a new email step The code library is the one the admin's \"start from library\" uses; it isn't the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item's library_item_oid on the step insert to start a new email from it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Part of the title to match, with case.  Up to 100 characters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCodeLibraryEmailsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCodeLibraryEmailsResponse> ListSfvbCodeLibraryEmailsAsync (int storefrontOid, string search = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCodeLibraryEmailsResponse> localVarResponse = await ListSfvbCodeLibraryEmailsWithHttpInfoAsync(storefrontOid, search, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Email items from the code library that can start a new email step The code library is the one the admin's \"start from library\" uses; it isn't the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item's library_item_oid on the step insert to start a new email from it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="search">Part of the title to match, with case.  Up to 100 characters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCodeLibraryEmailsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCodeLibraryEmailsResponse>> ListSfvbCodeLibraryEmailsWithHttpInfoAsync (int storefrontOid, string search = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ListSfvbCodeLibraryEmails");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/code_library/emails";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (search != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search", search)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListSfvbCodeLibraryEmails", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCodeLibraryEmailsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCodeLibraryEmailsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCodeLibraryEmailsResponse)));
         }
 
         /// <summary>
@@ -35786,6 +36065,233 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbUpsellPathsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbUpsellPathsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPathsResponse)));
+        }
+
+        /// <summary>
+        /// Move one step Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step's hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepMoveRequest">Where the step moves, and the hash of the step it goes next to</param>
+        /// <param name="approvalId">When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbSequenceStepMoveResponse</returns>
+        public SfvbSequenceStepMoveResponse MoveSfvbSequenceStep (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbSequenceStepMoveResponse> localVarResponse = MoveSfvbSequenceStepWithHttpInfo(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepMoveRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Move one step Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step's hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepMoveRequest">Where the step moves, and the hash of the step it goes next to</param>
+        /// <param name="approvalId">When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbSequenceStepMoveResponse</returns>
+        public ApiResponse<SfvbSequenceStepMoveResponse> MoveSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->MoveSfvbSequenceStep");
+            // verify the required parameter 'sequenceUuid' is set
+            if (sequenceUuid == null)
+                throw new ApiException(400, "Missing required parameter 'sequenceUuid' when calling SfvbApi->MoveSfvbSequenceStep");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->MoveSfvbSequenceStep");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->MoveSfvbSequenceStep");
+            // verify the required parameter 'sequenceStepMoveRequest' is set
+            if (sequenceStepMoveRequest == null)
+                throw new ApiException(400, "Missing required parameter 'sequenceStepMoveRequest' when calling SfvbApi->MoveSfvbSequenceStep");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (sequenceUuid != null) localVarPathParams.Add("sequence_uuid", this.Configuration.ApiClient.ParameterToString(sequenceUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (sequenceStepMoveRequest != null && sequenceStepMoveRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sequenceStepMoveRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = sequenceStepMoveRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MoveSfvbSequenceStep", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSequenceStepMoveResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSequenceStepMoveResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSequenceStepMoveResponse)));
+        }
+
+        /// <summary>
+        /// Move one step Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step's hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepMoveRequest">Where the step moves, and the hash of the step it goes next to</param>
+        /// <param name="approvalId">When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSequenceStepMoveResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbSequenceStepMoveResponse> MoveSfvbSequenceStepAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbSequenceStepMoveResponse> localVarResponse = await MoveSfvbSequenceStepWithHttpInfoAsync(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepMoveRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Move one step Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step's hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="ifMatch">The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="sequenceStepMoveRequest">Where the step moves, and the hash of the step it goes next to</param>
+        /// <param name="approvalId">When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSequenceStepMoveResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepMoveResponse>> MoveSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->MoveSfvbSequenceStep");
+            // verify the required parameter 'sequenceUuid' is set
+            if (sequenceUuid == null)
+                throw new ApiException(400, "Missing required parameter 'sequenceUuid' when calling SfvbApi->MoveSfvbSequenceStep");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->MoveSfvbSequenceStep");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->MoveSfvbSequenceStep");
+            // verify the required parameter 'sequenceStepMoveRequest' is set
+            if (sequenceStepMoveRequest == null)
+                throw new ApiException(400, "Missing required parameter 'sequenceStepMoveRequest' when calling SfvbApi->MoveSfvbSequenceStep");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (sequenceUuid != null) localVarPathParams.Add("sequence_uuid", this.Configuration.ApiClient.ParameterToString(sequenceUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (sequenceStepMoveRequest != null && sequenceStepMoveRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sequenceStepMoveRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = sequenceStepMoveRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MoveSfvbSequenceStep", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSequenceStepMoveResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSequenceStepMoveResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSequenceStepMoveResponse)));
         }
 
         /// <summary>
@@ -47276,7 +47782,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change one step's settings or audience filter Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// Change one step's settings or audience filter Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -47284,15 +47790,16 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="stepUuid"></param>
         /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <param name="approvalId">When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>SfvbSequenceStepUpdateResponse</returns>
-        public SfvbSequenceStepUpdateResponse UpdateSfvbSequenceStep (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest)
+        public SfvbSequenceStepUpdateResponse UpdateSfvbSequenceStep (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, string approvalId = default(string))
         {
-             ApiResponse<SfvbSequenceStepUpdateResponse> localVarResponse = UpdateSfvbSequenceStepWithHttpInfo(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest);
+             ApiResponse<SfvbSequenceStepUpdateResponse> localVarResponse = UpdateSfvbSequenceStepWithHttpInfo(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest, approvalId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Change one step's settings or audience filter Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// Change one step's settings or audience filter Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -47300,8 +47807,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="stepUuid"></param>
         /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <param name="approvalId">When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of SfvbSequenceStepUpdateResponse</returns>
-        public ApiResponse<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest)
+        public ApiResponse<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, string approvalId = default(string))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -47345,6 +47853,7 @@ namespace com.ultracart.admin.v2.Api
             if (sequenceUuid != null) localVarPathParams.Add("sequence_uuid", this.Configuration.ApiClient.ParameterToString(sequenceUuid)); // path parameter
             if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
             if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
             if (sequenceStepUpdateRequest != null && sequenceStepUpdateRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(sequenceStepUpdateRequest); // http body (model) parameter
@@ -47385,7 +47894,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change one step's settings or audience filter Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// Change one step's settings or audience filter Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -47393,17 +47902,18 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="stepUuid"></param>
         /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <param name="approvalId">When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbSequenceStepUpdateResponse</returns>
-        public async System.Threading.Tasks.Task<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbSequenceStepUpdateResponse> localVarResponse = await UpdateSfvbSequenceStepWithHttpInfoAsync(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest, cancellationToken);
+             ApiResponse<SfvbSequenceStepUpdateResponse> localVarResponse = await UpdateSfvbSequenceStepWithHttpInfoAsync(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest, approvalId, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Change one step's settings or audience filter Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+        /// Change one step's settings or audience filter Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -47411,9 +47921,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="stepUuid"></param>
         /// <param name="ifMatch">The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
         /// <param name="sequenceStepUpdateRequest">The settings, the filter, or both</param>
+        /// <param name="approvalId">When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbSequenceStepUpdateResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepUpdateResponse>> UpdateSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepUpdateResponse>> UpdateSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -47457,6 +47968,7 @@ namespace com.ultracart.admin.v2.Api
             if (sequenceUuid != null) localVarPathParams.Add("sequence_uuid", this.Configuration.ApiClient.ParameterToString(sequenceUuid)); // path parameter
             if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
             if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
             if (sequenceStepUpdateRequest != null && sequenceStepUpdateRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(sequenceStepUpdateRequest); // http body (model) parameter

@@ -33,17 +33,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbSequenceStepCreateResponse" /> class.
         /// </summary>
+        /// <param name="backContainerUuid">A post_card step&#39;s back, the container with owner type postcardback and this owner id..</param>
         /// <param name="emailUuid">The new email&#39;s uuid.  Its body is the email container with this owner id..</param>
+        /// <param name="frontContainerUuid">A post_card step&#39;s front, the container with owner type postcardfront and this owner id..</param>
+        /// <param name="libraryFilesKept">The library item&#39;s files whose path already held a file, which was kept, not replaced..</param>
+        /// <param name="libraryFilesSkipped">The library item&#39;s files that weren&#39;t written because they aren&#39;t a PNG, JPEG or GIF image whose bytes match its name.  Only those images are copied from a library item..</param>
+        /// <param name="libraryFilesWritten">Storefront file paths the library item&#39;s files were written to.  A file already at its path is kept as it is and listed in library_files_kept instead..</param>
+        /// <param name="libraryItemOid">The code library email item the new email started from (#1589), when one was given..</param>
         /// <param name="notes">What to do next, such as writing the body, and customers already waiting on the step before it..</param>
+        /// <param name="postcardUuid">A post_card step&#39;s new postcard (#1644)..</param>
         /// <param name="requiresReview">True when the new email must pass content review before it sends..</param>
         /// <param name="step">step.</param>
-        public SfvbSequenceStepCreateResponse(string emailUuid = default(string), List<string> notes = default(List<string>), bool requiresReview = default(bool), SfvbSequenceStep step = default(SfvbSequenceStep))
+        public SfvbSequenceStepCreateResponse(string backContainerUuid = default(string), string emailUuid = default(string), string frontContainerUuid = default(string), List<string> libraryFilesKept = default(List<string>), List<string> libraryFilesSkipped = default(List<string>), List<string> libraryFilesWritten = default(List<string>), int libraryItemOid = default(int), List<string> notes = default(List<string>), string postcardUuid = default(string), bool requiresReview = default(bool), SfvbSequenceStep step = default(SfvbSequenceStep))
         {
+            this.BackContainerUuid = backContainerUuid;
             this.EmailUuid = emailUuid;
+            this.FrontContainerUuid = frontContainerUuid;
+            this.LibraryFilesKept = libraryFilesKept;
+            this.LibraryFilesSkipped = libraryFilesSkipped;
+            this.LibraryFilesWritten = libraryFilesWritten;
+            this.LibraryItemOid = libraryItemOid;
             this.Notes = notes;
+            this.PostcardUuid = postcardUuid;
             this.RequiresReview = requiresReview;
             this.Step = step;
         }
+
+        /// <summary>
+        /// A post_card step&#39;s back, the container with owner type postcardback and this owner id.
+        /// </summary>
+        /// <value>A post_card step&#39;s back, the container with owner type postcardback and this owner id.</value>
+        [DataMember(Name="back_container_uuid", EmitDefaultValue=false)]
+        public string BackContainerUuid { get; set; }
 
         /// <summary>
         /// The new email&#39;s uuid.  Its body is the email container with this owner id.
@@ -53,11 +74,53 @@ namespace com.ultracart.admin.v2.Model
         public string EmailUuid { get; set; }
 
         /// <summary>
+        /// A post_card step&#39;s front, the container with owner type postcardfront and this owner id.
+        /// </summary>
+        /// <value>A post_card step&#39;s front, the container with owner type postcardfront and this owner id.</value>
+        [DataMember(Name="front_container_uuid", EmitDefaultValue=false)]
+        public string FrontContainerUuid { get; set; }
+
+        /// <summary>
+        /// The library item&#39;s files whose path already held a file, which was kept, not replaced.
+        /// </summary>
+        /// <value>The library item&#39;s files whose path already held a file, which was kept, not replaced.</value>
+        [DataMember(Name="library_files_kept", EmitDefaultValue=false)]
+        public List<string> LibraryFilesKept { get; set; }
+
+        /// <summary>
+        /// The library item&#39;s files that weren&#39;t written because they aren&#39;t a PNG, JPEG or GIF image whose bytes match its name.  Only those images are copied from a library item.
+        /// </summary>
+        /// <value>The library item&#39;s files that weren&#39;t written because they aren&#39;t a PNG, JPEG or GIF image whose bytes match its name.  Only those images are copied from a library item.</value>
+        [DataMember(Name="library_files_skipped", EmitDefaultValue=false)]
+        public List<string> LibraryFilesSkipped { get; set; }
+
+        /// <summary>
+        /// Storefront file paths the library item&#39;s files were written to.  A file already at its path is kept as it is and listed in library_files_kept instead.
+        /// </summary>
+        /// <value>Storefront file paths the library item&#39;s files were written to.  A file already at its path is kept as it is and listed in library_files_kept instead.</value>
+        [DataMember(Name="library_files_written", EmitDefaultValue=false)]
+        public List<string> LibraryFilesWritten { get; set; }
+
+        /// <summary>
+        /// The code library email item the new email started from (#1589), when one was given.
+        /// </summary>
+        /// <value>The code library email item the new email started from (#1589), when one was given.</value>
+        [DataMember(Name="library_item_oid", EmitDefaultValue=false)]
+        public int LibraryItemOid { get; set; }
+
+        /// <summary>
         /// What to do next, such as writing the body, and customers already waiting on the step before it.
         /// </summary>
         /// <value>What to do next, such as writing the body, and customers already waiting on the step before it.</value>
         [DataMember(Name="notes", EmitDefaultValue=false)]
         public List<string> Notes { get; set; }
+
+        /// <summary>
+        /// A post_card step&#39;s new postcard (#1644).
+        /// </summary>
+        /// <value>A post_card step&#39;s new postcard (#1644).</value>
+        [DataMember(Name="postcard_uuid", EmitDefaultValue=false)]
+        public string PostcardUuid { get; set; }
 
         /// <summary>
         /// True when the new email must pass content review before it sends.
@@ -80,8 +143,15 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbSequenceStepCreateResponse {\n");
+            sb.Append("  BackContainerUuid: ").Append(BackContainerUuid).Append("\n");
             sb.Append("  EmailUuid: ").Append(EmailUuid).Append("\n");
+            sb.Append("  FrontContainerUuid: ").Append(FrontContainerUuid).Append("\n");
+            sb.Append("  LibraryFilesKept: ").Append(LibraryFilesKept).Append("\n");
+            sb.Append("  LibraryFilesSkipped: ").Append(LibraryFilesSkipped).Append("\n");
+            sb.Append("  LibraryFilesWritten: ").Append(LibraryFilesWritten).Append("\n");
+            sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
+            sb.Append("  PostcardUuid: ").Append(PostcardUuid).Append("\n");
             sb.Append("  RequiresReview: ").Append(RequiresReview).Append("\n");
             sb.Append("  Step: ").Append(Step).Append("\n");
             sb.Append("}\n");
@@ -119,15 +189,53 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.BackContainerUuid == input.BackContainerUuid ||
+                    (this.BackContainerUuid != null &&
+                    this.BackContainerUuid.Equals(input.BackContainerUuid))
+                ) && 
+                (
                     this.EmailUuid == input.EmailUuid ||
                     (this.EmailUuid != null &&
                     this.EmailUuid.Equals(input.EmailUuid))
+                ) && 
+                (
+                    this.FrontContainerUuid == input.FrontContainerUuid ||
+                    (this.FrontContainerUuid != null &&
+                    this.FrontContainerUuid.Equals(input.FrontContainerUuid))
+                ) && 
+                (
+                    this.LibraryFilesKept == input.LibraryFilesKept ||
+                    this.LibraryFilesKept != null &&
+                    input.LibraryFilesKept != null &&
+                    this.LibraryFilesKept.SequenceEqual(input.LibraryFilesKept)
+                ) && 
+                (
+                    this.LibraryFilesSkipped == input.LibraryFilesSkipped ||
+                    this.LibraryFilesSkipped != null &&
+                    input.LibraryFilesSkipped != null &&
+                    this.LibraryFilesSkipped.SequenceEqual(input.LibraryFilesSkipped)
+                ) && 
+                (
+                    this.LibraryFilesWritten == input.LibraryFilesWritten ||
+                    this.LibraryFilesWritten != null &&
+                    input.LibraryFilesWritten != null &&
+                    this.LibraryFilesWritten.SequenceEqual(input.LibraryFilesWritten)
+                ) && 
+                (
+                    this.LibraryItemOid == input.LibraryItemOid ||
+                    (this.LibraryItemOid != null &&
+                    this.LibraryItemOid.Equals(input.LibraryItemOid))
                 ) && 
                 (
                     this.Notes == input.Notes ||
                     this.Notes != null &&
                     input.Notes != null &&
                     this.Notes.SequenceEqual(input.Notes)
+                ) && 
+                (
+                    this.PostcardUuid == input.PostcardUuid ||
+                    (this.PostcardUuid != null &&
+                    this.PostcardUuid.Equals(input.PostcardUuid))
                 ) && 
                 (
                     this.RequiresReview == input.RequiresReview ||
@@ -150,10 +258,24 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.BackContainerUuid != null)
+                    hashCode = hashCode * 59 + this.BackContainerUuid.GetHashCode();
                 if (this.EmailUuid != null)
                     hashCode = hashCode * 59 + this.EmailUuid.GetHashCode();
+                if (this.FrontContainerUuid != null)
+                    hashCode = hashCode * 59 + this.FrontContainerUuid.GetHashCode();
+                if (this.LibraryFilesKept != null)
+                    hashCode = hashCode * 59 + this.LibraryFilesKept.GetHashCode();
+                if (this.LibraryFilesSkipped != null)
+                    hashCode = hashCode * 59 + this.LibraryFilesSkipped.GetHashCode();
+                if (this.LibraryFilesWritten != null)
+                    hashCode = hashCode * 59 + this.LibraryFilesWritten.GetHashCode();
+                if (this.LibraryItemOid != null)
+                    hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
                 if (this.Notes != null)
                     hashCode = hashCode * 59 + this.Notes.GetHashCode();
+                if (this.PostcardUuid != null)
+                    hashCode = hashCode * 59 + this.PostcardUuid.GetHashCode();
                 if (this.RequiresReview != null)
                     hashCode = hashCode * 59 + this.RequiresReview.GetHashCode();
                 if (this.Step != null)

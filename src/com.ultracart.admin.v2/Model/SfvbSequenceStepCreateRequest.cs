@@ -33,21 +33,36 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbSequenceStepCreateRequest" /> class.
         /// </summary>
+        /// <param name="acknowledgeExecutable">With library_item_oid, true once the caller has seen that the item carries executable content (script, html, embed, css or velocity elements) and still wants it.  An item with any is refused without it..</param>
         /// <param name="afterStepUuid">The step the new step follows, in the same list.  Not an end, continue or merge step..</param>
         /// <param name="branchStepUuid">A condition, split or inboxgeek step.  With side, the new step goes first on that side..</param>
-        /// <param name="previewText">The new email&#39;s preview text, 5 to 150 characters..</param>
+        /// <param name="configJson">A wait step&#39;s settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step..</param>
+        /// <param name="libraryItemOid">An email item from the code library (#1589) to start the new email from, taking its body, with new element ids, and its subject and preview text unless subject or preview_text is given.  The item must be this account&#39;s own, shared with it, or published, approved by UltraCart and free.  Only for an email step.  The items are listed by the code library email read..</param>
+        /// <param name="name">A post_card step&#39;s name, shown in the admin, 1 to 100 characters on one line.  Postcard by default.  Only for a post_card step..</param>
+        /// <param name="previewText">The new email&#39;s preview text, 5 to 150 characters.  Optional with library_item_oid, whose preview text is used when this is left out..</param>
         /// <param name="side">With branch_step_uuid, the side&#39;s label from the sequence read.  yes or no for a condition, left or right for a split or inboxgeek step..</param>
-        /// <param name="subject">The new email&#39;s subject line, 5 to 150 characters..</param>
-        /// <param name="type">The kind of step.  Only email for now..</param>
-        public SfvbSequenceStepCreateRequest(string afterStepUuid = default(string), string branchStepUuid = default(string), string previewText = default(string), string side = default(string), string subject = default(string), string type = default(string))
+        /// <param name="subject">The new email&#39;s subject line, 5 to 150 characters.  Optional with library_item_oid, whose subject is used when this is left out..</param>
+        /// <param name="type">The kind of step, one of email (the default), wait or post_card..</param>
+        public SfvbSequenceStepCreateRequest(bool acknowledgeExecutable = default(bool), string afterStepUuid = default(string), string branchStepUuid = default(string), string configJson = default(string), int libraryItemOid = default(int), string name = default(string), string previewText = default(string), string side = default(string), string subject = default(string), string type = default(string))
         {
+            this.AcknowledgeExecutable = acknowledgeExecutable;
             this.AfterStepUuid = afterStepUuid;
             this.BranchStepUuid = branchStepUuid;
+            this.ConfigJson = configJson;
+            this.LibraryItemOid = libraryItemOid;
+            this.Name = name;
             this.PreviewText = previewText;
             this.Side = side;
             this.Subject = subject;
             this.Type = type;
         }
+
+        /// <summary>
+        /// With library_item_oid, true once the caller has seen that the item carries executable content (script, html, embed, css or velocity elements) and still wants it.  An item with any is refused without it.
+        /// </summary>
+        /// <value>With library_item_oid, true once the caller has seen that the item carries executable content (script, html, embed, css or velocity elements) and still wants it.  An item with any is refused without it.</value>
+        [DataMember(Name="acknowledge_executable", EmitDefaultValue=false)]
+        public bool AcknowledgeExecutable { get; set; }
 
         /// <summary>
         /// The step the new step follows, in the same list.  Not an end, continue or merge step.
@@ -64,9 +79,30 @@ namespace com.ultracart.admin.v2.Model
         public string BranchStepUuid { get; set; }
 
         /// <summary>
-        /// The new email&#39;s preview text, 5 to 150 characters.
+        /// A wait step&#39;s settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step.
         /// </summary>
-        /// <value>The new email&#39;s preview text, 5 to 150 characters.</value>
+        /// <value>A wait step&#39;s settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step.</value>
+        [DataMember(Name="config_json", EmitDefaultValue=false)]
+        public string ConfigJson { get; set; }
+
+        /// <summary>
+        /// An email item from the code library (#1589) to start the new email from, taking its body, with new element ids, and its subject and preview text unless subject or preview_text is given.  The item must be this account&#39;s own, shared with it, or published, approved by UltraCart and free.  Only for an email step.  The items are listed by the code library email read.
+        /// </summary>
+        /// <value>An email item from the code library (#1589) to start the new email from, taking its body, with new element ids, and its subject and preview text unless subject or preview_text is given.  The item must be this account&#39;s own, shared with it, or published, approved by UltraCart and free.  Only for an email step.  The items are listed by the code library email read.</value>
+        [DataMember(Name="library_item_oid", EmitDefaultValue=false)]
+        public int LibraryItemOid { get; set; }
+
+        /// <summary>
+        /// A post_card step&#39;s name, shown in the admin, 1 to 100 characters on one line.  Postcard by default.  Only for a post_card step.
+        /// </summary>
+        /// <value>A post_card step&#39;s name, shown in the admin, 1 to 100 characters on one line.  Postcard by default.  Only for a post_card step.</value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// The new email&#39;s preview text, 5 to 150 characters.  Optional with library_item_oid, whose preview text is used when this is left out.
+        /// </summary>
+        /// <value>The new email&#39;s preview text, 5 to 150 characters.  Optional with library_item_oid, whose preview text is used when this is left out.</value>
         [DataMember(Name="preview_text", EmitDefaultValue=false)]
         public string PreviewText { get; set; }
 
@@ -78,16 +114,16 @@ namespace com.ultracart.admin.v2.Model
         public string Side { get; set; }
 
         /// <summary>
-        /// The new email&#39;s subject line, 5 to 150 characters.
+        /// The new email&#39;s subject line, 5 to 150 characters.  Optional with library_item_oid, whose subject is used when this is left out.
         /// </summary>
-        /// <value>The new email&#39;s subject line, 5 to 150 characters.</value>
+        /// <value>The new email&#39;s subject line, 5 to 150 characters.  Optional with library_item_oid, whose subject is used when this is left out.</value>
         [DataMember(Name="subject", EmitDefaultValue=false)]
         public string Subject { get; set; }
 
         /// <summary>
-        /// The kind of step.  Only email for now.
+        /// The kind of step, one of email (the default), wait or post_card.
         /// </summary>
-        /// <value>The kind of step.  Only email for now.</value>
+        /// <value>The kind of step, one of email (the default), wait or post_card.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -99,8 +135,12 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbSequenceStepCreateRequest {\n");
+            sb.Append("  AcknowledgeExecutable: ").Append(AcknowledgeExecutable).Append("\n");
             sb.Append("  AfterStepUuid: ").Append(AfterStepUuid).Append("\n");
             sb.Append("  BranchStepUuid: ").Append(BranchStepUuid).Append("\n");
+            sb.Append("  ConfigJson: ").Append(ConfigJson).Append("\n");
+            sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  PreviewText: ").Append(PreviewText).Append("\n");
             sb.Append("  Side: ").Append(Side).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
@@ -140,6 +180,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AcknowledgeExecutable == input.AcknowledgeExecutable ||
+                    (this.AcknowledgeExecutable != null &&
+                    this.AcknowledgeExecutable.Equals(input.AcknowledgeExecutable))
+                ) && 
+                (
                     this.AfterStepUuid == input.AfterStepUuid ||
                     (this.AfterStepUuid != null &&
                     this.AfterStepUuid.Equals(input.AfterStepUuid))
@@ -148,6 +193,21 @@ namespace com.ultracart.admin.v2.Model
                     this.BranchStepUuid == input.BranchStepUuid ||
                     (this.BranchStepUuid != null &&
                     this.BranchStepUuid.Equals(input.BranchStepUuid))
+                ) && 
+                (
+                    this.ConfigJson == input.ConfigJson ||
+                    (this.ConfigJson != null &&
+                    this.ConfigJson.Equals(input.ConfigJson))
+                ) && 
+                (
+                    this.LibraryItemOid == input.LibraryItemOid ||
+                    (this.LibraryItemOid != null &&
+                    this.LibraryItemOid.Equals(input.LibraryItemOid))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
                     this.PreviewText == input.PreviewText ||
@@ -180,10 +240,18 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AcknowledgeExecutable != null)
+                    hashCode = hashCode * 59 + this.AcknowledgeExecutable.GetHashCode();
                 if (this.AfterStepUuid != null)
                     hashCode = hashCode * 59 + this.AfterStepUuid.GetHashCode();
                 if (this.BranchStepUuid != null)
                     hashCode = hashCode * 59 + this.BranchStepUuid.GetHashCode();
+                if (this.ConfigJson != null)
+                    hashCode = hashCode * 59 + this.ConfigJson.GetHashCode();
+                if (this.LibraryItemOid != null)
+                    hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.PreviewText != null)
                     hashCode = hashCode * 59 + this.PreviewText.GetHashCode();
                 if (this.Side != null)

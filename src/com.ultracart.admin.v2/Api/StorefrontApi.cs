@@ -912,7 +912,7 @@ namespace com.ultracart.admin.v2.Api
         /// Get email campaigns with stats
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists only the campaigns with stats recorded in the last stat_days days, with those stats summed.  A campaign with no stats in that window isn't listed; getEmailCampaigns lists every campaign. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -924,7 +924,7 @@ namespace com.ultracart.admin.v2.Api
         /// Get email campaigns with stats
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists only the campaigns with stats recorded in the last stat_days days, with those stats summed.  A campaign with no stats in that window isn't listed; getEmailCampaigns lists every campaign. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5360,7 +5360,7 @@ namespace com.ultracart.admin.v2.Api
         /// Get email campaigns with stats
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists only the campaigns with stats recorded in the last stat_days days, with those stats summed.  A campaign with no stats in that window isn't listed; getEmailCampaigns lists every campaign. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5373,7 +5373,7 @@ namespace com.ultracart.admin.v2.Api
         /// Get email campaigns with stats
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists only the campaigns with stats recorded in the last stat_days days, with those stats summed.  A campaign with no stats in that window isn't listed; getEmailCampaigns lists every campaign. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -16220,7 +16220,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get email campaigns with stats 
+        /// Get email campaigns with stats Lists only the campaigns with stats recorded in the last stat_days days, with those stats summed.  A campaign with no stats in that window isn't listed; getEmailCampaigns lists every campaign. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -16233,7 +16233,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get email campaigns with stats 
+        /// Get email campaigns with stats Lists only the campaigns with stats recorded in the last stat_days days, with those stats summed.  A campaign with no stats in that window isn't listed; getEmailCampaigns lists every campaign. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -16308,7 +16308,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get email campaigns with stats 
+        /// Get email campaigns with stats Lists only the campaigns with stats recorded in the last stat_days days, with those stats summed.  A campaign with no stats in that window isn't listed; getEmailCampaigns lists every campaign. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -16323,7 +16323,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get email campaigns with stats 
+        /// Get email campaigns with stats Lists only the campaigns with stats recorded in the last stat_days days, with those stats summed.  A campaign with no stats in that window isn't listed; getEmailCampaigns lists every campaign. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>

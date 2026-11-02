@@ -60,8 +60,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbApprovalParams" /> class.
         /// </summary>
+        /// <param name="afterStepUuid">For sequence_step.move, the step it moves after.  Or branch_step_uuid with side..</param>
         /// <param name="attributeNames">For item.attribute_batch, the attributes the batch would change.  Set by the server..</param>
         /// <param name="blogPostOid">The blog post, for blog_post.delete..</param>
+        /// <param name="branchStepUuid">For sequence_step.move, the condition, split or inboxgeek step it moves to the start of a side of..</param>
         /// <param name="contentSha256">For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash..</param>
         /// <param name="domain">For sending_domain.delete, the sending domain..</param>
         /// <param name="espTwilioUuid">For twilio_account.delete, the Twilio account&#39;s esp_twilio_uuid, as GET comms/twilio_account returns it..</param>
@@ -73,18 +75,21 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rowsSha256">For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash..</param>
         /// <param name="ruleCount">For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server..</param>
         /// <param name="segmentUuid">The segment whose rule changes, for segment.update..</param>
-        /// <param name="sequenceUuid">The communication sequence, for sequence_step.delete..</param>
+        /// <param name="sequenceUuid">The communication sequence, for sequence_step.delete and sequence_step.move..</param>
+        /// <param name="side">For sequence_step.move with branch_step_uuid, the side&#39;s label from the sequence read..</param>
         /// <param name="slot">For experiment.start of a page experiment, the page body name.  Defaults to body..</param>
-        /// <param name="stepUuid">The step to remove, for sequence_step.delete..</param>
+        /// <param name="stepUuid">The step to remove, for sequence_step.delete, or to move, for sequence_step.move..</param>
         /// <param name="upsellKind">For upsell.enable, what to switch on..</param>
         /// <param name="upsellOid">For upsell.enable, the oid of the offer or path to switch on..</param>
         /// <param name="version">For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write..</param>
         /// <param name="widgetId">For experiment.start of a page experiment, the id of the experiment element..</param>
         /// <param name="winnerVariationNumber">For experiment.end, the winning variation.  Leave it out to end without a winner, and leave it out of the end call too..</param>
-        public SfvbApprovalParams(List<string> attributeNames = default(List<string>), int blogPostOid = default(int), string contentSha256 = default(string), string domain = default(string), string espTwilioUuid = default(string), int experimentOid = default(int), int itemCount = default(int), int merchantItemOid = default(int), string path = default(string), string requestSha256 = default(string), string rowsSha256 = default(string), int ruleCount = default(int), string segmentUuid = default(string), string sequenceUuid = default(string), string slot = default(string), string stepUuid = default(string), UpsellKindEnum? upsellKind = default(UpsellKindEnum?), int upsellOid = default(int), int version = default(int), string widgetId = default(string), int winnerVariationNumber = default(int))
+        public SfvbApprovalParams(string afterStepUuid = default(string), List<string> attributeNames = default(List<string>), int blogPostOid = default(int), string branchStepUuid = default(string), string contentSha256 = default(string), string domain = default(string), string espTwilioUuid = default(string), int experimentOid = default(int), int itemCount = default(int), int merchantItemOid = default(int), string path = default(string), string requestSha256 = default(string), string rowsSha256 = default(string), int ruleCount = default(int), string segmentUuid = default(string), string sequenceUuid = default(string), string side = default(string), string slot = default(string), string stepUuid = default(string), UpsellKindEnum? upsellKind = default(UpsellKindEnum?), int upsellOid = default(int), int version = default(int), string widgetId = default(string), int winnerVariationNumber = default(int))
         {
+            this.AfterStepUuid = afterStepUuid;
             this.AttributeNames = attributeNames;
             this.BlogPostOid = blogPostOid;
+            this.BranchStepUuid = branchStepUuid;
             this.ContentSha256 = contentSha256;
             this.Domain = domain;
             this.EspTwilioUuid = espTwilioUuid;
@@ -97,6 +102,7 @@ namespace com.ultracart.admin.v2.Model
             this.RuleCount = ruleCount;
             this.SegmentUuid = segmentUuid;
             this.SequenceUuid = sequenceUuid;
+            this.Side = side;
             this.Slot = slot;
             this.StepUuid = stepUuid;
             this.UpsellKind = upsellKind;
@@ -105,6 +111,13 @@ namespace com.ultracart.admin.v2.Model
             this.WidgetId = widgetId;
             this.WinnerVariationNumber = winnerVariationNumber;
         }
+
+        /// <summary>
+        /// For sequence_step.move, the step it moves after.  Or branch_step_uuid with side.
+        /// </summary>
+        /// <value>For sequence_step.move, the step it moves after.  Or branch_step_uuid with side.</value>
+        [DataMember(Name="after_step_uuid", EmitDefaultValue=false)]
+        public string AfterStepUuid { get; set; }
 
         /// <summary>
         /// For item.attribute_batch, the attributes the batch would change.  Set by the server.
@@ -119,6 +132,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The blog post, for blog_post.delete.</value>
         [DataMember(Name="blog_post_oid", EmitDefaultValue=false)]
         public int BlogPostOid { get; set; }
+
+        /// <summary>
+        /// For sequence_step.move, the condition, split or inboxgeek step it moves to the start of a side of.
+        /// </summary>
+        /// <value>For sequence_step.move, the condition, split or inboxgeek step it moves to the start of a side of.</value>
+        [DataMember(Name="branch_step_uuid", EmitDefaultValue=false)]
+        public string BranchStepUuid { get; set; }
 
         /// <summary>
         /// For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.
@@ -198,11 +218,18 @@ namespace com.ultracart.admin.v2.Model
         public string SegmentUuid { get; set; }
 
         /// <summary>
-        /// The communication sequence, for sequence_step.delete.
+        /// The communication sequence, for sequence_step.delete and sequence_step.move.
         /// </summary>
-        /// <value>The communication sequence, for sequence_step.delete.</value>
+        /// <value>The communication sequence, for sequence_step.delete and sequence_step.move.</value>
         [DataMember(Name="sequence_uuid", EmitDefaultValue=false)]
         public string SequenceUuid { get; set; }
+
+        /// <summary>
+        /// For sequence_step.move with branch_step_uuid, the side&#39;s label from the sequence read.
+        /// </summary>
+        /// <value>For sequence_step.move with branch_step_uuid, the side&#39;s label from the sequence read.</value>
+        [DataMember(Name="side", EmitDefaultValue=false)]
+        public string Side { get; set; }
 
         /// <summary>
         /// For experiment.start of a page experiment, the page body name.  Defaults to body.
@@ -212,9 +239,9 @@ namespace com.ultracart.admin.v2.Model
         public string Slot { get; set; }
 
         /// <summary>
-        /// The step to remove, for sequence_step.delete.
+        /// The step to remove, for sequence_step.delete, or to move, for sequence_step.move.
         /// </summary>
-        /// <value>The step to remove, for sequence_step.delete.</value>
+        /// <value>The step to remove, for sequence_step.delete, or to move, for sequence_step.move.</value>
         [DataMember(Name="step_uuid", EmitDefaultValue=false)]
         public string StepUuid { get; set; }
 
@@ -255,8 +282,10 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbApprovalParams {\n");
+            sb.Append("  AfterStepUuid: ").Append(AfterStepUuid).Append("\n");
             sb.Append("  AttributeNames: ").Append(AttributeNames).Append("\n");
             sb.Append("  BlogPostOid: ").Append(BlogPostOid).Append("\n");
+            sb.Append("  BranchStepUuid: ").Append(BranchStepUuid).Append("\n");
             sb.Append("  ContentSha256: ").Append(ContentSha256).Append("\n");
             sb.Append("  Domain: ").Append(Domain).Append("\n");
             sb.Append("  EspTwilioUuid: ").Append(EspTwilioUuid).Append("\n");
@@ -269,6 +298,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  RuleCount: ").Append(RuleCount).Append("\n");
             sb.Append("  SegmentUuid: ").Append(SegmentUuid).Append("\n");
             sb.Append("  SequenceUuid: ").Append(SequenceUuid).Append("\n");
+            sb.Append("  Side: ").Append(Side).Append("\n");
             sb.Append("  Slot: ").Append(Slot).Append("\n");
             sb.Append("  StepUuid: ").Append(StepUuid).Append("\n");
             sb.Append("  UpsellKind: ").Append(UpsellKind).Append("\n");
@@ -311,6 +341,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AfterStepUuid == input.AfterStepUuid ||
+                    (this.AfterStepUuid != null &&
+                    this.AfterStepUuid.Equals(input.AfterStepUuid))
+                ) && 
+                (
                     this.AttributeNames == input.AttributeNames ||
                     this.AttributeNames != null &&
                     input.AttributeNames != null &&
@@ -320,6 +355,11 @@ namespace com.ultracart.admin.v2.Model
                     this.BlogPostOid == input.BlogPostOid ||
                     (this.BlogPostOid != null &&
                     this.BlogPostOid.Equals(input.BlogPostOid))
+                ) && 
+                (
+                    this.BranchStepUuid == input.BranchStepUuid ||
+                    (this.BranchStepUuid != null &&
+                    this.BranchStepUuid.Equals(input.BranchStepUuid))
                 ) && 
                 (
                     this.ContentSha256 == input.ContentSha256 ||
@@ -382,6 +422,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SequenceUuid.Equals(input.SequenceUuid))
                 ) && 
                 (
+                    this.Side == input.Side ||
+                    (this.Side != null &&
+                    this.Side.Equals(input.Side))
+                ) && 
+                (
                     this.Slot == input.Slot ||
                     (this.Slot != null &&
                     this.Slot.Equals(input.Slot))
@@ -427,10 +472,14 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AfterStepUuid != null)
+                    hashCode = hashCode * 59 + this.AfterStepUuid.GetHashCode();
                 if (this.AttributeNames != null)
                     hashCode = hashCode * 59 + this.AttributeNames.GetHashCode();
                 if (this.BlogPostOid != null)
                     hashCode = hashCode * 59 + this.BlogPostOid.GetHashCode();
+                if (this.BranchStepUuid != null)
+                    hashCode = hashCode * 59 + this.BranchStepUuid.GetHashCode();
                 if (this.ContentSha256 != null)
                     hashCode = hashCode * 59 + this.ContentSha256.GetHashCode();
                 if (this.Domain != null)
@@ -455,6 +504,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SegmentUuid.GetHashCode();
                 if (this.SequenceUuid != null)
                     hashCode = hashCode * 59 + this.SequenceUuid.GetHashCode();
+                if (this.Side != null)
+                    hashCode = hashCode * 59 + this.Side.GetHashCode();
                 if (this.Slot != null)
                     hashCode = hashCode * 59 + this.Slot.GetHashCode();
                 if (this.StepUuid != null)

@@ -110,10 +110,22 @@ namespace com.ultracart.admin.v2.Model
             SequencestepDelete = 12,
 
             /// <summary>
+            /// Enum SequencestepMove for value: sequence_step.move
+            /// </summary>
+            [EnumMember(Value = "sequence_step.move")]
+            SequencestepMove = 13,
+
+            /// <summary>
+            /// Enum SequencestepEnablepostcard for value: sequence_step.enable_postcard
+            /// </summary>
+            [EnumMember(Value = "sequence_step.enable_postcard")]
+            SequencestepEnablepostcard = 14,
+
+            /// <summary>
             /// Enum SegmentUpdate for value: segment.update
             /// </summary>
             [EnumMember(Value = "segment.update")]
-            SegmentUpdate = 13
+            SegmentUpdate = 15
 
         }
 

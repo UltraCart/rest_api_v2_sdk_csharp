@@ -75,10 +75,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rowsSha256">For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash..</param>
         /// <param name="ruleCount">For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server..</param>
         /// <param name="segmentUuid">The segment whose rule changes, for segment.update..</param>
-        /// <param name="sequenceUuid">The communication sequence, for sequence_step.delete and sequence_step.move..</param>
+        /// <param name="sequenceUuid">The communication sequence, for sequence_step.delete, sequence_step.move and sequence_step.enable_postcard..</param>
         /// <param name="side">For sequence_step.move with branch_step_uuid, the side&#39;s label from the sequence read..</param>
         /// <param name="slot">For experiment.start of a page experiment, the page body name.  Defaults to body..</param>
-        /// <param name="stepUuid">The step to remove, for sequence_step.delete, or to move, for sequence_step.move..</param>
+        /// <param name="stepUuid">The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard..</param>
         /// <param name="upsellKind">For upsell.enable, what to switch on..</param>
         /// <param name="upsellOid">For upsell.enable, the oid of the offer or path to switch on..</param>
         /// <param name="version">For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write..</param>
@@ -218,9 +218,9 @@ namespace com.ultracart.admin.v2.Model
         public string SegmentUuid { get; set; }
 
         /// <summary>
-        /// The communication sequence, for sequence_step.delete and sequence_step.move.
+        /// The communication sequence, for sequence_step.delete, sequence_step.move and sequence_step.enable_postcard.
         /// </summary>
-        /// <value>The communication sequence, for sequence_step.delete and sequence_step.move.</value>
+        /// <value>The communication sequence, for sequence_step.delete, sequence_step.move and sequence_step.enable_postcard.</value>
         [DataMember(Name="sequence_uuid", EmitDefaultValue=false)]
         public string SequenceUuid { get; set; }
 
@@ -239,9 +239,9 @@ namespace com.ultracart.admin.v2.Model
         public string Slot { get; set; }
 
         /// <summary>
-        /// The step to remove, for sequence_step.delete, or to move, for sequence_step.move.
+        /// The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard.
         /// </summary>
-        /// <value>The step to remove, for sequence_step.delete, or to move, for sequence_step.move.</value>
+        /// <value>The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard.</value>
         [DataMember(Name="step_uuid", EmitDefaultValue=false)]
         public string StepUuid { get; set; }
 

@@ -61,9 +61,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="expiresIn">The number of seconds since issuance when the access token will expire and need to be refreshed using the refresh token.</param>
         /// <param name="merchantId">The UltraCart merchant account that authorized this token.  Use it to map the token to the merchant within your own system.  Also returned by GET /oauth/me along with the account name..</param>
         /// <param name="refreshToken">The refresh token that should be used to fetch a new access token when the expiration occurs.</param>
+        /// <param name="refreshTokenExpiresIn">Seconds until the refresh token expires.  Returned only by applications that rotate refresh tokens, which return a new refresh token on every refresh..</param>
         /// <param name="scope">The scope of permissions associated with teh access token.</param>
         /// <param name="tokenType">Type of token.</param>
-        public OauthTokenResponse(string accessToken = default(string), string error = default(string), string errorDescription = default(string), string errorUri = default(string), string expiresIn = default(string), string merchantId = default(string), string refreshToken = default(string), string scope = default(string), TokenTypeEnum? tokenType = default(TokenTypeEnum?))
+        public OauthTokenResponse(string accessToken = default(string), string error = default(string), string errorDescription = default(string), string errorUri = default(string), string expiresIn = default(string), string merchantId = default(string), string refreshToken = default(string), string refreshTokenExpiresIn = default(string), string scope = default(string), TokenTypeEnum? tokenType = default(TokenTypeEnum?))
         {
             this.AccessToken = accessToken;
             this.Error = error;
@@ -72,6 +73,7 @@ namespace com.ultracart.admin.v2.Model
             this.ExpiresIn = expiresIn;
             this.MerchantId = merchantId;
             this.RefreshToken = refreshToken;
+            this.RefreshTokenExpiresIn = refreshTokenExpiresIn;
             this.Scope = scope;
             this.TokenType = tokenType;
         }
@@ -123,6 +125,13 @@ namespace com.ultracart.admin.v2.Model
         public string RefreshToken { get; set; }
 
         /// <summary>
+        /// Seconds until the refresh token expires.  Returned only by applications that rotate refresh tokens, which return a new refresh token on every refresh.
+        /// </summary>
+        /// <value>Seconds until the refresh token expires.  Returned only by applications that rotate refresh tokens, which return a new refresh token on every refresh.</value>
+        [DataMember(Name="refresh_token_expires_in", EmitDefaultValue=false)]
+        public string RefreshTokenExpiresIn { get; set; }
+
+        /// <summary>
         /// The scope of permissions associated with teh access token
         /// </summary>
         /// <value>The scope of permissions associated with teh access token</value>
@@ -145,6 +154,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ExpiresIn: ").Append(ExpiresIn).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  RefreshToken: ").Append(RefreshToken).Append("\n");
+            sb.Append("  RefreshTokenExpiresIn: ").Append(RefreshTokenExpiresIn).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  TokenType: ").Append(TokenType).Append("\n");
             sb.Append("}\n");
@@ -217,6 +227,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RefreshToken.Equals(input.RefreshToken))
                 ) && 
                 (
+                    this.RefreshTokenExpiresIn == input.RefreshTokenExpiresIn ||
+                    (this.RefreshTokenExpiresIn != null &&
+                    this.RefreshTokenExpiresIn.Equals(input.RefreshTokenExpiresIn))
+                ) && 
+                (
                     this.Scope == input.Scope ||
                     (this.Scope != null &&
                     this.Scope.Equals(input.Scope))
@@ -251,6 +266,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.RefreshToken != null)
                     hashCode = hashCode * 59 + this.RefreshToken.GetHashCode();
+                if (this.RefreshTokenExpiresIn != null)
+                    hashCode = hashCode * 59 + this.RefreshTokenExpiresIn.GetHashCode();
                 if (this.Scope != null)
                     hashCode = hashCode * 59 + this.Scope.GetHashCode();
                 if (this.TokenType != null)

@@ -406,6 +406,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbPreviewSessionResponse</returns>
         ApiResponse<SfvbPreviewSessionResponse> CreateSfvbPreviewSessionWithHttpInfo (int storefrontOid);
         /// <summary>
+        /// Delete an affiliate network
+        /// </summary>
+        /// <remarks>
+        /// Visits from the network stop being recognized and its pixel stops firing.  Refused with 409 while Smart Attribution names the network as a platform.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish and an approved affiliate_network.delete request (Approval-Id). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved affiliate_network.delete request for this network.  See POST /sfvb/approvals.</param>
+        /// <returns></returns>
+        void DeleteSfvbAffiliateNetwork (int storefrontOid, int affiliateNetworkOid, string ifMatch, string approvalId);
+
+        /// <summary>
+        /// Delete an affiliate network
+        /// </summary>
+        /// <remarks>
+        /// Visits from the network stop being recognized and its pixel stops firing.  Refused with 409 while Smart Attribution names the network as a platform.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish and an approved affiliate_network.delete request (Approval-Id). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved affiliate_network.delete request for this network.  See POST /sfvb/approvals.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteSfvbAffiliateNetworkWithHttpInfo (int storefrontOid, int affiliateNetworkOid, string ifMatch, string approvalId);
+        /// <summary>
         /// Cancel a pending approval request
         /// </summary>
         /// <remarks>
@@ -754,6 +781,81 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbSequenceStepDeleteResponse</returns>
         ApiResponse<SfvbSequenceStepDeleteResponse> DeleteSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, string approvalId = default(string));
         /// <summary>
+        /// Delete a storefront's Smart Attribution configuration
+        /// </summary>
+        /// <remarks>
+        /// Every platform goes back to being sent conversions as it was before Smart Attribution, and the settings are gone.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish and an approved smart_attribution.delete request (Approval-Id).  An unconfigured storefront is 404. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved smart_attribution.delete request.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns></returns>
+        void DeleteSfvbSmartAttribution (int storefrontOid, string ifMatch, string approvalId = default(string));
+
+        /// <summary>
+        /// Delete a storefront's Smart Attribution configuration
+        /// </summary>
+        /// <remarks>
+        /// Every platform goes back to being sent conversions as it was before Smart Attribution, and the settings are gone.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish and an approved smart_attribution.delete request (Approval-Id).  An unconfigured storefront is 404. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved smart_attribution.delete request.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteSfvbSmartAttributionWithHttpInfo (int storefrontOid, string ifMatch, string approvalId = default(string));
+        /// <summary>
+        /// Clear one tracking provider
+        /// </summary>
+        /// <remarks>
+        /// Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <returns>SfvbTrackingProvider</returns>
+        SfvbTrackingProvider DeleteSfvbTrackingProvider (int storefrontOid, string provider, string ifMatch);
+
+        /// <summary>
+        /// Clear one tracking provider
+        /// </summary>
+        /// <remarks>
+        /// Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbTrackingProvider</returns>
+        ApiResponse<SfvbTrackingProvider> DeleteSfvbTrackingProviderWithHttpInfo (int storefrontOid, string provider, string ifMatch);
+        /// <summary>
+        /// Delete a UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// The shortcode stops attributing at once.  A link that uses it as a path segment still opens its page, without the UTM values.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <returns></returns>
+        void DeleteSfvbUtmShortcode (int storefrontOid, int shortcodeOid, string ifMatch);
+
+        /// <summary>
+        /// Delete a UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// The shortcode stops attributing at once.  A link that uses it as a path segment still opens its page, without the UTM values.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteSfvbUtmShortcodeWithHttpInfo (int storefrontOid, int shortcodeOid, string ifMatch);
+        /// <summary>
         /// Detach an image from a blog post
         /// </summary>
         /// <remarks>
@@ -1090,6 +1192,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbI18nLanguagesResponse</returns>
         ApiResponse<SfvbI18nLanguagesResponse> EnableSfvbI18nLanguageWithHttpInfo (int storefrontOid, string code, string ifMatch, SfvbI18nLanguageEnableRequest languageEnableRequest);
         /// <summary>
+        /// Turn Smart Attribution on in report_only mode
+        /// </summary>
+        /// <remarks>
+        /// What the admin's Enable button saves: report_only, position_based, a 40/20/40 split, a 7 day lookback and every detected platform.  report_only records decisions and changes nothing any platform is sent.  A storefront that already has a configuration is 409 sfvb.smart_attribution_configured.  Needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbSmartAttribution</returns>
+        SfvbSmartAttribution EnableSfvbSmartAttribution (int storefrontOid);
+
+        /// <summary>
+        /// Turn Smart Attribution on in report_only mode
+        /// </summary>
+        /// <remarks>
+        /// What the admin's Enable button saves: report_only, position_based, a 40/20/40 split, a 7 day lookback and every detected platform.  report_only records decisions and changes nothing any platform is sent.  A storefront that already has a configuration is 409 sfvb.smart_attribution_configured.  Needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbSmartAttribution</returns>
+        ApiResponse<SfvbSmartAttribution> EnableSfvbSmartAttributionWithHttpInfo (int storefrontOid);
+        /// <summary>
         /// Enable an upsell offer
         /// </summary>
         /// <remarks>
@@ -1189,6 +1312,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="libraryOid"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> FavoriteSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid);
+        /// <summary>
+        /// Read one affiliate network
+        /// </summary>
+        /// <remarks>
+        /// The network with its conversion_pixel, and the hash_sha256 an update or delete sends back as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <returns>SfvbAffiliateNetwork</returns>
+        SfvbAffiliateNetwork GetSfvbAffiliateNetwork (int storefrontOid, int affiliateNetworkOid);
+
+        /// <summary>
+        /// Read one affiliate network
+        /// </summary>
+        /// <remarks>
+        /// The network with its conversion_pixel, and the hash_sha256 an update or delete sends back as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <returns>ApiResponse of SfvbAffiliateNetwork</returns>
+        ApiResponse<SfvbAffiliateNetwork> GetSfvbAffiliateNetworkWithHttpInfo (int storefrontOid, int affiliateNetworkOid);
+        /// <summary>
+        /// List a storefront's affiliate networks
+        /// </summary>
+        /// <remarks>
+        /// Every affiliate network pixel, by name, with its settings and hash_sha256.  conversion_pixel is left out; its size and hash are shown.  Read one network for it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbAffiliateNetworksResponse</returns>
+        SfvbAffiliateNetworksResponse GetSfvbAffiliateNetworks (int storefrontOid);
+
+        /// <summary>
+        /// List a storefront's affiliate networks
+        /// </summary>
+        /// <remarks>
+        /// Every affiliate network pixel, by name, with its settings and hash_sha256.  conversion_pixel is left out; its size and hash are shown.  Read one network for it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbAffiliateNetworksResponse</returns>
+        ApiResponse<SfvbAffiliateNetworksResponse> GetSfvbAffiliateNetworksWithHttpInfo (int storefrontOid);
         /// <summary>
         /// Read one approval request
         /// </summary>
@@ -2417,6 +2584,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbSiteAttributesResponse</returns>
         ApiResponse<SfvbSiteAttributesResponse> GetSfvbSiteAttributesWithHttpInfo (int storefrontOid);
         /// <summary>
+        /// Read a storefront's Smart Attribution configuration
+        /// </summary>
+        /// <remarks>
+        /// The mode, model, global credit split, lookback and platforms, the platforms detected from the tracking integrations that are not configured yet, and the hash_sha256 a change or delete sends back as If-Match.  When configured is false the values are the defaults an enable would save. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbSmartAttribution</returns>
+        SfvbSmartAttribution GetSfvbSmartAttribution (int storefrontOid);
+
+        /// <summary>
+        /// Read a storefront's Smart Attribution configuration
+        /// </summary>
+        /// <remarks>
+        /// The mode, model, global credit split, lookback and platforms, the platforms detected from the tracking integrations that are not configured yet, and the hash_sha256 a change or delete sends back as If-Match.  When configured is false the values are the defaults an enable would save. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbSmartAttribution</returns>
+        ApiResponse<SfvbSmartAttribution> GetSfvbSmartAttributionWithHttpInfo (int storefrontOid);
+        /// <summary>
         /// List recent test orders
         /// </summary>
         /// <remarks>
@@ -2513,6 +2701,117 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbThemeJobResponse</returns>
         ApiResponse<SfvbThemeJobResponse> GetSfvbThemeJobWithHttpInfo (int storefrontOid, int jobId);
         /// <summary>
+        /// Read one custom tracking HTML slot
+        /// </summary>
+        /// <remarks>
+        /// The HTML with its Velocity tokens as stored, and the hash_sha256 a write sends back as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <returns>SfvbTrackingHtml</returns>
+        SfvbTrackingHtml GetSfvbTrackingHtml (int storefrontOid, string slot);
+
+        /// <summary>
+        /// Read one custom tracking HTML slot
+        /// </summary>
+        /// <remarks>
+        /// The HTML with its Velocity tokens as stored, and the hash_sha256 a write sends back as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <returns>ApiResponse of SfvbTrackingHtml</returns>
+        ApiResponse<SfvbTrackingHtml> GetSfvbTrackingHtmlWithHttpInfo (int storefrontOid, string slot);
+        /// <summary>
+        /// List a storefront's custom tracking HTML slots
+        /// </summary>
+        /// <remarks>
+        /// tracking (every page but the receipt) and conversion (the receipt only), each with its size and hash_sha256.  Read one slot for its content. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbTrackingHtmlResponse</returns>
+        SfvbTrackingHtmlResponse GetSfvbTrackingHtmlSlots (int storefrontOid);
+
+        /// <summary>
+        /// List a storefront's custom tracking HTML slots
+        /// </summary>
+        /// <remarks>
+        /// tracking (every page but the receipt) and conversion (the receipt only), each with its size and hash_sha256.  Read one slot for its content. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbTrackingHtmlResponse</returns>
+        ApiResponse<SfvbTrackingHtmlResponse> GetSfvbTrackingHtmlSlotsWithHttpInfo (int storefrontOid);
+        /// <summary>
+        /// Read one tracking provider
+        /// </summary>
+        /// <remarks>
+        /// The provider as the list shows it, with the hash_sha256 a change or clear sends back as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <returns>SfvbTrackingProvider</returns>
+        SfvbTrackingProvider GetSfvbTrackingProvider (int storefrontOid, string provider);
+
+        /// <summary>
+        /// Read one tracking provider
+        /// </summary>
+        /// <remarks>
+        /// The provider as the list shows it, with the hash_sha256 a change or clear sends back as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <returns>ApiResponse of SfvbTrackingProvider</returns>
+        ApiResponse<SfvbTrackingProvider> GetSfvbTrackingProviderWithHttpInfo (int storefrontOid, string provider);
+        /// <summary>
+        /// List a storefront's tracking providers
+        /// </summary>
+        /// <remarks>
+        /// Every provider on the admin's Google and Other tabs, with each field's type and value, its consent gate, events, OAuth connection state and hash_sha256.  A secret's value is never returned, only whether one is set, its mask and the sink to request a handle for.  configured=true lists only the providers that are on. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="configured"> (optional)</param>
+        /// <returns>SfvbTrackingProvidersResponse</returns>
+        SfvbTrackingProvidersResponse GetSfvbTrackingProviders (int storefrontOid, bool? configured = default(bool?));
+
+        /// <summary>
+        /// List a storefront's tracking providers
+        /// </summary>
+        /// <remarks>
+        /// Every provider on the admin's Google and Other tabs, with each field's type and value, its consent gate, events, OAuth connection state and hash_sha256.  A secret's value is never returned, only whether one is set, its mask and the sink to request a handle for.  configured=true lists only the providers that are on. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="configured"> (optional)</param>
+        /// <returns>ApiResponse of SfvbTrackingProvidersResponse</returns>
+        ApiResponse<SfvbTrackingProvidersResponse> GetSfvbTrackingProvidersWithHttpInfo (int storefrontOid, bool? configured = default(bool?));
+        /// <summary>
+        /// Read a storefront's privacy rules and advanced conversion settings
+        /// </summary>
+        /// <remarks>
+        /// The five privacy rules (which shoppers each applies to) and the advanced conversion settings, each section with the hash_sha256 a write sends back as If-Match.  The order hash secret key is shared by every storefront on the account and is reported only as set or not. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbTrackingSettingsResponse</returns>
+        SfvbTrackingSettingsResponse GetSfvbTrackingSettings (int storefrontOid);
+
+        /// <summary>
+        /// Read a storefront's privacy rules and advanced conversion settings
+        /// </summary>
+        /// <remarks>
+        /// The five privacy rules (which shoppers each applies to) and the advanced conversion settings, each section with the hash_sha256 a write sends back as If-Match.  The order hash secret key is shared by every storefront on the account and is reported only as set or not. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbTrackingSettingsResponse</returns>
+        ApiResponse<SfvbTrackingSettingsResponse> GetSfvbTrackingSettingsWithHttpInfo (int storefrontOid);
+        /// <summary>
         /// List the transactional emails a storefront sends
         /// </summary>
         /// <remarks>
@@ -2595,6 +2894,52 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="statsWeekdays">Only these weekdays, comma separated mon to sun (optional)</param>
         /// <returns>ApiResponse of SfvbUpsellPath</returns>
         ApiResponse<SfvbUpsellPath> GetSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string));
+        /// <summary>
+        /// Read one UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// The shortcode with the hash_sha256 an update or delete sends back as If-Match.  A deleted shortcode is 404. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <returns>SfvbUtmShortcode</returns>
+        SfvbUtmShortcode GetSfvbUtmShortcode (int storefrontOid, int shortcodeOid);
+
+        /// <summary>
+        /// Read one UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// The shortcode with the hash_sha256 an update or delete sends back as If-Match.  A deleted shortcode is 404. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <returns>ApiResponse of SfvbUtmShortcode</returns>
+        ApiResponse<SfvbUtmShortcode> GetSfvbUtmShortcodeWithHttpInfo (int storefrontOid, int shortcodeOid);
+        /// <summary>
+        /// List a storefront's UTM shortcodes
+        /// </summary>
+        /// <remarks>
+        /// Every live shortcode, sorted by code, each with its hash_sha256.  q matches the code or the description, ignoring case. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="q"> (optional)</param>
+        /// <returns>SfvbUtmShortcodesResponse</returns>
+        SfvbUtmShortcodesResponse GetSfvbUtmShortcodes (int storefrontOid, string q = default(string));
+
+        /// <summary>
+        /// List a storefront's UTM shortcodes
+        /// </summary>
+        /// <remarks>
+        /// Every live shortcode, sorted by code, each with its hash_sha256.  q matches the code or the description, ignoring case. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="q"> (optional)</param>
+        /// <returns>ApiResponse of SfvbUtmShortcodesResponse</returns>
+        ApiResponse<SfvbUtmShortcodesResponse> GetSfvbUtmShortcodesWithHttpInfo (int storefrontOid, string q = default(string));
         /// <summary>
         /// Compiler version for this merchant
         /// </summary>
@@ -2680,10 +3025,35 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbRedirectImportResponse</returns>
         ApiResponse<SfvbRedirectImportResponse> ImportSfvbRedirectsWithHttpInfo (int storefrontOid, SfvbRedirectImportRequest redirectImportRequest);
         /// <summary>
+        /// Add an affiliate network
+        /// </summary>
+        /// <remarks>
+        /// network_name, parameter_name and parameter_value are required; the rest start from the admin's defaults.  Internal affiliate oids must be the account's own.  Needs sfvb_publish.  A network with a conversion_pixel that a custom or server_to_server network will use needs an approved affiliate_network.change request for exactly this create (Approval-Id), which UltraCart reviews first.  dry_run says whether it needs one, without saving. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkRequest">The network</param>
+        /// <param name="approvalId">For a network with a conversion pixel it will use, the approval_id of an approved affiliate_network.change request for exactly this create.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbAffiliateNetwork</returns>
+        SfvbAffiliateNetwork InsertSfvbAffiliateNetwork (int storefrontOid, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Add an affiliate network
+        /// </summary>
+        /// <remarks>
+        /// network_name, parameter_name and parameter_value are required; the rest start from the admin's defaults.  Internal affiliate oids must be the account's own.  Needs sfvb_publish.  A network with a conversion_pixel that a custom or server_to_server network will use needs an approved affiliate_network.change request for exactly this create (Approval-Id), which UltraCart reviews first.  dry_run says whether it needs one, without saving. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkRequest">The network</param>
+        /// <param name="approvalId">For a network with a conversion pixel it will use, the approval_id of an approved affiliate_network.change request for exactly this create.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbAffiliateNetwork</returns>
+        ApiResponse<SfvbAffiliateNetwork> InsertSfvbAffiliateNetworkWithHttpInfo (int storefrontOid, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string));
+        /// <summary>
         /// Request a human approval
         /// </summary>
         /// <remarks>
-        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
+        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart's scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -2695,7 +3065,7 @@ namespace com.ultracart.admin.v2.Api
         /// Request a human approval
         /// </summary>
         /// <remarks>
-        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
+        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart's scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -2930,6 +3300,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="upsellPath">The path to create</param>
         /// <returns>ApiResponse of SfvbUpsellPath</returns>
         ApiResponse<SfvbUpsellPath> InsertSfvbUpsellPathWithHttpInfo (int storefrontOid, SfvbUpsellPath upsellPath);
+        /// <summary>
+        /// Create a UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// code is letters, digits, underscore and hyphen, 1 to 50 characters, and at least one UTM or ITM value is required.  A code another live shortcode has, ignoring case, is 409 sfvb.utm_shortcode_exists.  A code that is one of the account's affiliate short codes is 409 sfvb.utm_shortcode_affiliate_conflict, because the storefront checks those first and this one would never fire.  Up to 5,000 per storefront.  Needs sfvb_write only, because no link sent before it existed changes. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="utmShortcodeRequest">The shortcode</param>
+        /// <returns>SfvbUtmShortcode</returns>
+        SfvbUtmShortcode InsertSfvbUtmShortcode (int storefrontOid, SfvbUtmShortcodeRequest utmShortcodeRequest);
+
+        /// <summary>
+        /// Create a UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// code is letters, digits, underscore and hyphen, 1 to 50 characters, and at least one UTM or ITM value is required.  A code another live shortcode has, ignoring case, is 409 sfvb.utm_shortcode_exists.  A code that is one of the account's affiliate short codes is 409 sfvb.utm_shortcode_affiliate_conflict, because the storefront checks those first and this one would never fire.  Up to 5,000 per storefront.  Needs sfvb_write only, because no link sent before it existed changes. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="utmShortcodeRequest">The shortcode</param>
+        /// <returns>ApiResponse of SfvbUtmShortcode</returns>
+        ApiResponse<SfvbUtmShortcode> InsertSfvbUtmShortcodeWithHttpInfo (int storefrontOid, SfvbUtmShortcodeRequest utmShortcodeRequest);
         /// <summary>
         /// Install a library entry into a storefront
         /// </summary>
@@ -4789,6 +5182,35 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbLibraryUnshareResult</returns>
         ApiResponse<SfvbLibraryUnshareResult> UnshareSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, string merchantId);
         /// <summary>
+        /// Change an affiliate network
+        /// </summary>
+        /// <remarks>
+        /// A partial update: only the fields sent change.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish.  Changing the conversion_pixel, or the conversion_type, of a network whose pixel will be used needs an approved affiliate_network.change request for exactly this change (Approval-Id), which UltraCart reviews first.  Other fields, and emptying the pixel, need none.  dry_run says whether it needs one, without saving. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="affiliateNetworkRequest">The change</param>
+        /// <param name="approvalId">When the change sets a conversion pixel the network will use, the approval_id of an approved affiliate_network.change request for exactly this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbAffiliateNetwork</returns>
+        SfvbAffiliateNetwork UpdateSfvbAffiliateNetwork (int storefrontOid, int affiliateNetworkOid, string ifMatch, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Change an affiliate network
+        /// </summary>
+        /// <remarks>
+        /// A partial update: only the fields sent change.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish.  Changing the conversion_pixel, or the conversion_type, of a network whose pixel will be used needs an approved affiliate_network.change request for exactly this change (Approval-Id), which UltraCart reviews first.  Other fields, and emptying the pixel, need none.  dry_run says whether it needs one, without saving. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="affiliateNetworkRequest">The change</param>
+        /// <param name="approvalId">When the change sets a conversion pixel the network will use, the approval_id of an approved affiliate_network.change request for exactly this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbAffiliateNetwork</returns>
+        ApiResponse<SfvbAffiliateNetwork> UpdateSfvbAffiliateNetworkWithHttpInfo (int storefrontOid, int affiliateNetworkOid, string ifMatch, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string));
+        /// <summary>
         /// Change a blog post
         /// </summary>
         /// <remarks>
@@ -5105,6 +5527,141 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbSequenceStepUpdateResponse</returns>
         ApiResponse<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, string approvalId = default(string));
         /// <summary>
+        /// Change a storefront's Smart Attribution configuration
+        /// </summary>
+        /// <remarks>
+        /// A partial update of the mode, model, global split and lookback.  platforms, when sent, replaces the whole list.  The global split must total exactly 1 and the lookback is 7 to 365.  On an unconfigured storefront it creates the configuration.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, and when the mode is active or the change makes it active, an approved smart_attribution.change request for exactly this change (Approval-Id), because active mode decides which conversions each platform is sent.  A change that stores what is already stored returns the configuration unchanged and uses no approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="smartAttributionRequest">The change</param>
+        /// <param name="approvalId">When the mode is or becomes active, the approval_id of an approved smart_attribution.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbSmartAttribution</returns>
+        SfvbSmartAttribution UpdateSfvbSmartAttribution (int storefrontOid, string ifMatch, SfvbSmartAttributionRequest smartAttributionRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Change a storefront's Smart Attribution configuration
+        /// </summary>
+        /// <remarks>
+        /// A partial update of the mode, model, global split and lookback.  platforms, when sent, replaces the whole list.  The global split must total exactly 1 and the lookback is 7 to 365.  On an unconfigured storefront it creates the configuration.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, and when the mode is active or the change makes it active, an approved smart_attribution.change request for exactly this change (Approval-Id), because active mode decides which conversions each platform is sent.  A change that stores what is already stored returns the configuration unchanged and uses no approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="smartAttributionRequest">The change</param>
+        /// <param name="approvalId">When the mode is or becomes active, the approval_id of an approved smart_attribution.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbSmartAttribution</returns>
+        ApiResponse<SfvbSmartAttribution> UpdateSfvbSmartAttributionWithHttpInfo (int storefrontOid, string ifMatch, SfvbSmartAttributionRequest smartAttributionRequest, string approvalId = default(string));
+        /// <summary>
+        /// Change a storefront's advanced conversion settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Fields left out keep their value, and a text setting is cleared by naming it in unset.  URLs are a path starting with / or an absolute http or https URL, and one over its limit is refused rather than cut short.  The currency must be one the read lists.  The order hash secret key cannot be changed here.  Every field is checked before any is written.  Send the advanced hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the settings apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The advanced hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingAdvancedRequest">The settings to change</param>
+        /// <returns>SfvbTrackingSettingsResponse</returns>
+        SfvbTrackingSettingsResponse UpdateSfvbTrackingAdvanced (int storefrontOid, string ifMatch, SfvbTrackingAdvancedRequest trackingAdvancedRequest);
+
+        /// <summary>
+        /// Change a storefront's advanced conversion settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Fields left out keep their value, and a text setting is cleared by naming it in unset.  URLs are a path starting with / or an absolute http or https URL, and one over its limit is refused rather than cut short.  The currency must be one the read lists.  The order hash secret key cannot be changed here.  Every field is checked before any is written.  Send the advanced hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the settings apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The advanced hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingAdvancedRequest">The settings to change</param>
+        /// <returns>ApiResponse of SfvbTrackingSettingsResponse</returns>
+        ApiResponse<SfvbTrackingSettingsResponse> UpdateSfvbTrackingAdvancedWithHttpInfo (int storefrontOid, string ifMatch, SfvbTrackingAdvancedRequest trackingAdvancedRequest);
+        /// <summary>
+        /// Write one custom tracking HTML slot
+        /// </summary>
+        /// <remarks>
+        /// Replaces the whole slot, at most 256 KB.  Content the storefront's templates may not use is refused with its lines.  Send the slot's hash_sha256 as If-Match.  Needs sfvb_publish.  Any HTML but an empty string needs an approved tracking_html.put request for exactly this content (Approval-Id), which UltraCart reviews first.  An empty string empties the slot without one.  dry_run says whether the write needs one, without saving. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <param name="ifMatch">The slot&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingHtmlRequest">The content</param>
+        /// <param name="approvalId">For any content but an empty string, the approval_id of an approved tracking_html.put request for exactly this content.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbTrackingHtml</returns>
+        SfvbTrackingHtml UpdateSfvbTrackingHtml (int storefrontOid, string slot, string ifMatch, SfvbTrackingHtmlRequest trackingHtmlRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Write one custom tracking HTML slot
+        /// </summary>
+        /// <remarks>
+        /// Replaces the whole slot, at most 256 KB.  Content the storefront's templates may not use is refused with its lines.  Send the slot's hash_sha256 as If-Match.  Needs sfvb_publish.  Any HTML but an empty string needs an approved tracking_html.put request for exactly this content (Approval-Id), which UltraCart reviews first.  An empty string empties the slot without one.  dry_run says whether the write needs one, without saving. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <param name="ifMatch">The slot&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingHtmlRequest">The content</param>
+        /// <param name="approvalId">For any content but an empty string, the approval_id of an approved tracking_html.put request for exactly this content.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbTrackingHtml</returns>
+        ApiResponse<SfvbTrackingHtml> UpdateSfvbTrackingHtmlWithHttpInfo (int storefrontOid, string slot, string ifMatch, SfvbTrackingHtmlRequest trackingHtmlRequest, string approvalId = default(string));
+        /// <summary>
+        /// Change a storefront's privacy rules
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Each rule named is set to all, eea, non_us or off, and rules left out keep their value.  Every rule is checked before any is written.  Send the privacy hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the rules apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The privacy hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingPrivacyRequest">The rules to change</param>
+        /// <returns>SfvbTrackingSettingsResponse</returns>
+        SfvbTrackingSettingsResponse UpdateSfvbTrackingPrivacy (int storefrontOid, string ifMatch, SfvbTrackingPrivacyRequest trackingPrivacyRequest);
+
+        /// <summary>
+        /// Change a storefront's privacy rules
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Each rule named is set to all, eea, non_us or off, and rules left out keep their value.  Every rule is checked before any is written.  Send the privacy hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the rules apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The privacy hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingPrivacyRequest">The rules to change</param>
+        /// <returns>ApiResponse of SfvbTrackingSettingsResponse</returns>
+        ApiResponse<SfvbTrackingSettingsResponse> UpdateSfvbTrackingPrivacyWithHttpInfo (int storefrontOid, string ifMatch, SfvbTrackingPrivacyRequest trackingPrivacyRequest);
+        /// <summary>
+        /// Change one tracking provider
+        /// </summary>
+        /// <remarks>
+        /// A partial update of the provider's fields, secrets (as secret handles), consent gate, events and, for google_analytics, wholesale account numbers.  Every value is checked for its field's type before anything is written.  Send the provider's hash_sha256 as If-Match.  dry_run reports the changes without saving.  Needs sfvb_publish.  Turning the provider on, loosening its consent gate, or turning on Google Tag Gateway (which also needs accept_cost true) needs an approved tracking_provider.change request for exactly this change (Approval-Id).  OAuth connections are made in the admin. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingProviderRequest">The change</param>
+        /// <param name="approvalId">When the change turns the provider on, loosens its consent gate or turns on Google Tag Gateway, the approval_id of an approved tracking_provider.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbTrackingProvider</returns>
+        SfvbTrackingProvider UpdateSfvbTrackingProvider (int storefrontOid, string provider, string ifMatch, SfvbTrackingProviderRequest trackingProviderRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Change one tracking provider
+        /// </summary>
+        /// <remarks>
+        /// A partial update of the provider's fields, secrets (as secret handles), consent gate, events and, for google_analytics, wholesale account numbers.  Every value is checked for its field's type before anything is written.  Send the provider's hash_sha256 as If-Match.  dry_run reports the changes without saving.  Needs sfvb_publish.  Turning the provider on, loosening its consent gate, or turning on Google Tag Gateway (which also needs accept_cost true) needs an approved tracking_provider.change request for exactly this change (Approval-Id).  OAuth connections are made in the admin. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingProviderRequest">The change</param>
+        /// <param name="approvalId">When the change turns the provider on, loosens its consent gate or turns on Google Tag Gateway, the approval_id of an approved tracking_provider.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbTrackingProvider</returns>
+        ApiResponse<SfvbTrackingProvider> UpdateSfvbTrackingProviderWithHttpInfo (int storefrontOid, string provider, string ifMatch, SfvbTrackingProviderRequest trackingProviderRequest, string approvalId = default(string));
+        /// <summary>
         /// Update an upsell offer
         /// </summary>
         /// <remarks>
@@ -5158,6 +5715,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="upsellPath">The whole path</param>
         /// <returns>ApiResponse of SfvbUpsellPath</returns>
         ApiResponse<SfvbUpsellPath> UpdateSfvbUpsellPathWithHttpInfo (int storefrontOid, int upsellPathOid, string ifMatch, SfvbUpsellPath upsellPath);
+        /// <summary>
+        /// Change a UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Fields left out keep their value, and an empty string clears a value.  A changed code is checked like a new one.  The creation date is kept.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, because links already in emails and ads that use the code are attributed differently from now on. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="utmShortcodeRequest">The change</param>
+        /// <returns>SfvbUtmShortcode</returns>
+        SfvbUtmShortcode UpdateSfvbUtmShortcode (int storefrontOid, int shortcodeOid, string ifMatch, SfvbUtmShortcodeRequest utmShortcodeRequest);
+
+        /// <summary>
+        /// Change a UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Fields left out keep their value, and an empty string clears a value.  A changed code is checked like a new one.  The creation date is kept.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, because links already in emails and ads that use the code are attributed differently from now on. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="utmShortcodeRequest">The change</param>
+        /// <returns>ApiResponse of SfvbUtmShortcode</returns>
+        ApiResponse<SfvbUtmShortcode> UpdateSfvbUtmShortcodeWithHttpInfo (int storefrontOid, int shortcodeOid, string ifMatch, SfvbUtmShortcodeRequest utmShortcodeRequest);
         /// <summary>
         /// Store a binary asset that was already uploaded
         /// </summary>
@@ -5644,6 +6228,35 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbPreviewSessionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPreviewSessionResponse>> CreateSfvbPreviewSessionWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Delete an affiliate network
+        /// </summary>
+        /// <remarks>
+        /// Visits from the network stop being recognized and its pixel stops firing.  Refused with 409 while Smart Attribution names the network as a platform.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish and an approved affiliate_network.delete request (Approval-Id). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved affiliate_network.delete request for this network.  See POST /sfvb/approvals.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteSfvbAffiliateNetworkAsync (int storefrontOid, int affiliateNetworkOid, string ifMatch, string approvalId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete an affiliate network
+        /// </summary>
+        /// <remarks>
+        /// Visits from the network stop being recognized and its pixel stops firing.  Refused with 409 while Smart Attribution names the network as a platform.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish and an approved affiliate_network.delete request (Approval-Id). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved affiliate_network.delete request for this network.  See POST /sfvb/approvals.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbAffiliateNetworkWithHttpInfoAsync (int storefrontOid, int affiliateNetworkOid, string ifMatch, string approvalId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Cancel a pending approval request
         /// </summary>
         /// <remarks>
@@ -6020,6 +6633,87 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbSequenceStepDeleteResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepDeleteResponse>> DeleteSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Delete a storefront's Smart Attribution configuration
+        /// </summary>
+        /// <remarks>
+        /// Every platform goes back to being sent conversions as it was before Smart Attribution, and the settings are gone.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish and an approved smart_attribution.delete request (Approval-Id).  An unconfigured storefront is 404. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved smart_attribution.delete request.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteSfvbSmartAttributionAsync (int storefrontOid, string ifMatch, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete a storefront&#39;s Smart Attribution configuration
+        /// </summary>
+        /// <remarks>
+        /// Every platform goes back to being sent conversions as it was before Smart Attribution, and the settings are gone.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish and an approved smart_attribution.delete request (Approval-Id).  An unconfigured storefront is 404. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved smart_attribution.delete request.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbSmartAttributionWithHttpInfoAsync (int storefrontOid, string ifMatch, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Clear one tracking provider
+        /// </summary>
+        /// <remarks>
+        /// Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingProvider</returns>
+        System.Threading.Tasks.Task<SfvbTrackingProvider> DeleteSfvbTrackingProviderAsync (int storefrontOid, string provider, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Clear one tracking provider
+        /// </summary>
+        /// <remarks>
+        /// Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingProvider)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingProvider>> DeleteSfvbTrackingProviderWithHttpInfoAsync (int storefrontOid, string provider, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Delete a UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// The shortcode stops attributing at once.  A link that uses it as a path segment still opens its page, without the UTM values.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteSfvbUtmShortcodeAsync (int storefrontOid, int shortcodeOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete a UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// The shortcode stops attributing at once.  A link that uses it as a path segment still opens its page, without the UTM values.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbUtmShortcodeWithHttpInfoAsync (int storefrontOid, int shortcodeOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Detach an image from a blog post
         /// </summary>
         /// <remarks>
@@ -6384,6 +7078,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbI18nLanguagesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbI18nLanguagesResponse>> EnableSfvbI18nLanguageWithHttpInfoAsync (int storefrontOid, string code, string ifMatch, SfvbI18nLanguageEnableRequest languageEnableRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Turn Smart Attribution on in report_only mode
+        /// </summary>
+        /// <remarks>
+        /// What the admin's Enable button saves: report_only, position_based, a 40/20/40 split, a 7 day lookback and every detected platform.  report_only records decisions and changes nothing any platform is sent.  A storefront that already has a configuration is 409 sfvb.smart_attribution_configured.  Needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSmartAttribution</returns>
+        System.Threading.Tasks.Task<SfvbSmartAttribution> EnableSfvbSmartAttributionAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Turn Smart Attribution on in report_only mode
+        /// </summary>
+        /// <remarks>
+        /// What the admin's Enable button saves: report_only, position_based, a 40/20/40 split, a 7 day lookback and every detected platform.  report_only records decisions and changes nothing any platform is sent.  A storefront that already has a configuration is 409 sfvb.smart_attribution_configured.  Needs sfvb_publish. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSmartAttribution)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbSmartAttribution>> EnableSfvbSmartAttributionWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Enable an upsell offer
         /// </summary>
         /// <remarks>
@@ -6491,6 +7208,54 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> FavoriteSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read one affiliate network
+        /// </summary>
+        /// <remarks>
+        /// The network with its conversion_pixel, and the hash_sha256 an update or delete sends back as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbAffiliateNetwork</returns>
+        System.Threading.Tasks.Task<SfvbAffiliateNetwork> GetSfvbAffiliateNetworkAsync (int storefrontOid, int affiliateNetworkOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read one affiliate network
+        /// </summary>
+        /// <remarks>
+        /// The network with its conversion_pixel, and the hash_sha256 an update or delete sends back as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbAffiliateNetwork)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbAffiliateNetwork>> GetSfvbAffiliateNetworkWithHttpInfoAsync (int storefrontOid, int affiliateNetworkOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List a storefront's affiliate networks
+        /// </summary>
+        /// <remarks>
+        /// Every affiliate network pixel, by name, with its settings and hash_sha256.  conversion_pixel is left out; its size and hash are shown.  Read one network for it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbAffiliateNetworksResponse</returns>
+        System.Threading.Tasks.Task<SfvbAffiliateNetworksResponse> GetSfvbAffiliateNetworksAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List a storefront&#39;s affiliate networks
+        /// </summary>
+        /// <remarks>
+        /// Every affiliate network pixel, by name, with its settings and hash_sha256.  conversion_pixel is left out; its size and hash are shown.  Read one network for it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbAffiliateNetworksResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbAffiliateNetworksResponse>> GetSfvbAffiliateNetworksWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read one approval request
         /// </summary>
@@ -7825,6 +8590,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbSiteAttributesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbSiteAttributesResponse>> GetSfvbSiteAttributesWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Read a storefront's Smart Attribution configuration
+        /// </summary>
+        /// <remarks>
+        /// The mode, model, global credit split, lookback and platforms, the platforms detected from the tracking integrations that are not configured yet, and the hash_sha256 a change or delete sends back as If-Match.  When configured is false the values are the defaults an enable would save. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSmartAttribution</returns>
+        System.Threading.Tasks.Task<SfvbSmartAttribution> GetSfvbSmartAttributionAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a storefront&#39;s Smart Attribution configuration
+        /// </summary>
+        /// <remarks>
+        /// The mode, model, global credit split, lookback and platforms, the platforms detected from the tracking integrations that are not configured yet, and the hash_sha256 a change or delete sends back as If-Match.  When configured is false the values are the defaults an enable would save. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSmartAttribution)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbSmartAttribution>> GetSfvbSmartAttributionWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// List recent test orders
         /// </summary>
         /// <remarks>
@@ -7929,6 +8717,127 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbThemeJobResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbThemeJobResponse>> GetSfvbThemeJobWithHttpInfoAsync (int storefrontOid, int jobId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Read one custom tracking HTML slot
+        /// </summary>
+        /// <remarks>
+        /// The HTML with its Velocity tokens as stored, and the hash_sha256 a write sends back as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingHtml</returns>
+        System.Threading.Tasks.Task<SfvbTrackingHtml> GetSfvbTrackingHtmlAsync (int storefrontOid, string slot, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read one custom tracking HTML slot
+        /// </summary>
+        /// <remarks>
+        /// The HTML with its Velocity tokens as stored, and the hash_sha256 a write sends back as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingHtml)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingHtml>> GetSfvbTrackingHtmlWithHttpInfoAsync (int storefrontOid, string slot, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List a storefront's custom tracking HTML slots
+        /// </summary>
+        /// <remarks>
+        /// tracking (every page but the receipt) and conversion (the receipt only), each with its size and hash_sha256.  Read one slot for its content. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingHtmlResponse</returns>
+        System.Threading.Tasks.Task<SfvbTrackingHtmlResponse> GetSfvbTrackingHtmlSlotsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List a storefront&#39;s custom tracking HTML slots
+        /// </summary>
+        /// <remarks>
+        /// tracking (every page but the receipt) and conversion (the receipt only), each with its size and hash_sha256.  Read one slot for its content. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingHtmlResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingHtmlResponse>> GetSfvbTrackingHtmlSlotsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read one tracking provider
+        /// </summary>
+        /// <remarks>
+        /// The provider as the list shows it, with the hash_sha256 a change or clear sends back as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingProvider</returns>
+        System.Threading.Tasks.Task<SfvbTrackingProvider> GetSfvbTrackingProviderAsync (int storefrontOid, string provider, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read one tracking provider
+        /// </summary>
+        /// <remarks>
+        /// The provider as the list shows it, with the hash_sha256 a change or clear sends back as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingProvider)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingProvider>> GetSfvbTrackingProviderWithHttpInfoAsync (int storefrontOid, string provider, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List a storefront's tracking providers
+        /// </summary>
+        /// <remarks>
+        /// Every provider on the admin's Google and Other tabs, with each field's type and value, its consent gate, events, OAuth connection state and hash_sha256.  A secret's value is never returned, only whether one is set, its mask and the sink to request a handle for.  configured=true lists only the providers that are on. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="configured"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingProvidersResponse</returns>
+        System.Threading.Tasks.Task<SfvbTrackingProvidersResponse> GetSfvbTrackingProvidersAsync (int storefrontOid, bool? configured = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List a storefront&#39;s tracking providers
+        /// </summary>
+        /// <remarks>
+        /// Every provider on the admin's Google and Other tabs, with each field's type and value, its consent gate, events, OAuth connection state and hash_sha256.  A secret's value is never returned, only whether one is set, its mask and the sink to request a handle for.  configured=true lists only the providers that are on. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="configured"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingProvidersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingProvidersResponse>> GetSfvbTrackingProvidersWithHttpInfoAsync (int storefrontOid, bool? configured = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read a storefront's privacy rules and advanced conversion settings
+        /// </summary>
+        /// <remarks>
+        /// The five privacy rules (which shoppers each applies to) and the advanced conversion settings, each section with the hash_sha256 a write sends back as If-Match.  The order hash secret key is shared by every storefront on the account and is reported only as set or not. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingSettingsResponse</returns>
+        System.Threading.Tasks.Task<SfvbTrackingSettingsResponse> GetSfvbTrackingSettingsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a storefront&#39;s privacy rules and advanced conversion settings
+        /// </summary>
+        /// <remarks>
+        /// The five privacy rules (which shoppers each applies to) and the advanced conversion settings, each section with the hash_sha256 a write sends back as If-Match.  The order hash secret key is shared by every storefront on the account and is reported only as set or not. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingSettingsResponse>> GetSfvbTrackingSettingsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// List the transactional emails a storefront sends
         /// </summary>
         /// <remarks>
@@ -8017,6 +8926,56 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> GetSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read one UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// The shortcode with the hash_sha256 an update or delete sends back as If-Match.  A deleted shortcode is 404. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUtmShortcode</returns>
+        System.Threading.Tasks.Task<SfvbUtmShortcode> GetSfvbUtmShortcodeAsync (int storefrontOid, int shortcodeOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read one UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// The shortcode with the hash_sha256 an update or delete sends back as If-Match.  A deleted shortcode is 404. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUtmShortcode)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUtmShortcode>> GetSfvbUtmShortcodeWithHttpInfoAsync (int storefrontOid, int shortcodeOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List a storefront's UTM shortcodes
+        /// </summary>
+        /// <remarks>
+        /// Every live shortcode, sorted by code, each with its hash_sha256.  q matches the code or the description, ignoring case. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUtmShortcodesResponse</returns>
+        System.Threading.Tasks.Task<SfvbUtmShortcodesResponse> GetSfvbUtmShortcodesAsync (int storefrontOid, string q = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List a storefront&#39;s UTM shortcodes
+        /// </summary>
+        /// <remarks>
+        /// Every live shortcode, sorted by code, each with its hash_sha256.  q matches the code or the description, ignoring case. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUtmShortcodesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUtmShortcodesResponse>> GetSfvbUtmShortcodesWithHttpInfoAsync (int storefrontOid, string q = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Compiler version for this merchant
         /// </summary>
@@ -8110,10 +9069,37 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbRedirectImportResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbRedirectImportResponse>> ImportSfvbRedirectsWithHttpInfoAsync (int storefrontOid, SfvbRedirectImportRequest redirectImportRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Add an affiliate network
+        /// </summary>
+        /// <remarks>
+        /// network_name, parameter_name and parameter_value are required; the rest start from the admin's defaults.  Internal affiliate oids must be the account's own.  Needs sfvb_publish.  A network with a conversion_pixel that a custom or server_to_server network will use needs an approved affiliate_network.change request for exactly this create (Approval-Id), which UltraCart reviews first.  dry_run says whether it needs one, without saving. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkRequest">The network</param>
+        /// <param name="approvalId">For a network with a conversion pixel it will use, the approval_id of an approved affiliate_network.change request for exactly this create.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbAffiliateNetwork</returns>
+        System.Threading.Tasks.Task<SfvbAffiliateNetwork> InsertSfvbAffiliateNetworkAsync (int storefrontOid, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Add an affiliate network
+        /// </summary>
+        /// <remarks>
+        /// network_name, parameter_name and parameter_value are required; the rest start from the admin's defaults.  Internal affiliate oids must be the account's own.  Needs sfvb_publish.  A network with a conversion_pixel that a custom or server_to_server network will use needs an approved affiliate_network.change request for exactly this create (Approval-Id), which UltraCart reviews first.  dry_run says whether it needs one, without saving. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkRequest">The network</param>
+        /// <param name="approvalId">For a network with a conversion pixel it will use, the approval_id of an approved affiliate_network.change request for exactly this create.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbAffiliateNetwork)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbAffiliateNetwork>> InsertSfvbAffiliateNetworkWithHttpInfoAsync (int storefrontOid, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Request a human approval
         /// </summary>
         /// <remarks>
-        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
+        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart's scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -8126,7 +9112,7 @@ namespace com.ultracart.admin.v2.Api
         /// Request a human approval
         /// </summary>
         /// <remarks>
-        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
+        /// Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart's scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -8382,6 +9368,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> InsertSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, SfvbUpsellPath upsellPath, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Create a UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// code is letters, digits, underscore and hyphen, 1 to 50 characters, and at least one UTM or ITM value is required.  A code another live shortcode has, ignoring case, is 409 sfvb.utm_shortcode_exists.  A code that is one of the account's affiliate short codes is 409 sfvb.utm_shortcode_affiliate_conflict, because the storefront checks those first and this one would never fire.  Up to 5,000 per storefront.  Needs sfvb_write only, because no link sent before it existed changes. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="utmShortcodeRequest">The shortcode</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUtmShortcode</returns>
+        System.Threading.Tasks.Task<SfvbUtmShortcode> InsertSfvbUtmShortcodeAsync (int storefrontOid, SfvbUtmShortcodeRequest utmShortcodeRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create a UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// code is letters, digits, underscore and hyphen, 1 to 50 characters, and at least one UTM or ITM value is required.  A code another live shortcode has, ignoring case, is 409 sfvb.utm_shortcode_exists.  A code that is one of the account's affiliate short codes is 409 sfvb.utm_shortcode_affiliate_conflict, because the storefront checks those first and this one would never fire.  Up to 5,000 per storefront.  Needs sfvb_write only, because no link sent before it existed changes. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="utmShortcodeRequest">The shortcode</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUtmShortcode)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUtmShortcode>> InsertSfvbUtmShortcodeWithHttpInfoAsync (int storefrontOid, SfvbUtmShortcodeRequest utmShortcodeRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Install a library entry into a storefront
         /// </summary>
@@ -10385,6 +11396,37 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbLibraryUnshareResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbLibraryUnshareResult>> UnshareSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, string merchantId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Change an affiliate network
+        /// </summary>
+        /// <remarks>
+        /// A partial update: only the fields sent change.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish.  Changing the conversion_pixel, or the conversion_type, of a network whose pixel will be used needs an approved affiliate_network.change request for exactly this change (Approval-Id), which UltraCart reviews first.  Other fields, and emptying the pixel, need none.  dry_run says whether it needs one, without saving. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="affiliateNetworkRequest">The change</param>
+        /// <param name="approvalId">When the change sets a conversion pixel the network will use, the approval_id of an approved affiliate_network.change request for exactly this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbAffiliateNetwork</returns>
+        System.Threading.Tasks.Task<SfvbAffiliateNetwork> UpdateSfvbAffiliateNetworkAsync (int storefrontOid, int affiliateNetworkOid, string ifMatch, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change an affiliate network
+        /// </summary>
+        /// <remarks>
+        /// A partial update: only the fields sent change.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish.  Changing the conversion_pixel, or the conversion_type, of a network whose pixel will be used needs an approved affiliate_network.change request for exactly this change (Approval-Id), which UltraCart reviews first.  Other fields, and emptying the pixel, need none.  dry_run says whether it needs one, without saving. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="affiliateNetworkRequest">The change</param>
+        /// <param name="approvalId">When the change sets a conversion pixel the network will use, the approval_id of an approved affiliate_network.change request for exactly this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbAffiliateNetwork)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbAffiliateNetwork>> UpdateSfvbAffiliateNetworkWithHttpInfoAsync (int storefrontOid, int affiliateNetworkOid, string ifMatch, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Change a blog post
         /// </summary>
         /// <remarks>
@@ -10725,6 +11767,151 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbSequenceStepUpdateResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepUpdateResponse>> UpdateSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Change a storefront's Smart Attribution configuration
+        /// </summary>
+        /// <remarks>
+        /// A partial update of the mode, model, global split and lookback.  platforms, when sent, replaces the whole list.  The global split must total exactly 1 and the lookback is 7 to 365.  On an unconfigured storefront it creates the configuration.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, and when the mode is active or the change makes it active, an approved smart_attribution.change request for exactly this change (Approval-Id), because active mode decides which conversions each platform is sent.  A change that stores what is already stored returns the configuration unchanged and uses no approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="smartAttributionRequest">The change</param>
+        /// <param name="approvalId">When the mode is or becomes active, the approval_id of an approved smart_attribution.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSmartAttribution</returns>
+        System.Threading.Tasks.Task<SfvbSmartAttribution> UpdateSfvbSmartAttributionAsync (int storefrontOid, string ifMatch, SfvbSmartAttributionRequest smartAttributionRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a storefront&#39;s Smart Attribution configuration
+        /// </summary>
+        /// <remarks>
+        /// A partial update of the mode, model, global split and lookback.  platforms, when sent, replaces the whole list.  The global split must total exactly 1 and the lookback is 7 to 365.  On an unconfigured storefront it creates the configuration.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, and when the mode is active or the change makes it active, an approved smart_attribution.change request for exactly this change (Approval-Id), because active mode decides which conversions each platform is sent.  A change that stores what is already stored returns the configuration unchanged and uses no approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="smartAttributionRequest">The change</param>
+        /// <param name="approvalId">When the mode is or becomes active, the approval_id of an approved smart_attribution.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSmartAttribution)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbSmartAttribution>> UpdateSfvbSmartAttributionWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbSmartAttributionRequest smartAttributionRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change a storefront's advanced conversion settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Fields left out keep their value, and a text setting is cleared by naming it in unset.  URLs are a path starting with / or an absolute http or https URL, and one over its limit is refused rather than cut short.  The currency must be one the read lists.  The order hash secret key cannot be changed here.  Every field is checked before any is written.  Send the advanced hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the settings apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The advanced hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingAdvancedRequest">The settings to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingSettingsResponse</returns>
+        System.Threading.Tasks.Task<SfvbTrackingSettingsResponse> UpdateSfvbTrackingAdvancedAsync (int storefrontOid, string ifMatch, SfvbTrackingAdvancedRequest trackingAdvancedRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a storefront&#39;s advanced conversion settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Fields left out keep their value, and a text setting is cleared by naming it in unset.  URLs are a path starting with / or an absolute http or https URL, and one over its limit is refused rather than cut short.  The currency must be one the read lists.  The order hash secret key cannot be changed here.  Every field is checked before any is written.  Send the advanced hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the settings apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The advanced hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingAdvancedRequest">The settings to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingSettingsResponse>> UpdateSfvbTrackingAdvancedWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbTrackingAdvancedRequest trackingAdvancedRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Write one custom tracking HTML slot
+        /// </summary>
+        /// <remarks>
+        /// Replaces the whole slot, at most 256 KB.  Content the storefront's templates may not use is refused with its lines.  Send the slot's hash_sha256 as If-Match.  Needs sfvb_publish.  Any HTML but an empty string needs an approved tracking_html.put request for exactly this content (Approval-Id), which UltraCart reviews first.  An empty string empties the slot without one.  dry_run says whether the write needs one, without saving. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <param name="ifMatch">The slot&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingHtmlRequest">The content</param>
+        /// <param name="approvalId">For any content but an empty string, the approval_id of an approved tracking_html.put request for exactly this content.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingHtml</returns>
+        System.Threading.Tasks.Task<SfvbTrackingHtml> UpdateSfvbTrackingHtmlAsync (int storefrontOid, string slot, string ifMatch, SfvbTrackingHtmlRequest trackingHtmlRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Write one custom tracking HTML slot
+        /// </summary>
+        /// <remarks>
+        /// Replaces the whole slot, at most 256 KB.  Content the storefront's templates may not use is refused with its lines.  Send the slot's hash_sha256 as If-Match.  Needs sfvb_publish.  Any HTML but an empty string needs an approved tracking_html.put request for exactly this content (Approval-Id), which UltraCart reviews first.  An empty string empties the slot without one.  dry_run says whether the write needs one, without saving. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <param name="ifMatch">The slot&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingHtmlRequest">The content</param>
+        /// <param name="approvalId">For any content but an empty string, the approval_id of an approved tracking_html.put request for exactly this content.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingHtml)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingHtml>> UpdateSfvbTrackingHtmlWithHttpInfoAsync (int storefrontOid, string slot, string ifMatch, SfvbTrackingHtmlRequest trackingHtmlRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change a storefront's privacy rules
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Each rule named is set to all, eea, non_us or off, and rules left out keep their value.  Every rule is checked before any is written.  Send the privacy hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the rules apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The privacy hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingPrivacyRequest">The rules to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingSettingsResponse</returns>
+        System.Threading.Tasks.Task<SfvbTrackingSettingsResponse> UpdateSfvbTrackingPrivacyAsync (int storefrontOid, string ifMatch, SfvbTrackingPrivacyRequest trackingPrivacyRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a storefront&#39;s privacy rules
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Each rule named is set to all, eea, non_us or off, and rules left out keep their value.  Every rule is checked before any is written.  Send the privacy hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the rules apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The privacy hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingPrivacyRequest">The rules to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingSettingsResponse>> UpdateSfvbTrackingPrivacyWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbTrackingPrivacyRequest trackingPrivacyRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change one tracking provider
+        /// </summary>
+        /// <remarks>
+        /// A partial update of the provider's fields, secrets (as secret handles), consent gate, events and, for google_analytics, wholesale account numbers.  Every value is checked for its field's type before anything is written.  Send the provider's hash_sha256 as If-Match.  dry_run reports the changes without saving.  Needs sfvb_publish.  Turning the provider on, loosening its consent gate, or turning on Google Tag Gateway (which also needs accept_cost true) needs an approved tracking_provider.change request for exactly this change (Approval-Id).  OAuth connections are made in the admin. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingProviderRequest">The change</param>
+        /// <param name="approvalId">When the change turns the provider on, loosens its consent gate or turns on Google Tag Gateway, the approval_id of an approved tracking_provider.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingProvider</returns>
+        System.Threading.Tasks.Task<SfvbTrackingProvider> UpdateSfvbTrackingProviderAsync (int storefrontOid, string provider, string ifMatch, SfvbTrackingProviderRequest trackingProviderRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change one tracking provider
+        /// </summary>
+        /// <remarks>
+        /// A partial update of the provider's fields, secrets (as secret handles), consent gate, events and, for google_analytics, wholesale account numbers.  Every value is checked for its field's type before anything is written.  Send the provider's hash_sha256 as If-Match.  dry_run reports the changes without saving.  Needs sfvb_publish.  Turning the provider on, loosening its consent gate, or turning on Google Tag Gateway (which also needs accept_cost true) needs an approved tracking_provider.change request for exactly this change (Approval-Id).  OAuth connections are made in the admin. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingProviderRequest">The change</param>
+        /// <param name="approvalId">When the change turns the provider on, loosens its consent gate or turns on Google Tag Gateway, the approval_id of an approved tracking_provider.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingProvider)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingProvider>> UpdateSfvbTrackingProviderWithHttpInfoAsync (int storefrontOid, string provider, string ifMatch, SfvbTrackingProviderRequest trackingProviderRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Update an upsell offer
         /// </summary>
         /// <remarks>
@@ -10782,6 +11969,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbUpsellPath)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPath>> UpdateSfvbUpsellPathWithHttpInfoAsync (int storefrontOid, int upsellPathOid, string ifMatch, SfvbUpsellPath upsellPath, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change a UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Fields left out keep their value, and an empty string clears a value.  A changed code is checked like a new one.  The creation date is kept.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, because links already in emails and ads that use the code are attributed differently from now on. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="utmShortcodeRequest">The change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUtmShortcode</returns>
+        System.Threading.Tasks.Task<SfvbUtmShortcode> UpdateSfvbUtmShortcodeAsync (int storefrontOid, int shortcodeOid, string ifMatch, SfvbUtmShortcodeRequest utmShortcodeRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a UTM shortcode
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Fields left out keep their value, and an empty string clears a value.  A changed code is checked like a new one.  The creation date is kept.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, because links already in emails and ads that use the code are attributed differently from now on. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="utmShortcodeRequest">The change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUtmShortcode)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbUtmShortcode>> UpdateSfvbUtmShortcodeWithHttpInfoAsync (int storefrontOid, int shortcodeOid, string ifMatch, SfvbUtmShortcodeRequest utmShortcodeRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Store a binary asset that was already uploaded
         /// </summary>
@@ -13935,6 +15151,197 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Delete an affiliate network Visits from the network stop being recognized and its pixel stops firing.  Refused with 409 while Smart Attribution names the network as a platform.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish and an approved affiliate_network.delete request (Approval-Id). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved affiliate_network.delete request for this network.  See POST /sfvb/approvals.</param>
+        /// <returns></returns>
+        public void DeleteSfvbAffiliateNetwork (int storefrontOid, int affiliateNetworkOid, string ifMatch, string approvalId)
+        {
+             DeleteSfvbAffiliateNetworkWithHttpInfo(storefrontOid, affiliateNetworkOid, ifMatch, approvalId);
+        }
+
+        /// <summary>
+        /// Delete an affiliate network Visits from the network stop being recognized and its pixel stops firing.  Refused with 409 while Smart Attribution names the network as a platform.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish and an approved affiliate_network.delete request (Approval-Id). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved affiliate_network.delete request for this network.  See POST /sfvb/approvals.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteSfvbAffiliateNetworkWithHttpInfo (int storefrontOid, int affiliateNetworkOid, string ifMatch, string approvalId)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbAffiliateNetwork");
+            // verify the required parameter 'affiliateNetworkOid' is set
+            if (affiliateNetworkOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateNetworkOid' when calling SfvbApi->DeleteSfvbAffiliateNetwork");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DeleteSfvbAffiliateNetwork");
+            // verify the required parameter 'approvalId' is set
+            if (approvalId == null)
+                throw new ApiException(400, "Missing required parameter 'approvalId' when calling SfvbApi->DeleteSfvbAffiliateNetwork");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (affiliateNetworkOid != null) localVarPathParams.Add("affiliate_network_oid", this.Configuration.ApiClient.ParameterToString(affiliateNetworkOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbAffiliateNetwork", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Delete an affiliate network Visits from the network stop being recognized and its pixel stops firing.  Refused with 409 while Smart Attribution names the network as a platform.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish and an approved affiliate_network.delete request (Approval-Id). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved affiliate_network.delete request for this network.  See POST /sfvb/approvals.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteSfvbAffiliateNetworkAsync (int storefrontOid, int affiliateNetworkOid, string ifMatch, string approvalId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteSfvbAffiliateNetworkWithHttpInfoAsync(storefrontOid, affiliateNetworkOid, ifMatch, approvalId, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Delete an affiliate network Visits from the network stop being recognized and its pixel stops firing.  Refused with 409 while Smart Attribution names the network as a platform.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish and an approved affiliate_network.delete request (Approval-Id). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved affiliate_network.delete request for this network.  See POST /sfvb/approvals.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbAffiliateNetworkWithHttpInfoAsync (int storefrontOid, int affiliateNetworkOid, string ifMatch, string approvalId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbAffiliateNetwork");
+            // verify the required parameter 'affiliateNetworkOid' is set
+            if (affiliateNetworkOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateNetworkOid' when calling SfvbApi->DeleteSfvbAffiliateNetwork");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DeleteSfvbAffiliateNetwork");
+            // verify the required parameter 'approvalId' is set
+            if (approvalId == null)
+                throw new ApiException(400, "Missing required parameter 'approvalId' when calling SfvbApi->DeleteSfvbAffiliateNetwork");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (affiliateNetworkOid != null) localVarPathParams.Add("affiliate_network_oid", this.Configuration.ApiClient.ParameterToString(affiliateNetworkOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbAffiliateNetwork", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
         /// Cancel a pending approval request Withdraws a request nobody has decided yet, which frees one of the five pending slots a sign-in has.  A request that was already decided, used or expired cannot be cancelled. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -16366,6 +17773,539 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbSequenceStepDeleteResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbSequenceStepDeleteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSequenceStepDeleteResponse)));
+        }
+
+        /// <summary>
+        /// Delete a storefront's Smart Attribution configuration Every platform goes back to being sent conversions as it was before Smart Attribution, and the settings are gone.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish and an approved smart_attribution.delete request (Approval-Id).  An unconfigured storefront is 404. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved smart_attribution.delete request.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns></returns>
+        public void DeleteSfvbSmartAttribution (int storefrontOid, string ifMatch, string approvalId = default(string))
+        {
+             DeleteSfvbSmartAttributionWithHttpInfo(storefrontOid, ifMatch, approvalId);
+        }
+
+        /// <summary>
+        /// Delete a storefront's Smart Attribution configuration Every platform goes back to being sent conversions as it was before Smart Attribution, and the settings are gone.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish and an approved smart_attribution.delete request (Approval-Id).  An unconfigured storefront is 404. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved smart_attribution.delete request.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteSfvbSmartAttributionWithHttpInfo (int storefrontOid, string ifMatch, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbSmartAttribution");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DeleteSfvbSmartAttribution");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/smart_attribution";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbSmartAttribution", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a storefront's Smart Attribution configuration Every platform goes back to being sent conversions as it was before Smart Attribution, and the settings are gone.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish and an approved smart_attribution.delete request (Approval-Id).  An unconfigured storefront is 404. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved smart_attribution.delete request.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteSfvbSmartAttributionAsync (int storefrontOid, string ifMatch, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteSfvbSmartAttributionWithHttpInfoAsync(storefrontOid, ifMatch, approvalId, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Delete a storefront's Smart Attribution configuration Every platform goes back to being sent conversions as it was before Smart Attribution, and the settings are gone.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish and an approved smart_attribution.delete request (Approval-Id).  An unconfigured storefront is 404. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="approvalId">The approval_id of an approved smart_attribution.delete request.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbSmartAttributionWithHttpInfoAsync (int storefrontOid, string ifMatch, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbSmartAttribution");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DeleteSfvbSmartAttribution");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/smart_attribution";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbSmartAttribution", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Clear one tracking provider Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <returns>SfvbTrackingProvider</returns>
+        public SfvbTrackingProvider DeleteSfvbTrackingProvider (int storefrontOid, string provider, string ifMatch)
+        {
+             ApiResponse<SfvbTrackingProvider> localVarResponse = DeleteSfvbTrackingProviderWithHttpInfo(storefrontOid, provider, ifMatch);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Clear one tracking provider Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbTrackingProvider</returns>
+        public ApiResponse<SfvbTrackingProvider> DeleteSfvbTrackingProviderWithHttpInfo (int storefrontOid, string provider, string ifMatch)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbTrackingProvider");
+            // verify the required parameter 'provider' is set
+            if (provider == null)
+                throw new ApiException(400, "Missing required parameter 'provider' when calling SfvbApi->DeleteSfvbTrackingProvider");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DeleteSfvbTrackingProvider");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/providers/{provider}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (provider != null) localVarPathParams.Add("provider", this.Configuration.ApiClient.ParameterToString(provider)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbTrackingProvider", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingProvider>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingProvider) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingProvider)));
+        }
+
+        /// <summary>
+        /// Clear one tracking provider Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingProvider</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingProvider> DeleteSfvbTrackingProviderAsync (int storefrontOid, string provider, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingProvider> localVarResponse = await DeleteSfvbTrackingProviderWithHttpInfoAsync(storefrontOid, provider, ifMatch, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Clear one tracking provider Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingProvider)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingProvider>> DeleteSfvbTrackingProviderWithHttpInfoAsync (int storefrontOid, string provider, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbTrackingProvider");
+            // verify the required parameter 'provider' is set
+            if (provider == null)
+                throw new ApiException(400, "Missing required parameter 'provider' when calling SfvbApi->DeleteSfvbTrackingProvider");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DeleteSfvbTrackingProvider");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/providers/{provider}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (provider != null) localVarPathParams.Add("provider", this.Configuration.ApiClient.ParameterToString(provider)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbTrackingProvider", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingProvider>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingProvider) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingProvider)));
+        }
+
+        /// <summary>
+        /// Delete a UTM shortcode The shortcode stops attributing at once.  A link that uses it as a path segment still opens its page, without the UTM values.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <returns></returns>
+        public void DeleteSfvbUtmShortcode (int storefrontOid, int shortcodeOid, string ifMatch)
+        {
+             DeleteSfvbUtmShortcodeWithHttpInfo(storefrontOid, shortcodeOid, ifMatch);
+        }
+
+        /// <summary>
+        /// Delete a UTM shortcode The shortcode stops attributing at once.  A link that uses it as a path segment still opens its page, without the UTM values.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteSfvbUtmShortcodeWithHttpInfo (int storefrontOid, int shortcodeOid, string ifMatch)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbUtmShortcode");
+            // verify the required parameter 'shortcodeOid' is set
+            if (shortcodeOid == null)
+                throw new ApiException(400, "Missing required parameter 'shortcodeOid' when calling SfvbApi->DeleteSfvbUtmShortcode");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DeleteSfvbUtmShortcode");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (shortcodeOid != null) localVarPathParams.Add("shortcode_oid", this.Configuration.ApiClient.ParameterToString(shortcodeOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbUtmShortcode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a UTM shortcode The shortcode stops attributing at once.  A link that uses it as a path segment still opens its page, without the UTM values.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteSfvbUtmShortcodeAsync (int storefrontOid, int shortcodeOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteSfvbUtmShortcodeWithHttpInfoAsync(storefrontOid, shortcodeOid, ifMatch, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Delete a UTM shortcode The shortcode stops attributing at once.  A link that uses it as a path segment still opens its page, without the UTM values.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbUtmShortcodeWithHttpInfoAsync (int storefrontOid, int shortcodeOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbUtmShortcode");
+            // verify the required parameter 'shortcodeOid' is set
+            if (shortcodeOid == null)
+                throw new ApiException(400, "Missing required parameter 'shortcodeOid' when calling SfvbApi->DeleteSfvbUtmShortcode");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DeleteSfvbUtmShortcode");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (shortcodeOid != null) localVarPathParams.Add("shortcode_oid", this.Configuration.ApiClient.ParameterToString(shortcodeOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbUtmShortcode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>
@@ -18927,6 +20867,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Turn Smart Attribution on in report_only mode What the admin's Enable button saves: report_only, position_based, a 40/20/40 split, a 7 day lookback and every detected platform.  report_only records decisions and changes nothing any platform is sent.  A storefront that already has a configuration is 409 sfvb.smart_attribution_configured.  Needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbSmartAttribution</returns>
+        public SfvbSmartAttribution EnableSfvbSmartAttribution (int storefrontOid)
+        {
+             ApiResponse<SfvbSmartAttribution> localVarResponse = EnableSfvbSmartAttributionWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Turn Smart Attribution on in report_only mode What the admin's Enable button saves: report_only, position_based, a 40/20/40 split, a 7 day lookback and every detected platform.  report_only records decisions and changes nothing any platform is sent.  A storefront that already has a configuration is 409 sfvb.smart_attribution_configured.  Needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbSmartAttribution</returns>
+        public ApiResponse<SfvbSmartAttribution> EnableSfvbSmartAttributionWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->EnableSfvbSmartAttribution");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/smart_attribution/enable";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EnableSfvbSmartAttribution", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSmartAttribution>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSmartAttribution) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSmartAttribution)));
+        }
+
+        /// <summary>
+        /// Turn Smart Attribution on in report_only mode What the admin's Enable button saves: report_only, position_based, a 40/20/40 split, a 7 day lookback and every detected platform.  report_only records decisions and changes nothing any platform is sent.  A storefront that already has a configuration is 409 sfvb.smart_attribution_configured.  Needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSmartAttribution</returns>
+        public async System.Threading.Tasks.Task<SfvbSmartAttribution> EnableSfvbSmartAttributionAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbSmartAttribution> localVarResponse = await EnableSfvbSmartAttributionWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Turn Smart Attribution on in report_only mode What the admin's Enable button saves: report_only, position_based, a 40/20/40 split, a 7 day lookback and every detected platform.  report_only records decisions and changes nothing any platform is sent.  A storefront that already has a configuration is 409 sfvb.smart_attribution_configured.  Needs sfvb_publish. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSmartAttribution)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbSmartAttribution>> EnableSfvbSmartAttributionWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->EnableSfvbSmartAttribution");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/smart_attribution/enable";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EnableSfvbSmartAttribution", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSmartAttribution>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSmartAttribution) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSmartAttribution)));
+        }
+
+        /// <summary>
         /// Enable an upsell offer Switches the offer on.  The only way to switch one on - create and update refuse active true on an offer that is off.  Needs sfvb_publish and the approval of the person who signed in the CLI, an approved upsell.enable request for this offer (see POST /sfvb/approvals).  An offer that is already on is returned unchanged, and no approval is used. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -19638,6 +21735,332 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Read one affiliate network The network with its conversion_pixel, and the hash_sha256 an update or delete sends back as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <returns>SfvbAffiliateNetwork</returns>
+        public SfvbAffiliateNetwork GetSfvbAffiliateNetwork (int storefrontOid, int affiliateNetworkOid)
+        {
+             ApiResponse<SfvbAffiliateNetwork> localVarResponse = GetSfvbAffiliateNetworkWithHttpInfo(storefrontOid, affiliateNetworkOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read one affiliate network The network with its conversion_pixel, and the hash_sha256 an update or delete sends back as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <returns>ApiResponse of SfvbAffiliateNetwork</returns>
+        public ApiResponse<SfvbAffiliateNetwork> GetSfvbAffiliateNetworkWithHttpInfo (int storefrontOid, int affiliateNetworkOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbAffiliateNetwork");
+            // verify the required parameter 'affiliateNetworkOid' is set
+            if (affiliateNetworkOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateNetworkOid' when calling SfvbApi->GetSfvbAffiliateNetwork");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (affiliateNetworkOid != null) localVarPathParams.Add("affiliate_network_oid", this.Configuration.ApiClient.ParameterToString(affiliateNetworkOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbAffiliateNetwork", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbAffiliateNetwork>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbAffiliateNetwork) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbAffiliateNetwork)));
+        }
+
+        /// <summary>
+        /// Read one affiliate network The network with its conversion_pixel, and the hash_sha256 an update or delete sends back as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbAffiliateNetwork</returns>
+        public async System.Threading.Tasks.Task<SfvbAffiliateNetwork> GetSfvbAffiliateNetworkAsync (int storefrontOid, int affiliateNetworkOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbAffiliateNetwork> localVarResponse = await GetSfvbAffiliateNetworkWithHttpInfoAsync(storefrontOid, affiliateNetworkOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read one affiliate network The network with its conversion_pixel, and the hash_sha256 an update or delete sends back as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbAffiliateNetwork)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbAffiliateNetwork>> GetSfvbAffiliateNetworkWithHttpInfoAsync (int storefrontOid, int affiliateNetworkOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbAffiliateNetwork");
+            // verify the required parameter 'affiliateNetworkOid' is set
+            if (affiliateNetworkOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateNetworkOid' when calling SfvbApi->GetSfvbAffiliateNetwork");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (affiliateNetworkOid != null) localVarPathParams.Add("affiliate_network_oid", this.Configuration.ApiClient.ParameterToString(affiliateNetworkOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbAffiliateNetwork", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbAffiliateNetwork>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbAffiliateNetwork) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbAffiliateNetwork)));
+        }
+
+        /// <summary>
+        /// List a storefront's affiliate networks Every affiliate network pixel, by name, with its settings and hash_sha256.  conversion_pixel is left out; its size and hash are shown.  Read one network for it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbAffiliateNetworksResponse</returns>
+        public SfvbAffiliateNetworksResponse GetSfvbAffiliateNetworks (int storefrontOid)
+        {
+             ApiResponse<SfvbAffiliateNetworksResponse> localVarResponse = GetSfvbAffiliateNetworksWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List a storefront's affiliate networks Every affiliate network pixel, by name, with its settings and hash_sha256.  conversion_pixel is left out; its size and hash are shown.  Read one network for it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbAffiliateNetworksResponse</returns>
+        public ApiResponse<SfvbAffiliateNetworksResponse> GetSfvbAffiliateNetworksWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbAffiliateNetworks");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbAffiliateNetworks", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbAffiliateNetworksResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbAffiliateNetworksResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbAffiliateNetworksResponse)));
+        }
+
+        /// <summary>
+        /// List a storefront's affiliate networks Every affiliate network pixel, by name, with its settings and hash_sha256.  conversion_pixel is left out; its size and hash are shown.  Read one network for it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbAffiliateNetworksResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbAffiliateNetworksResponse> GetSfvbAffiliateNetworksAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbAffiliateNetworksResponse> localVarResponse = await GetSfvbAffiliateNetworksWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List a storefront's affiliate networks Every affiliate network pixel, by name, with its settings and hash_sha256.  conversion_pixel is left out; its size and hash are shown.  Read one network for it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbAffiliateNetworksResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbAffiliateNetworksResponse>> GetSfvbAffiliateNetworksWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbAffiliateNetworks");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbAffiliateNetworks", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbAffiliateNetworksResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbAffiliateNetworksResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbAffiliateNetworksResponse)));
         }
 
         /// <summary>
@@ -28456,6 +30879,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Read a storefront's Smart Attribution configuration The mode, model, global credit split, lookback and platforms, the platforms detected from the tracking integrations that are not configured yet, and the hash_sha256 a change or delete sends back as If-Match.  When configured is false the values are the defaults an enable would save. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbSmartAttribution</returns>
+        public SfvbSmartAttribution GetSfvbSmartAttribution (int storefrontOid)
+        {
+             ApiResponse<SfvbSmartAttribution> localVarResponse = GetSfvbSmartAttributionWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read a storefront's Smart Attribution configuration The mode, model, global credit split, lookback and platforms, the platforms detected from the tracking integrations that are not configured yet, and the hash_sha256 a change or delete sends back as If-Match.  When configured is false the values are the defaults an enable would save. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbSmartAttribution</returns>
+        public ApiResponse<SfvbSmartAttribution> GetSfvbSmartAttributionWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbSmartAttribution");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/smart_attribution";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbSmartAttribution", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSmartAttribution>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSmartAttribution) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSmartAttribution)));
+        }
+
+        /// <summary>
+        /// Read a storefront's Smart Attribution configuration The mode, model, global credit split, lookback and platforms, the platforms detected from the tracking integrations that are not configured yet, and the hash_sha256 a change or delete sends back as If-Match.  When configured is false the values are the defaults an enable would save. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSmartAttribution</returns>
+        public async System.Threading.Tasks.Task<SfvbSmartAttribution> GetSfvbSmartAttributionAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbSmartAttribution> localVarResponse = await GetSfvbSmartAttributionWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read a storefront's Smart Attribution configuration The mode, model, global credit split, lookback and platforms, the platforms detected from the tracking integrations that are not configured yet, and the hash_sha256 a change or delete sends back as If-Match.  When configured is false the values are the defaults an enable would save. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSmartAttribution)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbSmartAttribution>> GetSfvbSmartAttributionWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbSmartAttribution");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/smart_attribution";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbSmartAttribution", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSmartAttribution>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSmartAttribution) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSmartAttribution)));
+        }
+
+        /// <summary>
         /// List recent test orders Test orders on this account only, newest first, with no customer details, so an agent can render the order pages (receipt, order tracking, digital downloads, auto order pages) with one.  Use an order_id as a render's context_order_id; a real customer's order is refused there.  The last 7 days are searched, widening to 30 and then 90 until enough are found.  digital_items and auto_order keep only orders with downloads or an auto order.  limit is 1 to 25, default 10. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -29138,6 +31718,821 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Read one custom tracking HTML slot The HTML with its Velocity tokens as stored, and the hash_sha256 a write sends back as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <returns>SfvbTrackingHtml</returns>
+        public SfvbTrackingHtml GetSfvbTrackingHtml (int storefrontOid, string slot)
+        {
+             ApiResponse<SfvbTrackingHtml> localVarResponse = GetSfvbTrackingHtmlWithHttpInfo(storefrontOid, slot);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read one custom tracking HTML slot The HTML with its Velocity tokens as stored, and the hash_sha256 a write sends back as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <returns>ApiResponse of SfvbTrackingHtml</returns>
+        public ApiResponse<SfvbTrackingHtml> GetSfvbTrackingHtmlWithHttpInfo (int storefrontOid, string slot)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTrackingHtml");
+            // verify the required parameter 'slot' is set
+            if (slot == null)
+                throw new ApiException(400, "Missing required parameter 'slot' when calling SfvbApi->GetSfvbTrackingHtml");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/html/{slot}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (slot != null) localVarPathParams.Add("slot", this.Configuration.ApiClient.ParameterToString(slot)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTrackingHtml", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingHtml>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingHtml) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingHtml)));
+        }
+
+        /// <summary>
+        /// Read one custom tracking HTML slot The HTML with its Velocity tokens as stored, and the hash_sha256 a write sends back as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingHtml</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingHtml> GetSfvbTrackingHtmlAsync (int storefrontOid, string slot, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingHtml> localVarResponse = await GetSfvbTrackingHtmlWithHttpInfoAsync(storefrontOid, slot, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read one custom tracking HTML slot The HTML with its Velocity tokens as stored, and the hash_sha256 a write sends back as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingHtml)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingHtml>> GetSfvbTrackingHtmlWithHttpInfoAsync (int storefrontOid, string slot, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTrackingHtml");
+            // verify the required parameter 'slot' is set
+            if (slot == null)
+                throw new ApiException(400, "Missing required parameter 'slot' when calling SfvbApi->GetSfvbTrackingHtml");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/html/{slot}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (slot != null) localVarPathParams.Add("slot", this.Configuration.ApiClient.ParameterToString(slot)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTrackingHtml", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingHtml>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingHtml) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingHtml)));
+        }
+
+        /// <summary>
+        /// List a storefront's custom tracking HTML slots tracking (every page but the receipt) and conversion (the receipt only), each with its size and hash_sha256.  Read one slot for its content. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbTrackingHtmlResponse</returns>
+        public SfvbTrackingHtmlResponse GetSfvbTrackingHtmlSlots (int storefrontOid)
+        {
+             ApiResponse<SfvbTrackingHtmlResponse> localVarResponse = GetSfvbTrackingHtmlSlotsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List a storefront's custom tracking HTML slots tracking (every page but the receipt) and conversion (the receipt only), each with its size and hash_sha256.  Read one slot for its content. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbTrackingHtmlResponse</returns>
+        public ApiResponse<SfvbTrackingHtmlResponse> GetSfvbTrackingHtmlSlotsWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTrackingHtmlSlots");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/html";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTrackingHtmlSlots", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingHtmlResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingHtmlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingHtmlResponse)));
+        }
+
+        /// <summary>
+        /// List a storefront's custom tracking HTML slots tracking (every page but the receipt) and conversion (the receipt only), each with its size and hash_sha256.  Read one slot for its content. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingHtmlResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingHtmlResponse> GetSfvbTrackingHtmlSlotsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingHtmlResponse> localVarResponse = await GetSfvbTrackingHtmlSlotsWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List a storefront's custom tracking HTML slots tracking (every page but the receipt) and conversion (the receipt only), each with its size and hash_sha256.  Read one slot for its content. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingHtmlResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingHtmlResponse>> GetSfvbTrackingHtmlSlotsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTrackingHtmlSlots");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/html";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTrackingHtmlSlots", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingHtmlResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingHtmlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingHtmlResponse)));
+        }
+
+        /// <summary>
+        /// Read one tracking provider The provider as the list shows it, with the hash_sha256 a change or clear sends back as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <returns>SfvbTrackingProvider</returns>
+        public SfvbTrackingProvider GetSfvbTrackingProvider (int storefrontOid, string provider)
+        {
+             ApiResponse<SfvbTrackingProvider> localVarResponse = GetSfvbTrackingProviderWithHttpInfo(storefrontOid, provider);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read one tracking provider The provider as the list shows it, with the hash_sha256 a change or clear sends back as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <returns>ApiResponse of SfvbTrackingProvider</returns>
+        public ApiResponse<SfvbTrackingProvider> GetSfvbTrackingProviderWithHttpInfo (int storefrontOid, string provider)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTrackingProvider");
+            // verify the required parameter 'provider' is set
+            if (provider == null)
+                throw new ApiException(400, "Missing required parameter 'provider' when calling SfvbApi->GetSfvbTrackingProvider");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/providers/{provider}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (provider != null) localVarPathParams.Add("provider", this.Configuration.ApiClient.ParameterToString(provider)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTrackingProvider", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingProvider>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingProvider) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingProvider)));
+        }
+
+        /// <summary>
+        /// Read one tracking provider The provider as the list shows it, with the hash_sha256 a change or clear sends back as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingProvider</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingProvider> GetSfvbTrackingProviderAsync (int storefrontOid, string provider, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingProvider> localVarResponse = await GetSfvbTrackingProviderWithHttpInfoAsync(storefrontOid, provider, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read one tracking provider The provider as the list shows it, with the hash_sha256 a change or clear sends back as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingProvider)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingProvider>> GetSfvbTrackingProviderWithHttpInfoAsync (int storefrontOid, string provider, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTrackingProvider");
+            // verify the required parameter 'provider' is set
+            if (provider == null)
+                throw new ApiException(400, "Missing required parameter 'provider' when calling SfvbApi->GetSfvbTrackingProvider");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/providers/{provider}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (provider != null) localVarPathParams.Add("provider", this.Configuration.ApiClient.ParameterToString(provider)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTrackingProvider", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingProvider>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingProvider) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingProvider)));
+        }
+
+        /// <summary>
+        /// List a storefront's tracking providers Every provider on the admin's Google and Other tabs, with each field's type and value, its consent gate, events, OAuth connection state and hash_sha256.  A secret's value is never returned, only whether one is set, its mask and the sink to request a handle for.  configured=true lists only the providers that are on. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="configured"> (optional)</param>
+        /// <returns>SfvbTrackingProvidersResponse</returns>
+        public SfvbTrackingProvidersResponse GetSfvbTrackingProviders (int storefrontOid, bool? configured = default(bool?))
+        {
+             ApiResponse<SfvbTrackingProvidersResponse> localVarResponse = GetSfvbTrackingProvidersWithHttpInfo(storefrontOid, configured);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List a storefront's tracking providers Every provider on the admin's Google and Other tabs, with each field's type and value, its consent gate, events, OAuth connection state and hash_sha256.  A secret's value is never returned, only whether one is set, its mask and the sink to request a handle for.  configured=true lists only the providers that are on. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="configured"> (optional)</param>
+        /// <returns>ApiResponse of SfvbTrackingProvidersResponse</returns>
+        public ApiResponse<SfvbTrackingProvidersResponse> GetSfvbTrackingProvidersWithHttpInfo (int storefrontOid, bool? configured = default(bool?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTrackingProviders");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/providers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (configured != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "configured", configured)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTrackingProviders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingProvidersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingProvidersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingProvidersResponse)));
+        }
+
+        /// <summary>
+        /// List a storefront's tracking providers Every provider on the admin's Google and Other tabs, with each field's type and value, its consent gate, events, OAuth connection state and hash_sha256.  A secret's value is never returned, only whether one is set, its mask and the sink to request a handle for.  configured=true lists only the providers that are on. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="configured"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingProvidersResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingProvidersResponse> GetSfvbTrackingProvidersAsync (int storefrontOid, bool? configured = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingProvidersResponse> localVarResponse = await GetSfvbTrackingProvidersWithHttpInfoAsync(storefrontOid, configured, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List a storefront's tracking providers Every provider on the admin's Google and Other tabs, with each field's type and value, its consent gate, events, OAuth connection state and hash_sha256.  A secret's value is never returned, only whether one is set, its mask and the sink to request a handle for.  configured=true lists only the providers that are on. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="configured"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingProvidersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingProvidersResponse>> GetSfvbTrackingProvidersWithHttpInfoAsync (int storefrontOid, bool? configured = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTrackingProviders");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/providers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (configured != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "configured", configured)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTrackingProviders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingProvidersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingProvidersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingProvidersResponse)));
+        }
+
+        /// <summary>
+        /// Read a storefront's privacy rules and advanced conversion settings The five privacy rules (which shoppers each applies to) and the advanced conversion settings, each section with the hash_sha256 a write sends back as If-Match.  The order hash secret key is shared by every storefront on the account and is reported only as set or not. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbTrackingSettingsResponse</returns>
+        public SfvbTrackingSettingsResponse GetSfvbTrackingSettings (int storefrontOid)
+        {
+             ApiResponse<SfvbTrackingSettingsResponse> localVarResponse = GetSfvbTrackingSettingsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read a storefront's privacy rules and advanced conversion settings The five privacy rules (which shoppers each applies to) and the advanced conversion settings, each section with the hash_sha256 a write sends back as If-Match.  The order hash secret key is shared by every storefront on the account and is reported only as set or not. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbTrackingSettingsResponse</returns>
+        public ApiResponse<SfvbTrackingSettingsResponse> GetSfvbTrackingSettingsWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTrackingSettings");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTrackingSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Read a storefront's privacy rules and advanced conversion settings The five privacy rules (which shoppers each applies to) and the advanced conversion settings, each section with the hash_sha256 a write sends back as If-Match.  The order hash secret key is shared by every storefront on the account and is reported only as set or not. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingSettingsResponse> GetSfvbTrackingSettingsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingSettingsResponse> localVarResponse = await GetSfvbTrackingSettingsWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read a storefront's privacy rules and advanced conversion settings The five privacy rules (which shoppers each applies to) and the advanced conversion settings, each section with the hash_sha256 a write sends back as If-Match.  The order hash secret key is shared by every storefront on the account and is reported only as set or not. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingSettingsResponse>> GetSfvbTrackingSettingsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTrackingSettings");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTrackingSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingSettingsResponse)));
+        }
+
+        /// <summary>
         /// List the transactional emails a storefront sends The order, shipment, auto order and other transactional emails this storefront sends, with their template files and the body container a draft replaces.  Forgot password and chat verification are not listed, because they have no preview. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -29678,6 +33073,338 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Read one UTM shortcode The shortcode with the hash_sha256 an update or delete sends back as If-Match.  A deleted shortcode is 404. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <returns>SfvbUtmShortcode</returns>
+        public SfvbUtmShortcode GetSfvbUtmShortcode (int storefrontOid, int shortcodeOid)
+        {
+             ApiResponse<SfvbUtmShortcode> localVarResponse = GetSfvbUtmShortcodeWithHttpInfo(storefrontOid, shortcodeOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read one UTM shortcode The shortcode with the hash_sha256 an update or delete sends back as If-Match.  A deleted shortcode is 404. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <returns>ApiResponse of SfvbUtmShortcode</returns>
+        public ApiResponse<SfvbUtmShortcode> GetSfvbUtmShortcodeWithHttpInfo (int storefrontOid, int shortcodeOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbUtmShortcode");
+            // verify the required parameter 'shortcodeOid' is set
+            if (shortcodeOid == null)
+                throw new ApiException(400, "Missing required parameter 'shortcodeOid' when calling SfvbApi->GetSfvbUtmShortcode");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (shortcodeOid != null) localVarPathParams.Add("shortcode_oid", this.Configuration.ApiClient.ParameterToString(shortcodeOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbUtmShortcode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUtmShortcode>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUtmShortcode) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUtmShortcode)));
+        }
+
+        /// <summary>
+        /// Read one UTM shortcode The shortcode with the hash_sha256 an update or delete sends back as If-Match.  A deleted shortcode is 404. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUtmShortcode</returns>
+        public async System.Threading.Tasks.Task<SfvbUtmShortcode> GetSfvbUtmShortcodeAsync (int storefrontOid, int shortcodeOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUtmShortcode> localVarResponse = await GetSfvbUtmShortcodeWithHttpInfoAsync(storefrontOid, shortcodeOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read one UTM shortcode The shortcode with the hash_sha256 an update or delete sends back as If-Match.  A deleted shortcode is 404. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUtmShortcode)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUtmShortcode>> GetSfvbUtmShortcodeWithHttpInfoAsync (int storefrontOid, int shortcodeOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbUtmShortcode");
+            // verify the required parameter 'shortcodeOid' is set
+            if (shortcodeOid == null)
+                throw new ApiException(400, "Missing required parameter 'shortcodeOid' when calling SfvbApi->GetSfvbUtmShortcode");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (shortcodeOid != null) localVarPathParams.Add("shortcode_oid", this.Configuration.ApiClient.ParameterToString(shortcodeOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbUtmShortcode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUtmShortcode>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUtmShortcode) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUtmShortcode)));
+        }
+
+        /// <summary>
+        /// List a storefront's UTM shortcodes Every live shortcode, sorted by code, each with its hash_sha256.  q matches the code or the description, ignoring case. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="q"> (optional)</param>
+        /// <returns>SfvbUtmShortcodesResponse</returns>
+        public SfvbUtmShortcodesResponse GetSfvbUtmShortcodes (int storefrontOid, string q = default(string))
+        {
+             ApiResponse<SfvbUtmShortcodesResponse> localVarResponse = GetSfvbUtmShortcodesWithHttpInfo(storefrontOid, q);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List a storefront's UTM shortcodes Every live shortcode, sorted by code, each with its hash_sha256.  q matches the code or the description, ignoring case. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="q"> (optional)</param>
+        /// <returns>ApiResponse of SfvbUtmShortcodesResponse</returns>
+        public ApiResponse<SfvbUtmShortcodesResponse> GetSfvbUtmShortcodesWithHttpInfo (int storefrontOid, string q = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbUtmShortcodes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/utm_shortcodes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (q != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "q", q)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbUtmShortcodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUtmShortcodesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUtmShortcodesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUtmShortcodesResponse)));
+        }
+
+        /// <summary>
+        /// List a storefront's UTM shortcodes Every live shortcode, sorted by code, each with its hash_sha256.  q matches the code or the description, ignoring case. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUtmShortcodesResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbUtmShortcodesResponse> GetSfvbUtmShortcodesAsync (int storefrontOid, string q = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUtmShortcodesResponse> localVarResponse = await GetSfvbUtmShortcodesWithHttpInfoAsync(storefrontOid, q, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List a storefront's UTM shortcodes Every live shortcode, sorted by code, each with its hash_sha256.  q matches the code or the description, ignoring case. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUtmShortcodesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUtmShortcodesResponse>> GetSfvbUtmShortcodesWithHttpInfoAsync (int storefrontOid, string q = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbUtmShortcodes");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/utm_shortcodes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (q != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "q", q)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbUtmShortcodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUtmShortcodesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUtmShortcodesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUtmShortcodesResponse)));
         }
 
         /// <summary>
@@ -30325,7 +34052,198 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
+        /// Add an affiliate network network_name, parameter_name and parameter_value are required; the rest start from the admin's defaults.  Internal affiliate oids must be the account's own.  Needs sfvb_publish.  A network with a conversion_pixel that a custom or server_to_server network will use needs an approved affiliate_network.change request for exactly this create (Approval-Id), which UltraCart reviews first.  dry_run says whether it needs one, without saving. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkRequest">The network</param>
+        /// <param name="approvalId">For a network with a conversion pixel it will use, the approval_id of an approved affiliate_network.change request for exactly this create.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbAffiliateNetwork</returns>
+        public SfvbAffiliateNetwork InsertSfvbAffiliateNetwork (int storefrontOid, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbAffiliateNetwork> localVarResponse = InsertSfvbAffiliateNetworkWithHttpInfo(storefrontOid, affiliateNetworkRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add an affiliate network network_name, parameter_name and parameter_value are required; the rest start from the admin's defaults.  Internal affiliate oids must be the account's own.  Needs sfvb_publish.  A network with a conversion_pixel that a custom or server_to_server network will use needs an approved affiliate_network.change request for exactly this create (Approval-Id), which UltraCart reviews first.  dry_run says whether it needs one, without saving. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkRequest">The network</param>
+        /// <param name="approvalId">For a network with a conversion pixel it will use, the approval_id of an approved affiliate_network.change request for exactly this create.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbAffiliateNetwork</returns>
+        public ApiResponse<SfvbAffiliateNetwork> InsertSfvbAffiliateNetworkWithHttpInfo (int storefrontOid, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbAffiliateNetwork");
+            // verify the required parameter 'affiliateNetworkRequest' is set
+            if (affiliateNetworkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateNetworkRequest' when calling SfvbApi->InsertSfvbAffiliateNetwork");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (affiliateNetworkRequest != null && affiliateNetworkRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(affiliateNetworkRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = affiliateNetworkRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbAffiliateNetwork", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbAffiliateNetwork>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbAffiliateNetwork) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbAffiliateNetwork)));
+        }
+
+        /// <summary>
+        /// Add an affiliate network network_name, parameter_name and parameter_value are required; the rest start from the admin's defaults.  Internal affiliate oids must be the account's own.  Needs sfvb_publish.  A network with a conversion_pixel that a custom or server_to_server network will use needs an approved affiliate_network.change request for exactly this create (Approval-Id), which UltraCart reviews first.  dry_run says whether it needs one, without saving. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkRequest">The network</param>
+        /// <param name="approvalId">For a network with a conversion pixel it will use, the approval_id of an approved affiliate_network.change request for exactly this create.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbAffiliateNetwork</returns>
+        public async System.Threading.Tasks.Task<SfvbAffiliateNetwork> InsertSfvbAffiliateNetworkAsync (int storefrontOid, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbAffiliateNetwork> localVarResponse = await InsertSfvbAffiliateNetworkWithHttpInfoAsync(storefrontOid, affiliateNetworkRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Add an affiliate network network_name, parameter_name and parameter_value are required; the rest start from the admin's defaults.  Internal affiliate oids must be the account's own.  Needs sfvb_publish.  A network with a conversion_pixel that a custom or server_to_server network will use needs an approved affiliate_network.change request for exactly this create (Approval-Id), which UltraCart reviews first.  dry_run says whether it needs one, without saving. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkRequest">The network</param>
+        /// <param name="approvalId">For a network with a conversion pixel it will use, the approval_id of an approved affiliate_network.change request for exactly this create.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbAffiliateNetwork)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbAffiliateNetwork>> InsertSfvbAffiliateNetworkWithHttpInfoAsync (int storefrontOid, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbAffiliateNetwork");
+            // verify the required parameter 'affiliateNetworkRequest' is set
+            if (affiliateNetworkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateNetworkRequest' when calling SfvbApi->InsertSfvbAffiliateNetwork");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (affiliateNetworkRequest != null && affiliateNetworkRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(affiliateNetworkRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = affiliateNetworkRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbAffiliateNetwork", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbAffiliateNetwork>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbAffiliateNetwork) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbAffiliateNetwork)));
+        }
+
+        /// <summary>
+        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart's scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -30338,7 +34256,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
+        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart's scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -30413,7 +34331,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
+        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart's scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -30428,7 +34346,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
+        /// Request a human approval Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart's scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="approvalRequest">The request</param>
@@ -32339,6 +36257,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Create a UTM shortcode code is letters, digits, underscore and hyphen, 1 to 50 characters, and at least one UTM or ITM value is required.  A code another live shortcode has, ignoring case, is 409 sfvb.utm_shortcode_exists.  A code that is one of the account's affiliate short codes is 409 sfvb.utm_shortcode_affiliate_conflict, because the storefront checks those first and this one would never fire.  Up to 5,000 per storefront.  Needs sfvb_write only, because no link sent before it existed changes. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="utmShortcodeRequest">The shortcode</param>
+        /// <returns>SfvbUtmShortcode</returns>
+        public SfvbUtmShortcode InsertSfvbUtmShortcode (int storefrontOid, SfvbUtmShortcodeRequest utmShortcodeRequest)
+        {
+             ApiResponse<SfvbUtmShortcode> localVarResponse = InsertSfvbUtmShortcodeWithHttpInfo(storefrontOid, utmShortcodeRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a UTM shortcode code is letters, digits, underscore and hyphen, 1 to 50 characters, and at least one UTM or ITM value is required.  A code another live shortcode has, ignoring case, is 409 sfvb.utm_shortcode_exists.  A code that is one of the account's affiliate short codes is 409 sfvb.utm_shortcode_affiliate_conflict, because the storefront checks those first and this one would never fire.  Up to 5,000 per storefront.  Needs sfvb_write only, because no link sent before it existed changes. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="utmShortcodeRequest">The shortcode</param>
+        /// <returns>ApiResponse of SfvbUtmShortcode</returns>
+        public ApiResponse<SfvbUtmShortcode> InsertSfvbUtmShortcodeWithHttpInfo (int storefrontOid, SfvbUtmShortcodeRequest utmShortcodeRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbUtmShortcode");
+            // verify the required parameter 'utmShortcodeRequest' is set
+            if (utmShortcodeRequest == null)
+                throw new ApiException(400, "Missing required parameter 'utmShortcodeRequest' when calling SfvbApi->InsertSfvbUtmShortcode");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/utm_shortcodes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (utmShortcodeRequest != null && utmShortcodeRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(utmShortcodeRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = utmShortcodeRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbUtmShortcode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUtmShortcode>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUtmShortcode) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUtmShortcode)));
+        }
+
+        /// <summary>
+        /// Create a UTM shortcode code is letters, digits, underscore and hyphen, 1 to 50 characters, and at least one UTM or ITM value is required.  A code another live shortcode has, ignoring case, is 409 sfvb.utm_shortcode_exists.  A code that is one of the account's affiliate short codes is 409 sfvb.utm_shortcode_affiliate_conflict, because the storefront checks those first and this one would never fire.  Up to 5,000 per storefront.  Needs sfvb_write only, because no link sent before it existed changes. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="utmShortcodeRequest">The shortcode</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUtmShortcode</returns>
+        public async System.Threading.Tasks.Task<SfvbUtmShortcode> InsertSfvbUtmShortcodeAsync (int storefrontOid, SfvbUtmShortcodeRequest utmShortcodeRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUtmShortcode> localVarResponse = await InsertSfvbUtmShortcodeWithHttpInfoAsync(storefrontOid, utmShortcodeRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a UTM shortcode code is letters, digits, underscore and hyphen, 1 to 50 characters, and at least one UTM or ITM value is required.  A code another live shortcode has, ignoring case, is 409 sfvb.utm_shortcode_exists.  A code that is one of the account's affiliate short codes is 409 sfvb.utm_shortcode_affiliate_conflict, because the storefront checks those first and this one would never fire.  Up to 5,000 per storefront.  Needs sfvb_write only, because no link sent before it existed changes. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="utmShortcodeRequest">The shortcode</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUtmShortcode)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUtmShortcode>> InsertSfvbUtmShortcodeWithHttpInfoAsync (int storefrontOid, SfvbUtmShortcodeRequest utmShortcodeRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbUtmShortcode");
+            // verify the required parameter 'utmShortcodeRequest' is set
+            if (utmShortcodeRequest == null)
+                throw new ApiException(400, "Missing required parameter 'utmShortcodeRequest' when calling SfvbApi->InsertSfvbUtmShortcode");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/utm_shortcodes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (utmShortcodeRequest != null && utmShortcodeRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(utmShortcodeRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = utmShortcodeRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbUtmShortcode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUtmShortcode>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUtmShortcode) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUtmShortcode)));
         }
 
         /// <summary>
@@ -45832,6 +49935,221 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Change an affiliate network A partial update: only the fields sent change.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish.  Changing the conversion_pixel, or the conversion_type, of a network whose pixel will be used needs an approved affiliate_network.change request for exactly this change (Approval-Id), which UltraCart reviews first.  Other fields, and emptying the pixel, need none.  dry_run says whether it needs one, without saving. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="affiliateNetworkRequest">The change</param>
+        /// <param name="approvalId">When the change sets a conversion pixel the network will use, the approval_id of an approved affiliate_network.change request for exactly this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbAffiliateNetwork</returns>
+        public SfvbAffiliateNetwork UpdateSfvbAffiliateNetwork (int storefrontOid, int affiliateNetworkOid, string ifMatch, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbAffiliateNetwork> localVarResponse = UpdateSfvbAffiliateNetworkWithHttpInfo(storefrontOid, affiliateNetworkOid, ifMatch, affiliateNetworkRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change an affiliate network A partial update: only the fields sent change.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish.  Changing the conversion_pixel, or the conversion_type, of a network whose pixel will be used needs an approved affiliate_network.change request for exactly this change (Approval-Id), which UltraCart reviews first.  Other fields, and emptying the pixel, need none.  dry_run says whether it needs one, without saving. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="affiliateNetworkRequest">The change</param>
+        /// <param name="approvalId">When the change sets a conversion pixel the network will use, the approval_id of an approved affiliate_network.change request for exactly this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbAffiliateNetwork</returns>
+        public ApiResponse<SfvbAffiliateNetwork> UpdateSfvbAffiliateNetworkWithHttpInfo (int storefrontOid, int affiliateNetworkOid, string ifMatch, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbAffiliateNetwork");
+            // verify the required parameter 'affiliateNetworkOid' is set
+            if (affiliateNetworkOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateNetworkOid' when calling SfvbApi->UpdateSfvbAffiliateNetwork");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbAffiliateNetwork");
+            // verify the required parameter 'affiliateNetworkRequest' is set
+            if (affiliateNetworkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateNetworkRequest' when calling SfvbApi->UpdateSfvbAffiliateNetwork");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (affiliateNetworkOid != null) localVarPathParams.Add("affiliate_network_oid", this.Configuration.ApiClient.ParameterToString(affiliateNetworkOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (affiliateNetworkRequest != null && affiliateNetworkRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(affiliateNetworkRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = affiliateNetworkRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbAffiliateNetwork", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbAffiliateNetwork>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbAffiliateNetwork) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbAffiliateNetwork)));
+        }
+
+        /// <summary>
+        /// Change an affiliate network A partial update: only the fields sent change.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish.  Changing the conversion_pixel, or the conversion_type, of a network whose pixel will be used needs an approved affiliate_network.change request for exactly this change (Approval-Id), which UltraCart reviews first.  Other fields, and emptying the pixel, need none.  dry_run says whether it needs one, without saving. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="affiliateNetworkRequest">The change</param>
+        /// <param name="approvalId">When the change sets a conversion pixel the network will use, the approval_id of an approved affiliate_network.change request for exactly this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbAffiliateNetwork</returns>
+        public async System.Threading.Tasks.Task<SfvbAffiliateNetwork> UpdateSfvbAffiliateNetworkAsync (int storefrontOid, int affiliateNetworkOid, string ifMatch, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbAffiliateNetwork> localVarResponse = await UpdateSfvbAffiliateNetworkWithHttpInfoAsync(storefrontOid, affiliateNetworkOid, ifMatch, affiliateNetworkRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change an affiliate network A partial update: only the fields sent change.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish.  Changing the conversion_pixel, or the conversion_type, of a network whose pixel will be used needs an approved affiliate_network.change request for exactly this change (Approval-Id), which UltraCart reviews first.  Other fields, and emptying the pixel, need none.  dry_run says whether it needs one, without saving. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="affiliateNetworkOid"></param>
+        /// <param name="ifMatch">The network&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="affiliateNetworkRequest">The change</param>
+        /// <param name="approvalId">When the change sets a conversion pixel the network will use, the approval_id of an approved affiliate_network.change request for exactly this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbAffiliateNetwork)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbAffiliateNetwork>> UpdateSfvbAffiliateNetworkWithHttpInfoAsync (int storefrontOid, int affiliateNetworkOid, string ifMatch, SfvbAffiliateNetworkRequest affiliateNetworkRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbAffiliateNetwork");
+            // verify the required parameter 'affiliateNetworkOid' is set
+            if (affiliateNetworkOid == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateNetworkOid' when calling SfvbApi->UpdateSfvbAffiliateNetwork");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbAffiliateNetwork");
+            // verify the required parameter 'affiliateNetworkRequest' is set
+            if (affiliateNetworkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'affiliateNetworkRequest' when calling SfvbApi->UpdateSfvbAffiliateNetwork");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (affiliateNetworkOid != null) localVarPathParams.Add("affiliate_network_oid", this.Configuration.ApiClient.ParameterToString(affiliateNetworkOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (affiliateNetworkRequest != null && affiliateNetworkRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(affiliateNetworkRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = affiliateNetworkRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbAffiliateNetwork", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbAffiliateNetwork>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbAffiliateNetwork) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbAffiliateNetwork)));
+        }
+
+        /// <summary>
         /// Change a blog post Only the fields sent change; tags, when sent, replaces every tag.  The post's images and attributes are left alone.  Publish or unpublish with visibility.  A post that is not a draft before or after the change needs sfvb_publish.  The same content rules as create apply. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -48274,6 +52592,1033 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Change a storefront's Smart Attribution configuration A partial update of the mode, model, global split and lookback.  platforms, when sent, replaces the whole list.  The global split must total exactly 1 and the lookback is 7 to 365.  On an unconfigured storefront it creates the configuration.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, and when the mode is active or the change makes it active, an approved smart_attribution.change request for exactly this change (Approval-Id), because active mode decides which conversions each platform is sent.  A change that stores what is already stored returns the configuration unchanged and uses no approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="smartAttributionRequest">The change</param>
+        /// <param name="approvalId">When the mode is or becomes active, the approval_id of an approved smart_attribution.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbSmartAttribution</returns>
+        public SfvbSmartAttribution UpdateSfvbSmartAttribution (int storefrontOid, string ifMatch, SfvbSmartAttributionRequest smartAttributionRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbSmartAttribution> localVarResponse = UpdateSfvbSmartAttributionWithHttpInfo(storefrontOid, ifMatch, smartAttributionRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a storefront's Smart Attribution configuration A partial update of the mode, model, global split and lookback.  platforms, when sent, replaces the whole list.  The global split must total exactly 1 and the lookback is 7 to 365.  On an unconfigured storefront it creates the configuration.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, and when the mode is active or the change makes it active, an approved smart_attribution.change request for exactly this change (Approval-Id), because active mode decides which conversions each platform is sent.  A change that stores what is already stored returns the configuration unchanged and uses no approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="smartAttributionRequest">The change</param>
+        /// <param name="approvalId">When the mode is or becomes active, the approval_id of an approved smart_attribution.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbSmartAttribution</returns>
+        public ApiResponse<SfvbSmartAttribution> UpdateSfvbSmartAttributionWithHttpInfo (int storefrontOid, string ifMatch, SfvbSmartAttributionRequest smartAttributionRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbSmartAttribution");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbSmartAttribution");
+            // verify the required parameter 'smartAttributionRequest' is set
+            if (smartAttributionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'smartAttributionRequest' when calling SfvbApi->UpdateSfvbSmartAttribution");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/smart_attribution";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (smartAttributionRequest != null && smartAttributionRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(smartAttributionRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = smartAttributionRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbSmartAttribution", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSmartAttribution>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSmartAttribution) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSmartAttribution)));
+        }
+
+        /// <summary>
+        /// Change a storefront's Smart Attribution configuration A partial update of the mode, model, global split and lookback.  platforms, when sent, replaces the whole list.  The global split must total exactly 1 and the lookback is 7 to 365.  On an unconfigured storefront it creates the configuration.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, and when the mode is active or the change makes it active, an approved smart_attribution.change request for exactly this change (Approval-Id), because active mode decides which conversions each platform is sent.  A change that stores what is already stored returns the configuration unchanged and uses no approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="smartAttributionRequest">The change</param>
+        /// <param name="approvalId">When the mode is or becomes active, the approval_id of an approved smart_attribution.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSmartAttribution</returns>
+        public async System.Threading.Tasks.Task<SfvbSmartAttribution> UpdateSfvbSmartAttributionAsync (int storefrontOid, string ifMatch, SfvbSmartAttributionRequest smartAttributionRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbSmartAttribution> localVarResponse = await UpdateSfvbSmartAttributionWithHttpInfoAsync(storefrontOid, ifMatch, smartAttributionRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a storefront's Smart Attribution configuration A partial update of the mode, model, global split and lookback.  platforms, when sent, replaces the whole list.  The global split must total exactly 1 and the lookback is 7 to 365.  On an unconfigured storefront it creates the configuration.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, and when the mode is active or the change makes it active, an approved smart_attribution.change request for exactly this change (Approval-Id), because active mode decides which conversions each platform is sent.  A change that stores what is already stored returns the configuration unchanged and uses no approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.</param>
+        /// <param name="smartAttributionRequest">The change</param>
+        /// <param name="approvalId">When the mode is or becomes active, the approval_id of an approved smart_attribution.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSmartAttribution)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbSmartAttribution>> UpdateSfvbSmartAttributionWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbSmartAttributionRequest smartAttributionRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbSmartAttribution");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbSmartAttribution");
+            // verify the required parameter 'smartAttributionRequest' is set
+            if (smartAttributionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'smartAttributionRequest' when calling SfvbApi->UpdateSfvbSmartAttribution");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/smart_attribution";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (smartAttributionRequest != null && smartAttributionRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(smartAttributionRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = smartAttributionRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbSmartAttribution", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSmartAttribution>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSmartAttribution) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSmartAttribution)));
+        }
+
+        /// <summary>
+        /// Change a storefront's advanced conversion settings A partial update.  Fields left out keep their value, and a text setting is cleared by naming it in unset.  URLs are a path starting with / or an absolute http or https URL, and one over its limit is refused rather than cut short.  The currency must be one the read lists.  The order hash secret key cannot be changed here.  Every field is checked before any is written.  Send the advanced hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the settings apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The advanced hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingAdvancedRequest">The settings to change</param>
+        /// <returns>SfvbTrackingSettingsResponse</returns>
+        public SfvbTrackingSettingsResponse UpdateSfvbTrackingAdvanced (int storefrontOid, string ifMatch, SfvbTrackingAdvancedRequest trackingAdvancedRequest)
+        {
+             ApiResponse<SfvbTrackingSettingsResponse> localVarResponse = UpdateSfvbTrackingAdvancedWithHttpInfo(storefrontOid, ifMatch, trackingAdvancedRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a storefront's advanced conversion settings A partial update.  Fields left out keep their value, and a text setting is cleared by naming it in unset.  URLs are a path starting with / or an absolute http or https URL, and one over its limit is refused rather than cut short.  The currency must be one the read lists.  The order hash secret key cannot be changed here.  Every field is checked before any is written.  Send the advanced hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the settings apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The advanced hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingAdvancedRequest">The settings to change</param>
+        /// <returns>ApiResponse of SfvbTrackingSettingsResponse</returns>
+        public ApiResponse<SfvbTrackingSettingsResponse> UpdateSfvbTrackingAdvancedWithHttpInfo (int storefrontOid, string ifMatch, SfvbTrackingAdvancedRequest trackingAdvancedRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbTrackingAdvanced");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbTrackingAdvanced");
+            // verify the required parameter 'trackingAdvancedRequest' is set
+            if (trackingAdvancedRequest == null)
+                throw new ApiException(400, "Missing required parameter 'trackingAdvancedRequest' when calling SfvbApi->UpdateSfvbTrackingAdvanced");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/advanced";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (trackingAdvancedRequest != null && trackingAdvancedRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(trackingAdvancedRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = trackingAdvancedRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbTrackingAdvanced", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Change a storefront's advanced conversion settings A partial update.  Fields left out keep their value, and a text setting is cleared by naming it in unset.  URLs are a path starting with / or an absolute http or https URL, and one over its limit is refused rather than cut short.  The currency must be one the read lists.  The order hash secret key cannot be changed here.  Every field is checked before any is written.  Send the advanced hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the settings apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The advanced hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingAdvancedRequest">The settings to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingSettingsResponse> UpdateSfvbTrackingAdvancedAsync (int storefrontOid, string ifMatch, SfvbTrackingAdvancedRequest trackingAdvancedRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingSettingsResponse> localVarResponse = await UpdateSfvbTrackingAdvancedWithHttpInfoAsync(storefrontOid, ifMatch, trackingAdvancedRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a storefront's advanced conversion settings A partial update.  Fields left out keep their value, and a text setting is cleared by naming it in unset.  URLs are a path starting with / or an absolute http or https URL, and one over its limit is refused rather than cut short.  The currency must be one the read lists.  The order hash secret key cannot be changed here.  Every field is checked before any is written.  Send the advanced hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the settings apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The advanced hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingAdvancedRequest">The settings to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingSettingsResponse>> UpdateSfvbTrackingAdvancedWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbTrackingAdvancedRequest trackingAdvancedRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbTrackingAdvanced");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbTrackingAdvanced");
+            // verify the required parameter 'trackingAdvancedRequest' is set
+            if (trackingAdvancedRequest == null)
+                throw new ApiException(400, "Missing required parameter 'trackingAdvancedRequest' when calling SfvbApi->UpdateSfvbTrackingAdvanced");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/advanced";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (trackingAdvancedRequest != null && trackingAdvancedRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(trackingAdvancedRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = trackingAdvancedRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbTrackingAdvanced", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Write one custom tracking HTML slot Replaces the whole slot, at most 256 KB.  Content the storefront's templates may not use is refused with its lines.  Send the slot's hash_sha256 as If-Match.  Needs sfvb_publish.  Any HTML but an empty string needs an approved tracking_html.put request for exactly this content (Approval-Id), which UltraCart reviews first.  An empty string empties the slot without one.  dry_run says whether the write needs one, without saving. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <param name="ifMatch">The slot&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingHtmlRequest">The content</param>
+        /// <param name="approvalId">For any content but an empty string, the approval_id of an approved tracking_html.put request for exactly this content.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbTrackingHtml</returns>
+        public SfvbTrackingHtml UpdateSfvbTrackingHtml (int storefrontOid, string slot, string ifMatch, SfvbTrackingHtmlRequest trackingHtmlRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbTrackingHtml> localVarResponse = UpdateSfvbTrackingHtmlWithHttpInfo(storefrontOid, slot, ifMatch, trackingHtmlRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Write one custom tracking HTML slot Replaces the whole slot, at most 256 KB.  Content the storefront's templates may not use is refused with its lines.  Send the slot's hash_sha256 as If-Match.  Needs sfvb_publish.  Any HTML but an empty string needs an approved tracking_html.put request for exactly this content (Approval-Id), which UltraCart reviews first.  An empty string empties the slot without one.  dry_run says whether the write needs one, without saving. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <param name="ifMatch">The slot&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingHtmlRequest">The content</param>
+        /// <param name="approvalId">For any content but an empty string, the approval_id of an approved tracking_html.put request for exactly this content.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbTrackingHtml</returns>
+        public ApiResponse<SfvbTrackingHtml> UpdateSfvbTrackingHtmlWithHttpInfo (int storefrontOid, string slot, string ifMatch, SfvbTrackingHtmlRequest trackingHtmlRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbTrackingHtml");
+            // verify the required parameter 'slot' is set
+            if (slot == null)
+                throw new ApiException(400, "Missing required parameter 'slot' when calling SfvbApi->UpdateSfvbTrackingHtml");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbTrackingHtml");
+            // verify the required parameter 'trackingHtmlRequest' is set
+            if (trackingHtmlRequest == null)
+                throw new ApiException(400, "Missing required parameter 'trackingHtmlRequest' when calling SfvbApi->UpdateSfvbTrackingHtml");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/html/{slot}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (slot != null) localVarPathParams.Add("slot", this.Configuration.ApiClient.ParameterToString(slot)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (trackingHtmlRequest != null && trackingHtmlRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(trackingHtmlRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = trackingHtmlRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbTrackingHtml", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingHtml>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingHtml) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingHtml)));
+        }
+
+        /// <summary>
+        /// Write one custom tracking HTML slot Replaces the whole slot, at most 256 KB.  Content the storefront's templates may not use is refused with its lines.  Send the slot's hash_sha256 as If-Match.  Needs sfvb_publish.  Any HTML but an empty string needs an approved tracking_html.put request for exactly this content (Approval-Id), which UltraCart reviews first.  An empty string empties the slot without one.  dry_run says whether the write needs one, without saving. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <param name="ifMatch">The slot&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingHtmlRequest">The content</param>
+        /// <param name="approvalId">For any content but an empty string, the approval_id of an approved tracking_html.put request for exactly this content.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingHtml</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingHtml> UpdateSfvbTrackingHtmlAsync (int storefrontOid, string slot, string ifMatch, SfvbTrackingHtmlRequest trackingHtmlRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingHtml> localVarResponse = await UpdateSfvbTrackingHtmlWithHttpInfoAsync(storefrontOid, slot, ifMatch, trackingHtmlRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Write one custom tracking HTML slot Replaces the whole slot, at most 256 KB.  Content the storefront's templates may not use is refused with its lines.  Send the slot's hash_sha256 as If-Match.  Needs sfvb_publish.  Any HTML but an empty string needs an approved tracking_html.put request for exactly this content (Approval-Id), which UltraCart reviews first.  An empty string empties the slot without one.  dry_run says whether the write needs one, without saving. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">tracking or conversion</param>
+        /// <param name="ifMatch">The slot&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingHtmlRequest">The content</param>
+        /// <param name="approvalId">For any content but an empty string, the approval_id of an approved tracking_html.put request for exactly this content.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingHtml)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingHtml>> UpdateSfvbTrackingHtmlWithHttpInfoAsync (int storefrontOid, string slot, string ifMatch, SfvbTrackingHtmlRequest trackingHtmlRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbTrackingHtml");
+            // verify the required parameter 'slot' is set
+            if (slot == null)
+                throw new ApiException(400, "Missing required parameter 'slot' when calling SfvbApi->UpdateSfvbTrackingHtml");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbTrackingHtml");
+            // verify the required parameter 'trackingHtmlRequest' is set
+            if (trackingHtmlRequest == null)
+                throw new ApiException(400, "Missing required parameter 'trackingHtmlRequest' when calling SfvbApi->UpdateSfvbTrackingHtml");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/html/{slot}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (slot != null) localVarPathParams.Add("slot", this.Configuration.ApiClient.ParameterToString(slot)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (trackingHtmlRequest != null && trackingHtmlRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(trackingHtmlRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = trackingHtmlRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbTrackingHtml", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingHtml>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingHtml) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingHtml)));
+        }
+
+        /// <summary>
+        /// Change a storefront's privacy rules A partial update.  Each rule named is set to all, eea, non_us or off, and rules left out keep their value.  Every rule is checked before any is written.  Send the privacy hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the rules apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The privacy hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingPrivacyRequest">The rules to change</param>
+        /// <returns>SfvbTrackingSettingsResponse</returns>
+        public SfvbTrackingSettingsResponse UpdateSfvbTrackingPrivacy (int storefrontOid, string ifMatch, SfvbTrackingPrivacyRequest trackingPrivacyRequest)
+        {
+             ApiResponse<SfvbTrackingSettingsResponse> localVarResponse = UpdateSfvbTrackingPrivacyWithHttpInfo(storefrontOid, ifMatch, trackingPrivacyRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a storefront's privacy rules A partial update.  Each rule named is set to all, eea, non_us or off, and rules left out keep their value.  Every rule is checked before any is written.  Send the privacy hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the rules apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The privacy hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingPrivacyRequest">The rules to change</param>
+        /// <returns>ApiResponse of SfvbTrackingSettingsResponse</returns>
+        public ApiResponse<SfvbTrackingSettingsResponse> UpdateSfvbTrackingPrivacyWithHttpInfo (int storefrontOid, string ifMatch, SfvbTrackingPrivacyRequest trackingPrivacyRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbTrackingPrivacy");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbTrackingPrivacy");
+            // verify the required parameter 'trackingPrivacyRequest' is set
+            if (trackingPrivacyRequest == null)
+                throw new ApiException(400, "Missing required parameter 'trackingPrivacyRequest' when calling SfvbApi->UpdateSfvbTrackingPrivacy");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/privacy";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (trackingPrivacyRequest != null && trackingPrivacyRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(trackingPrivacyRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = trackingPrivacyRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbTrackingPrivacy", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Change a storefront's privacy rules A partial update.  Each rule named is set to all, eea, non_us or off, and rules left out keep their value.  Every rule is checked before any is written.  Send the privacy hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the rules apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The privacy hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingPrivacyRequest">The rules to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingSettingsResponse> UpdateSfvbTrackingPrivacyAsync (int storefrontOid, string ifMatch, SfvbTrackingPrivacyRequest trackingPrivacyRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingSettingsResponse> localVarResponse = await UpdateSfvbTrackingPrivacyWithHttpInfoAsync(storefrontOid, ifMatch, trackingPrivacyRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a storefront's privacy rules A partial update.  Each rule named is set to all, eea, non_us or off, and rules left out keep their value.  Every rule is checked before any is written.  Send the privacy hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the rules apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The privacy hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingPrivacyRequest">The rules to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingSettingsResponse>> UpdateSfvbTrackingPrivacyWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbTrackingPrivacyRequest trackingPrivacyRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbTrackingPrivacy");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbTrackingPrivacy");
+            // verify the required parameter 'trackingPrivacyRequest' is set
+            if (trackingPrivacyRequest == null)
+                throw new ApiException(400, "Missing required parameter 'trackingPrivacyRequest' when calling SfvbApi->UpdateSfvbTrackingPrivacy");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/privacy";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (trackingPrivacyRequest != null && trackingPrivacyRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(trackingPrivacyRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = trackingPrivacyRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbTrackingPrivacy", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Change one tracking provider A partial update of the provider's fields, secrets (as secret handles), consent gate, events and, for google_analytics, wholesale account numbers.  Every value is checked for its field's type before anything is written.  Send the provider's hash_sha256 as If-Match.  dry_run reports the changes without saving.  Needs sfvb_publish.  Turning the provider on, loosening its consent gate, or turning on Google Tag Gateway (which also needs accept_cost true) needs an approved tracking_provider.change request for exactly this change (Approval-Id).  OAuth connections are made in the admin. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingProviderRequest">The change</param>
+        /// <param name="approvalId">When the change turns the provider on, loosens its consent gate or turns on Google Tag Gateway, the approval_id of an approved tracking_provider.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbTrackingProvider</returns>
+        public SfvbTrackingProvider UpdateSfvbTrackingProvider (int storefrontOid, string provider, string ifMatch, SfvbTrackingProviderRequest trackingProviderRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbTrackingProvider> localVarResponse = UpdateSfvbTrackingProviderWithHttpInfo(storefrontOid, provider, ifMatch, trackingProviderRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change one tracking provider A partial update of the provider's fields, secrets (as secret handles), consent gate, events and, for google_analytics, wholesale account numbers.  Every value is checked for its field's type before anything is written.  Send the provider's hash_sha256 as If-Match.  dry_run reports the changes without saving.  Needs sfvb_publish.  Turning the provider on, loosening its consent gate, or turning on Google Tag Gateway (which also needs accept_cost true) needs an approved tracking_provider.change request for exactly this change (Approval-Id).  OAuth connections are made in the admin. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingProviderRequest">The change</param>
+        /// <param name="approvalId">When the change turns the provider on, loosens its consent gate or turns on Google Tag Gateway, the approval_id of an approved tracking_provider.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbTrackingProvider</returns>
+        public ApiResponse<SfvbTrackingProvider> UpdateSfvbTrackingProviderWithHttpInfo (int storefrontOid, string provider, string ifMatch, SfvbTrackingProviderRequest trackingProviderRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbTrackingProvider");
+            // verify the required parameter 'provider' is set
+            if (provider == null)
+                throw new ApiException(400, "Missing required parameter 'provider' when calling SfvbApi->UpdateSfvbTrackingProvider");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbTrackingProvider");
+            // verify the required parameter 'trackingProviderRequest' is set
+            if (trackingProviderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'trackingProviderRequest' when calling SfvbApi->UpdateSfvbTrackingProvider");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/providers/{provider}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (provider != null) localVarPathParams.Add("provider", this.Configuration.ApiClient.ParameterToString(provider)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (trackingProviderRequest != null && trackingProviderRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(trackingProviderRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = trackingProviderRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbTrackingProvider", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingProvider>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingProvider) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingProvider)));
+        }
+
+        /// <summary>
+        /// Change one tracking provider A partial update of the provider's fields, secrets (as secret handles), consent gate, events and, for google_analytics, wholesale account numbers.  Every value is checked for its field's type before anything is written.  Send the provider's hash_sha256 as If-Match.  dry_run reports the changes without saving.  Needs sfvb_publish.  Turning the provider on, loosening its consent gate, or turning on Google Tag Gateway (which also needs accept_cost true) needs an approved tracking_provider.change request for exactly this change (Approval-Id).  OAuth connections are made in the admin. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingProviderRequest">The change</param>
+        /// <param name="approvalId">When the change turns the provider on, loosens its consent gate or turns on Google Tag Gateway, the approval_id of an approved tracking_provider.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingProvider</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingProvider> UpdateSfvbTrackingProviderAsync (int storefrontOid, string provider, string ifMatch, SfvbTrackingProviderRequest trackingProviderRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingProvider> localVarResponse = await UpdateSfvbTrackingProviderWithHttpInfoAsync(storefrontOid, provider, ifMatch, trackingProviderRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change one tracking provider A partial update of the provider's fields, secrets (as secret handles), consent gate, events and, for google_analytics, wholesale account numbers.  Every value is checked for its field's type before anything is written.  Send the provider's hash_sha256 as If-Match.  dry_run reports the changes without saving.  Needs sfvb_publish.  Turning the provider on, loosening its consent gate, or turning on Google Tag Gateway (which also needs accept_cost true) needs an approved tracking_provider.change request for exactly this change (Approval-Id).  OAuth connections are made in the admin. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="provider"></param>
+        /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="trackingProviderRequest">The change</param>
+        /// <param name="approvalId">When the change turns the provider on, loosens its consent gate or turns on Google Tag Gateway, the approval_id of an approved tracking_provider.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingProvider)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingProvider>> UpdateSfvbTrackingProviderWithHttpInfoAsync (int storefrontOid, string provider, string ifMatch, SfvbTrackingProviderRequest trackingProviderRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbTrackingProvider");
+            // verify the required parameter 'provider' is set
+            if (provider == null)
+                throw new ApiException(400, "Missing required parameter 'provider' when calling SfvbApi->UpdateSfvbTrackingProvider");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbTrackingProvider");
+            // verify the required parameter 'trackingProviderRequest' is set
+            if (trackingProviderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'trackingProviderRequest' when calling SfvbApi->UpdateSfvbTrackingProvider");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/providers/{provider}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (provider != null) localVarPathParams.Add("provider", this.Configuration.ApiClient.ParameterToString(provider)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (trackingProviderRequest != null && trackingProviderRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(trackingProviderRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = trackingProviderRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbTrackingProvider", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingProvider>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingProvider) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingProvider)));
+        }
+
+        /// <summary>
         /// Update an upsell offer A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, or changing upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  An update cannot switch an offer on; that is the enable call, which needs approval.  Settings the API does not show, such as the offer's screenshots, are kept. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -48689,6 +54034,215 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbUpsellPath>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbUpsellPath) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUpsellPath)));
+        }
+
+        /// <summary>
+        /// Change a UTM shortcode A partial update.  Fields left out keep their value, and an empty string clears a value.  A changed code is checked like a new one.  The creation date is kept.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, because links already in emails and ads that use the code are attributed differently from now on. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="utmShortcodeRequest">The change</param>
+        /// <returns>SfvbUtmShortcode</returns>
+        public SfvbUtmShortcode UpdateSfvbUtmShortcode (int storefrontOid, int shortcodeOid, string ifMatch, SfvbUtmShortcodeRequest utmShortcodeRequest)
+        {
+             ApiResponse<SfvbUtmShortcode> localVarResponse = UpdateSfvbUtmShortcodeWithHttpInfo(storefrontOid, shortcodeOid, ifMatch, utmShortcodeRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a UTM shortcode A partial update.  Fields left out keep their value, and an empty string clears a value.  A changed code is checked like a new one.  The creation date is kept.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, because links already in emails and ads that use the code are attributed differently from now on. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="utmShortcodeRequest">The change</param>
+        /// <returns>ApiResponse of SfvbUtmShortcode</returns>
+        public ApiResponse<SfvbUtmShortcode> UpdateSfvbUtmShortcodeWithHttpInfo (int storefrontOid, int shortcodeOid, string ifMatch, SfvbUtmShortcodeRequest utmShortcodeRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbUtmShortcode");
+            // verify the required parameter 'shortcodeOid' is set
+            if (shortcodeOid == null)
+                throw new ApiException(400, "Missing required parameter 'shortcodeOid' when calling SfvbApi->UpdateSfvbUtmShortcode");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbUtmShortcode");
+            // verify the required parameter 'utmShortcodeRequest' is set
+            if (utmShortcodeRequest == null)
+                throw new ApiException(400, "Missing required parameter 'utmShortcodeRequest' when calling SfvbApi->UpdateSfvbUtmShortcode");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (shortcodeOid != null) localVarPathParams.Add("shortcode_oid", this.Configuration.ApiClient.ParameterToString(shortcodeOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (utmShortcodeRequest != null && utmShortcodeRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(utmShortcodeRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = utmShortcodeRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbUtmShortcode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUtmShortcode>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUtmShortcode) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUtmShortcode)));
+        }
+
+        /// <summary>
+        /// Change a UTM shortcode A partial update.  Fields left out keep their value, and an empty string clears a value.  A changed code is checked like a new one.  The creation date is kept.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, because links already in emails and ads that use the code are attributed differently from now on. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="utmShortcodeRequest">The change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbUtmShortcode</returns>
+        public async System.Threading.Tasks.Task<SfvbUtmShortcode> UpdateSfvbUtmShortcodeAsync (int storefrontOid, int shortcodeOid, string ifMatch, SfvbUtmShortcodeRequest utmShortcodeRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbUtmShortcode> localVarResponse = await UpdateSfvbUtmShortcodeWithHttpInfoAsync(storefrontOid, shortcodeOid, ifMatch, utmShortcodeRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a UTM shortcode A partial update.  Fields left out keep their value, and an empty string clears a value.  A changed code is checked like a new one.  The creation date is kept.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, because links already in emails and ads that use the code are attributed differently from now on. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="shortcodeOid"></param>
+        /// <param name="ifMatch">The shortcode&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="utmShortcodeRequest">The change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbUtmShortcode)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbUtmShortcode>> UpdateSfvbUtmShortcodeWithHttpInfoAsync (int storefrontOid, int shortcodeOid, string ifMatch, SfvbUtmShortcodeRequest utmShortcodeRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbUtmShortcode");
+            // verify the required parameter 'shortcodeOid' is set
+            if (shortcodeOid == null)
+                throw new ApiException(400, "Missing required parameter 'shortcodeOid' when calling SfvbApi->UpdateSfvbUtmShortcode");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbUtmShortcode");
+            // verify the required parameter 'utmShortcodeRequest' is set
+            if (utmShortcodeRequest == null)
+                throw new ApiException(400, "Missing required parameter 'utmShortcodeRequest' when calling SfvbApi->UpdateSfvbUtmShortcode");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (shortcodeOid != null) localVarPathParams.Add("shortcode_oid", this.Configuration.ApiClient.ParameterToString(shortcodeOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (utmShortcodeRequest != null && utmShortcodeRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(utmShortcodeRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = utmShortcodeRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbUtmShortcode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbUtmShortcode>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbUtmShortcode) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbUtmShortcode)));
         }
 
         /// <summary>

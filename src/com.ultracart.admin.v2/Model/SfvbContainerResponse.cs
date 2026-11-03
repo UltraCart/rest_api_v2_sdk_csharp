@@ -91,7 +91,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantItemId">The merchant item id of the owning item, for item containers only and absent for every other owner type.  owner_object_id is the item oid, which appears nowhere on a rendered storefront, so this is how a caller confirms which item an oid actually reached.  It is read fresh on every call and so reflects a renamed item.  A container&#39;s own id embeds this value, which is what a preview session keys an item container on..</param>
         /// <param name="ownerObjectId">Identifier of the owning object within its store..</param>
         /// <param name="ownerType">Where this container lives..</param>
-        public SfvbContainerResponse(string cjson = default(string), string containerName = default(string), string hashSha256 = default(string), string lastModified = default(string), string merchantItemId = default(string), string ownerObjectId = default(string), OwnerTypeEnum? ownerType = default(OwnerTypeEnum?))
+        /// <param name="warnings">Quality warnings from validating this write.  The write succeeded; each one says what to look at, such as a postcard QR code URL with a fragment.  Absent when there are none..</param>
+        public SfvbContainerResponse(string cjson = default(string), string containerName = default(string), string hashSha256 = default(string), string lastModified = default(string), string merchantItemId = default(string), string ownerObjectId = default(string), OwnerTypeEnum? ownerType = default(OwnerTypeEnum?), List<SfvbErrorDetail> warnings = default(List<SfvbErrorDetail>))
         {
             this.Cjson = cjson;
             this.ContainerName = containerName;
@@ -100,6 +101,7 @@ namespace com.ultracart.admin.v2.Model
             this.MerchantItemId = merchantItemId;
             this.OwnerObjectId = ownerObjectId;
             this.OwnerType = ownerType;
+            this.Warnings = warnings;
         }
 
         /// <summary>
@@ -146,6 +148,13 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
+        /// Quality warnings from validating this write.  The write succeeded; each one says what to look at, such as a postcard QR code URL with a fragment.  Absent when there are none.
+        /// </summary>
+        /// <value>Quality warnings from validating this write.  The write succeeded; each one says what to look at, such as a postcard QR code URL with a fragment.  Absent when there are none.</value>
+        [DataMember(Name="warnings", EmitDefaultValue=false)]
+        public List<SfvbErrorDetail> Warnings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -160,6 +169,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantItemId: ").Append(MerchantItemId).Append("\n");
             sb.Append("  OwnerObjectId: ").Append(OwnerObjectId).Append("\n");
             sb.Append("  OwnerType: ").Append(OwnerType).Append("\n");
+            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -228,6 +238,12 @@ namespace com.ultracart.admin.v2.Model
                     this.OwnerType == input.OwnerType ||
                     (this.OwnerType != null &&
                     this.OwnerType.Equals(input.OwnerType))
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -254,6 +270,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OwnerObjectId.GetHashCode();
                 if (this.OwnerType != null)
                     hashCode = hashCode * 59 + this.OwnerType.GetHashCode();
+                if (this.Warnings != null)
+                    hashCode = hashCode * 59 + this.Warnings.GetHashCode();
                 return hashCode;
             }
         }

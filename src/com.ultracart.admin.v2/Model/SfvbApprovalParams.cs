@@ -60,32 +60,35 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbApprovalParams" /> class.
         /// </summary>
+        /// <param name="affiliateNetworkOid">The affiliate network, for affiliate_network.change and affiliate_network.delete.  0 or left out for affiliate_network.change of a network the create call will add..</param>
         /// <param name="afterStepUuid">For sequence_step.move, the step it moves after.  Or branch_step_uuid with side..</param>
         /// <param name="attributeNames">For item.attribute_batch, the attributes the batch would change.  Set by the server..</param>
         /// <param name="blogPostOid">The blog post, for blog_post.delete..</param>
         /// <param name="branchStepUuid">For sequence_step.move, the condition, split or inboxgeek step it moves to the start of a side of..</param>
-        /// <param name="contentSha256">For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash..</param>
+        /// <param name="contentSha256">For file.put_script and tracking_html.put, the SHA-256 of the exact bytes approved, and for affiliate_network.change the SHA-256 of the conversion pixel.  Set by the server, never by the caller.  The write must send bytes with this hash..</param>
         /// <param name="domain">For sending_domain.delete, the sending domain..</param>
         /// <param name="espTwilioUuid">For twilio_account.delete, the Twilio account&#39;s esp_twilio_uuid, as GET comms/twilio_account returns it..</param>
         /// <param name="experimentOid">For experiment.end, the experiment to end..</param>
         /// <param name="itemCount">For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server..</param>
         /// <param name="merchantItemOid">For item.pricing, the item whose pricing changes..</param>
         /// <param name="path">The file path, for file.delete and file.put_script, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it..</param>
-        /// <param name="requestSha256">For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same..</param>
+        /// <param name="requestSha256">For experiment.start of a url experiment, the hash of the checked experiment approved, for item.pricing, tracking_provider.change and affiliate_network.change the hash of the change, and for smart_attribution.change the hash of the configuration the change would store.  Set by the server.  The gated call must send the same..</param>
         /// <param name="rowsSha256">For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash..</param>
         /// <param name="ruleCount">For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server..</param>
         /// <param name="segmentUuid">The segment whose rule changes, for segment.update..</param>
         /// <param name="sequenceUuid">The communication sequence, for sequence_step.delete, sequence_step.move and sequence_step.enable_postcard..</param>
         /// <param name="side">For sequence_step.move with branch_step_uuid, the side&#39;s label from the sequence read..</param>
-        /// <param name="slot">For experiment.start of a page experiment, the page body name.  Defaults to body..</param>
+        /// <param name="slot">For experiment.start of a page experiment, the page body name, which defaults to body.  For tracking_html.put, tracking or conversion..</param>
         /// <param name="stepUuid">The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard..</param>
+        /// <param name="trackingProvider">The tracking provider key, for tracking_provider.change..</param>
         /// <param name="upsellKind">For upsell.enable, what to switch on..</param>
         /// <param name="upsellOid">For upsell.enable, the oid of the offer or path to switch on..</param>
         /// <param name="version">For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write..</param>
         /// <param name="widgetId">For experiment.start of a page experiment, the id of the experiment element..</param>
         /// <param name="winnerVariationNumber">For experiment.end, the winning variation.  Leave it out to end without a winner, and leave it out of the end call too..</param>
-        public SfvbApprovalParams(string afterStepUuid = default(string), List<string> attributeNames = default(List<string>), int blogPostOid = default(int), string branchStepUuid = default(string), string contentSha256 = default(string), string domain = default(string), string espTwilioUuid = default(string), int experimentOid = default(int), int itemCount = default(int), int merchantItemOid = default(int), string path = default(string), string requestSha256 = default(string), string rowsSha256 = default(string), int ruleCount = default(int), string segmentUuid = default(string), string sequenceUuid = default(string), string side = default(string), string slot = default(string), string stepUuid = default(string), UpsellKindEnum? upsellKind = default(UpsellKindEnum?), int upsellOid = default(int), int version = default(int), string widgetId = default(string), int winnerVariationNumber = default(int))
+        public SfvbApprovalParams(int affiliateNetworkOid = default(int), string afterStepUuid = default(string), List<string> attributeNames = default(List<string>), int blogPostOid = default(int), string branchStepUuid = default(string), string contentSha256 = default(string), string domain = default(string), string espTwilioUuid = default(string), int experimentOid = default(int), int itemCount = default(int), int merchantItemOid = default(int), string path = default(string), string requestSha256 = default(string), string rowsSha256 = default(string), int ruleCount = default(int), string segmentUuid = default(string), string sequenceUuid = default(string), string side = default(string), string slot = default(string), string stepUuid = default(string), string trackingProvider = default(string), UpsellKindEnum? upsellKind = default(UpsellKindEnum?), int upsellOid = default(int), int version = default(int), string widgetId = default(string), int winnerVariationNumber = default(int))
         {
+            this.AffiliateNetworkOid = affiliateNetworkOid;
             this.AfterStepUuid = afterStepUuid;
             this.AttributeNames = attributeNames;
             this.BlogPostOid = blogPostOid;
@@ -105,12 +108,20 @@ namespace com.ultracart.admin.v2.Model
             this.Side = side;
             this.Slot = slot;
             this.StepUuid = stepUuid;
+            this.TrackingProvider = trackingProvider;
             this.UpsellKind = upsellKind;
             this.UpsellOid = upsellOid;
             this._Version = version;
             this.WidgetId = widgetId;
             this.WinnerVariationNumber = winnerVariationNumber;
         }
+
+        /// <summary>
+        /// The affiliate network, for affiliate_network.change and affiliate_network.delete.  0 or left out for affiliate_network.change of a network the create call will add.
+        /// </summary>
+        /// <value>The affiliate network, for affiliate_network.change and affiliate_network.delete.  0 or left out for affiliate_network.change of a network the create call will add.</value>
+        [DataMember(Name="affiliate_network_oid", EmitDefaultValue=false)]
+        public int AffiliateNetworkOid { get; set; }
 
         /// <summary>
         /// For sequence_step.move, the step it moves after.  Or branch_step_uuid with side.
@@ -141,9 +152,9 @@ namespace com.ultracart.admin.v2.Model
         public string BranchStepUuid { get; set; }
 
         /// <summary>
-        /// For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.
+        /// For file.put_script and tracking_html.put, the SHA-256 of the exact bytes approved, and for affiliate_network.change the SHA-256 of the conversion pixel.  Set by the server, never by the caller.  The write must send bytes with this hash.
         /// </summary>
-        /// <value>For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.</value>
+        /// <value>For file.put_script and tracking_html.put, the SHA-256 of the exact bytes approved, and for affiliate_network.change the SHA-256 of the conversion pixel.  Set by the server, never by the caller.  The write must send bytes with this hash.</value>
         [DataMember(Name="content_sha256", EmitDefaultValue=false)]
         public string ContentSha256 { get; set; }
 
@@ -190,9 +201,9 @@ namespace com.ultracart.admin.v2.Model
         public string Path { get; set; }
 
         /// <summary>
-        /// For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.
+        /// For experiment.start of a url experiment, the hash of the checked experiment approved, for item.pricing, tracking_provider.change and affiliate_network.change the hash of the change, and for smart_attribution.change the hash of the configuration the change would store.  Set by the server.  The gated call must send the same.
         /// </summary>
-        /// <value>For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.</value>
+        /// <value>For experiment.start of a url experiment, the hash of the checked experiment approved, for item.pricing, tracking_provider.change and affiliate_network.change the hash of the change, and for smart_attribution.change the hash of the configuration the change would store.  Set by the server.  The gated call must send the same.</value>
         [DataMember(Name="request_sha256", EmitDefaultValue=false)]
         public string RequestSha256 { get; set; }
 
@@ -232,9 +243,9 @@ namespace com.ultracart.admin.v2.Model
         public string Side { get; set; }
 
         /// <summary>
-        /// For experiment.start of a page experiment, the page body name.  Defaults to body.
+        /// For experiment.start of a page experiment, the page body name, which defaults to body.  For tracking_html.put, tracking or conversion.
         /// </summary>
-        /// <value>For experiment.start of a page experiment, the page body name.  Defaults to body.</value>
+        /// <value>For experiment.start of a page experiment, the page body name, which defaults to body.  For tracking_html.put, tracking or conversion.</value>
         [DataMember(Name="slot", EmitDefaultValue=false)]
         public string Slot { get; set; }
 
@@ -244,6 +255,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard.</value>
         [DataMember(Name="step_uuid", EmitDefaultValue=false)]
         public string StepUuid { get; set; }
+
+        /// <summary>
+        /// The tracking provider key, for tracking_provider.change.
+        /// </summary>
+        /// <value>The tracking provider key, for tracking_provider.change.</value>
+        [DataMember(Name="tracking_provider", EmitDefaultValue=false)]
+        public string TrackingProvider { get; set; }
 
 
         /// <summary>
@@ -282,6 +300,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbApprovalParams {\n");
+            sb.Append("  AffiliateNetworkOid: ").Append(AffiliateNetworkOid).Append("\n");
             sb.Append("  AfterStepUuid: ").Append(AfterStepUuid).Append("\n");
             sb.Append("  AttributeNames: ").Append(AttributeNames).Append("\n");
             sb.Append("  BlogPostOid: ").Append(BlogPostOid).Append("\n");
@@ -301,6 +320,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Side: ").Append(Side).Append("\n");
             sb.Append("  Slot: ").Append(Slot).Append("\n");
             sb.Append("  StepUuid: ").Append(StepUuid).Append("\n");
+            sb.Append("  TrackingProvider: ").Append(TrackingProvider).Append("\n");
             sb.Append("  UpsellKind: ").Append(UpsellKind).Append("\n");
             sb.Append("  UpsellOid: ").Append(UpsellOid).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
@@ -340,6 +360,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.AffiliateNetworkOid == input.AffiliateNetworkOid ||
+                    (this.AffiliateNetworkOid != null &&
+                    this.AffiliateNetworkOid.Equals(input.AffiliateNetworkOid))
+                ) && 
                 (
                     this.AfterStepUuid == input.AfterStepUuid ||
                     (this.AfterStepUuid != null &&
@@ -437,6 +462,11 @@ namespace com.ultracart.admin.v2.Model
                     this.StepUuid.Equals(input.StepUuid))
                 ) && 
                 (
+                    this.TrackingProvider == input.TrackingProvider ||
+                    (this.TrackingProvider != null &&
+                    this.TrackingProvider.Equals(input.TrackingProvider))
+                ) && 
+                (
                     this.UpsellKind == input.UpsellKind ||
                     (this.UpsellKind != null &&
                     this.UpsellKind.Equals(input.UpsellKind))
@@ -472,6 +502,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AffiliateNetworkOid != null)
+                    hashCode = hashCode * 59 + this.AffiliateNetworkOid.GetHashCode();
                 if (this.AfterStepUuid != null)
                     hashCode = hashCode * 59 + this.AfterStepUuid.GetHashCode();
                 if (this.AttributeNames != null)
@@ -510,6 +542,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Slot.GetHashCode();
                 if (this.StepUuid != null)
                     hashCode = hashCode * 59 + this.StepUuid.GetHashCode();
+                if (this.TrackingProvider != null)
+                    hashCode = hashCode * 59 + this.TrackingProvider.GetHashCode();
                 if (this.UpsellKind != null)
                     hashCode = hashCode * 59 + this.UpsellKind.GetHashCode();
                 if (this.UpsellOid != null)

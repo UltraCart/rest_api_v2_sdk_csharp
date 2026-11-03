@@ -125,7 +125,43 @@ namespace com.ultracart.admin.v2.Model
             /// Enum SegmentUpdate for value: segment.update
             /// </summary>
             [EnumMember(Value = "segment.update")]
-            SegmentUpdate = 15
+            SegmentUpdate = 15,
+
+            /// <summary>
+            /// Enum SmartattributionChange for value: smart_attribution.change
+            /// </summary>
+            [EnumMember(Value = "smart_attribution.change")]
+            SmartattributionChange = 16,
+
+            /// <summary>
+            /// Enum SmartattributionDelete for value: smart_attribution.delete
+            /// </summary>
+            [EnumMember(Value = "smart_attribution.delete")]
+            SmartattributionDelete = 17,
+
+            /// <summary>
+            /// Enum TrackingproviderChange for value: tracking_provider.change
+            /// </summary>
+            [EnumMember(Value = "tracking_provider.change")]
+            TrackingproviderChange = 18,
+
+            /// <summary>
+            /// Enum TrackinghtmlPut for value: tracking_html.put
+            /// </summary>
+            [EnumMember(Value = "tracking_html.put")]
+            TrackinghtmlPut = 19,
+
+            /// <summary>
+            /// Enum AffiliatenetworkChange for value: affiliate_network.change
+            /// </summary>
+            [EnumMember(Value = "affiliate_network.change")]
+            AffiliatenetworkChange = 20,
+
+            /// <summary>
+            /// Enum AffiliatenetworkDelete for value: affiliate_network.delete
+            /// </summary>
+            [EnumMember(Value = "affiliate_network.delete")]
+            AffiliatenetworkDelete = 21
 
         }
 
@@ -139,7 +175,8 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbApprovalCreateRequest" /> class.
         /// </summary>
         /// <param name="action">The gated action to approve..</param>
-        /// <param name="content">For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version..</param>
+        /// <param name="affiliateNetwork">affiliateNetwork.</param>
+        /// <param name="content">For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version..</param>
         /// <param name="experimentStart">experimentStart.</param>
         /// <param name="itemAttributeRows">For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash..</param>
         /// <param name="itemPricing">itemPricing.</param>
@@ -147,9 +184,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="reason">Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters..</param>
         /// <param name="redirectRows">For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash..</param>
         /// <param name="segmentUpdate">segmentUpdate.</param>
-        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest))
+        /// <param name="smartAttribution">smartAttribution.</param>
+        /// <param name="trackingProvider">trackingProvider.</param>
+        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest))
         {
             this.Action = action;
+            this.AffiliateNetwork = affiliateNetwork;
             this.Content = content;
             this.ExperimentStart = experimentStart;
             this.ItemAttributeRows = itemAttributeRows;
@@ -158,13 +198,21 @@ namespace com.ultracart.admin.v2.Model
             this.Reason = reason;
             this.RedirectRows = redirectRows;
             this.SegmentUpdate = segmentUpdate;
+            this.SmartAttribution = smartAttribution;
+            this.TrackingProvider = trackingProvider;
         }
 
 
         /// <summary>
-        /// For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
+        /// Gets or Sets AffiliateNetwork
         /// </summary>
-        /// <value>For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.</value>
+        [DataMember(Name="affiliate_network", EmitDefaultValue=false)]
+        public SfvbAffiliateNetworkRequest AffiliateNetwork { get; set; }
+
+        /// <summary>
+        /// For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
+        /// </summary>
+        /// <value>For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.</value>
         [DataMember(Name="content", EmitDefaultValue=false)]
         public string Content { get; set; }
 
@@ -214,6 +262,18 @@ namespace com.ultracart.admin.v2.Model
         public SfvbCommsSegmentWriteRequest SegmentUpdate { get; set; }
 
         /// <summary>
+        /// Gets or Sets SmartAttribution
+        /// </summary>
+        [DataMember(Name="smart_attribution", EmitDefaultValue=false)]
+        public SfvbSmartAttributionRequest SmartAttribution { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TrackingProvider
+        /// </summary>
+        [DataMember(Name="tracking_provider", EmitDefaultValue=false)]
+        public SfvbTrackingProviderRequest TrackingProvider { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -222,6 +282,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class SfvbApprovalCreateRequest {\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
+            sb.Append("  AffiliateNetwork: ").Append(AffiliateNetwork).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  ExperimentStart: ").Append(ExperimentStart).Append("\n");
             sb.Append("  ItemAttributeRows: ").Append(ItemAttributeRows).Append("\n");
@@ -230,6 +291,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  RedirectRows: ").Append(RedirectRows).Append("\n");
             sb.Append("  SegmentUpdate: ").Append(SegmentUpdate).Append("\n");
+            sb.Append("  SmartAttribution: ").Append(SmartAttribution).Append("\n");
+            sb.Append("  TrackingProvider: ").Append(TrackingProvider).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -268,6 +331,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Action == input.Action ||
                     (this.Action != null &&
                     this.Action.Equals(input.Action))
+                ) && 
+                (
+                    this.AffiliateNetwork == input.AffiliateNetwork ||
+                    (this.AffiliateNetwork != null &&
+                    this.AffiliateNetwork.Equals(input.AffiliateNetwork))
                 ) && 
                 (
                     this.Content == input.Content ||
@@ -310,6 +378,16 @@ namespace com.ultracart.admin.v2.Model
                     this.SegmentUpdate == input.SegmentUpdate ||
                     (this.SegmentUpdate != null &&
                     this.SegmentUpdate.Equals(input.SegmentUpdate))
+                ) && 
+                (
+                    this.SmartAttribution == input.SmartAttribution ||
+                    (this.SmartAttribution != null &&
+                    this.SmartAttribution.Equals(input.SmartAttribution))
+                ) && 
+                (
+                    this.TrackingProvider == input.TrackingProvider ||
+                    (this.TrackingProvider != null &&
+                    this.TrackingProvider.Equals(input.TrackingProvider))
                 );
         }
 
@@ -324,6 +402,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Action != null)
                     hashCode = hashCode * 59 + this.Action.GetHashCode();
+                if (this.AffiliateNetwork != null)
+                    hashCode = hashCode * 59 + this.AffiliateNetwork.GetHashCode();
                 if (this.Content != null)
                     hashCode = hashCode * 59 + this.Content.GetHashCode();
                 if (this.ExperimentStart != null)
@@ -340,6 +420,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RedirectRows.GetHashCode();
                 if (this.SegmentUpdate != null)
                     hashCode = hashCode * 59 + this.SegmentUpdate.GetHashCode();
+                if (this.SmartAttribution != null)
+                    hashCode = hashCode * 59 + this.SmartAttribution.GetHashCode();
+                if (this.TrackingProvider != null)
+                    hashCode = hashCode * 59 + this.TrackingProvider.GetHashCode();
                 return hashCode;
             }
         }

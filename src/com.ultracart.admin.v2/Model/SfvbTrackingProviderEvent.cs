@@ -33,13 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbTrackingProviderEvent" /> class.
         /// </summary>
+        /// <param name="enabled">True when the event is sent to the provider..</param>
         /// <param name="name">AddPaymentInfo, AddToCart, AddToWishlist, CompleteRegistration, InitiateCheckout, Lead, Search or ViewContent..</param>
-        /// <param name="_true">True when the event is sent to the provider..</param>
-        public SfvbTrackingProviderEvent(string name = default(string), bool _true = default(bool))
+        public SfvbTrackingProviderEvent(bool enabled = default(bool), string name = default(string))
         {
+            this.Enabled = enabled;
             this.Name = name;
-            this.True = _true;
         }
+
+        /// <summary>
+        /// True when the event is sent to the provider.
+        /// </summary>
+        /// <value>True when the event is sent to the provider.</value>
+        [DataMember(Name="enabled", EmitDefaultValue=false)]
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// AddPaymentInfo, AddToCart, AddToWishlist, CompleteRegistration, InitiateCheckout, Lead, Search or ViewContent.
@@ -49,13 +56,6 @@ namespace com.ultracart.admin.v2.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// True when the event is sent to the provider.
-        /// </summary>
-        /// <value>True when the event is sent to the provider.</value>
-        [DataMember(Name="true", EmitDefaultValue=false)]
-        public bool True { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,8 +63,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbTrackingProviderEvent {\n");
+            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  True: ").Append(True).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,14 +100,14 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Enabled == input.Enabled ||
+                    (this.Enabled != null &&
+                    this.Enabled.Equals(input.Enabled))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.True == input.True ||
-                    (this.True != null &&
-                    this.True.Equals(input.True))
                 );
         }
 
@@ -120,10 +120,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Enabled != null)
+                    hashCode = hashCode * 59 + this.Enabled.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.True != null)
-                    hashCode = hashCode * 59 + this.True.GetHashCode();
                 return hashCode;
             }
         }

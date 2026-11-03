@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbTrackingProviderConsent" /> class.
         /// </summary>
-        /// <param name="_false">On a write, true to remove the gate.  Not with type or region..</param>
+        /// <param name="disabled">On a write, true to remove the gate.  Not with type or region..</param>
         /// <param name="region">Which shoppers the gate applies to.  all, eea or non_us..</param>
         /// <param name="type">Statistics, Preferences or Marketing..</param>
-        public SfvbTrackingProviderConsent(bool _false = default(bool), string region = default(string), string type = default(string))
+        public SfvbTrackingProviderConsent(bool disabled = default(bool), string region = default(string), string type = default(string))
         {
-            this.False = _false;
+            this.Disabled = disabled;
             this.Region = region;
             this.Type = type;
         }
@@ -47,8 +47,8 @@ namespace com.ultracart.admin.v2.Model
         /// On a write, true to remove the gate.  Not with type or region.
         /// </summary>
         /// <value>On a write, true to remove the gate.  Not with type or region.</value>
-        [DataMember(Name="false", EmitDefaultValue=false)]
-        public bool False { get; set; }
+        [DataMember(Name="disabled", EmitDefaultValue=false)]
+        public bool Disabled { get; set; }
 
         /// <summary>
         /// Which shoppers the gate applies to.  all, eea or non_us.
@@ -72,7 +72,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbTrackingProviderConsent {\n");
-            sb.Append("  False: ").Append(False).Append("\n");
+            sb.Append("  Disabled: ").Append(Disabled).Append("\n");
             sb.Append("  Region: ").Append(Region).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
@@ -110,9 +110,9 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.False == input.False ||
-                    (this.False != null &&
-                    this.False.Equals(input.False))
+                    this.Disabled == input.Disabled ||
+                    (this.Disabled != null &&
+                    this.Disabled.Equals(input.Disabled))
                 ) && 
                 (
                     this.Region == input.Region ||
@@ -135,8 +135,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.False != null)
-                    hashCode = hashCode * 59 + this.False.GetHashCode();
+                if (this.Disabled != null)
+                    hashCode = hashCode * 59 + this.Disabled.GetHashCode();
                 if (this.Region != null)
                     hashCode = hashCode * 59 + this.Region.GetHashCode();
                 if (this.Type != null)

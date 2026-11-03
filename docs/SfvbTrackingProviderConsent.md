@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**False** | **bool** | On a write, true to remove the gate.  Not with type or region. | [optional] 
+**Disabled** | **bool** | On a write, true to remove the gate.  Not with type or region. | [optional] 
 **Region** | **string** | Which shoppers the gate applies to.  all, eea or non_us. | [optional] 
 **Type** | **string** | Statistics, Preferences or Marketing. | [optional] 
 

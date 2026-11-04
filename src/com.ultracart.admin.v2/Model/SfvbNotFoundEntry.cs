@@ -37,6 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="botShare">bot_hits divided by counted_hits, 0 to 1.  Empty when not yet counted..</param>
         /// <param name="countedHits">Hits since bot counting began, the base for bot_share..</param>
         /// <param name="firstSeenDts">First hit, ISO 8601..</param>
+        /// <param name="_fixed">True when the entry is marked fixed or mapped.  The next hit on the path clears it..</param>
         /// <param name="hits">Every recorded hit, bots included..</param>
         /// <param name="ignored">True when the entry is ignored and no longer counts..</param>
         /// <param name="lastSeenDts">Latest hit, ISO 8601..</param>
@@ -44,12 +45,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="path">The path, without its query string.  Token-like segments show as {token} unless asked for..</param>
         /// <param name="redirectedTo">Where a redirect rule now sends this path, when one does..</param>
         /// <param name="referrerHosts">Hosts of the pages that linked to it..</param>
-        public SfvbNotFoundEntry(int botHits = default(int), Object botShare = default(Object), int countedHits = default(int), string firstSeenDts = default(string), int hits = default(int), bool ignored = default(bool), string lastSeenDts = default(string), string notFoundId = default(string), string path = default(string), string redirectedTo = default(string), List<string> referrerHosts = default(List<string>))
+        public SfvbNotFoundEntry(int botHits = default(int), Object botShare = default(Object), int countedHits = default(int), string firstSeenDts = default(string), bool _fixed = default(bool), int hits = default(int), bool ignored = default(bool), string lastSeenDts = default(string), string notFoundId = default(string), string path = default(string), string redirectedTo = default(string), List<string> referrerHosts = default(List<string>))
         {
             this.BotHits = botHits;
             this.BotShare = botShare;
             this.CountedHits = countedHits;
             this.FirstSeenDts = firstSeenDts;
+            this.Fixed = _fixed;
             this.Hits = hits;
             this.Ignored = ignored;
             this.LastSeenDts = lastSeenDts;
@@ -86,6 +88,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>First hit, ISO 8601.</value>
         [DataMember(Name="first_seen_dts", EmitDefaultValue=false)]
         public string FirstSeenDts { get; set; }
+
+        /// <summary>
+        /// True when the entry is marked fixed or mapped.  The next hit on the path clears it.
+        /// </summary>
+        /// <value>True when the entry is marked fixed or mapped.  The next hit on the path clears it.</value>
+        [DataMember(Name="fixed", EmitDefaultValue=false)]
+        public bool Fixed { get; set; }
 
         /// <summary>
         /// Every recorded hit, bots included.
@@ -148,6 +157,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  BotShare: ").Append(BotShare).Append("\n");
             sb.Append("  CountedHits: ").Append(CountedHits).Append("\n");
             sb.Append("  FirstSeenDts: ").Append(FirstSeenDts).Append("\n");
+            sb.Append("  Fixed: ").Append(Fixed).Append("\n");
             sb.Append("  Hits: ").Append(Hits).Append("\n");
             sb.Append("  Ignored: ").Append(Ignored).Append("\n");
             sb.Append("  LastSeenDts: ").Append(LastSeenDts).Append("\n");
@@ -210,6 +220,11 @@ namespace com.ultracart.admin.v2.Model
                     this.FirstSeenDts.Equals(input.FirstSeenDts))
                 ) && 
                 (
+                    this.Fixed == input.Fixed ||
+                    (this.Fixed != null &&
+                    this.Fixed.Equals(input.Fixed))
+                ) && 
+                (
                     this.Hits == input.Hits ||
                     (this.Hits != null &&
                     this.Hits.Equals(input.Hits))
@@ -264,6 +279,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CountedHits.GetHashCode();
                 if (this.FirstSeenDts != null)
                     hashCode = hashCode * 59 + this.FirstSeenDts.GetHashCode();
+                if (this.Fixed != null)
+                    hashCode = hashCode * 59 + this.Fixed.GetHashCode();
                 if (this.Hits != null)
                     hashCode = hashCode * 59 + this.Hits.GetHashCode();
                 if (this.Ignored != null)

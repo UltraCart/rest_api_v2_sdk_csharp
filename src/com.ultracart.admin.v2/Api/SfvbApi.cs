@@ -631,6 +631,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbLibraryDeleteResult</returns>
         ApiResponse<SfvbLibraryDeleteResult> DeleteSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid, string ifMatch);
         /// <summary>
+        /// Remove a 404 path from the log
+        /// </summary>
+        /// <remarks>
+        /// The admin's Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <returns></returns>
+        void DeleteSfvbNotFoundEntry (int storefrontOid, string notFoundId);
+
+        /// <summary>
+        /// Remove a 404 path from the log
+        /// </summary>
+        /// <remarks>
+        /// The admin's Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteSfvbNotFoundEntryWithHttpInfo (int storefrontOid, string notFoundId);
+        /// <summary>
         /// Detach an image from a page
         /// </summary>
         /// <remarks>
@@ -1290,6 +1313,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbExperiment</returns>
         ApiResponse<SfvbExperiment> EndSfvbExperimentWithHttpInfo (int storefrontOid, int experimentOid, string approvalId = default(string), SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest));
         /// <summary>
+        /// Export the open 404 paths
+        /// </summary>
+        /// <remarks>
+        /// Up to 5,000 open paths, most hits first, as the admin's mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="includeBots"> (optional)</param>
+        /// <param name="includeTokens"> (optional)</param>
+        /// <returns>SfvbNotFoundResponse</returns>
+        SfvbNotFoundResponse ExportSfvbNotFound (int storefrontOid, bool? includeBots = default(bool?), bool? includeTokens = default(bool?));
+
+        /// <summary>
+        /// Export the open 404 paths
+        /// </summary>
+        /// <remarks>
+        /// Up to 5,000 open paths, most hits first, as the admin's mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="includeBots"> (optional)</param>
+        /// <param name="includeTokens"> (optional)</param>
+        /// <returns>ApiResponse of SfvbNotFoundResponse</returns>
+        ApiResponse<SfvbNotFoundResponse> ExportSfvbNotFoundWithHttpInfo (int storefrontOid, bool? includeBots = default(bool?), bool? includeTokens = default(bool?));
+        /// <summary>
         /// Favorite a library entry
         /// </summary>
         /// <remarks>
@@ -1312,6 +1360,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="libraryOid"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> FavoriteSfvbLibraryEntryWithHttpInfo (int storefrontOid, int libraryOid);
+        /// <summary>
+        /// Mark a 404 path fixed
+        /// </summary>
+        /// <remarks>
+        /// For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin's Mark Fixed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <returns>SfvbNotFoundEntry</returns>
+        SfvbNotFoundEntry FixSfvbNotFoundEntry (int storefrontOid, string notFoundId);
+
+        /// <summary>
+        /// Mark a 404 path fixed
+        /// </summary>
+        /// <remarks>
+        /// For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin's Mark Fixed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <returns>ApiResponse of SfvbNotFoundEntry</returns>
+        ApiResponse<SfvbNotFoundEntry> FixSfvbNotFoundEntryWithHttpInfo (int storefrontOid, string notFoundId);
         /// <summary>
         /// Read one affiliate network
         /// </summary>
@@ -2218,6 +2289,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbNotFoundPage</returns>
         ApiResponse<SfvbNotFoundPage> GetSfvbNotFoundPageWithHttpInfo (int storefrontOid);
         /// <summary>
+        /// The 404 log's trend
+        /// </summary>
+        /// <remarks>
+        /// The admin's 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbNotFoundSummary</returns>
+        SfvbNotFoundSummary GetSfvbNotFoundSummary (int storefrontOid);
+
+        /// <summary>
+        /// The 404 log's trend
+        /// </summary>
+        /// <remarks>
+        /// The admin's 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbNotFoundSummary</returns>
+        ApiResponse<SfvbNotFoundSummary> GetSfvbNotFoundSummaryWithHttpInfo (int storefrontOid);
+        /// <summary>
         /// Read a page's attributes and images
         /// </summary>
         /// <remarks>
@@ -2614,6 +2706,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <returns>ApiResponse of SfvbSiteAttributesResponse</returns>
         ApiResponse<SfvbSiteAttributesResponse> GetSfvbSiteAttributesWithHttpInfo (int storefrontOid);
+        /// <summary>
+        /// Read a storefront's search engine settings
+        /// </summary>
+        /// <remarks>
+        /// Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbSiteSeo</returns>
+        SfvbSiteSeo GetSfvbSiteSeo (int storefrontOid);
+
+        /// <summary>
+        /// Read a storefront's search engine settings
+        /// </summary>
+        /// <remarks>
+        /// Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbSiteSeo</returns>
+        ApiResponse<SfvbSiteSeo> GetSfvbSiteSeoWithHttpInfo (int storefrontOid);
         /// <summary>
         /// Read a storefront's sitemaps and robots.txt
         /// </summary>
@@ -4857,6 +4970,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbRedirectResolveResponse</returns>
         ApiResponse<SfvbRedirectResolveResponse> ResolveSfvbRedirectWithHttpInfo (int storefrontOid, string path = default(string));
         /// <summary>
+        /// What a shopper gets for each of many paths
+        /// </summary>
+        /// <remarks>
+        /// Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectResolveBatchRequest">The paths</param>
+        /// <returns>SfvbRedirectResolveBatchResponse</returns>
+        SfvbRedirectResolveBatchResponse ResolveSfvbRedirectBatch (int storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest);
+
+        /// <summary>
+        /// What a shopper gets for each of many paths
+        /// </summary>
+        /// <remarks>
+        /// Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectResolveBatchRequest">The paths</param>
+        /// <returns>ApiResponse of SfvbRedirectResolveBatchResponse</returns>
+        ApiResponse<SfvbRedirectResolveBatchResponse> ResolveSfvbRedirectBatchWithHttpInfo (int storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest);
+        /// <summary>
         /// Resolve a template name to the file a page renders
         /// </summary>
         /// <remarks>
@@ -5578,6 +5714,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="approvalId">When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of SfvbSequenceStepUpdateResponse</returns>
         ApiResponse<SfvbSequenceStepUpdateResponse> UpdateSfvbSequenceStepWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, string approvalId = default(string));
+        /// <summary>
+        /// Change a storefront's search engine settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="siteSeoRequest">The switches to change</param>
+        /// <param name="approvalId">When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbSiteSeo</returns>
+        SfvbSiteSeo UpdateSfvbSiteSeo (int storefrontOid, string ifMatch, SfvbSiteSeoRequest siteSeoRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Change a storefront's search engine settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="siteSeoRequest">The switches to change</param>
+        /// <param name="approvalId">When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbSiteSeo</returns>
+        ApiResponse<SfvbSiteSeo> UpdateSfvbSiteSeoWithHttpInfo (int storefrontOid, string ifMatch, SfvbSiteSeoRequest siteSeoRequest, string approvalId = default(string));
         /// <summary>
         /// Change a storefront's Smart Attribution configuration
         /// </summary>
@@ -6523,6 +6686,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbLibraryDeleteResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbLibraryDeleteResult>> DeleteSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Remove a 404 path from the log
+        /// </summary>
+        /// <remarks>
+        /// The admin's Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteSfvbNotFoundEntryAsync (int storefrontOid, string notFoundId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Remove a 404 path from the log
+        /// </summary>
+        /// <remarks>
+        /// The admin's Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbNotFoundEntryWithHttpInfoAsync (int storefrontOid, string notFoundId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Detach an image from a page
         /// </summary>
         /// <remarks>
@@ -7236,6 +7424,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> EndSfvbExperimentWithHttpInfoAsync (int storefrontOid, int experimentOid, string approvalId = default(string), SfvbExperimentEndRequest experimentEndRequest = default(SfvbExperimentEndRequest), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Export the open 404 paths
+        /// </summary>
+        /// <remarks>
+        /// Up to 5,000 open paths, most hits first, as the admin's mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="includeBots"> (optional)</param>
+        /// <param name="includeTokens"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbNotFoundResponse</returns>
+        System.Threading.Tasks.Task<SfvbNotFoundResponse> ExportSfvbNotFoundAsync (int storefrontOid, bool? includeBots = default(bool?), bool? includeTokens = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Export the open 404 paths
+        /// </summary>
+        /// <remarks>
+        /// Up to 5,000 open paths, most hits first, as the admin's mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="includeBots"> (optional)</param>
+        /// <param name="includeTokens"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbNotFoundResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundResponse>> ExportSfvbNotFoundWithHttpInfoAsync (int storefrontOid, bool? includeBots = default(bool?), bool? includeTokens = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Favorite a library entry
         /// </summary>
         /// <remarks>
@@ -7260,6 +7475,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> FavoriteSfvbLibraryEntryWithHttpInfoAsync (int storefrontOid, int libraryOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Mark a 404 path fixed
+        /// </summary>
+        /// <remarks>
+        /// For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin's Mark Fixed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbNotFoundEntry</returns>
+        System.Threading.Tasks.Task<SfvbNotFoundEntry> FixSfvbNotFoundEntryAsync (int storefrontOid, string notFoundId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Mark a 404 path fixed
+        /// </summary>
+        /// <remarks>
+        /// For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin's Mark Fixed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbNotFoundEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundEntry>> FixSfvbNotFoundEntryWithHttpInfoAsync (int storefrontOid, string notFoundId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read one affiliate network
         /// </summary>
@@ -8244,6 +8484,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbNotFoundPage)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundPage>> GetSfvbNotFoundPageWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// The 404 log's trend
+        /// </summary>
+        /// <remarks>
+        /// The admin's 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbNotFoundSummary</returns>
+        System.Threading.Tasks.Task<SfvbNotFoundSummary> GetSfvbNotFoundSummaryAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// The 404 log&#39;s trend
+        /// </summary>
+        /// <remarks>
+        /// The admin's 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbNotFoundSummary)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundSummary>> GetSfvbNotFoundSummaryWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Read a page's attributes and images
         /// </summary>
         /// <remarks>
@@ -8674,6 +8937,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbSiteAttributesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbSiteAttributesResponse>> GetSfvbSiteAttributesWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read a storefront's search engine settings
+        /// </summary>
+        /// <remarks>
+        /// Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSiteSeo</returns>
+        System.Threading.Tasks.Task<SfvbSiteSeo> GetSfvbSiteSeoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a storefront&#39;s search engine settings
+        /// </summary>
+        /// <remarks>
+        /// Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSiteSeo)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbSiteSeo>> GetSfvbSiteSeoWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read a storefront's sitemaps and robots.txt
         /// </summary>
@@ -11097,6 +11383,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbRedirectResolveResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbRedirectResolveResponse>> ResolveSfvbRedirectWithHttpInfoAsync (int storefrontOid, string path = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// What a shopper gets for each of many paths
+        /// </summary>
+        /// <remarks>
+        /// Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectResolveBatchRequest">The paths</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRedirectResolveBatchResponse</returns>
+        System.Threading.Tasks.Task<SfvbRedirectResolveBatchResponse> ResolveSfvbRedirectBatchAsync (int storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// What a shopper gets for each of many paths
+        /// </summary>
+        /// <remarks>
+        /// Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectResolveBatchRequest">The paths</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRedirectResolveBatchResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbRedirectResolveBatchResponse>> ResolveSfvbRedirectBatchWithHttpInfoAsync (int storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Resolve a template name to the file a page renders
         /// </summary>
         /// <remarks>
@@ -11874,6 +12185,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbSequenceStepUpdateResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbSequenceStepUpdateResponse>> UpdateSfvbSequenceStepWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change a storefront's search engine settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="siteSeoRequest">The switches to change</param>
+        /// <param name="approvalId">When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSiteSeo</returns>
+        System.Threading.Tasks.Task<SfvbSiteSeo> UpdateSfvbSiteSeoAsync (int storefrontOid, string ifMatch, SfvbSiteSeoRequest siteSeoRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a storefront&#39;s search engine settings
+        /// </summary>
+        /// <remarks>
+        /// A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="siteSeoRequest">The switches to change</param>
+        /// <param name="approvalId">When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSiteSeo)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbSiteSeo>> UpdateSfvbSiteSeoWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbSiteSeoRequest siteSeoRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Change a storefront's Smart Attribution configuration
         /// </summary>
@@ -16810,6 +17150,173 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Remove a 404 path from the log The admin's Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <returns></returns>
+        public void DeleteSfvbNotFoundEntry (int storefrontOid, string notFoundId)
+        {
+             DeleteSfvbNotFoundEntryWithHttpInfo(storefrontOid, notFoundId);
+        }
+
+        /// <summary>
+        /// Remove a 404 path from the log The admin's Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteSfvbNotFoundEntryWithHttpInfo (int storefrontOid, string notFoundId)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbNotFoundEntry");
+            // verify the required parameter 'notFoundId' is set
+            if (notFoundId == null)
+                throw new ApiException(400, "Missing required parameter 'notFoundId' when calling SfvbApi->DeleteSfvbNotFoundEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (notFoundId != null) localVarPathParams.Add("not_found_id", this.Configuration.ApiClient.ParameterToString(notFoundId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbNotFoundEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Remove a 404 path from the log The admin's Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteSfvbNotFoundEntryAsync (int storefrontOid, string notFoundId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteSfvbNotFoundEntryWithHttpInfoAsync(storefrontOid, notFoundId, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Remove a 404 path from the log The admin's Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbNotFoundEntryWithHttpInfoAsync (int storefrontOid, string notFoundId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbNotFoundEntry");
+            // verify the required parameter 'notFoundId' is set
+            if (notFoundId == null)
+                throw new ApiException(400, "Missing required parameter 'notFoundId' when calling SfvbApi->DeleteSfvbNotFoundEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (notFoundId != null) localVarPathParams.Add("not_found_id", this.Configuration.ApiClient.ParameterToString(notFoundId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbNotFoundEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
         /// Detach an image from a page Name exactly one of code or default.  Removes the page's copy of the image; the source file in the page folder is left alone.  Always needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -21679,6 +22186,175 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Export the open 404 paths Up to 5,000 open paths, most hits first, as the admin's mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="includeBots"> (optional)</param>
+        /// <param name="includeTokens"> (optional)</param>
+        /// <returns>SfvbNotFoundResponse</returns>
+        public SfvbNotFoundResponse ExportSfvbNotFound (int storefrontOid, bool? includeBots = default(bool?), bool? includeTokens = default(bool?))
+        {
+             ApiResponse<SfvbNotFoundResponse> localVarResponse = ExportSfvbNotFoundWithHttpInfo(storefrontOid, includeBots, includeTokens);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Export the open 404 paths Up to 5,000 open paths, most hits first, as the admin's mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="includeBots"> (optional)</param>
+        /// <param name="includeTokens"> (optional)</param>
+        /// <returns>ApiResponse of SfvbNotFoundResponse</returns>
+        public ApiResponse<SfvbNotFoundResponse> ExportSfvbNotFoundWithHttpInfo (int storefrontOid, bool? includeBots = default(bool?), bool? includeTokens = default(bool?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ExportSfvbNotFound");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/not_found/export";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (includeBots != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "include_bots", includeBots)); // query parameter
+            if (includeTokens != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "include_tokens", includeTokens)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExportSfvbNotFound", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbNotFoundResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbNotFoundResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbNotFoundResponse)));
+        }
+
+        /// <summary>
+        /// Export the open 404 paths Up to 5,000 open paths, most hits first, as the admin's mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="includeBots"> (optional)</param>
+        /// <param name="includeTokens"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbNotFoundResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbNotFoundResponse> ExportSfvbNotFoundAsync (int storefrontOid, bool? includeBots = default(bool?), bool? includeTokens = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbNotFoundResponse> localVarResponse = await ExportSfvbNotFoundWithHttpInfoAsync(storefrontOid, includeBots, includeTokens, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Export the open 404 paths Up to 5,000 open paths, most hits first, as the admin's mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="includeBots"> (optional)</param>
+        /// <param name="includeTokens"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbNotFoundResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundResponse>> ExportSfvbNotFoundWithHttpInfoAsync (int storefrontOid, bool? includeBots = default(bool?), bool? includeTokens = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ExportSfvbNotFound");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/not_found/export";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (includeBots != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "include_bots", includeBots)); // query parameter
+            if (includeTokens != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "include_tokens", includeTokens)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExportSfvbNotFound", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbNotFoundResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbNotFoundResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbNotFoundResponse)));
+        }
+
+        /// <summary>
         /// Favorite a library entry Bookmarks the entry for the calling user.  Idempotent.  Owner or anyone the entry is shared with. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -21843,6 +22519,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Mark a 404 path fixed For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin's Mark Fixed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <returns>SfvbNotFoundEntry</returns>
+        public SfvbNotFoundEntry FixSfvbNotFoundEntry (int storefrontOid, string notFoundId)
+        {
+             ApiResponse<SfvbNotFoundEntry> localVarResponse = FixSfvbNotFoundEntryWithHttpInfo(storefrontOid, notFoundId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Mark a 404 path fixed For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin's Mark Fixed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <returns>ApiResponse of SfvbNotFoundEntry</returns>
+        public ApiResponse<SfvbNotFoundEntry> FixSfvbNotFoundEntryWithHttpInfo (int storefrontOid, string notFoundId)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->FixSfvbNotFoundEntry");
+            // verify the required parameter 'notFoundId' is set
+            if (notFoundId == null)
+                throw new ApiException(400, "Missing required parameter 'notFoundId' when calling SfvbApi->FixSfvbNotFoundEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/fixed";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (notFoundId != null) localVarPathParams.Add("not_found_id", this.Configuration.ApiClient.ParameterToString(notFoundId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("FixSfvbNotFoundEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbNotFoundEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbNotFoundEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbNotFoundEntry)));
+        }
+
+        /// <summary>
+        /// Mark a 404 path fixed For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin's Mark Fixed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbNotFoundEntry</returns>
+        public async System.Threading.Tasks.Task<SfvbNotFoundEntry> FixSfvbNotFoundEntryAsync (int storefrontOid, string notFoundId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbNotFoundEntry> localVarResponse = await FixSfvbNotFoundEntryWithHttpInfoAsync(storefrontOid, notFoundId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Mark a 404 path fixed For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin's Mark Fixed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="notFoundId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbNotFoundEntry)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundEntry>> FixSfvbNotFoundEntryWithHttpInfoAsync (int storefrontOid, string notFoundId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->FixSfvbNotFoundEntry");
+            // verify the required parameter 'notFoundId' is set
+            if (notFoundId == null)
+                throw new ApiException(400, "Missing required parameter 'notFoundId' when calling SfvbApi->FixSfvbNotFoundEntry");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/fixed";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (notFoundId != null) localVarPathParams.Add("not_found_id", this.Configuration.ApiClient.ParameterToString(notFoundId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("FixSfvbNotFoundEntry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbNotFoundEntry>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbNotFoundEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbNotFoundEntry)));
         }
 
         /// <summary>
@@ -28331,6 +29176,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// The 404 log's trend The admin's 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbNotFoundSummary</returns>
+        public SfvbNotFoundSummary GetSfvbNotFoundSummary (int storefrontOid)
+        {
+             ApiResponse<SfvbNotFoundSummary> localVarResponse = GetSfvbNotFoundSummaryWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// The 404 log's trend The admin's 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbNotFoundSummary</returns>
+        public ApiResponse<SfvbNotFoundSummary> GetSfvbNotFoundSummaryWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbNotFoundSummary");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/not_found/summary";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbNotFoundSummary", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbNotFoundSummary>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbNotFoundSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbNotFoundSummary)));
+        }
+
+        /// <summary>
+        /// The 404 log's trend The admin's 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbNotFoundSummary</returns>
+        public async System.Threading.Tasks.Task<SfvbNotFoundSummary> GetSfvbNotFoundSummaryAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbNotFoundSummary> localVarResponse = await GetSfvbNotFoundSummaryWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// The 404 log's trend The admin's 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbNotFoundSummary)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundSummary>> GetSfvbNotFoundSummaryWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbNotFoundSummary");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/not_found/summary";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbNotFoundSummary", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbNotFoundSummary>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbNotFoundSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbNotFoundSummary)));
+        }
+
+        /// <summary>
         /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -31183,6 +32185,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbSiteAttributesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbSiteAttributesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSiteAttributesResponse)));
+        }
+
+        /// <summary>
+        /// Read a storefront's search engine settings Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbSiteSeo</returns>
+        public SfvbSiteSeo GetSfvbSiteSeo (int storefrontOid)
+        {
+             ApiResponse<SfvbSiteSeo> localVarResponse = GetSfvbSiteSeoWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read a storefront's search engine settings Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbSiteSeo</returns>
+        public ApiResponse<SfvbSiteSeo> GetSfvbSiteSeoWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbSiteSeo");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/seo";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbSiteSeo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSiteSeo>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSiteSeo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSiteSeo)));
+        }
+
+        /// <summary>
+        /// Read a storefront's search engine settings Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSiteSeo</returns>
+        public async System.Threading.Tasks.Task<SfvbSiteSeo> GetSfvbSiteSeoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbSiteSeo> localVarResponse = await GetSfvbSiteSeoWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read a storefront's search engine settings Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSiteSeo)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbSiteSeo>> GetSfvbSiteSeoWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbSiteSeo");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/seo";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbSiteSeo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSiteSeo>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSiteSeo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSiteSeo)));
         }
 
         /// <summary>
@@ -47594,6 +48753,191 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// What a shopper gets for each of many paths Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectResolveBatchRequest">The paths</param>
+        /// <returns>SfvbRedirectResolveBatchResponse</returns>
+        public SfvbRedirectResolveBatchResponse ResolveSfvbRedirectBatch (int storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest)
+        {
+             ApiResponse<SfvbRedirectResolveBatchResponse> localVarResponse = ResolveSfvbRedirectBatchWithHttpInfo(storefrontOid, redirectResolveBatchRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// What a shopper gets for each of many paths Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectResolveBatchRequest">The paths</param>
+        /// <returns>ApiResponse of SfvbRedirectResolveBatchResponse</returns>
+        public ApiResponse<SfvbRedirectResolveBatchResponse> ResolveSfvbRedirectBatchWithHttpInfo (int storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ResolveSfvbRedirectBatch");
+            // verify the required parameter 'redirectResolveBatchRequest' is set
+            if (redirectResolveBatchRequest == null)
+                throw new ApiException(400, "Missing required parameter 'redirectResolveBatchRequest' when calling SfvbApi->ResolveSfvbRedirectBatch");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/redirects/resolve_batch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (redirectResolveBatchRequest != null && redirectResolveBatchRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(redirectResolveBatchRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = redirectResolveBatchRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResolveSfvbRedirectBatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRedirectResolveBatchResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRedirectResolveBatchResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRedirectResolveBatchResponse)));
+        }
+
+        /// <summary>
+        /// What a shopper gets for each of many paths Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectResolveBatchRequest">The paths</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbRedirectResolveBatchResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbRedirectResolveBatchResponse> ResolveSfvbRedirectBatchAsync (int storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbRedirectResolveBatchResponse> localVarResponse = await ResolveSfvbRedirectBatchWithHttpInfoAsync(storefrontOid, redirectResolveBatchRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// What a shopper gets for each of many paths Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="redirectResolveBatchRequest">The paths</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbRedirectResolveBatchResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbRedirectResolveBatchResponse>> ResolveSfvbRedirectBatchWithHttpInfoAsync (int storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ResolveSfvbRedirectBatch");
+            // verify the required parameter 'redirectResolveBatchRequest' is set
+            if (redirectResolveBatchRequest == null)
+                throw new ApiException(400, "Missing required parameter 'redirectResolveBatchRequest' when calling SfvbApi->ResolveSfvbRedirectBatch");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/redirects/resolve_batch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (redirectResolveBatchRequest != null && redirectResolveBatchRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(redirectResolveBatchRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = redirectResolveBatchRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResolveSfvbRedirectBatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbRedirectResolveBatchResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbRedirectResolveBatchResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRedirectResolveBatchResponse)));
+        }
+
+        /// <summary>
         /// Resolve a template name to the file a page renders A page stores only its template's file name.  This runs the storefront's own template search for that name and returns the file a page naming it renders, relative to the theme.  It also lists the theme's resource paths in search order with every file of that name below each, so a theme copy overriding a shared core copy, or a copy in a snippets folder that is never used, is visible.  exists is false when a page naming the template cannot render. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -53053,6 +54397,209 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbSequenceStepUpdateResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbSequenceStepUpdateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSequenceStepUpdateResponse)));
+        }
+
+        /// <summary>
+        /// Change a storefront's search engine settings A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="siteSeoRequest">The switches to change</param>
+        /// <param name="approvalId">When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbSiteSeo</returns>
+        public SfvbSiteSeo UpdateSfvbSiteSeo (int storefrontOid, string ifMatch, SfvbSiteSeoRequest siteSeoRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbSiteSeo> localVarResponse = UpdateSfvbSiteSeoWithHttpInfo(storefrontOid, ifMatch, siteSeoRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a storefront's search engine settings A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="siteSeoRequest">The switches to change</param>
+        /// <param name="approvalId">When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbSiteSeo</returns>
+        public ApiResponse<SfvbSiteSeo> UpdateSfvbSiteSeoWithHttpInfo (int storefrontOid, string ifMatch, SfvbSiteSeoRequest siteSeoRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbSiteSeo");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbSiteSeo");
+            // verify the required parameter 'siteSeoRequest' is set
+            if (siteSeoRequest == null)
+                throw new ApiException(400, "Missing required parameter 'siteSeoRequest' when calling SfvbApi->UpdateSfvbSiteSeo");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/seo";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (siteSeoRequest != null && siteSeoRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(siteSeoRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = siteSeoRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbSiteSeo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSiteSeo>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSiteSeo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSiteSeo)));
+        }
+
+        /// <summary>
+        /// Change a storefront's search engine settings A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="siteSeoRequest">The switches to change</param>
+        /// <param name="approvalId">When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSiteSeo</returns>
+        public async System.Threading.Tasks.Task<SfvbSiteSeo> UpdateSfvbSiteSeoAsync (int storefrontOid, string ifMatch, SfvbSiteSeoRequest siteSeoRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbSiteSeo> localVarResponse = await UpdateSfvbSiteSeoWithHttpInfoAsync(storefrontOid, ifMatch, siteSeoRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a storefront's search engine settings A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="siteSeoRequest">The switches to change</param>
+        /// <param name="approvalId">When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSiteSeo)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbSiteSeo>> UpdateSfvbSiteSeoWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbSiteSeoRequest siteSeoRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbSiteSeo");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbSiteSeo");
+            // verify the required parameter 'siteSeoRequest' is set
+            if (siteSeoRequest == null)
+                throw new ApiException(400, "Missing required parameter 'siteSeoRequest' when calling SfvbApi->UpdateSfvbSiteSeo");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/seo";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (siteSeoRequest != null && siteSeoRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(siteSeoRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = siteSeoRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbSiteSeo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSiteSeo>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSiteSeo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSiteSeo)));
         }
 
         /// <summary>

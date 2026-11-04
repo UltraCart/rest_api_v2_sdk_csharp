@@ -33,19 +33,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbRedirectRequest" /> class.
         /// </summary>
+        /// <param name="excludeFromSitemap">True to leave the rule&#39;s source out of the generated sitemap.  On a create, left out means false, as in the admin.  On an update, left out keeps the rule&#39;s value..</param>
         /// <param name="note">Why the rule exists, up to 500 characters..</param>
         /// <param name="overLivePage">Allow a source that is a live, visible page or item, which the rule then hides..</param>
         /// <param name="source">The path to catch, starting with /.  End it with /_* to catch everything below..</param>
         /// <param name="status">Updates only.  301 turns an admin rule into a permanent redirect.  Leave empty to keep the rule&#39;s status.  New rules are always 301..</param>
         /// <param name="target">A path on the storefront, or a URL on one of its own hosts..</param>
-        public SfvbRedirectRequest(string note = default(string), bool overLivePage = default(bool), string source = default(string), string status = default(string), string target = default(string))
+        public SfvbRedirectRequest(bool excludeFromSitemap = default(bool), string note = default(string), bool overLivePage = default(bool), string source = default(string), string status = default(string), string target = default(string))
         {
+            this.ExcludeFromSitemap = excludeFromSitemap;
             this.Note = note;
             this.OverLivePage = overLivePage;
             this.Source = source;
             this.Status = status;
             this.Target = target;
         }
+
+        /// <summary>
+        /// True to leave the rule&#39;s source out of the generated sitemap.  On a create, left out means false, as in the admin.  On an update, left out keeps the rule&#39;s value.
+        /// </summary>
+        /// <value>True to leave the rule&#39;s source out of the generated sitemap.  On a create, left out means false, as in the admin.  On an update, left out keeps the rule&#39;s value.</value>
+        [DataMember(Name="exclude_from_sitemap", EmitDefaultValue=false)]
+        public bool ExcludeFromSitemap { get; set; }
 
         /// <summary>
         /// Why the rule exists, up to 500 characters.
@@ -90,6 +99,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbRedirectRequest {\n");
+            sb.Append("  ExcludeFromSitemap: ").Append(ExcludeFromSitemap).Append("\n");
             sb.Append("  Note: ").Append(Note).Append("\n");
             sb.Append("  OverLivePage: ").Append(OverLivePage).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
@@ -130,6 +140,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.ExcludeFromSitemap == input.ExcludeFromSitemap ||
+                    (this.ExcludeFromSitemap != null &&
+                    this.ExcludeFromSitemap.Equals(input.ExcludeFromSitemap))
+                ) && 
+                (
                     this.Note == input.Note ||
                     (this.Note != null &&
                     this.Note.Equals(input.Note))
@@ -165,6 +180,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ExcludeFromSitemap != null)
+                    hashCode = hashCode * 59 + this.ExcludeFromSitemap.GetHashCode();
                 if (this.Note != null)
                     hashCode = hashCode * 59 + this.Note.GetHashCode();
                 if (this.OverLivePage != null)

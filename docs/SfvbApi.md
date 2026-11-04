@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**DeleteSfvbItemAttribute**](SfvbApi.md#deletesfvbitemattribute) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/attributes | Delete an attribute from an item
 [**DeleteSfvbItemMultimedia**](SfvbApi.md#deletesfvbitemmultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/multimedia | Detach an image from an item
 [**DeleteSfvbLibraryEntry**](SfvbApi.md#deletesfvblibraryentry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Delete or retire a library entry
+[**DeleteSfvbNotFoundEntry**](SfvbApi.md#deletesfvbnotfoundentry) | **DELETE** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id} | Remove a 404 path from the log
 [**DeleteSfvbPageMultimedia**](SfvbApi.md#deletesfvbpagemultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 [**DeleteSfvbPreviewSession**](SfvbApi.md#deletesfvbpreviewsession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 [**DeleteSfvbRedirect**](SfvbApi.md#deletesfvbredirect) | **DELETE** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Delete a redirect rule
@@ -56,7 +57,9 @@ Method | HTTP request | Description
 [**EnableSfvbUpsellOffer**](SfvbApi.md#enablesfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/enable | Enable an upsell offer
 [**EnableSfvbUpsellPath**](SfvbApi.md#enablesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/enable | Enable an upsell path
 [**EndSfvbExperiment**](SfvbApi.md#endsfvbexperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
+[**ExportSfvbNotFound**](SfvbApi.md#exportsfvbnotfound) | **GET** /sfvb/storefronts/{storefront_oid}/not_found/export | Export the open 404 paths
 [**FavoriteSfvbLibraryEntry**](SfvbApi.md#favoritesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
+[**FixSfvbNotFoundEntry**](SfvbApi.md#fixsfvbnotfoundentry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/fixed | Mark a 404 path fixed
 [**GetSfvbAffiliateNetwork**](SfvbApi.md#getsfvbaffiliatenetwork) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Read one affiliate network
 [**GetSfvbAffiliateNetworks**](SfvbApi.md#getsfvbaffiliatenetworks) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | List a storefront&#39;s affiliate networks
 [**GetSfvbApproval**](SfvbApi.md#getsfvbapproval) | **GET** /sfvb/approvals/{approval_id} | Read one approval request
@@ -96,6 +99,7 @@ Method | HTTP request | Description
 [**GetSfvbNotFound**](SfvbApi.md#getsfvbnotfound) | **GET** /sfvb/storefronts/{storefront_oid}/not_found | List the paths that answered 404
 [**GetSfvbNotFoundEntry**](SfvbApi.md#getsfvbnotfoundentry) | **GET** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id} | Read one 404 path with its recent hits
 [**GetSfvbNotFoundPage**](SfvbApi.md#getsfvbnotfoundpage) | **GET** /sfvb/storefronts/{storefront_oid}/not_found_page | What renders the storefront&#39;s 404 page
+[**GetSfvbNotFoundSummary**](SfvbApi.md#getsfvbnotfoundsummary) | **GET** /sfvb/storefronts/{storefront_oid}/not_found/summary | The 404 log&#39;s trend
 [**GetSfvbPage**](SfvbApi.md#getsfvbpage) | **GET** /sfvb/storefronts/{storefront_oid}/pages | Read a page&#39;s attributes and images
 [**GetSfvbPageBlogPosts**](SfvbApi.md#getsfvbpageblogposts) | **GET** /sfvb/storefronts/{storefront_oid}/pages/blog_posts | Read the blog posts assigned to a page
 [**GetSfvbPageItems**](SfvbApi.md#getsfvbpageitems) | **GET** /sfvb/storefronts/{storefront_oid}/pages/items | Read the items assigned to a page
@@ -113,6 +117,7 @@ Method | HTTP request | Description
 [**GetSfvbSequenceStepDispatchLogs**](SfvbApi.md#getsfvbsequencestepdispatchlogs) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs | Read a flow or campaign step&#39;s dispatch log and counts
 [**GetSfvbServerLog**](SfvbApi.md#getsfvbserverlog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 [**GetSfvbSiteAttributes**](SfvbApi.md#getsfvbsiteattributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
+[**GetSfvbSiteSeo**](SfvbApi.md#getsfvbsiteseo) | **GET** /sfvb/storefronts/{storefront_oid}/seo | Read a storefront&#39;s search engine settings
 [**GetSfvbSitemaps**](SfvbApi.md#getsfvbsitemaps) | **GET** /sfvb/storefronts/{storefront_oid}/sitemaps | Read a storefront&#39;s sitemaps and robots.txt
 [**GetSfvbSmartAttribution**](SfvbApi.md#getsfvbsmartattribution) | **GET** /sfvb/storefronts/{storefront_oid}/smart_attribution | Read a storefront&#39;s Smart Attribution configuration
 [**GetSfvbTestOrders**](SfvbApi.md#getsfvbtestorders) | **GET** /sfvb/storefronts/{storefront_oid}/test_orders | List recent test orders
@@ -203,6 +208,7 @@ Method | HTTP request | Description
 [**ReserveSfvbWidgetIds**](SfvbApi.md#reservesfvbwidgetids) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
 [**ResetSfvbI18nMessage**](SfvbApi.md#resetsfvbi18nmessage) | **DELETE** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Reset one built-in message
 [**ResolveSfvbRedirect**](SfvbApi.md#resolvesfvbredirect) | **GET** /sfvb/storefronts/{storefront_oid}/redirects/resolve | What a shopper gets for a path
+[**ResolveSfvbRedirectBatch**](SfvbApi.md#resolvesfvbredirectbatch) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/resolve_batch | What a shopper gets for each of many paths
 [**ResolveSfvbTemplate**](SfvbApi.md#resolvesfvbtemplate) | **GET** /sfvb/storefronts/{storefront_oid}/templates/resolve | Resolve a template name to the file a page renders
 [**RevertSfvbContainer**](SfvbApi.md#revertsfvbcontainer) | **POST** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}/revert | Revert a container stored outside the file system
 [**RevertSfvbFile**](SfvbApi.md#revertsfvbfile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
@@ -231,6 +237,7 @@ Method | HTTP request | Description
 [**UpdateSfvbLibraryEntry**](SfvbApi.md#updatesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 [**UpdateSfvbRedirect**](SfvbApi.md#updatesfvbredirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
 [**UpdateSfvbSequenceStep**](SfvbApi.md#updatesfvbsequencestep) | **PUT** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Change one step&#39;s settings or audience filter
+[**UpdateSfvbSiteSeo**](SfvbApi.md#updatesfvbsiteseo) | **PUT** /sfvb/storefronts/{storefront_oid}/seo | Change a storefront&#39;s search engine settings
 [**UpdateSfvbSmartAttribution**](SfvbApi.md#updatesfvbsmartattribution) | **PUT** /sfvb/storefronts/{storefront_oid}/smart_attribution | Change a storefront&#39;s Smart Attribution configuration
 [**UpdateSfvbTrackingAdvanced**](SfvbApi.md#updatesfvbtrackingadvanced) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/advanced | Change a storefront&#39;s advanced conversion settings
 [**UpdateSfvbTrackingHtml**](SfvbApi.md#updatesfvbtrackinghtml) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Write one custom tracking HTML slot
@@ -1620,6 +1627,60 @@ Name | Type | Description  | Notes
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **412** |  |  -  |
 | **428** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteSfvbNotFoundEntry
+
+> void DeleteSfvbNotFoundEntry (int storefrontOid, string notFoundId)
+
+Remove a 404 path from the log
+
+The admin's Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **notFoundId** | **string**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#)
@@ -3119,6 +3180,59 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ExportSfvbNotFound
+
+> SfvbNotFoundResponse ExportSfvbNotFound (int storefrontOid, bool? includeBots = null, bool? includeTokens = null)
+
+Export the open 404 paths
+
+Up to 5,000 open paths, most hits first, as the admin's mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **includeBots** | **bool?**|  | [optional] 
+ **includeTokens** | **bool?**|  | [optional] 
+
+### Return type
+
+[**SfvbNotFoundResponse**](SfvbNotFoundResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## FavoriteSfvbLibraryEntry
 
 > void FavoriteSfvbLibraryEntry (int storefrontOid, int libraryOid)
@@ -3163,6 +3277,60 @@ void (empty response body)
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## FixSfvbNotFoundEntry
+
+> SfvbNotFoundEntry FixSfvbNotFoundEntry (int storefrontOid, string notFoundId)
+
+Mark a 404 path fixed
+
+For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin's Mark Fixed. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **notFoundId** | **string**|  | 
+
+### Return type
+
+[**SfvbNotFoundEntry**](SfvbNotFoundEntry.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#)
@@ -5219,6 +5387,57 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetSfvbNotFoundSummary
+
+> SfvbNotFoundSummary GetSfvbNotFoundSummary (int storefrontOid)
+
+The 404 log's trend
+
+The admin's 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+
+### Return type
+
+[**SfvbNotFoundSummary**](SfvbNotFoundSummary.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetSfvbPage
 
 > SfvbPageResponse GetSfvbPage (int storefrontOid, string path)
@@ -6084,6 +6303,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SfvbSiteAttributesResponse**](SfvbSiteAttributesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSfvbSiteSeo
+
+> SfvbSiteSeo GetSfvbSiteSeo (int storefrontOid)
+
+Read a storefront's search engine settings
+
+Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+
+### Return type
+
+[**SfvbSiteSeo**](SfvbSiteSeo.md)
 
 ### Authorization
 
@@ -10971,6 +11241,59 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ResolveSfvbRedirectBatch
+
+> SfvbRedirectResolveBatchResponse ResolveSfvbRedirectBatch (int storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest)
+
+What a shopper gets for each of many paths
+
+Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **redirectResolveBatchRequest** | [**SfvbRedirectResolveBatchRequest**](SfvbRedirectResolveBatchRequest.md)| The paths | 
+
+### Return type
+
+[**SfvbRedirectResolveBatchResponse**](SfvbRedirectResolveBatchResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ResolveSfvbTemplate
 
 > SfvbTemplateResolveResponse ResolveSfvbTemplate (int storefrontOid, string name, int? themeOid = null)
@@ -12540,6 +12863,65 @@ Name | Type | Description  | Notes
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateSfvbSiteSeo
+
+> SfvbSiteSeo UpdateSfvbSiteSeo (int storefrontOid, string ifMatch, SfvbSiteSeoRequest siteSeoRequest, string approvalId = null)
+
+Change a storefront's search engine settings
+
+A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **ifMatch** | **string**| The hash_sha256 from the last read.  428 when absent, 412 when stale. | 
+ **siteSeoRequest** | [**SfvbSiteSeoRequest**](SfvbSiteSeoRequest.md)| The switches to change | 
+ **approvalId** | **string**| When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. | [optional] 
+
+### Return type
+
+[**SfvbSiteSeo**](SfvbSiteSeo.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **412** |  |  -  |
 | **428** |  |  -  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |

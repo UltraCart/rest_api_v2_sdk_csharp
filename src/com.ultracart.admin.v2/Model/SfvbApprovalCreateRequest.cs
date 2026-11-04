@@ -161,7 +161,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum AffiliatenetworkDelete for value: affiliate_network.delete
             /// </summary>
             [EnumMember(Value = "affiliate_network.delete")]
-            AffiliatenetworkDelete = 21
+            AffiliatenetworkDelete = 21,
+
+            /// <summary>
+            /// Enum SiteseoChange for value: site_seo.change
+            /// </summary>
+            [EnumMember(Value = "site_seo.change")]
+            SiteseoChange = 22
 
         }
 
@@ -184,9 +190,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="reason">Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters..</param>
         /// <param name="redirectRows">For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash..</param>
         /// <param name="segmentUpdate">segmentUpdate.</param>
+        /// <param name="siteSeo">siteSeo.</param>
         /// <param name="smartAttribution">smartAttribution.</param>
         /// <param name="trackingProvider">trackingProvider.</param>
-        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest))
+        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSiteSeoRequest siteSeo = default(SfvbSiteSeoRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest))
         {
             this.Action = action;
             this.AffiliateNetwork = affiliateNetwork;
@@ -198,6 +205,7 @@ namespace com.ultracart.admin.v2.Model
             this.Reason = reason;
             this.RedirectRows = redirectRows;
             this.SegmentUpdate = segmentUpdate;
+            this.SiteSeo = siteSeo;
             this.SmartAttribution = smartAttribution;
             this.TrackingProvider = trackingProvider;
         }
@@ -262,6 +270,12 @@ namespace com.ultracart.admin.v2.Model
         public SfvbCommsSegmentWriteRequest SegmentUpdate { get; set; }
 
         /// <summary>
+        /// Gets or Sets SiteSeo
+        /// </summary>
+        [DataMember(Name="site_seo", EmitDefaultValue=false)]
+        public SfvbSiteSeoRequest SiteSeo { get; set; }
+
+        /// <summary>
         /// Gets or Sets SmartAttribution
         /// </summary>
         [DataMember(Name="smart_attribution", EmitDefaultValue=false)]
@@ -291,6 +305,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  RedirectRows: ").Append(RedirectRows).Append("\n");
             sb.Append("  SegmentUpdate: ").Append(SegmentUpdate).Append("\n");
+            sb.Append("  SiteSeo: ").Append(SiteSeo).Append("\n");
             sb.Append("  SmartAttribution: ").Append(SmartAttribution).Append("\n");
             sb.Append("  TrackingProvider: ").Append(TrackingProvider).Append("\n");
             sb.Append("}\n");
@@ -380,6 +395,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SegmentUpdate.Equals(input.SegmentUpdate))
                 ) && 
                 (
+                    this.SiteSeo == input.SiteSeo ||
+                    (this.SiteSeo != null &&
+                    this.SiteSeo.Equals(input.SiteSeo))
+                ) && 
+                (
                     this.SmartAttribution == input.SmartAttribution ||
                     (this.SmartAttribution != null &&
                     this.SmartAttribution.Equals(input.SmartAttribution))
@@ -420,6 +440,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RedirectRows.GetHashCode();
                 if (this.SegmentUpdate != null)
                     hashCode = hashCode * 59 + this.SegmentUpdate.GetHashCode();
+                if (this.SiteSeo != null)
+                    hashCode = hashCode * 59 + this.SiteSeo.GetHashCode();
                 if (this.SmartAttribution != null)
                     hashCode = hashCode * 59 + this.SmartAttribution.GetHashCode();
                 if (this.TrackingProvider != null)

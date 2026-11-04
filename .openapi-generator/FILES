@@ -1140,6 +1140,7 @@ docs/SfvbNotFoundEntryResponse.md
 docs/SfvbNotFoundHit.md
 docs/SfvbNotFoundPage.md
 docs/SfvbNotFoundResponse.md
+docs/SfvbNotFoundSummary.md
 docs/SfvbPageAttribute.md
 docs/SfvbPageAttributeUpdate.md
 docs/SfvbPageAttributeUpdateRequest.md
@@ -1189,6 +1190,8 @@ docs/SfvbRedirectImportResponse.md
 docs/SfvbRedirectImportRow.md
 docs/SfvbRedirectImportRowResult.md
 docs/SfvbRedirectRequest.md
+docs/SfvbRedirectResolveBatchRequest.md
+docs/SfvbRedirectResolveBatchResponse.md
 docs/SfvbRedirectResolveResponse.md
 docs/SfvbRedirectResolveStep.md
 docs/SfvbRedirectResponse.md
@@ -1221,6 +1224,9 @@ docs/SfvbSiteAttribute.md
 docs/SfvbSiteAttributeUpdate.md
 docs/SfvbSiteAttributeUpdateRequest.md
 docs/SfvbSiteAttributesResponse.md
+docs/SfvbSiteSeo.md
+docs/SfvbSiteSeoChange.md
+docs/SfvbSiteSeoRequest.md
 docs/SfvbSitemap.md
 docs/SfvbSitemapFile.md
 docs/SfvbSitemapsResponse.md
@@ -2541,6 +2547,7 @@ src/com.ultracart.admin.v2/Model/SfvbNotFoundEntryResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbNotFoundHit.cs
 src/com.ultracart.admin.v2/Model/SfvbNotFoundPage.cs
 src/com.ultracart.admin.v2/Model/SfvbNotFoundResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbNotFoundSummary.cs
 src/com.ultracart.admin.v2/Model/SfvbPageAttribute.cs
 src/com.ultracart.admin.v2/Model/SfvbPageAttributeUpdate.cs
 src/com.ultracart.admin.v2/Model/SfvbPageAttributeUpdateRequest.cs
@@ -2590,6 +2597,8 @@ src/com.ultracart.admin.v2/Model/SfvbRedirectImportResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirectImportRow.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirectImportRowResult.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirectRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbRedirectResolveBatchRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbRedirectResolveBatchResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirectResolveResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirectResolveStep.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirectResponse.cs
@@ -2622,6 +2631,9 @@ src/com.ultracart.admin.v2/Model/SfvbSiteAttribute.cs
 src/com.ultracart.admin.v2/Model/SfvbSiteAttributeUpdate.cs
 src/com.ultracart.admin.v2/Model/SfvbSiteAttributeUpdateRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbSiteAttributesResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbSiteSeo.cs
+src/com.ultracart.admin.v2/Model/SfvbSiteSeoChange.cs
+src/com.ultracart.admin.v2/Model/SfvbSiteSeoRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbSitemap.cs
 src/com.ultracart.admin.v2/Model/SfvbSitemapFile.cs
 src/com.ultracart.admin.v2/Model/SfvbSitemapsResponse.cs

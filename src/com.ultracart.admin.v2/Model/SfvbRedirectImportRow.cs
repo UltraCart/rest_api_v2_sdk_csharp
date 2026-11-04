@@ -33,15 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbRedirectImportRow" /> class.
         /// </summary>
+        /// <param name="excludeFromSitemap">True to leave the rule&#39;s source out of the generated sitemap.  Left out means false, as in the admin..</param>
         /// <param name="note">Why the rule exists..</param>
         /// <param name="source">The path to catch..</param>
         /// <param name="target">Where to send it..</param>
-        public SfvbRedirectImportRow(string note = default(string), string source = default(string), string target = default(string))
+        public SfvbRedirectImportRow(bool excludeFromSitemap = default(bool), string note = default(string), string source = default(string), string target = default(string))
         {
+            this.ExcludeFromSitemap = excludeFromSitemap;
             this.Note = note;
             this.Source = source;
             this.Target = target;
         }
+
+        /// <summary>
+        /// True to leave the rule&#39;s source out of the generated sitemap.  Left out means false, as in the admin.
+        /// </summary>
+        /// <value>True to leave the rule&#39;s source out of the generated sitemap.  Left out means false, as in the admin.</value>
+        [DataMember(Name="exclude_from_sitemap", EmitDefaultValue=false)]
+        public bool ExcludeFromSitemap { get; set; }
 
         /// <summary>
         /// Why the rule exists.
@@ -72,6 +81,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbRedirectImportRow {\n");
+            sb.Append("  ExcludeFromSitemap: ").Append(ExcludeFromSitemap).Append("\n");
             sb.Append("  Note: ").Append(Note).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Target: ").Append(Target).Append("\n");
@@ -110,6 +120,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.ExcludeFromSitemap == input.ExcludeFromSitemap ||
+                    (this.ExcludeFromSitemap != null &&
+                    this.ExcludeFromSitemap.Equals(input.ExcludeFromSitemap))
+                ) && 
+                (
                     this.Note == input.Note ||
                     (this.Note != null &&
                     this.Note.Equals(input.Note))
@@ -135,6 +150,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ExcludeFromSitemap != null)
+                    hashCode = hashCode * 59 + this.ExcludeFromSitemap.GetHashCode();
                 if (this.Note != null)
                     hashCode = hashCode * 59 + this.Note.GetHashCode();
                 if (this.Source != null)

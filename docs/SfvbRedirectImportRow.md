@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ExcludeFromSitemap** | **bool** | True to leave the rule&#39;s source out of the generated sitemap.  Left out means false, as in the admin. | [optional] 
 **Note** | **string** | Why the rule exists. | [optional] 
 **Source** | **string** | The path to catch. | [optional] 
 **Target** | **string** | Where to send it. | [optional] 

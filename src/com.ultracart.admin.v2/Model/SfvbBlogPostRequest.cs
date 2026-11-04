@@ -69,6 +69,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="allowComments">Whether shoppers may comment.  Defaults to false on create..</param>
         /// <param name="author">The author&#39;s name as plain text, up to 100 characters, with no quotes or angle brackets..</param>
         /// <param name="body">The post body as HTML, up to 1 MB, rendered exactly as stored.  Refused with sfvb.unsafe_html if it could run script - script and other executable tags, on attributes, links that are not http, https, mailto, tel or relative, and iframes other than YouTube or Vimeo players.  Reference an attached image by the url the post&#39;s images report..</param>
+        /// <param name="dryRun">On an update, true to run every check the write would run and save nothing.  A refusal comes back exactly as it would on the real write..</param>
         /// <param name="excerpt">The post excerpt as HTML, up to 256 KB.  Held to the same rule as body..</param>
         /// <param name="publicationDts">When the post is published, as an ISO 8601 UTC time in the same form publication_dts reads back.  Refused on a draft.  A post made public without one is published now..</param>
         /// <param name="seoDescription">The meta description (storefrontSEODescription), the search result snippet.  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the site&#39;s description..</param>
@@ -78,11 +79,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="title">The post title, up to 1000 characters.  Required on create..</param>
         /// <param name="urlPart">The post&#39;s name in its URL, which is the page path followed by this and .html.  Letters, digits, hyphens and underscores, up to 150.  Must not be used by another post on the storefront, compared without regard to case, and must not be an item id or an item&#39;s url part, because the storefront checks blog posts first and the post would replace the item&#39;s page.  index and index-N are reserved.  Required on create..</param>
         /// <param name="visibility">P public, L logged in customers only, D draft.  Defaults to D on create.  Anything but D needs sfvb_publish, and so does any change to a post that is not a draft..</param>
-        public SfvbBlogPostRequest(bool allowComments = default(bool), string author = default(string), string body = default(string), string excerpt = default(string), string publicationDts = default(string), string seoDescription = default(string), string seoKeywords = default(string), string seoTitle = default(string), List<string> tags = default(List<string>), string title = default(string), string urlPart = default(string), VisibilityEnum? visibility = default(VisibilityEnum?))
+        public SfvbBlogPostRequest(bool allowComments = default(bool), string author = default(string), string body = default(string), bool dryRun = default(bool), string excerpt = default(string), string publicationDts = default(string), string seoDescription = default(string), string seoKeywords = default(string), string seoTitle = default(string), List<string> tags = default(List<string>), string title = default(string), string urlPart = default(string), VisibilityEnum? visibility = default(VisibilityEnum?))
         {
             this.AllowComments = allowComments;
             this.Author = author;
             this.Body = body;
+            this.DryRun = dryRun;
             this.Excerpt = excerpt;
             this.PublicationDts = publicationDts;
             this.SeoDescription = seoDescription;
@@ -114,6 +116,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The post body as HTML, up to 1 MB, rendered exactly as stored.  Refused with sfvb.unsafe_html if it could run script - script and other executable tags, on attributes, links that are not http, https, mailto, tel or relative, and iframes other than YouTube or Vimeo players.  Reference an attached image by the url the post&#39;s images report.</value>
         [DataMember(Name="body", EmitDefaultValue=false)]
         public string Body { get; set; }
+
+        /// <summary>
+        /// On an update, true to run every check the write would run and save nothing.  A refusal comes back exactly as it would on the real write.
+        /// </summary>
+        /// <value>On an update, true to run every check the write would run and save nothing.  A refusal comes back exactly as it would on the real write.</value>
+        [DataMember(Name="dry_run", EmitDefaultValue=false)]
+        public bool DryRun { get; set; }
 
         /// <summary>
         /// The post excerpt as HTML, up to 256 KB.  Held to the same rule as body.
@@ -183,6 +192,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AllowComments: ").Append(AllowComments).Append("\n");
             sb.Append("  Author: ").Append(Author).Append("\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
+            sb.Append("  DryRun: ").Append(DryRun).Append("\n");
             sb.Append("  Excerpt: ").Append(Excerpt).Append("\n");
             sb.Append("  PublicationDts: ").Append(PublicationDts).Append("\n");
             sb.Append("  SeoDescription: ").Append(SeoDescription).Append("\n");
@@ -240,6 +250,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Body == input.Body ||
                     (this.Body != null &&
                     this.Body.Equals(input.Body))
+                ) && 
+                (
+                    this.DryRun == input.DryRun ||
+                    (this.DryRun != null &&
+                    this.DryRun.Equals(input.DryRun))
                 ) && 
                 (
                     this.Excerpt == input.Excerpt ||
@@ -304,6 +319,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Author.GetHashCode();
                 if (this.Body != null)
                     hashCode = hashCode * 59 + this.Body.GetHashCode();
+                if (this.DryRun != null)
+                    hashCode = hashCode * 59 + this.DryRun.GetHashCode();
                 if (this.Excerpt != null)
                     hashCode = hashCode * 59 + this.Excerpt.GetHashCode();
                 if (this.PublicationDts != null)

@@ -2538,6 +2538,37 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbSequence</returns>
         ApiResponse<SfvbSequence> GetSfvbSequenceWithHttpInfo (int storefrontOid, string sequenceUuid, bool? waiting = default(bool?));
         /// <summary>
+        /// Read a flow or campaign step's dispatch log and counts
+        /// </summary>
+        /// <remarks>
+        /// Why customers were sent, skipped or ended at this step, newest first, as the admin's Dispatch Logs screen shows it, with the step's counts.  An email step's counts are its email's; any other step's are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <returns>SfvbStepDispatchLogsResponse</returns>
+        SfvbStepDispatchLogsResponse GetSfvbSequenceStepDispatchLogs (int storefrontOid, string sequenceUuid, string stepUuid, string since = default(string), int? limit = default(int?), int? offset = default(int?));
+
+        /// <summary>
+        /// Read a flow or campaign step's dispatch log and counts
+        /// </summary>
+        /// <remarks>
+        /// Why customers were sent, skipped or ended at this step, newest first, as the admin's Dispatch Logs screen shows it, with the step's counts.  An email step's counts are its email's; any other step's are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <returns>ApiResponse of SfvbStepDispatchLogsResponse</returns>
+        ApiResponse<SfvbStepDispatchLogsResponse> GetSfvbSequenceStepDispatchLogsWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string since = default(string), int? limit = default(int?), int? offset = default(int?));
+        /// <summary>
         /// Get one storefront render log
         /// </summary>
         /// <remarks>
@@ -8560,6 +8591,39 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbSequence)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbSequence>> GetSfvbSequenceWithHttpInfoAsync (int storefrontOid, string sequenceUuid, bool? waiting = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read a flow or campaign step's dispatch log and counts
+        /// </summary>
+        /// <remarks>
+        /// Why customers were sent, skipped or ended at this step, newest first, as the admin's Dispatch Logs screen shows it, with the step's counts.  An email step's counts are its email's; any other step's are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbStepDispatchLogsResponse</returns>
+        System.Threading.Tasks.Task<SfvbStepDispatchLogsResponse> GetSfvbSequenceStepDispatchLogsAsync (int storefrontOid, string sequenceUuid, string stepUuid, string since = default(string), int? limit = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a flow or campaign step&#39;s dispatch log and counts
+        /// </summary>
+        /// <remarks>
+        /// Why customers were sent, skipped or ended at this step, newest first, as the admin's Dispatch Logs screen shows it, with the step's counts.  An email step's counts are its email's; any other step's are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbStepDispatchLogsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbStepDispatchLogsResponse>> GetSfvbSequenceStepDispatchLogsWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string since = default(string), int? limit = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get one storefront render log
         /// </summary>
@@ -30588,6 +30652,205 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbSequence>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbSequence) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSequence)));
+        }
+
+        /// <summary>
+        /// Read a flow or campaign step's dispatch log and counts Why customers were sent, skipped or ended at this step, newest first, as the admin's Dispatch Logs screen shows it, with the step's counts.  An email step's counts are its email's; any other step's are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <returns>SfvbStepDispatchLogsResponse</returns>
+        public SfvbStepDispatchLogsResponse GetSfvbSequenceStepDispatchLogs (int storefrontOid, string sequenceUuid, string stepUuid, string since = default(string), int? limit = default(int?), int? offset = default(int?))
+        {
+             ApiResponse<SfvbStepDispatchLogsResponse> localVarResponse = GetSfvbSequenceStepDispatchLogsWithHttpInfo(storefrontOid, sequenceUuid, stepUuid, since, limit, offset);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read a flow or campaign step's dispatch log and counts Why customers were sent, skipped or ended at this step, newest first, as the admin's Dispatch Logs screen shows it, with the step's counts.  An email step's counts are its email's; any other step's are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <returns>ApiResponse of SfvbStepDispatchLogsResponse</returns>
+        public ApiResponse<SfvbStepDispatchLogsResponse> GetSfvbSequenceStepDispatchLogsWithHttpInfo (int storefrontOid, string sequenceUuid, string stepUuid, string since = default(string), int? limit = default(int?), int? offset = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbSequenceStepDispatchLogs");
+            // verify the required parameter 'sequenceUuid' is set
+            if (sequenceUuid == null)
+                throw new ApiException(400, "Missing required parameter 'sequenceUuid' when calling SfvbApi->GetSfvbSequenceStepDispatchLogs");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->GetSfvbSequenceStepDispatchLogs");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (sequenceUuid != null) localVarPathParams.Add("sequence_uuid", this.Configuration.ApiClient.ParameterToString(sequenceUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbSequenceStepDispatchLogs", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbStepDispatchLogsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbStepDispatchLogsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbStepDispatchLogsResponse)));
+        }
+
+        /// <summary>
+        /// Read a flow or campaign step's dispatch log and counts Why customers were sent, skipped or ended at this step, newest first, as the admin's Dispatch Logs screen shows it, with the step's counts.  An email step's counts are its email's; any other step's are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbStepDispatchLogsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbStepDispatchLogsResponse> GetSfvbSequenceStepDispatchLogsAsync (int storefrontOid, string sequenceUuid, string stepUuid, string since = default(string), int? limit = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbStepDispatchLogsResponse> localVarResponse = await GetSfvbSequenceStepDispatchLogsWithHttpInfoAsync(storefrontOid, sequenceUuid, stepUuid, since, limit, offset, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read a flow or campaign step's dispatch log and counts Why customers were sent, skipped or ended at this step, newest first, as the admin's Dispatch Logs screen shows it, with the step's counts.  An email step's counts are its email's; any other step's are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="sequenceUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="since"> (optional)</param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="offset"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbStepDispatchLogsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbStepDispatchLogsResponse>> GetSfvbSequenceStepDispatchLogsWithHttpInfoAsync (int storefrontOid, string sequenceUuid, string stepUuid, string since = default(string), int? limit = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbSequenceStepDispatchLogs");
+            // verify the required parameter 'sequenceUuid' is set
+            if (sequenceUuid == null)
+                throw new ApiException(400, "Missing required parameter 'sequenceUuid' when calling SfvbApi->GetSfvbSequenceStepDispatchLogs");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->GetSfvbSequenceStepDispatchLogs");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (sequenceUuid != null) localVarPathParams.Add("sequence_uuid", this.Configuration.ApiClient.ParameterToString(sequenceUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbSequenceStepDispatchLogs", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbStepDispatchLogsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbStepDispatchLogsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbStepDispatchLogsResponse)));
         }
 
         /// <summary>

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **BlogPostOid** | **int** | The blog post&#39;s oid.  This is what a page&#39;s blog post assignment names. | [optional] 
 **Body** | **string** | The post body as HTML, exactly as stored. | [optional] 
 **CreatedDts** | **string** | When the post was created (ISO 8601, UTC). | [optional] 
+**DryRun** | **bool** | True when this is the result of a dry run and nothing was saved.  The post is shown as it is stored. | [optional] 
 **Excerpt** | **string** | The post excerpt as HTML, exactly as stored. | [optional] 
 **Images** | [**List&lt;SfvbBlogPostImage&gt;**](SfvbBlogPostImage.md) | The post&#39;s images, the default image first. | [optional] 
 **LastModifiedDts** | **string** | When the post was last changed (ISO 8601, UTC), or null if it never was. | [optional] 

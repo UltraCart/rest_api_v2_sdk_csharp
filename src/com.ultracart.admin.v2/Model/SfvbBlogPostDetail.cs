@@ -38,6 +38,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="blogPostOid">The blog post&#39;s oid.  This is what a page&#39;s blog post assignment names..</param>
         /// <param name="body">The post body as HTML, exactly as stored..</param>
         /// <param name="createdDts">When the post was created (ISO 8601, UTC)..</param>
+        /// <param name="dryRun">True when this is the result of a dry run and nothing was saved.  The post is shown as it is stored..</param>
         /// <param name="excerpt">The post excerpt as HTML, exactly as stored..</param>
         /// <param name="images">The post&#39;s images, the default image first..</param>
         /// <param name="lastModifiedDts">When the post was last changed (ISO 8601, UTC), or null if it never was..</param>
@@ -51,13 +52,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="urlPart">The post&#39;s name in its URL..</param>
         /// <param name="viewUrl">The post&#39;s address on the storefront, or null until a page shows it..</param>
         /// <param name="visibility">P public, L logged in customers only, D draft..</param>
-        public SfvbBlogPostDetail(bool allowComments = default(bool), string author = default(string), int blogPostOid = default(int), string body = default(string), string createdDts = default(string), string excerpt = default(string), List<SfvbBlogPostImage> images = default(List<SfvbBlogPostImage>), string lastModifiedDts = default(string), string publicationDts = default(string), string seoDescription = default(string), string seoKeywords = default(string), string seoTitle = default(string), List<string> tags = default(List<string>), string title = default(string), bool unassigned = default(bool), string urlPart = default(string), string viewUrl = default(string), string visibility = default(string))
+        public SfvbBlogPostDetail(bool allowComments = default(bool), string author = default(string), int blogPostOid = default(int), string body = default(string), string createdDts = default(string), bool dryRun = default(bool), string excerpt = default(string), List<SfvbBlogPostImage> images = default(List<SfvbBlogPostImage>), string lastModifiedDts = default(string), string publicationDts = default(string), string seoDescription = default(string), string seoKeywords = default(string), string seoTitle = default(string), List<string> tags = default(List<string>), string title = default(string), bool unassigned = default(bool), string urlPart = default(string), string viewUrl = default(string), string visibility = default(string))
         {
             this.AllowComments = allowComments;
             this.Author = author;
             this.BlogPostOid = blogPostOid;
             this.Body = body;
             this.CreatedDts = createdDts;
+            this.DryRun = dryRun;
             this.Excerpt = excerpt;
             this.Images = images;
             this.LastModifiedDts = lastModifiedDts;
@@ -107,6 +109,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>When the post was created (ISO 8601, UTC).</value>
         [DataMember(Name="created_dts", EmitDefaultValue=false)]
         public string CreatedDts { get; set; }
+
+        /// <summary>
+        /// True when this is the result of a dry run and nothing was saved.  The post is shown as it is stored.
+        /// </summary>
+        /// <value>True when this is the result of a dry run and nothing was saved.  The post is shown as it is stored.</value>
+        [DataMember(Name="dry_run", EmitDefaultValue=false)]
+        public bool DryRun { get; set; }
 
         /// <summary>
         /// The post excerpt as HTML, exactly as stored.
@@ -212,6 +221,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  BlogPostOid: ").Append(BlogPostOid).Append("\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
+            sb.Append("  DryRun: ").Append(DryRun).Append("\n");
             sb.Append("  Excerpt: ").Append(Excerpt).Append("\n");
             sb.Append("  Images: ").Append(Images).Append("\n");
             sb.Append("  LastModifiedDts: ").Append(LastModifiedDts).Append("\n");
@@ -283,6 +293,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CreatedDts == input.CreatedDts ||
                     (this.CreatedDts != null &&
                     this.CreatedDts.Equals(input.CreatedDts))
+                ) && 
+                (
+                    this.DryRun == input.DryRun ||
+                    (this.DryRun != null &&
+                    this.DryRun.Equals(input.DryRun))
                 ) && 
                 (
                     this.Excerpt == input.Excerpt ||
@@ -372,6 +387,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Body.GetHashCode();
                 if (this.CreatedDts != null)
                     hashCode = hashCode * 59 + this.CreatedDts.GetHashCode();
+                if (this.DryRun != null)
+                    hashCode = hashCode * 59 + this.DryRun.GetHashCode();
                 if (this.Excerpt != null)
                     hashCode = hashCode * 59 + this.Excerpt.GetHashCode();
                 if (this.Images != null)

@@ -1195,6 +1195,7 @@ docs/SfvbRedirectResponse.md
 docs/SfvbRedirectsResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
+docs/SfvbRobotsTxt.md
 docs/SfvbSecretHandle.md
 docs/SfvbSecretKind.md
 docs/SfvbSecretKindsResponse.md
@@ -1220,6 +1221,9 @@ docs/SfvbSiteAttribute.md
 docs/SfvbSiteAttributeUpdate.md
 docs/SfvbSiteAttributeUpdateRequest.md
 docs/SfvbSiteAttributesResponse.md
+docs/SfvbSitemap.md
+docs/SfvbSitemapFile.md
+docs/SfvbSitemapsResponse.md
 docs/SfvbSmartAttribution.md
 docs/SfvbSmartAttributionPlatform.md
 docs/SfvbSmartAttributionRequest.md
@@ -2589,6 +2593,7 @@ src/com.ultracart.admin.v2/Model/SfvbRedirectResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbRedirectsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbRenderRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbRenderResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbRobotsTxt.cs
 src/com.ultracart.admin.v2/Model/SfvbSecretHandle.cs
 src/com.ultracart.admin.v2/Model/SfvbSecretKind.cs
 src/com.ultracart.admin.v2/Model/SfvbSecretKindsResponse.cs
@@ -2614,6 +2619,9 @@ src/com.ultracart.admin.v2/Model/SfvbSiteAttribute.cs
 src/com.ultracart.admin.v2/Model/SfvbSiteAttributeUpdate.cs
 src/com.ultracart.admin.v2/Model/SfvbSiteAttributeUpdateRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbSiteAttributesResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbSitemap.cs
+src/com.ultracart.admin.v2/Model/SfvbSitemapFile.cs
+src/com.ultracart.admin.v2/Model/SfvbSitemapsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbSmartAttribution.cs
 src/com.ultracart.admin.v2/Model/SfvbSmartAttributionPlatform.cs
 src/com.ultracart.admin.v2/Model/SfvbSmartAttributionRequest.cs

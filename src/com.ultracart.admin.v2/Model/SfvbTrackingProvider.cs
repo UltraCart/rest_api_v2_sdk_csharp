@@ -34,6 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbTrackingProvider" /> class.
         /// </summary>
         /// <param name="adminPath">Where the provider is in the admin..</param>
+        /// <param name="approvalNeeded">On a dry run, whether the real write needs an approved tracking_provider.change request..</param>
         /// <param name="changes">On a write, each setting it changed, or would change on a dry run.  Secrets read only set or cleared..</param>
         /// <param name="configured">True when the provider is on, which means one of its identifying fields is set..</param>
         /// <param name="consent">consent.</param>
@@ -49,9 +50,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="notes">Anything the write left for a person to do, such as disconnecting an OAuth connection in the admin..</param>
         /// <param name="oauth">oauth.</param>
         /// <param name="wholesaleTiers">For google_analytics, the account number per wholesale pricing tier..</param>
-        public SfvbTrackingProvider(string adminPath = default(string), List<SfvbTrackingChange> changes = default(List<SfvbTrackingChange>), bool configured = default(bool), SfvbTrackingProviderConsent consent = default(SfvbTrackingProviderConsent), bool consentSupported = default(bool), string cost = default(string), bool dryRun = default(bool), List<SfvbTrackingProviderEvent> events = default(List<SfvbTrackingProviderEvent>), List<SfvbTrackingProviderField> fields = default(List<SfvbTrackingProviderField>), string group = default(string), string hashSha256 = default(string), string key = default(string), string name = default(string), List<string> notes = default(List<string>), SfvbTrackingProviderOauth oauth = default(SfvbTrackingProviderOauth), List<SfvbTrackingWholesaleTier> wholesaleTiers = default(List<SfvbTrackingWholesaleTier>))
+        public SfvbTrackingProvider(string adminPath = default(string), bool approvalNeeded = default(bool), List<SfvbTrackingChange> changes = default(List<SfvbTrackingChange>), bool configured = default(bool), SfvbTrackingProviderConsent consent = default(SfvbTrackingProviderConsent), bool consentSupported = default(bool), string cost = default(string), bool dryRun = default(bool), List<SfvbTrackingProviderEvent> events = default(List<SfvbTrackingProviderEvent>), List<SfvbTrackingProviderField> fields = default(List<SfvbTrackingProviderField>), string group = default(string), string hashSha256 = default(string), string key = default(string), string name = default(string), List<string> notes = default(List<string>), SfvbTrackingProviderOauth oauth = default(SfvbTrackingProviderOauth), List<SfvbTrackingWholesaleTier> wholesaleTiers = default(List<SfvbTrackingWholesaleTier>))
         {
             this.AdminPath = adminPath;
+            this.ApprovalNeeded = approvalNeeded;
             this.Changes = changes;
             this.Configured = configured;
             this.Consent = consent;
@@ -75,6 +77,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Where the provider is in the admin.</value>
         [DataMember(Name="admin_path", EmitDefaultValue=false)]
         public string AdminPath { get; set; }
+
+        /// <summary>
+        /// On a dry run, whether the real write needs an approved tracking_provider.change request.
+        /// </summary>
+        /// <value>On a dry run, whether the real write needs an approved tracking_provider.change request.</value>
+        [DataMember(Name="approval_needed", EmitDefaultValue=false)]
+        public bool ApprovalNeeded { get; set; }
 
         /// <summary>
         /// On a write, each setting it changed, or would change on a dry run.  Secrets read only set or cleared.
@@ -188,6 +197,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class SfvbTrackingProvider {\n");
             sb.Append("  AdminPath: ").Append(AdminPath).Append("\n");
+            sb.Append("  ApprovalNeeded: ").Append(ApprovalNeeded).Append("\n");
             sb.Append("  Changes: ").Append(Changes).Append("\n");
             sb.Append("  Configured: ").Append(Configured).Append("\n");
             sb.Append("  Consent: ").Append(Consent).Append("\n");
@@ -241,6 +251,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AdminPath == input.AdminPath ||
                     (this.AdminPath != null &&
                     this.AdminPath.Equals(input.AdminPath))
+                ) && 
+                (
+                    this.ApprovalNeeded == input.ApprovalNeeded ||
+                    (this.ApprovalNeeded != null &&
+                    this.ApprovalNeeded.Equals(input.ApprovalNeeded))
                 ) && 
                 (
                     this.Changes == input.Changes ||
@@ -335,6 +350,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AdminPath != null)
                     hashCode = hashCode * 59 + this.AdminPath.GetHashCode();
+                if (this.ApprovalNeeded != null)
+                    hashCode = hashCode * 59 + this.ApprovalNeeded.GetHashCode();
                 if (this.Changes != null)
                     hashCode = hashCode * 59 + this.Changes.GetHashCode();
                 if (this.Configured != null)

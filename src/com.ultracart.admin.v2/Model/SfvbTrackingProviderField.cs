@@ -44,9 +44,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="set">For a secret, true when one is stored..</param>
         /// <param name="sink">For a writable secret, the sink a secret request names, with this storefront_oid as its target..</param>
         /// <param name="type">id, id_list, token, url, server_url, host, host_list, bool, select, number, numeric_id or secret.  It decides what a write accepts..</param>
+        /// <param name="unavailableReason">Present only when this storefront can&#39;t turn the field on, and why.  Turning it off still works..</param>
         /// <param name="value">The stored value.  Booleans are true or false.  Null when blank.  Never present for a secret..</param>
         /// <param name="writable">False for a field the API reports but does not change..</param>
-        public SfvbTrackingProviderField(List<string> allowed = default(List<string>), string key = default(string), string label = default(string), string mask = default(string), int max = default(int), int maxValue = default(int), int minValue = default(int), bool secret = default(bool), bool set = default(bool), string sink = default(string), string type = default(string), string value = default(string), bool writable = default(bool))
+        public SfvbTrackingProviderField(List<string> allowed = default(List<string>), string key = default(string), string label = default(string), string mask = default(string), int max = default(int), int maxValue = default(int), int minValue = default(int), bool secret = default(bool), bool set = default(bool), string sink = default(string), string type = default(string), string unavailableReason = default(string), string value = default(string), bool writable = default(bool))
         {
             this.Allowed = allowed;
             this.Key = key;
@@ -59,6 +60,7 @@ namespace com.ultracart.admin.v2.Model
             this.Set = set;
             this.Sink = sink;
             this.Type = type;
+            this.UnavailableReason = unavailableReason;
             this.Value = value;
             this.Writable = writable;
         }
@@ -141,6 +143,13 @@ namespace com.ultracart.admin.v2.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// Present only when this storefront can&#39;t turn the field on, and why.  Turning it off still works.
+        /// </summary>
+        /// <value>Present only when this storefront can&#39;t turn the field on, and why.  Turning it off still works.</value>
+        [DataMember(Name="unavailable_reason", EmitDefaultValue=false)]
+        public string UnavailableReason { get; set; }
+
+        /// <summary>
         /// The stored value.  Booleans are true or false.  Null when blank.  Never present for a secret.
         /// </summary>
         /// <value>The stored value.  Booleans are true or false.  Null when blank.  Never present for a secret.</value>
@@ -173,6 +182,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Set: ").Append(Set).Append("\n");
             sb.Append("  Sink: ").Append(Sink).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  UnavailableReason: ").Append(UnavailableReason).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Writable: ").Append(Writable).Append("\n");
             sb.Append("}\n");
@@ -266,6 +276,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.UnavailableReason == input.UnavailableReason ||
+                    (this.UnavailableReason != null &&
+                    this.UnavailableReason.Equals(input.UnavailableReason))
+                ) && 
+                (
                     this.Value == input.Value ||
                     (this.Value != null &&
                     this.Value.Equals(input.Value))
@@ -308,6 +323,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Sink.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.UnavailableReason != null)
+                    hashCode = hashCode * 59 + this.UnavailableReason.GetHashCode();
                 if (this.Value != null)
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.Writable != null)

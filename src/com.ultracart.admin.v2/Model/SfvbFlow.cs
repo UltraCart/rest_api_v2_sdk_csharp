@@ -51,12 +51,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="sendingDomainUuid">The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain..</param>
         /// <param name="sendingName">The from name.  Defaults to the storefront&#39;s marketing setting..</param>
         /// <param name="sendingUser">The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting..</param>
+        /// <param name="smsPhoneNumber">The number this flow&#39;s SMS steps send from.  Without one, every SMS step skips every customer, whatever the account&#39;s SMS settings say..</param>
         /// <param name="status">The status, such as draft, active, paused, draining or inactive..</param>
         /// <param name="statusDts">When the status last changed (ISO 8601, UTC)..</param>
         /// <param name="triggerParameter">The list or segment uuid, or other value, the trigger is limited to..</param>
         /// <param name="triggerParameterName">The name of the trigger parameter, when the trigger takes one..</param>
         /// <param name="triggerType">What starts the flow, such as cart abandon or an order..</param>
-        public SfvbFlow(bool allowMultipleConcurrentEnrollments = default(bool), string communicationSequenceUuid = default(string), string createdDts = default(string), bool deleted = default(bool), List<SfvbCommsEmail> emails = default(List<SfvbCommsEmail>), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string flowUuid = default(string), string hashSha256 = default(string), bool live = default(bool), string name = default(string), List<string> notes = default(List<string>), List<SfvbCommsPostcard> postcards = default(List<SfvbCommsPostcard>), int reentryDelayDays = default(int), string reentryPolicy = default(string), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string), string status = default(string), string statusDts = default(string), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
+        public SfvbFlow(bool allowMultipleConcurrentEnrollments = default(bool), string communicationSequenceUuid = default(string), string createdDts = default(string), bool deleted = default(bool), List<SfvbCommsEmail> emails = default(List<SfvbCommsEmail>), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string flowUuid = default(string), string hashSha256 = default(string), bool live = default(bool), string name = default(string), List<string> notes = default(List<string>), List<SfvbCommsPostcard> postcards = default(List<SfvbCommsPostcard>), int reentryDelayDays = default(int), string reentryPolicy = default(string), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string), string smsPhoneNumber = default(string), string status = default(string), string statusDts = default(string), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
         {
             this.AllowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
             this.CommunicationSequenceUuid = communicationSequenceUuid;
@@ -76,6 +77,7 @@ namespace com.ultracart.admin.v2.Model
             this.SendingDomainUuid = sendingDomainUuid;
             this.SendingName = sendingName;
             this.SendingUser = sendingUser;
+            this.SmsPhoneNumber = smsPhoneNumber;
             this.Status = status;
             this.StatusDts = statusDts;
             this.TriggerParameter = triggerParameter;
@@ -210,6 +212,13 @@ namespace com.ultracart.admin.v2.Model
         public string SendingUser { get; set; }
 
         /// <summary>
+        /// The number this flow&#39;s SMS steps send from.  Without one, every SMS step skips every customer, whatever the account&#39;s SMS settings say.
+        /// </summary>
+        /// <value>The number this flow&#39;s SMS steps send from.  Without one, every SMS step skips every customer, whatever the account&#39;s SMS settings say.</value>
+        [DataMember(Name="sms_phone_number", EmitDefaultValue=false)]
+        public string SmsPhoneNumber { get; set; }
+
+        /// <summary>
         /// The status, such as draft, active, paused, draining or inactive.
         /// </summary>
         /// <value>The status, such as draft, active, paused, draining or inactive.</value>
@@ -270,6 +279,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  SendingDomainUuid: ").Append(SendingDomainUuid).Append("\n");
             sb.Append("  SendingName: ").Append(SendingName).Append("\n");
             sb.Append("  SendingUser: ").Append(SendingUser).Append("\n");
+            sb.Append("  SmsPhoneNumber: ").Append(SmsPhoneNumber).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusDts: ").Append(StatusDts).Append("\n");
             sb.Append("  TriggerParameter: ").Append(TriggerParameter).Append("\n");
@@ -403,6 +413,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SendingUser.Equals(input.SendingUser))
                 ) && 
                 (
+                    this.SmsPhoneNumber == input.SmsPhoneNumber ||
+                    (this.SmsPhoneNumber != null &&
+                    this.SmsPhoneNumber.Equals(input.SmsPhoneNumber))
+                ) && 
+                (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
@@ -474,6 +489,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SendingName.GetHashCode();
                 if (this.SendingUser != null)
                     hashCode = hashCode * 59 + this.SendingUser.GetHashCode();
+                if (this.SmsPhoneNumber != null)
+                    hashCode = hashCode * 59 + this.SmsPhoneNumber.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.StatusDts != null)

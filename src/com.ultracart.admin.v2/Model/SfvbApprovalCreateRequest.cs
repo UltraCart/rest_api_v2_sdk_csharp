@@ -167,7 +167,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum SiteseoChange for value: site_seo.change
             /// </summary>
             [EnumMember(Value = "site_seo.change")]
-            SiteseoChange = 22
+            SiteseoChange = 22,
+
+            /// <summary>
+            /// Enum TransactionalemailUpdate for value: transactional_email.update
+            /// </summary>
+            [EnumMember(Value = "transactional_email.update")]
+            TransactionalemailUpdate = 23
 
         }
 
@@ -193,7 +199,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="siteSeo">siteSeo.</param>
         /// <param name="smartAttribution">smartAttribution.</param>
         /// <param name="trackingProvider">trackingProvider.</param>
-        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSiteSeoRequest siteSeo = default(SfvbSiteSeoRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest))
+        /// <param name="transactionalEmail">transactionalEmail.</param>
+        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSiteSeoRequest siteSeo = default(SfvbSiteSeoRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest), SfvbTransactionalEmailUpdateRequest transactionalEmail = default(SfvbTransactionalEmailUpdateRequest))
         {
             this.Action = action;
             this.AffiliateNetwork = affiliateNetwork;
@@ -208,6 +215,7 @@ namespace com.ultracart.admin.v2.Model
             this.SiteSeo = siteSeo;
             this.SmartAttribution = smartAttribution;
             this.TrackingProvider = trackingProvider;
+            this.TransactionalEmail = transactionalEmail;
         }
 
 
@@ -288,6 +296,12 @@ namespace com.ultracart.admin.v2.Model
         public SfvbTrackingProviderRequest TrackingProvider { get; set; }
 
         /// <summary>
+        /// Gets or Sets TransactionalEmail
+        /// </summary>
+        [DataMember(Name="transactional_email", EmitDefaultValue=false)]
+        public SfvbTransactionalEmailUpdateRequest TransactionalEmail { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -308,6 +322,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  SiteSeo: ").Append(SiteSeo).Append("\n");
             sb.Append("  SmartAttribution: ").Append(SmartAttribution).Append("\n");
             sb.Append("  TrackingProvider: ").Append(TrackingProvider).Append("\n");
+            sb.Append("  TransactionalEmail: ").Append(TransactionalEmail).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -408,6 +423,11 @@ namespace com.ultracart.admin.v2.Model
                     this.TrackingProvider == input.TrackingProvider ||
                     (this.TrackingProvider != null &&
                     this.TrackingProvider.Equals(input.TrackingProvider))
+                ) && 
+                (
+                    this.TransactionalEmail == input.TransactionalEmail ||
+                    (this.TransactionalEmail != null &&
+                    this.TransactionalEmail.Equals(input.TransactionalEmail))
                 );
         }
 
@@ -446,6 +466,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SmartAttribution.GetHashCode();
                 if (this.TrackingProvider != null)
                     hashCode = hashCode * 59 + this.TrackingProvider.GetHashCode();
+                if (this.TransactionalEmail != null)
+                    hashCode = hashCode * 59 + this.TransactionalEmail.GetHashCode();
                 return hashCode;
             }
         }

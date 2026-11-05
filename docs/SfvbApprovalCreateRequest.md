@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **SiteSeo** | [**SfvbSiteSeoRequest**](SfvbSiteSeoRequest.md) |  | [optional] 
 **SmartAttribution** | [**SfvbSmartAttributionRequest**](SfvbSmartAttributionRequest.md) |  | [optional] 
 **TrackingProvider** | [**SfvbTrackingProviderRequest**](SfvbTrackingProviderRequest.md) |  | [optional] 
+**TransactionalEmail** | [**SfvbTransactionalEmailUpdateRequest**](SfvbTransactionalEmailUpdateRequest.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

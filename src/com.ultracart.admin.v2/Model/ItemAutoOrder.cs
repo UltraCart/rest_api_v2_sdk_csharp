@@ -44,7 +44,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="autoOrderCancelMinimumRebillValue">The minimum rebill value that must be paid in order to not be charged the cancellation item..</param>
         /// <param name="autoOrderDowngradeItems">List of downgrade items presented to customer service representatives.</param>
         /// <param name="autoOrderMyaccountFrequencyDayCounts">Day counts (1 to 365, at most 20) a customer may switch this auto-enrolled item to from MyAccount, for example [30, 60, 90].  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear..</param>
-        /// <param name="autoOrderMyaccountFrequencyLastStepOnly">True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged..</param>
+        /// <param name="autoOrderMyaccountFrequencyLastStepOnly">True if the MyAccount frequency change is only offered once the item is on its last auto order step.  If auto_order_myaccount_frequency_schedules or auto_order_myaccount_frequency_day_counts is sent without this property, it is set to false; if none of the three are sent, it is left unchanged..</param>
         /// <param name="autoOrderMyaccountFrequencySchedules">Standard schedules a customer may switch this auto-enrolled item to from MyAccount.  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear..</param>
         /// <param name="autoOrderPaused">True if the rebill processing of this item is paused.</param>
         /// <param name="autoOrderProhibitExpiringCards">Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable..</param>
@@ -165,9 +165,9 @@ namespace com.ultracart.admin.v2.Model
         public List<int> AutoOrderMyaccountFrequencyDayCounts { get; set; }
 
         /// <summary>
-        /// True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged.
+        /// True if the MyAccount frequency change is only offered once the item is on its last auto order step.  If auto_order_myaccount_frequency_schedules or auto_order_myaccount_frequency_day_counts is sent without this property, it is set to false; if none of the three are sent, it is left unchanged.
         /// </summary>
-        /// <value>True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged.</value>
+        /// <value>True if the MyAccount frequency change is only offered once the item is on its last auto order step.  If auto_order_myaccount_frequency_schedules or auto_order_myaccount_frequency_day_counts is sent without this property, it is set to false; if none of the three are sent, it is left unchanged.</value>
         [DataMember(Name="auto_order_myaccount_frequency_last_step_only", EmitDefaultValue=false)]
         public bool AutoOrderMyaccountFrequencyLastStepOnly { get; set; }
 

@@ -73,7 +73,9 @@ Method | HTTP request | Description
 [**GetSfvbCommsFolder**](SfvbApi.md#getsfvbcommsfolder) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid} | Read one list and segment folder
 [**GetSfvbCommsFolders**](SfvbApi.md#getsfvbcommsfolders) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders | List the list and segment folders
 [**GetSfvbCommsList**](SfvbApi.md#getsfvbcommslist) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Read one email list
+[**GetSfvbCommsListMembers**](SfvbApi.md#getsfvbcommslistmembers) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/members | Read one page of a list&#39;s members
 [**GetSfvbCommsSegment**](SfvbApi.md#getsfvbcommssegment) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Read one segment, with its rule
+[**GetSfvbCommsSegmentMembers**](SfvbApi.md#getsfvbcommssegmentmembers) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/members | Read one page of a segment&#39;s members
 [**GetSfvbCommsSendingDomain**](SfvbApi.md#getsfvbcommssendingdomain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain
 [**GetSfvbCommsSendingDomains**](SfvbApi.md#getsfvbcommssendingdomains) | **GET** /sfvb/comms/sending_domains | List the sending domains
 [**GetSfvbCommsTwilioAccount**](SfvbApi.md#getsfvbcommstwilioaccount) | **GET** /sfvb/comms/twilio_account | Read the Twilio account
@@ -110,6 +112,7 @@ Method | HTTP request | Description
 [**GetSfvbPageBlogPosts**](SfvbApi.md#getsfvbpageblogposts) | **GET** /sfvb/storefronts/{storefront_oid}/pages/blog_posts | Read the blog posts assigned to a page
 [**GetSfvbPageItems**](SfvbApi.md#getsfvbpageitems) | **GET** /sfvb/storefronts/{storefront_oid}/pages/items | Read the items assigned to a page
 [**GetSfvbPageSelectors**](SfvbApi.md#getsfvbpageselectors) | **GET** /sfvb/storefronts/{storefront_oid}/pages/selectors | Read a page&#39;s selectors
+[**GetSfvbPostcardTracking**](SfvbApi.md#getsfvbpostcardtracking) | **GET** /sfvb/storefronts/{storefront_oid}/postcards/{postcard_uuid}/tracking | Read one page of the cards mailed for a postcard
 [**GetSfvbPreviewUrl**](SfvbApi.md#getsfvbpreviewurl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
 [**GetSfvbRecording**](SfvbApi.md#getsfvbrecording) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid} | Get a screen recording
 [**GetSfvbRecordingPageViewEvents**](SfvbApi.md#getsfvbrecordingpageviewevents) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}/page_views/{screen_recording_page_view_uuid}/events | Get one recorded page view&#39;s replay events
@@ -135,6 +138,7 @@ Method | HTTP request | Description
 [**GetSfvbTrackingProvider**](SfvbApi.md#getsfvbtrackingprovider) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider} | Read one tracking provider
 [**GetSfvbTrackingProviders**](SfvbApi.md#getsfvbtrackingproviders) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/providers | List a storefront&#39;s tracking providers
 [**GetSfvbTrackingSettings**](SfvbApi.md#getsfvbtrackingsettings) | **GET** /sfvb/storefronts/{storefront_oid}/tracking | Read a storefront&#39;s privacy rules and advanced conversion settings
+[**GetSfvbTransactionalEmail**](SfvbApi.md#getsfvbtransactionalemail) | **GET** /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name} | Read a transactional email&#39;s subject, delivery options and sender
 [**GetSfvbTransactionalEmails**](SfvbApi.md#getsfvbtransactionalemails) | **GET** /sfvb/storefronts/{storefront_oid}/transactional_emails | List the transactional emails a storefront sends
 [**GetSfvbUpsellOffer**](SfvbApi.md#getsfvbupselloffer) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Get an upsell offer
 [**GetSfvbUpsellPath**](SfvbApi.md#getsfvbupsellpath) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Get an upsell path
@@ -253,6 +257,7 @@ Method | HTTP request | Description
 [**UpdateSfvbTrackingHtml**](SfvbApi.md#updatesfvbtrackinghtml) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Write one custom tracking HTML slot
 [**UpdateSfvbTrackingPrivacy**](SfvbApi.md#updatesfvbtrackingprivacy) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/privacy | Change a storefront&#39;s privacy rules
 [**UpdateSfvbTrackingProvider**](SfvbApi.md#updatesfvbtrackingprovider) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider} | Change one tracking provider
+[**UpdateSfvbTransactionalEmail**](SfvbApi.md#updatesfvbtransactionalemail) | **PUT** /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name} | Change a transactional email&#39;s subject, delivery options or sender
 [**UpdateSfvbUpsellOffer**](SfvbApi.md#updatesfvbupselloffer) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Update an upsell offer
 [**UpdateSfvbUpsellPath**](SfvbApi.md#updatesfvbupsellpath) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Update an upsell path
 [**UpdateSfvbUtmShortcode**](SfvbApi.md#updatesfvbutmshortcode) | **PUT** /sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid} | Change a UTM shortcode
@@ -4032,6 +4037,62 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetSfvbCommsListMembers
+
+> SfvbCommsMembersResponse GetSfvbCommsListMembers (int storefrontOid, string listUuid, int? page = null, int? pageSize = null, bool? showCustomerData = null)
+
+Read one page of a list's members
+
+Each member's customer uuid, email and the date they joined.  Email addresses are masked (w***a@example.com) and customer_data is masked, unless show_customer_data is true, which returns the real addresses and needs the sfvb_publish scope.  Every such read is logged.  Ask for them only when the merchant needs a person's address.  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **listUuid** | **string**|  | 
+ **page** | **int?**| The page, from 1 | [optional] 
+ **pageSize** | **int?**| Members per page, 1 to 100 (default 50) | [optional] 
+ **showCustomerData** | **bool?**| True to return the real email addresses instead of masked ones | [optional] 
+
+### Return type
+
+[**SfvbCommsMembersResponse**](SfvbCommsMembersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetSfvbCommsSegment
 
 > SfvbCommsSegmentResponse GetSfvbCommsSegment (int storefrontOid, string segmentUuid)
@@ -4075,6 +4136,62 @@ Name | Type | Description  | Notes
 | **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSfvbCommsSegmentMembers
+
+> SfvbCommsMembersResponse GetSfvbCommsSegmentMembers (int storefrontOid, string segmentUuid, int? page = null, int? pageSize = null, bool? showCustomerData = null)
+
+Read one page of a segment's members
+
+Each member's customer uuid, email and the date they joined.  Email addresses are masked (w***a@example.com) and customer_data is masked, unless show_customer_data is true, which returns the real addresses and needs the sfvb_publish scope.  Every such read is logged.  Ask for them only when the merchant needs a person's address.  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **segmentUuid** | **string**|  | 
+ **page** | **int?**| The page, from 1 | [optional] 
+ **pageSize** | **int?**| Members per page, 1 to 100 (default 50) | [optional] 
+ **showCustomerData** | **bool?**| True to return the real email addresses instead of masked ones | [optional] 
+
+### Return type
+
+[**SfvbCommsMembersResponse**](SfvbCommsMembersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
@@ -5982,6 +6099,62 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetSfvbPostcardTracking
+
+> SfvbPostcardTrackingResponse GetSfvbPostcardTracking (int storefrontOid, string postcardUuid, int? page = null, int? pageSize = null, bool? showCustomerData = null)
+
+Read one page of the cards mailed for a postcard
+
+Every printed card mailed for the postcard, newest first, with its status, cost, dates and the order it converted to.  Recipients are masked (the name an initial, the street lines hidden, city, state and postal code kept) and the vendor's status text is left out, unless show_customer_data is true, which needs the sfvb_publish scope and is logged.  The return address is the merchant's own.  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **postcardUuid** | **string**|  | 
+ **page** | **int?**| The page, from 1 | [optional] 
+ **pageSize** | **int?**| Cards per page, 1 to 100 (default 50) | [optional] 
+ **showCustomerData** | **bool?**| True to return the recipients&#39; real names and street addresses | [optional] 
+
+### Return type
+
+[**SfvbPostcardTrackingResponse**](SfvbPostcardTrackingResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetSfvbPreviewUrl
 
 > SfvbPreviewUrlResponse GetSfvbPreviewUrl (int storefrontOid, string previewSessionId, string path = null)
@@ -7259,6 +7432,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SfvbTrackingSettingsResponse**](SfvbTrackingSettingsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSfvbTransactionalEmail
+
+> SfvbTransactionalEmailResponse GetSfvbTransactionalEmail (int storefrontOid, string fileName)
+
+Read a transactional email's subject, delivery options and sender
+
+file_name is the template file from the transactional email list, such as receipt_html.vm, or its display name.  The sender is shared by every storefront on the same screen branding theme (sender_shared_with); a sender that sends through the merchant's own mail server shows smtp true and never its credentials.  hash_sha256 is the If-Match for an update.  The template itself is a theme file. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **fileName** | **string**|  | 
+
+### Return type
+
+[**SfvbTransactionalEmailResponse**](SfvbTransactionalEmailResponse.md)
 
 ### Authorization
 
@@ -13776,6 +14001,65 @@ Name | Type | Description  | Notes
 | **428** |  |  -  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **502** |  |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateSfvbTransactionalEmail
+
+> SfvbTransactionalEmailResponse UpdateSfvbTransactionalEmail (int storefrontOid, string fileName, string ifMatch, SfvbTransactionalEmailUpdateRequest transactionalEmailUpdateRequest, string approvalId = null)
+
+Change a transactional email's subject, delivery options or sender
+
+A field left out stays as it is.  It goes to every matching order from the moment it is saved, so every change needs sfvb_publish, the email's hash_sha256 as If-Match, and an approved transactional_email.update request for exactly this change (params.path the template file).  dry_run checks and shows the change without writing or using an approval.  Delivery options are named by name.  A sender change reaches every storefront on the same screen branding theme, and is refused for one that sends through the merchant's own mail server. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **fileName** | **string**|  | 
+ **ifMatch** | **string**| The email&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | 
+ **transactionalEmailUpdateRequest** | [**SfvbTransactionalEmailUpdateRequest**](SfvbTransactionalEmailUpdateRequest.md)| The fields to change | 
+ **approvalId** | **string**| The approval_id of an approved transactional_email.update request for exactly this change.  See POST /sfvb/approvals. | [optional] 
+
+### Return type
+
+[**SfvbTransactionalEmailResponse**](SfvbTransactionalEmailResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

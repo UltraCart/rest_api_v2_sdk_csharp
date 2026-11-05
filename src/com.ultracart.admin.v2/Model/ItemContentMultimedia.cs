@@ -78,6 +78,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemContentMultimedia" /> class.
         /// </summary>
+        /// <param name="aiAltText">AI generated alt text for the image.  StoreFront uses this when description is empty..</param>
         /// <param name="cloudUrl">URL where the image can be downloaded from the cloud.</param>
         /// <param name="cloudUrlExpiration">Expiration date of the cloud URL.</param>
         /// <param name="code">Code assigned to the file.</param>
@@ -94,8 +95,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="type">Type of file.</param>
         /// <param name="url">URL to download file (on new multimedia record this can be a URL for UltraCart to fetch).</param>
         /// <param name="width">Width of the image.</param>
-        public ItemContentMultimedia(string cloudUrl = default(string), string cloudUrlExpiration = default(string), string code = default(string), string description = default(string), bool excludeFromGallery = default(bool), string fileName = default(string), int height = default(int), int merchantItemMultimediaOid = default(int), bool orphan = default(bool), bool placeholder = default(bool), int size = default(int), int tempMultimediaOid = default(int), List<ItemContentMultimediaThumbnail> thumbnails = default(List<ItemContentMultimediaThumbnail>), TypeEnum? type = default(TypeEnum?), string url = default(string), int width = default(int))
+        public ItemContentMultimedia(string aiAltText = default(string), string cloudUrl = default(string), string cloudUrlExpiration = default(string), string code = default(string), string description = default(string), bool excludeFromGallery = default(bool), string fileName = default(string), int height = default(int), int merchantItemMultimediaOid = default(int), bool orphan = default(bool), bool placeholder = default(bool), int size = default(int), int tempMultimediaOid = default(int), List<ItemContentMultimediaThumbnail> thumbnails = default(List<ItemContentMultimediaThumbnail>), TypeEnum? type = default(TypeEnum?), string url = default(string), int width = default(int))
         {
+            this.AiAltText = aiAltText;
             this.CloudUrl = cloudUrl;
             this.CloudUrlExpiration = cloudUrlExpiration;
             this.Code = code;
@@ -113,6 +115,13 @@ namespace com.ultracart.admin.v2.Model
             this.Url = url;
             this.Width = width;
         }
+
+        /// <summary>
+        /// AI generated alt text for the image.  StoreFront uses this when description is empty.
+        /// </summary>
+        /// <value>AI generated alt text for the image.  StoreFront uses this when description is empty.</value>
+        [DataMember(Name="ai_alt_text", EmitDefaultValue=false)]
+        public string AiAltText { get; set; }
 
         /// <summary>
         /// URL where the image can be downloaded from the cloud
@@ -228,6 +237,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ItemContentMultimedia {\n");
+            sb.Append("  AiAltText: ").Append(AiAltText).Append("\n");
             sb.Append("  CloudUrl: ").Append(CloudUrl).Append("\n");
             sb.Append("  CloudUrlExpiration: ").Append(CloudUrlExpiration).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
@@ -278,6 +288,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.AiAltText == input.AiAltText ||
+                    (this.AiAltText != null &&
+                    this.AiAltText.Equals(input.AiAltText))
+                ) && 
                 (
                     this.CloudUrl == input.CloudUrl ||
                     (this.CloudUrl != null &&
@@ -370,6 +385,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AiAltText != null)
+                    hashCode = hashCode * 59 + this.AiAltText.GetHashCode();
                 if (this.CloudUrl != null)
                     hashCode = hashCode * 59 + this.CloudUrl.GetHashCode();
                 if (this.CloudUrlExpiration != null)

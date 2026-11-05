@@ -70,14 +70,22 @@ Method | HTTP request | Description
 [**GetSfvbBlogPost**](SfvbApi.md#getsfvbblogpost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 [**GetSfvbCampaign**](SfvbApi.md#getsfvbcampaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign
 [**GetSfvbCjsonUsedElements**](SfvbApi.md#getsfvbcjsonusedelements) | **POST** /sfvb/cjson/elements | Element types used by a container
+[**GetSfvbCommsDashboardStats**](SfvbApi.md#getsfvbcommsdashboardstats) | **GET** /sfvb/storefronts/{storefront_oid}/comms/stats/dashboard | Read every flow&#39;s and campaign&#39;s counts over a window, with the account&#39;s daily sending
+[**GetSfvbCommsEmailClicks**](SfvbApi.md#getsfvbcommsemailclicks) | **GET** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/emails/{email_uuid}/clicks | Read each link in one email and how often it was clicked
 [**GetSfvbCommsFolder**](SfvbApi.md#getsfvbcommsfolder) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid} | Read one list and segment folder
 [**GetSfvbCommsFolders**](SfvbApi.md#getsfvbcommsfolders) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders | List the list and segment folders
 [**GetSfvbCommsList**](SfvbApi.md#getsfvbcommslist) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Read one email list
 [**GetSfvbCommsListMembers**](SfvbApi.md#getsfvbcommslistmembers) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/members | Read one page of a list&#39;s members
+[**GetSfvbCommsPlan**](SfvbApi.md#getsfvbcommsplan) | **GET** /sfvb/storefronts/{storefront_oid}/comms/plan | Read the account&#39;s communications plan and sending health
+[**GetSfvbCommsProviders**](SfvbApi.md#getsfvbcommsproviders) | **GET** /sfvb/storefronts/{storefront_oid}/comms/providers | List the email providers the account can import lists from
 [**GetSfvbCommsSegment**](SfvbApi.md#getsfvbcommssegment) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Read one segment, with its rule
 [**GetSfvbCommsSegmentMembers**](SfvbApi.md#getsfvbcommssegmentmembers) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/members | Read one page of a segment&#39;s members
 [**GetSfvbCommsSendingDomain**](SfvbApi.md#getsfvbcommssendingdomain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain
 [**GetSfvbCommsSendingDomains**](SfvbApi.md#getsfvbcommssendingdomains) | **GET** /sfvb/comms/sending_domains | List the sending domains
+[**GetSfvbCommsSequenceStats**](SfvbApi.md#getsfvbcommssequencestats) | **GET** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/stats | Read a flow&#39;s or campaign&#39;s counts, overall and step by step
+[**GetSfvbCommsSettings**](SfvbApi.md#getsfvbcommssettings) | **GET** /sfvb/storefronts/{storefront_oid}/comms/settings | Read a storefront&#39;s communications settings
+[**GetSfvbCommsTemplate**](SfvbApi.md#getsfvbcommstemplate) | **GET** /sfvb/storefronts/{storefront_oid}/comms/templates/{email_template_oid} | Read one saved email template&#39;s body
+[**GetSfvbCommsTemplates**](SfvbApi.md#getsfvbcommstemplates) | **GET** /sfvb/storefronts/{storefront_oid}/comms/templates | List the email templates a new email can start from
 [**GetSfvbCommsTwilioAccount**](SfvbApi.md#getsfvbcommstwilioaccount) | **GET** /sfvb/comms/twilio_account | Read the Twilio account
 [**GetSfvbContainer**](SfvbApi.md#getsfvbcontainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 [**GetSfvbContainerVersion**](SfvbApi.md#getsfvbcontainerversion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
@@ -147,6 +155,7 @@ Method | HTTP request | Description
 [**GetSfvbVersion**](SfvbApi.md#getsfvbversion) | **GET** /sfvb/version | Compiler version for this merchant
 [**GetSfvbWhoami**](SfvbApi.md#getsfvbwhoami) | **GET** /sfvb/whoami | Who this token is
 [**IgnoreSfvbNotFoundEntry**](SfvbApi.md#ignoresfvbnotfoundentry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Ignore a 404 path
+[**ImportSfvbCommsProviderLists**](SfvbApi.md#importsfvbcommsproviderlists) | **POST** /sfvb/storefronts/{storefront_oid}/comms/providers/import | Import lists from another email provider
 [**ImportSfvbRedirects**](SfvbApi.md#importsfvbredirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import | Apply a reviewed redirect import
 [**InsertSfvbAffiliateNetwork**](SfvbApi.md#insertsfvbaffiliatenetwork) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | Add an affiliate network
 [**InsertSfvbApproval**](SfvbApi.md#insertsfvbapproval) | **POST** /sfvb/approvals | Request a human approval
@@ -231,6 +240,9 @@ Method | HTTP request | Description
 [**SetSfvbLibraryScreenshot**](SfvbApi.md#setsfvblibraryscreenshot) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot | Set a library entry&#39;s screenshot
 [**ShareSfvbLibraryEntry**](SfvbApi.md#sharesfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares | Share a published library entry with a linked account
 [**StartSfvbExperiment**](SfvbApi.md#startsfvbexperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments | Start an experiment
+[**TestSfvbCommsEmail**](SfvbApi.md#testsfvbcommsemail) | **POST** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_email | Send one test of an email step&#39;s email to a user on this account
+[**TestSfvbCommsPostcard**](SfvbApi.md#testsfvbcommspostcard) | **POST** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_postcard | Print and mail one real test postcard
+[**TestSfvbCommsSms**](SfvbApi.md#testsfvbcommssms) | **POST** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_sms | Send one test of an SMS step to a user on this account
 [**UnarchiveSfvbUpsellPath**](SfvbApi.md#unarchivesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/unarchive | Unarchive an upsell path
 [**UnfavoriteSfvbLibraryEntry**](SfvbApi.md#unfavoritesfvblibraryentry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Remove a library entry from favorites
 [**UnignoreSfvbNotFoundEntry**](SfvbApi.md#unignoresfvbnotfoundentry) | **DELETE** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Stop ignoring a 404 path
@@ -243,6 +255,7 @@ Method | HTTP request | Description
 [**UpdateSfvbCommsList**](SfvbApi.md#updatesfvbcommslist) | **PUT** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Change an email list&#39;s name, folder or public settings
 [**UpdateSfvbCommsSegment**](SfvbApi.md#updatesfvbcommssegment) | **PUT** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Change a segment&#39;s name, rule or folder
 [**UpdateSfvbCommsSendingDomain**](SfvbApi.md#updatesfvbcommssendingdomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain
+[**UpdateSfvbCommsSettings**](SfvbApi.md#updatesfvbcommssettings) | **PUT** /sfvb/storefronts/{storefront_oid}/comms/settings | Change a storefront&#39;s communications settings
 [**UpdateSfvbCommsTwilioAccount**](SfvbApi.md#updatesfvbcommstwilioaccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account
 [**UpdateSfvbEmail**](SfvbApi.md#updatesfvbemail) | **PUT** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Change a flow or campaign email&#39;s subject or preview text
 [**UpdateSfvbFlow**](SfvbApi.md#updatesfvbflow) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid} | Change a flow
@@ -3882,6 +3895,112 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetSfvbCommsDashboardStats
+
+> SfvbCommsDashboardResponse GetSfvbCommsDashboardStats (int storefrontOid, int? days = null)
+
+Read every flow's and campaign's counts over a window, with the account's daily sending
+
+rows cover each flow and campaign with activity in the last days (1 to 365, default 30); daily is the account's last 31 days of sending, whatever the window.  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **days** | **int?**| The window for the rows, 1 to 365 days (default 30). | [optional] 
+
+### Return type
+
+[**SfvbCommsDashboardResponse**](SfvbCommsDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSfvbCommsEmailClicks
+
+> SfvbCommsClicksResponse GetSfvbCommsEmailClicks (int storefrontOid, string commseqUuid, string emailUuid, int? days = null)
+
+Read each link in one email and how often it was clicked
+
+The email must be sent by an email or experiment step of this flow's or campaign's sequence; any other is 404.  Most clicked first, over the last days (1 to 365, default 30).  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **commseqUuid** | **string**|  | 
+ **emailUuid** | **string**|  | 
+ **days** | **int?**| The window, 1 to 365 days (default 30). | [optional] 
+
+### Return type
+
+[**SfvbCommsClicksResponse**](SfvbCommsClicksResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetSfvbCommsFolder
 
 > SfvbCommsFolderResponse GetSfvbCommsFolder (int storefrontOid, string folderUuid)
@@ -4093,6 +4212,109 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetSfvbCommsPlan
+
+> SfvbCommsPlanResponse GetSfvbCommsPlan (int storefrontOid)
+
+Read the account's communications plan and sending health
+
+The plan, its customer and email caps, what has been sent against them, and the spam pause, with notes on anything that stops sends.  Account-wide.  Never a price, fee or upgrade option; the plan is changed in the admin.  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+
+### Return type
+
+[**SfvbCommsPlanResponse**](SfvbCommsPlanResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSfvbCommsProviders
+
+> SfvbCommsProvidersResponse GetSfvbCommsProviders (int storefrontOid)
+
+List the email providers the account can import lists from
+
+Each provider that can share list members, connected or not, with a connected one's lists.  Each call asks the providers themselves, so it is rate limited.  No credential or connect URL is returned.  import_allowed says whether the account may import.  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+
+### Return type
+
+[**SfvbCommsProvidersResponse**](SfvbCommsProvidersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetSfvbCommsSegment
 
 > SfvbCommsSegmentResponse GetSfvbCommsSegment (int storefrontOid, string segmentUuid)
@@ -4295,6 +4517,213 @@ This endpoint does not need any parameter.
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSfvbCommsSequenceStats
+
+> SfvbCommsSequenceStatsResponse GetSfvbCommsSequenceStats (int storefrontOid, string commseqUuid, int? days = null)
+
+Read a flow's or campaign's counts, overall and step by step
+
+overall covers all time; each email, SMS, postcard and branch step covers the last days (1 to 365, default 30).  Each step reports only the counts its channel records and names the rest in not_measured, so a missing count is never zero.  Bounces, opens and spam are counts here, not separate reports.  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **commseqUuid** | **string**|  | 
+ **days** | **int?**| The window for the step counts, 1 to 365 days (default 30). | [optional] 
+
+### Return type
+
+[**SfvbCommsSequenceStatsResponse**](SfvbCommsSequenceStatsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSfvbCommsSettings
+
+> SfvbCommsSettingsResponse GetSfvbCommsSettings (int storefrontOid)
+
+Read a storefront's communications settings
+
+The postcard return address, the default marketing and transactional senders, and the default SMS number, with what each one drives in notes.  Read only.  hash_sha256 is the If-Match for an update. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+
+### Return type
+
+[**SfvbCommsSettingsResponse**](SfvbCommsSettingsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSfvbCommsTemplate
+
+> SfvbCommsTemplateResponse GetSfvbCommsTemplate (int storefrontOid, int emailTemplateOid)
+
+Read one saved email template's body
+
+A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is named in email_template_vm_path, not shown.  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **emailTemplateOid** | **int**|  | 
+
+### Return type
+
+[**SfvbCommsTemplateResponse**](SfvbCommsTemplateResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSfvbCommsTemplates
+
+> SfvbCommsTemplatesResponse GetSfvbCommsTemplates (int storefrontOid)
+
+List the email templates a new email can start from
+
+One list: UltraCart's system templates and this storefront's saved ones (each with email_template_oid), then base templates, the active theme's files an email renders inside (each with path).  Read only. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+
+### Return type
+
+[**SfvbCommsTemplatesResponse**](SfvbCommsTemplatesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#)
@@ -7917,6 +8346,62 @@ Name | Type | Description  | Notes
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ImportSfvbCommsProviderLists
+
+> SfvbCommsProviderImportResponse ImportSfvbCommsProviderLists (int storefrontOid, SfvbCommsProviderImportRequest providerImportRequest, string approvalId = null)
+
+Import lists from another email provider
+
+Each list becomes a new list of the same name on this storefront and every member is subscribed, in the background; the signed-in user is emailed when it finishes.  Needs the account to be allowed to import, sfvb_publish, and an approved comms_list.import request for exactly these lists.  At most 20 lists.  dry_run checks the provider and the list ids and names what would be created, without importing or using an approval. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **providerImportRequest** | [**SfvbCommsProviderImportRequest**](SfvbCommsProviderImportRequest.md)| The provider and lists to import | 
+ **approvalId** | **string**| The approval_id of an approved comms_list.import request for exactly these lists.  See POST /sfvb/approvals. | [optional] 
+
+### Return type
+
+[**SfvbCommsProviderImportResponse**](SfvbCommsProviderImportResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
@@ -12520,6 +13005,176 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## TestSfvbCommsEmail
+
+> SfvbCommsTestSendResponse TestSfvbCommsEmail (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestEmailRequest testEmailRequest)
+
+Send one test of an email step's email to a user on this account
+
+to_email must be the email address of a user on this account; a test is never sent to customers or anyone else.  It reaches a real inbox and counts against the plan's email quota.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 10 an hour and 50 a day.  The email render shows the same email without sending it. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **commseqUuid** | **string**|  | 
+ **stepUuid** | **string**|  | 
+ **testEmailRequest** | [**SfvbCommsTestEmailRequest**](SfvbCommsTestEmailRequest.md)| The email and the recipient | 
+
+### Return type
+
+[**SfvbCommsTestSendResponse**](SfvbCommsTestSendResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TestSfvbCommsPostcard
+
+> SfvbCommsTestSendResponse TestSfvbCommsPostcard (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestPostcardRequest testPostcardRequest, string approvalId = null)
+
+Print and mail one real test postcard
+
+It is printed and mailed at the account's cost and can't be recalled.  mail_card must be true; the postcard proof shows the card without mailing it.  Postcards must be turned on for the account by UltraCart.  Needs sfvb_publish, the sign-in of a person, and an approved postcard.test_mail request for exactly this card and address, with a fresh code every time.  dry_run checks everything and shows the cost.  Rate limited per merchant to 3 an hour and 10 a day.  The answer says whether a card was mailed. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **commseqUuid** | **string**|  | 
+ **stepUuid** | **string**|  | 
+ **testPostcardRequest** | [**SfvbCommsTestPostcardRequest**](SfvbCommsTestPostcardRequest.md)| The address and mail_card | 
+ **approvalId** | **string**| The approval_id of an approved postcard.test_mail request for exactly this card and address.  See POST /sfvb/approvals. | [optional] 
+
+### Return type
+
+[**SfvbCommsTestSendResponse**](SfvbCommsTestSendResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TestSfvbCommsSms
+
+> SfvbCommsTestSendResponse TestSfvbCommsSms (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestSmsRequest testSmsRequest)
+
+Send one test of an SMS step to a user on this account
+
+to_phone must be the cell phone of a user on this account, in E.164 form.  It is billed per segment through the account's Twilio account, from the flow's or campaign's SMS number; with none it is refused.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 5 an hour and 20 a day. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **commseqUuid** | **string**|  | 
+ **stepUuid** | **string**|  | 
+ **testSmsRequest** | [**SfvbCommsTestSmsRequest**](SfvbCommsTestSmsRequest.md)| The recipient | 
+
+### Return type
+
+[**SfvbCommsTestSendResponse**](SfvbCommsTestSendResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UnarchiveSfvbUpsellPath
 
 > SfvbUpsellPath UnarchiveSfvbUpsellPath (int storefrontOid, int upsellPathOid)
@@ -13184,6 +13839,64 @@ Name | Type | Description  | Notes
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **502** |  |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateSfvbCommsSettings
+
+> SfvbCommsSettingsResponse UpdateSfvbCommsSettings (int storefrontOid, string ifMatch, SfvbCommsSettingsUpdateRequest commsSettingsUpdateRequest, string approvalId = null)
+
+Change a storefront's communications settings
+
+A field left out stays as it is.  A return address change needs sfvb_write and If-Match.  A change to the default marketing or transactional sender, or the default SMS number, also needs sfvb_publish and an approved comms_settings.update request for exactly this change.  A sending domain must be on this account and the SMS number on one of its Twilio accounts.  dry_run checks and shows the change without writing or using an approval. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **ifMatch** | **string**| The settings&#39; hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | 
+ **commsSettingsUpdateRequest** | [**SfvbCommsSettingsUpdateRequest**](SfvbCommsSettingsUpdateRequest.md)| The settings to change | 
+ **approvalId** | **string**| The approval_id of an approved comms_settings.update request for exactly this change, when a sender or the SMS number changes.  See POST /sfvb/approvals. | [optional] 
+
+### Return type
+
+[**SfvbCommsSettingsResponse**](SfvbCommsSettingsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

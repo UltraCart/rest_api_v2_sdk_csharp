@@ -1610,6 +1610,56 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbElementsResponse</returns>
         ApiResponse<SfvbElementsResponse> GetSfvbCjsonUsedElementsWithHttpInfo (SfvbCompileRequest compileRequest);
         /// <summary>
+        /// Read every flow's and campaign's counts over a window, with the account's daily sending
+        /// </summary>
+        /// <remarks>
+        /// rows cover each flow and campaign with activity in the last days (1 to 365, default 30); daily is the account's last 31 days of sending, whatever the window.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="days">The window for the rows, 1 to 365 days (default 30). (optional)</param>
+        /// <returns>SfvbCommsDashboardResponse</returns>
+        SfvbCommsDashboardResponse GetSfvbCommsDashboardStats (int storefrontOid, int? days = default(int?));
+
+        /// <summary>
+        /// Read every flow's and campaign's counts over a window, with the account's daily sending
+        /// </summary>
+        /// <remarks>
+        /// rows cover each flow and campaign with activity in the last days (1 to 365, default 30); daily is the account's last 31 days of sending, whatever the window.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="days">The window for the rows, 1 to 365 days (default 30). (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsDashboardResponse</returns>
+        ApiResponse<SfvbCommsDashboardResponse> GetSfvbCommsDashboardStatsWithHttpInfo (int storefrontOid, int? days = default(int?));
+        /// <summary>
+        /// Read each link in one email and how often it was clicked
+        /// </summary>
+        /// <remarks>
+        /// The email must be sent by an email or experiment step of this flow's or campaign's sequence; any other is 404.  Most clicked first, over the last days (1 to 365, default 30).  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="days">The window, 1 to 365 days (default 30). (optional)</param>
+        /// <returns>SfvbCommsClicksResponse</returns>
+        SfvbCommsClicksResponse GetSfvbCommsEmailClicks (int storefrontOid, string commseqUuid, string emailUuid, int? days = default(int?));
+
+        /// <summary>
+        /// Read each link in one email and how often it was clicked
+        /// </summary>
+        /// <remarks>
+        /// The email must be sent by an email or experiment step of this flow's or campaign's sequence; any other is 404.  Most clicked first, over the last days (1 to 365, default 30).  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="days">The window, 1 to 365 days (default 30). (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsClicksResponse</returns>
+        ApiResponse<SfvbCommsClicksResponse> GetSfvbCommsEmailClicksWithHttpInfo (int storefrontOid, string commseqUuid, string emailUuid, int? days = default(int?));
+        /// <summary>
         /// Read one list and segment folder
         /// </summary>
         /// <remarks>
@@ -1706,6 +1756,48 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbCommsMembersResponse</returns>
         ApiResponse<SfvbCommsMembersResponse> GetSfvbCommsListMembersWithHttpInfo (int storefrontOid, string listUuid, int? page = default(int?), int? pageSize = default(int?), bool? showCustomerData = default(bool?));
         /// <summary>
+        /// Read the account's communications plan and sending health
+        /// </summary>
+        /// <remarks>
+        /// The plan, its customer and email caps, what has been sent against them, and the spam pause, with notes on anything that stops sends.  Account-wide.  Never a price, fee or upgrade option; the plan is changed in the admin.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsPlanResponse</returns>
+        SfvbCommsPlanResponse GetSfvbCommsPlan (int storefrontOid);
+
+        /// <summary>
+        /// Read the account's communications plan and sending health
+        /// </summary>
+        /// <remarks>
+        /// The plan, its customer and email caps, what has been sent against them, and the spam pause, with notes on anything that stops sends.  Account-wide.  Never a price, fee or upgrade option; the plan is changed in the admin.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsPlanResponse</returns>
+        ApiResponse<SfvbCommsPlanResponse> GetSfvbCommsPlanWithHttpInfo (int storefrontOid);
+        /// <summary>
+        /// List the email providers the account can import lists from
+        /// </summary>
+        /// <remarks>
+        /// Each provider that can share list members, connected or not, with a connected one's lists.  Each call asks the providers themselves, so it is rate limited.  No credential or connect URL is returned.  import_allowed says whether the account may import.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsProvidersResponse</returns>
+        SfvbCommsProvidersResponse GetSfvbCommsProviders (int storefrontOid);
+
+        /// <summary>
+        /// List the email providers the account can import lists from
+        /// </summary>
+        /// <remarks>
+        /// Each provider that can share list members, connected or not, with a connected one's lists.  Each call asks the providers themselves, so it is rate limited.  No credential or connect URL is returned.  import_allowed says whether the account may import.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsProvidersResponse</returns>
+        ApiResponse<SfvbCommsProvidersResponse> GetSfvbCommsProvidersWithHttpInfo (int storefrontOid);
+        /// <summary>
         /// Read one segment, with its rule
         /// </summary>
         /// <remarks>
@@ -1797,6 +1889,96 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of SfvbCommsSendingDomainsResponse</returns>
         ApiResponse<SfvbCommsSendingDomainsResponse> GetSfvbCommsSendingDomainsWithHttpInfo ();
+        /// <summary>
+        /// Read a flow's or campaign's counts, overall and step by step
+        /// </summary>
+        /// <remarks>
+        /// overall covers all time; each email, SMS, postcard and branch step covers the last days (1 to 365, default 30).  Each step reports only the counts its channel records and names the rest in not_measured, so a missing count is never zero.  Bounces, opens and spam are counts here, not separate reports.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="days">The window for the step counts, 1 to 365 days (default 30). (optional)</param>
+        /// <returns>SfvbCommsSequenceStatsResponse</returns>
+        SfvbCommsSequenceStatsResponse GetSfvbCommsSequenceStats (int storefrontOid, string commseqUuid, int? days = default(int?));
+
+        /// <summary>
+        /// Read a flow's or campaign's counts, overall and step by step
+        /// </summary>
+        /// <remarks>
+        /// overall covers all time; each email, SMS, postcard and branch step covers the last days (1 to 365, default 30).  Each step reports only the counts its channel records and names the rest in not_measured, so a missing count is never zero.  Bounces, opens and spam are counts here, not separate reports.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="days">The window for the step counts, 1 to 365 days (default 30). (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsSequenceStatsResponse</returns>
+        ApiResponse<SfvbCommsSequenceStatsResponse> GetSfvbCommsSequenceStatsWithHttpInfo (int storefrontOid, string commseqUuid, int? days = default(int?));
+        /// <summary>
+        /// Read a storefront's communications settings
+        /// </summary>
+        /// <remarks>
+        /// The postcard return address, the default marketing and transactional senders, and the default SMS number, with what each one drives in notes.  Read only.  hash_sha256 is the If-Match for an update. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsSettingsResponse</returns>
+        SfvbCommsSettingsResponse GetSfvbCommsSettings (int storefrontOid);
+
+        /// <summary>
+        /// Read a storefront's communications settings
+        /// </summary>
+        /// <remarks>
+        /// The postcard return address, the default marketing and transactional senders, and the default SMS number, with what each one drives in notes.  Read only.  hash_sha256 is the If-Match for an update. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsSettingsResponse</returns>
+        ApiResponse<SfvbCommsSettingsResponse> GetSfvbCommsSettingsWithHttpInfo (int storefrontOid);
+        /// <summary>
+        /// Read one saved email template's body
+        /// </summary>
+        /// <remarks>
+        /// A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is named in email_template_vm_path, not shown.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailTemplateOid"></param>
+        /// <returns>SfvbCommsTemplateResponse</returns>
+        SfvbCommsTemplateResponse GetSfvbCommsTemplate (int storefrontOid, int emailTemplateOid);
+
+        /// <summary>
+        /// Read one saved email template's body
+        /// </summary>
+        /// <remarks>
+        /// A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is named in email_template_vm_path, not shown.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailTemplateOid"></param>
+        /// <returns>ApiResponse of SfvbCommsTemplateResponse</returns>
+        ApiResponse<SfvbCommsTemplateResponse> GetSfvbCommsTemplateWithHttpInfo (int storefrontOid, int emailTemplateOid);
+        /// <summary>
+        /// List the email templates a new email can start from
+        /// </summary>
+        /// <remarks>
+        /// One list: UltraCart's system templates and this storefront's saved ones (each with email_template_oid), then base templates, the active theme's files an email renders inside (each with path).  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsTemplatesResponse</returns>
+        SfvbCommsTemplatesResponse GetSfvbCommsTemplates (int storefrontOid);
+
+        /// <summary>
+        /// List the email templates a new email can start from
+        /// </summary>
+        /// <remarks>
+        /// One list: UltraCart's system templates and this storefront's saved ones (each with email_template_oid), then base templates, the active theme's files an email renders inside (each with path).  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsTemplatesResponse</returns>
+        ApiResponse<SfvbCommsTemplatesResponse> GetSfvbCommsTemplatesWithHttpInfo (int storefrontOid);
         /// <summary>
         /// Read the Twilio account
         /// </summary>
@@ -3418,6 +3600,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="notFoundId"></param>
         /// <returns>ApiResponse of SfvbNotFoundEntry</returns>
         ApiResponse<SfvbNotFoundEntry> IgnoreSfvbNotFoundEntryWithHttpInfo (int storefrontOid, string notFoundId);
+        /// <summary>
+        /// Import lists from another email provider
+        /// </summary>
+        /// <remarks>
+        /// Each list becomes a new list of the same name on this storefront and every member is subscribed, in the background; the signed-in user is emailed when it finishes.  Needs the account to be allowed to import, sfvb_publish, and an approved comms_list.import request for exactly these lists.  At most 20 lists.  dry_run checks the provider and the list ids and names what would be created, without importing or using an approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="providerImportRequest">The provider and lists to import</param>
+        /// <param name="approvalId">The approval_id of an approved comms_list.import request for exactly these lists.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbCommsProviderImportResponse</returns>
+        SfvbCommsProviderImportResponse ImportSfvbCommsProviderLists (int storefrontOid, SfvbCommsProviderImportRequest providerImportRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Import lists from another email provider
+        /// </summary>
+        /// <remarks>
+        /// Each list becomes a new list of the same name on this storefront and every member is subscribed, in the background; the signed-in user is emailed when it finishes.  Needs the account to be allowed to import, sfvb_publish, and an approved comms_list.import request for exactly these lists.  At most 20 lists.  dry_run checks the provider and the list ids and names what would be created, without importing or using an approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="providerImportRequest">The provider and lists to import</param>
+        /// <param name="approvalId">The approval_id of an approved comms_list.import request for exactly these lists.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsProviderImportResponse</returns>
+        ApiResponse<SfvbCommsProviderImportResponse> ImportSfvbCommsProviderListsWithHttpInfo (int storefrontOid, SfvbCommsProviderImportRequest providerImportRequest, string approvalId = default(string));
         /// <summary>
         /// Apply a reviewed redirect import
         /// </summary>
@@ -5549,6 +5756,89 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbExperiment</returns>
         ApiResponse<SfvbExperiment> StartSfvbExperimentWithHttpInfo (int storefrontOid, SfvbExperimentStartRequest experimentStartRequest, string approvalId = default(string));
         /// <summary>
+        /// Send one test of an email step's email to a user on this account
+        /// </summary>
+        /// <remarks>
+        /// to_email must be the email address of a user on this account; a test is never sent to customers or anyone else.  It reaches a real inbox and counts against the plan's email quota.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 10 an hour and 50 a day.  The email render shows the same email without sending it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testEmailRequest">The email and the recipient</param>
+        /// <returns>SfvbCommsTestSendResponse</returns>
+        SfvbCommsTestSendResponse TestSfvbCommsEmail (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestEmailRequest testEmailRequest);
+
+        /// <summary>
+        /// Send one test of an email step's email to a user on this account
+        /// </summary>
+        /// <remarks>
+        /// to_email must be the email address of a user on this account; a test is never sent to customers or anyone else.  It reaches a real inbox and counts against the plan's email quota.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 10 an hour and 50 a day.  The email render shows the same email without sending it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testEmailRequest">The email and the recipient</param>
+        /// <returns>ApiResponse of SfvbCommsTestSendResponse</returns>
+        ApiResponse<SfvbCommsTestSendResponse> TestSfvbCommsEmailWithHttpInfo (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestEmailRequest testEmailRequest);
+        /// <summary>
+        /// Print and mail one real test postcard
+        /// </summary>
+        /// <remarks>
+        /// It is printed and mailed at the account's cost and can't be recalled.  mail_card must be true; the postcard proof shows the card without mailing it.  Postcards must be turned on for the account by UltraCart.  Needs sfvb_publish, the sign-in of a person, and an approved postcard.test_mail request for exactly this card and address, with a fresh code every time.  dry_run checks everything and shows the cost.  Rate limited per merchant to 3 an hour and 10 a day.  The answer says whether a card was mailed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testPostcardRequest">The address and mail_card</param>
+        /// <param name="approvalId">The approval_id of an approved postcard.test_mail request for exactly this card and address.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbCommsTestSendResponse</returns>
+        SfvbCommsTestSendResponse TestSfvbCommsPostcard (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestPostcardRequest testPostcardRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Print and mail one real test postcard
+        /// </summary>
+        /// <remarks>
+        /// It is printed and mailed at the account's cost and can't be recalled.  mail_card must be true; the postcard proof shows the card without mailing it.  Postcards must be turned on for the account by UltraCart.  Needs sfvb_publish, the sign-in of a person, and an approved postcard.test_mail request for exactly this card and address, with a fresh code every time.  dry_run checks everything and shows the cost.  Rate limited per merchant to 3 an hour and 10 a day.  The answer says whether a card was mailed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testPostcardRequest">The address and mail_card</param>
+        /// <param name="approvalId">The approval_id of an approved postcard.test_mail request for exactly this card and address.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsTestSendResponse</returns>
+        ApiResponse<SfvbCommsTestSendResponse> TestSfvbCommsPostcardWithHttpInfo (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestPostcardRequest testPostcardRequest, string approvalId = default(string));
+        /// <summary>
+        /// Send one test of an SMS step to a user on this account
+        /// </summary>
+        /// <remarks>
+        /// to_phone must be the cell phone of a user on this account, in E.164 form.  It is billed per segment through the account's Twilio account, from the flow's or campaign's SMS number; with none it is refused.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 5 an hour and 20 a day. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testSmsRequest">The recipient</param>
+        /// <returns>SfvbCommsTestSendResponse</returns>
+        SfvbCommsTestSendResponse TestSfvbCommsSms (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestSmsRequest testSmsRequest);
+
+        /// <summary>
+        /// Send one test of an SMS step to a user on this account
+        /// </summary>
+        /// <remarks>
+        /// to_phone must be the cell phone of a user on this account, in E.164 form.  It is billed per segment through the account's Twilio account, from the flow's or campaign's SMS number; with none it is refused.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 5 an hour and 20 a day. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testSmsRequest">The recipient</param>
+        /// <returns>ApiResponse of SfvbCommsTestSendResponse</returns>
+        ApiResponse<SfvbCommsTestSendResponse> TestSfvbCommsSmsWithHttpInfo (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestSmsRequest testSmsRequest);
+        /// <summary>
         /// Unarchive an upsell path
         /// </summary>
         /// <remarks>
@@ -5854,6 +6144,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sendingDomain">The changes</param>
         /// <returns>ApiResponse of SfvbCommsSendingDomain</returns>
         ApiResponse<SfvbCommsSendingDomain> UpdateSfvbCommsSendingDomainWithHttpInfo (string domain, SfvbCommsSendingDomain sendingDomain);
+        /// <summary>
+        /// Change a storefront's communications settings
+        /// </summary>
+        /// <remarks>
+        /// A field left out stays as it is.  A return address change needs sfvb_write and If-Match.  A change to the default marketing or transactional sender, or the default SMS number, also needs sfvb_publish and an approved comms_settings.update request for exactly this change.  A sending domain must be on this account and the SMS number on one of its Twilio accounts.  dry_run checks and shows the change without writing or using an approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The settings&#39; hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="commsSettingsUpdateRequest">The settings to change</param>
+        /// <param name="approvalId">The approval_id of an approved comms_settings.update request for exactly this change, when a sender or the SMS number changes.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbCommsSettingsResponse</returns>
+        SfvbCommsSettingsResponse UpdateSfvbCommsSettings (int storefrontOid, string ifMatch, SfvbCommsSettingsUpdateRequest commsSettingsUpdateRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Change a storefront's communications settings
+        /// </summary>
+        /// <remarks>
+        /// A field left out stays as it is.  A return address change needs sfvb_write and If-Match.  A change to the default marketing or transactional sender, or the default SMS number, also needs sfvb_publish and an approved comms_settings.update request for exactly this change.  A sending domain must be on this account and the SMS number on one of its Twilio accounts.  dry_run checks and shows the change without writing or using an approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The settings&#39; hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="commsSettingsUpdateRequest">The settings to change</param>
+        /// <param name="approvalId">The approval_id of an approved comms_settings.update request for exactly this change, when a sender or the SMS number changes.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsSettingsResponse</returns>
+        ApiResponse<SfvbCommsSettingsResponse> UpdateSfvbCommsSettingsWithHttpInfo (int storefrontOid, string ifMatch, SfvbCommsSettingsUpdateRequest commsSettingsUpdateRequest, string approvalId = default(string));
         /// <summary>
         /// Update the Twilio account
         /// </summary>
@@ -8128,6 +8445,60 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbElementsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbElementsResponse>> GetSfvbCjsonUsedElementsWithHttpInfoAsync (SfvbCompileRequest compileRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Read every flow's and campaign's counts over a window, with the account's daily sending
+        /// </summary>
+        /// <remarks>
+        /// rows cover each flow and campaign with activity in the last days (1 to 365, default 30); daily is the account's last 31 days of sending, whatever the window.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="days">The window for the rows, 1 to 365 days (default 30). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsDashboardResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsDashboardResponse> GetSfvbCommsDashboardStatsAsync (int storefrontOid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read every flow&#39;s and campaign&#39;s counts over a window, with the account&#39;s daily sending
+        /// </summary>
+        /// <remarks>
+        /// rows cover each flow and campaign with activity in the last days (1 to 365, default 30); daily is the account's last 31 days of sending, whatever the window.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="days">The window for the rows, 1 to 365 days (default 30). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsDashboardResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsDashboardResponse>> GetSfvbCommsDashboardStatsWithHttpInfoAsync (int storefrontOid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read each link in one email and how often it was clicked
+        /// </summary>
+        /// <remarks>
+        /// The email must be sent by an email or experiment step of this flow's or campaign's sequence; any other is 404.  Most clicked first, over the last days (1 to 365, default 30).  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="days">The window, 1 to 365 days (default 30). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsClicksResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsClicksResponse> GetSfvbCommsEmailClicksAsync (int storefrontOid, string commseqUuid, string emailUuid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read each link in one email and how often it was clicked
+        /// </summary>
+        /// <remarks>
+        /// The email must be sent by an email or experiment step of this flow's or campaign's sequence; any other is 404.  Most clicked first, over the last days (1 to 365, default 30).  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="days">The window, 1 to 365 days (default 30). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsClicksResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsClicksResponse>> GetSfvbCommsEmailClicksWithHttpInfoAsync (int storefrontOid, string commseqUuid, string emailUuid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Read one list and segment folder
         /// </summary>
         /// <remarks>
@@ -8232,6 +8603,52 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbCommsMembersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCommsMembersResponse>> GetSfvbCommsListMembersWithHttpInfoAsync (int storefrontOid, string listUuid, int? page = default(int?), int? pageSize = default(int?), bool? showCustomerData = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Read the account's communications plan and sending health
+        /// </summary>
+        /// <remarks>
+        /// The plan, its customer and email caps, what has been sent against them, and the spam pause, with notes on anything that stops sends.  Account-wide.  Never a price, fee or upgrade option; the plan is changed in the admin.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsPlanResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsPlanResponse> GetSfvbCommsPlanAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read the account&#39;s communications plan and sending health
+        /// </summary>
+        /// <remarks>
+        /// The plan, its customer and email caps, what has been sent against them, and the spam pause, with notes on anything that stops sends.  Account-wide.  Never a price, fee or upgrade option; the plan is changed in the admin.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsPlanResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsPlanResponse>> GetSfvbCommsPlanWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the email providers the account can import lists from
+        /// </summary>
+        /// <remarks>
+        /// Each provider that can share list members, connected or not, with a connected one's lists.  Each call asks the providers themselves, so it is rate limited.  No credential or connect URL is returned.  import_allowed says whether the account may import.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsProvidersResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsProvidersResponse> GetSfvbCommsProvidersAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the email providers the account can import lists from
+        /// </summary>
+        /// <remarks>
+        /// Each provider that can share list members, connected or not, with a connected one's lists.  Each call asks the providers themselves, so it is rate limited.  No credential or connect URL is returned.  import_allowed says whether the account may import.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsProvidersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsProvidersResponse>> GetSfvbCommsProvidersWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Read one segment, with its rule
         /// </summary>
         /// <remarks>
@@ -8331,6 +8748,104 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbCommsSendingDomainsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCommsSendingDomainsResponse>> GetSfvbCommsSendingDomainsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read a flow's or campaign's counts, overall and step by step
+        /// </summary>
+        /// <remarks>
+        /// overall covers all time; each email, SMS, postcard and branch step covers the last days (1 to 365, default 30).  Each step reports only the counts its channel records and names the rest in not_measured, so a missing count is never zero.  Bounces, opens and spam are counts here, not separate reports.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="days">The window for the step counts, 1 to 365 days (default 30). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSequenceStatsResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsSequenceStatsResponse> GetSfvbCommsSequenceStatsAsync (int storefrontOid, string commseqUuid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a flow&#39;s or campaign&#39;s counts, overall and step by step
+        /// </summary>
+        /// <remarks>
+        /// overall covers all time; each email, SMS, postcard and branch step covers the last days (1 to 365, default 30).  Each step reports only the counts its channel records and names the rest in not_measured, so a missing count is never zero.  Bounces, opens and spam are counts here, not separate reports.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="days">The window for the step counts, 1 to 365 days (default 30). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSequenceStatsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSequenceStatsResponse>> GetSfvbCommsSequenceStatsWithHttpInfoAsync (int storefrontOid, string commseqUuid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read a storefront's communications settings
+        /// </summary>
+        /// <remarks>
+        /// The postcard return address, the default marketing and transactional senders, and the default SMS number, with what each one drives in notes.  Read only.  hash_sha256 is the If-Match for an update. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSettingsResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsSettingsResponse> GetSfvbCommsSettingsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read a storefront&#39;s communications settings
+        /// </summary>
+        /// <remarks>
+        /// The postcard return address, the default marketing and transactional senders, and the default SMS number, with what each one drives in notes.  Read only.  hash_sha256 is the If-Match for an update. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSettingsResponse>> GetSfvbCommsSettingsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read one saved email template's body
+        /// </summary>
+        /// <remarks>
+        /// A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is named in email_template_vm_path, not shown.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailTemplateOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTemplateResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsTemplateResponse> GetSfvbCommsTemplateAsync (int storefrontOid, int emailTemplateOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read one saved email template&#39;s body
+        /// </summary>
+        /// <remarks>
+        /// A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is named in email_template_vm_path, not shown.  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailTemplateOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTemplateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsTemplateResponse>> GetSfvbCommsTemplateWithHttpInfoAsync (int storefrontOid, int emailTemplateOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the email templates a new email can start from
+        /// </summary>
+        /// <remarks>
+        /// One list: UltraCart's system templates and this storefront's saved ones (each with email_template_oid), then base templates, the active theme's files an email renders inside (each with path).  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTemplatesResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsTemplatesResponse> GetSfvbCommsTemplatesAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the email templates a new email can start from
+        /// </summary>
+        /// <remarks>
+        /// One list: UltraCart's system templates and this storefront's saved ones (each with email_template_oid), then base templates, the active theme's files an email renders inside (each with path).  Read only. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTemplatesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsTemplatesResponse>> GetSfvbCommsTemplatesWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read the Twilio account
         /// </summary>
@@ -10090,6 +10605,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbNotFoundEntry)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundEntry>> IgnoreSfvbNotFoundEntryWithHttpInfoAsync (int storefrontOid, string notFoundId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Import lists from another email provider
+        /// </summary>
+        /// <remarks>
+        /// Each list becomes a new list of the same name on this storefront and every member is subscribed, in the background; the signed-in user is emailed when it finishes.  Needs the account to be allowed to import, sfvb_publish, and an approved comms_list.import request for exactly these lists.  At most 20 lists.  dry_run checks the provider and the list ids and names what would be created, without importing or using an approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="providerImportRequest">The provider and lists to import</param>
+        /// <param name="approvalId">The approval_id of an approved comms_list.import request for exactly these lists.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsProviderImportResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsProviderImportResponse> ImportSfvbCommsProviderListsAsync (int storefrontOid, SfvbCommsProviderImportRequest providerImportRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Import lists from another email provider
+        /// </summary>
+        /// <remarks>
+        /// Each list becomes a new list of the same name on this storefront and every member is subscribed, in the background; the signed-in user is emailed when it finishes.  Needs the account to be allowed to import, sfvb_publish, and an approved comms_list.import request for exactly these lists.  At most 20 lists.  dry_run checks the provider and the list ids and names what would be created, without importing or using an approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="providerImportRequest">The provider and lists to import</param>
+        /// <param name="approvalId">The approval_id of an approved comms_list.import request for exactly these lists.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsProviderImportResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsProviderImportResponse>> ImportSfvbCommsProviderListsWithHttpInfoAsync (int storefrontOid, SfvbCommsProviderImportRequest providerImportRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Apply a reviewed redirect import
         /// </summary>
@@ -12389,6 +12931,95 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbExperiment)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbExperiment>> StartSfvbExperimentWithHttpInfoAsync (int storefrontOid, SfvbExperimentStartRequest experimentStartRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Send one test of an email step's email to a user on this account
+        /// </summary>
+        /// <remarks>
+        /// to_email must be the email address of a user on this account; a test is never sent to customers or anyone else.  It reaches a real inbox and counts against the plan's email quota.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 10 an hour and 50 a day.  The email render shows the same email without sending it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testEmailRequest">The email and the recipient</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTestSendResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsTestSendResponse> TestSfvbCommsEmailAsync (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestEmailRequest testEmailRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Send one test of an email step&#39;s email to a user on this account
+        /// </summary>
+        /// <remarks>
+        /// to_email must be the email address of a user on this account; a test is never sent to customers or anyone else.  It reaches a real inbox and counts against the plan's email quota.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 10 an hour and 50 a day.  The email render shows the same email without sending it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testEmailRequest">The email and the recipient</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTestSendResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsTestSendResponse>> TestSfvbCommsEmailWithHttpInfoAsync (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestEmailRequest testEmailRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Print and mail one real test postcard
+        /// </summary>
+        /// <remarks>
+        /// It is printed and mailed at the account's cost and can't be recalled.  mail_card must be true; the postcard proof shows the card without mailing it.  Postcards must be turned on for the account by UltraCart.  Needs sfvb_publish, the sign-in of a person, and an approved postcard.test_mail request for exactly this card and address, with a fresh code every time.  dry_run checks everything and shows the cost.  Rate limited per merchant to 3 an hour and 10 a day.  The answer says whether a card was mailed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testPostcardRequest">The address and mail_card</param>
+        /// <param name="approvalId">The approval_id of an approved postcard.test_mail request for exactly this card and address.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTestSendResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsTestSendResponse> TestSfvbCommsPostcardAsync (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestPostcardRequest testPostcardRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Print and mail one real test postcard
+        /// </summary>
+        /// <remarks>
+        /// It is printed and mailed at the account's cost and can't be recalled.  mail_card must be true; the postcard proof shows the card without mailing it.  Postcards must be turned on for the account by UltraCart.  Needs sfvb_publish, the sign-in of a person, and an approved postcard.test_mail request for exactly this card and address, with a fresh code every time.  dry_run checks everything and shows the cost.  Rate limited per merchant to 3 an hour and 10 a day.  The answer says whether a card was mailed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testPostcardRequest">The address and mail_card</param>
+        /// <param name="approvalId">The approval_id of an approved postcard.test_mail request for exactly this card and address.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTestSendResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsTestSendResponse>> TestSfvbCommsPostcardWithHttpInfoAsync (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestPostcardRequest testPostcardRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Send one test of an SMS step to a user on this account
+        /// </summary>
+        /// <remarks>
+        /// to_phone must be the cell phone of a user on this account, in E.164 form.  It is billed per segment through the account's Twilio account, from the flow's or campaign's SMS number; with none it is refused.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 5 an hour and 20 a day. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testSmsRequest">The recipient</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTestSendResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsTestSendResponse> TestSfvbCommsSmsAsync (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestSmsRequest testSmsRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Send one test of an SMS step to a user on this account
+        /// </summary>
+        /// <remarks>
+        /// to_phone must be the cell phone of a user on this account, in E.164 form.  It is billed per segment through the account's Twilio account, from the flow's or campaign's SMS number; with none it is refused.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 5 an hour and 20 a day. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testSmsRequest">The recipient</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTestSendResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsTestSendResponse>> TestSfvbCommsSmsWithHttpInfoAsync (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestSmsRequest testSmsRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Unarchive an upsell path
         /// </summary>
         /// <remarks>
@@ -12718,6 +13349,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbCommsSendingDomain)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCommsSendingDomain>> UpdateSfvbCommsSendingDomainWithHttpInfoAsync (string domain, SfvbCommsSendingDomain sendingDomain, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change a storefront's communications settings
+        /// </summary>
+        /// <remarks>
+        /// A field left out stays as it is.  A return address change needs sfvb_write and If-Match.  A change to the default marketing or transactional sender, or the default SMS number, also needs sfvb_publish and an approved comms_settings.update request for exactly this change.  A sending domain must be on this account and the SMS number on one of its Twilio accounts.  dry_run checks and shows the change without writing or using an approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The settings&#39; hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="commsSettingsUpdateRequest">The settings to change</param>
+        /// <param name="approvalId">The approval_id of an approved comms_settings.update request for exactly this change, when a sender or the SMS number changes.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSettingsResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsSettingsResponse> UpdateSfvbCommsSettingsAsync (int storefrontOid, string ifMatch, SfvbCommsSettingsUpdateRequest commsSettingsUpdateRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change a storefront&#39;s communications settings
+        /// </summary>
+        /// <remarks>
+        /// A field left out stays as it is.  A return address change needs sfvb_write and If-Match.  A change to the default marketing or transactional sender, or the default SMS number, also needs sfvb_publish and an approved comms_settings.update request for exactly this change.  A sending domain must be on this account and the SMS number on one of its Twilio accounts.  dry_run checks and shows the change without writing or using an approval. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The settings&#39; hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="commsSettingsUpdateRequest">The settings to change</param>
+        /// <param name="approvalId">The approval_id of an approved comms_settings.update request for exactly this change, when a sender or the SMS number changes.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSettingsResponse>> UpdateSfvbCommsSettingsWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbCommsSettingsUpdateRequest commsSettingsUpdateRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update the Twilio account
         /// </summary>
@@ -25165,6 +25825,356 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Read every flow's and campaign's counts over a window, with the account's daily sending rows cover each flow and campaign with activity in the last days (1 to 365, default 30); daily is the account's last 31 days of sending, whatever the window.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="days">The window for the rows, 1 to 365 days (default 30). (optional)</param>
+        /// <returns>SfvbCommsDashboardResponse</returns>
+        public SfvbCommsDashboardResponse GetSfvbCommsDashboardStats (int storefrontOid, int? days = default(int?))
+        {
+             ApiResponse<SfvbCommsDashboardResponse> localVarResponse = GetSfvbCommsDashboardStatsWithHttpInfo(storefrontOid, days);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read every flow's and campaign's counts over a window, with the account's daily sending rows cover each flow and campaign with activity in the last days (1 to 365, default 30); daily is the account's last 31 days of sending, whatever the window.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="days">The window for the rows, 1 to 365 days (default 30). (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsDashboardResponse</returns>
+        public ApiResponse<SfvbCommsDashboardResponse> GetSfvbCommsDashboardStatsWithHttpInfo (int storefrontOid, int? days = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsDashboardStats");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/stats/dashboard";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (days != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "days", days)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsDashboardStats", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsDashboardResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsDashboardResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsDashboardResponse)));
+        }
+
+        /// <summary>
+        /// Read every flow's and campaign's counts over a window, with the account's daily sending rows cover each flow and campaign with activity in the last days (1 to 365, default 30); daily is the account's last 31 days of sending, whatever the window.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="days">The window for the rows, 1 to 365 days (default 30). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsDashboardResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsDashboardResponse> GetSfvbCommsDashboardStatsAsync (int storefrontOid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsDashboardResponse> localVarResponse = await GetSfvbCommsDashboardStatsWithHttpInfoAsync(storefrontOid, days, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read every flow's and campaign's counts over a window, with the account's daily sending rows cover each flow and campaign with activity in the last days (1 to 365, default 30); daily is the account's last 31 days of sending, whatever the window.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="days">The window for the rows, 1 to 365 days (default 30). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsDashboardResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsDashboardResponse>> GetSfvbCommsDashboardStatsWithHttpInfoAsync (int storefrontOid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsDashboardStats");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/stats/dashboard";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (days != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "days", days)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsDashboardStats", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsDashboardResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsDashboardResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsDashboardResponse)));
+        }
+
+        /// <summary>
+        /// Read each link in one email and how often it was clicked The email must be sent by an email or experiment step of this flow's or campaign's sequence; any other is 404.  Most clicked first, over the last days (1 to 365, default 30).  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="days">The window, 1 to 365 days (default 30). (optional)</param>
+        /// <returns>SfvbCommsClicksResponse</returns>
+        public SfvbCommsClicksResponse GetSfvbCommsEmailClicks (int storefrontOid, string commseqUuid, string emailUuid, int? days = default(int?))
+        {
+             ApiResponse<SfvbCommsClicksResponse> localVarResponse = GetSfvbCommsEmailClicksWithHttpInfo(storefrontOid, commseqUuid, emailUuid, days);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read each link in one email and how often it was clicked The email must be sent by an email or experiment step of this flow's or campaign's sequence; any other is 404.  Most clicked first, over the last days (1 to 365, default 30).  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="days">The window, 1 to 365 days (default 30). (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsClicksResponse</returns>
+        public ApiResponse<SfvbCommsClicksResponse> GetSfvbCommsEmailClicksWithHttpInfo (int storefrontOid, string commseqUuid, string emailUuid, int? days = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsEmailClicks");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling SfvbApi->GetSfvbCommsEmailClicks");
+            // verify the required parameter 'emailUuid' is set
+            if (emailUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailUuid' when calling SfvbApi->GetSfvbCommsEmailClicks");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/emails/{email_uuid}/clicks";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (emailUuid != null) localVarPathParams.Add("email_uuid", this.Configuration.ApiClient.ParameterToString(emailUuid)); // path parameter
+            if (days != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "days", days)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsEmailClicks", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsClicksResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsClicksResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsClicksResponse)));
+        }
+
+        /// <summary>
+        /// Read each link in one email and how often it was clicked The email must be sent by an email or experiment step of this flow's or campaign's sequence; any other is 404.  Most clicked first, over the last days (1 to 365, default 30).  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="days">The window, 1 to 365 days (default 30). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsClicksResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsClicksResponse> GetSfvbCommsEmailClicksAsync (int storefrontOid, string commseqUuid, string emailUuid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsClicksResponse> localVarResponse = await GetSfvbCommsEmailClicksWithHttpInfoAsync(storefrontOid, commseqUuid, emailUuid, days, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read each link in one email and how often it was clicked The email must be sent by an email or experiment step of this flow's or campaign's sequence; any other is 404.  Most clicked first, over the last days (1 to 365, default 30).  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="emailUuid"></param>
+        /// <param name="days">The window, 1 to 365 days (default 30). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsClicksResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsClicksResponse>> GetSfvbCommsEmailClicksWithHttpInfoAsync (int storefrontOid, string commseqUuid, string emailUuid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsEmailClicks");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling SfvbApi->GetSfvbCommsEmailClicks");
+            // verify the required parameter 'emailUuid' is set
+            if (emailUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailUuid' when calling SfvbApi->GetSfvbCommsEmailClicks");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/emails/{email_uuid}/clicks";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (emailUuid != null) localVarPathParams.Add("email_uuid", this.Configuration.ApiClient.ParameterToString(emailUuid)); // path parameter
+            if (days != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "days", days)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsEmailClicks", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsClicksResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsClicksResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsClicksResponse)));
+        }
+
+        /// <summary>
         /// Read one list and segment folder The folder, with the name and uuid of each list and segment filed in it. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -25847,6 +26857,320 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Read the account's communications plan and sending health The plan, its customer and email caps, what has been sent against them, and the spam pause, with notes on anything that stops sends.  Account-wide.  Never a price, fee or upgrade option; the plan is changed in the admin.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsPlanResponse</returns>
+        public SfvbCommsPlanResponse GetSfvbCommsPlan (int storefrontOid)
+        {
+             ApiResponse<SfvbCommsPlanResponse> localVarResponse = GetSfvbCommsPlanWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read the account's communications plan and sending health The plan, its customer and email caps, what has been sent against them, and the spam pause, with notes on anything that stops sends.  Account-wide.  Never a price, fee or upgrade option; the plan is changed in the admin.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsPlanResponse</returns>
+        public ApiResponse<SfvbCommsPlanResponse> GetSfvbCommsPlanWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsPlan");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/plan";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsPlan", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsPlanResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsPlanResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsPlanResponse)));
+        }
+
+        /// <summary>
+        /// Read the account's communications plan and sending health The plan, its customer and email caps, what has been sent against them, and the spam pause, with notes on anything that stops sends.  Account-wide.  Never a price, fee or upgrade option; the plan is changed in the admin.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsPlanResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsPlanResponse> GetSfvbCommsPlanAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsPlanResponse> localVarResponse = await GetSfvbCommsPlanWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read the account's communications plan and sending health The plan, its customer and email caps, what has been sent against them, and the spam pause, with notes on anything that stops sends.  Account-wide.  Never a price, fee or upgrade option; the plan is changed in the admin.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsPlanResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsPlanResponse>> GetSfvbCommsPlanWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsPlan");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/plan";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsPlan", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsPlanResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsPlanResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsPlanResponse)));
+        }
+
+        /// <summary>
+        /// List the email providers the account can import lists from Each provider that can share list members, connected or not, with a connected one's lists.  Each call asks the providers themselves, so it is rate limited.  No credential or connect URL is returned.  import_allowed says whether the account may import.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsProvidersResponse</returns>
+        public SfvbCommsProvidersResponse GetSfvbCommsProviders (int storefrontOid)
+        {
+             ApiResponse<SfvbCommsProvidersResponse> localVarResponse = GetSfvbCommsProvidersWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the email providers the account can import lists from Each provider that can share list members, connected or not, with a connected one's lists.  Each call asks the providers themselves, so it is rate limited.  No credential or connect URL is returned.  import_allowed says whether the account may import.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsProvidersResponse</returns>
+        public ApiResponse<SfvbCommsProvidersResponse> GetSfvbCommsProvidersWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsProviders");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/providers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsProviders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsProvidersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsProvidersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsProvidersResponse)));
+        }
+
+        /// <summary>
+        /// List the email providers the account can import lists from Each provider that can share list members, connected or not, with a connected one's lists.  Each call asks the providers themselves, so it is rate limited.  No credential or connect URL is returned.  import_allowed says whether the account may import.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsProvidersResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsProvidersResponse> GetSfvbCommsProvidersAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsProvidersResponse> localVarResponse = await GetSfvbCommsProvidersWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the email providers the account can import lists from Each provider that can share list members, connected or not, with a connected one's lists.  Each call asks the providers themselves, so it is rate limited.  No credential or connect URL is returned.  import_allowed says whether the account may import.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsProvidersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsProvidersResponse>> GetSfvbCommsProvidersWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsProviders");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/providers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsProviders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsProvidersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsProvidersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsProvidersResponse)));
+        }
+
+        /// <summary>
         /// Read one segment, with its rule The segment's name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -26502,6 +27826,664 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbCommsSendingDomainsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbCommsSendingDomainsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSendingDomainsResponse)));
+        }
+
+        /// <summary>
+        /// Read a flow's or campaign's counts, overall and step by step overall covers all time; each email, SMS, postcard and branch step covers the last days (1 to 365, default 30).  Each step reports only the counts its channel records and names the rest in not_measured, so a missing count is never zero.  Bounces, opens and spam are counts here, not separate reports.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="days">The window for the step counts, 1 to 365 days (default 30). (optional)</param>
+        /// <returns>SfvbCommsSequenceStatsResponse</returns>
+        public SfvbCommsSequenceStatsResponse GetSfvbCommsSequenceStats (int storefrontOid, string commseqUuid, int? days = default(int?))
+        {
+             ApiResponse<SfvbCommsSequenceStatsResponse> localVarResponse = GetSfvbCommsSequenceStatsWithHttpInfo(storefrontOid, commseqUuid, days);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read a flow's or campaign's counts, overall and step by step overall covers all time; each email, SMS, postcard and branch step covers the last days (1 to 365, default 30).  Each step reports only the counts its channel records and names the rest in not_measured, so a missing count is never zero.  Bounces, opens and spam are counts here, not separate reports.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="days">The window for the step counts, 1 to 365 days (default 30). (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsSequenceStatsResponse</returns>
+        public ApiResponse<SfvbCommsSequenceStatsResponse> GetSfvbCommsSequenceStatsWithHttpInfo (int storefrontOid, string commseqUuid, int? days = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsSequenceStats");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling SfvbApi->GetSfvbCommsSequenceStats");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/stats";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (days != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "days", days)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsSequenceStats", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSequenceStatsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSequenceStatsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSequenceStatsResponse)));
+        }
+
+        /// <summary>
+        /// Read a flow's or campaign's counts, overall and step by step overall covers all time; each email, SMS, postcard and branch step covers the last days (1 to 365, default 30).  Each step reports only the counts its channel records and names the rest in not_measured, so a missing count is never zero.  Bounces, opens and spam are counts here, not separate reports.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="days">The window for the step counts, 1 to 365 days (default 30). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSequenceStatsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSequenceStatsResponse> GetSfvbCommsSequenceStatsAsync (int storefrontOid, string commseqUuid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSequenceStatsResponse> localVarResponse = await GetSfvbCommsSequenceStatsWithHttpInfoAsync(storefrontOid, commseqUuid, days, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read a flow's or campaign's counts, overall and step by step overall covers all time; each email, SMS, postcard and branch step covers the last days (1 to 365, default 30).  Each step reports only the counts its channel records and names the rest in not_measured, so a missing count is never zero.  Bounces, opens and spam are counts here, not separate reports.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="days">The window for the step counts, 1 to 365 days (default 30). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSequenceStatsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSequenceStatsResponse>> GetSfvbCommsSequenceStatsWithHttpInfoAsync (int storefrontOid, string commseqUuid, int? days = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsSequenceStats");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling SfvbApi->GetSfvbCommsSequenceStats");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/stats";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (days != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "days", days)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsSequenceStats", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSequenceStatsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSequenceStatsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSequenceStatsResponse)));
+        }
+
+        /// <summary>
+        /// Read a storefront's communications settings The postcard return address, the default marketing and transactional senders, and the default SMS number, with what each one drives in notes.  Read only.  hash_sha256 is the If-Match for an update. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsSettingsResponse</returns>
+        public SfvbCommsSettingsResponse GetSfvbCommsSettings (int storefrontOid)
+        {
+             ApiResponse<SfvbCommsSettingsResponse> localVarResponse = GetSfvbCommsSettingsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read a storefront's communications settings The postcard return address, the default marketing and transactional senders, and the default SMS number, with what each one drives in notes.  Read only.  hash_sha256 is the If-Match for an update. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsSettingsResponse</returns>
+        public ApiResponse<SfvbCommsSettingsResponse> GetSfvbCommsSettingsWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsSettings");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Read a storefront's communications settings The postcard return address, the default marketing and transactional senders, and the default SMS number, with what each one drives in notes.  Read only.  hash_sha256 is the If-Match for an update. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSettingsResponse> GetSfvbCommsSettingsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSettingsResponse> localVarResponse = await GetSfvbCommsSettingsWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read a storefront's communications settings The postcard return address, the default marketing and transactional senders, and the default SMS number, with what each one drives in notes.  Read only.  hash_sha256 is the If-Match for an update. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSettingsResponse>> GetSfvbCommsSettingsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsSettings");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Read one saved email template's body A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is named in email_template_vm_path, not shown.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailTemplateOid"></param>
+        /// <returns>SfvbCommsTemplateResponse</returns>
+        public SfvbCommsTemplateResponse GetSfvbCommsTemplate (int storefrontOid, int emailTemplateOid)
+        {
+             ApiResponse<SfvbCommsTemplateResponse> localVarResponse = GetSfvbCommsTemplateWithHttpInfo(storefrontOid, emailTemplateOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read one saved email template's body A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is named in email_template_vm_path, not shown.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailTemplateOid"></param>
+        /// <returns>ApiResponse of SfvbCommsTemplateResponse</returns>
+        public ApiResponse<SfvbCommsTemplateResponse> GetSfvbCommsTemplateWithHttpInfo (int storefrontOid, int emailTemplateOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsTemplate");
+            // verify the required parameter 'emailTemplateOid' is set
+            if (emailTemplateOid == null)
+                throw new ApiException(400, "Missing required parameter 'emailTemplateOid' when calling SfvbApi->GetSfvbCommsTemplate");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/templates/{email_template_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailTemplateOid != null) localVarPathParams.Add("email_template_oid", this.Configuration.ApiClient.ParameterToString(emailTemplateOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsTemplate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTemplateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTemplateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTemplateResponse)));
+        }
+
+        /// <summary>
+        /// Read one saved email template's body A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is named in email_template_vm_path, not shown.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailTemplateOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTemplateResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsTemplateResponse> GetSfvbCommsTemplateAsync (int storefrontOid, int emailTemplateOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsTemplateResponse> localVarResponse = await GetSfvbCommsTemplateWithHttpInfoAsync(storefrontOid, emailTemplateOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read one saved email template's body A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is named in email_template_vm_path, not shown.  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailTemplateOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTemplateResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsTemplateResponse>> GetSfvbCommsTemplateWithHttpInfoAsync (int storefrontOid, int emailTemplateOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsTemplate");
+            // verify the required parameter 'emailTemplateOid' is set
+            if (emailTemplateOid == null)
+                throw new ApiException(400, "Missing required parameter 'emailTemplateOid' when calling SfvbApi->GetSfvbCommsTemplate");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/templates/{email_template_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailTemplateOid != null) localVarPathParams.Add("email_template_oid", this.Configuration.ApiClient.ParameterToString(emailTemplateOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsTemplate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTemplateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTemplateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTemplateResponse)));
+        }
+
+        /// <summary>
+        /// List the email templates a new email can start from One list: UltraCart's system templates and this storefront's saved ones (each with email_template_oid), then base templates, the active theme's files an email renders inside (each with path).  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsTemplatesResponse</returns>
+        public SfvbCommsTemplatesResponse GetSfvbCommsTemplates (int storefrontOid)
+        {
+             ApiResponse<SfvbCommsTemplatesResponse> localVarResponse = GetSfvbCommsTemplatesWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the email templates a new email can start from One list: UltraCart's system templates and this storefront's saved ones (each with email_template_oid), then base templates, the active theme's files an email renders inside (each with path).  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsTemplatesResponse</returns>
+        public ApiResponse<SfvbCommsTemplatesResponse> GetSfvbCommsTemplatesWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsTemplates");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/templates";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsTemplates", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTemplatesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTemplatesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTemplatesResponse)));
+        }
+
+        /// <summary>
+        /// List the email templates a new email can start from One list: UltraCart's system templates and this storefront's saved ones (each with email_template_oid), then base templates, the active theme's files an email renders inside (each with path).  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTemplatesResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsTemplatesResponse> GetSfvbCommsTemplatesAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsTemplatesResponse> localVarResponse = await GetSfvbCommsTemplatesWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the email templates a new email can start from One list: UltraCart's system templates and this storefront's saved ones (each with email_template_oid), then base templates, the active theme's files an email renders inside (each with path).  Read only. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTemplatesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsTemplatesResponse>> GetSfvbCommsTemplatesWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsTemplates");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/templates";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsTemplates", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTemplatesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTemplatesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTemplatesResponse)));
         }
 
         /// <summary>
@@ -38047,6 +40029,197 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbNotFoundEntry>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbNotFoundEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbNotFoundEntry)));
+        }
+
+        /// <summary>
+        /// Import lists from another email provider Each list becomes a new list of the same name on this storefront and every member is subscribed, in the background; the signed-in user is emailed when it finishes.  Needs the account to be allowed to import, sfvb_publish, and an approved comms_list.import request for exactly these lists.  At most 20 lists.  dry_run checks the provider and the list ids and names what would be created, without importing or using an approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="providerImportRequest">The provider and lists to import</param>
+        /// <param name="approvalId">The approval_id of an approved comms_list.import request for exactly these lists.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbCommsProviderImportResponse</returns>
+        public SfvbCommsProviderImportResponse ImportSfvbCommsProviderLists (int storefrontOid, SfvbCommsProviderImportRequest providerImportRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbCommsProviderImportResponse> localVarResponse = ImportSfvbCommsProviderListsWithHttpInfo(storefrontOid, providerImportRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Import lists from another email provider Each list becomes a new list of the same name on this storefront and every member is subscribed, in the background; the signed-in user is emailed when it finishes.  Needs the account to be allowed to import, sfvb_publish, and an approved comms_list.import request for exactly these lists.  At most 20 lists.  dry_run checks the provider and the list ids and names what would be created, without importing or using an approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="providerImportRequest">The provider and lists to import</param>
+        /// <param name="approvalId">The approval_id of an approved comms_list.import request for exactly these lists.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsProviderImportResponse</returns>
+        public ApiResponse<SfvbCommsProviderImportResponse> ImportSfvbCommsProviderListsWithHttpInfo (int storefrontOid, SfvbCommsProviderImportRequest providerImportRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ImportSfvbCommsProviderLists");
+            // verify the required parameter 'providerImportRequest' is set
+            if (providerImportRequest == null)
+                throw new ApiException(400, "Missing required parameter 'providerImportRequest' when calling SfvbApi->ImportSfvbCommsProviderLists");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/providers/import";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (providerImportRequest != null && providerImportRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(providerImportRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = providerImportRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ImportSfvbCommsProviderLists", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsProviderImportResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsProviderImportResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsProviderImportResponse)));
+        }
+
+        /// <summary>
+        /// Import lists from another email provider Each list becomes a new list of the same name on this storefront and every member is subscribed, in the background; the signed-in user is emailed when it finishes.  Needs the account to be allowed to import, sfvb_publish, and an approved comms_list.import request for exactly these lists.  At most 20 lists.  dry_run checks the provider and the list ids and names what would be created, without importing or using an approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="providerImportRequest">The provider and lists to import</param>
+        /// <param name="approvalId">The approval_id of an approved comms_list.import request for exactly these lists.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsProviderImportResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsProviderImportResponse> ImportSfvbCommsProviderListsAsync (int storefrontOid, SfvbCommsProviderImportRequest providerImportRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsProviderImportResponse> localVarResponse = await ImportSfvbCommsProviderListsWithHttpInfoAsync(storefrontOid, providerImportRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Import lists from another email provider Each list becomes a new list of the same name on this storefront and every member is subscribed, in the background; the signed-in user is emailed when it finishes.  Needs the account to be allowed to import, sfvb_publish, and an approved comms_list.import request for exactly these lists.  At most 20 lists.  dry_run checks the provider and the list ids and names what would be created, without importing or using an approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="providerImportRequest">The provider and lists to import</param>
+        /// <param name="approvalId">The approval_id of an approved comms_list.import request for exactly these lists.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsProviderImportResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsProviderImportResponse>> ImportSfvbCommsProviderListsWithHttpInfoAsync (int storefrontOid, SfvbCommsProviderImportRequest providerImportRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ImportSfvbCommsProviderLists");
+            // verify the required parameter 'providerImportRequest' is set
+            if (providerImportRequest == null)
+                throw new ApiException(400, "Missing required parameter 'providerImportRequest' when calling SfvbApi->ImportSfvbCommsProviderLists");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/providers/import";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (providerImportRequest != null && providerImportRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(providerImportRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = providerImportRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ImportSfvbCommsProviderLists", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsProviderImportResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsProviderImportResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsProviderImportResponse)));
         }
 
         /// <summary>
@@ -53790,6 +55963,639 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Send one test of an email step's email to a user on this account to_email must be the email address of a user on this account; a test is never sent to customers or anyone else.  It reaches a real inbox and counts against the plan's email quota.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 10 an hour and 50 a day.  The email render shows the same email without sending it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testEmailRequest">The email and the recipient</param>
+        /// <returns>SfvbCommsTestSendResponse</returns>
+        public SfvbCommsTestSendResponse TestSfvbCommsEmail (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestEmailRequest testEmailRequest)
+        {
+             ApiResponse<SfvbCommsTestSendResponse> localVarResponse = TestSfvbCommsEmailWithHttpInfo(storefrontOid, commseqUuid, stepUuid, testEmailRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Send one test of an email step's email to a user on this account to_email must be the email address of a user on this account; a test is never sent to customers or anyone else.  It reaches a real inbox and counts against the plan's email quota.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 10 an hour and 50 a day.  The email render shows the same email without sending it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testEmailRequest">The email and the recipient</param>
+        /// <returns>ApiResponse of SfvbCommsTestSendResponse</returns>
+        public ApiResponse<SfvbCommsTestSendResponse> TestSfvbCommsEmailWithHttpInfo (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestEmailRequest testEmailRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->TestSfvbCommsEmail");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling SfvbApi->TestSfvbCommsEmail");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->TestSfvbCommsEmail");
+            // verify the required parameter 'testEmailRequest' is set
+            if (testEmailRequest == null)
+                throw new ApiException(400, "Missing required parameter 'testEmailRequest' when calling SfvbApi->TestSfvbCommsEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_email";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (testEmailRequest != null && testEmailRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(testEmailRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = testEmailRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TestSfvbCommsEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTestSendResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTestSendResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTestSendResponse)));
+        }
+
+        /// <summary>
+        /// Send one test of an email step's email to a user on this account to_email must be the email address of a user on this account; a test is never sent to customers or anyone else.  It reaches a real inbox and counts against the plan's email quota.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 10 an hour and 50 a day.  The email render shows the same email without sending it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testEmailRequest">The email and the recipient</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTestSendResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsTestSendResponse> TestSfvbCommsEmailAsync (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestEmailRequest testEmailRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsTestSendResponse> localVarResponse = await TestSfvbCommsEmailWithHttpInfoAsync(storefrontOid, commseqUuid, stepUuid, testEmailRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Send one test of an email step's email to a user on this account to_email must be the email address of a user on this account; a test is never sent to customers or anyone else.  It reaches a real inbox and counts against the plan's email quota.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 10 an hour and 50 a day.  The email render shows the same email without sending it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testEmailRequest">The email and the recipient</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTestSendResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsTestSendResponse>> TestSfvbCommsEmailWithHttpInfoAsync (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestEmailRequest testEmailRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->TestSfvbCommsEmail");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling SfvbApi->TestSfvbCommsEmail");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->TestSfvbCommsEmail");
+            // verify the required parameter 'testEmailRequest' is set
+            if (testEmailRequest == null)
+                throw new ApiException(400, "Missing required parameter 'testEmailRequest' when calling SfvbApi->TestSfvbCommsEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_email";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (testEmailRequest != null && testEmailRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(testEmailRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = testEmailRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TestSfvbCommsEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTestSendResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTestSendResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTestSendResponse)));
+        }
+
+        /// <summary>
+        /// Print and mail one real test postcard It is printed and mailed at the account's cost and can't be recalled.  mail_card must be true; the postcard proof shows the card without mailing it.  Postcards must be turned on for the account by UltraCart.  Needs sfvb_publish, the sign-in of a person, and an approved postcard.test_mail request for exactly this card and address, with a fresh code every time.  dry_run checks everything and shows the cost.  Rate limited per merchant to 3 an hour and 10 a day.  The answer says whether a card was mailed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testPostcardRequest">The address and mail_card</param>
+        /// <param name="approvalId">The approval_id of an approved postcard.test_mail request for exactly this card and address.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbCommsTestSendResponse</returns>
+        public SfvbCommsTestSendResponse TestSfvbCommsPostcard (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestPostcardRequest testPostcardRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbCommsTestSendResponse> localVarResponse = TestSfvbCommsPostcardWithHttpInfo(storefrontOid, commseqUuid, stepUuid, testPostcardRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Print and mail one real test postcard It is printed and mailed at the account's cost and can't be recalled.  mail_card must be true; the postcard proof shows the card without mailing it.  Postcards must be turned on for the account by UltraCart.  Needs sfvb_publish, the sign-in of a person, and an approved postcard.test_mail request for exactly this card and address, with a fresh code every time.  dry_run checks everything and shows the cost.  Rate limited per merchant to 3 an hour and 10 a day.  The answer says whether a card was mailed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testPostcardRequest">The address and mail_card</param>
+        /// <param name="approvalId">The approval_id of an approved postcard.test_mail request for exactly this card and address.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsTestSendResponse</returns>
+        public ApiResponse<SfvbCommsTestSendResponse> TestSfvbCommsPostcardWithHttpInfo (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestPostcardRequest testPostcardRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->TestSfvbCommsPostcard");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling SfvbApi->TestSfvbCommsPostcard");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->TestSfvbCommsPostcard");
+            // verify the required parameter 'testPostcardRequest' is set
+            if (testPostcardRequest == null)
+                throw new ApiException(400, "Missing required parameter 'testPostcardRequest' when calling SfvbApi->TestSfvbCommsPostcard");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_postcard";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (testPostcardRequest != null && testPostcardRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(testPostcardRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = testPostcardRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TestSfvbCommsPostcard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTestSendResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTestSendResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTestSendResponse)));
+        }
+
+        /// <summary>
+        /// Print and mail one real test postcard It is printed and mailed at the account's cost and can't be recalled.  mail_card must be true; the postcard proof shows the card without mailing it.  Postcards must be turned on for the account by UltraCart.  Needs sfvb_publish, the sign-in of a person, and an approved postcard.test_mail request for exactly this card and address, with a fresh code every time.  dry_run checks everything and shows the cost.  Rate limited per merchant to 3 an hour and 10 a day.  The answer says whether a card was mailed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testPostcardRequest">The address and mail_card</param>
+        /// <param name="approvalId">The approval_id of an approved postcard.test_mail request for exactly this card and address.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTestSendResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsTestSendResponse> TestSfvbCommsPostcardAsync (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestPostcardRequest testPostcardRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsTestSendResponse> localVarResponse = await TestSfvbCommsPostcardWithHttpInfoAsync(storefrontOid, commseqUuid, stepUuid, testPostcardRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Print and mail one real test postcard It is printed and mailed at the account's cost and can't be recalled.  mail_card must be true; the postcard proof shows the card without mailing it.  Postcards must be turned on for the account by UltraCart.  Needs sfvb_publish, the sign-in of a person, and an approved postcard.test_mail request for exactly this card and address, with a fresh code every time.  dry_run checks everything and shows the cost.  Rate limited per merchant to 3 an hour and 10 a day.  The answer says whether a card was mailed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testPostcardRequest">The address and mail_card</param>
+        /// <param name="approvalId">The approval_id of an approved postcard.test_mail request for exactly this card and address.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTestSendResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsTestSendResponse>> TestSfvbCommsPostcardWithHttpInfoAsync (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestPostcardRequest testPostcardRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->TestSfvbCommsPostcard");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling SfvbApi->TestSfvbCommsPostcard");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->TestSfvbCommsPostcard");
+            // verify the required parameter 'testPostcardRequest' is set
+            if (testPostcardRequest == null)
+                throw new ApiException(400, "Missing required parameter 'testPostcardRequest' when calling SfvbApi->TestSfvbCommsPostcard");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_postcard";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (testPostcardRequest != null && testPostcardRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(testPostcardRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = testPostcardRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TestSfvbCommsPostcard", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTestSendResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTestSendResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTestSendResponse)));
+        }
+
+        /// <summary>
+        /// Send one test of an SMS step to a user on this account to_phone must be the cell phone of a user on this account, in E.164 form.  It is billed per segment through the account's Twilio account, from the flow's or campaign's SMS number; with none it is refused.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 5 an hour and 20 a day. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testSmsRequest">The recipient</param>
+        /// <returns>SfvbCommsTestSendResponse</returns>
+        public SfvbCommsTestSendResponse TestSfvbCommsSms (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestSmsRequest testSmsRequest)
+        {
+             ApiResponse<SfvbCommsTestSendResponse> localVarResponse = TestSfvbCommsSmsWithHttpInfo(storefrontOid, commseqUuid, stepUuid, testSmsRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Send one test of an SMS step to a user on this account to_phone must be the cell phone of a user on this account, in E.164 form.  It is billed per segment through the account's Twilio account, from the flow's or campaign's SMS number; with none it is refused.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 5 an hour and 20 a day. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testSmsRequest">The recipient</param>
+        /// <returns>ApiResponse of SfvbCommsTestSendResponse</returns>
+        public ApiResponse<SfvbCommsTestSendResponse> TestSfvbCommsSmsWithHttpInfo (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestSmsRequest testSmsRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->TestSfvbCommsSms");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling SfvbApi->TestSfvbCommsSms");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->TestSfvbCommsSms");
+            // verify the required parameter 'testSmsRequest' is set
+            if (testSmsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'testSmsRequest' when calling SfvbApi->TestSfvbCommsSms");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_sms";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (testSmsRequest != null && testSmsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(testSmsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = testSmsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TestSfvbCommsSms", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTestSendResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTestSendResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTestSendResponse)));
+        }
+
+        /// <summary>
+        /// Send one test of an SMS step to a user on this account to_phone must be the cell phone of a user on this account, in E.164 form.  It is billed per segment through the account's Twilio account, from the flow's or campaign's SMS number; with none it is refused.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 5 an hour and 20 a day. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testSmsRequest">The recipient</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsTestSendResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsTestSendResponse> TestSfvbCommsSmsAsync (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestSmsRequest testSmsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsTestSendResponse> localVarResponse = await TestSfvbCommsSmsWithHttpInfoAsync(storefrontOid, commseqUuid, stepUuid, testSmsRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Send one test of an SMS step to a user on this account to_phone must be the cell phone of a user on this account, in E.164 form.  It is billed per segment through the account's Twilio account, from the flow's or campaign's SMS number; with none it is refused.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 5 an hour and 20 a day. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <param name="stepUuid"></param>
+        /// <param name="testSmsRequest">The recipient</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsTestSendResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsTestSendResponse>> TestSfvbCommsSmsWithHttpInfoAsync (int storefrontOid, string commseqUuid, string stepUuid, SfvbCommsTestSmsRequest testSmsRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->TestSfvbCommsSms");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling SfvbApi->TestSfvbCommsSms");
+            // verify the required parameter 'stepUuid' is set
+            if (stepUuid == null)
+                throw new ApiException(400, "Missing required parameter 'stepUuid' when calling SfvbApi->TestSfvbCommsSms");
+            // verify the required parameter 'testSmsRequest' is set
+            if (testSmsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'testSmsRequest' when calling SfvbApi->TestSfvbCommsSms");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_sms";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+            if (stepUuid != null) localVarPathParams.Add("step_uuid", this.Configuration.ApiClient.ParameterToString(stepUuid)); // path parameter
+            if (testSmsRequest != null && testSmsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(testSmsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = testSmsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TestSfvbCommsSms", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsTestSendResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsTestSendResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTestSendResponse)));
+        }
+
+        /// <summary>
         /// Unarchive an upsell path Brings the path back into the default list.  A path that is switched on is refused, because unarchiving it would start it without approval - disable it, unarchive it, then enable it. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -56109,6 +58915,209 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbCommsSendingDomain>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbCommsSendingDomain) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSendingDomain)));
+        }
+
+        /// <summary>
+        /// Change a storefront's communications settings A field left out stays as it is.  A return address change needs sfvb_write and If-Match.  A change to the default marketing or transactional sender, or the default SMS number, also needs sfvb_publish and an approved comms_settings.update request for exactly this change.  A sending domain must be on this account and the SMS number on one of its Twilio accounts.  dry_run checks and shows the change without writing or using an approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The settings&#39; hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="commsSettingsUpdateRequest">The settings to change</param>
+        /// <param name="approvalId">The approval_id of an approved comms_settings.update request for exactly this change, when a sender or the SMS number changes.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbCommsSettingsResponse</returns>
+        public SfvbCommsSettingsResponse UpdateSfvbCommsSettings (int storefrontOid, string ifMatch, SfvbCommsSettingsUpdateRequest commsSettingsUpdateRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbCommsSettingsResponse> localVarResponse = UpdateSfvbCommsSettingsWithHttpInfo(storefrontOid, ifMatch, commsSettingsUpdateRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change a storefront's communications settings A field left out stays as it is.  A return address change needs sfvb_write and If-Match.  A change to the default marketing or transactional sender, or the default SMS number, also needs sfvb_publish and an approved comms_settings.update request for exactly this change.  A sending domain must be on this account and the SMS number on one of its Twilio accounts.  dry_run checks and shows the change without writing or using an approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The settings&#39; hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="commsSettingsUpdateRequest">The settings to change</param>
+        /// <param name="approvalId">The approval_id of an approved comms_settings.update request for exactly this change, when a sender or the SMS number changes.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbCommsSettingsResponse</returns>
+        public ApiResponse<SfvbCommsSettingsResponse> UpdateSfvbCommsSettingsWithHttpInfo (int storefrontOid, string ifMatch, SfvbCommsSettingsUpdateRequest commsSettingsUpdateRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbCommsSettings");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbCommsSettings");
+            // verify the required parameter 'commsSettingsUpdateRequest' is set
+            if (commsSettingsUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'commsSettingsUpdateRequest' when calling SfvbApi->UpdateSfvbCommsSettings");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (commsSettingsUpdateRequest != null && commsSettingsUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(commsSettingsUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = commsSettingsUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCommsSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Change a storefront's communications settings A field left out stays as it is.  A return address change needs sfvb_write and If-Match.  A change to the default marketing or transactional sender, or the default SMS number, also needs sfvb_publish and an approved comms_settings.update request for exactly this change.  A sending domain must be on this account and the SMS number on one of its Twilio accounts.  dry_run checks and shows the change without writing or using an approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The settings&#39; hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="commsSettingsUpdateRequest">The settings to change</param>
+        /// <param name="approvalId">The approval_id of an approved comms_settings.update request for exactly this change, when a sender or the SMS number changes.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSettingsResponse> UpdateSfvbCommsSettingsAsync (int storefrontOid, string ifMatch, SfvbCommsSettingsUpdateRequest commsSettingsUpdateRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSettingsResponse> localVarResponse = await UpdateSfvbCommsSettingsWithHttpInfoAsync(storefrontOid, ifMatch, commsSettingsUpdateRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change a storefront's communications settings A field left out stays as it is.  A return address change needs sfvb_write and If-Match.  A change to the default marketing or transactional sender, or the default SMS number, also needs sfvb_publish and an approved comms_settings.update request for exactly this change.  A sending domain must be on this account and the SMS number on one of its Twilio accounts.  dry_run checks and shows the change without writing or using an approval. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">The settings&#39; hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="commsSettingsUpdateRequest">The settings to change</param>
+        /// <param name="approvalId">The approval_id of an approved comms_settings.update request for exactly this change, when a sender or the SMS number changes.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSettingsResponse>> UpdateSfvbCommsSettingsWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbCommsSettingsUpdateRequest commsSettingsUpdateRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbCommsSettings");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbCommsSettings");
+            // verify the required parameter 'commsSettingsUpdateRequest' is set
+            if (commsSettingsUpdateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'commsSettingsUpdateRequest' when calling SfvbApi->UpdateSfvbCommsSettings");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/comms/settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (commsSettingsUpdateRequest != null && commsSettingsUpdateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(commsSettingsUpdateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = commsSettingsUpdateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCommsSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSettingsResponse)));
         }
 
         /// <summary>

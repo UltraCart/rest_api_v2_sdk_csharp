@@ -173,7 +173,25 @@ namespace com.ultracart.admin.v2.Model
             /// Enum TransactionalemailUpdate for value: transactional_email.update
             /// </summary>
             [EnumMember(Value = "transactional_email.update")]
-            TransactionalemailUpdate = 23
+            TransactionalemailUpdate = 23,
+
+            /// <summary>
+            /// Enum CommssettingsUpdate for value: comms_settings.update
+            /// </summary>
+            [EnumMember(Value = "comms_settings.update")]
+            CommssettingsUpdate = 24,
+
+            /// <summary>
+            /// Enum CommslistImport for value: comms_list.import
+            /// </summary>
+            [EnumMember(Value = "comms_list.import")]
+            CommslistImport = 25,
+
+            /// <summary>
+            /// Enum PostcardTestmail for value: postcard.test_mail
+            /// </summary>
+            [EnumMember(Value = "postcard.test_mail")]
+            PostcardTestmail = 26
 
         }
 
@@ -188,11 +206,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="action">The gated action to approve..</param>
         /// <param name="affiliateNetwork">affiliateNetwork.</param>
+        /// <param name="commsListImport">commsListImport.</param>
+        /// <param name="commsSettings">commsSettings.</param>
         /// <param name="content">For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version..</param>
         /// <param name="experimentStart">experimentStart.</param>
         /// <param name="itemAttributeRows">For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash..</param>
         /// <param name="itemPricing">itemPricing.</param>
         /// <param name="_params">_params.</param>
+        /// <param name="postcardTestMail">postcardTestMail.</param>
         /// <param name="reason">Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters..</param>
         /// <param name="redirectRows">For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash..</param>
         /// <param name="segmentUpdate">segmentUpdate.</param>
@@ -200,15 +221,18 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="smartAttribution">smartAttribution.</param>
         /// <param name="trackingProvider">trackingProvider.</param>
         /// <param name="transactionalEmail">transactionalEmail.</param>
-        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSiteSeoRequest siteSeo = default(SfvbSiteSeoRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest), SfvbTransactionalEmailUpdateRequest transactionalEmail = default(SfvbTransactionalEmailUpdateRequest))
+        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), SfvbCommsProviderImportRequest commsListImport = default(SfvbCommsProviderImportRequest), SfvbCommsSettingsUpdateRequest commsSettings = default(SfvbCommsSettingsUpdateRequest), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), SfvbCommsTestPostcardRequest postcardTestMail = default(SfvbCommsTestPostcardRequest), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSiteSeoRequest siteSeo = default(SfvbSiteSeoRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest), SfvbTransactionalEmailUpdateRequest transactionalEmail = default(SfvbTransactionalEmailUpdateRequest))
         {
             this.Action = action;
             this.AffiliateNetwork = affiliateNetwork;
+            this.CommsListImport = commsListImport;
+            this.CommsSettings = commsSettings;
             this.Content = content;
             this.ExperimentStart = experimentStart;
             this.ItemAttributeRows = itemAttributeRows;
             this.ItemPricing = itemPricing;
             this.Params = _params;
+            this.PostcardTestMail = postcardTestMail;
             this.Reason = reason;
             this.RedirectRows = redirectRows;
             this.SegmentUpdate = segmentUpdate;
@@ -224,6 +248,18 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="affiliate_network", EmitDefaultValue=false)]
         public SfvbAffiliateNetworkRequest AffiliateNetwork { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CommsListImport
+        /// </summary>
+        [DataMember(Name="comms_list_import", EmitDefaultValue=false)]
+        public SfvbCommsProviderImportRequest CommsListImport { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CommsSettings
+        /// </summary>
+        [DataMember(Name="comms_settings", EmitDefaultValue=false)]
+        public SfvbCommsSettingsUpdateRequest CommsSettings { get; set; }
 
         /// <summary>
         /// For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
@@ -256,6 +292,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="params", EmitDefaultValue=false)]
         public SfvbApprovalParams Params { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PostcardTestMail
+        /// </summary>
+        [DataMember(Name="postcard_test_mail", EmitDefaultValue=false)]
+        public SfvbCommsTestPostcardRequest PostcardTestMail { get; set; }
 
         /// <summary>
         /// Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters.
@@ -311,11 +353,14 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class SfvbApprovalCreateRequest {\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
             sb.Append("  AffiliateNetwork: ").Append(AffiliateNetwork).Append("\n");
+            sb.Append("  CommsListImport: ").Append(CommsListImport).Append("\n");
+            sb.Append("  CommsSettings: ").Append(CommsSettings).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  ExperimentStart: ").Append(ExperimentStart).Append("\n");
             sb.Append("  ItemAttributeRows: ").Append(ItemAttributeRows).Append("\n");
             sb.Append("  ItemPricing: ").Append(ItemPricing).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
+            sb.Append("  PostcardTestMail: ").Append(PostcardTestMail).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  RedirectRows: ").Append(RedirectRows).Append("\n");
             sb.Append("  SegmentUpdate: ").Append(SegmentUpdate).Append("\n");
@@ -368,6 +413,16 @@ namespace com.ultracart.admin.v2.Model
                     this.AffiliateNetwork.Equals(input.AffiliateNetwork))
                 ) && 
                 (
+                    this.CommsListImport == input.CommsListImport ||
+                    (this.CommsListImport != null &&
+                    this.CommsListImport.Equals(input.CommsListImport))
+                ) && 
+                (
+                    this.CommsSettings == input.CommsSettings ||
+                    (this.CommsSettings != null &&
+                    this.CommsSettings.Equals(input.CommsSettings))
+                ) && 
+                (
                     this.Content == input.Content ||
                     (this.Content != null &&
                     this.Content.Equals(input.Content))
@@ -392,6 +447,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Params == input.Params ||
                     (this.Params != null &&
                     this.Params.Equals(input.Params))
+                ) && 
+                (
+                    this.PostcardTestMail == input.PostcardTestMail ||
+                    (this.PostcardTestMail != null &&
+                    this.PostcardTestMail.Equals(input.PostcardTestMail))
                 ) && 
                 (
                     this.Reason == input.Reason ||
@@ -444,6 +504,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Action.GetHashCode();
                 if (this.AffiliateNetwork != null)
                     hashCode = hashCode * 59 + this.AffiliateNetwork.GetHashCode();
+                if (this.CommsListImport != null)
+                    hashCode = hashCode * 59 + this.CommsListImport.GetHashCode();
+                if (this.CommsSettings != null)
+                    hashCode = hashCode * 59 + this.CommsSettings.GetHashCode();
                 if (this.Content != null)
                     hashCode = hashCode * 59 + this.Content.GetHashCode();
                 if (this.ExperimentStart != null)
@@ -454,6 +518,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ItemPricing.GetHashCode();
                 if (this.Params != null)
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
+                if (this.PostcardTestMail != null)
+                    hashCode = hashCode * 59 + this.PostcardTestMail.GetHashCode();
                 if (this.Reason != null)
                     hashCode = hashCode * 59 + this.Reason.GetHashCode();
                 if (this.RedirectRows != null)

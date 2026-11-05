@@ -43,6 +43,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="autoOrderCancelMinimumRebillCount">The minimum rebill count that must be billed in order to not be charged the cancellation item..</param>
         /// <param name="autoOrderCancelMinimumRebillValue">The minimum rebill value that must be paid in order to not be charged the cancellation item..</param>
         /// <param name="autoOrderDowngradeItems">List of downgrade items presented to customer service representatives.</param>
+        /// <param name="autoOrderMyaccountFrequencyDayCounts">Day counts (1 to 365, at most 20) a customer may switch this auto-enrolled item to from MyAccount, for example [30, 60, 90].  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear..</param>
+        /// <param name="autoOrderMyaccountFrequencyLastStepOnly">True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged..</param>
+        /// <param name="autoOrderMyaccountFrequencySchedules">Standard schedules a customer may switch this auto-enrolled item to from MyAccount.  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear..</param>
         /// <param name="autoOrderPaused">True if the rebill processing of this item is paused.</param>
         /// <param name="autoOrderProhibitExpiringCards">Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable..</param>
         /// <param name="autoOrderSchedules">The user selectable schedules that are available.</param>
@@ -55,7 +58,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="freeShippingAutoOrder">True if the customer should be given free shipping.</param>
         /// <param name="refundOtherAutoOrders">True if other auto orders for this customer should refunded if this item is refunded..</param>
         /// <param name="steps">The rebill steps if this auto order is an upsell.</param>
-        public ItemAutoOrder(decimal authFutureAmount = default(decimal), decimal authTestAmount = default(decimal), bool autoOrderCancelChargeMinimumBalance = default(bool), string autoOrderCancelItemId = default(string), int autoOrderCancelItemOid = default(int), int autoOrderCancelMinimumLifeTimeCount = default(int), decimal autoOrderCancelMinimumLifeTimeValue = default(decimal), int autoOrderCancelMinimumRebillCount = default(int), decimal autoOrderCancelMinimumRebillValue = default(decimal), List<string> autoOrderDowngradeItems = default(List<string>), bool autoOrderPaused = default(bool), int autoOrderProhibitExpiringCards = default(int), List<string> autoOrderSchedules = default(List<string>), List<string> autoOrderUpgradeItems = default(List<string>), bool autoOrderUpsell = default(bool), bool autoOrderUpsellNoEasyCancel = default(bool), bool autoOrderUpsellOnePerCustomer = default(bool), bool autoOrderable = default(bool), bool cancelOtherAutoOrders = default(bool), bool freeShippingAutoOrder = default(bool), bool refundOtherAutoOrders = default(bool), List<ItemAutoOrderStep> steps = default(List<ItemAutoOrderStep>))
+        public ItemAutoOrder(decimal authFutureAmount = default(decimal), decimal authTestAmount = default(decimal), bool autoOrderCancelChargeMinimumBalance = default(bool), string autoOrderCancelItemId = default(string), int autoOrderCancelItemOid = default(int), int autoOrderCancelMinimumLifeTimeCount = default(int), decimal autoOrderCancelMinimumLifeTimeValue = default(decimal), int autoOrderCancelMinimumRebillCount = default(int), decimal autoOrderCancelMinimumRebillValue = default(decimal), List<string> autoOrderDowngradeItems = default(List<string>), List<int> autoOrderMyaccountFrequencyDayCounts = default(List<int>), bool autoOrderMyaccountFrequencyLastStepOnly = default(bool), List<string> autoOrderMyaccountFrequencySchedules = default(List<string>), bool autoOrderPaused = default(bool), int autoOrderProhibitExpiringCards = default(int), List<string> autoOrderSchedules = default(List<string>), List<string> autoOrderUpgradeItems = default(List<string>), bool autoOrderUpsell = default(bool), bool autoOrderUpsellNoEasyCancel = default(bool), bool autoOrderUpsellOnePerCustomer = default(bool), bool autoOrderable = default(bool), bool cancelOtherAutoOrders = default(bool), bool freeShippingAutoOrder = default(bool), bool refundOtherAutoOrders = default(bool), List<ItemAutoOrderStep> steps = default(List<ItemAutoOrderStep>))
         {
             this.AuthFutureAmount = authFutureAmount;
             this.AuthTestAmount = authTestAmount;
@@ -67,6 +70,9 @@ namespace com.ultracart.admin.v2.Model
             this.AutoOrderCancelMinimumRebillCount = autoOrderCancelMinimumRebillCount;
             this.AutoOrderCancelMinimumRebillValue = autoOrderCancelMinimumRebillValue;
             this.AutoOrderDowngradeItems = autoOrderDowngradeItems;
+            this.AutoOrderMyaccountFrequencyDayCounts = autoOrderMyaccountFrequencyDayCounts;
+            this.AutoOrderMyaccountFrequencyLastStepOnly = autoOrderMyaccountFrequencyLastStepOnly;
+            this.AutoOrderMyaccountFrequencySchedules = autoOrderMyaccountFrequencySchedules;
             this.AutoOrderPaused = autoOrderPaused;
             this.AutoOrderProhibitExpiringCards = autoOrderProhibitExpiringCards;
             this.AutoOrderSchedules = autoOrderSchedules;
@@ -150,6 +156,27 @@ namespace com.ultracart.admin.v2.Model
         /// <value>List of downgrade items presented to customer service representatives</value>
         [DataMember(Name="auto_order_downgrade_items", EmitDefaultValue=false)]
         public List<string> AutoOrderDowngradeItems { get; set; }
+
+        /// <summary>
+        /// Day counts (1 to 365, at most 20) a customer may switch this auto-enrolled item to from MyAccount, for example [30, 60, 90].  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.
+        /// </summary>
+        /// <value>Day counts (1 to 365, at most 20) a customer may switch this auto-enrolled item to from MyAccount, for example [30, 60, 90].  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.</value>
+        [DataMember(Name="auto_order_myaccount_frequency_day_counts", EmitDefaultValue=false)]
+        public List<int> AutoOrderMyaccountFrequencyDayCounts { get; set; }
+
+        /// <summary>
+        /// True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged.
+        /// </summary>
+        /// <value>True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged.</value>
+        [DataMember(Name="auto_order_myaccount_frequency_last_step_only", EmitDefaultValue=false)]
+        public bool AutoOrderMyaccountFrequencyLastStepOnly { get; set; }
+
+        /// <summary>
+        /// Standard schedules a customer may switch this auto-enrolled item to from MyAccount.  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.
+        /// </summary>
+        /// <value>Standard schedules a customer may switch this auto-enrolled item to from MyAccount.  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.</value>
+        [DataMember(Name="auto_order_myaccount_frequency_schedules", EmitDefaultValue=false)]
+        public List<string> AutoOrderMyaccountFrequencySchedules { get; set; }
 
         /// <summary>
         /// True if the rebill processing of this item is paused
@@ -253,6 +280,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AutoOrderCancelMinimumRebillCount: ").Append(AutoOrderCancelMinimumRebillCount).Append("\n");
             sb.Append("  AutoOrderCancelMinimumRebillValue: ").Append(AutoOrderCancelMinimumRebillValue).Append("\n");
             sb.Append("  AutoOrderDowngradeItems: ").Append(AutoOrderDowngradeItems).Append("\n");
+            sb.Append("  AutoOrderMyaccountFrequencyDayCounts: ").Append(AutoOrderMyaccountFrequencyDayCounts).Append("\n");
+            sb.Append("  AutoOrderMyaccountFrequencyLastStepOnly: ").Append(AutoOrderMyaccountFrequencyLastStepOnly).Append("\n");
+            sb.Append("  AutoOrderMyaccountFrequencySchedules: ").Append(AutoOrderMyaccountFrequencySchedules).Append("\n");
             sb.Append("  AutoOrderPaused: ").Append(AutoOrderPaused).Append("\n");
             sb.Append("  AutoOrderProhibitExpiringCards: ").Append(AutoOrderProhibitExpiringCards).Append("\n");
             sb.Append("  AutoOrderSchedules: ").Append(AutoOrderSchedules).Append("\n");
@@ -351,6 +381,23 @@ namespace com.ultracart.admin.v2.Model
                     this.AutoOrderDowngradeItems.SequenceEqual(input.AutoOrderDowngradeItems)
                 ) && 
                 (
+                    this.AutoOrderMyaccountFrequencyDayCounts == input.AutoOrderMyaccountFrequencyDayCounts ||
+                    this.AutoOrderMyaccountFrequencyDayCounts != null &&
+                    input.AutoOrderMyaccountFrequencyDayCounts != null &&
+                    this.AutoOrderMyaccountFrequencyDayCounts.SequenceEqual(input.AutoOrderMyaccountFrequencyDayCounts)
+                ) && 
+                (
+                    this.AutoOrderMyaccountFrequencyLastStepOnly == input.AutoOrderMyaccountFrequencyLastStepOnly ||
+                    (this.AutoOrderMyaccountFrequencyLastStepOnly != null &&
+                    this.AutoOrderMyaccountFrequencyLastStepOnly.Equals(input.AutoOrderMyaccountFrequencyLastStepOnly))
+                ) && 
+                (
+                    this.AutoOrderMyaccountFrequencySchedules == input.AutoOrderMyaccountFrequencySchedules ||
+                    this.AutoOrderMyaccountFrequencySchedules != null &&
+                    input.AutoOrderMyaccountFrequencySchedules != null &&
+                    this.AutoOrderMyaccountFrequencySchedules.SequenceEqual(input.AutoOrderMyaccountFrequencySchedules)
+                ) && 
+                (
                     this.AutoOrderPaused == input.AutoOrderPaused ||
                     (this.AutoOrderPaused != null &&
                     this.AutoOrderPaused.Equals(input.AutoOrderPaused))
@@ -444,6 +491,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AutoOrderCancelMinimumRebillValue.GetHashCode();
                 if (this.AutoOrderDowngradeItems != null)
                     hashCode = hashCode * 59 + this.AutoOrderDowngradeItems.GetHashCode();
+                if (this.AutoOrderMyaccountFrequencyDayCounts != null)
+                    hashCode = hashCode * 59 + this.AutoOrderMyaccountFrequencyDayCounts.GetHashCode();
+                if (this.AutoOrderMyaccountFrequencyLastStepOnly != null)
+                    hashCode = hashCode * 59 + this.AutoOrderMyaccountFrequencyLastStepOnly.GetHashCode();
+                if (this.AutoOrderMyaccountFrequencySchedules != null)
+                    hashCode = hashCode * 59 + this.AutoOrderMyaccountFrequencySchedules.GetHashCode();
                 if (this.AutoOrderPaused != null)
                     hashCode = hashCode * 59 + this.AutoOrderPaused.GetHashCode();
                 if (this.AutoOrderProhibitExpiringCards != null)

@@ -75,8 +75,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="sendingDomainUuid">The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain..</param>
         /// <param name="sendingName">The from name.  Defaults to the storefront&#39;s marketing setting..</param>
         /// <param name="sendingUser">The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting..</param>
-        /// <param name="triggerParameter">The list or segment uuid for a list or segment trigger.  Create only..</param>
-        /// <param name="triggerType">What enrolls a customer, such as cart abandoned.  Create only..</param>
+        /// <param name="triggerParameter">The list or segment uuid for a list or segment trigger.  Cleared when the trigger changes to one that takes none..</param>
+        /// <param name="triggerType">What enrolls a customer, such as cart abandoned.  Required to create.  On a change, only while the flow is off..</param>
         public SfvbFlowWriteRequest(bool allowMultipleConcurrentEnrollments = default(bool), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string name = default(string), int reentryDelayDays = default(int), ReentryPolicyEnum? reentryPolicy = default(ReentryPolicyEnum?), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string), string triggerParameter = default(string), string triggerType = default(string))
         {
             this.AllowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
@@ -150,16 +150,16 @@ namespace com.ultracart.admin.v2.Model
         public string SendingUser { get; set; }
 
         /// <summary>
-        /// The list or segment uuid for a list or segment trigger.  Create only.
+        /// The list or segment uuid for a list or segment trigger.  Cleared when the trigger changes to one that takes none.
         /// </summary>
-        /// <value>The list or segment uuid for a list or segment trigger.  Create only.</value>
+        /// <value>The list or segment uuid for a list or segment trigger.  Cleared when the trigger changes to one that takes none.</value>
         [DataMember(Name="trigger_parameter", EmitDefaultValue=false)]
         public string TriggerParameter { get; set; }
 
         /// <summary>
-        /// What enrolls a customer, such as cart abandoned.  Create only.
+        /// What enrolls a customer, such as cart abandoned.  Required to create.  On a change, only while the flow is off.
         /// </summary>
-        /// <value>What enrolls a customer, such as cart abandoned.  Create only.</value>
+        /// <value>What enrolls a customer, such as cart abandoned.  Required to create.  On a change, only while the flow is off.</value>
         [DataMember(Name="trigger_type", EmitDefaultValue=false)]
         public string TriggerType { get; set; }
 

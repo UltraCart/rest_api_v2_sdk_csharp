@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **SendingDomainUuid** | **string** | The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain. | [optional] 
 **SendingName** | **string** | The from name.  Defaults to the storefront&#39;s marketing setting. | [optional] 
 **SendingUser** | **string** | The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting. | [optional] 
-**TriggerParameter** | **string** | The list or segment uuid for a list or segment trigger.  Create only. | [optional] 
-**TriggerType** | **string** | What enrolls a customer, such as cart abandoned.  Create only. | [optional] 
+**TriggerParameter** | **string** | The list or segment uuid for a list or segment trigger.  Cleared when the trigger changes to one that takes none. | [optional] 
+**TriggerType** | **string** | What enrolls a customer, such as cart abandoned.  Required to create.  On a change, only while the flow is off. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

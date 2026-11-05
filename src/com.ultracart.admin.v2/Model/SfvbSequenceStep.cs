@@ -40,7 +40,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="disabled">True when the step is switched off in its settings..</param>
         /// <param name="emailUuids">The emails it sends.  One for an email step, one per variant for an experiment..</param>
         /// <param name="filterProfileEquationJson">The step&#39;s audience filter as stored, when it has one..</param>
-        /// <param name="hashSha256">The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step..</param>
+        /// <param name="hashSha256">The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step.  What a running flow records in the settings (a resend step&#39;s resend mappings, a rate limiter&#39;s inventory refresh time, an experiment&#39;s winner) doesn&#39;t count.  An email step&#39;s smartSending and magicLink are the email&#39;s own settings, so the email&#39;s hash_sha256 guards them, not this one..</param>
         /// <param name="itemIds">The items it names, for a cart or rate limiter step..</param>
         /// <param name="label">The type as the admin names it, such as Time Delay.  The type itself for one it doesn&#39;t know..</param>
         /// <param name="listUuids">The lists it subscribes or unsubscribes, for a list step..</param>
@@ -123,9 +123,9 @@ namespace com.ultracart.admin.v2.Model
         public string FilterProfileEquationJson { get; set; }
 
         /// <summary>
-        /// The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step.
+        /// The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step.  What a running flow records in the settings (a resend step&#39;s resend mappings, a rate limiter&#39;s inventory refresh time, an experiment&#39;s winner) doesn&#39;t count.  An email step&#39;s smartSending and magicLink are the email&#39;s own settings, so the email&#39;s hash_sha256 guards them, not this one.
         /// </summary>
-        /// <value>The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step.</value>
+        /// <value>The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step.  What a running flow records in the settings (a resend step&#39;s resend mappings, a rate limiter&#39;s inventory refresh time, an experiment&#39;s winner) doesn&#39;t count.  An email step&#39;s smartSending and magicLink are the email&#39;s own settings, so the email&#39;s hash_sha256 guards them, not this one.</value>
         [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
         public string HashSha256 { get; set; }
 

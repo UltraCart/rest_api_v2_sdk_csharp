@@ -103,6 +103,56 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbCampaign</returns>
         ApiResponse<SfvbCampaign> ArchiveSfvbCampaignWithHttpInfo (int storefrontOid, string campaignUuid, string ifMatch, SfvbArchiveRequest archiveRequest);
         /// <summary>
+        /// Archive an email list
+        /// </summary>
+        /// <remarks>
+        /// Hides the list from the lists list and the admin, and keeps its members.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the list's hash_sha256 as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>SfvbCommsListResponse</returns>
+        SfvbCommsListResponse ArchiveSfvbCommsList (int storefrontOid, string listUuid, string ifMatch);
+
+        /// <summary>
+        /// Archive an email list
+        /// </summary>
+        /// <remarks>
+        /// Hides the list from the lists list and the admin, and keeps its members.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the list's hash_sha256 as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbCommsListResponse</returns>
+        ApiResponse<SfvbCommsListResponse> ArchiveSfvbCommsListWithHttpInfo (int storefrontOid, string listUuid, string ifMatch);
+        /// <summary>
+        /// Archive a segment
+        /// </summary>
+        /// <remarks>
+        /// Hides the segment from the segments list and the admin.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the segment's hash_sha256 as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>SfvbCommsSegmentResponse</returns>
+        SfvbCommsSegmentResponse ArchiveSfvbCommsSegment (int storefrontOid, string segmentUuid, string ifMatch);
+
+        /// <summary>
+        /// Archive a segment
+        /// </summary>
+        /// <remarks>
+        /// Hides the segment from the segments list and the admin.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the segment's hash_sha256 as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbCommsSegmentResponse</returns>
+        ApiResponse<SfvbCommsSegmentResponse> ArchiveSfvbCommsSegmentWithHttpInfo (int storefrontOid, string segmentUuid, string ifMatch);
+        /// <summary>
         /// Archive or unarchive a flow
         /// </summary>
         /// <remarks>
@@ -478,6 +528,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="approvalId">The approval_id of an approved blog_post.delete request for this post.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSfvbBlogPostWithHttpInfo (int storefrontOid, int blogPostOid, string approvalId = default(string));
+        /// <summary>
+        /// Delete a list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// Its lists and segments are kept and filed under no folder, as the admin does; items names each one.  Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be deleted here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>SfvbCommsFolderResponse</returns>
+        SfvbCommsFolderResponse DeleteSfvbCommsFolder (int storefrontOid, string folderUuid, string ifMatch);
+
+        /// <summary>
+        /// Delete a list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// Its lists and segments are kept and filed under no folder, as the admin does; items names each one.  Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be deleted here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbCommsFolderResponse</returns>
+        ApiResponse<SfvbCommsFolderResponse> DeleteSfvbCommsFolderWithHttpInfo (int storefrontOid, string folderUuid, string ifMatch);
         /// <summary>
         /// Remove a sending domain
         /// </summary>
@@ -1534,6 +1609,73 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="compileRequest">CJSON to inspect</param>
         /// <returns>ApiResponse of SfvbElementsResponse</returns>
         ApiResponse<SfvbElementsResponse> GetSfvbCjsonUsedElementsWithHttpInfo (SfvbCompileRequest compileRequest);
+        /// <summary>
+        /// Read one list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// The folder, with the name and uuid of each list and segment filed in it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <returns>SfvbCommsFolderResponse</returns>
+        SfvbCommsFolderResponse GetSfvbCommsFolder (int storefrontOid, string folderUuid);
+
+        /// <summary>
+        /// Read one list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// The folder, with the name and uuid of each list and segment filed in it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <returns>ApiResponse of SfvbCommsFolderResponse</returns>
+        ApiResponse<SfvbCommsFolderResponse> GetSfvbCommsFolderWithHttpInfo (int storefrontOid, string folderUuid);
+        /// <summary>
+        /// List the list and segment folders
+        /// </summary>
+        /// <remarks>
+        /// Each folder with how many lists and segments are filed in it, whether the admin made it, and its hash_sha256. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsFoldersResponse</returns>
+        SfvbCommsFoldersResponse GetSfvbCommsFolders (int storefrontOid);
+
+        /// <summary>
+        /// List the list and segment folders
+        /// </summary>
+        /// <remarks>
+        /// Each folder with how many lists and segments are filed in it, whether the admin made it, and its hash_sha256. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsFoldersResponse</returns>
+        ApiResponse<SfvbCommsFoldersResponse> GetSfvbCommsFoldersWithHttpInfo (int storefrontOid);
+        /// <summary>
+        /// Read one email list
+        /// </summary>
+        /// <remarks>
+        /// The list's name, folder, member count, public settings, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for a change or an archive.  Never its members. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <returns>SfvbCommsListResponse</returns>
+        SfvbCommsListResponse GetSfvbCommsList (int storefrontOid, string listUuid);
+
+        /// <summary>
+        /// Read one email list
+        /// </summary>
+        /// <remarks>
+        /// The list's name, folder, member count, public settings, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for a change or an archive.  Never its members. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <returns>ApiResponse of SfvbCommsListResponse</returns>
+        ApiResponse<SfvbCommsListResponse> GetSfvbCommsListWithHttpInfo (int storefrontOid, string listUuid);
         /// <summary>
         /// Read one segment, with its rule
         /// </summary>
@@ -3260,6 +3402,52 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="blogPostRequest">The blog post to create</param>
         /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
         ApiResponse<SfvbBlogPostDetail> InsertSfvbBlogPostWithHttpInfo (int storefrontOid, SfvbBlogPostRequest blogPostRequest);
+        /// <summary>
+        /// Create a list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// A new, empty folder.  File a list or segment in it by setting its folder_uuid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderWriteRequest">The new folder&#39;s name</param>
+        /// <returns>SfvbCommsFolderResponse</returns>
+        SfvbCommsFolderResponse InsertSfvbCommsFolder (int storefrontOid, SfvbCommsFolderWriteRequest folderWriteRequest);
+
+        /// <summary>
+        /// Create a list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// A new, empty folder.  File a list or segment in it by setting its folder_uuid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderWriteRequest">The new folder&#39;s name</param>
+        /// <returns>ApiResponse of SfvbCommsFolderResponse</returns>
+        ApiResponse<SfvbCommsFolderResponse> InsertSfvbCommsFolderWithHttpInfo (int storefrontOid, SfvbCommsFolderWriteRequest folderWriteRequest);
+        /// <summary>
+        /// Create an email list
+        /// </summary>
+        /// <remarks>
+        /// A new, empty list with the name, folder and public settings given.  public_description is plain text, since subscribers see it on the email preferences page. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listWriteRequest">The new list&#39;s name, folder and public settings</param>
+        /// <returns>SfvbCommsListResponse</returns>
+        SfvbCommsListResponse InsertSfvbCommsList (int storefrontOid, SfvbCommsListWriteRequest listWriteRequest);
+
+        /// <summary>
+        /// Create an email list
+        /// </summary>
+        /// <remarks>
+        /// A new, empty list with the name, folder and public settings given.  public_description is plain text, since subscribers see it on the email preferences page. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listWriteRequest">The new list&#39;s name, folder and public settings</param>
+        /// <returns>ApiResponse of SfvbCommsListResponse</returns>
+        ApiResponse<SfvbCommsListResponse> InsertSfvbCommsListWithHttpInfo (int storefrontOid, SfvbCommsListWriteRequest listWriteRequest);
         /// <summary>
         /// Create a segment
         /// </summary>
@@ -5451,6 +5639,60 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbCampaign</returns>
         ApiResponse<SfvbCampaign> UpdateSfvbCampaignWithHttpInfo (int storefrontOid, string campaignUuid, string ifMatch, SfvbCampaignWriteRequest campaignWriteRequest);
         /// <summary>
+        /// Rename a list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be renamed here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="folderWriteRequest">The new name</param>
+        /// <returns>SfvbCommsFolderResponse</returns>
+        SfvbCommsFolderResponse UpdateSfvbCommsFolder (int storefrontOid, string folderUuid, string ifMatch, SfvbCommsFolderWriteRequest folderWriteRequest);
+
+        /// <summary>
+        /// Rename a list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be renamed here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="folderWriteRequest">The new name</param>
+        /// <returns>ApiResponse of SfvbCommsFolderResponse</returns>
+        ApiResponse<SfvbCommsFolderResponse> UpdateSfvbCommsFolderWithHttpInfo (int storefrontOid, string folderUuid, string ifMatch, SfvbCommsFolderWriteRequest folderWriteRequest);
+        /// <summary>
+        /// Change an email list's name, folder or public settings
+        /// </summary>
+        /// <remarks>
+        /// A field left out stays as it is; an empty folder_uuid or public_description clears it.  Send the list's hash_sha256 as If-Match; the change applies only while the name, folder and public settings are still what was read.  The members and member count are never changed here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="listWriteRequest">The fields to change</param>
+        /// <returns>SfvbCommsListResponse</returns>
+        SfvbCommsListResponse UpdateSfvbCommsList (int storefrontOid, string listUuid, string ifMatch, SfvbCommsListWriteRequest listWriteRequest);
+
+        /// <summary>
+        /// Change an email list's name, folder or public settings
+        /// </summary>
+        /// <remarks>
+        /// A field left out stays as it is; an empty folder_uuid or public_description clears it.  Send the list's hash_sha256 as If-Match; the change applies only while the name, folder and public settings are still what was read.  The members and member count are never changed here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="listWriteRequest">The fields to change</param>
+        /// <returns>ApiResponse of SfvbCommsListResponse</returns>
+        ApiResponse<SfvbCommsListResponse> UpdateSfvbCommsListWithHttpInfo (int storefrontOid, string listUuid, string ifMatch, SfvbCommsListWriteRequest listWriteRequest);
+        /// <summary>
         /// Change a segment's name, rule or folder
         /// </summary>
         /// <remarks>
@@ -5554,7 +5796,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change a flow
         /// </summary>
         /// <remarks>
-        /// A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// A field left out keeps its value.  The trigger changes only while the flow is off (sfvb.flow_trigger_live otherwise), and customers already in the flow continue.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5568,7 +5810,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change a flow
         /// </summary>
         /// <remarks>
-        /// A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// A field left out keeps its value.  The trigger changes only while the flow is off (sfvb.flow_trigger_live otherwise), and customers already in the flow continue.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -6114,6 +6356,60 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> ArchiveSfvbCampaignWithHttpInfoAsync (int storefrontOid, string campaignUuid, string ifMatch, SfvbArchiveRequest archiveRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Archive an email list
+        /// </summary>
+        /// <remarks>
+        /// Hides the list from the lists list and the admin, and keeps its members.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the list's hash_sha256 as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsListResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsListResponse> ArchiveSfvbCommsListAsync (int storefrontOid, string listUuid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Archive an email list
+        /// </summary>
+        /// <remarks>
+        /// Hides the list from the lists list and the admin, and keeps its members.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the list's hash_sha256 as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsListResponse>> ArchiveSfvbCommsListWithHttpInfoAsync (int storefrontOid, string listUuid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Archive a segment
+        /// </summary>
+        /// <remarks>
+        /// Hides the segment from the segments list and the admin.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the segment's hash_sha256 as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSegmentResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsSegmentResponse> ArchiveSfvbCommsSegmentAsync (int storefrontOid, string segmentUuid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Archive a segment
+        /// </summary>
+        /// <remarks>
+        /// Hides the segment from the segments list and the admin.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the segment's hash_sha256 as If-Match. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSegmentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsSegmentResponse>> ArchiveSfvbCommsSegmentWithHttpInfoAsync (int storefrontOid, string segmentUuid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Archive or unarchive a flow
         /// </summary>
         /// <remarks>
@@ -6521,6 +6817,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSfvbBlogPostWithHttpInfoAsync (int storefrontOid, int blogPostOid, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Delete a list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// Its lists and segments are kept and filed under no folder, as the admin does; items names each one.  Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be deleted here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsFolderResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsFolderResponse> DeleteSfvbCommsFolderAsync (int storefrontOid, string folderUuid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete a list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// Its lists and segments are kept and filed under no folder, as the admin does; items names each one.  Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be deleted here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsFolderResponse>> DeleteSfvbCommsFolderWithHttpInfoAsync (int storefrontOid, string folderUuid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Remove a sending domain
         /// </summary>
@@ -7665,6 +7988,79 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbElementsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbElementsResponse>> GetSfvbCjsonUsedElementsWithHttpInfoAsync (SfvbCompileRequest compileRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read one list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// The folder, with the name and uuid of each list and segment filed in it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsFolderResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsFolderResponse> GetSfvbCommsFolderAsync (int storefrontOid, string folderUuid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read one list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// The folder, with the name and uuid of each list and segment filed in it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsFolderResponse>> GetSfvbCommsFolderWithHttpInfoAsync (int storefrontOid, string folderUuid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List the list and segment folders
+        /// </summary>
+        /// <remarks>
+        /// Each folder with how many lists and segments are filed in it, whether the admin made it, and its hash_sha256. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsFoldersResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsFoldersResponse> GetSfvbCommsFoldersAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List the list and segment folders
+        /// </summary>
+        /// <remarks>
+        /// Each folder with how many lists and segments are filed in it, whether the admin made it, and its hash_sha256. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsFoldersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsFoldersResponse>> GetSfvbCommsFoldersWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read one email list
+        /// </summary>
+        /// <remarks>
+        /// The list's name, folder, member count, public settings, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for a change or an archive.  Never its members. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsListResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsListResponse> GetSfvbCommsListAsync (int storefrontOid, string listUuid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read one email list
+        /// </summary>
+        /// <remarks>
+        /// The list's name, folder, member count, public settings, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for a change or an archive.  Never its members. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsListResponse>> GetSfvbCommsListWithHttpInfoAsync (int storefrontOid, string listUuid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read one segment, with its rule
         /// </summary>
@@ -9539,6 +9935,56 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> InsertSfvbBlogPostWithHttpInfoAsync (int storefrontOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Create a list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// A new, empty folder.  File a list or segment in it by setting its folder_uuid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderWriteRequest">The new folder&#39;s name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsFolderResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsFolderResponse> InsertSfvbCommsFolderAsync (int storefrontOid, SfvbCommsFolderWriteRequest folderWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create a list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// A new, empty folder.  File a list or segment in it by setting its folder_uuid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderWriteRequest">The new folder&#39;s name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsFolderResponse>> InsertSfvbCommsFolderWithHttpInfoAsync (int storefrontOid, SfvbCommsFolderWriteRequest folderWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Create an email list
+        /// </summary>
+        /// <remarks>
+        /// A new, empty list with the name, folder and public settings given.  public_description is plain text, since subscribers see it on the email preferences page. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listWriteRequest">The new list&#39;s name, folder and public settings</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsListResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsListResponse> InsertSfvbCommsListAsync (int storefrontOid, SfvbCommsListWriteRequest listWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create an email list
+        /// </summary>
+        /// <remarks>
+        /// A new, empty list with the name, folder and public settings given.  public_description is plain text, since subscribers see it on the email preferences page. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listWriteRequest">The new list&#39;s name, folder and public settings</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsListResponse>> InsertSfvbCommsListWithHttpInfoAsync (int storefrontOid, SfvbCommsListWriteRequest listWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a segment
         /// </summary>
@@ -11902,6 +12348,64 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbCampaign)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCampaign>> UpdateSfvbCampaignWithHttpInfoAsync (int storefrontOid, string campaignUuid, string ifMatch, SfvbCampaignWriteRequest campaignWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Rename a list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be renamed here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="folderWriteRequest">The new name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsFolderResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsFolderResponse> UpdateSfvbCommsFolderAsync (int storefrontOid, string folderUuid, string ifMatch, SfvbCommsFolderWriteRequest folderWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Rename a list and segment folder
+        /// </summary>
+        /// <remarks>
+        /// Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be renamed here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="folderWriteRequest">The new name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsFolderResponse>> UpdateSfvbCommsFolderWithHttpInfoAsync (int storefrontOid, string folderUuid, string ifMatch, SfvbCommsFolderWriteRequest folderWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change an email list's name, folder or public settings
+        /// </summary>
+        /// <remarks>
+        /// A field left out stays as it is; an empty folder_uuid or public_description clears it.  Send the list's hash_sha256 as If-Match; the change applies only while the name, folder and public settings are still what was read.  The members and member count are never changed here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="listWriteRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsListResponse</returns>
+        System.Threading.Tasks.Task<SfvbCommsListResponse> UpdateSfvbCommsListAsync (int storefrontOid, string listUuid, string ifMatch, SfvbCommsListWriteRequest listWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change an email list&#39;s name, folder or public settings
+        /// </summary>
+        /// <remarks>
+        /// A field left out stays as it is; an empty folder_uuid or public_description clears it.  Send the list's hash_sha256 as If-Match; the change applies only while the name, folder and public settings are still what was read.  The members and member count are never changed here. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="listWriteRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCommsListResponse>> UpdateSfvbCommsListWithHttpInfoAsync (int storefrontOid, string listUuid, string ifMatch, SfvbCommsListWriteRequest listWriteRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Change a segment's name, rule or folder
         /// </summary>
         /// <remarks>
@@ -12013,7 +12517,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change a flow
         /// </summary>
         /// <remarks>
-        /// A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// A field left out keeps its value.  The trigger changes only while the flow is off (sfvb.flow_trigger_live otherwise), and customers already in the flow continue.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -12028,7 +12532,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change a flow
         /// </summary>
         /// <remarks>
-        /// A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// A field left out keeps its value.  The trigger changes only while the flow is off (sfvb.flow_trigger_live otherwise), and customers already in the flow continue.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -13253,6 +13757,368 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbCampaign>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCampaign)));
+        }
+
+        /// <summary>
+        /// Archive an email list Hides the list from the lists list and the admin, and keeps its members.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the list's hash_sha256 as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>SfvbCommsListResponse</returns>
+        public SfvbCommsListResponse ArchiveSfvbCommsList (int storefrontOid, string listUuid, string ifMatch)
+        {
+             ApiResponse<SfvbCommsListResponse> localVarResponse = ArchiveSfvbCommsListWithHttpInfo(storefrontOid, listUuid, ifMatch);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Archive an email list Hides the list from the lists list and the admin, and keeps its members.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the list's hash_sha256 as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbCommsListResponse</returns>
+        public ApiResponse<SfvbCommsListResponse> ArchiveSfvbCommsListWithHttpInfo (int storefrontOid, string listUuid, string ifMatch)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ArchiveSfvbCommsList");
+            // verify the required parameter 'listUuid' is set
+            if (listUuid == null)
+                throw new ApiException(400, "Missing required parameter 'listUuid' when calling SfvbApi->ArchiveSfvbCommsList");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->ArchiveSfvbCommsList");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/archive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (listUuid != null) localVarPathParams.Add("list_uuid", this.Configuration.ApiClient.ParameterToString(listUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ArchiveSfvbCommsList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsListResponse)));
+        }
+
+        /// <summary>
+        /// Archive an email list Hides the list from the lists list and the admin, and keeps its members.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the list's hash_sha256 as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsListResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsListResponse> ArchiveSfvbCommsListAsync (int storefrontOid, string listUuid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsListResponse> localVarResponse = await ArchiveSfvbCommsListWithHttpInfoAsync(storefrontOid, listUuid, ifMatch, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Archive an email list Hides the list from the lists list and the admin, and keeps its members.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the list's hash_sha256 as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsListResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsListResponse>> ArchiveSfvbCommsListWithHttpInfoAsync (int storefrontOid, string listUuid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ArchiveSfvbCommsList");
+            // verify the required parameter 'listUuid' is set
+            if (listUuid == null)
+                throw new ApiException(400, "Missing required parameter 'listUuid' when calling SfvbApi->ArchiveSfvbCommsList");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->ArchiveSfvbCommsList");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/archive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (listUuid != null) localVarPathParams.Add("list_uuid", this.Configuration.ApiClient.ParameterToString(listUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ArchiveSfvbCommsList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsListResponse)));
+        }
+
+        /// <summary>
+        /// Archive a segment Hides the segment from the segments list and the admin.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the segment's hash_sha256 as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>SfvbCommsSegmentResponse</returns>
+        public SfvbCommsSegmentResponse ArchiveSfvbCommsSegment (int storefrontOid, string segmentUuid, string ifMatch)
+        {
+             ApiResponse<SfvbCommsSegmentResponse> localVarResponse = ArchiveSfvbCommsSegmentWithHttpInfo(storefrontOid, segmentUuid, ifMatch);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Archive a segment Hides the segment from the segments list and the admin.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the segment's hash_sha256 as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbCommsSegmentResponse</returns>
+        public ApiResponse<SfvbCommsSegmentResponse> ArchiveSfvbCommsSegmentWithHttpInfo (int storefrontOid, string segmentUuid, string ifMatch)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ArchiveSfvbCommsSegment");
+            // verify the required parameter 'segmentUuid' is set
+            if (segmentUuid == null)
+                throw new ApiException(400, "Missing required parameter 'segmentUuid' when calling SfvbApi->ArchiveSfvbCommsSegment");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->ArchiveSfvbCommsSegment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/archive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (segmentUuid != null) localVarPathParams.Add("segment_uuid", this.Configuration.ApiClient.ParameterToString(segmentUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ArchiveSfvbCommsSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSegmentResponse)));
+        }
+
+        /// <summary>
+        /// Archive a segment Hides the segment from the segments list and the admin.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the segment's hash_sha256 as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsSegmentResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsSegmentResponse> ArchiveSfvbCommsSegmentAsync (int storefrontOid, string segmentUuid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsSegmentResponse> localVarResponse = await ArchiveSfvbCommsSegmentWithHttpInfoAsync(storefrontOid, segmentUuid, ifMatch, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Archive a segment Hides the segment from the segments list and the admin.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren't live, which can no longer use it.  Send the segment's hash_sha256 as If-Match. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segmentUuid"></param>
+        /// <param name="ifMatch">The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsSegmentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsSegmentResponse>> ArchiveSfvbCommsSegmentWithHttpInfoAsync (int storefrontOid, string segmentUuid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->ArchiveSfvbCommsSegment");
+            // verify the required parameter 'segmentUuid' is set
+            if (segmentUuid == null)
+                throw new ApiException(400, "Missing required parameter 'segmentUuid' when calling SfvbApi->ArchiveSfvbCommsSegment");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->ArchiveSfvbCommsSegment");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/archive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (segmentUuid != null) localVarPathParams.Add("segment_uuid", this.Configuration.ApiClient.ParameterToString(segmentUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ArchiveSfvbCommsSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsSegmentResponse)));
         }
 
         /// <summary>
@@ -16115,6 +16981,187 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Delete a list and segment folder Its lists and segments are kept and filed under no folder, as the admin does; items names each one.  Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be deleted here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>SfvbCommsFolderResponse</returns>
+        public SfvbCommsFolderResponse DeleteSfvbCommsFolder (int storefrontOid, string folderUuid, string ifMatch)
+        {
+             ApiResponse<SfvbCommsFolderResponse> localVarResponse = DeleteSfvbCommsFolderWithHttpInfo(storefrontOid, folderUuid, ifMatch);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete a list and segment folder Its lists and segments are kept and filed under no folder, as the admin does; items names each one.  Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be deleted here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <returns>ApiResponse of SfvbCommsFolderResponse</returns>
+        public ApiResponse<SfvbCommsFolderResponse> DeleteSfvbCommsFolderWithHttpInfo (int storefrontOid, string folderUuid, string ifMatch)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbCommsFolder");
+            // verify the required parameter 'folderUuid' is set
+            if (folderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'folderUuid' when calling SfvbApi->DeleteSfvbCommsFolder");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DeleteSfvbCommsFolder");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (folderUuid != null) localVarPathParams.Add("folder_uuid", this.Configuration.ApiClient.ParameterToString(folderUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbCommsFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsFolderResponse)));
+        }
+
+        /// <summary>
+        /// Delete a list and segment folder Its lists and segments are kept and filed under no folder, as the admin does; items names each one.  Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be deleted here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsFolderResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsFolderResponse> DeleteSfvbCommsFolderAsync (int storefrontOid, string folderUuid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsFolderResponse> localVarResponse = await DeleteSfvbCommsFolderWithHttpInfoAsync(storefrontOid, folderUuid, ifMatch, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete a list and segment folder Its lists and segments are kept and filed under no folder, as the admin does; items names each one.  Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be deleted here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsFolderResponse>> DeleteSfvbCommsFolderWithHttpInfoAsync (int storefrontOid, string folderUuid, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DeleteSfvbCommsFolder");
+            // verify the required parameter 'folderUuid' is set
+            if (folderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'folderUuid' when calling SfvbApi->DeleteSfvbCommsFolder");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->DeleteSfvbCommsFolder");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (folderUuid != null) localVarPathParams.Add("folder_uuid", this.Configuration.ApiClient.ParameterToString(folderUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSfvbCommsFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsFolderResponse)));
         }
 
         /// <summary>
@@ -23827,6 +24874,501 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbElementsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbElementsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbElementsResponse)));
+        }
+
+        /// <summary>
+        /// Read one list and segment folder The folder, with the name and uuid of each list and segment filed in it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <returns>SfvbCommsFolderResponse</returns>
+        public SfvbCommsFolderResponse GetSfvbCommsFolder (int storefrontOid, string folderUuid)
+        {
+             ApiResponse<SfvbCommsFolderResponse> localVarResponse = GetSfvbCommsFolderWithHttpInfo(storefrontOid, folderUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read one list and segment folder The folder, with the name and uuid of each list and segment filed in it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <returns>ApiResponse of SfvbCommsFolderResponse</returns>
+        public ApiResponse<SfvbCommsFolderResponse> GetSfvbCommsFolderWithHttpInfo (int storefrontOid, string folderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsFolder");
+            // verify the required parameter 'folderUuid' is set
+            if (folderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'folderUuid' when calling SfvbApi->GetSfvbCommsFolder");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (folderUuid != null) localVarPathParams.Add("folder_uuid", this.Configuration.ApiClient.ParameterToString(folderUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsFolderResponse)));
+        }
+
+        /// <summary>
+        /// Read one list and segment folder The folder, with the name and uuid of each list and segment filed in it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsFolderResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsFolderResponse> GetSfvbCommsFolderAsync (int storefrontOid, string folderUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsFolderResponse> localVarResponse = await GetSfvbCommsFolderWithHttpInfoAsync(storefrontOid, folderUuid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read one list and segment folder The folder, with the name and uuid of each list and segment filed in it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsFolderResponse>> GetSfvbCommsFolderWithHttpInfoAsync (int storefrontOid, string folderUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsFolder");
+            // verify the required parameter 'folderUuid' is set
+            if (folderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'folderUuid' when calling SfvbApi->GetSfvbCommsFolder");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (folderUuid != null) localVarPathParams.Add("folder_uuid", this.Configuration.ApiClient.ParameterToString(folderUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsFolderResponse)));
+        }
+
+        /// <summary>
+        /// List the list and segment folders Each folder with how many lists and segments are filed in it, whether the admin made it, and its hash_sha256. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbCommsFoldersResponse</returns>
+        public SfvbCommsFoldersResponse GetSfvbCommsFolders (int storefrontOid)
+        {
+             ApiResponse<SfvbCommsFoldersResponse> localVarResponse = GetSfvbCommsFoldersWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List the list and segment folders Each folder with how many lists and segments are filed in it, whether the admin made it, and its hash_sha256. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbCommsFoldersResponse</returns>
+        public ApiResponse<SfvbCommsFoldersResponse> GetSfvbCommsFoldersWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsFolders");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/list_segment_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsFolders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsFoldersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsFoldersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsFoldersResponse)));
+        }
+
+        /// <summary>
+        /// List the list and segment folders Each folder with how many lists and segments are filed in it, whether the admin made it, and its hash_sha256. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsFoldersResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsFoldersResponse> GetSfvbCommsFoldersAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsFoldersResponse> localVarResponse = await GetSfvbCommsFoldersWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List the list and segment folders Each folder with how many lists and segments are filed in it, whether the admin made it, and its hash_sha256. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsFoldersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsFoldersResponse>> GetSfvbCommsFoldersWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsFolders");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/list_segment_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsFolders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsFoldersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsFoldersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsFoldersResponse)));
+        }
+
+        /// <summary>
+        /// Read one email list The list's name, folder, member count, public settings, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for a change or an archive.  Never its members. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <returns>SfvbCommsListResponse</returns>
+        public SfvbCommsListResponse GetSfvbCommsList (int storefrontOid, string listUuid)
+        {
+             ApiResponse<SfvbCommsListResponse> localVarResponse = GetSfvbCommsListWithHttpInfo(storefrontOid, listUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read one email list The list's name, folder, member count, public settings, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for a change or an archive.  Never its members. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <returns>ApiResponse of SfvbCommsListResponse</returns>
+        public ApiResponse<SfvbCommsListResponse> GetSfvbCommsListWithHttpInfo (int storefrontOid, string listUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsList");
+            // verify the required parameter 'listUuid' is set
+            if (listUuid == null)
+                throw new ApiException(400, "Missing required parameter 'listUuid' when calling SfvbApi->GetSfvbCommsList");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/lists/{list_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (listUuid != null) localVarPathParams.Add("list_uuid", this.Configuration.ApiClient.ParameterToString(listUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsListResponse)));
+        }
+
+        /// <summary>
+        /// Read one email list The list's name, folder, member count, public settings, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for a change or an archive.  Never its members. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsListResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsListResponse> GetSfvbCommsListAsync (int storefrontOid, string listUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsListResponse> localVarResponse = await GetSfvbCommsListWithHttpInfoAsync(storefrontOid, listUuid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read one email list The list's name, folder, member count, public settings, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for a change or an archive.  Never its members. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsListResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsListResponse>> GetSfvbCommsListWithHttpInfoAsync (int storefrontOid, string listUuid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCommsList");
+            // verify the required parameter 'listUuid' is set
+            if (listUuid == null)
+                throw new ApiException(400, "Missing required parameter 'listUuid' when calling SfvbApi->GetSfvbCommsList");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/lists/{list_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (listUuid != null) localVarPathParams.Add("list_uuid", this.Configuration.ApiClient.ParameterToString(listUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCommsList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsListResponse)));
         }
 
         /// <summary>
@@ -36227,6 +37769,376 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
+        }
+
+        /// <summary>
+        /// Create a list and segment folder A new, empty folder.  File a list or segment in it by setting its folder_uuid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderWriteRequest">The new folder&#39;s name</param>
+        /// <returns>SfvbCommsFolderResponse</returns>
+        public SfvbCommsFolderResponse InsertSfvbCommsFolder (int storefrontOid, SfvbCommsFolderWriteRequest folderWriteRequest)
+        {
+             ApiResponse<SfvbCommsFolderResponse> localVarResponse = InsertSfvbCommsFolderWithHttpInfo(storefrontOid, folderWriteRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a list and segment folder A new, empty folder.  File a list or segment in it by setting its folder_uuid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderWriteRequest">The new folder&#39;s name</param>
+        /// <returns>ApiResponse of SfvbCommsFolderResponse</returns>
+        public ApiResponse<SfvbCommsFolderResponse> InsertSfvbCommsFolderWithHttpInfo (int storefrontOid, SfvbCommsFolderWriteRequest folderWriteRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbCommsFolder");
+            // verify the required parameter 'folderWriteRequest' is set
+            if (folderWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'folderWriteRequest' when calling SfvbApi->InsertSfvbCommsFolder");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/list_segment_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (folderWriteRequest != null && folderWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(folderWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = folderWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbCommsFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsFolderResponse)));
+        }
+
+        /// <summary>
+        /// Create a list and segment folder A new, empty folder.  File a list or segment in it by setting its folder_uuid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderWriteRequest">The new folder&#39;s name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsFolderResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsFolderResponse> InsertSfvbCommsFolderAsync (int storefrontOid, SfvbCommsFolderWriteRequest folderWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsFolderResponse> localVarResponse = await InsertSfvbCommsFolderWithHttpInfoAsync(storefrontOid, folderWriteRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a list and segment folder A new, empty folder.  File a list or segment in it by setting its folder_uuid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderWriteRequest">The new folder&#39;s name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsFolderResponse>> InsertSfvbCommsFolderWithHttpInfoAsync (int storefrontOid, SfvbCommsFolderWriteRequest folderWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbCommsFolder");
+            // verify the required parameter 'folderWriteRequest' is set
+            if (folderWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'folderWriteRequest' when calling SfvbApi->InsertSfvbCommsFolder");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/list_segment_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (folderWriteRequest != null && folderWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(folderWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = folderWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbCommsFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsFolderResponse)));
+        }
+
+        /// <summary>
+        /// Create an email list A new, empty list with the name, folder and public settings given.  public_description is plain text, since subscribers see it on the email preferences page. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listWriteRequest">The new list&#39;s name, folder and public settings</param>
+        /// <returns>SfvbCommsListResponse</returns>
+        public SfvbCommsListResponse InsertSfvbCommsList (int storefrontOid, SfvbCommsListWriteRequest listWriteRequest)
+        {
+             ApiResponse<SfvbCommsListResponse> localVarResponse = InsertSfvbCommsListWithHttpInfo(storefrontOid, listWriteRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create an email list A new, empty list with the name, folder and public settings given.  public_description is plain text, since subscribers see it on the email preferences page. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listWriteRequest">The new list&#39;s name, folder and public settings</param>
+        /// <returns>ApiResponse of SfvbCommsListResponse</returns>
+        public ApiResponse<SfvbCommsListResponse> InsertSfvbCommsListWithHttpInfo (int storefrontOid, SfvbCommsListWriteRequest listWriteRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbCommsList");
+            // verify the required parameter 'listWriteRequest' is set
+            if (listWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'listWriteRequest' when calling SfvbApi->InsertSfvbCommsList");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/lists";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (listWriteRequest != null && listWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(listWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = listWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbCommsList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsListResponse)));
+        }
+
+        /// <summary>
+        /// Create an email list A new, empty list with the name, folder and public settings given.  public_description is plain text, since subscribers see it on the email preferences page. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listWriteRequest">The new list&#39;s name, folder and public settings</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsListResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsListResponse> InsertSfvbCommsListAsync (int storefrontOid, SfvbCommsListWriteRequest listWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsListResponse> localVarResponse = await InsertSfvbCommsListWithHttpInfoAsync(storefrontOid, listWriteRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create an email list A new, empty list with the name, folder and public settings given.  public_description is plain text, since subscribers see it on the email preferences page. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listWriteRequest">The new list&#39;s name, folder and public settings</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsListResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsListResponse>> InsertSfvbCommsListWithHttpInfoAsync (int storefrontOid, SfvbCommsListWriteRequest listWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbCommsList");
+            // verify the required parameter 'listWriteRequest' is set
+            if (listWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'listWriteRequest' when calling SfvbApi->InsertSfvbCommsList");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/lists";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (listWriteRequest != null && listWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(listWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = listWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbCommsList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsListResponse)));
         }
 
         /// <summary>
@@ -52364,6 +54276,424 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Rename a list and segment folder Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be renamed here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="folderWriteRequest">The new name</param>
+        /// <returns>SfvbCommsFolderResponse</returns>
+        public SfvbCommsFolderResponse UpdateSfvbCommsFolder (int storefrontOid, string folderUuid, string ifMatch, SfvbCommsFolderWriteRequest folderWriteRequest)
+        {
+             ApiResponse<SfvbCommsFolderResponse> localVarResponse = UpdateSfvbCommsFolderWithHttpInfo(storefrontOid, folderUuid, ifMatch, folderWriteRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Rename a list and segment folder Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be renamed here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="folderWriteRequest">The new name</param>
+        /// <returns>ApiResponse of SfvbCommsFolderResponse</returns>
+        public ApiResponse<SfvbCommsFolderResponse> UpdateSfvbCommsFolderWithHttpInfo (int storefrontOid, string folderUuid, string ifMatch, SfvbCommsFolderWriteRequest folderWriteRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbCommsFolder");
+            // verify the required parameter 'folderUuid' is set
+            if (folderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'folderUuid' when calling SfvbApi->UpdateSfvbCommsFolder");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbCommsFolder");
+            // verify the required parameter 'folderWriteRequest' is set
+            if (folderWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'folderWriteRequest' when calling SfvbApi->UpdateSfvbCommsFolder");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (folderUuid != null) localVarPathParams.Add("folder_uuid", this.Configuration.ApiClient.ParameterToString(folderUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (folderWriteRequest != null && folderWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(folderWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = folderWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCommsFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsFolderResponse)));
+        }
+
+        /// <summary>
+        /// Rename a list and segment folder Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be renamed here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="folderWriteRequest">The new name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsFolderResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsFolderResponse> UpdateSfvbCommsFolderAsync (int storefrontOid, string folderUuid, string ifMatch, SfvbCommsFolderWriteRequest folderWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsFolderResponse> localVarResponse = await UpdateSfvbCommsFolderWithHttpInfoAsync(storefrontOid, folderUuid, ifMatch, folderWriteRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Rename a list and segment folder Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be renamed here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="folderUuid"></param>
+        /// <param name="ifMatch">The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="folderWriteRequest">The new name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsFolderResponse>> UpdateSfvbCommsFolderWithHttpInfoAsync (int storefrontOid, string folderUuid, string ifMatch, SfvbCommsFolderWriteRequest folderWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbCommsFolder");
+            // verify the required parameter 'folderUuid' is set
+            if (folderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'folderUuid' when calling SfvbApi->UpdateSfvbCommsFolder");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbCommsFolder");
+            // verify the required parameter 'folderWriteRequest' is set
+            if (folderWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'folderWriteRequest' when calling SfvbApi->UpdateSfvbCommsFolder");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (folderUuid != null) localVarPathParams.Add("folder_uuid", this.Configuration.ApiClient.ParameterToString(folderUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (folderWriteRequest != null && folderWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(folderWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = folderWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCommsFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsFolderResponse)));
+        }
+
+        /// <summary>
+        /// Change an email list's name, folder or public settings A field left out stays as it is; an empty folder_uuid or public_description clears it.  Send the list's hash_sha256 as If-Match; the change applies only while the name, folder and public settings are still what was read.  The members and member count are never changed here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="listWriteRequest">The fields to change</param>
+        /// <returns>SfvbCommsListResponse</returns>
+        public SfvbCommsListResponse UpdateSfvbCommsList (int storefrontOid, string listUuid, string ifMatch, SfvbCommsListWriteRequest listWriteRequest)
+        {
+             ApiResponse<SfvbCommsListResponse> localVarResponse = UpdateSfvbCommsListWithHttpInfo(storefrontOid, listUuid, ifMatch, listWriteRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change an email list's name, folder or public settings A field left out stays as it is; an empty folder_uuid or public_description clears it.  Send the list's hash_sha256 as If-Match; the change applies only while the name, folder and public settings are still what was read.  The members and member count are never changed here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="listWriteRequest">The fields to change</param>
+        /// <returns>ApiResponse of SfvbCommsListResponse</returns>
+        public ApiResponse<SfvbCommsListResponse> UpdateSfvbCommsListWithHttpInfo (int storefrontOid, string listUuid, string ifMatch, SfvbCommsListWriteRequest listWriteRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbCommsList");
+            // verify the required parameter 'listUuid' is set
+            if (listUuid == null)
+                throw new ApiException(400, "Missing required parameter 'listUuid' when calling SfvbApi->UpdateSfvbCommsList");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbCommsList");
+            // verify the required parameter 'listWriteRequest' is set
+            if (listWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'listWriteRequest' when calling SfvbApi->UpdateSfvbCommsList");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/lists/{list_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (listUuid != null) localVarPathParams.Add("list_uuid", this.Configuration.ApiClient.ParameterToString(listUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (listWriteRequest != null && listWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(listWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = listWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCommsList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsListResponse)));
+        }
+
+        /// <summary>
+        /// Change an email list's name, folder or public settings A field left out stays as it is; an empty folder_uuid or public_description clears it.  Send the list's hash_sha256 as If-Match; the change applies only while the name, folder and public settings are still what was read.  The members and member count are never changed here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="listWriteRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCommsListResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCommsListResponse> UpdateSfvbCommsListAsync (int storefrontOid, string listUuid, string ifMatch, SfvbCommsListWriteRequest listWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCommsListResponse> localVarResponse = await UpdateSfvbCommsListWithHttpInfoAsync(storefrontOid, listUuid, ifMatch, listWriteRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change an email list's name, folder or public settings A field left out stays as it is; an empty folder_uuid or public_description clears it.  Send the list's hash_sha256 as If-Match; the change applies only while the name, folder and public settings are still what was read.  The members and member count are never changed here. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="listUuid"></param>
+        /// <param name="ifMatch">The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="listWriteRequest">The fields to change</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCommsListResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCommsListResponse>> UpdateSfvbCommsListWithHttpInfoAsync (int storefrontOid, string listUuid, string ifMatch, SfvbCommsListWriteRequest listWriteRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbCommsList");
+            // verify the required parameter 'listUuid' is set
+            if (listUuid == null)
+                throw new ApiException(400, "Missing required parameter 'listUuid' when calling SfvbApi->UpdateSfvbCommsList");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->UpdateSfvbCommsList");
+            // verify the required parameter 'listWriteRequest' is set
+            if (listWriteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'listWriteRequest' when calling SfvbApi->UpdateSfvbCommsList");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/lists/{list_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (listUuid != null) localVarPathParams.Add("list_uuid", this.Configuration.ApiClient.ParameterToString(listUuid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (listWriteRequest != null && listWriteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(listWriteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = listWriteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbCommsList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCommsListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCommsListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsListResponse)));
+        }
+
+        /// <summary>
         /// Change a segment's name, rule or folder A field left out stays as it is.  Send the segment's hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -53146,7 +55476,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change a flow A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// Change a flow A field left out keeps its value.  The trigger changes only while the flow is off (sfvb.flow_trigger_live otherwise), and customers already in the flow continue.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -53161,7 +55491,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change a flow A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// Change a flow A field left out keeps its value.  The trigger changes only while the flow is off (sfvb.flow_trigger_live otherwise), and customers already in the flow continue.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -53249,7 +55579,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change a flow A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// Change a flow A field left out keeps its value.  The trigger changes only while the flow is off (sfvb.flow_trigger_live otherwise), and customers already in the flow continue.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -53266,7 +55596,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change a flow A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+        /// Change a flow A field left out keeps its value.  The trigger changes only while the flow is off (sfvb.flow_trigger_live otherwise), and customers already in the flow continue.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>

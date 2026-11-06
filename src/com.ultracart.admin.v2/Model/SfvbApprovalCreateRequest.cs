@@ -191,7 +191,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum PostcardTestmail for value: postcard.test_mail
             /// </summary>
             [EnumMember(Value = "postcard.test_mail")]
-            PostcardTestmail = 26
+            PostcardTestmail = 26,
+
+            /// <summary>
+            /// Enum FlowBackfill for value: flow.backfill
+            /// </summary>
+            [EnumMember(Value = "flow.backfill")]
+            FlowBackfill = 27
 
         }
 
@@ -210,6 +216,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="commsSettings">commsSettings.</param>
         /// <param name="content">For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version..</param>
         /// <param name="experimentStart">experimentStart.</param>
+        /// <param name="flowBackfill">flowBackfill.</param>
         /// <param name="itemAttributeRows">For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash..</param>
         /// <param name="itemPricing">itemPricing.</param>
         /// <param name="_params">_params.</param>
@@ -221,7 +228,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="smartAttribution">smartAttribution.</param>
         /// <param name="trackingProvider">trackingProvider.</param>
         /// <param name="transactionalEmail">transactionalEmail.</param>
-        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), SfvbCommsProviderImportRequest commsListImport = default(SfvbCommsProviderImportRequest), SfvbCommsSettingsUpdateRequest commsSettings = default(SfvbCommsSettingsUpdateRequest), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), SfvbCommsTestPostcardRequest postcardTestMail = default(SfvbCommsTestPostcardRequest), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSiteSeoRequest siteSeo = default(SfvbSiteSeoRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest), SfvbTransactionalEmailUpdateRequest transactionalEmail = default(SfvbTransactionalEmailUpdateRequest))
+        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), SfvbCommsProviderImportRequest commsListImport = default(SfvbCommsProviderImportRequest), SfvbCommsSettingsUpdateRequest commsSettings = default(SfvbCommsSettingsUpdateRequest), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), SfvbFlowBackfillRequest flowBackfill = default(SfvbFlowBackfillRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), SfvbCommsTestPostcardRequest postcardTestMail = default(SfvbCommsTestPostcardRequest), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSiteSeoRequest siteSeo = default(SfvbSiteSeoRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest), SfvbTransactionalEmailUpdateRequest transactionalEmail = default(SfvbTransactionalEmailUpdateRequest))
         {
             this.Action = action;
             this.AffiliateNetwork = affiliateNetwork;
@@ -229,6 +236,7 @@ namespace com.ultracart.admin.v2.Model
             this.CommsSettings = commsSettings;
             this.Content = content;
             this.ExperimentStart = experimentStart;
+            this.FlowBackfill = flowBackfill;
             this.ItemAttributeRows = itemAttributeRows;
             this.ItemPricing = itemPricing;
             this.Params = _params;
@@ -273,6 +281,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="experiment_start", EmitDefaultValue=false)]
         public SfvbExperimentStartRequest ExperimentStart { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FlowBackfill
+        /// </summary>
+        [DataMember(Name="flow_backfill", EmitDefaultValue=false)]
+        public SfvbFlowBackfillRequest FlowBackfill { get; set; }
 
         /// <summary>
         /// For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.
@@ -357,6 +371,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CommsSettings: ").Append(CommsSettings).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  ExperimentStart: ").Append(ExperimentStart).Append("\n");
+            sb.Append("  FlowBackfill: ").Append(FlowBackfill).Append("\n");
             sb.Append("  ItemAttributeRows: ").Append(ItemAttributeRows).Append("\n");
             sb.Append("  ItemPricing: ").Append(ItemPricing).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
@@ -431,6 +446,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ExperimentStart == input.ExperimentStart ||
                     (this.ExperimentStart != null &&
                     this.ExperimentStart.Equals(input.ExperimentStart))
+                ) && 
+                (
+                    this.FlowBackfill == input.FlowBackfill ||
+                    (this.FlowBackfill != null &&
+                    this.FlowBackfill.Equals(input.FlowBackfill))
                 ) && 
                 (
                     this.ItemAttributeRows == input.ItemAttributeRows ||
@@ -512,6 +532,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Content.GetHashCode();
                 if (this.ExperimentStart != null)
                     hashCode = hashCode * 59 + this.ExperimentStart.GetHashCode();
+                if (this.FlowBackfill != null)
+                    hashCode = hashCode * 59 + this.FlowBackfill.GetHashCode();
                 if (this.ItemAttributeRows != null)
                     hashCode = hashCode * 59 + this.ItemAttributeRows.GetHashCode();
                 if (this.ItemPricing != null)

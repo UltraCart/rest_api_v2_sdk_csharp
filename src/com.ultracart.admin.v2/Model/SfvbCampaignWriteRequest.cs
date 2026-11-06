@@ -35,16 +35,18 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="endOnceCustomerPurchases">True to end the campaign for a customer once they buy from one of its emails..</param>
         /// <param name="endOnceCustomerPurchasesAnywhere">True to end the campaign for a customer once they buy from any source..</param>
+        /// <param name="folderUuid">File it in this campaign folder.  An empty value takes it out of its folder..</param>
         /// <param name="memberships">The lists and segments it sends to or leaves out.  Replaces the whole set.  An empty array clears it..</param>
         /// <param name="name">The campaign name, 1 to 250 characters.  Required to create..</param>
         /// <param name="scheduledDts">When to send once started (ISO 8601).  An empty string clears the schedule..</param>
         /// <param name="sendingDomainUuid">The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain..</param>
         /// <param name="sendingName">The from name.  Defaults to the storefront&#39;s marketing setting..</param>
         /// <param name="sendingUser">The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting..</param>
-        public SfvbCampaignWriteRequest(bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), List<SfvbCampaignMembership> memberships = default(List<SfvbCampaignMembership>), string name = default(string), string scheduledDts = default(string), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string))
+        public SfvbCampaignWriteRequest(bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string folderUuid = default(string), List<SfvbCampaignMembership> memberships = default(List<SfvbCampaignMembership>), string name = default(string), string scheduledDts = default(string), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string))
         {
             this.EndOnceCustomerPurchases = endOnceCustomerPurchases;
             this.EndOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
+            this.FolderUuid = folderUuid;
             this.Memberships = memberships;
             this.Name = name;
             this.ScheduledDts = scheduledDts;
@@ -66,6 +68,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True to end the campaign for a customer once they buy from any source.</value>
         [DataMember(Name="end_once_customer_purchases_anywhere", EmitDefaultValue=false)]
         public bool EndOnceCustomerPurchasesAnywhere { get; set; }
+
+        /// <summary>
+        /// File it in this campaign folder.  An empty value takes it out of its folder.
+        /// </summary>
+        /// <value>File it in this campaign folder.  An empty value takes it out of its folder.</value>
+        [DataMember(Name="folder_uuid", EmitDefaultValue=false)]
+        public string FolderUuid { get; set; }
 
         /// <summary>
         /// The lists and segments it sends to or leaves out.  Replaces the whole set.  An empty array clears it.
@@ -119,6 +128,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class SfvbCampaignWriteRequest {\n");
             sb.Append("  EndOnceCustomerPurchases: ").Append(EndOnceCustomerPurchases).Append("\n");
             sb.Append("  EndOnceCustomerPurchasesAnywhere: ").Append(EndOnceCustomerPurchasesAnywhere).Append("\n");
+            sb.Append("  FolderUuid: ").Append(FolderUuid).Append("\n");
             sb.Append("  Memberships: ").Append(Memberships).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ScheduledDts: ").Append(ScheduledDts).Append("\n");
@@ -170,6 +180,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EndOnceCustomerPurchasesAnywhere.Equals(input.EndOnceCustomerPurchasesAnywhere))
                 ) && 
                 (
+                    this.FolderUuid == input.FolderUuid ||
+                    (this.FolderUuid != null &&
+                    this.FolderUuid.Equals(input.FolderUuid))
+                ) && 
+                (
                     this.Memberships == input.Memberships ||
                     this.Memberships != null &&
                     input.Memberships != null &&
@@ -215,6 +230,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EndOnceCustomerPurchases.GetHashCode();
                 if (this.EndOnceCustomerPurchasesAnywhere != null)
                     hashCode = hashCode * 59 + this.EndOnceCustomerPurchasesAnywhere.GetHashCode();
+                if (this.FolderUuid != null)
+                    hashCode = hashCode * 59 + this.FolderUuid.GetHashCode();
                 if (this.Memberships != null)
                     hashCode = hashCode * 59 + this.Memberships.GetHashCode();
                 if (this.Name != null)

@@ -34,6 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbEmail" /> class.
         /// </summary>
         /// <param name="containerLastModifiedDts">When the email container was last changed (ISO 8601, UTC)..</param>
+        /// <param name="emailTemplateVmPath">The Velocity template the email body renders inside, as stored, such as templates/template_email.vm.  It is looked up in the storefront&#39;s active theme..</param>
         /// <param name="emailUuid">The email uuid.  The same uuid the email container (owner type email) and the email render take..</param>
         /// <param name="hashSha256">Hash of the subject and preview text.  Send it as If-Match when updating.  A change to the email body does not change it..</param>
         /// <param name="live">True when the email is in a flow or campaign that is sending, so a change reaches customers and needs sfvb_publish.  An email in neither is reported live..</param>
@@ -44,11 +45,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="requiresReview">True when a change to this email must be reviewed before it sends..</param>
         /// <param name="subject">The subject line.  Merge tokens such as firstName are filled in at send..</param>
         /// <param name="suspendedForSpam">True when UltraCart suspended the email for spam.  Edits are refused until the merchant resolves it with UltraCart support..</param>
+        /// <param name="templateExists">True when the file at template_path exists.  False means the email can&#39;t render..</param>
+        /// <param name="templateNote">Why there is no template file, or null when there is one..</param>
+        /// <param name="templatePath">The theme file that template is, as the render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn&#39;t be worked out, with template_note saying why..</param>
         /// <param name="transactional">True for a transactional email, which skips the marketing footer rules..</param>
         /// <param name="version">The email version.  Every save adds one..</param>
-        public SfvbEmail(string containerLastModifiedDts = default(string), string emailUuid = default(string), string hashSha256 = default(string), bool live = default(bool), List<string> notes = default(List<string>), bool pendingReview = default(bool), string previewText = default(string), bool rejected = default(bool), bool requiresReview = default(bool), string subject = default(string), bool suspendedForSpam = default(bool), bool transactional = default(bool), int version = default(int))
+        public SfvbEmail(string containerLastModifiedDts = default(string), string emailTemplateVmPath = default(string), string emailUuid = default(string), string hashSha256 = default(string), bool live = default(bool), List<string> notes = default(List<string>), bool pendingReview = default(bool), string previewText = default(string), bool rejected = default(bool), bool requiresReview = default(bool), string subject = default(string), bool suspendedForSpam = default(bool), bool templateExists = default(bool), string templateNote = default(string), string templatePath = default(string), bool transactional = default(bool), int version = default(int))
         {
             this.ContainerLastModifiedDts = containerLastModifiedDts;
+            this.EmailTemplateVmPath = emailTemplateVmPath;
             this.EmailUuid = emailUuid;
             this.HashSha256 = hashSha256;
             this.Live = live;
@@ -59,6 +64,9 @@ namespace com.ultracart.admin.v2.Model
             this.RequiresReview = requiresReview;
             this.Subject = subject;
             this.SuspendedForSpam = suspendedForSpam;
+            this.TemplateExists = templateExists;
+            this.TemplateNote = templateNote;
+            this.TemplatePath = templatePath;
             this.Transactional = transactional;
             this._Version = version;
         }
@@ -69,6 +77,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>When the email container was last changed (ISO 8601, UTC).</value>
         [DataMember(Name="container_last_modified_dts", EmitDefaultValue=false)]
         public string ContainerLastModifiedDts { get; set; }
+
+        /// <summary>
+        /// The Velocity template the email body renders inside, as stored, such as templates/template_email.vm.  It is looked up in the storefront&#39;s active theme.
+        /// </summary>
+        /// <value>The Velocity template the email body renders inside, as stored, such as templates/template_email.vm.  It is looked up in the storefront&#39;s active theme.</value>
+        [DataMember(Name="email_template_vm_path", EmitDefaultValue=false)]
+        public string EmailTemplateVmPath { get; set; }
 
         /// <summary>
         /// The email uuid.  The same uuid the email container (owner type email) and the email render take.
@@ -141,6 +156,27 @@ namespace com.ultracart.admin.v2.Model
         public bool SuspendedForSpam { get; set; }
 
         /// <summary>
+        /// True when the file at template_path exists.  False means the email can&#39;t render.
+        /// </summary>
+        /// <value>True when the file at template_path exists.  False means the email can&#39;t render.</value>
+        [DataMember(Name="template_exists", EmitDefaultValue=false)]
+        public bool TemplateExists { get; set; }
+
+        /// <summary>
+        /// Why there is no template file, or null when there is one.
+        /// </summary>
+        /// <value>Why there is no template file, or null when there is one.</value>
+        [DataMember(Name="template_note", EmitDefaultValue=false)]
+        public string TemplateNote { get; set; }
+
+        /// <summary>
+        /// The theme file that template is, as the render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn&#39;t be worked out, with template_note saying why.
+        /// </summary>
+        /// <value>The theme file that template is, as the render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn&#39;t be worked out, with template_note saying why.</value>
+        [DataMember(Name="template_path", EmitDefaultValue=false)]
+        public string TemplatePath { get; set; }
+
+        /// <summary>
         /// True for a transactional email, which skips the marketing footer rules.
         /// </summary>
         /// <value>True for a transactional email, which skips the marketing footer rules.</value>
@@ -163,6 +199,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class SfvbEmail {\n");
             sb.Append("  ContainerLastModifiedDts: ").Append(ContainerLastModifiedDts).Append("\n");
+            sb.Append("  EmailTemplateVmPath: ").Append(EmailTemplateVmPath).Append("\n");
             sb.Append("  EmailUuid: ").Append(EmailUuid).Append("\n");
             sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
             sb.Append("  Live: ").Append(Live).Append("\n");
@@ -173,6 +210,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  RequiresReview: ").Append(RequiresReview).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  SuspendedForSpam: ").Append(SuspendedForSpam).Append("\n");
+            sb.Append("  TemplateExists: ").Append(TemplateExists).Append("\n");
+            sb.Append("  TemplateNote: ").Append(TemplateNote).Append("\n");
+            sb.Append("  TemplatePath: ").Append(TemplatePath).Append("\n");
             sb.Append("  Transactional: ").Append(Transactional).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
@@ -213,6 +253,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ContainerLastModifiedDts == input.ContainerLastModifiedDts ||
                     (this.ContainerLastModifiedDts != null &&
                     this.ContainerLastModifiedDts.Equals(input.ContainerLastModifiedDts))
+                ) && 
+                (
+                    this.EmailTemplateVmPath == input.EmailTemplateVmPath ||
+                    (this.EmailTemplateVmPath != null &&
+                    this.EmailTemplateVmPath.Equals(input.EmailTemplateVmPath))
                 ) && 
                 (
                     this.EmailUuid == input.EmailUuid ||
@@ -266,6 +311,21 @@ namespace com.ultracart.admin.v2.Model
                     this.SuspendedForSpam.Equals(input.SuspendedForSpam))
                 ) && 
                 (
+                    this.TemplateExists == input.TemplateExists ||
+                    (this.TemplateExists != null &&
+                    this.TemplateExists.Equals(input.TemplateExists))
+                ) && 
+                (
+                    this.TemplateNote == input.TemplateNote ||
+                    (this.TemplateNote != null &&
+                    this.TemplateNote.Equals(input.TemplateNote))
+                ) && 
+                (
+                    this.TemplatePath == input.TemplatePath ||
+                    (this.TemplatePath != null &&
+                    this.TemplatePath.Equals(input.TemplatePath))
+                ) && 
+                (
                     this.Transactional == input.Transactional ||
                     (this.Transactional != null &&
                     this.Transactional.Equals(input.Transactional))
@@ -288,6 +348,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.ContainerLastModifiedDts != null)
                     hashCode = hashCode * 59 + this.ContainerLastModifiedDts.GetHashCode();
+                if (this.EmailTemplateVmPath != null)
+                    hashCode = hashCode * 59 + this.EmailTemplateVmPath.GetHashCode();
                 if (this.EmailUuid != null)
                     hashCode = hashCode * 59 + this.EmailUuid.GetHashCode();
                 if (this.HashSha256 != null)
@@ -308,6 +370,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Subject.GetHashCode();
                 if (this.SuspendedForSpam != null)
                     hashCode = hashCode * 59 + this.SuspendedForSpam.GetHashCode();
+                if (this.TemplateExists != null)
+                    hashCode = hashCode * 59 + this.TemplateExists.GetHashCode();
+                if (this.TemplateNote != null)
+                    hashCode = hashCode * 59 + this.TemplateNote.GetHashCode();
+                if (this.TemplatePath != null)
+                    hashCode = hashCode * 59 + this.TemplatePath.GetHashCode();
                 if (this.Transactional != null)
                     hashCode = hashCode * 59 + this.Transactional.GetHashCode();
                 if (this._Version != null)

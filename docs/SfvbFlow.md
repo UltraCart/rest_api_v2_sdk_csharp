@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **EndOnceCustomerPurchases** | **bool** | True when a customer leaves the flow once they buy from one of its emails. | [optional] 
 **EndOnceCustomerPurchasesAnywhere** | **bool** | True when a customer leaves the flow once they buy from any source. | [optional] 
 **FlowUuid** | **string** | The flow uuid. | [optional] 
+**FolderName** | **string** | That folder&#39;s name. | [optional] 
+**FolderUuid** | **string** | The flow folder it is filed in, or none. | [optional] 
 **HashSha256** | **string** | Send this as If-Match when changing, archiving or turning the flow on or off. | [optional] 
 **Live** | **bool** | True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing. | [optional] 
 **Name** | **string** | The flow name. | [optional] 

@@ -40,6 +40,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="emails">Its emails, in step order..</param>
         /// <param name="endOnceCustomerPurchases">True when a customer leaves the campaign once they buy from one of its emails..</param>
         /// <param name="endOnceCustomerPurchasesAnywhere">True when a customer leaves the campaign once they buy from any source..</param>
+        /// <param name="folderName">That folder&#39;s name..</param>
+        /// <param name="folderUuid">The campaign folder it is filed in, or none..</param>
         /// <param name="hashSha256">Send this as If-Match when changing or archiving the campaign..</param>
         /// <param name="live">True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing..</param>
         /// <param name="memberships">The lists and segments it sends to or leaves out..</param>
@@ -53,7 +55,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="smsPhoneNumber">The number this campaign&#39;s SMS steps send from.  Without one, every SMS step skips every customer, whatever the account&#39;s SMS settings say..</param>
         /// <param name="status">The status, such as draft, scheduled, sending, sent or archived..</param>
         /// <param name="statusDts">When the status last changed (ISO 8601, UTC)..</param>
-        public SfvbCampaign(string campaignUuid = default(string), string communicationSequenceUuid = default(string), string createdDts = default(string), bool deleted = default(bool), List<SfvbCommsEmail> emails = default(List<SfvbCommsEmail>), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string hashSha256 = default(string), bool live = default(bool), List<SfvbCampaignMembership> memberships = default(List<SfvbCampaignMembership>), string name = default(string), List<string> notes = default(List<string>), List<SfvbCommsPostcard> postcards = default(List<SfvbCommsPostcard>), string scheduledDts = default(string), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string), string smsPhoneNumber = default(string), string status = default(string), string statusDts = default(string))
+        public SfvbCampaign(string campaignUuid = default(string), string communicationSequenceUuid = default(string), string createdDts = default(string), bool deleted = default(bool), List<SfvbCommsEmail> emails = default(List<SfvbCommsEmail>), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string folderName = default(string), string folderUuid = default(string), string hashSha256 = default(string), bool live = default(bool), List<SfvbCampaignMembership> memberships = default(List<SfvbCampaignMembership>), string name = default(string), List<string> notes = default(List<string>), List<SfvbCommsPostcard> postcards = default(List<SfvbCommsPostcard>), string scheduledDts = default(string), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string), string smsPhoneNumber = default(string), string status = default(string), string statusDts = default(string))
         {
             this.CampaignUuid = campaignUuid;
             this.CommunicationSequenceUuid = communicationSequenceUuid;
@@ -62,6 +64,8 @@ namespace com.ultracart.admin.v2.Model
             this.Emails = emails;
             this.EndOnceCustomerPurchases = endOnceCustomerPurchases;
             this.EndOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
+            this.FolderName = folderName;
+            this.FolderUuid = folderUuid;
             this.HashSha256 = hashSha256;
             this.Live = live;
             this.Memberships = memberships;
@@ -125,6 +129,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True when a customer leaves the campaign once they buy from any source.</value>
         [DataMember(Name="end_once_customer_purchases_anywhere", EmitDefaultValue=false)]
         public bool EndOnceCustomerPurchasesAnywhere { get; set; }
+
+        /// <summary>
+        /// That folder&#39;s name.
+        /// </summary>
+        /// <value>That folder&#39;s name.</value>
+        [DataMember(Name="folder_name", EmitDefaultValue=false)]
+        public string FolderName { get; set; }
+
+        /// <summary>
+        /// The campaign folder it is filed in, or none.
+        /// </summary>
+        /// <value>The campaign folder it is filed in, or none.</value>
+        [DataMember(Name="folder_uuid", EmitDefaultValue=false)]
+        public string FolderUuid { get; set; }
 
         /// <summary>
         /// Send this as If-Match when changing or archiving the campaign.
@@ -232,6 +250,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Emails: ").Append(Emails).Append("\n");
             sb.Append("  EndOnceCustomerPurchases: ").Append(EndOnceCustomerPurchases).Append("\n");
             sb.Append("  EndOnceCustomerPurchasesAnywhere: ").Append(EndOnceCustomerPurchasesAnywhere).Append("\n");
+            sb.Append("  FolderName: ").Append(FolderName).Append("\n");
+            sb.Append("  FolderUuid: ").Append(FolderUuid).Append("\n");
             sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
             sb.Append("  Live: ").Append(Live).Append("\n");
             sb.Append("  Memberships: ").Append(Memberships).Append("\n");
@@ -314,6 +334,16 @@ namespace com.ultracart.admin.v2.Model
                     this.EndOnceCustomerPurchasesAnywhere == input.EndOnceCustomerPurchasesAnywhere ||
                     (this.EndOnceCustomerPurchasesAnywhere != null &&
                     this.EndOnceCustomerPurchasesAnywhere.Equals(input.EndOnceCustomerPurchasesAnywhere))
+                ) && 
+                (
+                    this.FolderName == input.FolderName ||
+                    (this.FolderName != null &&
+                    this.FolderName.Equals(input.FolderName))
+                ) && 
+                (
+                    this.FolderUuid == input.FolderUuid ||
+                    (this.FolderUuid != null &&
+                    this.FolderUuid.Equals(input.FolderUuid))
                 ) && 
                 (
                     this.HashSha256 == input.HashSha256 ||
@@ -408,6 +438,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EndOnceCustomerPurchases.GetHashCode();
                 if (this.EndOnceCustomerPurchasesAnywhere != null)
                     hashCode = hashCode * 59 + this.EndOnceCustomerPurchasesAnywhere.GetHashCode();
+                if (this.FolderName != null)
+                    hashCode = hashCode * 59 + this.FolderName.GetHashCode();
+                if (this.FolderUuid != null)
+                    hashCode = hashCode * 59 + this.FolderUuid.GetHashCode();
                 if (this.HashSha256 != null)
                     hashCode = hashCode * 59 + this.HashSha256.GetHashCode();
                 if (this.Live != null)

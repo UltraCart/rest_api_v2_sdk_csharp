@@ -34,7 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbCommsStat" /> class.
         /// </summary>
         /// <param name="bounced">Permanent bounces..</param>
-        /// <param name="channel">email, sms, postcard, branch or sequence..</param>
+        /// <param name="channel">email, sms, postcard, branch or sequence, or step for a step type that records no counts of its own, with every count named in not_measured..</param>
         /// <param name="clicked">Clicks (for a postcard, scans of its QR code)..</param>
         /// <param name="conversions">Conversions..</param>
         /// <param name="customers">Customers who reached it (a branch side), or started (a whole sequence)..</param>
@@ -83,9 +83,9 @@ namespace com.ultracart.admin.v2.Model
         public int Bounced { get; set; }
 
         /// <summary>
-        /// email, sms, postcard, branch or sequence.
+        /// email, sms, postcard, branch or sequence, or step for a step type that records no counts of its own, with every count named in not_measured.
         /// </summary>
-        /// <value>email, sms, postcard, branch or sequence.</value>
+        /// <value>email, sms, postcard, branch or sequence, or step for a step type that records no counts of its own, with every count named in not_measured.</value>
         [DataMember(Name="channel", EmitDefaultValue=false)]
         public string Channel { get; set; }
 

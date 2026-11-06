@@ -41,6 +41,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="endOnceCustomerPurchases">True when a customer leaves the flow once they buy from one of its emails..</param>
         /// <param name="endOnceCustomerPurchasesAnywhere">True when a customer leaves the flow once they buy from any source..</param>
         /// <param name="flowUuid">The flow uuid..</param>
+        /// <param name="folderName">That folder&#39;s name..</param>
+        /// <param name="folderUuid">The flow folder it is filed in, or none..</param>
         /// <param name="hashSha256">Send this as If-Match when changing, archiving or turning the flow on or off..</param>
         /// <param name="live">True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing..</param>
         /// <param name="name">The flow name..</param>
@@ -57,7 +59,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="triggerParameter">The list or segment uuid, or other value, the trigger is limited to..</param>
         /// <param name="triggerParameterName">The name of the trigger parameter, when the trigger takes one..</param>
         /// <param name="triggerType">What starts the flow, such as cart abandon or an order..</param>
-        public SfvbFlow(bool allowMultipleConcurrentEnrollments = default(bool), string communicationSequenceUuid = default(string), string createdDts = default(string), bool deleted = default(bool), List<SfvbCommsEmail> emails = default(List<SfvbCommsEmail>), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string flowUuid = default(string), string hashSha256 = default(string), bool live = default(bool), string name = default(string), List<string> notes = default(List<string>), List<SfvbCommsPostcard> postcards = default(List<SfvbCommsPostcard>), int reentryDelayDays = default(int), string reentryPolicy = default(string), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string), string smsPhoneNumber = default(string), string status = default(string), string statusDts = default(string), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
+        public SfvbFlow(bool allowMultipleConcurrentEnrollments = default(bool), string communicationSequenceUuid = default(string), string createdDts = default(string), bool deleted = default(bool), List<SfvbCommsEmail> emails = default(List<SfvbCommsEmail>), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string flowUuid = default(string), string folderName = default(string), string folderUuid = default(string), string hashSha256 = default(string), bool live = default(bool), string name = default(string), List<string> notes = default(List<string>), List<SfvbCommsPostcard> postcards = default(List<SfvbCommsPostcard>), int reentryDelayDays = default(int), string reentryPolicy = default(string), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string), string smsPhoneNumber = default(string), string status = default(string), string statusDts = default(string), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
         {
             this.AllowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
             this.CommunicationSequenceUuid = communicationSequenceUuid;
@@ -67,6 +69,8 @@ namespace com.ultracart.admin.v2.Model
             this.EndOnceCustomerPurchases = endOnceCustomerPurchases;
             this.EndOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
             this.FlowUuid = flowUuid;
+            this.FolderName = folderName;
+            this.FolderUuid = folderUuid;
             this.HashSha256 = hashSha256;
             this.Live = live;
             this.Name = name;
@@ -140,6 +144,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The flow uuid.</value>
         [DataMember(Name="flow_uuid", EmitDefaultValue=false)]
         public string FlowUuid { get; set; }
+
+        /// <summary>
+        /// That folder&#39;s name.
+        /// </summary>
+        /// <value>That folder&#39;s name.</value>
+        [DataMember(Name="folder_name", EmitDefaultValue=false)]
+        public string FolderName { get; set; }
+
+        /// <summary>
+        /// The flow folder it is filed in, or none.
+        /// </summary>
+        /// <value>The flow folder it is filed in, or none.</value>
+        [DataMember(Name="folder_uuid", EmitDefaultValue=false)]
+        public string FolderUuid { get; set; }
 
         /// <summary>
         /// Send this as If-Match when changing, archiving or turning the flow on or off.
@@ -269,6 +287,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EndOnceCustomerPurchases: ").Append(EndOnceCustomerPurchases).Append("\n");
             sb.Append("  EndOnceCustomerPurchasesAnywhere: ").Append(EndOnceCustomerPurchasesAnywhere).Append("\n");
             sb.Append("  FlowUuid: ").Append(FlowUuid).Append("\n");
+            sb.Append("  FolderName: ").Append(FolderName).Append("\n");
+            sb.Append("  FolderUuid: ").Append(FolderUuid).Append("\n");
             sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
             sb.Append("  Live: ").Append(Live).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -359,6 +379,16 @@ namespace com.ultracart.admin.v2.Model
                     this.FlowUuid == input.FlowUuid ||
                     (this.FlowUuid != null &&
                     this.FlowUuid.Equals(input.FlowUuid))
+                ) && 
+                (
+                    this.FolderName == input.FolderName ||
+                    (this.FolderName != null &&
+                    this.FolderName.Equals(input.FolderName))
+                ) && 
+                (
+                    this.FolderUuid == input.FolderUuid ||
+                    (this.FolderUuid != null &&
+                    this.FolderUuid.Equals(input.FolderUuid))
                 ) && 
                 (
                     this.HashSha256 == input.HashSha256 ||
@@ -469,6 +499,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EndOnceCustomerPurchasesAnywhere.GetHashCode();
                 if (this.FlowUuid != null)
                     hashCode = hashCode * 59 + this.FlowUuid.GetHashCode();
+                if (this.FolderName != null)
+                    hashCode = hashCode * 59 + this.FolderName.GetHashCode();
+                if (this.FolderUuid != null)
+                    hashCode = hashCode * 59 + this.FolderUuid.GetHashCode();
                 if (this.HashSha256 != null)
                     hashCode = hashCode * 59 + this.HashSha256.GetHashCode();
                 if (this.Live != null)

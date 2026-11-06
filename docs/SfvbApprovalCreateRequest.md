@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **CommsSettings** | [**SfvbCommsSettingsUpdateRequest**](SfvbCommsSettingsUpdateRequest.md) |  | [optional] 
 **Content** | **string** | For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version. | [optional] 
 **ExperimentStart** | [**SfvbExperimentStartRequest**](SfvbExperimentStartRequest.md) |  | [optional] 
+**FlowBackfill** | [**SfvbFlowBackfillRequest**](SfvbFlowBackfillRequest.md) |  | [optional] 
 **ItemAttributeRows** | [**List&lt;SfvbItemAttributeBatchRow&gt;**](SfvbItemAttributeBatchRow.md) | For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash. | [optional] 
 **ItemPricing** | [**SfvbItemPricingRequest**](SfvbItemPricingRequest.md) |  | [optional] 
 **Params** | [**SfvbApprovalParams**](SfvbApprovalParams.md) |  | [optional] 

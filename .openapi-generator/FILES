@@ -1030,6 +1030,8 @@ docs/SfvbCommsListDetail.md
 docs/SfvbCommsListResponse.md
 docs/SfvbCommsListWriteRequest.md
 docs/SfvbCommsListsResponse.md
+docs/SfvbCommsLookupOwner.md
+docs/SfvbCommsLookupResponse.md
 docs/SfvbCommsMember.md
 docs/SfvbCommsMembersResponse.md
 docs/SfvbCommsPlan.md
@@ -1040,6 +1042,8 @@ docs/SfvbCommsProviderImportRequest.md
 docs/SfvbCommsProviderImportResponse.md
 docs/SfvbCommsProviderList.md
 docs/SfvbCommsProvidersResponse.md
+docs/SfvbCommsRulerValidateRequest.md
+docs/SfvbCommsRulerValidateResponse.md
 docs/SfvbCommsSegment.md
 docs/SfvbCommsSegmentDetail.md
 docs/SfvbCommsSegmentResponse.md
@@ -1050,6 +1054,9 @@ docs/SfvbCommsSender.md
 docs/SfvbCommsSenderUpdate.md
 docs/SfvbCommsSendingDomain.md
 docs/SfvbCommsSendingDomainsResponse.md
+docs/SfvbCommsSequenceFolder.md
+docs/SfvbCommsSequenceFolderResponse.md
+docs/SfvbCommsSequenceFoldersResponse.md
 docs/SfvbCommsSequenceStatsResponse.md
 docs/SfvbCommsSettings.md
 docs/SfvbCommsSettingsResponse.md
@@ -1065,6 +1072,9 @@ docs/SfvbCommsTestSendResponse.md
 docs/SfvbCommsTestSmsRequest.md
 docs/SfvbCommsTwilioAccount.md
 docs/SfvbCommsTwilioAccountResponse.md
+docs/SfvbCommsUnreferencedEmail.md
+docs/SfvbCommsUnreferencedPostcard.md
+docs/SfvbCommsUnreferencedResponse.md
 docs/SfvbCompileRequest.md
 docs/SfvbCompileResponse.md
 docs/SfvbContainerResponse.md
@@ -1106,6 +1116,8 @@ docs/SfvbFileWriteRequest.md
 docs/SfvbFileWriteResponse.md
 docs/SfvbFilesResponse.md
 docs/SfvbFlow.md
+docs/SfvbFlowBackfillRequest.md
+docs/SfvbFlowBackfillResponse.md
 docs/SfvbFlowStatusRequest.md
 docs/SfvbFlowWriteRequest.md
 docs/SfvbFlowsResponse.md
@@ -2485,6 +2497,8 @@ src/com.ultracart.admin.v2/Model/SfvbCommsListDetail.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsListResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsListWriteRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsListsResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsLookupOwner.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsLookupResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsMember.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsMembersResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsPlan.cs
@@ -2495,6 +2509,8 @@ src/com.ultracart.admin.v2/Model/SfvbCommsProviderImportRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsProviderImportResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsProviderList.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsProvidersResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsRulerValidateRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsRulerValidateResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSegment.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSegmentDetail.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSegmentResponse.cs
@@ -2505,6 +2521,9 @@ src/com.ultracart.admin.v2/Model/SfvbCommsSender.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSenderUpdate.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSendingDomain.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSendingDomainsResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsSequenceFolder.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsSequenceFolderResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsSequenceFoldersResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSequenceStatsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSettings.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsSettingsResponse.cs
@@ -2520,6 +2539,9 @@ src/com.ultracart.admin.v2/Model/SfvbCommsTestSendResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsTestSmsRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsTwilioAccount.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsTwilioAccountResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsUnreferencedEmail.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsUnreferencedPostcard.cs
+src/com.ultracart.admin.v2/Model/SfvbCommsUnreferencedResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCompileRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbCompileResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbContainerResponse.cs
@@ -2561,6 +2583,8 @@ src/com.ultracart.admin.v2/Model/SfvbFileWriteRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbFileWriteResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbFilesResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbFlow.cs
+src/com.ultracart.admin.v2/Model/SfvbFlowBackfillRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbFlowBackfillResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbFlowStatusRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbFlowWriteRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbFlowsResponse.cs

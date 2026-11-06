@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EndOnceCustomerPurchases** | **bool** | True to end the campaign for a customer once they buy from one of its emails. | [optional] 
 **EndOnceCustomerPurchasesAnywhere** | **bool** | True to end the campaign for a customer once they buy from any source. | [optional] 
+**FolderUuid** | **string** | File it in this campaign folder.  An empty value takes it out of its folder. | [optional] 
 **Memberships** | [**List&lt;SfvbCampaignMembership&gt;**](SfvbCampaignMembership.md) | The lists and segments it sends to or leaves out.  Replaces the whole set.  An empty array clears it. | [optional] 
 **Name** | **string** | The campaign name, 1 to 250 characters.  Required to create. | [optional] 
 **ScheduledDts** | **string** | When to send once started (ISO 8601).  An empty string clears the schedule. | [optional] 

@@ -69,6 +69,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="allowMultipleConcurrentEnrollments">True when a customer may be in this flow more than once at a time..</param>
         /// <param name="endOnceCustomerPurchases">True to end the flow for a customer once they buy from one of its emails..</param>
         /// <param name="endOnceCustomerPurchasesAnywhere">True to end the flow for a customer once they buy from any source..</param>
+        /// <param name="folderUuid">File it in this flow folder.  An empty value takes it out of its folder..</param>
         /// <param name="name">The flow name, 1 to 250 characters.  Required to create..</param>
         /// <param name="reentryDelayDays">Days before a customer may enter again, 1 to 1095.  Only with after_days..</param>
         /// <param name="reentryPolicy">Whether a customer may enter again, anytime, after_days or never..</param>
@@ -77,11 +78,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="sendingUser">The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting..</param>
         /// <param name="triggerParameter">The list or segment uuid for a list or segment trigger.  Cleared when the trigger changes to one that takes none..</param>
         /// <param name="triggerType">What enrolls a customer, such as cart abandoned.  Required to create.  On a change, only while the flow is off..</param>
-        public SfvbFlowWriteRequest(bool allowMultipleConcurrentEnrollments = default(bool), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string name = default(string), int reentryDelayDays = default(int), ReentryPolicyEnum? reentryPolicy = default(ReentryPolicyEnum?), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string), string triggerParameter = default(string), string triggerType = default(string))
+        public SfvbFlowWriteRequest(bool allowMultipleConcurrentEnrollments = default(bool), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string folderUuid = default(string), string name = default(string), int reentryDelayDays = default(int), ReentryPolicyEnum? reentryPolicy = default(ReentryPolicyEnum?), string sendingDomainUuid = default(string), string sendingName = default(string), string sendingUser = default(string), string triggerParameter = default(string), string triggerType = default(string))
         {
             this.AllowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
             this.EndOnceCustomerPurchases = endOnceCustomerPurchases;
             this.EndOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
+            this.FolderUuid = folderUuid;
             this.Name = name;
             this.ReentryDelayDays = reentryDelayDays;
             this.ReentryPolicy = reentryPolicy;
@@ -112,6 +114,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True to end the flow for a customer once they buy from any source.</value>
         [DataMember(Name="end_once_customer_purchases_anywhere", EmitDefaultValue=false)]
         public bool EndOnceCustomerPurchasesAnywhere { get; set; }
+
+        /// <summary>
+        /// File it in this flow folder.  An empty value takes it out of its folder.
+        /// </summary>
+        /// <value>File it in this flow folder.  An empty value takes it out of its folder.</value>
+        [DataMember(Name="folder_uuid", EmitDefaultValue=false)]
+        public string FolderUuid { get; set; }
 
         /// <summary>
         /// The flow name, 1 to 250 characters.  Required to create.
@@ -174,6 +183,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AllowMultipleConcurrentEnrollments: ").Append(AllowMultipleConcurrentEnrollments).Append("\n");
             sb.Append("  EndOnceCustomerPurchases: ").Append(EndOnceCustomerPurchases).Append("\n");
             sb.Append("  EndOnceCustomerPurchasesAnywhere: ").Append(EndOnceCustomerPurchasesAnywhere).Append("\n");
+            sb.Append("  FolderUuid: ").Append(FolderUuid).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ReentryDelayDays: ").Append(ReentryDelayDays).Append("\n");
             sb.Append("  ReentryPolicy: ").Append(ReentryPolicy).Append("\n");
@@ -232,6 +242,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EndOnceCustomerPurchasesAnywhere.Equals(input.EndOnceCustomerPurchasesAnywhere))
                 ) && 
                 (
+                    this.FolderUuid == input.FolderUuid ||
+                    (this.FolderUuid != null &&
+                    this.FolderUuid.Equals(input.FolderUuid))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -288,6 +303,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EndOnceCustomerPurchases.GetHashCode();
                 if (this.EndOnceCustomerPurchasesAnywhere != null)
                     hashCode = hashCode * 59 + this.EndOnceCustomerPurchasesAnywhere.GetHashCode();
+                if (this.FolderUuid != null)
+                    hashCode = hashCode * 59 + this.FolderUuid.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.ReentryDelayDays != null)

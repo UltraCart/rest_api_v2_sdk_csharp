@@ -34,15 +34,21 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbCommsTemplateResponse" /> class.
         /// </summary>
         /// <param name="containerCjson">The template&#39;s body, as CJSON..</param>
-        /// <param name="emailTemplateVmPath">The Velocity template it renders inside.  Its content isn&#39;t shown here..</param>
+        /// <param name="emailTemplateVmPath">The Velocity template it renders inside, as stored.  It is looked up in the storefront&#39;s active theme..</param>
         /// <param name="notes">What isn&#39;t shown..</param>
         /// <param name="template">template.</param>
-        public SfvbCommsTemplateResponse(string containerCjson = default(string), string emailTemplateVmPath = default(string), List<string> notes = default(List<string>), SfvbCommsTemplate template = default(SfvbCommsTemplate))
+        /// <param name="templateExists">True when the file at template_path exists..</param>
+        /// <param name="templateNote">Why there is no template file, or null when there is one..</param>
+        /// <param name="templatePath">The theme file that template is, as a render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn&#39;t be worked out, with template_note saying why..</param>
+        public SfvbCommsTemplateResponse(string containerCjson = default(string), string emailTemplateVmPath = default(string), List<string> notes = default(List<string>), SfvbCommsTemplate template = default(SfvbCommsTemplate), bool templateExists = default(bool), string templateNote = default(string), string templatePath = default(string))
         {
             this.ContainerCjson = containerCjson;
             this.EmailTemplateVmPath = emailTemplateVmPath;
             this.Notes = notes;
             this.Template = template;
+            this.TemplateExists = templateExists;
+            this.TemplateNote = templateNote;
+            this.TemplatePath = templatePath;
         }
 
         /// <summary>
@@ -53,9 +59,9 @@ namespace com.ultracart.admin.v2.Model
         public string ContainerCjson { get; set; }
 
         /// <summary>
-        /// The Velocity template it renders inside.  Its content isn&#39;t shown here.
+        /// The Velocity template it renders inside, as stored.  It is looked up in the storefront&#39;s active theme.
         /// </summary>
-        /// <value>The Velocity template it renders inside.  Its content isn&#39;t shown here.</value>
+        /// <value>The Velocity template it renders inside, as stored.  It is looked up in the storefront&#39;s active theme.</value>
         [DataMember(Name="email_template_vm_path", EmitDefaultValue=false)]
         public string EmailTemplateVmPath { get; set; }
 
@@ -73,6 +79,27 @@ namespace com.ultracart.admin.v2.Model
         public SfvbCommsTemplate Template { get; set; }
 
         /// <summary>
+        /// True when the file at template_path exists.
+        /// </summary>
+        /// <value>True when the file at template_path exists.</value>
+        [DataMember(Name="template_exists", EmitDefaultValue=false)]
+        public bool TemplateExists { get; set; }
+
+        /// <summary>
+        /// Why there is no template file, or null when there is one.
+        /// </summary>
+        /// <value>Why there is no template file, or null when there is one.</value>
+        [DataMember(Name="template_note", EmitDefaultValue=false)]
+        public string TemplateNote { get; set; }
+
+        /// <summary>
+        /// The theme file that template is, as a render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn&#39;t be worked out, with template_note saying why.
+        /// </summary>
+        /// <value>The theme file that template is, as a render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn&#39;t be worked out, with template_note saying why.</value>
+        [DataMember(Name="template_path", EmitDefaultValue=false)]
+        public string TemplatePath { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -84,6 +111,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EmailTemplateVmPath: ").Append(EmailTemplateVmPath).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("  Template: ").Append(Template).Append("\n");
+            sb.Append("  TemplateExists: ").Append(TemplateExists).Append("\n");
+            sb.Append("  TemplateNote: ").Append(TemplateNote).Append("\n");
+            sb.Append("  TemplatePath: ").Append(TemplatePath).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +168,21 @@ namespace com.ultracart.admin.v2.Model
                     this.Template == input.Template ||
                     (this.Template != null &&
                     this.Template.Equals(input.Template))
+                ) && 
+                (
+                    this.TemplateExists == input.TemplateExists ||
+                    (this.TemplateExists != null &&
+                    this.TemplateExists.Equals(input.TemplateExists))
+                ) && 
+                (
+                    this.TemplateNote == input.TemplateNote ||
+                    (this.TemplateNote != null &&
+                    this.TemplateNote.Equals(input.TemplateNote))
+                ) && 
+                (
+                    this.TemplatePath == input.TemplatePath ||
+                    (this.TemplatePath != null &&
+                    this.TemplatePath.Equals(input.TemplatePath))
                 );
         }
 
@@ -158,6 +203,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Notes.GetHashCode();
                 if (this.Template != null)
                     hashCode = hashCode * 59 + this.Template.GetHashCode();
+                if (this.TemplateExists != null)
+                    hashCode = hashCode * 59 + this.TemplateExists.GetHashCode();
+                if (this.TemplateNote != null)
+                    hashCode = hashCode * 59 + this.TemplateNote.GetHashCode();
+                if (this.TemplatePath != null)
+                    hashCode = hashCode * 59 + this.TemplatePath.GetHashCode();
                 return hashCode;
             }
         }

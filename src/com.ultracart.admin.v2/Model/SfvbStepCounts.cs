@@ -39,7 +39,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="opened">Emails opened..</param>
         /// <param name="sent">Messages sent..</param>
         /// <param name="skipped">Customers who reached the step and were not sent anything.  The dispatch log says why..</param>
-        /// <param name="source">email (the step&#39;s email, all time), sequence (the begin step, customers who started the sequence, all time) or step (this step, the last 90 days)..</param>
+        /// <param name="source">email (the step&#39;s email, all time), sequence (the begin step, customers who started the sequence, all time), resend (a Resend Email step, what it resent, the last 90 days), experiment (an experiment step, its variants together, the last 90 days), sms or postcard (the step&#39;s own sends, the last 90 days), step (the end step or a condition, split or InboxGeek step, the last 90 days) or not_recorded (a step type the send path keeps no counts for, such as a wait; no counts are given)..</param>
         /// <param name="spam">Spam complaints..</param>
         /// <param name="unsubscribed">Unsubscribes from these messages..</param>
         public SfvbStepCounts(int clicked = default(int), int customers = default(int), int delivered = default(int), int opened = default(int), int sent = default(int), int skipped = default(int), string source = default(string), int spam = default(int), int unsubscribed = default(int))
@@ -98,9 +98,9 @@ namespace com.ultracart.admin.v2.Model
         public int Skipped { get; set; }
 
         /// <summary>
-        /// email (the step&#39;s email, all time), sequence (the begin step, customers who started the sequence, all time) or step (this step, the last 90 days).
+        /// email (the step&#39;s email, all time), sequence (the begin step, customers who started the sequence, all time), resend (a Resend Email step, what it resent, the last 90 days), experiment (an experiment step, its variants together, the last 90 days), sms or postcard (the step&#39;s own sends, the last 90 days), step (the end step or a condition, split or InboxGeek step, the last 90 days) or not_recorded (a step type the send path keeps no counts for, such as a wait; no counts are given).
         /// </summary>
-        /// <value>email (the step&#39;s email, all time), sequence (the begin step, customers who started the sequence, all time) or step (this step, the last 90 days).</value>
+        /// <value>email (the step&#39;s email, all time), sequence (the begin step, customers who started the sequence, all time), resend (a Resend Email step, what it resent, the last 90 days), experiment (an experiment step, its variants together, the last 90 days), sms or postcard (the step&#39;s own sends, the last 90 days), step (the end step or a condition, split or InboxGeek step, the last 90 days) or not_recorded (a step type the send path keeps no counts for, such as a wait; no counts are given).</value>
         [DataMember(Name="source", EmitDefaultValue=false)]
         public string Source { get; set; }
 

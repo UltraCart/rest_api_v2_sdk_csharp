@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbCommsLookupResponse" /> class.
         /// </summary>
+        /// <param name="archived">True when the uuid is an archived campaign or flow.  It is still on its storefront and can be read; it sends nothing..</param>
         /// <param name="communicationSequenceUuid">The sequence it belongs to, when there is one..</param>
         /// <param name="kind">campaign, flow, sequence, step, email, postcard, list or segment..</param>
         /// <param name="name">The campaign, flow, list or segment name, or the email subject..</param>
@@ -42,8 +43,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="stepUuid">The step that sends it, for an email or postcard a step names, or the step itself..</param>
         /// <param name="storefrontOid">The storefront it lives on, for the - -storefront option..</param>
         /// <param name="uuid">The uuid looked up..</param>
-        public SfvbCommsLookupResponse(string communicationSequenceUuid = default(string), string kind = default(string), string name = default(string), string next = default(string), List<string> notes = default(List<string>), SfvbCommsLookupOwner owner = default(SfvbCommsLookupOwner), string stepUuid = default(string), int storefrontOid = default(int), string uuid = default(string))
+        public SfvbCommsLookupResponse(bool archived = default(bool), string communicationSequenceUuid = default(string), string kind = default(string), string name = default(string), string next = default(string), List<string> notes = default(List<string>), SfvbCommsLookupOwner owner = default(SfvbCommsLookupOwner), string stepUuid = default(string), int storefrontOid = default(int), string uuid = default(string))
         {
+            this.Archived = archived;
             this.CommunicationSequenceUuid = communicationSequenceUuid;
             this.Kind = kind;
             this.Name = name;
@@ -54,6 +56,13 @@ namespace com.ultracart.admin.v2.Model
             this.StorefrontOid = storefrontOid;
             this.Uuid = uuid;
         }
+
+        /// <summary>
+        /// True when the uuid is an archived campaign or flow.  It is still on its storefront and can be read; it sends nothing.
+        /// </summary>
+        /// <value>True when the uuid is an archived campaign or flow.  It is still on its storefront and can be read; it sends nothing.</value>
+        [DataMember(Name="archived", EmitDefaultValue=false)]
+        public bool Archived { get; set; }
 
         /// <summary>
         /// The sequence it belongs to, when there is one.
@@ -125,6 +134,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbCommsLookupResponse {\n");
+            sb.Append("  Archived: ").Append(Archived).Append("\n");
             sb.Append("  CommunicationSequenceUuid: ").Append(CommunicationSequenceUuid).Append("\n");
             sb.Append("  Kind: ").Append(Kind).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -168,6 +178,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.Archived == input.Archived ||
+                    (this.Archived != null &&
+                    this.Archived.Equals(input.Archived))
+                ) && 
                 (
                     this.CommunicationSequenceUuid == input.CommunicationSequenceUuid ||
                     (this.CommunicationSequenceUuid != null &&
@@ -225,6 +240,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Archived != null)
+                    hashCode = hashCode * 59 + this.Archived.GetHashCode();
                 if (this.CommunicationSequenceUuid != null)
                     hashCode = hashCode * 59 + this.CommunicationSequenceUuid.GetHashCode();
                 if (this.Kind != null)

@@ -984,27 +984,31 @@ namespace com.ultracart.admin.v2.Api
         /// Clear one tracking provider
         /// </summary>
         /// <remarks>
-        /// Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run=true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider's fields still fires it (Google Ads for an affiliate's own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="provider"></param>
         /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="dryRun"> (optional)</param>
+        /// <param name="approvalId">When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>SfvbTrackingProvider</returns>
-        SfvbTrackingProvider DeleteSfvbTrackingProvider (int storefrontOid, string provider, string ifMatch);
+        SfvbTrackingProvider DeleteSfvbTrackingProvider (int storefrontOid, string provider, string ifMatch, bool? dryRun = default(bool?), string approvalId = default(string));
 
         /// <summary>
         /// Clear one tracking provider
         /// </summary>
         /// <remarks>
-        /// Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run=true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider's fields still fires it (Google Ads for an affiliate's own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="provider"></param>
         /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="dryRun"> (optional)</param>
+        /// <param name="approvalId">When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of SfvbTrackingProvider</returns>
-        ApiResponse<SfvbTrackingProvider> DeleteSfvbTrackingProviderWithHttpInfo (int storefrontOid, string provider, string ifMatch);
+        ApiResponse<SfvbTrackingProvider> DeleteSfvbTrackingProviderWithHttpInfo (int storefrontOid, string provider, string ifMatch, bool? dryRun = default(bool?), string approvalId = default(string));
         /// <summary>
         /// Delete a UTM shortcode
         /// </summary>
@@ -1924,7 +1928,7 @@ namespace com.ultracart.admin.v2.Api
         /// Find which storefront a communications uuid lives on
         /// </summary>
         /// <remarks>
-        /// Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account's included, is 404.  Read only. 
+        /// Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account's included, and a deleted step, email, postcard, list or segment, is 404.  Read only. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">The uuid to find.</param>
@@ -1935,7 +1939,7 @@ namespace com.ultracart.admin.v2.Api
         /// Find which storefront a communications uuid lives on
         /// </summary>
         /// <remarks>
-        /// Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account's included, is 404.  Read only. 
+        /// Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account's included, and a deleted step, email, postcard, list or segment, is 404.  Read only. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">The uuid to find.</param>
@@ -5415,6 +5419,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbPreviewSessionResponse</returns>
         ApiResponse<SfvbPreviewSessionResponse> PutSfvbPreviewSessionWithHttpInfo (int storefrontOid, string previewSessionId, SfvbPreviewSessionRequest previewSession, int? themeOid = default(int?));
         /// <summary>
+        /// Stage custom tracking HTML in a preview session
+        /// </summary>
+        /// <remarks>
+        /// Runs Tracking HTML, Conversion HTML or both instead of the storefront's live slots, only in a browser that opened this session's preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order's receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user's own session runs it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewSessionId"></param>
+        /// <param name="previewTrackingHtml">The HTML to stage</param>
+        /// <returns>SfvbTrackingHtmlResponse</returns>
+        SfvbTrackingHtmlResponse PutSfvbPreviewTrackingHtml (int storefrontOid, string previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml);
+
+        /// <summary>
+        /// Stage custom tracking HTML in a preview session
+        /// </summary>
+        /// <remarks>
+        /// Runs Tracking HTML, Conversion HTML or both instead of the storefront's live slots, only in a browser that opened this session's preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order's receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user's own session runs it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewSessionId"></param>
+        /// <param name="previewTrackingHtml">The HTML to stage</param>
+        /// <returns>ApiResponse of SfvbTrackingHtmlResponse</returns>
+        ApiResponse<SfvbTrackingHtmlResponse> PutSfvbPreviewTrackingHtmlWithHttpInfo (int storefrontOid, string previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml);
+        /// <summary>
         /// Turn the storefront's screen recording on or off
         /// </summary>
         /// <remarks>
@@ -5604,6 +5633,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailRenderRequest">What to render the email with</param>
         /// <returns>ApiResponse of SfvbEmailRenderResponse</returns>
         ApiResponse<SfvbEmailRenderResponse> RenderSfvbEmailWithHttpInfo (int storefrontOid, string emailUuid, SfvbEmailRenderRequest emailRenderRequest);
+        /// <summary>
+        /// Render the Conversion HTML against a test order
+        /// </summary>
+        /// <remarks>
+        /// The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt's provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate=...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">conversion</param>
+        /// <param name="trackingHtmlRenderRequest">The test order, and optionally a draft</param>
+        /// <returns>SfvbTrackingHtmlRenderResponse</returns>
+        SfvbTrackingHtmlRenderResponse RenderSfvbTrackingHtml (int storefrontOid, string slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest);
+
+        /// <summary>
+        /// Render the Conversion HTML against a test order
+        /// </summary>
+        /// <remarks>
+        /// The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt's provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate=...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">conversion</param>
+        /// <param name="trackingHtmlRenderRequest">The test order, and optionally a draft</param>
+        /// <returns>ApiResponse of SfvbTrackingHtmlRenderResponse</returns>
+        ApiResponse<SfvbTrackingHtmlRenderResponse> RenderSfvbTrackingHtmlWithHttpInfo (int storefrontOid, string slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest);
         /// <summary>
         /// Render a transactional email without sending it
         /// </summary>
@@ -8095,29 +8149,33 @@ namespace com.ultracart.admin.v2.Api
         /// Clear one tracking provider
         /// </summary>
         /// <remarks>
-        /// Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run=true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider's fields still fires it (Google Ads for an affiliate's own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="provider"></param>
         /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="dryRun"> (optional)</param>
+        /// <param name="approvalId">When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbTrackingProvider</returns>
-        System.Threading.Tasks.Task<SfvbTrackingProvider> DeleteSfvbTrackingProviderAsync (int storefrontOid, string provider, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<SfvbTrackingProvider> DeleteSfvbTrackingProviderAsync (int storefrontOid, string provider, string ifMatch, bool? dryRun = default(bool?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Clear one tracking provider
         /// </summary>
         /// <remarks>
-        /// Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run=true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider's fields still fires it (Google Ads for an affiliate's own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="provider"></param>
         /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="dryRun"> (optional)</param>
+        /// <param name="approvalId">When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbTrackingProvider)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingProvider>> DeleteSfvbTrackingProviderWithHttpInfoAsync (int storefrontOid, string provider, string ifMatch, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingProvider>> DeleteSfvbTrackingProviderWithHttpInfoAsync (int storefrontOid, string provider, string ifMatch, bool? dryRun = default(bool?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete a UTM shortcode
         /// </summary>
@@ -9115,7 +9173,7 @@ namespace com.ultracart.admin.v2.Api
         /// Find which storefront a communications uuid lives on
         /// </summary>
         /// <remarks>
-        /// Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account's included, is 404.  Read only. 
+        /// Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account's included, and a deleted step, email, postcard, list or segment, is 404.  Read only. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">The uuid to find.</param>
@@ -9127,7 +9185,7 @@ namespace com.ultracart.admin.v2.Api
         /// Find which storefront a communications uuid lives on
         /// </summary>
         /// <remarks>
-        /// Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account's included, is 404.  Read only. 
+        /// Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account's included, and a deleted step, email, postcard, list or segment, is 404.  Read only. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">The uuid to find.</param>
@@ -12894,6 +12952,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbPreviewSessionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbPreviewSessionResponse>> PutSfvbPreviewSessionWithHttpInfoAsync (int storefrontOid, string previewSessionId, SfvbPreviewSessionRequest previewSession, int? themeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Stage custom tracking HTML in a preview session
+        /// </summary>
+        /// <remarks>
+        /// Runs Tracking HTML, Conversion HTML or both instead of the storefront's live slots, only in a browser that opened this session's preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order's receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user's own session runs it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewSessionId"></param>
+        /// <param name="previewTrackingHtml">The HTML to stage</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingHtmlResponse</returns>
+        System.Threading.Tasks.Task<SfvbTrackingHtmlResponse> PutSfvbPreviewTrackingHtmlAsync (int storefrontOid, string previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Stage custom tracking HTML in a preview session
+        /// </summary>
+        /// <remarks>
+        /// Runs Tracking HTML, Conversion HTML or both instead of the storefront's live slots, only in a browser that opened this session's preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order's receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user's own session runs it. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewSessionId"></param>
+        /// <param name="previewTrackingHtml">The HTML to stage</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingHtmlResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingHtmlResponse>> PutSfvbPreviewTrackingHtmlWithHttpInfoAsync (int storefrontOid, string previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Turn the storefront's screen recording on or off
         /// </summary>
         /// <remarks>
@@ -13099,6 +13184,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbEmailRenderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbEmailRenderResponse>> RenderSfvbEmailWithHttpInfoAsync (int storefrontOid, string emailUuid, SfvbEmailRenderRequest emailRenderRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Render the Conversion HTML against a test order
+        /// </summary>
+        /// <remarks>
+        /// The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt's provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate=...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">conversion</param>
+        /// <param name="trackingHtmlRenderRequest">The test order, and optionally a draft</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingHtmlRenderResponse</returns>
+        System.Threading.Tasks.Task<SfvbTrackingHtmlRenderResponse> RenderSfvbTrackingHtmlAsync (int storefrontOid, string slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Render the Conversion HTML against a test order
+        /// </summary>
+        /// <remarks>
+        /// The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt's provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate=...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">conversion</param>
+        /// <param name="trackingHtmlRenderRequest">The test order, and optionally a draft</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingHtmlRenderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingHtmlRenderResponse>> RenderSfvbTrackingHtmlWithHttpInfoAsync (int storefrontOid, string slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Render a transactional email without sending it
         /// </summary>
@@ -21812,28 +21924,32 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Clear one tracking provider Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// Clear one tracking provider Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run=true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider's fields still fires it (Google Ads for an affiliate's own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="provider"></param>
         /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="dryRun"> (optional)</param>
+        /// <param name="approvalId">When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>SfvbTrackingProvider</returns>
-        public SfvbTrackingProvider DeleteSfvbTrackingProvider (int storefrontOid, string provider, string ifMatch)
+        public SfvbTrackingProvider DeleteSfvbTrackingProvider (int storefrontOid, string provider, string ifMatch, bool? dryRun = default(bool?), string approvalId = default(string))
         {
-             ApiResponse<SfvbTrackingProvider> localVarResponse = DeleteSfvbTrackingProviderWithHttpInfo(storefrontOid, provider, ifMatch);
+             ApiResponse<SfvbTrackingProvider> localVarResponse = DeleteSfvbTrackingProviderWithHttpInfo(storefrontOid, provider, ifMatch, dryRun, approvalId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Clear one tracking provider Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// Clear one tracking provider Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run=true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider's fields still fires it (Google Ads for an affiliate's own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="provider"></param>
         /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="dryRun"> (optional)</param>
+        /// <param name="approvalId">When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of SfvbTrackingProvider</returns>
-        public ApiResponse<SfvbTrackingProvider> DeleteSfvbTrackingProviderWithHttpInfo (int storefrontOid, string provider, string ifMatch)
+        public ApiResponse<SfvbTrackingProvider> DeleteSfvbTrackingProviderWithHttpInfo (int storefrontOid, string provider, string ifMatch, bool? dryRun = default(bool?), string approvalId = default(string))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -21868,7 +21984,9 @@ namespace com.ultracart.admin.v2.Api
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (provider != null) localVarPathParams.Add("provider", this.Configuration.ApiClient.ParameterToString(provider)); // path parameter
+            if (dryRun != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dry_run", dryRun)); // query parameter
             if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -21901,31 +22019,35 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Clear one tracking provider Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// Clear one tracking provider Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run=true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider's fields still fires it (Google Ads for an affiliate's own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="provider"></param>
         /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="dryRun"> (optional)</param>
+        /// <param name="approvalId">When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbTrackingProvider</returns>
-        public async System.Threading.Tasks.Task<SfvbTrackingProvider> DeleteSfvbTrackingProviderAsync (int storefrontOid, string provider, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<SfvbTrackingProvider> DeleteSfvbTrackingProviderAsync (int storefrontOid, string provider, string ifMatch, bool? dryRun = default(bool?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbTrackingProvider> localVarResponse = await DeleteSfvbTrackingProviderWithHttpInfoAsync(storefrontOid, provider, ifMatch, cancellationToken);
+             ApiResponse<SfvbTrackingProvider> localVarResponse = await DeleteSfvbTrackingProviderWithHttpInfoAsync(storefrontOid, provider, ifMatch, dryRun, approvalId, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Clear one tracking provider Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+        /// Clear one tracking provider Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run=true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider's fields still fires it (Google Ads for an affiliate's own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="provider"></param>
         /// <param name="ifMatch">The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale.</param>
+        /// <param name="dryRun"> (optional)</param>
+        /// <param name="approvalId">When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbTrackingProvider)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingProvider>> DeleteSfvbTrackingProviderWithHttpInfoAsync (int storefrontOid, string provider, string ifMatch, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingProvider>> DeleteSfvbTrackingProviderWithHttpInfoAsync (int storefrontOid, string provider, string ifMatch, bool? dryRun = default(bool?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -21960,7 +22082,9 @@ namespace com.ultracart.admin.v2.Api
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (provider != null) localVarPathParams.Add("provider", this.Configuration.ApiClient.ParameterToString(provider)); // path parameter
+            if (dryRun != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dry_run", dryRun)); // query parameter
             if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -28762,7 +28886,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Find which storefront a communications uuid lives on Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account's included, is 404.  Read only. 
+        /// Find which storefront a communications uuid lives on Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account's included, and a deleted step, email, postcard, list or segment, is 404.  Read only. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">The uuid to find.</param>
@@ -28774,7 +28898,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Find which storefront a communications uuid lives on Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account's included, is 404.  Read only. 
+        /// Find which storefront a communications uuid lives on Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account's included, and a deleted step, email, postcard, list or segment, is 404.  Read only. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">The uuid to find.</param>
@@ -28839,7 +28963,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Find which storefront a communications uuid lives on Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account's included, is 404.  Read only. 
+        /// Find which storefront a communications uuid lives on Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account's included, and a deleted step, email, postcard, list or segment, is 404.  Read only. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">The uuid to find.</param>
@@ -28853,7 +28977,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Find which storefront a communications uuid lives on Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account's included, is 404.  Read only. 
+        /// Find which storefront a communications uuid lives on Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account's included, and a deleted step, email, postcard, list or segment, is 404.  Read only. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">The uuid to find.</param>
@@ -54038,6 +54162,203 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Stage custom tracking HTML in a preview session Runs Tracking HTML, Conversion HTML or both instead of the storefront's live slots, only in a browser that opened this session's preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order's receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user's own session runs it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewSessionId"></param>
+        /// <param name="previewTrackingHtml">The HTML to stage</param>
+        /// <returns>SfvbTrackingHtmlResponse</returns>
+        public SfvbTrackingHtmlResponse PutSfvbPreviewTrackingHtml (int storefrontOid, string previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml)
+        {
+             ApiResponse<SfvbTrackingHtmlResponse> localVarResponse = PutSfvbPreviewTrackingHtmlWithHttpInfo(storefrontOid, previewSessionId, previewTrackingHtml);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Stage custom tracking HTML in a preview session Runs Tracking HTML, Conversion HTML or both instead of the storefront's live slots, only in a browser that opened this session's preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order's receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user's own session runs it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewSessionId"></param>
+        /// <param name="previewTrackingHtml">The HTML to stage</param>
+        /// <returns>ApiResponse of SfvbTrackingHtmlResponse</returns>
+        public ApiResponse<SfvbTrackingHtmlResponse> PutSfvbPreviewTrackingHtmlWithHttpInfo (int storefrontOid, string previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbPreviewTrackingHtml");
+            // verify the required parameter 'previewSessionId' is set
+            if (previewSessionId == null)
+                throw new ApiException(400, "Missing required parameter 'previewSessionId' when calling SfvbApi->PutSfvbPreviewTrackingHtml");
+            // verify the required parameter 'previewTrackingHtml' is set
+            if (previewTrackingHtml == null)
+                throw new ApiException(400, "Missing required parameter 'previewTrackingHtml' when calling SfvbApi->PutSfvbPreviewTrackingHtml");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/tracking_html";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (previewSessionId != null) localVarPathParams.Add("preview_session_id", this.Configuration.ApiClient.ParameterToString(previewSessionId)); // path parameter
+            if (previewTrackingHtml != null && previewTrackingHtml.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(previewTrackingHtml); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = previewTrackingHtml; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbPreviewTrackingHtml", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingHtmlResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingHtmlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingHtmlResponse)));
+        }
+
+        /// <summary>
+        /// Stage custom tracking HTML in a preview session Runs Tracking HTML, Conversion HTML or both instead of the storefront's live slots, only in a browser that opened this session's preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order's receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user's own session runs it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewSessionId"></param>
+        /// <param name="previewTrackingHtml">The HTML to stage</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingHtmlResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingHtmlResponse> PutSfvbPreviewTrackingHtmlAsync (int storefrontOid, string previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingHtmlResponse> localVarResponse = await PutSfvbPreviewTrackingHtmlWithHttpInfoAsync(storefrontOid, previewSessionId, previewTrackingHtml, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Stage custom tracking HTML in a preview session Runs Tracking HTML, Conversion HTML or both instead of the storefront's live slots, only in a browser that opened this session's preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order's receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user's own session runs it. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="previewSessionId"></param>
+        /// <param name="previewTrackingHtml">The HTML to stage</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingHtmlResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingHtmlResponse>> PutSfvbPreviewTrackingHtmlWithHttpInfoAsync (int storefrontOid, string previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbPreviewTrackingHtml");
+            // verify the required parameter 'previewSessionId' is set
+            if (previewSessionId == null)
+                throw new ApiException(400, "Missing required parameter 'previewSessionId' when calling SfvbApi->PutSfvbPreviewTrackingHtml");
+            // verify the required parameter 'previewTrackingHtml' is set
+            if (previewTrackingHtml == null)
+                throw new ApiException(400, "Missing required parameter 'previewTrackingHtml' when calling SfvbApi->PutSfvbPreviewTrackingHtml");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/tracking_html";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (previewSessionId != null) localVarPathParams.Add("preview_session_id", this.Configuration.ApiClient.ParameterToString(previewSessionId)); // path parameter
+            if (previewTrackingHtml != null && previewTrackingHtml.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(previewTrackingHtml); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = previewTrackingHtml; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbPreviewTrackingHtml", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingHtmlResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingHtmlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingHtmlResponse)));
+        }
+
+        /// <summary>
         /// Turn the storefront's screen recording on or off Turning it on records real shoppers' sessions from that moment, with no history before it.  The first time starts a 14 day free trial, after which recorded sessions are billed per 1,000.  Only change it when the merchant has asked for it.  Asking for the state it is already in changes nothing, and changed comes back false.  Always needs sfvb_publish, in both directions, because it decides whether live shoppers are recorded.  Limited per storefront to 5 changes a minute, 20 an hour and 50 a day. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -55535,6 +55856,203 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbEmailRenderResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbEmailRenderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbEmailRenderResponse)));
+        }
+
+        /// <summary>
+        /// Render the Conversion HTML against a test order The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt's provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate=...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">conversion</param>
+        /// <param name="trackingHtmlRenderRequest">The test order, and optionally a draft</param>
+        /// <returns>SfvbTrackingHtmlRenderResponse</returns>
+        public SfvbTrackingHtmlRenderResponse RenderSfvbTrackingHtml (int storefrontOid, string slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest)
+        {
+             ApiResponse<SfvbTrackingHtmlRenderResponse> localVarResponse = RenderSfvbTrackingHtmlWithHttpInfo(storefrontOid, slot, trackingHtmlRenderRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Render the Conversion HTML against a test order The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt's provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate=...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">conversion</param>
+        /// <param name="trackingHtmlRenderRequest">The test order, and optionally a draft</param>
+        /// <returns>ApiResponse of SfvbTrackingHtmlRenderResponse</returns>
+        public ApiResponse<SfvbTrackingHtmlRenderResponse> RenderSfvbTrackingHtmlWithHttpInfo (int storefrontOid, string slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->RenderSfvbTrackingHtml");
+            // verify the required parameter 'slot' is set
+            if (slot == null)
+                throw new ApiException(400, "Missing required parameter 'slot' when calling SfvbApi->RenderSfvbTrackingHtml");
+            // verify the required parameter 'trackingHtmlRenderRequest' is set
+            if (trackingHtmlRenderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'trackingHtmlRenderRequest' when calling SfvbApi->RenderSfvbTrackingHtml");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/html/{slot}/render";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (slot != null) localVarPathParams.Add("slot", this.Configuration.ApiClient.ParameterToString(slot)); // path parameter
+            if (trackingHtmlRenderRequest != null && trackingHtmlRenderRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(trackingHtmlRenderRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = trackingHtmlRenderRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RenderSfvbTrackingHtml", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingHtmlRenderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingHtmlRenderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingHtmlRenderResponse)));
+        }
+
+        /// <summary>
+        /// Render the Conversion HTML against a test order The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt's provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate=...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">conversion</param>
+        /// <param name="trackingHtmlRenderRequest">The test order, and optionally a draft</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingHtmlRenderResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingHtmlRenderResponse> RenderSfvbTrackingHtmlAsync (int storefrontOid, string slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingHtmlRenderResponse> localVarResponse = await RenderSfvbTrackingHtmlWithHttpInfoAsync(storefrontOid, slot, trackingHtmlRenderRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Render the Conversion HTML against a test order The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt's provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate=...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="slot">conversion</param>
+        /// <param name="trackingHtmlRenderRequest">The test order, and optionally a draft</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingHtmlRenderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingHtmlRenderResponse>> RenderSfvbTrackingHtmlWithHttpInfoAsync (int storefrontOid, string slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->RenderSfvbTrackingHtml");
+            // verify the required parameter 'slot' is set
+            if (slot == null)
+                throw new ApiException(400, "Missing required parameter 'slot' when calling SfvbApi->RenderSfvbTrackingHtml");
+            // verify the required parameter 'trackingHtmlRenderRequest' is set
+            if (trackingHtmlRenderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'trackingHtmlRenderRequest' when calling SfvbApi->RenderSfvbTrackingHtml");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/html/{slot}/render";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (slot != null) localVarPathParams.Add("slot", this.Configuration.ApiClient.ParameterToString(slot)); // path parameter
+            if (trackingHtmlRenderRequest != null && trackingHtmlRenderRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(trackingHtmlRenderRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = trackingHtmlRenderRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RenderSfvbTrackingHtml", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingHtmlRenderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingHtmlRenderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingHtmlRenderResponse)));
         }
 
         /// <summary>

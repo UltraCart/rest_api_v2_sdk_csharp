@@ -35,7 +35,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="appError">True when the render itself failed and the page could not be produced..</param>
         /// <param name="durationMs">How long the render took in milliseconds..</param>
-        /// <param name="errorCount">Error lines in the log, including Velocity problems such as a null.</param>
+        /// <param name="errorCount">Error lines in the log, including Velocity problems such as setting a variable to null..</param>
         /// <param name="lineCount">Lines in the full log text..</param>
         /// <param name="logId">Opaque id of this log.  Pass it to the get endpoint.  Preview pages send the same id in the X-UltraCart-Storefront-Log-Id response header..</param>
         /// <param name="requestTemplate">The template the page rendered with, when known..</param>
@@ -74,9 +74,9 @@ namespace com.ultracart.admin.v2.Model
         public int DurationMs { get; set; }
 
         /// <summary>
-        /// Error lines in the log, including Velocity problems such as a null
+        /// Error lines in the log, including Velocity problems such as setting a variable to null.
         /// </summary>
-        /// <value>Error lines in the log, including Velocity problems such as a null</value>
+        /// <value>Error lines in the log, including Velocity problems such as setting a variable to null.</value>
         [DataMember(Name="error_count", EmitDefaultValue=false)]
         public int ErrorCount { get; set; }
 

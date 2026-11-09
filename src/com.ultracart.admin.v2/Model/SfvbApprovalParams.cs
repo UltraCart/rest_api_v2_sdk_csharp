@@ -80,7 +80,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="side">For sequence_step.move with branch_step_uuid, the side&#39;s label from the sequence read..</param>
         /// <param name="slot">For experiment.start of a page experiment, the page body name, which defaults to body.  For tracking_html.put, tracking or conversion..</param>
         /// <param name="stepUuid">The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard..</param>
-        /// <param name="trackingProvider">The tracking provider key, for tracking_provider.change..</param>
+        /// <param name="trackingProvider">The tracking provider key, for tracking_provider.change and tracking_provider.clear..</param>
         /// <param name="upsellKind">For upsell.enable, what to switch on..</param>
         /// <param name="upsellOid">For upsell.enable, the oid of the offer or path to switch on..</param>
         /// <param name="version">For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write..</param>
@@ -257,9 +257,9 @@ namespace com.ultracart.admin.v2.Model
         public string StepUuid { get; set; }
 
         /// <summary>
-        /// The tracking provider key, for tracking_provider.change.
+        /// The tracking provider key, for tracking_provider.change and tracking_provider.clear.
         /// </summary>
-        /// <value>The tracking provider key, for tracking_provider.change.</value>
+        /// <value>The tracking provider key, for tracking_provider.change and tracking_provider.clear.</value>
         [DataMember(Name="tracking_provider", EmitDefaultValue=false)]
         public string TrackingProvider { get; set; }
 

@@ -49,8 +49,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="name">The name the admin shows..</param>
         /// <param name="notes">Anything the write left for a person to do, such as disconnecting an OAuth connection in the admin..</param>
         /// <param name="oauth">oauth.</param>
+        /// <param name="serverSide">What the provider also sends from UltraCart&#39;s servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side..</param>
         /// <param name="wholesaleTiers">For google_analytics, the account number per wholesale pricing tier..</param>
-        public SfvbTrackingProvider(string adminPath = default(string), bool approvalNeeded = default(bool), List<SfvbTrackingChange> changes = default(List<SfvbTrackingChange>), bool configured = default(bool), SfvbTrackingProviderConsent consent = default(SfvbTrackingProviderConsent), bool consentSupported = default(bool), string cost = default(string), bool dryRun = default(bool), List<SfvbTrackingProviderEvent> events = default(List<SfvbTrackingProviderEvent>), List<SfvbTrackingProviderField> fields = default(List<SfvbTrackingProviderField>), string group = default(string), string hashSha256 = default(string), string key = default(string), string name = default(string), List<string> notes = default(List<string>), SfvbTrackingProviderOauth oauth = default(SfvbTrackingProviderOauth), List<SfvbTrackingWholesaleTier> wholesaleTiers = default(List<SfvbTrackingWholesaleTier>))
+        public SfvbTrackingProvider(string adminPath = default(string), bool approvalNeeded = default(bool), List<SfvbTrackingChange> changes = default(List<SfvbTrackingChange>), bool configured = default(bool), SfvbTrackingProviderConsent consent = default(SfvbTrackingProviderConsent), bool consentSupported = default(bool), string cost = default(string), bool dryRun = default(bool), List<SfvbTrackingProviderEvent> events = default(List<SfvbTrackingProviderEvent>), List<SfvbTrackingProviderField> fields = default(List<SfvbTrackingProviderField>), string group = default(string), string hashSha256 = default(string), string key = default(string), string name = default(string), List<string> notes = default(List<string>), SfvbTrackingProviderOauth oauth = default(SfvbTrackingProviderOauth), string serverSide = default(string), List<SfvbTrackingWholesaleTier> wholesaleTiers = default(List<SfvbTrackingWholesaleTier>))
         {
             this.AdminPath = adminPath;
             this.ApprovalNeeded = approvalNeeded;
@@ -68,6 +69,7 @@ namespace com.ultracart.admin.v2.Model
             this.Name = name;
             this.Notes = notes;
             this.Oauth = oauth;
+            this.ServerSide = serverSide;
             this.WholesaleTiers = wholesaleTiers;
         }
 
@@ -182,6 +184,13 @@ namespace com.ultracart.admin.v2.Model
         public SfvbTrackingProviderOauth Oauth { get; set; }
 
         /// <summary>
+        /// What the provider also sends from UltraCart&#39;s servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side.
+        /// </summary>
+        /// <value>What the provider also sends from UltraCart&#39;s servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side.</value>
+        [DataMember(Name="server_side", EmitDefaultValue=false)]
+        public string ServerSide { get; set; }
+
+        /// <summary>
         /// For google_analytics, the account number per wholesale pricing tier.
         /// </summary>
         /// <value>For google_analytics, the account number per wholesale pricing tier.</value>
@@ -212,6 +221,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("  Oauth: ").Append(Oauth).Append("\n");
+            sb.Append("  ServerSide: ").Append(ServerSide).Append("\n");
             sb.Append("  WholesaleTiers: ").Append(WholesaleTiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -332,6 +342,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Oauth.Equals(input.Oauth))
                 ) && 
                 (
+                    this.ServerSide == input.ServerSide ||
+                    (this.ServerSide != null &&
+                    this.ServerSide.Equals(input.ServerSide))
+                ) && 
+                (
                     this.WholesaleTiers == input.WholesaleTiers ||
                     this.WholesaleTiers != null &&
                     input.WholesaleTiers != null &&
@@ -380,6 +395,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Notes.GetHashCode();
                 if (this.Oauth != null)
                     hashCode = hashCode * 59 + this.Oauth.GetHashCode();
+                if (this.ServerSide != null)
+                    hashCode = hashCode * 59 + this.ServerSide.GetHashCode();
                 if (this.WholesaleTiers != null)
                     hashCode = hashCode * 59 + this.WholesaleTiers.GetHashCode();
                 return hashCode;

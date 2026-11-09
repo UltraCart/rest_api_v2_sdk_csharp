@@ -33,19 +33,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbCommsLookupOwner" /> class.
         /// </summary>
+        /// <param name="archived">True when the campaign or flow is archived.  It sends nothing, and &#39;sf comms flows list&#39; or &#39;campaigns list&#39; shows it only with - -include-deleted..</param>
         /// <param name="live">True when it is sending now, by the same rule the sequence read uses..</param>
         /// <param name="name">Its name..</param>
         /// <param name="status">Its status as stored..</param>
         /// <param name="type">campaign or flow..</param>
         /// <param name="uuid">The campaign or flow uuid..</param>
-        public SfvbCommsLookupOwner(bool live = default(bool), string name = default(string), string status = default(string), string type = default(string), string uuid = default(string))
+        public SfvbCommsLookupOwner(bool archived = default(bool), bool live = default(bool), string name = default(string), string status = default(string), string type = default(string), string uuid = default(string))
         {
+            this.Archived = archived;
             this.Live = live;
             this.Name = name;
             this.Status = status;
             this.Type = type;
             this.Uuid = uuid;
         }
+
+        /// <summary>
+        /// True when the campaign or flow is archived.  It sends nothing, and &#39;sf comms flows list&#39; or &#39;campaigns list&#39; shows it only with - -include-deleted.
+        /// </summary>
+        /// <value>True when the campaign or flow is archived.  It sends nothing, and &#39;sf comms flows list&#39; or &#39;campaigns list&#39; shows it only with - -include-deleted.</value>
+        [DataMember(Name="archived", EmitDefaultValue=false)]
+        public bool Archived { get; set; }
 
         /// <summary>
         /// True when it is sending now, by the same rule the sequence read uses.
@@ -90,6 +99,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbCommsLookupOwner {\n");
+            sb.Append("  Archived: ").Append(Archived).Append("\n");
             sb.Append("  Live: ").Append(Live).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -130,6 +140,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Archived == input.Archived ||
+                    (this.Archived != null &&
+                    this.Archived.Equals(input.Archived))
+                ) && 
+                (
                     this.Live == input.Live ||
                     (this.Live != null &&
                     this.Live.Equals(input.Live))
@@ -165,6 +180,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Archived != null)
+                    hashCode = hashCode * 59 + this.Archived.GetHashCode();
                 if (this.Live != null)
                     hashCode = hashCode * 59 + this.Live.GetHashCode();
                 if (this.Name != null)

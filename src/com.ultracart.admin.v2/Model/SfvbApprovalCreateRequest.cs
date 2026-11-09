@@ -146,58 +146,64 @@ namespace com.ultracart.admin.v2.Model
             TrackingproviderChange = 18,
 
             /// <summary>
+            /// Enum TrackingproviderClear for value: tracking_provider.clear
+            /// </summary>
+            [EnumMember(Value = "tracking_provider.clear")]
+            TrackingproviderClear = 19,
+
+            /// <summary>
             /// Enum TrackinghtmlPut for value: tracking_html.put
             /// </summary>
             [EnumMember(Value = "tracking_html.put")]
-            TrackinghtmlPut = 19,
+            TrackinghtmlPut = 20,
 
             /// <summary>
             /// Enum AffiliatenetworkChange for value: affiliate_network.change
             /// </summary>
             [EnumMember(Value = "affiliate_network.change")]
-            AffiliatenetworkChange = 20,
+            AffiliatenetworkChange = 21,
 
             /// <summary>
             /// Enum AffiliatenetworkDelete for value: affiliate_network.delete
             /// </summary>
             [EnumMember(Value = "affiliate_network.delete")]
-            AffiliatenetworkDelete = 21,
+            AffiliatenetworkDelete = 22,
 
             /// <summary>
             /// Enum SiteseoChange for value: site_seo.change
             /// </summary>
             [EnumMember(Value = "site_seo.change")]
-            SiteseoChange = 22,
+            SiteseoChange = 23,
 
             /// <summary>
             /// Enum TransactionalemailUpdate for value: transactional_email.update
             /// </summary>
             [EnumMember(Value = "transactional_email.update")]
-            TransactionalemailUpdate = 23,
+            TransactionalemailUpdate = 24,
 
             /// <summary>
             /// Enum CommssettingsUpdate for value: comms_settings.update
             /// </summary>
             [EnumMember(Value = "comms_settings.update")]
-            CommssettingsUpdate = 24,
+            CommssettingsUpdate = 25,
 
             /// <summary>
             /// Enum CommslistImport for value: comms_list.import
             /// </summary>
             [EnumMember(Value = "comms_list.import")]
-            CommslistImport = 25,
+            CommslistImport = 26,
 
             /// <summary>
             /// Enum PostcardTestmail for value: postcard.test_mail
             /// </summary>
             [EnumMember(Value = "postcard.test_mail")]
-            PostcardTestmail = 26,
+            PostcardTestmail = 27,
 
             /// <summary>
             /// Enum FlowBackfill for value: flow.backfill
             /// </summary>
             [EnumMember(Value = "flow.backfill")]
-            FlowBackfill = 27
+            FlowBackfill = 28
 
         }
 

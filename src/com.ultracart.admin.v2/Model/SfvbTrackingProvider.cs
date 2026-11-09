@@ -47,7 +47,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="hashSha256">The hash of the stored settings.  A secret counts by its mask and length only.  Send it as If-Match when changing or clearing the provider..</param>
         /// <param name="key">The provider key, such as facebook or google_analytics..</param>
         /// <param name="name">The name the admin shows..</param>
-        /// <param name="notes">Anything the write left for a person to do, such as disconnecting an OAuth connection in the admin..</param>
+        /// <param name="notes">Anything for a person to know or do, such as a field the provider needs before it sends anything, or an OAuth connection to disconnect in the admin after a write..</param>
         /// <param name="oauth">oauth.</param>
         /// <param name="serverSide">What the provider also sends from UltraCart&#39;s servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side..</param>
         /// <param name="wholesaleTiers">For google_analytics, the account number per wholesale pricing tier..</param>
@@ -171,9 +171,9 @@ namespace com.ultracart.admin.v2.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Anything the write left for a person to do, such as disconnecting an OAuth connection in the admin.
+        /// Anything for a person to know or do, such as a field the provider needs before it sends anything, or an OAuth connection to disconnect in the admin after a write.
         /// </summary>
-        /// <value>Anything the write left for a person to do, such as disconnecting an OAuth connection in the admin.</value>
+        /// <value>Anything for a person to know or do, such as a field the provider needs before it sends anything, or an OAuth connection to disconnect in the admin after a write.</value>
         [DataMember(Name="notes", EmitDefaultValue=false)]
         public List<string> Notes { get; set; }
 

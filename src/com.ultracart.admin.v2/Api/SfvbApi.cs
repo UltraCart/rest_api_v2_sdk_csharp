@@ -3488,6 +3488,37 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbThemeJobResponse</returns>
         ApiResponse<SfvbThemeJobResponse> GetSfvbThemeJobWithHttpInfo (int storefrontOid, int jobId);
         /// <summary>
+        /// Plan a browser check of a storefront's tracking
+        /// </summary>
+        /// <remarks>
+        /// What each tracking provider should load on one page, for page_view or a test order's purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront's tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront's custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">A storefront page path, such as / or /checkout/receipt.html, with an optional query</param>
+        /// <param name="_event">page_view (the default) or purchase (optional)</param>
+        /// <param name="orderId">For purchase, a test order on this account (optional)</param>
+        /// <param name="consent">none, all, or a comma list of statistics, preferences and marketing (optional)</param>
+        /// <param name="region">Where the browser is.  eea, non-us or other (optional)</param>
+        /// <returns>SfvbTrackingCheckPlan</returns>
+        SfvbTrackingCheckPlan GetSfvbTrackingCheckPlan (int storefrontOid, string path, string _event = default(string), string orderId = default(string), string consent = default(string), string region = default(string));
+
+        /// <summary>
+        /// Plan a browser check of a storefront's tracking
+        /// </summary>
+        /// <remarks>
+        /// What each tracking provider should load on one page, for page_view or a test order's purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront's tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront's custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">A storefront page path, such as / or /checkout/receipt.html, with an optional query</param>
+        /// <param name="_event">page_view (the default) or purchase (optional)</param>
+        /// <param name="orderId">For purchase, a test order on this account (optional)</param>
+        /// <param name="consent">none, all, or a comma list of statistics, preferences and marketing (optional)</param>
+        /// <param name="region">Where the browser is.  eea, non-us or other (optional)</param>
+        /// <returns>ApiResponse of SfvbTrackingCheckPlan</returns>
+        ApiResponse<SfvbTrackingCheckPlan> GetSfvbTrackingCheckPlanWithHttpInfo (int storefrontOid, string path, string _event = default(string), string orderId = default(string), string consent = default(string), string region = default(string));
+        /// <summary>
         /// Read one custom tracking HTML slot
         /// </summary>
         /// <remarks>
@@ -10866,6 +10897,39 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbThemeJobResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbThemeJobResponse>> GetSfvbThemeJobWithHttpInfoAsync (int storefrontOid, int jobId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Plan a browser check of a storefront's tracking
+        /// </summary>
+        /// <remarks>
+        /// What each tracking provider should load on one page, for page_view or a test order's purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront's tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront's custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">A storefront page path, such as / or /checkout/receipt.html, with an optional query</param>
+        /// <param name="_event">page_view (the default) or purchase (optional)</param>
+        /// <param name="orderId">For purchase, a test order on this account (optional)</param>
+        /// <param name="consent">none, all, or a comma list of statistics, preferences and marketing (optional)</param>
+        /// <param name="region">Where the browser is.  eea, non-us or other (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingCheckPlan</returns>
+        System.Threading.Tasks.Task<SfvbTrackingCheckPlan> GetSfvbTrackingCheckPlanAsync (int storefrontOid, string path, string _event = default(string), string orderId = default(string), string consent = default(string), string region = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Plan a browser check of a storefront&#39;s tracking
+        /// </summary>
+        /// <remarks>
+        /// What each tracking provider should load on one page, for page_view or a test order's purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront's tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront's custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">A storefront page path, such as / or /checkout/receipt.html, with an optional query</param>
+        /// <param name="_event">page_view (the default) or purchase (optional)</param>
+        /// <param name="orderId">For purchase, a test order on this account (optional)</param>
+        /// <param name="consent">none, all, or a comma list of statistics, preferences and marketing (optional)</param>
+        /// <param name="region">Where the browser is.  eea, non-us or other (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingCheckPlan)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbTrackingCheckPlan>> GetSfvbTrackingCheckPlanWithHttpInfoAsync (int storefrontOid, string path, string _event = default(string), string orderId = default(string), string consent = default(string), string region = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read one custom tracking HTML slot
         /// </summary>
@@ -40054,6 +40118,199 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbThemeJobResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbThemeJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbThemeJobResponse)));
+        }
+
+        /// <summary>
+        /// Plan a browser check of a storefront's tracking What each tracking provider should load on one page, for page_view or a test order's purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront's tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront's custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">A storefront page path, such as / or /checkout/receipt.html, with an optional query</param>
+        /// <param name="_event">page_view (the default) or purchase (optional)</param>
+        /// <param name="orderId">For purchase, a test order on this account (optional)</param>
+        /// <param name="consent">none, all, or a comma list of statistics, preferences and marketing (optional)</param>
+        /// <param name="region">Where the browser is.  eea, non-us or other (optional)</param>
+        /// <returns>SfvbTrackingCheckPlan</returns>
+        public SfvbTrackingCheckPlan GetSfvbTrackingCheckPlan (int storefrontOid, string path, string _event = default(string), string orderId = default(string), string consent = default(string), string region = default(string))
+        {
+             ApiResponse<SfvbTrackingCheckPlan> localVarResponse = GetSfvbTrackingCheckPlanWithHttpInfo(storefrontOid, path, _event, orderId, consent, region);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Plan a browser check of a storefront's tracking What each tracking provider should load on one page, for page_view or a test order's purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront's tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront's custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">A storefront page path, such as / or /checkout/receipt.html, with an optional query</param>
+        /// <param name="_event">page_view (the default) or purchase (optional)</param>
+        /// <param name="orderId">For purchase, a test order on this account (optional)</param>
+        /// <param name="consent">none, all, or a comma list of statistics, preferences and marketing (optional)</param>
+        /// <param name="region">Where the browser is.  eea, non-us or other (optional)</param>
+        /// <returns>ApiResponse of SfvbTrackingCheckPlan</returns>
+        public ApiResponse<SfvbTrackingCheckPlan> GetSfvbTrackingCheckPlanWithHttpInfo (int storefrontOid, string path, string _event = default(string), string orderId = default(string), string consent = default(string), string region = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTrackingCheckPlan");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->GetSfvbTrackingCheckPlan");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/check_plan";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (_event != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "event", _event)); // query parameter
+            if (orderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "order_id", orderId)); // query parameter
+            if (consent != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "consent", consent)); // query parameter
+            if (region != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "region", region)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTrackingCheckPlan", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingCheckPlan>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingCheckPlan) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingCheckPlan)));
+        }
+
+        /// <summary>
+        /// Plan a browser check of a storefront's tracking What each tracking provider should load on one page, for page_view or a test order's purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront's tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront's custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">A storefront page path, such as / or /checkout/receipt.html, with an optional query</param>
+        /// <param name="_event">page_view (the default) or purchase (optional)</param>
+        /// <param name="orderId">For purchase, a test order on this account (optional)</param>
+        /// <param name="consent">none, all, or a comma list of statistics, preferences and marketing (optional)</param>
+        /// <param name="region">Where the browser is.  eea, non-us or other (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbTrackingCheckPlan</returns>
+        public async System.Threading.Tasks.Task<SfvbTrackingCheckPlan> GetSfvbTrackingCheckPlanAsync (int storefrontOid, string path, string _event = default(string), string orderId = default(string), string consent = default(string), string region = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbTrackingCheckPlan> localVarResponse = await GetSfvbTrackingCheckPlanWithHttpInfoAsync(storefrontOid, path, _event, orderId, consent, region, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Plan a browser check of a storefront's tracking What each tracking provider should load on one page, for page_view or a test order's purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront's tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront's custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="path">A storefront page path, such as / or /checkout/receipt.html, with an optional query</param>
+        /// <param name="_event">page_view (the default) or purchase (optional)</param>
+        /// <param name="orderId">For purchase, a test order on this account (optional)</param>
+        /// <param name="consent">none, all, or a comma list of statistics, preferences and marketing (optional)</param>
+        /// <param name="region">Where the browser is.  eea, non-us or other (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbTrackingCheckPlan)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbTrackingCheckPlan>> GetSfvbTrackingCheckPlanWithHttpInfoAsync (int storefrontOid, string path, string _event = default(string), string orderId = default(string), string consent = default(string), string region = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbTrackingCheckPlan");
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->GetSfvbTrackingCheckPlan");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/check_plan";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (_event != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "event", _event)); // query parameter
+            if (orderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "order_id", orderId)); // query parameter
+            if (consent != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "consent", consent)); // query parameter
+            if (region != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "region", region)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbTrackingCheckPlan", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbTrackingCheckPlan>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbTrackingCheckPlan) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbTrackingCheckPlan)));
         }
 
         /// <summary>

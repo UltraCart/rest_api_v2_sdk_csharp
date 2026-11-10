@@ -45,10 +45,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="klaviyoPrivateApiKey">Klaviyo API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.klaviyo.private_api_key, or an empty string to clear it..</param>
         /// <param name="nextdoorAccessToken">Nextdoor Access Token.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.nextdoor.access_token, or an empty string to clear it..</param>
         /// <param name="northbeamApiKey">Northbeam API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.northbeam.api_key, or an empty string to clear it..</param>
+        /// <param name="openaiConversionsApiKey">OpenAI Conversions API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.openai.conversions_api_key, or an empty string to clear it..</param>
         /// <param name="pinterestToken">Pinterest Conversion Token.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.pinterest.capi_token, or an empty string to clear it..</param>
         /// <param name="referralcandySecretKey">ReferralCandy Secret Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.referralcandy.secret_key, or an empty string to clear it..</param>
         /// <param name="retentionKey">Retention.com Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.retention.api_key, or an empty string to clear it..</param>
-        public SfvbTrackingProviderSecrets(string attentivePrivateApiKey = default(string), string awinConversionApiKey = default(string), string axonConversionApiKey = default(string), string convergeWebhookToken = default(string), string customerioWriteKey = default(string), string facebookServerSideAccessToken = default(string), string ga4ApiSecret = default(string), string hyrosApiKey = default(string), string kissmetricsApiKey = default(string), string klaviyoPrivateApiKey = default(string), string nextdoorAccessToken = default(string), string northbeamApiKey = default(string), string pinterestToken = default(string), string referralcandySecretKey = default(string), string retentionKey = default(string))
+        public SfvbTrackingProviderSecrets(string attentivePrivateApiKey = default(string), string awinConversionApiKey = default(string), string axonConversionApiKey = default(string), string convergeWebhookToken = default(string), string customerioWriteKey = default(string), string facebookServerSideAccessToken = default(string), string ga4ApiSecret = default(string), string hyrosApiKey = default(string), string kissmetricsApiKey = default(string), string klaviyoPrivateApiKey = default(string), string nextdoorAccessToken = default(string), string northbeamApiKey = default(string), string openaiConversionsApiKey = default(string), string pinterestToken = default(string), string referralcandySecretKey = default(string), string retentionKey = default(string))
         {
             this.AttentivePrivateApiKey = attentivePrivateApiKey;
             this.AwinConversionApiKey = awinConversionApiKey;
@@ -62,6 +63,7 @@ namespace com.ultracart.admin.v2.Model
             this.KlaviyoPrivateApiKey = klaviyoPrivateApiKey;
             this.NextdoorAccessToken = nextdoorAccessToken;
             this.NorthbeamApiKey = northbeamApiKey;
+            this.OpenaiConversionsApiKey = openaiConversionsApiKey;
             this.PinterestToken = pinterestToken;
             this.ReferralcandySecretKey = referralcandySecretKey;
             this.RetentionKey = retentionKey;
@@ -152,6 +154,13 @@ namespace com.ultracart.admin.v2.Model
         public string NorthbeamApiKey { get; set; }
 
         /// <summary>
+        /// OpenAI Conversions API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.openai.conversions_api_key, or an empty string to clear it.
+        /// </summary>
+        /// <value>OpenAI Conversions API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.openai.conversions_api_key, or an empty string to clear it.</value>
+        [DataMember(Name="openai_conversions_api_key", EmitDefaultValue=false)]
+        public string OpenaiConversionsApiKey { get; set; }
+
+        /// <summary>
         /// Pinterest Conversion Token.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.pinterest.capi_token, or an empty string to clear it.
         /// </summary>
         /// <value>Pinterest Conversion Token.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.pinterest.capi_token, or an empty string to clear it.</value>
@@ -192,6 +201,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  KlaviyoPrivateApiKey: ").Append(KlaviyoPrivateApiKey).Append("\n");
             sb.Append("  NextdoorAccessToken: ").Append(NextdoorAccessToken).Append("\n");
             sb.Append("  NorthbeamApiKey: ").Append(NorthbeamApiKey).Append("\n");
+            sb.Append("  OpenaiConversionsApiKey: ").Append(OpenaiConversionsApiKey).Append("\n");
             sb.Append("  PinterestToken: ").Append(PinterestToken).Append("\n");
             sb.Append("  ReferralcandySecretKey: ").Append(ReferralcandySecretKey).Append("\n");
             sb.Append("  RetentionKey: ").Append(RetentionKey).Append("\n");
@@ -290,6 +300,11 @@ namespace com.ultracart.admin.v2.Model
                     this.NorthbeamApiKey.Equals(input.NorthbeamApiKey))
                 ) && 
                 (
+                    this.OpenaiConversionsApiKey == input.OpenaiConversionsApiKey ||
+                    (this.OpenaiConversionsApiKey != null &&
+                    this.OpenaiConversionsApiKey.Equals(input.OpenaiConversionsApiKey))
+                ) && 
+                (
                     this.PinterestToken == input.PinterestToken ||
                     (this.PinterestToken != null &&
                     this.PinterestToken.Equals(input.PinterestToken))
@@ -339,6 +354,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.NextdoorAccessToken.GetHashCode();
                 if (this.NorthbeamApiKey != null)
                     hashCode = hashCode * 59 + this.NorthbeamApiKey.GetHashCode();
+                if (this.OpenaiConversionsApiKey != null)
+                    hashCode = hashCode * 59 + this.OpenaiConversionsApiKey.GetHashCode();
                 if (this.PinterestToken != null)
                     hashCode = hashCode * 59 + this.PinterestToken.GetHashCode();
                 if (this.ReferralcandySecretKey != null)

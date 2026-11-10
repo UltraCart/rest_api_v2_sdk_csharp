@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **KlaviyoPrivateApiKey** | **string** | Klaviyo API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.klaviyo.private_api_key, or an empty string to clear it. | [optional] 
 **NextdoorAccessToken** | **string** | Nextdoor Access Token.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.nextdoor.access_token, or an empty string to clear it. | [optional] 
 **NorthbeamApiKey** | **string** | Northbeam API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.northbeam.api_key, or an empty string to clear it. | [optional] 
+**OpenaiConversionsApiKey** | **string** | OpenAI Conversions API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.openai.conversions_api_key, or an empty string to clear it. | [optional] 
 **PinterestToken** | **string** | Pinterest Conversion Token.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.pinterest.capi_token, or an empty string to clear it. | [optional] 
 **ReferralcandySecretKey** | **string** | ReferralCandy Secret Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.referralcandy.secret_key, or an empty string to clear it. | [optional] 
 **RetentionKey** | **string** | Retention.com Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.retention.api_key, or an empty string to clear it. | [optional] 

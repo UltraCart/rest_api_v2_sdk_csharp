@@ -2266,6 +2266,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbContainerVersion</returns>
         ApiResponse<SfvbContainerVersion> GetSfvbContainerVersionWithHttpInfo (int storefrontOid, int containerHistoryOid, string ownerType = default(string), string ownerObjectId = default(string), string containerName = default(string));
         /// <summary>
+        /// Get a documentation-gap report's status
+        /// </summary>
+        /// <remarks>
+        /// The status of a report this account sent.  received until UltraCart staff look at it, then accepted, declined or fixed.  The report text and UltraCart's internal notes are not returned.  A report from another account answers 404. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reportId"></param>
+        /// <returns>SfvbDocsGap</returns>
+        SfvbDocsGap GetSfvbDocsGap (string reportId);
+
+        /// <summary>
+        /// Get a documentation-gap report's status
+        /// </summary>
+        /// <remarks>
+        /// The status of a report this account sent.  received until UltraCart staff look at it, then accepted, declined or fixed.  The report text and UltraCart's internal notes are not returned.  A report from another account answers 404. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reportId"></param>
+        /// <returns>ApiResponse of SfvbDocsGap</returns>
+        ApiResponse<SfvbDocsGap> GetSfvbDocsGapWithHttpInfo (string reportId);
+        /// <summary>
         /// Configuration schema and field card for one element type
         /// </summary>
         /// <remarks>
@@ -4118,6 +4139,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="twilioAccount">The Twilio account</param>
         /// <returns>ApiResponse of SfvbCommsTwilioAccountResponse</returns>
         ApiResponse<SfvbCommsTwilioAccountResponse> InsertSfvbCommsTwilioAccountWithHttpInfo (SfvbCommsTwilioAccount twilioAccount);
+        /// <summary>
+        /// Send UltraCart a documentation-gap report
+        /// </summary>
+        /// <remarks>
+        /// Reports a place where docs.ultracart.com is wrong or missing, for UltraCart staff to triage.  Send the report uc-storefront docs gap review checked, in this form.  Optionally name the storefront the agent was working on with storefront_oid.  The server checks the report again and refuses one that holds a credential or an email address (an ultracart.com address may stay), without keeping it.  Sending the same report again returns the earlier report_id with 200 and duplicate true rather than a second report.  An account may send 20 reports a UTC day.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="docsGapReport">The report</param>
+        /// <param name="storefrontOid">The storefront the agent was working on, recorded for context.  Leave it out when none applies. (optional)</param>
+        /// <returns>SfvbDocsGap</returns>
+        SfvbDocsGap InsertSfvbDocsGap (SfvbDocsGapReport docsGapReport, int? storefrontOid = default(int?));
+
+        /// <summary>
+        /// Send UltraCart a documentation-gap report
+        /// </summary>
+        /// <remarks>
+        /// Reports a place where docs.ultracart.com is wrong or missing, for UltraCart staff to triage.  Send the report uc-storefront docs gap review checked, in this form.  Optionally name the storefront the agent was working on with storefront_oid.  The server checks the report again and refuses one that holds a credential or an email address (an ultracart.com address may stay), without keeping it.  Sending the same report again returns the earlier report_id with 200 and duplicate true rather than a second report.  An account may send 20 reports a UTC day.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="docsGapReport">The report</param>
+        /// <param name="storefrontOid">The storefront the agent was working on, recorded for context.  Leave it out when none applies. (optional)</param>
+        /// <returns>ApiResponse of SfvbDocsGap</returns>
+        ApiResponse<SfvbDocsGap> InsertSfvbDocsGapWithHttpInfo (SfvbDocsGapReport docsGapReport, int? storefrontOid = default(int?));
         /// <summary>
         /// Create a page
         /// </summary>
@@ -9572,6 +9616,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbContainerVersion)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbContainerVersion>> GetSfvbContainerVersionWithHttpInfoAsync (int storefrontOid, int containerHistoryOid, string ownerType = default(string), string ownerObjectId = default(string), string containerName = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Get a documentation-gap report's status
+        /// </summary>
+        /// <remarks>
+        /// The status of a report this account sent.  received until UltraCart staff look at it, then accepted, declined or fixed.  The report text and UltraCart's internal notes are not returned.  A report from another account answers 404. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reportId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbDocsGap</returns>
+        System.Threading.Tasks.Task<SfvbDocsGap> GetSfvbDocsGapAsync (string reportId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get a documentation-gap report&#39;s status
+        /// </summary>
+        /// <remarks>
+        /// The status of a report this account sent.  received until UltraCart staff look at it, then accepted, declined or fixed.  The report text and UltraCart's internal notes are not returned.  A report from another account answers 404. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reportId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbDocsGap)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbDocsGap>> GetSfvbDocsGapWithHttpInfoAsync (string reportId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Configuration schema and field card for one element type
         /// </summary>
         /// <remarks>
@@ -11582,6 +11649,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbCommsTwilioAccountResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbCommsTwilioAccountResponse>> InsertSfvbCommsTwilioAccountWithHttpInfoAsync (SfvbCommsTwilioAccount twilioAccount, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Send UltraCart a documentation-gap report
+        /// </summary>
+        /// <remarks>
+        /// Reports a place where docs.ultracart.com is wrong or missing, for UltraCart staff to triage.  Send the report uc-storefront docs gap review checked, in this form.  Optionally name the storefront the agent was working on with storefront_oid.  The server checks the report again and refuses one that holds a credential or an email address (an ultracart.com address may stay), without keeping it.  Sending the same report again returns the earlier report_id with 200 and duplicate true rather than a second report.  An account may send 20 reports a UTC day.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="docsGapReport">The report</param>
+        /// <param name="storefrontOid">The storefront the agent was working on, recorded for context.  Leave it out when none applies. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbDocsGap</returns>
+        System.Threading.Tasks.Task<SfvbDocsGap> InsertSfvbDocsGapAsync (SfvbDocsGapReport docsGapReport, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Send UltraCart a documentation-gap report
+        /// </summary>
+        /// <remarks>
+        /// Reports a place where docs.ultracart.com is wrong or missing, for UltraCart staff to triage.  Send the report uc-storefront docs gap review checked, in this form.  Optionally name the storefront the agent was working on with storefront_oid.  The server checks the report again and refuses one that holds a credential or an email address (an ultracart.com address may stay), without keeping it.  Sending the same report again returns the earlier report_id with 200 and duplicate true rather than a second report.  An account may send 20 reports a UTC day.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="docsGapReport">The report</param>
+        /// <param name="storefrontOid">The storefront the agent was working on, recorded for context.  Leave it out when none applies. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbDocsGap)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbDocsGap>> InsertSfvbDocsGapWithHttpInfoAsync (SfvbDocsGapReport docsGapReport, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a page
         /// </summary>
@@ -31413,6 +31505,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get a documentation-gap report's status The status of a report this account sent.  received until UltraCart staff look at it, then accepted, declined or fixed.  The report text and UltraCart's internal notes are not returned.  A report from another account answers 404. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reportId"></param>
+        /// <returns>SfvbDocsGap</returns>
+        public SfvbDocsGap GetSfvbDocsGap (string reportId)
+        {
+             ApiResponse<SfvbDocsGap> localVarResponse = GetSfvbDocsGapWithHttpInfo(reportId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a documentation-gap report's status The status of a report this account sent.  received until UltraCart staff look at it, then accepted, declined or fixed.  The report text and UltraCart's internal notes are not returned.  A report from another account answers 404. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reportId"></param>
+        /// <returns>ApiResponse of SfvbDocsGap</returns>
+        public ApiResponse<SfvbDocsGap> GetSfvbDocsGapWithHttpInfo (string reportId)
+        {
+            // verify the required parameter 'reportId' is set
+            if (reportId == null)
+                throw new ApiException(400, "Missing required parameter 'reportId' when calling SfvbApi->GetSfvbDocsGap");
+
+            var localVarPath = "/sfvb/docs/gaps/{report_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reportId != null) localVarPathParams.Add("report_id", this.Configuration.ApiClient.ParameterToString(reportId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbDocsGap", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbDocsGap>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbDocsGap) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbDocsGap)));
+        }
+
+        /// <summary>
+        /// Get a documentation-gap report's status The status of a report this account sent.  received until UltraCart staff look at it, then accepted, declined or fixed.  The report text and UltraCart's internal notes are not returned.  A report from another account answers 404. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reportId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbDocsGap</returns>
+        public async System.Threading.Tasks.Task<SfvbDocsGap> GetSfvbDocsGapAsync (string reportId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbDocsGap> localVarResponse = await GetSfvbDocsGapWithHttpInfoAsync(reportId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a documentation-gap report's status The status of a report this account sent.  received until UltraCart staff look at it, then accepted, declined or fixed.  The report text and UltraCart's internal notes are not returned.  A report from another account answers 404. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reportId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbDocsGap)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbDocsGap>> GetSfvbDocsGapWithHttpInfoAsync (string reportId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'reportId' is set
+            if (reportId == null)
+                throw new ApiException(400, "Missing required parameter 'reportId' when calling SfvbApi->GetSfvbDocsGap");
+
+            var localVarPath = "/sfvb/docs/gaps/{report_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reportId != null) localVarPathParams.Add("report_id", this.Configuration.ApiClient.ParameterToString(reportId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbDocsGap", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbDocsGap>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbDocsGap) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbDocsGap)));
+        }
+
+        /// <summary>
         /// Configuration schema and field card for one element type schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -44831,6 +45080,185 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbCommsTwilioAccountResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbCommsTwilioAccountResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCommsTwilioAccountResponse)));
+        }
+
+        /// <summary>
+        /// Send UltraCart a documentation-gap report Reports a place where docs.ultracart.com is wrong or missing, for UltraCart staff to triage.  Send the report uc-storefront docs gap review checked, in this form.  Optionally name the storefront the agent was working on with storefront_oid.  The server checks the report again and refuses one that holds a credential or an email address (an ultracart.com address may stay), without keeping it.  Sending the same report again returns the earlier report_id with 200 and duplicate true rather than a second report.  An account may send 20 reports a UTC day.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="docsGapReport">The report</param>
+        /// <param name="storefrontOid">The storefront the agent was working on, recorded for context.  Leave it out when none applies. (optional)</param>
+        /// <returns>SfvbDocsGap</returns>
+        public SfvbDocsGap InsertSfvbDocsGap (SfvbDocsGapReport docsGapReport, int? storefrontOid = default(int?))
+        {
+             ApiResponse<SfvbDocsGap> localVarResponse = InsertSfvbDocsGapWithHttpInfo(docsGapReport, storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Send UltraCart a documentation-gap report Reports a place where docs.ultracart.com is wrong or missing, for UltraCart staff to triage.  Send the report uc-storefront docs gap review checked, in this form.  Optionally name the storefront the agent was working on with storefront_oid.  The server checks the report again and refuses one that holds a credential or an email address (an ultracart.com address may stay), without keeping it.  Sending the same report again returns the earlier report_id with 200 and duplicate true rather than a second report.  An account may send 20 reports a UTC day.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="docsGapReport">The report</param>
+        /// <param name="storefrontOid">The storefront the agent was working on, recorded for context.  Leave it out when none applies. (optional)</param>
+        /// <returns>ApiResponse of SfvbDocsGap</returns>
+        public ApiResponse<SfvbDocsGap> InsertSfvbDocsGapWithHttpInfo (SfvbDocsGapReport docsGapReport, int? storefrontOid = default(int?))
+        {
+            // verify the required parameter 'docsGapReport' is set
+            if (docsGapReport == null)
+                throw new ApiException(400, "Missing required parameter 'docsGapReport' when calling SfvbApi->InsertSfvbDocsGap");
+
+            var localVarPath = "/sfvb/docs/gaps";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_oid", storefrontOid)); // query parameter
+            if (docsGapReport != null && docsGapReport.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(docsGapReport); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = docsGapReport; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbDocsGap", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbDocsGap>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbDocsGap) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbDocsGap)));
+        }
+
+        /// <summary>
+        /// Send UltraCart a documentation-gap report Reports a place where docs.ultracart.com is wrong or missing, for UltraCart staff to triage.  Send the report uc-storefront docs gap review checked, in this form.  Optionally name the storefront the agent was working on with storefront_oid.  The server checks the report again and refuses one that holds a credential or an email address (an ultracart.com address may stay), without keeping it.  Sending the same report again returns the earlier report_id with 200 and duplicate true rather than a second report.  An account may send 20 reports a UTC day.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="docsGapReport">The report</param>
+        /// <param name="storefrontOid">The storefront the agent was working on, recorded for context.  Leave it out when none applies. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbDocsGap</returns>
+        public async System.Threading.Tasks.Task<SfvbDocsGap> InsertSfvbDocsGapAsync (SfvbDocsGapReport docsGapReport, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbDocsGap> localVarResponse = await InsertSfvbDocsGapWithHttpInfoAsync(docsGapReport, storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Send UltraCart a documentation-gap report Reports a place where docs.ultracart.com is wrong or missing, for UltraCart staff to triage.  Send the report uc-storefront docs gap review checked, in this form.  Optionally name the storefront the agent was working on with storefront_oid.  The server checks the report again and refuses one that holds a credential or an email address (an ultracart.com address may stay), without keeping it.  Sending the same report again returns the earlier report_id with 200 and duplicate true rather than a second report.  An account may send 20 reports a UTC day.  Requires a token that resolves to a user, so use the device authorization flow. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="docsGapReport">The report</param>
+        /// <param name="storefrontOid">The storefront the agent was working on, recorded for context.  Leave it out when none applies. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbDocsGap)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbDocsGap>> InsertSfvbDocsGapWithHttpInfoAsync (SfvbDocsGapReport docsGapReport, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'docsGapReport' is set
+            if (docsGapReport == null)
+                throw new ApiException(400, "Missing required parameter 'docsGapReport' when calling SfvbApi->InsertSfvbDocsGap");
+
+            var localVarPath = "/sfvb/docs/gaps";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_oid", storefrontOid)); // query parameter
+            if (docsGapReport != null && docsGapReport.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(docsGapReport); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = docsGapReport; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbDocsGap", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbDocsGap>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbDocsGap) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbDocsGap)));
         }
 
         /// <summary>

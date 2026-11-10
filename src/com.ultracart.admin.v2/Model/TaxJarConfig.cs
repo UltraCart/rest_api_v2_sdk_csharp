@@ -38,15 +38,17 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="estimateOnly">True if this TaxJar configuration is to estimate taxes only and not report placed orders to TaxJar.</param>
         /// <param name="sendOutsideNexus">Send orders outside your nexus TaxJar.  The default is to not transmit outside orders to TaxJar to reduce API calls.  However, this will prevent TaxJar from dynamically creating new Nexus when thresholds are exceeded for a state..</param>
         /// <param name="sendTestOrders">Send test orders through to TaxJar.  The default is to not transmit test orders to TaxJar..</param>
+        /// <param name="skipCalculationOutsideNexus">Only calculate tax for states within your nexus.  Requires send_outside_nexus to be true.  When true, orders outside your nexus are still transmitted to TaxJar for nexus tracking, but no tax calculation is requested for them, reducing API calls..</param>
         /// <param name="skipChannelOrders">Do not send channel partner orders to TaxJar.  Set this to true if your channel partner reports tax on their own..</param>
         /// <param name="useDistributionCenterFrom">Use distribution center from address.</param>
-        public TaxJarConfig(bool active = default(bool), string apiKey = default(string), bool estimateOnly = default(bool), bool sendOutsideNexus = default(bool), bool sendTestOrders = default(bool), bool skipChannelOrders = default(bool), bool useDistributionCenterFrom = default(bool))
+        public TaxJarConfig(bool active = default(bool), string apiKey = default(string), bool estimateOnly = default(bool), bool sendOutsideNexus = default(bool), bool sendTestOrders = default(bool), bool skipCalculationOutsideNexus = default(bool), bool skipChannelOrders = default(bool), bool useDistributionCenterFrom = default(bool))
         {
             this.Active = active;
             this.ApiKey = apiKey;
             this.EstimateOnly = estimateOnly;
             this.SendOutsideNexus = sendOutsideNexus;
             this.SendTestOrders = sendTestOrders;
+            this.SkipCalculationOutsideNexus = skipCalculationOutsideNexus;
             this.SkipChannelOrders = skipChannelOrders;
             this.UseDistributionCenterFrom = useDistributionCenterFrom;
         }
@@ -87,6 +89,13 @@ namespace com.ultracart.admin.v2.Model
         public bool SendTestOrders { get; set; }
 
         /// <summary>
+        /// Only calculate tax for states within your nexus.  Requires send_outside_nexus to be true.  When true, orders outside your nexus are still transmitted to TaxJar for nexus tracking, but no tax calculation is requested for them, reducing API calls.
+        /// </summary>
+        /// <value>Only calculate tax for states within your nexus.  Requires send_outside_nexus to be true.  When true, orders outside your nexus are still transmitted to TaxJar for nexus tracking, but no tax calculation is requested for them, reducing API calls.</value>
+        [DataMember(Name="skip_calculation_outside_nexus", EmitDefaultValue=false)]
+        public bool SkipCalculationOutsideNexus { get; set; }
+
+        /// <summary>
         /// Do not send channel partner orders to TaxJar.  Set this to true if your channel partner reports tax on their own.
         /// </summary>
         /// <value>Do not send channel partner orders to TaxJar.  Set this to true if your channel partner reports tax on their own.</value>
@@ -113,6 +122,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EstimateOnly: ").Append(EstimateOnly).Append("\n");
             sb.Append("  SendOutsideNexus: ").Append(SendOutsideNexus).Append("\n");
             sb.Append("  SendTestOrders: ").Append(SendTestOrders).Append("\n");
+            sb.Append("  SkipCalculationOutsideNexus: ").Append(SkipCalculationOutsideNexus).Append("\n");
             sb.Append("  SkipChannelOrders: ").Append(SkipChannelOrders).Append("\n");
             sb.Append("  UseDistributionCenterFrom: ").Append(UseDistributionCenterFrom).Append("\n");
             sb.Append("}\n");
@@ -175,6 +185,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SendTestOrders.Equals(input.SendTestOrders))
                 ) && 
                 (
+                    this.SkipCalculationOutsideNexus == input.SkipCalculationOutsideNexus ||
+                    (this.SkipCalculationOutsideNexus != null &&
+                    this.SkipCalculationOutsideNexus.Equals(input.SkipCalculationOutsideNexus))
+                ) && 
+                (
                     this.SkipChannelOrders == input.SkipChannelOrders ||
                     (this.SkipChannelOrders != null &&
                     this.SkipChannelOrders.Equals(input.SkipChannelOrders))
@@ -205,6 +220,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SendOutsideNexus.GetHashCode();
                 if (this.SendTestOrders != null)
                     hashCode = hashCode * 59 + this.SendTestOrders.GetHashCode();
+                if (this.SkipCalculationOutsideNexus != null)
+                    hashCode = hashCode * 59 + this.SkipCalculationOutsideNexus.GetHashCode();
                 if (this.SkipChannelOrders != null)
                     hashCode = hashCode * 59 + this.SkipChannelOrders.GetHashCode();
                 if (this.UseDistributionCenterFrom != null)

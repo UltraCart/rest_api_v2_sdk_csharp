@@ -1149,6 +1149,13 @@ docs/SfvbItemContentRequest.md
 docs/SfvbItemMultimedia.md
 docs/SfvbItemMultimediaDescriptionRequest.md
 docs/SfvbItemMultimediaRequest.md
+docs/SfvbItemPreorder.md
+docs/SfvbItemPreorderChange.md
+docs/SfvbItemPreorderChildRow.md
+docs/SfvbItemPreorderChildrenRequest.md
+docs/SfvbItemPreorderListResponse.md
+docs/SfvbItemPreorderOption.md
+docs/SfvbItemPreorderRequest.md
 docs/SfvbItemPricing.md
 docs/SfvbItemPricingRequest.md
 docs/SfvbItemRelated.md
@@ -2629,6 +2636,13 @@ src/com.ultracart.admin.v2/Model/SfvbItemContentRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbItemMultimedia.cs
 src/com.ultracart.admin.v2/Model/SfvbItemMultimediaDescriptionRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbItemMultimediaRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbItemPreorder.cs
+src/com.ultracart.admin.v2/Model/SfvbItemPreorderChange.cs
+src/com.ultracart.admin.v2/Model/SfvbItemPreorderChildRow.cs
+src/com.ultracart.admin.v2/Model/SfvbItemPreorderChildrenRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbItemPreorderListResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbItemPreorderOption.cs
+src/com.ultracart.admin.v2/Model/SfvbItemPreorderRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbItemPricing.cs
 src/com.ultracart.admin.v2/Model/SfvbItemPricingRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbItemRelated.cs

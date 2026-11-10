@@ -2638,6 +2638,56 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbItemResponse</returns>
         ApiResponse<SfvbItemResponse> GetSfvbItemWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
         /// <summary>
+        /// Read an item's pre-order flag and ETA
+        /// </summary>
+        /// <remarks>
+        /// Whether the item is on pre-order, its ETA, and what itempreorder shows shoppers because of them, with a hash_sha256 to send as If-Match when changing them.  A variation is an item of its own and can be read here; read a parent's variations together with GET items/preorder/children.  Address by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemPreorder</returns>
+        SfvbItemPreorder GetSfvbItemPreorder (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+
+        /// <summary>
+        /// Read an item's pre-order flag and ETA
+        /// </summary>
+        /// <remarks>
+        /// Whether the item is on pre-order, its ETA, and what itempreorder shows shoppers because of them, with a hash_sha256 to send as If-Match when changing them.  A variation is an item of its own and can be read here; read a parent's variations together with GET items/preorder/children.  Address by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemPreorder</returns>
+        ApiResponse<SfvbItemPreorder> GetSfvbItemPreorderWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+        /// <summary>
+        /// Read the pre-order flag and ETA of a parent item's variations
+        /// </summary>
+        /// <remarks>
+        /// The parent's own values and each variation's, with the option values that pick it (such as Size 2T) and its hash_sha256 to send when changing it.  Read fresh, never from a cache.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemPreorderListResponse</returns>
+        SfvbItemPreorderListResponse GetSfvbItemPreorderChildren (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+
+        /// <summary>
+        /// Read the pre-order flag and ETA of a parent item's variations
+        /// </summary>
+        /// <remarks>
+        /// The parent's own values and each variation's, with the option values that pick it (such as Size 2T) and its hash_sha256 to send when changing it.  Read fresh, never from a cache.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemPreorderListResponse</returns>
+        ApiResponse<SfvbItemPreorderListResponse> GetSfvbItemPreorderChildrenWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+        /// <summary>
         /// Read what an item charges
         /// </summary>
         /// <remarks>
@@ -5252,6 +5302,66 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="merchantItemOid"> (optional)</param>
         /// <returns>ApiResponse of SfvbItemResponse</returns>
         ApiResponse<SfvbItemResponse> PutSfvbItemMultimediaDescriptionWithHttpInfo (int storefrontOid, SfvbItemMultimediaDescriptionRequest itemMultimediaDescriptionRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+        /// <summary>
+        /// Change an item's pre-order flag or ETA
+        /// </summary>
+        /// <remarks>
+        /// Partial - a field left out is untouched, and nothing else on the item changes.  eta is YYYY-MM-DD; clear_eta removes it.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Putting the item on or off pre-order also needs the approval of the person who signed in the CLI - an approved item.preorder request for this item and exactly this change - because a pre-order item can be ordered while out of stock and its orders go to the Pre-ordered stage.  An ETA-only change needs no approval.  A change that sets every field to what it already is returns the item unchanged.  The answer has the values before and after, what shoppers now see, and warnings such as an ETA in the past. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the pre-order read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemPreorderRequest">The change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for this item and change.  Required when the change puts the item on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbItemPreorder</returns>
+        SfvbItemPreorder PutSfvbItemPreorder (int storefrontOid, string ifMatch, SfvbItemPreorderRequest itemPreorderRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string));
+
+        /// <summary>
+        /// Change an item's pre-order flag or ETA
+        /// </summary>
+        /// <remarks>
+        /// Partial - a field left out is untouched, and nothing else on the item changes.  eta is YYYY-MM-DD; clear_eta removes it.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Putting the item on or off pre-order also needs the approval of the person who signed in the CLI - an approved item.preorder request for this item and exactly this change - because a pre-order item can be ordered while out of stock and its orders go to the Pre-ordered stage.  An ETA-only change needs no approval.  A change that sets every field to what it already is returns the item unchanged.  The answer has the values before and after, what shoppers now see, and warnings such as an ETA in the past. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the pre-order read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemPreorderRequest">The change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for this item and change.  Required when the change puts the item on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbItemPreorder</returns>
+        ApiResponse<SfvbItemPreorder> PutSfvbItemPreorderWithHttpInfo (int storefrontOid, string ifMatch, SfvbItemPreorderRequest itemPreorderRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string));
+        /// <summary>
+        /// Change the pre-order flag or ETA of several variations of one parent
+        /// </summary>
+        /// <remarks>
+        /// The same change for each variation named, 1 to 100, by its merchant item id or by an option value only one variation has (such as 2T), each with the hash_sha256 from the children read.  All or nothing - every row is checked before any variation is saved, and an unknown, ambiguous, repeated or stale row refuses the whole call.  Putting any of them on or off pre-order needs one approved item.preorder request for the parent and exactly this change; an ETA-only change needs none.  Needs sfvb_publish when items are live.  Each variation is saved on its own, so if a save itself fails part way the error names the variations already saved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemPreorderChildrenRequest">The change and the variations</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for the parent and this change.  Required when the change puts any variation on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbItemPreorderListResponse</returns>
+        SfvbItemPreorderListResponse PutSfvbItemPreorderChildren (int storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string));
+
+        /// <summary>
+        /// Change the pre-order flag or ETA of several variations of one parent
+        /// </summary>
+        /// <remarks>
+        /// The same change for each variation named, 1 to 100, by its merchant item id or by an option value only one variation has (such as 2T), each with the hash_sha256 from the children read.  All or nothing - every row is checked before any variation is saved, and an unknown, ambiguous, repeated or stale row refuses the whole call.  Putting any of them on or off pre-order needs one approved item.preorder request for the parent and exactly this change; an ETA-only change needs none.  Needs sfvb_publish when items are live.  Each variation is saved on its own, so if a save itself fails part way the error names the variations already saved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemPreorderChildrenRequest">The change and the variations</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for the parent and this change.  Required when the change puts any variation on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbItemPreorderListResponse</returns>
+        ApiResponse<SfvbItemPreorderListResponse> PutSfvbItemPreorderChildrenWithHttpInfo (int storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string));
         /// <summary>
         /// Change what an item charges
         /// </summary>
@@ -10020,6 +10130,60 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> GetSfvbItemWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Read an item's pre-order flag and ETA
+        /// </summary>
+        /// <remarks>
+        /// Whether the item is on pre-order, its ETA, and what itempreorder shows shoppers because of them, with a hash_sha256 to send as If-Match when changing them.  A variation is an item of its own and can be read here; read a parent's variations together with GET items/preorder/children.  Address by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemPreorder</returns>
+        System.Threading.Tasks.Task<SfvbItemPreorder> GetSfvbItemPreorderAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read an item&#39;s pre-order flag and ETA
+        /// </summary>
+        /// <remarks>
+        /// Whether the item is on pre-order, its ETA, and what itempreorder shows shoppers because of them, with a hash_sha256 to send as If-Match when changing them.  A variation is an item of its own and can be read here; read a parent's variations together with GET items/preorder/children.  Address by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemPreorder)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemPreorder>> GetSfvbItemPreorderWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read the pre-order flag and ETA of a parent item's variations
+        /// </summary>
+        /// <remarks>
+        /// The parent's own values and each variation's, with the option values that pick it (such as Size 2T) and its hash_sha256 to send when changing it.  Read fresh, never from a cache.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemPreorderListResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemPreorderListResponse> GetSfvbItemPreorderChildrenAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read the pre-order flag and ETA of a parent item&#39;s variations
+        /// </summary>
+        /// <remarks>
+        /// The parent's own values and each variation's, with the option values that pick it (such as Size 2T) and its hash_sha256 to send when changing it.  Read fresh, never from a cache.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemPreorderListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemPreorderListResponse>> GetSfvbItemPreorderChildrenWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Read what an item charges
         /// </summary>
         /// <remarks>
@@ -12848,6 +13012,70 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> PutSfvbItemMultimediaDescriptionWithHttpInfoAsync (int storefrontOid, SfvbItemMultimediaDescriptionRequest itemMultimediaDescriptionRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change an item's pre-order flag or ETA
+        /// </summary>
+        /// <remarks>
+        /// Partial - a field left out is untouched, and nothing else on the item changes.  eta is YYYY-MM-DD; clear_eta removes it.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Putting the item on or off pre-order also needs the approval of the person who signed in the CLI - an approved item.preorder request for this item and exactly this change - because a pre-order item can be ordered while out of stock and its orders go to the Pre-ordered stage.  An ETA-only change needs no approval.  A change that sets every field to what it already is returns the item unchanged.  The answer has the values before and after, what shoppers now see, and warnings such as an ETA in the past. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the pre-order read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemPreorderRequest">The change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for this item and change.  Required when the change puts the item on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemPreorder</returns>
+        System.Threading.Tasks.Task<SfvbItemPreorder> PutSfvbItemPreorderAsync (int storefrontOid, string ifMatch, SfvbItemPreorderRequest itemPreorderRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change an item&#39;s pre-order flag or ETA
+        /// </summary>
+        /// <remarks>
+        /// Partial - a field left out is untouched, and nothing else on the item changes.  eta is YYYY-MM-DD; clear_eta removes it.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Putting the item on or off pre-order also needs the approval of the person who signed in the CLI - an approved item.preorder request for this item and exactly this change - because a pre-order item can be ordered while out of stock and its orders go to the Pre-ordered stage.  An ETA-only change needs no approval.  A change that sets every field to what it already is returns the item unchanged.  The answer has the values before and after, what shoppers now see, and warnings such as an ETA in the past. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the pre-order read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemPreorderRequest">The change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for this item and change.  Required when the change puts the item on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemPreorder)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemPreorder>> PutSfvbItemPreorderWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbItemPreorderRequest itemPreorderRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change the pre-order flag or ETA of several variations of one parent
+        /// </summary>
+        /// <remarks>
+        /// The same change for each variation named, 1 to 100, by its merchant item id or by an option value only one variation has (such as 2T), each with the hash_sha256 from the children read.  All or nothing - every row is checked before any variation is saved, and an unknown, ambiguous, repeated or stale row refuses the whole call.  Putting any of them on or off pre-order needs one approved item.preorder request for the parent and exactly this change; an ETA-only change needs none.  Needs sfvb_publish when items are live.  Each variation is saved on its own, so if a save itself fails part way the error names the variations already saved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemPreorderChildrenRequest">The change and the variations</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for the parent and this change.  Required when the change puts any variation on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemPreorderListResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemPreorderListResponse> PutSfvbItemPreorderChildrenAsync (int storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change the pre-order flag or ETA of several variations of one parent
+        /// </summary>
+        /// <remarks>
+        /// The same change for each variation named, 1 to 100, by its merchant item id or by an option value only one variation has (such as 2T), each with the hash_sha256 from the children read.  All or nothing - every row is checked before any variation is saved, and an unknown, ambiguous, repeated or stale row refuses the whole call.  Putting any of them on or off pre-order needs one approved item.preorder request for the parent and exactly this change; an ETA-only change needs none.  Needs sfvb_publish when items are live.  Each variation is saved on its own, so if a save itself fails part way the error names the variations already saved. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemPreorderChildrenRequest">The change and the variations</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for the parent and this change.  Required when the change puts any variation on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemPreorderListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemPreorderListResponse>> PutSfvbItemPreorderChildrenWithHttpInfoAsync (int storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Change what an item charges
         /// </summary>
@@ -34165,6 +34393,344 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Read an item's pre-order flag and ETA Whether the item is on pre-order, its ETA, and what itempreorder shows shoppers because of them, with a hash_sha256 to send as If-Match when changing them.  A variation is an item of its own and can be read here; read a parent's variations together with GET items/preorder/children.  Address by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemPreorder</returns>
+        public SfvbItemPreorder GetSfvbItemPreorder (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+             ApiResponse<SfvbItemPreorder> localVarResponse = GetSfvbItemPreorderWithHttpInfo(storefrontOid, merchantItemId, merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read an item's pre-order flag and ETA Whether the item is on pre-order, its ETA, and what itempreorder shows shoppers because of them, with a hash_sha256 to send as If-Match when changing them.  A variation is an item of its own and can be read here; read a parent's variations together with GET items/preorder/children.  Address by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemPreorder</returns>
+        public ApiResponse<SfvbItemPreorder> GetSfvbItemPreorderWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbItemPreorder");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/preorder";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbItemPreorder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemPreorder>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemPreorder) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemPreorder)));
+        }
+
+        /// <summary>
+        /// Read an item's pre-order flag and ETA Whether the item is on pre-order, its ETA, and what itempreorder shows shoppers because of them, with a hash_sha256 to send as If-Match when changing them.  A variation is an item of its own and can be read here; read a parent's variations together with GET items/preorder/children.  Address by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemPreorder</returns>
+        public async System.Threading.Tasks.Task<SfvbItemPreorder> GetSfvbItemPreorderAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemPreorder> localVarResponse = await GetSfvbItemPreorderWithHttpInfoAsync(storefrontOid, merchantItemId, merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read an item's pre-order flag and ETA Whether the item is on pre-order, its ETA, and what itempreorder shows shoppers because of them, with a hash_sha256 to send as If-Match when changing them.  A variation is an item of its own and can be read here; read a parent's variations together with GET items/preorder/children.  Address by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemPreorder)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemPreorder>> GetSfvbItemPreorderWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbItemPreorder");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/preorder";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbItemPreorder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemPreorder>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemPreorder) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemPreorder)));
+        }
+
+        /// <summary>
+        /// Read the pre-order flag and ETA of a parent item's variations The parent's own values and each variation's, with the option values that pick it (such as Size 2T) and its hash_sha256 to send when changing it.  Read fresh, never from a cache.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemPreorderListResponse</returns>
+        public SfvbItemPreorderListResponse GetSfvbItemPreorderChildren (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+             ApiResponse<SfvbItemPreorderListResponse> localVarResponse = GetSfvbItemPreorderChildrenWithHttpInfo(storefrontOid, merchantItemId, merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read the pre-order flag and ETA of a parent item's variations The parent's own values and each variation's, with the option values that pick it (such as Size 2T) and its hash_sha256 to send when changing it.  Read fresh, never from a cache.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemPreorderListResponse</returns>
+        public ApiResponse<SfvbItemPreorderListResponse> GetSfvbItemPreorderChildrenWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbItemPreorderChildren");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/preorder/children";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbItemPreorderChildren", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemPreorderListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemPreorderListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemPreorderListResponse)));
+        }
+
+        /// <summary>
+        /// Read the pre-order flag and ETA of a parent item's variations The parent's own values and each variation's, with the option values that pick it (such as Size 2T) and its hash_sha256 to send when changing it.  Read fresh, never from a cache.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemPreorderListResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemPreorderListResponse> GetSfvbItemPreorderChildrenAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemPreorderListResponse> localVarResponse = await GetSfvbItemPreorderChildrenWithHttpInfoAsync(storefrontOid, merchantItemId, merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read the pre-order flag and ETA of a parent item's variations The parent's own values and each variation's, with the option values that pick it (such as Size 2T) and its hash_sha256 to send when changing it.  Read fresh, never from a cache.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemPreorderListResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemPreorderListResponse>> GetSfvbItemPreorderChildrenWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbItemPreorderChildren");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/preorder/children";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbItemPreorderChildren", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemPreorderListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemPreorderListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemPreorderListResponse)));
+        }
+
+        /// <summary>
         /// Read what an item charges Price, sale (with whether it applies now), MSRP and retail volume pricing - what itemprice, itemsale, itemmsrp, itemsavings and itemvolumediscounts render - with a hash_sha256 to send as If-Match when changing it.  Wholesale pricing tiers are not shown.  Address by merchant_item_id or merchant_item_oid. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -53029,6 +53595,424 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Change an item's pre-order flag or ETA Partial - a field left out is untouched, and nothing else on the item changes.  eta is YYYY-MM-DD; clear_eta removes it.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Putting the item on or off pre-order also needs the approval of the person who signed in the CLI - an approved item.preorder request for this item and exactly this change - because a pre-order item can be ordered while out of stock and its orders go to the Pre-ordered stage.  An ETA-only change needs no approval.  A change that sets every field to what it already is returns the item unchanged.  The answer has the values before and after, what shoppers now see, and warnings such as an ETA in the past. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the pre-order read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemPreorderRequest">The change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for this item and change.  Required when the change puts the item on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbItemPreorder</returns>
+        public SfvbItemPreorder PutSfvbItemPreorder (int storefrontOid, string ifMatch, SfvbItemPreorderRequest itemPreorderRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string))
+        {
+             ApiResponse<SfvbItemPreorder> localVarResponse = PutSfvbItemPreorderWithHttpInfo(storefrontOid, ifMatch, itemPreorderRequest, merchantItemId, merchantItemOid, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change an item's pre-order flag or ETA Partial - a field left out is untouched, and nothing else on the item changes.  eta is YYYY-MM-DD; clear_eta removes it.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Putting the item on or off pre-order also needs the approval of the person who signed in the CLI - an approved item.preorder request for this item and exactly this change - because a pre-order item can be ordered while out of stock and its orders go to the Pre-ordered stage.  An ETA-only change needs no approval.  A change that sets every field to what it already is returns the item unchanged.  The answer has the values before and after, what shoppers now see, and warnings such as an ETA in the past. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the pre-order read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemPreorderRequest">The change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for this item and change.  Required when the change puts the item on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbItemPreorder</returns>
+        public ApiResponse<SfvbItemPreorder> PutSfvbItemPreorderWithHttpInfo (int storefrontOid, string ifMatch, SfvbItemPreorderRequest itemPreorderRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemPreorder");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->PutSfvbItemPreorder");
+            // verify the required parameter 'itemPreorderRequest' is set
+            if (itemPreorderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemPreorderRequest' when calling SfvbApi->PutSfvbItemPreorder");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/preorder";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (itemPreorderRequest != null && itemPreorderRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemPreorderRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemPreorderRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemPreorder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemPreorder>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemPreorder) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemPreorder)));
+        }
+
+        /// <summary>
+        /// Change an item's pre-order flag or ETA Partial - a field left out is untouched, and nothing else on the item changes.  eta is YYYY-MM-DD; clear_eta removes it.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Putting the item on or off pre-order also needs the approval of the person who signed in the CLI - an approved item.preorder request for this item and exactly this change - because a pre-order item can be ordered while out of stock and its orders go to the Pre-ordered stage.  An ETA-only change needs no approval.  A change that sets every field to what it already is returns the item unchanged.  The answer has the values before and after, what shoppers now see, and warnings such as an ETA in the past. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the pre-order read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemPreorderRequest">The change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for this item and change.  Required when the change puts the item on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemPreorder</returns>
+        public async System.Threading.Tasks.Task<SfvbItemPreorder> PutSfvbItemPreorderAsync (int storefrontOid, string ifMatch, SfvbItemPreorderRequest itemPreorderRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemPreorder> localVarResponse = await PutSfvbItemPreorderWithHttpInfoAsync(storefrontOid, ifMatch, itemPreorderRequest, merchantItemId, merchantItemOid, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change an item's pre-order flag or ETA Partial - a field left out is untouched, and nothing else on the item changes.  eta is YYYY-MM-DD; clear_eta removes it.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Putting the item on or off pre-order also needs the approval of the person who signed in the CLI - an approved item.preorder request for this item and exactly this change - because a pre-order item can be ordered while out of stock and its orders go to the Pre-ordered stage.  An ETA-only change needs no approval.  A change that sets every field to what it already is returns the item unchanged.  The answer has the values before and after, what shoppers now see, and warnings such as an ETA in the past. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the pre-order read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemPreorderRequest">The change</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for this item and change.  Required when the change puts the item on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemPreorder)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemPreorder>> PutSfvbItemPreorderWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbItemPreorderRequest itemPreorderRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemPreorder");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->PutSfvbItemPreorder");
+            // verify the required parameter 'itemPreorderRequest' is set
+            if (itemPreorderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemPreorderRequest' when calling SfvbApi->PutSfvbItemPreorder");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/preorder";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (itemPreorderRequest != null && itemPreorderRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemPreorderRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemPreorderRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemPreorder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemPreorder>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemPreorder) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemPreorder)));
+        }
+
+        /// <summary>
+        /// Change the pre-order flag or ETA of several variations of one parent The same change for each variation named, 1 to 100, by its merchant item id or by an option value only one variation has (such as 2T), each with the hash_sha256 from the children read.  All or nothing - every row is checked before any variation is saved, and an unknown, ambiguous, repeated or stale row refuses the whole call.  Putting any of them on or off pre-order needs one approved item.preorder request for the parent and exactly this change; an ETA-only change needs none.  Needs sfvb_publish when items are live.  Each variation is saved on its own, so if a save itself fails part way the error names the variations already saved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemPreorderChildrenRequest">The change and the variations</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for the parent and this change.  Required when the change puts any variation on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbItemPreorderListResponse</returns>
+        public SfvbItemPreorderListResponse PutSfvbItemPreorderChildren (int storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string))
+        {
+             ApiResponse<SfvbItemPreorderListResponse> localVarResponse = PutSfvbItemPreorderChildrenWithHttpInfo(storefrontOid, itemPreorderChildrenRequest, merchantItemId, merchantItemOid, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change the pre-order flag or ETA of several variations of one parent The same change for each variation named, 1 to 100, by its merchant item id or by an option value only one variation has (such as 2T), each with the hash_sha256 from the children read.  All or nothing - every row is checked before any variation is saved, and an unknown, ambiguous, repeated or stale row refuses the whole call.  Putting any of them on or off pre-order needs one approved item.preorder request for the parent and exactly this change; an ETA-only change needs none.  Needs sfvb_publish when items are live.  Each variation is saved on its own, so if a save itself fails part way the error names the variations already saved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemPreorderChildrenRequest">The change and the variations</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for the parent and this change.  Required when the change puts any variation on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbItemPreorderListResponse</returns>
+        public ApiResponse<SfvbItemPreorderListResponse> PutSfvbItemPreorderChildrenWithHttpInfo (int storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemPreorderChildren");
+            // verify the required parameter 'itemPreorderChildrenRequest' is set
+            if (itemPreorderChildrenRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemPreorderChildrenRequest' when calling SfvbApi->PutSfvbItemPreorderChildren");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/preorder/children";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (itemPreorderChildrenRequest != null && itemPreorderChildrenRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemPreorderChildrenRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemPreorderChildrenRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemPreorderChildren", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemPreorderListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemPreorderListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemPreorderListResponse)));
+        }
+
+        /// <summary>
+        /// Change the pre-order flag or ETA of several variations of one parent The same change for each variation named, 1 to 100, by its merchant item id or by an option value only one variation has (such as 2T), each with the hash_sha256 from the children read.  All or nothing - every row is checked before any variation is saved, and an unknown, ambiguous, repeated or stale row refuses the whole call.  Putting any of them on or off pre-order needs one approved item.preorder request for the parent and exactly this change; an ETA-only change needs none.  Needs sfvb_publish when items are live.  Each variation is saved on its own, so if a save itself fails part way the error names the variations already saved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemPreorderChildrenRequest">The change and the variations</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for the parent and this change.  Required when the change puts any variation on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemPreorderListResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemPreorderListResponse> PutSfvbItemPreorderChildrenAsync (int storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemPreorderListResponse> localVarResponse = await PutSfvbItemPreorderChildrenWithHttpInfoAsync(storefrontOid, itemPreorderChildrenRequest, merchantItemId, merchantItemOid, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change the pre-order flag or ETA of several variations of one parent The same change for each variation named, 1 to 100, by its merchant item id or by an option value only one variation has (such as 2T), each with the hash_sha256 from the children read.  All or nothing - every row is checked before any variation is saved, and an unknown, ambiguous, repeated or stale row refuses the whole call.  Putting any of them on or off pre-order needs one approved item.preorder request for the parent and exactly this change; an ETA-only change needs none.  Needs sfvb_publish when items are live.  Each variation is saved on its own, so if a save itself fails part way the error names the variations already saved. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemPreorderChildrenRequest">The change and the variations</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.preorder request for the parent and this change.  Required when the change puts any variation on or off pre-order.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemPreorderListResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemPreorderListResponse>> PutSfvbItemPreorderChildrenWithHttpInfoAsync (int storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemPreorderChildren");
+            // verify the required parameter 'itemPreorderChildrenRequest' is set
+            if (itemPreorderChildrenRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemPreorderChildrenRequest' when calling SfvbApi->PutSfvbItemPreorderChildren");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/preorder/children";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (itemPreorderChildrenRequest != null && itemPreorderChildrenRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemPreorderChildrenRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemPreorderChildrenRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemPreorderChildren", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemPreorderListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemPreorderListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemPreorderListResponse)));
         }
 
         /// <summary>

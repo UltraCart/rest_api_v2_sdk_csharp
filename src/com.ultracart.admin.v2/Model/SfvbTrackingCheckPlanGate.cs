@@ -100,13 +100,22 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbTrackingCheckPlanGate" /> class.
         /// </summary>
         /// <param name="region">Where the gate applies.  all, eea or non_us..</param>
+        /// <param name="service">The cookie service the consent gate is stored under, for example openai or facebook (#1959)..</param>
         /// <param name="type">The consent category that must be granted.  Statistics, Preferences or Marketing..</param>
-        public SfvbTrackingCheckPlanGate(RegionEnum? region = default(RegionEnum?), TypeEnum? type = default(TypeEnum?))
+        public SfvbTrackingCheckPlanGate(RegionEnum? region = default(RegionEnum?), string service = default(string), TypeEnum? type = default(TypeEnum?))
         {
             this.Region = region;
+            this.Service = service;
             this.Type = type;
         }
 
+
+        /// <summary>
+        /// The cookie service the consent gate is stored under, for example openai or facebook (#1959).
+        /// </summary>
+        /// <value>The cookie service the consent gate is stored under, for example openai or facebook (#1959).</value>
+        [DataMember(Name="service", EmitDefaultValue=false)]
+        public string Service { get; set; }
 
 
         /// <summary>
@@ -118,6 +127,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class SfvbTrackingCheckPlanGate {\n");
             sb.Append("  Region: ").Append(Region).Append("\n");
+            sb.Append("  Service: ").Append(Service).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -159,6 +169,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Region.Equals(input.Region))
                 ) && 
                 (
+                    this.Service == input.Service ||
+                    (this.Service != null &&
+                    this.Service.Equals(input.Service))
+                ) && 
+                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
@@ -176,6 +191,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Region != null)
                     hashCode = hashCode * 59 + this.Region.GetHashCode();
+                if (this.Service != null)
+                    hashCode = hashCode * 59 + this.Service.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;

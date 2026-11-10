@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Axis** | **string** | The axis the change is about. | [optional] 
 **Before** | **string** | add_option puts the new option before this one.  Otherwise it goes last. | [optional] 
 **Child** | **string** | set_combination - the child item id, or null to clear the combination. | [optional] 
-**Default** | **bool** | add_option and add_axis make the option the default. | [optional] 
+**DefaultOption** | **bool** | add_option and add_axis make the option the default. | [optional] 
 **DefaultText** | **string** | The prompt, for add_axis and set_default_text.  Null clears it. | [optional] 
 **MultimediaOid** | **int** | An image of the parent item.  For set_option_multimedia null clears it; for set_combination null keeps the current one. | [optional] 
 **Op** | **string** | add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia or set_combination. | [optional] 

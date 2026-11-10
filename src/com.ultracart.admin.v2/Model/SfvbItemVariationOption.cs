@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbItemVariationOption" /> class.
         /// </summary>
-        /// <param name="_default">True for the option the item page starts on.  At most one per axis..</param>
+        /// <param name="defaultOption">True for the option the item page starts on.  At most one per axis..</param>
         /// <param name="multimediaOid">An image or swatch of the parent item shown for this option, or null..</param>
         /// <param name="value">The option value, such as 2T..</param>
-        public SfvbItemVariationOption(bool _default = default(bool), int multimediaOid = default(int), string value = default(string))
+        public SfvbItemVariationOption(bool defaultOption = default(bool), int multimediaOid = default(int), string value = default(string))
         {
-            this.Default = _default;
+            this.DefaultOption = defaultOption;
             this.MultimediaOid = multimediaOid;
             this.Value = value;
         }
@@ -47,8 +47,8 @@ namespace com.ultracart.admin.v2.Model
         /// True for the option the item page starts on.  At most one per axis.
         /// </summary>
         /// <value>True for the option the item page starts on.  At most one per axis.</value>
-        [DataMember(Name="default", EmitDefaultValue=false)]
-        public bool Default { get; set; }
+        [DataMember(Name="default_option", EmitDefaultValue=false)]
+        public bool DefaultOption { get; set; }
 
         /// <summary>
         /// An image or swatch of the parent item shown for this option, or null.
@@ -72,7 +72,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbItemVariationOption {\n");
-            sb.Append("  Default: ").Append(Default).Append("\n");
+            sb.Append("  DefaultOption: ").Append(DefaultOption).Append("\n");
             sb.Append("  MultimediaOid: ").Append(MultimediaOid).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
@@ -110,9 +110,9 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.Default == input.Default ||
-                    (this.Default != null &&
-                    this.Default.Equals(input.Default))
+                    this.DefaultOption == input.DefaultOption ||
+                    (this.DefaultOption != null &&
+                    this.DefaultOption.Equals(input.DefaultOption))
                 ) && 
                 (
                     this.MultimediaOid == input.MultimediaOid ||
@@ -135,8 +135,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Default != null)
-                    hashCode = hashCode * 59 + this.Default.GetHashCode();
+                if (this.DefaultOption != null)
+                    hashCode = hashCode * 59 + this.DefaultOption.GetHashCode();
                 if (this.MultimediaOid != null)
                     hashCode = hashCode * 59 + this.MultimediaOid.GetHashCode();
                 if (this.Value != null)

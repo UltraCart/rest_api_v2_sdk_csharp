@@ -36,7 +36,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="axis">The axis the change is about..</param>
         /// <param name="before">add_option puts the new option before this one.  Otherwise it goes last..</param>
         /// <param name="child">set_combination - the child item id, or null to clear the combination..</param>
-        /// <param name="_default">add_option and add_axis make the option the default..</param>
+        /// <param name="defaultOption">add_option and add_axis make the option the default..</param>
         /// <param name="defaultText">The prompt, for add_axis and set_default_text.  Null clears it..</param>
         /// <param name="multimediaOid">An image of the parent item.  For set_option_multimedia null clears it; for set_combination null keeps the current one..</param>
         /// <param name="op">add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia or set_combination..</param>
@@ -45,12 +45,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="value">The option the change is about..</param>
         /// <param name="values">add_axis options in order, or every option in its new order for reorder_options..</param>
         /// <param name="variationValues">set_combination - one axis and option per axis..</param>
-        public SfvbItemVariationChange(string axis = default(string), string before = default(string), string child = default(string), bool _default = default(bool), string defaultText = default(string), int multimediaOid = default(int), string op = default(string), int quantity = default(int), string to = default(string), string value = default(string), List<string> values = default(List<string>), List<SfvbItemVariationValue> variationValues = default(List<SfvbItemVariationValue>))
+        public SfvbItemVariationChange(string axis = default(string), string before = default(string), string child = default(string), bool defaultOption = default(bool), string defaultText = default(string), int multimediaOid = default(int), string op = default(string), int quantity = default(int), string to = default(string), string value = default(string), List<string> values = default(List<string>), List<SfvbItemVariationValue> variationValues = default(List<SfvbItemVariationValue>))
         {
             this.Axis = axis;
             this.Before = before;
             this.Child = child;
-            this.Default = _default;
+            this.DefaultOption = defaultOption;
             this.DefaultText = defaultText;
             this.MultimediaOid = multimediaOid;
             this.Op = op;
@@ -86,8 +86,8 @@ namespace com.ultracart.admin.v2.Model
         /// add_option and add_axis make the option the default.
         /// </summary>
         /// <value>add_option and add_axis make the option the default.</value>
-        [DataMember(Name="default", EmitDefaultValue=false)]
-        public bool Default { get; set; }
+        [DataMember(Name="default_option", EmitDefaultValue=false)]
+        public bool DefaultOption { get; set; }
 
         /// <summary>
         /// The prompt, for add_axis and set_default_text.  Null clears it.
@@ -156,7 +156,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Axis: ").Append(Axis).Append("\n");
             sb.Append("  Before: ").Append(Before).Append("\n");
             sb.Append("  Child: ").Append(Child).Append("\n");
-            sb.Append("  Default: ").Append(Default).Append("\n");
+            sb.Append("  DefaultOption: ").Append(DefaultOption).Append("\n");
             sb.Append("  DefaultText: ").Append(DefaultText).Append("\n");
             sb.Append("  MultimediaOid: ").Append(MultimediaOid).Append("\n");
             sb.Append("  Op: ").Append(Op).Append("\n");
@@ -215,9 +215,9 @@ namespace com.ultracart.admin.v2.Model
                     this.Child.Equals(input.Child))
                 ) && 
                 (
-                    this.Default == input.Default ||
-                    (this.Default != null &&
-                    this.Default.Equals(input.Default))
+                    this.DefaultOption == input.DefaultOption ||
+                    (this.DefaultOption != null &&
+                    this.DefaultOption.Equals(input.DefaultOption))
                 ) && 
                 (
                     this.DefaultText == input.DefaultText ||
@@ -278,8 +278,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Before.GetHashCode();
                 if (this.Child != null)
                     hashCode = hashCode * 59 + this.Child.GetHashCode();
-                if (this.Default != null)
-                    hashCode = hashCode * 59 + this.Default.GetHashCode();
+                if (this.DefaultOption != null)
+                    hashCode = hashCode * 59 + this.DefaultOption.GetHashCode();
                 if (this.DefaultText != null)
                     hashCode = hashCode * 59 + this.DefaultText.GetHashCode();
                 if (this.MultimediaOid != null)

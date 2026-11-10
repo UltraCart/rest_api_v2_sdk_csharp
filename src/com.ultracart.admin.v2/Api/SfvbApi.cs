@@ -1177,6 +1177,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbItemAttributeBatchResponse</returns>
         ApiResponse<SfvbItemAttributeBatchResponse> DryRunSfvbItemAttributeBatchWithHttpInfo (int storefrontOid, SfvbItemAttributeBatchRequest itemAttributeBatchRequest);
         /// <summary>
+        /// Check moving items' default (canonical) pages
+        /// </summary>
+        /// <remarks>
+        /// Checks up to 2,000 rows on up to 200 items, each naming an item and a page it is already on, and saves nothing.  Each row answers ready, already_default, target_not_found, target_not_on_host, target_not_assigned, target_hidden (refused - a hidden page isn't served to shoppers), item_not_found, invalid or stale, with the item's current default and current_sha256.  rows_sha256 covers the ready rows - request item.default_page with exactly those rows, then apply them. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The rows</param>
+        /// <returns>SfvbItemDefaultPageResponse</returns>
+        SfvbItemDefaultPageResponse DryRunSfvbItemDefaultPage (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest);
+
+        /// <summary>
+        /// Check moving items' default (canonical) pages
+        /// </summary>
+        /// <remarks>
+        /// Checks up to 2,000 rows on up to 200 items, each naming an item and a page it is already on, and saves nothing.  Each row answers ready, already_default, target_not_found, target_not_on_host, target_not_assigned, target_hidden (refused - a hidden page isn't served to shoppers), item_not_found, invalid or stale, with the item's current default and current_sha256.  rows_sha256 covers the ready rows - request item.default_page with exactly those rows, then apply them. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The rows</param>
+        /// <returns>ApiResponse of SfvbItemDefaultPageResponse</returns>
+        ApiResponse<SfvbItemDefaultPageResponse> DryRunSfvbItemDefaultPageWithHttpInfo (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest);
+        /// <summary>
         /// Check a batch delete of redirect rules without writing it
         /// </summary>
         /// <remarks>
@@ -2638,6 +2661,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbItemResponse</returns>
         ApiResponse<SfvbItemResponse> GetSfvbItemWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
         /// <summary>
+        /// Read the pages an item is on and its default page
+        /// </summary>
+        /// <remarks>
+        /// Every page the item is assigned to on this storefront, whether each is visible, and which is the default - the page the item's canonical link uses.  Another storefront's pages aren't listed.  hash_sha256 is the same value the default-page dry run reports as current_sha256.  Address the item by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemPages</returns>
+        SfvbItemPages GetSfvbItemPages (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+
+        /// <summary>
+        /// Read the pages an item is on and its default page
+        /// </summary>
+        /// <remarks>
+        /// Every page the item is assigned to on this storefront, whether each is visible, and which is the default - the page the item's canonical link uses.  Another storefront's pages aren't listed.  hash_sha256 is the same value the default-page dry run reports as current_sha256.  Address the item by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemPages</returns>
+        ApiResponse<SfvbItemPages> GetSfvbItemPagesWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+        /// <summary>
         /// Read an item's pre-order flag and ETA
         /// </summary>
         /// <remarks>
@@ -2737,6 +2785,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="merchantItemOid"> (optional)</param>
         /// <returns>ApiResponse of SfvbItemRelated</returns>
         ApiResponse<SfvbItemRelated> GetSfvbItemRelatedWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+        /// <summary>
+        /// Read an item's variations
+        /// </summary>
+        /// <remarks>
+        /// The variation axes, such as Size, with their options in the order shoppers see them, and every filled combination with the child item it sells and its quantity.  A combination not listed has no child, and storefronts show it as unavailable.  hash_sha256 goes back as If-Match on the update.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemVariations</returns>
+        SfvbItemVariations GetSfvbItemVariations (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+
+        /// <summary>
+        /// Read an item's variations
+        /// </summary>
+        /// <remarks>
+        /// The variation axes, such as Size, with their options in the order shoppers see them, and every filled combination with the child item it sells and its quantity.  A combination not listed has no child, and storefronts show it as unavailable.  hash_sha256 goes back as If-Match on the update.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemVariations</returns>
+        ApiResponse<SfvbItemVariations> GetSfvbItemVariationsWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?));
         /// <summary>
         /// Read one library entry including its CJSON
         /// </summary>
@@ -4213,6 +4286,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbDocsGap</returns>
         ApiResponse<SfvbDocsGap> InsertSfvbDocsGapWithHttpInfo (SfvbDocsGapReport docsGapReport, int? storefrontOid = default(int?));
         /// <summary>
+        /// Create a child item for a parent's variations
+        /// </summary>
+        /// <remarks>
+        /// Creates a new item copying the parent's description, cost, weight, dimensions and item folder, so it can be assigned to a combination with the variations update.  It is not assigned here and nothing else is copied.  merchant_item_id may use letters, digits, dot, underscore and dash, at most 20 characters; an id already on the account is 409 sfvb.item_exists.  Needs sfvb_publish when items are live.  dry_run checks without creating. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemChildRequest">The child to create</param>
+        /// <returns>SfvbItemChildCreateResponse</returns>
+        SfvbItemChildCreateResponse InsertSfvbItemChild (int storefrontOid, SfvbItemChildCreateRequest itemChildRequest);
+
+        /// <summary>
+        /// Create a child item for a parent's variations
+        /// </summary>
+        /// <remarks>
+        /// Creates a new item copying the parent's description, cost, weight, dimensions and item folder, so it can be assigned to a combination with the variations update.  It is not assigned here and nothing else is copied.  merchant_item_id may use letters, digits, dot, underscore and dash, at most 20 characters; an id already on the account is 409 sfvb.item_exists.  Needs sfvb_publish when items are live.  dry_run checks without creating. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemChildRequest">The child to create</param>
+        /// <returns>ApiResponse of SfvbItemChildCreateResponse</returns>
+        ApiResponse<SfvbItemChildCreateResponse> InsertSfvbItemChildWithHttpInfo (int storefrontOid, SfvbItemChildCreateRequest itemChildRequest);
+        /// <summary>
         /// Create a page
         /// </summary>
         /// <remarks>
@@ -5449,6 +5545,37 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="merchantItemOid"> (optional)</param>
         /// <returns>ApiResponse of SfvbItemResponse</returns>
         ApiResponse<SfvbItemResponse> PutSfvbItemSeoWithHttpInfo (int storefrontOid, SfvbItemSeoRequest itemSeoRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?));
+        /// <summary>
+        /// Change an item's variations
+        /// </summary>
+        /// <remarks>
+        /// A list of changes applied in order - add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia and set_combination.  Every change is checked before anything is saved, and nothing the list doesn't mention changes.  Child items must already exist; create one with POST items/children.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Removing an axis, removing an option whose combinations sell a child, or re-pointing or clearing a combination shoppers can buy today also needs the approval of the person who signed in the CLI - an approved item.variations request for this item and exactly this list.  Adding never does.  dry_run returns the planned variations, what each change does, and whether approval is needed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the variations read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemVariationsRequest">The changes</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.variations request for this item and list.  Required when the list removes or re-points something shoppers can buy.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbItemVariationsResponse</returns>
+        SfvbItemVariationsResponse PutSfvbItemVariations (int storefrontOid, string ifMatch, SfvbItemVariationsRequest itemVariationsRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string));
+
+        /// <summary>
+        /// Change an item's variations
+        /// </summary>
+        /// <remarks>
+        /// A list of changes applied in order - add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia and set_combination.  Every change is checked before anything is saved, and nothing the list doesn't mention changes.  Child items must already exist; create one with POST items/children.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Removing an axis, removing an option whose combinations sell a child, or re-pointing or clearing a combination shoppers can buy today also needs the approval of the person who signed in the CLI - an approved item.variations request for this item and exactly this list.  Adding never does.  dry_run returns the planned variations, what each change does, and whether approval is needed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the variations read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemVariationsRequest">The changes</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.variations request for this item and list.  Required when the list removes or re-points something shoppers can buy.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbItemVariationsResponse</returns>
+        ApiResponse<SfvbItemVariationsResponse> PutSfvbItemVariationsWithHttpInfo (int storefrontOid, string ifMatch, SfvbItemVariationsRequest itemVariationsRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string));
         /// <summary>
         /// Replace a store menu's entries
         /// </summary>
@@ -6844,6 +6971,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="approvalId">The approval_id of an approved item.attribute_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
         /// <returns>ApiResponse of SfvbItemAttributeBatchResponse</returns>
         ApiResponse<SfvbItemAttributeBatchResponse> UpdateSfvbItemAttributeBatchWithHttpInfo (int storefrontOid, SfvbItemAttributeBatchRequest itemAttributeBatchRequest, string approvalId = default(string));
+        /// <summary>
+        /// Move items' default (canonical) pages
+        /// </summary>
+        /// <remarks>
+        /// Applies the dry run's ready rows with their rows_sha256 under an approved item.default_page request for exactly those rows.  Each item's default moves to the named page on this storefront only; every page assignment stays, and nothing else on the item changes.  A row whose pages changed since the dry run is skipped as stale, and one failed row doesn't stop the others.  Each row is read back; it answers updated with previous_default_path, so the change can be undone, or failed.  Needs sfvb_publish when items are live. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The dry run&#39;s ready rows and rows_sha256</param>
+        /// <param name="approvalId">The approval_id of an approved item.default_page request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbItemDefaultPageResponse</returns>
+        SfvbItemDefaultPageResponse UpdateSfvbItemDefaultPage (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Move items' default (canonical) pages
+        /// </summary>
+        /// <remarks>
+        /// Applies the dry run's ready rows with their rows_sha256 under an approved item.default_page request for exactly those rows.  Each item's default moves to the named page on this storefront only; every page assignment stays, and nothing else on the item changes.  A row whose pages changed since the dry run is skipped as stale, and one failed row doesn't stop the others.  Each row is read back; it answers updated with previous_default_path, so the change can be undone, or failed.  Needs sfvb_publish when items are live. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The dry run&#39;s ready rows and rows_sha256</param>
+        /// <param name="approvalId">The approval_id of an approved item.default_page request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbItemDefaultPageResponse</returns>
+        ApiResponse<SfvbItemDefaultPageResponse> UpdateSfvbItemDefaultPageWithHttpInfo (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest, string approvalId = default(string));
         /// <summary>
         /// Update a library entry's draft
         /// </summary>
@@ -8543,6 +8695,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbItemAttributeBatchResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbItemAttributeBatchResponse>> DryRunSfvbItemAttributeBatchWithHttpInfoAsync (int storefrontOid, SfvbItemAttributeBatchRequest itemAttributeBatchRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Check moving items' default (canonical) pages
+        /// </summary>
+        /// <remarks>
+        /// Checks up to 2,000 rows on up to 200 items, each naming an item and a page it is already on, and saves nothing.  Each row answers ready, already_default, target_not_found, target_not_on_host, target_not_assigned, target_hidden (refused - a hidden page isn't served to shoppers), item_not_found, invalid or stale, with the item's current default and current_sha256.  rows_sha256 covers the ready rows - request item.default_page with exactly those rows, then apply them. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The rows</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemDefaultPageResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemDefaultPageResponse> DryRunSfvbItemDefaultPageAsync (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Check moving items&#39; default (canonical) pages
+        /// </summary>
+        /// <remarks>
+        /// Checks up to 2,000 rows on up to 200 items, each naming an item and a page it is already on, and saves nothing.  Each row answers ready, already_default, target_not_found, target_not_on_host, target_not_assigned, target_hidden (refused - a hidden page isn't served to shoppers), item_not_found, invalid or stale, with the item's current default and current_sha256.  rows_sha256 covers the ready rows - request item.default_page with exactly those rows, then apply them. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The rows</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemDefaultPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemDefaultPageResponse>> DryRunSfvbItemDefaultPageWithHttpInfoAsync (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Check a batch delete of redirect rules without writing it
         /// </summary>
         /// <remarks>
@@ -10130,6 +10307,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> GetSfvbItemWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Read the pages an item is on and its default page
+        /// </summary>
+        /// <remarks>
+        /// Every page the item is assigned to on this storefront, whether each is visible, and which is the default - the page the item's canonical link uses.  Another storefront's pages aren't listed.  hash_sha256 is the same value the default-page dry run reports as current_sha256.  Address the item by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemPages</returns>
+        System.Threading.Tasks.Task<SfvbItemPages> GetSfvbItemPagesAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read the pages an item is on and its default page
+        /// </summary>
+        /// <remarks>
+        /// Every page the item is assigned to on this storefront, whether each is visible, and which is the default - the page the item's canonical link uses.  Another storefront's pages aren't listed.  hash_sha256 is the same value the default-page dry run reports as current_sha256.  Address the item by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemPages)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemPages>> GetSfvbItemPagesWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Read an item's pre-order flag and ETA
         /// </summary>
         /// <remarks>
@@ -10237,6 +10441,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbItemRelated)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbItemRelated>> GetSfvbItemRelatedWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Read an item's variations
+        /// </summary>
+        /// <remarks>
+        /// The variation axes, such as Size, with their options in the order shoppers see them, and every filled combination with the child item it sells and its quantity.  A combination not listed has no child, and storefronts show it as unavailable.  hash_sha256 goes back as If-Match on the update.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemVariations</returns>
+        System.Threading.Tasks.Task<SfvbItemVariations> GetSfvbItemVariationsAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read an item&#39;s variations
+        /// </summary>
+        /// <remarks>
+        /// The variation axes, such as Size, with their options in the order shoppers see them, and every filled combination with the child item it sells and its quantity.  A combination not listed has no child, and storefronts show it as unavailable.  hash_sha256 goes back as If-Match on the update.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemVariations)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemVariations>> GetSfvbItemVariationsWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read one library entry including its CJSON
         /// </summary>
@@ -11839,6 +12070,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbDocsGap)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbDocsGap>> InsertSfvbDocsGapWithHttpInfoAsync (SfvbDocsGapReport docsGapReport, int? storefrontOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Create a child item for a parent's variations
+        /// </summary>
+        /// <remarks>
+        /// Creates a new item copying the parent's description, cost, weight, dimensions and item folder, so it can be assigned to a combination with the variations update.  It is not assigned here and nothing else is copied.  merchant_item_id may use letters, digits, dot, underscore and dash, at most 20 characters; an id already on the account is 409 sfvb.item_exists.  Needs sfvb_publish when items are live.  dry_run checks without creating. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemChildRequest">The child to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemChildCreateResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemChildCreateResponse> InsertSfvbItemChildAsync (int storefrontOid, SfvbItemChildCreateRequest itemChildRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create a child item for a parent&#39;s variations
+        /// </summary>
+        /// <remarks>
+        /// Creates a new item copying the parent's description, cost, weight, dimensions and item folder, so it can be assigned to a combination with the variations update.  It is not assigned here and nothing else is copied.  merchant_item_id may use letters, digits, dot, underscore and dash, at most 20 characters; an id already on the account is 409 sfvb.item_exists.  Needs sfvb_publish when items are live.  dry_run checks without creating. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemChildRequest">The child to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemChildCreateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemChildCreateResponse>> InsertSfvbItemChildWithHttpInfoAsync (int storefrontOid, SfvbItemChildCreateRequest itemChildRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Create a page
         /// </summary>
         /// <remarks>
@@ -13169,6 +13425,39 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbItemResponse>> PutSfvbItemSeoWithHttpInfoAsync (int storefrontOid, SfvbItemSeoRequest itemSeoRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change an item's variations
+        /// </summary>
+        /// <remarks>
+        /// A list of changes applied in order - add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia and set_combination.  Every change is checked before anything is saved, and nothing the list doesn't mention changes.  Child items must already exist; create one with POST items/children.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Removing an axis, removing an option whose combinations sell a child, or re-pointing or clearing a combination shoppers can buy today also needs the approval of the person who signed in the CLI - an approved item.variations request for this item and exactly this list.  Adding never does.  dry_run returns the planned variations, what each change does, and whether approval is needed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the variations read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemVariationsRequest">The changes</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.variations request for this item and list.  Required when the list removes or re-points something shoppers can buy.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemVariationsResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemVariationsResponse> PutSfvbItemVariationsAsync (int storefrontOid, string ifMatch, SfvbItemVariationsRequest itemVariationsRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change an item&#39;s variations
+        /// </summary>
+        /// <remarks>
+        /// A list of changes applied in order - add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia and set_combination.  Every change is checked before anything is saved, and nothing the list doesn't mention changes.  Child items must already exist; create one with POST items/children.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Removing an axis, removing an option whose combinations sell a child, or re-pointing or clearing a combination shoppers can buy today also needs the approval of the person who signed in the CLI - an approved item.variations request for this item and exactly this list.  Adding never does.  dry_run returns the planned variations, what each change does, and whether approval is needed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the variations read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemVariationsRequest">The changes</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.variations request for this item and list.  Required when the list removes or re-points something shoppers can buy.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemVariationsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemVariationsResponse>> PutSfvbItemVariationsWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbItemVariationsRequest itemVariationsRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Replace a store menu's entries
         /// </summary>
@@ -14674,6 +14963,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbItemAttributeBatchResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbItemAttributeBatchResponse>> UpdateSfvbItemAttributeBatchWithHttpInfoAsync (int storefrontOid, SfvbItemAttributeBatchRequest itemAttributeBatchRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Move items' default (canonical) pages
+        /// </summary>
+        /// <remarks>
+        /// Applies the dry run's ready rows with their rows_sha256 under an approved item.default_page request for exactly those rows.  Each item's default moves to the named page on this storefront only; every page assignment stays, and nothing else on the item changes.  A row whose pages changed since the dry run is skipped as stale, and one failed row doesn't stop the others.  Each row is read back; it answers updated with previous_default_path, so the change can be undone, or failed.  Needs sfvb_publish when items are live. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The dry run&#39;s ready rows and rows_sha256</param>
+        /// <param name="approvalId">The approval_id of an approved item.default_page request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemDefaultPageResponse</returns>
+        System.Threading.Tasks.Task<SfvbItemDefaultPageResponse> UpdateSfvbItemDefaultPageAsync (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Move items&#39; default (canonical) pages
+        /// </summary>
+        /// <remarks>
+        /// Applies the dry run's ready rows with their rows_sha256 under an approved item.default_page request for exactly those rows.  Each item's default moves to the named page on this storefront only; every page assignment stays, and nothing else on the item changes.  A row whose pages changed since the dry run is skipped as stale, and one failed row doesn't stop the others.  Each row is read back; it answers updated with previous_default_path, so the change can be undone, or failed.  Needs sfvb_publish when items are live. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The dry run&#39;s ready rows and rows_sha256</param>
+        /// <param name="approvalId">The approval_id of an approved item.default_page request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemDefaultPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbItemDefaultPageResponse>> UpdateSfvbItemDefaultPageWithHttpInfoAsync (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update a library entry's draft
         /// </summary>
@@ -23739,6 +24055,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbItemAttributeBatchResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbItemAttributeBatchResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemAttributeBatchResponse)));
+        }
+
+        /// <summary>
+        /// Check moving items' default (canonical) pages Checks up to 2,000 rows on up to 200 items, each naming an item and a page it is already on, and saves nothing.  Each row answers ready, already_default, target_not_found, target_not_on_host, target_not_assigned, target_hidden (refused - a hidden page isn't served to shoppers), item_not_found, invalid or stale, with the item's current default and current_sha256.  rows_sha256 covers the ready rows - request item.default_page with exactly those rows, then apply them. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The rows</param>
+        /// <returns>SfvbItemDefaultPageResponse</returns>
+        public SfvbItemDefaultPageResponse DryRunSfvbItemDefaultPage (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest)
+        {
+             ApiResponse<SfvbItemDefaultPageResponse> localVarResponse = DryRunSfvbItemDefaultPageWithHttpInfo(storefrontOid, itemDefaultPageRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check moving items' default (canonical) pages Checks up to 2,000 rows on up to 200 items, each naming an item and a page it is already on, and saves nothing.  Each row answers ready, already_default, target_not_found, target_not_on_host, target_not_assigned, target_hidden (refused - a hidden page isn't served to shoppers), item_not_found, invalid or stale, with the item's current default and current_sha256.  rows_sha256 covers the ready rows - request item.default_page with exactly those rows, then apply them. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The rows</param>
+        /// <returns>ApiResponse of SfvbItemDefaultPageResponse</returns>
+        public ApiResponse<SfvbItemDefaultPageResponse> DryRunSfvbItemDefaultPageWithHttpInfo (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DryRunSfvbItemDefaultPage");
+            // verify the required parameter 'itemDefaultPageRequest' is set
+            if (itemDefaultPageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemDefaultPageRequest' when calling SfvbApi->DryRunSfvbItemDefaultPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/default_page/dry_run";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (itemDefaultPageRequest != null && itemDefaultPageRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemDefaultPageRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemDefaultPageRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DryRunSfvbItemDefaultPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemDefaultPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemDefaultPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemDefaultPageResponse)));
+        }
+
+        /// <summary>
+        /// Check moving items' default (canonical) pages Checks up to 2,000 rows on up to 200 items, each naming an item and a page it is already on, and saves nothing.  Each row answers ready, already_default, target_not_found, target_not_on_host, target_not_assigned, target_hidden (refused - a hidden page isn't served to shoppers), item_not_found, invalid or stale, with the item's current default and current_sha256.  rows_sha256 covers the ready rows - request item.default_page with exactly those rows, then apply them. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The rows</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemDefaultPageResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemDefaultPageResponse> DryRunSfvbItemDefaultPageAsync (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemDefaultPageResponse> localVarResponse = await DryRunSfvbItemDefaultPageWithHttpInfoAsync(storefrontOid, itemDefaultPageRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Check moving items' default (canonical) pages Checks up to 2,000 rows on up to 200 items, each naming an item and a page it is already on, and saves nothing.  Each row answers ready, already_default, target_not_found, target_not_on_host, target_not_assigned, target_hidden (refused - a hidden page isn't served to shoppers), item_not_found, invalid or stale, with the item's current default and current_sha256.  rows_sha256 covers the ready rows - request item.default_page with exactly those rows, then apply them. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The rows</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemDefaultPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemDefaultPageResponse>> DryRunSfvbItemDefaultPageWithHttpInfoAsync (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->DryRunSfvbItemDefaultPage");
+            // verify the required parameter 'itemDefaultPageRequest' is set
+            if (itemDefaultPageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemDefaultPageRequest' when calling SfvbApi->DryRunSfvbItemDefaultPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/default_page/dry_run";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (itemDefaultPageRequest != null && itemDefaultPageRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemDefaultPageRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemDefaultPageRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DryRunSfvbItemDefaultPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemDefaultPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemDefaultPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemDefaultPageResponse)));
         }
 
         /// <summary>
@@ -34393,6 +34894,175 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Read the pages an item is on and its default page Every page the item is assigned to on this storefront, whether each is visible, and which is the default - the page the item's canonical link uses.  Another storefront's pages aren't listed.  hash_sha256 is the same value the default-page dry run reports as current_sha256.  Address the item by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemPages</returns>
+        public SfvbItemPages GetSfvbItemPages (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+             ApiResponse<SfvbItemPages> localVarResponse = GetSfvbItemPagesWithHttpInfo(storefrontOid, merchantItemId, merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read the pages an item is on and its default page Every page the item is assigned to on this storefront, whether each is visible, and which is the default - the page the item's canonical link uses.  Another storefront's pages aren't listed.  hash_sha256 is the same value the default-page dry run reports as current_sha256.  Address the item by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemPages</returns>
+        public ApiResponse<SfvbItemPages> GetSfvbItemPagesWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbItemPages");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/pages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbItemPages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemPages>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemPages) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemPages)));
+        }
+
+        /// <summary>
+        /// Read the pages an item is on and its default page Every page the item is assigned to on this storefront, whether each is visible, and which is the default - the page the item's canonical link uses.  Another storefront's pages aren't listed.  hash_sha256 is the same value the default-page dry run reports as current_sha256.  Address the item by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemPages</returns>
+        public async System.Threading.Tasks.Task<SfvbItemPages> GetSfvbItemPagesAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemPages> localVarResponse = await GetSfvbItemPagesWithHttpInfoAsync(storefrontOid, merchantItemId, merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read the pages an item is on and its default page Every page the item is assigned to on this storefront, whether each is visible, and which is the default - the page the item's canonical link uses.  Another storefront's pages aren't listed.  hash_sha256 is the same value the default-page dry run reports as current_sha256.  Address the item by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemPages)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemPages>> GetSfvbItemPagesWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbItemPages");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/pages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbItemPages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemPages>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemPages) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemPages)));
+        }
+
+        /// <summary>
         /// Read an item's pre-order flag and ETA Whether the item is on pre-order, its ETA, and what itempreorder shows shoppers because of them, with a hash_sha256 to send as If-Match when changing them.  A variation is an item of its own and can be read here; read a parent's variations together with GET items/preorder/children.  Address by merchant_item_id or merchant_item_oid. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -35066,6 +35736,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbItemRelated>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbItemRelated) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemRelated)));
+        }
+
+        /// <summary>
+        /// Read an item's variations The variation axes, such as Size, with their options in the order shoppers see them, and every filled combination with the child item it sells and its quantity.  A combination not listed has no child, and storefronts show it as unavailable.  hash_sha256 goes back as If-Match on the update.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>SfvbItemVariations</returns>
+        public SfvbItemVariations GetSfvbItemVariations (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+             ApiResponse<SfvbItemVariations> localVarResponse = GetSfvbItemVariationsWithHttpInfo(storefrontOid, merchantItemId, merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read an item's variations The variation axes, such as Size, with their options in the order shoppers see them, and every filled combination with the child item it sells and its quantity.  A combination not listed has no child, and storefronts show it as unavailable.  hash_sha256 goes back as If-Match on the update.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <returns>ApiResponse of SfvbItemVariations</returns>
+        public ApiResponse<SfvbItemVariations> GetSfvbItemVariationsWithHttpInfo (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbItemVariations");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/variations";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbItemVariations", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemVariations>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemVariations) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemVariations)));
+        }
+
+        /// <summary>
+        /// Read an item's variations The variation axes, such as Size, with their options in the order shoppers see them, and every filled combination with the child item it sells and its quantity.  A combination not listed has no child, and storefronts show it as unavailable.  hash_sha256 goes back as If-Match on the update.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemVariations</returns>
+        public async System.Threading.Tasks.Task<SfvbItemVariations> GetSfvbItemVariationsAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemVariations> localVarResponse = await GetSfvbItemVariationsWithHttpInfoAsync(storefrontOid, merchantItemId, merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read an item's variations The variation axes, such as Size, with their options in the order shoppers see them, and every filled combination with the child item it sells and its quantity.  A combination not listed has no child, and storefronts show it as unavailable.  hash_sha256 goes back as If-Match on the update.  Address the parent by merchant_item_id or merchant_item_oid. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemVariations)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemVariations>> GetSfvbItemVariationsWithHttpInfoAsync (int storefrontOid, string merchantItemId = default(string), int? merchantItemOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbItemVariations");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/variations";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbItemVariations", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemVariations>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemVariations) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemVariations)));
         }
 
         /// <summary>
@@ -45828,6 +46667,191 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Create a child item for a parent's variations Creates a new item copying the parent's description, cost, weight, dimensions and item folder, so it can be assigned to a combination with the variations update.  It is not assigned here and nothing else is copied.  merchant_item_id may use letters, digits, dot, underscore and dash, at most 20 characters; an id already on the account is 409 sfvb.item_exists.  Needs sfvb_publish when items are live.  dry_run checks without creating. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemChildRequest">The child to create</param>
+        /// <returns>SfvbItemChildCreateResponse</returns>
+        public SfvbItemChildCreateResponse InsertSfvbItemChild (int storefrontOid, SfvbItemChildCreateRequest itemChildRequest)
+        {
+             ApiResponse<SfvbItemChildCreateResponse> localVarResponse = InsertSfvbItemChildWithHttpInfo(storefrontOid, itemChildRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a child item for a parent's variations Creates a new item copying the parent's description, cost, weight, dimensions and item folder, so it can be assigned to a combination with the variations update.  It is not assigned here and nothing else is copied.  merchant_item_id may use letters, digits, dot, underscore and dash, at most 20 characters; an id already on the account is 409 sfvb.item_exists.  Needs sfvb_publish when items are live.  dry_run checks without creating. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemChildRequest">The child to create</param>
+        /// <returns>ApiResponse of SfvbItemChildCreateResponse</returns>
+        public ApiResponse<SfvbItemChildCreateResponse> InsertSfvbItemChildWithHttpInfo (int storefrontOid, SfvbItemChildCreateRequest itemChildRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbItemChild");
+            // verify the required parameter 'itemChildRequest' is set
+            if (itemChildRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemChildRequest' when calling SfvbApi->InsertSfvbItemChild");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/children";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (itemChildRequest != null && itemChildRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemChildRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemChildRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbItemChild", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemChildCreateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemChildCreateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemChildCreateResponse)));
+        }
+
+        /// <summary>
+        /// Create a child item for a parent's variations Creates a new item copying the parent's description, cost, weight, dimensions and item folder, so it can be assigned to a combination with the variations update.  It is not assigned here and nothing else is copied.  merchant_item_id may use letters, digits, dot, underscore and dash, at most 20 characters; an id already on the account is 409 sfvb.item_exists.  Needs sfvb_publish when items are live.  dry_run checks without creating. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemChildRequest">The child to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemChildCreateResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemChildCreateResponse> InsertSfvbItemChildAsync (int storefrontOid, SfvbItemChildCreateRequest itemChildRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemChildCreateResponse> localVarResponse = await InsertSfvbItemChildWithHttpInfoAsync(storefrontOid, itemChildRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a child item for a parent's variations Creates a new item copying the parent's description, cost, weight, dimensions and item folder, so it can be assigned to a combination with the variations update.  It is not assigned here and nothing else is copied.  merchant_item_id may use letters, digits, dot, underscore and dash, at most 20 characters; an id already on the account is 409 sfvb.item_exists.  Needs sfvb_publish when items are live.  dry_run checks without creating. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemChildRequest">The child to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemChildCreateResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemChildCreateResponse>> InsertSfvbItemChildWithHttpInfoAsync (int storefrontOid, SfvbItemChildCreateRequest itemChildRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbItemChild");
+            // verify the required parameter 'itemChildRequest' is set
+            if (itemChildRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemChildRequest' when calling SfvbApi->InsertSfvbItemChild");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/children";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (itemChildRequest != null && itemChildRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemChildRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemChildRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbItemChild", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemChildCreateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemChildCreateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemChildCreateResponse)));
+        }
+
+        /// <summary>
         /// Create a page Creates the page and its folder, the way the store admin's add page does.  The parent page must already exist, and the last part of the path may only contain letters, digits, hyphens and underscores - it is refused, not cleaned.  A path that already has a page is refused with a 409 and the code sfvb.page_exists.  Without a group_template the page inherits its parent's templates, or catalog_group.vm directly under the root.  Set attributes and images afterwards with the page attribute and image endpoints, and push the body to the page folder.  Always needs sfvb_publish, because the page is live as soon as it exists.  Deleting, moving and renaming pages stay in the store admin. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -54634,6 +55658,221 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemResponse)));
+        }
+
+        /// <summary>
+        /// Change an item's variations A list of changes applied in order - add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia and set_combination.  Every change is checked before anything is saved, and nothing the list doesn't mention changes.  Child items must already exist; create one with POST items/children.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Removing an axis, removing an option whose combinations sell a child, or re-pointing or clearing a combination shoppers can buy today also needs the approval of the person who signed in the CLI - an approved item.variations request for this item and exactly this list.  Adding never does.  dry_run returns the planned variations, what each change does, and whether approval is needed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the variations read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemVariationsRequest">The changes</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.variations request for this item and list.  Required when the list removes or re-points something shoppers can buy.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbItemVariationsResponse</returns>
+        public SfvbItemVariationsResponse PutSfvbItemVariations (int storefrontOid, string ifMatch, SfvbItemVariationsRequest itemVariationsRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string))
+        {
+             ApiResponse<SfvbItemVariationsResponse> localVarResponse = PutSfvbItemVariationsWithHttpInfo(storefrontOid, ifMatch, itemVariationsRequest, merchantItemId, merchantItemOid, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change an item's variations A list of changes applied in order - add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia and set_combination.  Every change is checked before anything is saved, and nothing the list doesn't mention changes.  Child items must already exist; create one with POST items/children.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Removing an axis, removing an option whose combinations sell a child, or re-pointing or clearing a combination shoppers can buy today also needs the approval of the person who signed in the CLI - an approved item.variations request for this item and exactly this list.  Adding never does.  dry_run returns the planned variations, what each change does, and whether approval is needed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the variations read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemVariationsRequest">The changes</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.variations request for this item and list.  Required when the list removes or re-points something shoppers can buy.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbItemVariationsResponse</returns>
+        public ApiResponse<SfvbItemVariationsResponse> PutSfvbItemVariationsWithHttpInfo (int storefrontOid, string ifMatch, SfvbItemVariationsRequest itemVariationsRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemVariations");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->PutSfvbItemVariations");
+            // verify the required parameter 'itemVariationsRequest' is set
+            if (itemVariationsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemVariationsRequest' when calling SfvbApi->PutSfvbItemVariations");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/variations";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (itemVariationsRequest != null && itemVariationsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemVariationsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemVariationsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemVariations", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemVariationsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemVariationsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemVariationsResponse)));
+        }
+
+        /// <summary>
+        /// Change an item's variations A list of changes applied in order - add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia and set_combination.  Every change is checked before anything is saved, and nothing the list doesn't mention changes.  Child items must already exist; create one with POST items/children.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Removing an axis, removing an option whose combinations sell a child, or re-pointing or clearing a combination shoppers can buy today also needs the approval of the person who signed in the CLI - an approved item.variations request for this item and exactly this list.  Adding never does.  dry_run returns the planned variations, what each change does, and whether approval is needed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the variations read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemVariationsRequest">The changes</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.variations request for this item and list.  Required when the list removes or re-points something shoppers can buy.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemVariationsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemVariationsResponse> PutSfvbItemVariationsAsync (int storefrontOid, string ifMatch, SfvbItemVariationsRequest itemVariationsRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemVariationsResponse> localVarResponse = await PutSfvbItemVariationsWithHttpInfoAsync(storefrontOid, ifMatch, itemVariationsRequest, merchantItemId, merchantItemOid, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change an item's variations A list of changes applied in order - add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia and set_combination.  Every change is checked before anything is saved, and nothing the list doesn't mention changes.  Child items must already exist; create one with POST items/children.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Removing an axis, removing an option whose combinations sell a child, or re-pointing or clearing a combination shoppers can buy today also needs the approval of the person who signed in the CLI - an approved item.variations request for this item and exactly this list.  Adding never does.  dry_run returns the planned variations, what each change does, and whether approval is needed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="ifMatch">hash_sha256 from the variations read.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="itemVariationsRequest">The changes</param>
+        /// <param name="merchantItemId"> (optional)</param>
+        /// <param name="merchantItemOid"> (optional)</param>
+        /// <param name="approvalId">The approval_id of an approved item.variations request for this item and list.  Required when the list removes or re-points something shoppers can buy.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemVariationsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemVariationsResponse>> PutSfvbItemVariationsWithHttpInfoAsync (int storefrontOid, string ifMatch, SfvbItemVariationsRequest itemVariationsRequest, string merchantItemId = default(string), int? merchantItemOid = default(int?), string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->PutSfvbItemVariations");
+            // verify the required parameter 'ifMatch' is set
+            if (ifMatch == null)
+                throw new ApiException(400, "Missing required parameter 'ifMatch' when calling SfvbApi->PutSfvbItemVariations");
+            // verify the required parameter 'itemVariationsRequest' is set
+            if (itemVariationsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemVariationsRequest' when calling SfvbApi->PutSfvbItemVariations");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/variations";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (merchantItemId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_id", merchantItemId)); // query parameter
+            if (merchantItemOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_item_oid", merchantItemOid)); // query parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (itemVariationsRequest != null && itemVariationsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemVariationsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemVariationsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutSfvbItemVariations", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemVariationsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemVariationsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemVariationsResponse)));
         }
 
         /// <summary>
@@ -65303,6 +66542,197 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbItemAttributeBatchResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbItemAttributeBatchResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemAttributeBatchResponse)));
+        }
+
+        /// <summary>
+        /// Move items' default (canonical) pages Applies the dry run's ready rows with their rows_sha256 under an approved item.default_page request for exactly those rows.  Each item's default moves to the named page on this storefront only; every page assignment stays, and nothing else on the item changes.  A row whose pages changed since the dry run is skipped as stale, and one failed row doesn't stop the others.  Each row is read back; it answers updated with previous_default_path, so the change can be undone, or failed.  Needs sfvb_publish when items are live. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The dry run&#39;s ready rows and rows_sha256</param>
+        /// <param name="approvalId">The approval_id of an approved item.default_page request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbItemDefaultPageResponse</returns>
+        public SfvbItemDefaultPageResponse UpdateSfvbItemDefaultPage (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbItemDefaultPageResponse> localVarResponse = UpdateSfvbItemDefaultPageWithHttpInfo(storefrontOid, itemDefaultPageRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Move items' default (canonical) pages Applies the dry run's ready rows with their rows_sha256 under an approved item.default_page request for exactly those rows.  Each item's default moves to the named page on this storefront only; every page assignment stays, and nothing else on the item changes.  A row whose pages changed since the dry run is skipped as stale, and one failed row doesn't stop the others.  Each row is read back; it answers updated with previous_default_path, so the change can be undone, or failed.  Needs sfvb_publish when items are live. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The dry run&#39;s ready rows and rows_sha256</param>
+        /// <param name="approvalId">The approval_id of an approved item.default_page request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbItemDefaultPageResponse</returns>
+        public ApiResponse<SfvbItemDefaultPageResponse> UpdateSfvbItemDefaultPageWithHttpInfo (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbItemDefaultPage");
+            // verify the required parameter 'itemDefaultPageRequest' is set
+            if (itemDefaultPageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemDefaultPageRequest' when calling SfvbApi->UpdateSfvbItemDefaultPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/default_page";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (itemDefaultPageRequest != null && itemDefaultPageRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemDefaultPageRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemDefaultPageRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbItemDefaultPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemDefaultPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemDefaultPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemDefaultPageResponse)));
+        }
+
+        /// <summary>
+        /// Move items' default (canonical) pages Applies the dry run's ready rows with their rows_sha256 under an approved item.default_page request for exactly those rows.  Each item's default moves to the named page on this storefront only; every page assignment stays, and nothing else on the item changes.  A row whose pages changed since the dry run is skipped as stale, and one failed row doesn't stop the others.  Each row is read back; it answers updated with previous_default_path, so the change can be undone, or failed.  Needs sfvb_publish when items are live. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The dry run&#39;s ready rows and rows_sha256</param>
+        /// <param name="approvalId">The approval_id of an approved item.default_page request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbItemDefaultPageResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbItemDefaultPageResponse> UpdateSfvbItemDefaultPageAsync (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbItemDefaultPageResponse> localVarResponse = await UpdateSfvbItemDefaultPageWithHttpInfoAsync(storefrontOid, itemDefaultPageRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Move items' default (canonical) pages Applies the dry run's ready rows with their rows_sha256 under an approved item.default_page request for exactly those rows.  Each item's default moves to the named page on this storefront only; every page assignment stays, and nothing else on the item changes.  A row whose pages changed since the dry run is skipped as stale, and one failed row doesn't stop the others.  Each row is read back; it answers updated with previous_default_path, so the change can be undone, or failed.  Needs sfvb_publish when items are live. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="itemDefaultPageRequest">The dry run&#39;s ready rows and rows_sha256</param>
+        /// <param name="approvalId">The approval_id of an approved item.default_page request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbItemDefaultPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbItemDefaultPageResponse>> UpdateSfvbItemDefaultPageWithHttpInfoAsync (int storefrontOid, SfvbItemDefaultPageRequest itemDefaultPageRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbItemDefaultPage");
+            // verify the required parameter 'itemDefaultPageRequest' is set
+            if (itemDefaultPageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemDefaultPageRequest' when calling SfvbApi->UpdateSfvbItemDefaultPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/items/default_page";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (itemDefaultPageRequest != null && itemDefaultPageRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemDefaultPageRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemDefaultPageRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbItemDefaultPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbItemDefaultPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbItemDefaultPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemDefaultPageResponse)));
         }
 
         /// <summary>

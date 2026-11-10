@@ -98,118 +98,130 @@ namespace com.ultracart.admin.v2.Model
             ItemPreorder = 10,
 
             /// <summary>
+            /// Enum ItemVariations for value: item.variations
+            /// </summary>
+            [EnumMember(Value = "item.variations")]
+            ItemVariations = 11,
+
+            /// <summary>
+            /// Enum ItemDefaultpage for value: item.default_page
+            /// </summary>
+            [EnumMember(Value = "item.default_page")]
+            ItemDefaultpage = 12,
+
+            /// <summary>
             /// Enum TwilioaccountDelete for value: twilio_account.delete
             /// </summary>
             [EnumMember(Value = "twilio_account.delete")]
-            TwilioaccountDelete = 11,
+            TwilioaccountDelete = 13,
 
             /// <summary>
             /// Enum SendingdomainDelete for value: sending_domain.delete
             /// </summary>
             [EnumMember(Value = "sending_domain.delete")]
-            SendingdomainDelete = 12,
+            SendingdomainDelete = 14,
 
             /// <summary>
             /// Enum SequencestepDelete for value: sequence_step.delete
             /// </summary>
             [EnumMember(Value = "sequence_step.delete")]
-            SequencestepDelete = 13,
+            SequencestepDelete = 15,
 
             /// <summary>
             /// Enum SequencestepMove for value: sequence_step.move
             /// </summary>
             [EnumMember(Value = "sequence_step.move")]
-            SequencestepMove = 14,
+            SequencestepMove = 16,
 
             /// <summary>
             /// Enum SequencestepEnablepostcard for value: sequence_step.enable_postcard
             /// </summary>
             [EnumMember(Value = "sequence_step.enable_postcard")]
-            SequencestepEnablepostcard = 15,
+            SequencestepEnablepostcard = 17,
 
             /// <summary>
             /// Enum SegmentUpdate for value: segment.update
             /// </summary>
             [EnumMember(Value = "segment.update")]
-            SegmentUpdate = 16,
+            SegmentUpdate = 18,
 
             /// <summary>
             /// Enum SmartattributionChange for value: smart_attribution.change
             /// </summary>
             [EnumMember(Value = "smart_attribution.change")]
-            SmartattributionChange = 17,
+            SmartattributionChange = 19,
 
             /// <summary>
             /// Enum SmartattributionDelete for value: smart_attribution.delete
             /// </summary>
             [EnumMember(Value = "smart_attribution.delete")]
-            SmartattributionDelete = 18,
+            SmartattributionDelete = 20,
 
             /// <summary>
             /// Enum TrackingproviderChange for value: tracking_provider.change
             /// </summary>
             [EnumMember(Value = "tracking_provider.change")]
-            TrackingproviderChange = 19,
+            TrackingproviderChange = 21,
 
             /// <summary>
             /// Enum TrackingproviderClear for value: tracking_provider.clear
             /// </summary>
             [EnumMember(Value = "tracking_provider.clear")]
-            TrackingproviderClear = 20,
+            TrackingproviderClear = 22,
 
             /// <summary>
             /// Enum TrackinghtmlPut for value: tracking_html.put
             /// </summary>
             [EnumMember(Value = "tracking_html.put")]
-            TrackinghtmlPut = 21,
+            TrackinghtmlPut = 23,
 
             /// <summary>
             /// Enum AffiliatenetworkChange for value: affiliate_network.change
             /// </summary>
             [EnumMember(Value = "affiliate_network.change")]
-            AffiliatenetworkChange = 22,
+            AffiliatenetworkChange = 24,
 
             /// <summary>
             /// Enum AffiliatenetworkDelete for value: affiliate_network.delete
             /// </summary>
             [EnumMember(Value = "affiliate_network.delete")]
-            AffiliatenetworkDelete = 23,
+            AffiliatenetworkDelete = 25,
 
             /// <summary>
             /// Enum SiteseoChange for value: site_seo.change
             /// </summary>
             [EnumMember(Value = "site_seo.change")]
-            SiteseoChange = 24,
+            SiteseoChange = 26,
 
             /// <summary>
             /// Enum TransactionalemailUpdate for value: transactional_email.update
             /// </summary>
             [EnumMember(Value = "transactional_email.update")]
-            TransactionalemailUpdate = 25,
+            TransactionalemailUpdate = 27,
 
             /// <summary>
             /// Enum CommssettingsUpdate for value: comms_settings.update
             /// </summary>
             [EnumMember(Value = "comms_settings.update")]
-            CommssettingsUpdate = 26,
+            CommssettingsUpdate = 28,
 
             /// <summary>
             /// Enum CommslistImport for value: comms_list.import
             /// </summary>
             [EnumMember(Value = "comms_list.import")]
-            CommslistImport = 27,
+            CommslistImport = 29,
 
             /// <summary>
             /// Enum PostcardTestmail for value: postcard.test_mail
             /// </summary>
             [EnumMember(Value = "postcard.test_mail")]
-            PostcardTestmail = 28,
+            PostcardTestmail = 30,
 
             /// <summary>
             /// Enum FlowBackfill for value: flow.backfill
             /// </summary>
             [EnumMember(Value = "flow.backfill")]
-            FlowBackfill = 29
+            FlowBackfill = 31
 
         }
 
@@ -230,9 +242,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="experimentStart">experimentStart.</param>
         /// <param name="flowBackfill">flowBackfill.</param>
         /// <param name="itemAttributeRows">For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash..</param>
+        /// <param name="itemDefaultPageRows">For item.default_page, exactly the rows the apply will send - the dry run&#39;s ready rows, each with merchant_item_oid, page_oid and current_sha256.  UltraCart keeps only their hash..</param>
         /// <param name="itemPreorder">itemPreorder.</param>
         /// <param name="itemPreorderChildren">itemPreorderChildren.</param>
         /// <param name="itemPricing">itemPricing.</param>
+        /// <param name="itemVariations">itemVariations.</param>
         /// <param name="_params">_params.</param>
         /// <param name="postcardTestMail">postcardTestMail.</param>
         /// <param name="reason">Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters..</param>
@@ -242,7 +256,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="smartAttribution">smartAttribution.</param>
         /// <param name="trackingProvider">trackingProvider.</param>
         /// <param name="transactionalEmail">transactionalEmail.</param>
-        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), SfvbCommsProviderImportRequest commsListImport = default(SfvbCommsProviderImportRequest), SfvbCommsSettingsUpdateRequest commsSettings = default(SfvbCommsSettingsUpdateRequest), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), SfvbFlowBackfillRequest flowBackfill = default(SfvbFlowBackfillRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), SfvbItemPreorderRequest itemPreorder = default(SfvbItemPreorderRequest), SfvbItemPreorderChildrenRequest itemPreorderChildren = default(SfvbItemPreorderChildrenRequest), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), SfvbCommsTestPostcardRequest postcardTestMail = default(SfvbCommsTestPostcardRequest), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSiteSeoRequest siteSeo = default(SfvbSiteSeoRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest), SfvbTransactionalEmailUpdateRequest transactionalEmail = default(SfvbTransactionalEmailUpdateRequest))
+        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), SfvbCommsProviderImportRequest commsListImport = default(SfvbCommsProviderImportRequest), SfvbCommsSettingsUpdateRequest commsSettings = default(SfvbCommsSettingsUpdateRequest), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), SfvbFlowBackfillRequest flowBackfill = default(SfvbFlowBackfillRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), List<SfvbItemDefaultPageRow> itemDefaultPageRows = default(List<SfvbItemDefaultPageRow>), SfvbItemPreorderRequest itemPreorder = default(SfvbItemPreorderRequest), SfvbItemPreorderChildrenRequest itemPreorderChildren = default(SfvbItemPreorderChildrenRequest), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbItemVariationsRequest itemVariations = default(SfvbItemVariationsRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), SfvbCommsTestPostcardRequest postcardTestMail = default(SfvbCommsTestPostcardRequest), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSiteSeoRequest siteSeo = default(SfvbSiteSeoRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest), SfvbTransactionalEmailUpdateRequest transactionalEmail = default(SfvbTransactionalEmailUpdateRequest))
         {
             this.Action = action;
             this.AffiliateNetwork = affiliateNetwork;
@@ -252,9 +266,11 @@ namespace com.ultracart.admin.v2.Model
             this.ExperimentStart = experimentStart;
             this.FlowBackfill = flowBackfill;
             this.ItemAttributeRows = itemAttributeRows;
+            this.ItemDefaultPageRows = itemDefaultPageRows;
             this.ItemPreorder = itemPreorder;
             this.ItemPreorderChildren = itemPreorderChildren;
             this.ItemPricing = itemPricing;
+            this.ItemVariations = itemVariations;
             this.Params = _params;
             this.PostcardTestMail = postcardTestMail;
             this.Reason = reason;
@@ -312,6 +328,13 @@ namespace com.ultracart.admin.v2.Model
         public List<SfvbItemAttributeBatchRow> ItemAttributeRows { get; set; }
 
         /// <summary>
+        /// For item.default_page, exactly the rows the apply will send - the dry run&#39;s ready rows, each with merchant_item_oid, page_oid and current_sha256.  UltraCart keeps only their hash.
+        /// </summary>
+        /// <value>For item.default_page, exactly the rows the apply will send - the dry run&#39;s ready rows, each with merchant_item_oid, page_oid and current_sha256.  UltraCart keeps only their hash.</value>
+        [DataMember(Name="item_default_page_rows", EmitDefaultValue=false)]
+        public List<SfvbItemDefaultPageRow> ItemDefaultPageRows { get; set; }
+
+        /// <summary>
         /// Gets or Sets ItemPreorder
         /// </summary>
         [DataMember(Name="item_preorder", EmitDefaultValue=false)]
@@ -328,6 +351,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="item_pricing", EmitDefaultValue=false)]
         public SfvbItemPricingRequest ItemPricing { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItemVariations
+        /// </summary>
+        [DataMember(Name="item_variations", EmitDefaultValue=false)]
+        public SfvbItemVariationsRequest ItemVariations { get; set; }
 
         /// <summary>
         /// Gets or Sets Params
@@ -401,9 +430,11 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ExperimentStart: ").Append(ExperimentStart).Append("\n");
             sb.Append("  FlowBackfill: ").Append(FlowBackfill).Append("\n");
             sb.Append("  ItemAttributeRows: ").Append(ItemAttributeRows).Append("\n");
+            sb.Append("  ItemDefaultPageRows: ").Append(ItemDefaultPageRows).Append("\n");
             sb.Append("  ItemPreorder: ").Append(ItemPreorder).Append("\n");
             sb.Append("  ItemPreorderChildren: ").Append(ItemPreorderChildren).Append("\n");
             sb.Append("  ItemPricing: ").Append(ItemPricing).Append("\n");
+            sb.Append("  ItemVariations: ").Append(ItemVariations).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  PostcardTestMail: ").Append(PostcardTestMail).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
@@ -489,6 +520,12 @@ namespace com.ultracart.admin.v2.Model
                     this.ItemAttributeRows.SequenceEqual(input.ItemAttributeRows)
                 ) && 
                 (
+                    this.ItemDefaultPageRows == input.ItemDefaultPageRows ||
+                    this.ItemDefaultPageRows != null &&
+                    input.ItemDefaultPageRows != null &&
+                    this.ItemDefaultPageRows.SequenceEqual(input.ItemDefaultPageRows)
+                ) && 
+                (
                     this.ItemPreorder == input.ItemPreorder ||
                     (this.ItemPreorder != null &&
                     this.ItemPreorder.Equals(input.ItemPreorder))
@@ -502,6 +539,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ItemPricing == input.ItemPricing ||
                     (this.ItemPricing != null &&
                     this.ItemPricing.Equals(input.ItemPricing))
+                ) && 
+                (
+                    this.ItemVariations == input.ItemVariations ||
+                    (this.ItemVariations != null &&
+                    this.ItemVariations.Equals(input.ItemVariations))
                 ) && 
                 (
                     this.Params == input.Params ||
@@ -576,12 +618,16 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.FlowBackfill.GetHashCode();
                 if (this.ItemAttributeRows != null)
                     hashCode = hashCode * 59 + this.ItemAttributeRows.GetHashCode();
+                if (this.ItemDefaultPageRows != null)
+                    hashCode = hashCode * 59 + this.ItemDefaultPageRows.GetHashCode();
                 if (this.ItemPreorder != null)
                     hashCode = hashCode * 59 + this.ItemPreorder.GetHashCode();
                 if (this.ItemPreorderChildren != null)
                     hashCode = hashCode * 59 + this.ItemPreorderChildren.GetHashCode();
                 if (this.ItemPricing != null)
                     hashCode = hashCode * 59 + this.ItemPricing.GetHashCode();
+                if (this.ItemVariations != null)
+                    hashCode = hashCode * 59 + this.ItemVariations.GetHashCode();
                 if (this.Params != null)
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
                 if (this.PostcardTestMail != null)

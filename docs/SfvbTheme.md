@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **Active** | **bool** | True when this theme is the one serving live traffic.  Writing to an active theme requires the sfvb_publish scope. | [optional] 
 **Description** | **string** | What the theme is, where the author supplied a description. | [optional] 
 **FsDirectoryOid** | **int** | Oid of the theme root directory in the storefront file system. | [optional] 
+**MergeConflictCount** | **int** | How many of the theme&#39;s files still have unresolved merge conflicts from an upgrade.  Find them with searchSfvbFiles, merge_conflicts true and this theme&#39;s path. | [optional] 
+**OkToActivate** | **bool** | False while any file in the theme has an unresolved merge conflict.  Never activate a theme that reports false - resolve every conflict first.  Activation itself happens in the UltraCart admin, which runs the same check. | [optional] 
 **Path** | **string** | Root path of the theme in the storefront file system, for example /themes/mytheme/ | [optional] 
 **StorefrontOid** | **int** | StoreFront oid this theme belongs to. | [optional] 
 **ThemeName** | **string** | Theme name. | [optional] 

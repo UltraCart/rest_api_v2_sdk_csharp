@@ -36,11 +36,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="folder">Directory name for the new theme under /themes/.  Letters and numbers, one path segment.  Used verbatim - anything that is not already a valid directory name is refused rather than adjusted, because this call does not return the new theme&#39;s oid and you find your copy by matching the target_path you asked for.  Must not already exist - a collision is refused rather than resolved, because silently creating a differently named theme leaves you unsure what you made..</param>
         /// <param name="targetStorefrontOid">Storefront to create the copy on.  Defaults to the storefront in the path.  Supply it only when copying a theme between storefronts you own..</param>
         /// <param name="themeName">Name for the new theme..</param>
-        public SfvbThemeDuplicateRequest(string folder = default(string), int targetStorefrontOid = default(int), string themeName = default(string))
+        /// <param name="upgradeToVersion">Upgrade the copy to this theme version after copying it, as the admin&#39;s Duplicate and Upgrade does.  Only the copy is upgraded - the source theme is never touched.  Must be one of the available_versions from getSfvbThemeUpgradeCheck, which also predicts the merge conflicts.  Omit for a plain copy..</param>
+        public SfvbThemeDuplicateRequest(string folder = default(string), int targetStorefrontOid = default(int), string themeName = default(string), string upgradeToVersion = default(string))
         {
             this.Folder = folder;
             this.TargetStorefrontOid = targetStorefrontOid;
             this.ThemeName = themeName;
+            this.UpgradeToVersion = upgradeToVersion;
         }
 
         /// <summary>
@@ -65,6 +67,13 @@ namespace com.ultracart.admin.v2.Model
         public string ThemeName { get; set; }
 
         /// <summary>
+        /// Upgrade the copy to this theme version after copying it, as the admin&#39;s Duplicate and Upgrade does.  Only the copy is upgraded - the source theme is never touched.  Must be one of the available_versions from getSfvbThemeUpgradeCheck, which also predicts the merge conflicts.  Omit for a plain copy.
+        /// </summary>
+        /// <value>Upgrade the copy to this theme version after copying it, as the admin&#39;s Duplicate and Upgrade does.  Only the copy is upgraded - the source theme is never touched.  Must be one of the available_versions from getSfvbThemeUpgradeCheck, which also predicts the merge conflicts.  Omit for a plain copy.</value>
+        [DataMember(Name="upgrade_to_version", EmitDefaultValue=false)]
+        public string UpgradeToVersion { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +84,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Folder: ").Append(Folder).Append("\n");
             sb.Append("  TargetStorefrontOid: ").Append(TargetStorefrontOid).Append("\n");
             sb.Append("  ThemeName: ").Append(ThemeName).Append("\n");
+            sb.Append("  UpgradeToVersion: ").Append(UpgradeToVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +133,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ThemeName == input.ThemeName ||
                     (this.ThemeName != null &&
                     this.ThemeName.Equals(input.ThemeName))
+                ) && 
+                (
+                    this.UpgradeToVersion == input.UpgradeToVersion ||
+                    (this.UpgradeToVersion != null &&
+                    this.UpgradeToVersion.Equals(input.UpgradeToVersion))
                 );
         }
 
@@ -141,6 +156,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.TargetStorefrontOid.GetHashCode();
                 if (this.ThemeName != null)
                     hashCode = hashCode * 59 + this.ThemeName.GetHashCode();
+                if (this.UpgradeToVersion != null)
+                    hashCode = hashCode * 59 + this.UpgradeToVersion.GetHashCode();
                 return hashCode;
             }
         }

@@ -1297,7 +1297,7 @@ namespace com.ultracart.admin.v2.Api
         /// Duplicate a theme
         /// </summary>
         /// <remarks>
-        /// Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it. 
+        /// Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it.  Set upgrade_to_version to also upgrade the copy to a newer theme version, as the admin's Duplicate and Upgrade does - only the copy is upgraded.  Run getSfvbThemeUpgradeCheck first to see the available versions and the merge conflicts the upgrade will leave, then resolve those in the copy before anyone activates it.  Refused with sfvb.theme_limit_reached at the storefront's theme limit, sfvb.theme_upgrade_unavailable for a version that can't be used, and sfvb.theme_merge_conflicts while the source theme has unresolved conflicts. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -1310,7 +1310,7 @@ namespace com.ultracart.admin.v2.Api
         /// Duplicate a theme
         /// </summary>
         /// <remarks>
-        /// Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it. 
+        /// Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it.  Set upgrade_to_version to also upgrade the copy to a newer theme version, as the admin's Duplicate and Upgrade does - only the copy is upgraded.  Run getSfvbThemeUpgradeCheck first to see the available versions and the merge conflicts the upgrade will leave, then resolve those in the copy before anyone activates it.  Refused with sfvb.theme_limit_reached at the storefront's theme limit, sfvb.theme_upgrade_unavailable for a version that can't be used, and sfvb.theme_merge_conflicts while the source theme has unresolved conflicts. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -3612,7 +3612,7 @@ namespace com.ultracart.admin.v2.Api
         /// Status of an asynchronous theme job
         /// </summary>
         /// <remarks>
-        /// Poll until complete is true, then check success.  Note that the new theme's oid is not returned.  The job's product is a plain text report rather than a structured result, so once it completes, list themes and match on the target_path the start call gave you. 
+        /// Poll until complete is true, then check success.  A successful job reports the new theme as theme_oid.  After a duplicate with upgrade_to_version, success also means the copy reached that version, and merge_conflicts lists the copy's files that still need resolving - read fresh on every poll. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -3624,13 +3624,38 @@ namespace com.ultracart.admin.v2.Api
         /// Status of an asynchronous theme job
         /// </summary>
         /// <remarks>
-        /// Poll until complete is true, then check success.  Note that the new theme's oid is not returned.  The job's product is a plain text report rather than a structured result, so once it completes, list themes and match on the target_path the start call gave you. 
+        /// Poll until complete is true, then check success.  A successful job reports the new theme as theme_oid.  After a duplicate with upgrade_to_version, success also means the copy reached that version, and merge_conflicts lists the copy's files that still need resolving - read fresh on every poll. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="jobId"></param>
         /// <returns>ApiResponse of SfvbThemeJobResponse</returns>
         ApiResponse<SfvbThemeJobResponse> GetSfvbThemeJobWithHttpInfo (int storefrontOid, int jobId);
+        /// <summary>
+        /// Check what upgrading a theme would do
+        /// </summary>
+        /// <remarks>
+        /// The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="version"> (optional)</param>
+        /// <returns>SfvbThemeUpgradeCheckResponse</returns>
+        SfvbThemeUpgradeCheckResponse GetSfvbThemeUpgradeCheck (int storefrontOid, int themeOid, string version = default(string));
+
+        /// <summary>
+        /// Check what upgrading a theme would do
+        /// </summary>
+        /// <remarks>
+        /// The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="version"> (optional)</param>
+        /// <returns>ApiResponse of SfvbThemeUpgradeCheckResponse</returns>
+        ApiResponse<SfvbThemeUpgradeCheckResponse> GetSfvbThemeUpgradeCheckWithHttpInfo (int storefrontOid, int themeOid, string version = default(string));
         /// <summary>
         /// Plan a browser check of a storefront's tracking
         /// </summary>
@@ -6249,7 +6274,7 @@ namespace com.ultracart.admin.v2.Api
         /// Search storefront files
         /// </summary>
         /// <remarks>
-        /// Searches names and, when text is supplied, file contents.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported. 
+        /// Searches names and, when text is supplied, file contents.  Text search covers text files, including .cjson and .json, and skips binaries such as images, fonts and PDFs.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported.  merge_conflicts true with a theme's path lists the files an upgrade left with unresolved conflicts, as the admin file manager's merge conflicts search does. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -6261,7 +6286,7 @@ namespace com.ultracart.admin.v2.Api
         /// Search storefront files
         /// </summary>
         /// <remarks>
-        /// Searches names and, when text is supplied, file contents.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported. 
+        /// Searches names and, when text is supplied, file contents.  Text search covers text files, including .cjson and .json, and skips binaries such as images, fonts and PDFs.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported.  merge_conflicts true with a theme's path lists the files an upgrade left with unresolved conflicts, as the admin file manager's merge conflicts search does. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -8825,7 +8850,7 @@ namespace com.ultracart.admin.v2.Api
         /// Duplicate a theme
         /// </summary>
         /// <remarks>
-        /// Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it. 
+        /// Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it.  Set upgrade_to_version to also upgrade the copy to a newer theme version, as the admin's Duplicate and Upgrade does - only the copy is upgraded.  Run getSfvbThemeUpgradeCheck first to see the available versions and the merge conflicts the upgrade will leave, then resolve those in the copy before anyone activates it.  Refused with sfvb.theme_limit_reached at the storefront's theme limit, sfvb.theme_upgrade_unavailable for a version that can't be used, and sfvb.theme_merge_conflicts while the source theme has unresolved conflicts. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -8839,7 +8864,7 @@ namespace com.ultracart.admin.v2.Api
         /// Duplicate a theme
         /// </summary>
         /// <remarks>
-        /// Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it. 
+        /// Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it.  Set upgrade_to_version to also upgrade the copy to a newer theme version, as the admin's Duplicate and Upgrade does - only the copy is upgraded.  Run getSfvbThemeUpgradeCheck first to see the available versions and the merge conflicts the upgrade will leave, then resolve those in the copy before anyone activates it.  Refused with sfvb.theme_limit_reached at the storefront's theme limit, sfvb.theme_upgrade_unavailable for a version that can't be used, and sfvb.theme_merge_conflicts while the source theme has unresolved conflicts. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -11338,7 +11363,7 @@ namespace com.ultracart.admin.v2.Api
         /// Status of an asynchronous theme job
         /// </summary>
         /// <remarks>
-        /// Poll until complete is true, then check success.  Note that the new theme's oid is not returned.  The job's product is a plain text report rather than a structured result, so once it completes, list themes and match on the target_path the start call gave you. 
+        /// Poll until complete is true, then check success.  A successful job reports the new theme as theme_oid.  After a duplicate with upgrade_to_version, success also means the copy reached that version, and merge_conflicts lists the copy's files that still need resolving - read fresh on every poll. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -11351,7 +11376,7 @@ namespace com.ultracart.admin.v2.Api
         /// Status of an asynchronous theme job
         /// </summary>
         /// <remarks>
-        /// Poll until complete is true, then check success.  Note that the new theme's oid is not returned.  The job's product is a plain text report rather than a structured result, so once it completes, list themes and match on the target_path the start call gave you. 
+        /// Poll until complete is true, then check success.  A successful job reports the new theme as theme_oid.  After a duplicate with upgrade_to_version, success also means the copy reached that version, and merge_conflicts lists the copy's files that still need resolving - read fresh on every poll. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -11359,6 +11384,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbThemeJobResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbThemeJobResponse>> GetSfvbThemeJobWithHttpInfoAsync (int storefrontOid, int jobId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Check what upgrading a theme would do
+        /// </summary>
+        /// <remarks>
+        /// The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="version"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbThemeUpgradeCheckResponse</returns>
+        System.Threading.Tasks.Task<SfvbThemeUpgradeCheckResponse> GetSfvbThemeUpgradeCheckAsync (int storefrontOid, int themeOid, string version = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Check what upgrading a theme would do
+        /// </summary>
+        /// <remarks>
+        /// The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="version"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbThemeUpgradeCheckResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbThemeUpgradeCheckResponse>> GetSfvbThemeUpgradeCheckWithHttpInfoAsync (int storefrontOid, int themeOid, string version = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Plan a browser check of a storefront's tracking
         /// </summary>
@@ -14185,7 +14237,7 @@ namespace com.ultracart.admin.v2.Api
         /// Search storefront files
         /// </summary>
         /// <remarks>
-        /// Searches names and, when text is supplied, file contents.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported. 
+        /// Searches names and, when text is supplied, file contents.  Text search covers text files, including .cjson and .json, and skips binaries such as images, fonts and PDFs.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported.  merge_conflicts true with a theme's path lists the files an upgrade left with unresolved conflicts, as the admin file manager's merge conflicts search does. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -14198,7 +14250,7 @@ namespace com.ultracart.admin.v2.Api
         /// Search storefront files
         /// </summary>
         /// <remarks>
-        /// Searches names and, when text is supplied, file contents.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported. 
+        /// Searches names and, when text is supplied, file contents.  Text search covers text files, including .cjson and .json, and skips binaries such as images, fonts and PDFs.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported.  merge_conflicts true with a theme's path lists the files an upgrade left with unresolved conflicts, as the admin file manager's merge conflicts search does. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -24973,7 +25025,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Duplicate a theme Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it. 
+        /// Duplicate a theme Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it.  Set upgrade_to_version to also upgrade the copy to a newer theme version, as the admin's Duplicate and Upgrade does - only the copy is upgraded.  Run getSfvbThemeUpgradeCheck first to see the available versions and the merge conflicts the upgrade will leave, then resolve those in the copy before anyone activates it.  Refused with sfvb.theme_limit_reached at the storefront's theme limit, sfvb.theme_upgrade_unavailable for a version that can't be used, and sfvb.theme_merge_conflicts while the source theme has unresolved conflicts. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -24987,7 +25039,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Duplicate a theme Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it. 
+        /// Duplicate a theme Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it.  Set upgrade_to_version to also upgrade the copy to a newer theme version, as the admin's Duplicate and Upgrade does - only the copy is upgraded.  Run getSfvbThemeUpgradeCheck first to see the available versions and the merge conflicts the upgrade will leave, then resolve those in the copy before anyone activates it.  Refused with sfvb.theme_limit_reached at the storefront's theme limit, sfvb.theme_upgrade_unavailable for a version that can't be used, and sfvb.theme_merge_conflicts while the source theme has unresolved conflicts. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -25070,7 +25122,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Duplicate a theme Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it. 
+        /// Duplicate a theme Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it.  Set upgrade_to_version to also upgrade the copy to a newer theme version, as the admin's Duplicate and Upgrade does - only the copy is upgraded.  Run getSfvbThemeUpgradeCheck first to see the available versions and the merge conflicts the upgrade will leave, then resolve those in the copy before anyone activates it.  Refused with sfvb.theme_limit_reached at the storefront's theme limit, sfvb.theme_upgrade_unavailable for a version that can't be used, and sfvb.theme_merge_conflicts while the source theme has unresolved conflicts. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -25086,7 +25138,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Duplicate a theme Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it. 
+        /// Duplicate a theme Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it.  Set upgrade_to_version to also upgrade the copy to a newer theme version, as the admin's Duplicate and Upgrade does - only the copy is upgraded.  Run getSfvbThemeUpgradeCheck first to see the available versions and the merge conflicts the upgrade will leave, then resolve those in the copy before anyone activates it.  Refused with sfvb.theme_limit_reached at the storefront's theme limit, sfvb.theme_upgrade_unavailable for a version that can't be used, and sfvb.theme_merge_conflicts while the source theme has unresolved conflicts. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -41606,7 +41658,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Status of an asynchronous theme job Poll until complete is true, then check success.  Note that the new theme's oid is not returned.  The job's product is a plain text report rather than a structured result, so once it completes, list themes and match on the target_path the start call gave you. 
+        /// Status of an asynchronous theme job Poll until complete is true, then check success.  A successful job reports the new theme as theme_oid.  After a duplicate with upgrade_to_version, success also means the copy reached that version, and merge_conflicts lists the copy's files that still need resolving - read fresh on every poll. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -41619,7 +41671,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Status of an asynchronous theme job Poll until complete is true, then check success.  Note that the new theme's oid is not returned.  The job's product is a plain text report rather than a structured result, so once it completes, list themes and match on the target_path the start call gave you. 
+        /// Status of an asynchronous theme job Poll until complete is true, then check success.  A successful job reports the new theme as theme_oid.  After a duplicate with upgrade_to_version, success also means the copy reached that version, and merge_conflicts lists the copy's files that still need resolving - read fresh on every poll. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -41689,7 +41741,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Status of an asynchronous theme job Poll until complete is true, then check success.  Note that the new theme's oid is not returned.  The job's product is a plain text report rather than a structured result, so once it completes, list themes and match on the target_path the start call gave you. 
+        /// Status of an asynchronous theme job Poll until complete is true, then check success.  A successful job reports the new theme as theme_oid.  After a duplicate with upgrade_to_version, success also means the copy reached that version, and merge_conflicts lists the copy's files that still need resolving - read fresh on every poll. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -41704,7 +41756,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Status of an asynchronous theme job Poll until complete is true, then check success.  Note that the new theme's oid is not returned.  The job's product is a plain text report rather than a structured result, so once it completes, list themes and match on the target_path the start call gave you. 
+        /// Status of an asynchronous theme job Poll until complete is true, then check success.  A successful job reports the new theme as theme_oid.  After a duplicate with upgrade_to_version, success also means the copy reached that version, and merge_conflicts lists the copy's files that still need resolving - read fresh on every poll. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -41772,6 +41824,181 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbThemeJobResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbThemeJobResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbThemeJobResponse)));
+        }
+
+        /// <summary>
+        /// Check what upgrading a theme would do The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="version"> (optional)</param>
+        /// <returns>SfvbThemeUpgradeCheckResponse</returns>
+        public SfvbThemeUpgradeCheckResponse GetSfvbThemeUpgradeCheck (int storefrontOid, int themeOid, string version = default(string))
+        {
+             ApiResponse<SfvbThemeUpgradeCheckResponse> localVarResponse = GetSfvbThemeUpgradeCheckWithHttpInfo(storefrontOid, themeOid, version);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check what upgrading a theme would do The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="version"> (optional)</param>
+        /// <returns>ApiResponse of SfvbThemeUpgradeCheckResponse</returns>
+        public ApiResponse<SfvbThemeUpgradeCheckResponse> GetSfvbThemeUpgradeCheckWithHttpInfo (int storefrontOid, int themeOid, string version = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbThemeUpgradeCheck");
+            // verify the required parameter 'themeOid' is set
+            if (themeOid == null)
+                throw new ApiException(400, "Missing required parameter 'themeOid' when calling SfvbApi->GetSfvbThemeUpgradeCheck");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/upgrade_check";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (themeOid != null) localVarPathParams.Add("theme_oid", this.Configuration.ApiClient.ParameterToString(themeOid)); // path parameter
+            if (version != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "version", version)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbThemeUpgradeCheck", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbThemeUpgradeCheckResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbThemeUpgradeCheckResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbThemeUpgradeCheckResponse)));
+        }
+
+        /// <summary>
+        /// Check what upgrading a theme would do The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="version"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbThemeUpgradeCheckResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbThemeUpgradeCheckResponse> GetSfvbThemeUpgradeCheckAsync (int storefrontOid, int themeOid, string version = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbThemeUpgradeCheckResponse> localVarResponse = await GetSfvbThemeUpgradeCheckWithHttpInfoAsync(storefrontOid, themeOid, version, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Check what upgrading a theme would do The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="themeOid"></param>
+        /// <param name="version"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbThemeUpgradeCheckResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbThemeUpgradeCheckResponse>> GetSfvbThemeUpgradeCheckWithHttpInfoAsync (int storefrontOid, int themeOid, string version = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbThemeUpgradeCheck");
+            // verify the required parameter 'themeOid' is set
+            if (themeOid == null)
+                throw new ApiException(400, "Missing required parameter 'themeOid' when calling SfvbApi->GetSfvbThemeUpgradeCheck");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/upgrade_check";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (themeOid != null) localVarPathParams.Add("theme_oid", this.Configuration.ApiClient.ParameterToString(themeOid)); // path parameter
+            if (version != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "version", version)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbThemeUpgradeCheck", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbThemeUpgradeCheckResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbThemeUpgradeCheckResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbThemeUpgradeCheckResponse)));
         }
 
         /// <summary>
@@ -61015,7 +61242,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Search storefront files Searches names and, when text is supplied, file contents.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported. 
+        /// Search storefront files Searches names and, when text is supplied, file contents.  Text search covers text files, including .cjson and .json, and skips binaries such as images, fonts and PDFs.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported.  merge_conflicts true with a theme's path lists the files an upgrade left with unresolved conflicts, as the admin file manager's merge conflicts search does. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -61028,7 +61255,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Search storefront files Searches names and, when text is supplied, file contents.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported. 
+        /// Search storefront files Searches names and, when text is supplied, file contents.  Text search covers text files, including .cjson and .json, and skips binaries such as images, fonts and PDFs.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported.  merge_conflicts true with a theme's path lists the files an upgrade left with unresolved conflicts, as the admin file manager's merge conflicts search does. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -61106,7 +61333,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Search storefront files Searches names and, when text is supplied, file contents.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported. 
+        /// Search storefront files Searches names and, when text is supplied, file contents.  Text search covers text files, including .cjson and .json, and skips binaries such as images, fonts and PDFs.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported.  merge_conflicts true with a theme's path lists the files an upgrade left with unresolved conflicts, as the admin file manager's merge conflicts search does. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -61121,7 +61348,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Search storefront files Searches names and, when text is supplied, file contents.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported. 
+        /// Search storefront files Searches names and, when text is supplied, file contents.  Text search covers text files, including .cjson and .json, and skips binaries such as images, fonts and PDFs.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported.  merge_conflicts true with a theme's path lists the files an upgrade left with unresolved conflicts, as the admin file manager's merge conflicts search does. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>

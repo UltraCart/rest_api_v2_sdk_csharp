@@ -37,6 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="content">UTF-8 content.  Only text/_* files can be read this way..</param>
         /// <param name="fsFileOid">StoreFront file system file oid..</param>
         /// <param name="hashSha256">SHA-256 of the content.  Send this back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so this body value is the authoritative one.  Both forms are accepted on write..</param>
+        /// <param name="mergeConflict">True when a theme upgrade left unresolved merge conflicts in this file.  The content holds conflict marker lines.  Resolve each conflict and save the file without any marker lines to clear it - a save that still has marker lines is refused..</param>
         /// <param name="mimeType">Mime type..</param>
         /// <param name="path">Full path of the file..</param>
         /// <param name="size">Size in bytes..</param>
@@ -44,12 +45,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="valid">False when the file failed Velocity validation on its last write..</param>
         /// <param name="velocityErrors">Velocity errors recorded on the last write.  Null when valid..</param>
         /// <param name="version">Version number of the content returned..</param>
-        public SfvbFileContentResponse(bool autoCompiled = default(bool), string content = default(string), int fsFileOid = default(int), string hashSha256 = default(string), string mimeType = default(string), string path = default(string), int size = default(int), bool truncated = default(bool), bool valid = default(bool), string velocityErrors = default(string), int version = default(int))
+        public SfvbFileContentResponse(bool autoCompiled = default(bool), string content = default(string), int fsFileOid = default(int), string hashSha256 = default(string), bool mergeConflict = default(bool), string mimeType = default(string), string path = default(string), int size = default(int), bool truncated = default(bool), bool valid = default(bool), string velocityErrors = default(string), int version = default(int))
         {
             this.AutoCompiled = autoCompiled;
             this.Content = content;
             this.FsFileOid = fsFileOid;
             this.HashSha256 = hashSha256;
+            this.MergeConflict = mergeConflict;
             this.MimeType = mimeType;
             this.Path = path;
             this.Size = size;
@@ -86,6 +88,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>SHA-256 of the content.  Send this back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so this body value is the authoritative one.  Both forms are accepted on write.</value>
         [DataMember(Name="hash_sha256", EmitDefaultValue=false)]
         public string HashSha256 { get; set; }
+
+        /// <summary>
+        /// True when a theme upgrade left unresolved merge conflicts in this file.  The content holds conflict marker lines.  Resolve each conflict and save the file without any marker lines to clear it - a save that still has marker lines is refused.
+        /// </summary>
+        /// <value>True when a theme upgrade left unresolved merge conflicts in this file.  The content holds conflict marker lines.  Resolve each conflict and save the file without any marker lines to clear it - a save that still has marker lines is refused.</value>
+        [DataMember(Name="merge_conflict", EmitDefaultValue=false)]
+        public bool MergeConflict { get; set; }
 
         /// <summary>
         /// Mime type.
@@ -148,6 +157,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  FsFileOid: ").Append(FsFileOid).Append("\n");
             sb.Append("  HashSha256: ").Append(HashSha256).Append("\n");
+            sb.Append("  MergeConflict: ").Append(MergeConflict).Append("\n");
             sb.Append("  MimeType: ").Append(MimeType).Append("\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
@@ -210,6 +220,11 @@ namespace com.ultracart.admin.v2.Model
                     this.HashSha256.Equals(input.HashSha256))
                 ) && 
                 (
+                    this.MergeConflict == input.MergeConflict ||
+                    (this.MergeConflict != null &&
+                    this.MergeConflict.Equals(input.MergeConflict))
+                ) && 
+                (
                     this.MimeType == input.MimeType ||
                     (this.MimeType != null &&
                     this.MimeType.Equals(input.MimeType))
@@ -263,6 +278,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.FsFileOid.GetHashCode();
                 if (this.HashSha256 != null)
                     hashCode = hashCode * 59 + this.HashSha256.GetHashCode();
+                if (this.MergeConflict != null)
+                    hashCode = hashCode * 59 + this.MergeConflict.GetHashCode();
                 if (this.MimeType != null)
                     hashCode = hashCode * 59 + this.MimeType.GetHashCode();
                 if (this.Path != null)

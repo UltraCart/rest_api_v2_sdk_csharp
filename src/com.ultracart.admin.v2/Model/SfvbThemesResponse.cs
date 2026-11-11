@@ -34,10 +34,14 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbThemesResponse" /> class.
         /// </summary>
         /// <param name="activeThemeOid">Oid of the active theme, repeated here so a caller does not have to scan the list..</param>
+        /// <param name="themeCount">How many themes the storefront holds now.  When it equals theme_limit, delete an inactive theme in the admin before duplicating..</param>
+        /// <param name="themeLimit">Most themes a storefront can hold, active and inactive together.  A duplicate or install at the limit is refused with sfvb.theme_limit_reached..</param>
         /// <param name="themes">Themes belonging to the storefront.  Exactly one is flagged active..</param>
-        public SfvbThemesResponse(int activeThemeOid = default(int), List<SfvbTheme> themes = default(List<SfvbTheme>))
+        public SfvbThemesResponse(int activeThemeOid = default(int), int themeCount = default(int), int themeLimit = default(int), List<SfvbTheme> themes = default(List<SfvbTheme>))
         {
             this.ActiveThemeOid = activeThemeOid;
+            this.ThemeCount = themeCount;
+            this.ThemeLimit = themeLimit;
             this.Themes = themes;
         }
 
@@ -47,6 +51,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Oid of the active theme, repeated here so a caller does not have to scan the list.</value>
         [DataMember(Name="active_theme_oid", EmitDefaultValue=false)]
         public int ActiveThemeOid { get; set; }
+
+        /// <summary>
+        /// How many themes the storefront holds now.  When it equals theme_limit, delete an inactive theme in the admin before duplicating.
+        /// </summary>
+        /// <value>How many themes the storefront holds now.  When it equals theme_limit, delete an inactive theme in the admin before duplicating.</value>
+        [DataMember(Name="theme_count", EmitDefaultValue=false)]
+        public int ThemeCount { get; set; }
+
+        /// <summary>
+        /// Most themes a storefront can hold, active and inactive together.  A duplicate or install at the limit is refused with sfvb.theme_limit_reached.
+        /// </summary>
+        /// <value>Most themes a storefront can hold, active and inactive together.  A duplicate or install at the limit is refused with sfvb.theme_limit_reached.</value>
+        [DataMember(Name="theme_limit", EmitDefaultValue=false)]
+        public int ThemeLimit { get; set; }
 
         /// <summary>
         /// Themes belonging to the storefront.  Exactly one is flagged active.
@@ -64,6 +82,8 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class SfvbThemesResponse {\n");
             sb.Append("  ActiveThemeOid: ").Append(ActiveThemeOid).Append("\n");
+            sb.Append("  ThemeCount: ").Append(ThemeCount).Append("\n");
+            sb.Append("  ThemeLimit: ").Append(ThemeLimit).Append("\n");
             sb.Append("  Themes: ").Append(Themes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -105,6 +125,16 @@ namespace com.ultracart.admin.v2.Model
                     this.ActiveThemeOid.Equals(input.ActiveThemeOid))
                 ) && 
                 (
+                    this.ThemeCount == input.ThemeCount ||
+                    (this.ThemeCount != null &&
+                    this.ThemeCount.Equals(input.ThemeCount))
+                ) && 
+                (
+                    this.ThemeLimit == input.ThemeLimit ||
+                    (this.ThemeLimit != null &&
+                    this.ThemeLimit.Equals(input.ThemeLimit))
+                ) && 
+                (
                     this.Themes == input.Themes ||
                     this.Themes != null &&
                     input.Themes != null &&
@@ -123,6 +153,10 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.ActiveThemeOid != null)
                     hashCode = hashCode * 59 + this.ActiveThemeOid.GetHashCode();
+                if (this.ThemeCount != null)
+                    hashCode = hashCode * 59 + this.ThemeCount.GetHashCode();
+                if (this.ThemeLimit != null)
+                    hashCode = hashCode * 59 + this.ThemeLimit.GetHashCode();
                 if (this.Themes != null)
                     hashCode = hashCode * 59 + this.Themes.GetHashCode();
                 return hashCode;

@@ -48,7 +48,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="sizeMax">Maximum size in bytes..</param>
         /// <param name="sizeMin">Minimum size in bytes..</param>
         /// <param name="subDirectories">Recurse below path.  Defaults to true..</param>
-        /// <param name="text">Text to find inside files.  Only text/_* files are searched.  This is the expensive filter; narrow with path or file_name where possible..</param>
+        /// <param name="text">Text to find inside files.  Text files are searched, including .cjson and .json; binaries such as images, fonts and PDFs are skipped.  This is the expensive filter; narrow with path or file_name where possible..</param>
         public SfvbFileSearchRequest(bool caseSensitive = default(bool), bool dynamicHtml = default(bool), string fileName = default(string), bool i18nViolations = default(bool), bool invalid = default(bool), int maxResults = default(int), bool mergeConflicts = default(bool), string mimeType = default(string), string modifiedMax = default(string), string modifiedMin = default(string), int offset = default(int), string path = default(string), int sizeMax = default(int), int sizeMin = default(int), bool subDirectories = default(bool), string text = default(string))
         {
             this.CaseSensitive = caseSensitive;
@@ -175,9 +175,9 @@ namespace com.ultracart.admin.v2.Model
         public bool SubDirectories { get; set; }
 
         /// <summary>
-        /// Text to find inside files.  Only text/_* files are searched.  This is the expensive filter; narrow with path or file_name where possible.
+        /// Text to find inside files.  Text files are searched, including .cjson and .json; binaries such as images, fonts and PDFs are skipped.  This is the expensive filter; narrow with path or file_name where possible.
         /// </summary>
-        /// <value>Text to find inside files.  Only text/_* files are searched.  This is the expensive filter; narrow with path or file_name where possible.</value>
+        /// <value>Text to find inside files.  Text files are searched, including .cjson and .json; binaries such as images, fonts and PDFs are skipped.  This is the expensive filter; narrow with path or file_name where possible.</value>
         [DataMember(Name="text", EmitDefaultValue=false)]
         public string Text { get; set; }
 

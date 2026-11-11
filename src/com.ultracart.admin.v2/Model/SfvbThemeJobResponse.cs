@@ -83,20 +83,24 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="errorMessage">What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log..</param>
         /// <param name="finishedDts">When the job stopped, ISO 8601 UTC.  Null until it does..</param>
         /// <param name="jobId">Job handle.  Poll getSfvbThemeJob with this..</param>
+        /// <param name="mergeConflicts">Paths of the copy&#39;s files that still have unresolved merge conflicts, read fresh on every poll, so the list shrinks as you resolve them.  Each needs its conflict marker lines resolved and the file saved before the theme can be activated.  Empty when there are none..</param>
         /// <param name="progress">Percent complete, 0-100..</param>
         /// <param name="progressDescription">What the job is doing right now, for example &#39;Duplicating locale text&#39;..</param>
         /// <param name="startedDts">When the job started running, ISO 8601 UTC.  Null until it does..</param>
         /// <param name="status">Raw job status..</param>
         /// <param name="submittedDts">When the job was queued, ISO 8601 UTC..</param>
         /// <param name="success">True only when the job finished successfully.  Check complete first..</param>
-        /// <param name="targetPath">Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending..</param>
-        public SfvbThemeJobResponse(bool complete = default(bool), string description = default(string), string errorMessage = default(string), string finishedDts = default(string), int jobId = default(int), int progress = default(int), string progressDescription = default(string), string startedDts = default(string), StatusEnum? status = default(StatusEnum?), string submittedDts = default(string), bool success = default(bool), string targetPath = default(string))
+        /// <param name="targetPath">Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  Once the job completes, the theme found at this path is reported as theme_oid.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending..</param>
+        /// <param name="themeOid">Oid of the theme the job created, once it is complete and the theme exists.  Null until then..</param>
+        /// <param name="upgradeToVersion">The version the copy was asked to be upgraded to, when the duplicate asked for an upgrade.  Null for a plain copy.  A complete job reports success only when the copy is at this version..</param>
+        public SfvbThemeJobResponse(bool complete = default(bool), string description = default(string), string errorMessage = default(string), string finishedDts = default(string), int jobId = default(int), List<string> mergeConflicts = default(List<string>), int progress = default(int), string progressDescription = default(string), string startedDts = default(string), StatusEnum? status = default(StatusEnum?), string submittedDts = default(string), bool success = default(bool), string targetPath = default(string), int themeOid = default(int), string upgradeToVersion = default(string))
         {
             this.Complete = complete;
             this.Description = description;
             this.ErrorMessage = errorMessage;
             this.FinishedDts = finishedDts;
             this.JobId = jobId;
+            this.MergeConflicts = mergeConflicts;
             this.Progress = progress;
             this.ProgressDescription = progressDescription;
             this.StartedDts = startedDts;
@@ -104,6 +108,8 @@ namespace com.ultracart.admin.v2.Model
             this.SubmittedDts = submittedDts;
             this.Success = success;
             this.TargetPath = targetPath;
+            this.ThemeOid = themeOid;
+            this.UpgradeToVersion = upgradeToVersion;
         }
 
         /// <summary>
@@ -142,6 +148,13 @@ namespace com.ultracart.admin.v2.Model
         public int JobId { get; set; }
 
         /// <summary>
+        /// Paths of the copy&#39;s files that still have unresolved merge conflicts, read fresh on every poll, so the list shrinks as you resolve them.  Each needs its conflict marker lines resolved and the file saved before the theme can be activated.  Empty when there are none.
+        /// </summary>
+        /// <value>Paths of the copy&#39;s files that still have unresolved merge conflicts, read fresh on every poll, so the list shrinks as you resolve them.  Each needs its conflict marker lines resolved and the file saved before the theme can be activated.  Empty when there are none.</value>
+        [DataMember(Name="merge_conflicts", EmitDefaultValue=false)]
+        public List<string> MergeConflicts { get; set; }
+
+        /// <summary>
         /// Percent complete, 0-100.
         /// </summary>
         /// <value>Percent complete, 0-100.</value>
@@ -178,11 +191,25 @@ namespace com.ultracart.admin.v2.Model
         public bool Success { get; set; }
 
         /// <summary>
-        /// Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.
+        /// Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  Once the job completes, the theme found at this path is reported as theme_oid.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.
         /// </summary>
-        /// <value>Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.</value>
+        /// <value>Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  Once the job completes, the theme found at this path is reported as theme_oid.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.</value>
         [DataMember(Name="target_path", EmitDefaultValue=false)]
         public string TargetPath { get; set; }
+
+        /// <summary>
+        /// Oid of the theme the job created, once it is complete and the theme exists.  Null until then.
+        /// </summary>
+        /// <value>Oid of the theme the job created, once it is complete and the theme exists.  Null until then.</value>
+        [DataMember(Name="theme_oid", EmitDefaultValue=false)]
+        public int ThemeOid { get; set; }
+
+        /// <summary>
+        /// The version the copy was asked to be upgraded to, when the duplicate asked for an upgrade.  Null for a plain copy.  A complete job reports success only when the copy is at this version.
+        /// </summary>
+        /// <value>The version the copy was asked to be upgraded to, when the duplicate asked for an upgrade.  Null for a plain copy.  A complete job reports success only when the copy is at this version.</value>
+        [DataMember(Name="upgrade_to_version", EmitDefaultValue=false)]
+        public string UpgradeToVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -197,6 +224,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ErrorMessage: ").Append(ErrorMessage).Append("\n");
             sb.Append("  FinishedDts: ").Append(FinishedDts).Append("\n");
             sb.Append("  JobId: ").Append(JobId).Append("\n");
+            sb.Append("  MergeConflicts: ").Append(MergeConflicts).Append("\n");
             sb.Append("  Progress: ").Append(Progress).Append("\n");
             sb.Append("  ProgressDescription: ").Append(ProgressDescription).Append("\n");
             sb.Append("  StartedDts: ").Append(StartedDts).Append("\n");
@@ -204,6 +232,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  SubmittedDts: ").Append(SubmittedDts).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  TargetPath: ").Append(TargetPath).Append("\n");
+            sb.Append("  ThemeOid: ").Append(ThemeOid).Append("\n");
+            sb.Append("  UpgradeToVersion: ").Append(UpgradeToVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -264,6 +294,12 @@ namespace com.ultracart.admin.v2.Model
                     this.JobId.Equals(input.JobId))
                 ) && 
                 (
+                    this.MergeConflicts == input.MergeConflicts ||
+                    this.MergeConflicts != null &&
+                    input.MergeConflicts != null &&
+                    this.MergeConflicts.SequenceEqual(input.MergeConflicts)
+                ) && 
+                (
                     this.Progress == input.Progress ||
                     (this.Progress != null &&
                     this.Progress.Equals(input.Progress))
@@ -297,6 +333,16 @@ namespace com.ultracart.admin.v2.Model
                     this.TargetPath == input.TargetPath ||
                     (this.TargetPath != null &&
                     this.TargetPath.Equals(input.TargetPath))
+                ) && 
+                (
+                    this.ThemeOid == input.ThemeOid ||
+                    (this.ThemeOid != null &&
+                    this.ThemeOid.Equals(input.ThemeOid))
+                ) && 
+                (
+                    this.UpgradeToVersion == input.UpgradeToVersion ||
+                    (this.UpgradeToVersion != null &&
+                    this.UpgradeToVersion.Equals(input.UpgradeToVersion))
                 );
         }
 
@@ -319,6 +365,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.FinishedDts.GetHashCode();
                 if (this.JobId != null)
                     hashCode = hashCode * 59 + this.JobId.GetHashCode();
+                if (this.MergeConflicts != null)
+                    hashCode = hashCode * 59 + this.MergeConflicts.GetHashCode();
                 if (this.Progress != null)
                     hashCode = hashCode * 59 + this.Progress.GetHashCode();
                 if (this.ProgressDescription != null)
@@ -333,6 +381,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.TargetPath != null)
                     hashCode = hashCode * 59 + this.TargetPath.GetHashCode();
+                if (this.ThemeOid != null)
+                    hashCode = hashCode * 59 + this.ThemeOid.GetHashCode();
+                if (this.UpgradeToVersion != null)
+                    hashCode = hashCode * 59 + this.UpgradeToVersion.GetHashCode();
                 return hashCode;
             }
         }

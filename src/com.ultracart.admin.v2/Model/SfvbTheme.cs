@@ -36,6 +36,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="active">True when this theme is the one serving live traffic.  Writing to an active theme requires the sfvb_publish scope..</param>
         /// <param name="description">What the theme is, where the author supplied a description..</param>
         /// <param name="fsDirectoryOid">Oid of the theme root directory in the storefront file system..</param>
+        /// <param name="mergeConflictCount">How many of the theme&#39;s files still have unresolved merge conflicts from an upgrade.  Find them with searchSfvbFiles, merge_conflicts true and this theme&#39;s path..</param>
+        /// <param name="okToActivate">False while any file in the theme has an unresolved merge conflict.  Never activate a theme that reports false - resolve every conflict first.  Activation itself happens in the UltraCart admin, which runs the same check..</param>
         /// <param name="path">Root path of the theme in the storefront file system, for example /themes/mytheme/.</param>
         /// <param name="storefrontOid">StoreFront oid this theme belongs to..</param>
         /// <param name="themeName">Theme name..</param>
@@ -43,11 +45,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="upgradeAvailable">True when a newer version of this theme exists.  Relevant because an upgrade is what produces the merge conflicts that block activation..</param>
         /// <param name="valid">False when the theme contains templates that failed validation.  Worth checking before choosing a theme to work in..</param>
         /// <param name="version">Theme version..</param>
-        public SfvbTheme(bool active = default(bool), string description = default(string), int fsDirectoryOid = default(int), string path = default(string), int storefrontOid = default(int), string themeName = default(string), int themeOid = default(int), bool upgradeAvailable = default(bool), bool valid = default(bool), string version = default(string))
+        public SfvbTheme(bool active = default(bool), string description = default(string), int fsDirectoryOid = default(int), int mergeConflictCount = default(int), bool okToActivate = default(bool), string path = default(string), int storefrontOid = default(int), string themeName = default(string), int themeOid = default(int), bool upgradeAvailable = default(bool), bool valid = default(bool), string version = default(string))
         {
             this.Active = active;
             this.Description = description;
             this.FsDirectoryOid = fsDirectoryOid;
+            this.MergeConflictCount = mergeConflictCount;
+            this.OkToActivate = okToActivate;
             this.Path = path;
             this.StorefrontOid = storefrontOid;
             this.ThemeName = themeName;
@@ -77,6 +81,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Oid of the theme root directory in the storefront file system.</value>
         [DataMember(Name="fs_directory_oid", EmitDefaultValue=false)]
         public int FsDirectoryOid { get; set; }
+
+        /// <summary>
+        /// How many of the theme&#39;s files still have unresolved merge conflicts from an upgrade.  Find them with searchSfvbFiles, merge_conflicts true and this theme&#39;s path.
+        /// </summary>
+        /// <value>How many of the theme&#39;s files still have unresolved merge conflicts from an upgrade.  Find them with searchSfvbFiles, merge_conflicts true and this theme&#39;s path.</value>
+        [DataMember(Name="merge_conflict_count", EmitDefaultValue=false)]
+        public int MergeConflictCount { get; set; }
+
+        /// <summary>
+        /// False while any file in the theme has an unresolved merge conflict.  Never activate a theme that reports false - resolve every conflict first.  Activation itself happens in the UltraCart admin, which runs the same check.
+        /// </summary>
+        /// <value>False while any file in the theme has an unresolved merge conflict.  Never activate a theme that reports false - resolve every conflict first.  Activation itself happens in the UltraCart admin, which runs the same check.</value>
+        [DataMember(Name="ok_to_activate", EmitDefaultValue=false)]
+        public bool OkToActivate { get; set; }
 
         /// <summary>
         /// Root path of the theme in the storefront file system, for example /themes/mytheme/
@@ -138,6 +156,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  FsDirectoryOid: ").Append(FsDirectoryOid).Append("\n");
+            sb.Append("  MergeConflictCount: ").Append(MergeConflictCount).Append("\n");
+            sb.Append("  OkToActivate: ").Append(OkToActivate).Append("\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("  ThemeName: ").Append(ThemeName).Append("\n");
@@ -195,6 +215,16 @@ namespace com.ultracart.admin.v2.Model
                     this.FsDirectoryOid.Equals(input.FsDirectoryOid))
                 ) && 
                 (
+                    this.MergeConflictCount == input.MergeConflictCount ||
+                    (this.MergeConflictCount != null &&
+                    this.MergeConflictCount.Equals(input.MergeConflictCount))
+                ) && 
+                (
+                    this.OkToActivate == input.OkToActivate ||
+                    (this.OkToActivate != null &&
+                    this.OkToActivate.Equals(input.OkToActivate))
+                ) && 
+                (
                     this.Path == input.Path ||
                     (this.Path != null &&
                     this.Path.Equals(input.Path))
@@ -246,6 +276,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.FsDirectoryOid != null)
                     hashCode = hashCode * 59 + this.FsDirectoryOid.GetHashCode();
+                if (this.MergeConflictCount != null)
+                    hashCode = hashCode * 59 + this.MergeConflictCount.GetHashCode();
+                if (this.OkToActivate != null)
+                    hashCode = hashCode * 59 + this.OkToActivate.GetHashCode();
                 if (this.Path != null)
                     hashCode = hashCode * 59 + this.Path.GetHashCode();
                 if (this.StorefrontOid != null)

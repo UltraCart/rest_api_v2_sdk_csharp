@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **CanReadItems** | **bool** | True when this token may read item data - the item, its pricing, pre-order and related items.  Needs can_read, and the UltraCart user behind the token must hold View Items or Edit Items.  A token with no user is judged on its scopes alone. | [optional] 
 **CanWrite** | **bool** | True when this token may write.  Writing a target that is not currently live needs only this. | [optional] 
 **CliAccess** | [**SfvbCliAccess**](SfvbCliAccess.md) |  | [optional] 
+**CliVersion** | [**SfvbCliVersion**](SfvbCliVersion.md) |  | [optional] 
 **DeviceScope** | **string** | Device scope name, when this is a device flow token. | [optional] 
 **Login** | **string** | Login of the user who approved this token.  Populated for device flow tokens; null for plain API key credentials. | [optional] 
 **MerchantId** | **string** | Merchant id this token acts against. | [optional] 

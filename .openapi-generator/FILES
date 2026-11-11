@@ -1010,6 +1010,7 @@ docs/SfvbCampaignMembership.md
 docs/SfvbCampaignWriteRequest.md
 docs/SfvbCampaignsResponse.md
 docs/SfvbCliAccess.md
+docs/SfvbCliVersion.md
 docs/SfvbCodeLibraryEmail.md
 docs/SfvbCodeLibraryEmailsResponse.md
 docs/SfvbCommsBranchStat.md
@@ -2518,6 +2519,7 @@ src/com.ultracart.admin.v2/Model/SfvbCampaignMembership.cs
 src/com.ultracart.admin.v2/Model/SfvbCampaignWriteRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbCampaignsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCliAccess.cs
+src/com.ultracart.admin.v2/Model/SfvbCliVersion.cs
 src/com.ultracart.admin.v2/Model/SfvbCodeLibraryEmail.cs
 src/com.ultracart.admin.v2/Model/SfvbCodeLibraryEmailsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsBranchStat.cs

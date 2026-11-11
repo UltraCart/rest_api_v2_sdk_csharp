@@ -61,12 +61,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="errorUri">errorUri.</param>
         /// <param name="expiresIn">The number of seconds since issuance when the access token will expire and need to be refreshed using the refresh token.</param>
         /// <param name="merchantId">The UltraCart merchant account that authorized this token.  Use it to map the token to the merchant within your own system.  Also returned by GET /oauth/me along with the account name..</param>
+        /// <param name="minimumVersion">With error_code sfvb.cli_upgrade_required, the lowest StoreFront CLI version the server supports..</param>
         /// <param name="objectId">With error_code sfvb.beta_access_required, the merchant id that was refused..</param>
+        /// <param name="recommendedVersion">With error_code sfvb.cli_upgrade_required, the StoreFront CLI version to install..</param>
         /// <param name="refreshToken">The refresh token that should be used to fetch a new access token when the expiration occurs.</param>
         /// <param name="refreshTokenExpiresIn">Seconds until the refresh token expires.  Returned only by applications that rotate refresh tokens, which return a new refresh token on every refresh..</param>
         /// <param name="scope">The scope of permissions associated with teh access token.</param>
         /// <param name="tokenType">Type of token.</param>
-        public OauthTokenResponse(string accessToken = default(string), string error = default(string), string errorCode = default(string), string errorDescription = default(string), string errorUri = default(string), string expiresIn = default(string), string merchantId = default(string), string objectId = default(string), string refreshToken = default(string), string refreshTokenExpiresIn = default(string), string scope = default(string), TokenTypeEnum? tokenType = default(TokenTypeEnum?))
+        public OauthTokenResponse(string accessToken = default(string), string error = default(string), string errorCode = default(string), string errorDescription = default(string), string errorUri = default(string), string expiresIn = default(string), string merchantId = default(string), string minimumVersion = default(string), string objectId = default(string), string recommendedVersion = default(string), string refreshToken = default(string), string refreshTokenExpiresIn = default(string), string scope = default(string), TokenTypeEnum? tokenType = default(TokenTypeEnum?))
         {
             this.AccessToken = accessToken;
             this.Error = error;
@@ -75,7 +77,9 @@ namespace com.ultracart.admin.v2.Model
             this.ErrorUri = errorUri;
             this.ExpiresIn = expiresIn;
             this.MerchantId = merchantId;
+            this.MinimumVersion = minimumVersion;
             this.ObjectId = objectId;
+            this.RecommendedVersion = recommendedVersion;
             this.RefreshToken = refreshToken;
             this.RefreshTokenExpiresIn = refreshTokenExpiresIn;
             this.Scope = scope;
@@ -129,11 +133,25 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantId { get; set; }
 
         /// <summary>
+        /// With error_code sfvb.cli_upgrade_required, the lowest StoreFront CLI version the server supports.
+        /// </summary>
+        /// <value>With error_code sfvb.cli_upgrade_required, the lowest StoreFront CLI version the server supports.</value>
+        [DataMember(Name="minimum_version", EmitDefaultValue=false)]
+        public string MinimumVersion { get; set; }
+
+        /// <summary>
         /// With error_code sfvb.beta_access_required, the merchant id that was refused.
         /// </summary>
         /// <value>With error_code sfvb.beta_access_required, the merchant id that was refused.</value>
         [DataMember(Name="object_id", EmitDefaultValue=false)]
         public string ObjectId { get; set; }
+
+        /// <summary>
+        /// With error_code sfvb.cli_upgrade_required, the StoreFront CLI version to install.
+        /// </summary>
+        /// <value>With error_code sfvb.cli_upgrade_required, the StoreFront CLI version to install.</value>
+        [DataMember(Name="recommended_version", EmitDefaultValue=false)]
+        public string RecommendedVersion { get; set; }
 
         /// <summary>
         /// The refresh token that should be used to fetch a new access token when the expiration occurs
@@ -172,7 +190,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ErrorUri: ").Append(ErrorUri).Append("\n");
             sb.Append("  ExpiresIn: ").Append(ExpiresIn).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  MinimumVersion: ").Append(MinimumVersion).Append("\n");
             sb.Append("  ObjectId: ").Append(ObjectId).Append("\n");
+            sb.Append("  RecommendedVersion: ").Append(RecommendedVersion).Append("\n");
             sb.Append("  RefreshToken: ").Append(RefreshToken).Append("\n");
             sb.Append("  RefreshTokenExpiresIn: ").Append(RefreshTokenExpiresIn).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
@@ -247,9 +267,19 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
+                    this.MinimumVersion == input.MinimumVersion ||
+                    (this.MinimumVersion != null &&
+                    this.MinimumVersion.Equals(input.MinimumVersion))
+                ) && 
+                (
                     this.ObjectId == input.ObjectId ||
                     (this.ObjectId != null &&
                     this.ObjectId.Equals(input.ObjectId))
+                ) && 
+                (
+                    this.RecommendedVersion == input.RecommendedVersion ||
+                    (this.RecommendedVersion != null &&
+                    this.RecommendedVersion.Equals(input.RecommendedVersion))
                 ) && 
                 (
                     this.RefreshToken == input.RefreshToken ||
@@ -296,8 +326,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ExpiresIn.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.MinimumVersion != null)
+                    hashCode = hashCode * 59 + this.MinimumVersion.GetHashCode();
                 if (this.ObjectId != null)
                     hashCode = hashCode * 59 + this.ObjectId.GetHashCode();
+                if (this.RecommendedVersion != null)
+                    hashCode = hashCode * 59 + this.RecommendedVersion.GetHashCode();
                 if (this.RefreshToken != null)
                     hashCode = hashCode * 59 + this.RefreshToken.GetHashCode();
                 if (this.RefreshTokenExpiresIn != null)

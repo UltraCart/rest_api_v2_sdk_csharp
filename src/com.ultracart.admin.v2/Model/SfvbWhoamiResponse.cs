@@ -43,6 +43,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="canReadItems">True when this token may read item data - the item, its pricing, pre-order and related items.  Needs can_read, and the UltraCart user behind the token must hold View Items or Edit Items.  A token with no user is judged on its scopes alone..</param>
         /// <param name="canWrite">True when this token may write.  Writing a target that is not currently live needs only this..</param>
         /// <param name="cliAccess">cliAccess.</param>
+        /// <param name="cliVersion">cliVersion.</param>
         /// <param name="deviceScope">Device scope name, when this is a device flow token..</param>
         /// <param name="login">Login of the user who approved this token.  Populated for device flow tokens; null for plain API key credentials..</param>
         /// <param name="merchantId">Merchant id this token acts against..</param>
@@ -50,7 +51,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="storefronts">Storefronts reachable with this token.  Empty unless the token holds sfvb_read, because storefront inventory is resource data rather than identity..</param>
         /// <param name="storefrontsWithheld">True when storefronts was emptied because the token lacks sfvb_read, rather than because the account has none.  Without this the two look identical..</param>
         /// <param name="userName">Display name of the approving user, when known..</param>
-        public SfvbWhoamiResponse(bool actingAsUser = default(bool), string applicationName = default(string), string authenticationType = default(string), bool canEditItems = default(bool), bool canPublish = default(bool), bool canPublishPublic = default(bool), bool canRead = default(bool), bool canReadItems = default(bool), bool canWrite = default(bool), SfvbCliAccess cliAccess = default(SfvbCliAccess), string deviceScope = default(string), string login = default(string), string merchantId = default(string), List<string> scopes = default(List<string>), List<SfvbStorefront> storefronts = default(List<SfvbStorefront>), bool storefrontsWithheld = default(bool), string userName = default(string))
+        public SfvbWhoamiResponse(bool actingAsUser = default(bool), string applicationName = default(string), string authenticationType = default(string), bool canEditItems = default(bool), bool canPublish = default(bool), bool canPublishPublic = default(bool), bool canRead = default(bool), bool canReadItems = default(bool), bool canWrite = default(bool), SfvbCliAccess cliAccess = default(SfvbCliAccess), SfvbCliVersion cliVersion = default(SfvbCliVersion), string deviceScope = default(string), string login = default(string), string merchantId = default(string), List<string> scopes = default(List<string>), List<SfvbStorefront> storefronts = default(List<SfvbStorefront>), bool storefrontsWithheld = default(bool), string userName = default(string))
         {
             this.ActingAsUser = actingAsUser;
             this.ApplicationName = applicationName;
@@ -62,6 +63,7 @@ namespace com.ultracart.admin.v2.Model
             this.CanReadItems = canReadItems;
             this.CanWrite = canWrite;
             this.CliAccess = cliAccess;
+            this.CliVersion = cliVersion;
             this.DeviceScope = deviceScope;
             this.Login = login;
             this.MerchantId = merchantId;
@@ -141,6 +143,12 @@ namespace com.ultracart.admin.v2.Model
         public SfvbCliAccess CliAccess { get; set; }
 
         /// <summary>
+        /// Gets or Sets CliVersion
+        /// </summary>
+        [DataMember(Name="cli_version", EmitDefaultValue=false)]
+        public SfvbCliVersion CliVersion { get; set; }
+
+        /// <summary>
         /// Device scope name, when this is a device flow token.
         /// </summary>
         /// <value>Device scope name, when this is a device flow token.</value>
@@ -207,6 +215,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CanReadItems: ").Append(CanReadItems).Append("\n");
             sb.Append("  CanWrite: ").Append(CanWrite).Append("\n");
             sb.Append("  CliAccess: ").Append(CliAccess).Append("\n");
+            sb.Append("  CliVersion: ").Append(CliVersion).Append("\n");
             sb.Append("  DeviceScope: ").Append(DeviceScope).Append("\n");
             sb.Append("  Login: ").Append(Login).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
@@ -299,6 +308,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CliAccess.Equals(input.CliAccess))
                 ) && 
                 (
+                    this.CliVersion == input.CliVersion ||
+                    (this.CliVersion != null &&
+                    this.CliVersion.Equals(input.CliVersion))
+                ) && 
+                (
                     this.DeviceScope == input.DeviceScope ||
                     (this.DeviceScope != null &&
                     this.DeviceScope.Equals(input.DeviceScope))
@@ -366,6 +380,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CanWrite.GetHashCode();
                 if (this.CliAccess != null)
                     hashCode = hashCode * 59 + this.CliAccess.GetHashCode();
+                if (this.CliVersion != null)
+                    hashCode = hashCode * 59 + this.CliVersion.GetHashCode();
                 if (this.DeviceScope != null)
                     hashCode = hashCode * 59 + this.DeviceScope.GetHashCode();
                 if (this.Login != null)

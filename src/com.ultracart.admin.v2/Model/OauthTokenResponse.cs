@@ -56,22 +56,26 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="accessToken">Access token to use in OAuth authenticated API call.</param>
         /// <param name="error">error.</param>
+        /// <param name="errorCode">With error access_denied, a machine readable reason.  sfvb.beta_access_required means the account isn&#39;t enabled for the StoreFront CLI beta, not that a person clicked Deny..</param>
         /// <param name="errorDescription">errorDescription.</param>
         /// <param name="errorUri">errorUri.</param>
         /// <param name="expiresIn">The number of seconds since issuance when the access token will expire and need to be refreshed using the refresh token.</param>
         /// <param name="merchantId">The UltraCart merchant account that authorized this token.  Use it to map the token to the merchant within your own system.  Also returned by GET /oauth/me along with the account name..</param>
+        /// <param name="objectId">With error_code sfvb.beta_access_required, the merchant id that was refused..</param>
         /// <param name="refreshToken">The refresh token that should be used to fetch a new access token when the expiration occurs.</param>
         /// <param name="refreshTokenExpiresIn">Seconds until the refresh token expires.  Returned only by applications that rotate refresh tokens, which return a new refresh token on every refresh..</param>
         /// <param name="scope">The scope of permissions associated with teh access token.</param>
         /// <param name="tokenType">Type of token.</param>
-        public OauthTokenResponse(string accessToken = default(string), string error = default(string), string errorDescription = default(string), string errorUri = default(string), string expiresIn = default(string), string merchantId = default(string), string refreshToken = default(string), string refreshTokenExpiresIn = default(string), string scope = default(string), TokenTypeEnum? tokenType = default(TokenTypeEnum?))
+        public OauthTokenResponse(string accessToken = default(string), string error = default(string), string errorCode = default(string), string errorDescription = default(string), string errorUri = default(string), string expiresIn = default(string), string merchantId = default(string), string objectId = default(string), string refreshToken = default(string), string refreshTokenExpiresIn = default(string), string scope = default(string), TokenTypeEnum? tokenType = default(TokenTypeEnum?))
         {
             this.AccessToken = accessToken;
             this.Error = error;
+            this.ErrorCode = errorCode;
             this.ErrorDescription = errorDescription;
             this.ErrorUri = errorUri;
             this.ExpiresIn = expiresIn;
             this.MerchantId = merchantId;
+            this.ObjectId = objectId;
             this.RefreshToken = refreshToken;
             this.RefreshTokenExpiresIn = refreshTokenExpiresIn;
             this.Scope = scope;
@@ -90,6 +94,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public string Error { get; set; }
+
+        /// <summary>
+        /// With error access_denied, a machine readable reason.  sfvb.beta_access_required means the account isn&#39;t enabled for the StoreFront CLI beta, not that a person clicked Deny.
+        /// </summary>
+        /// <value>With error access_denied, a machine readable reason.  sfvb.beta_access_required means the account isn&#39;t enabled for the StoreFront CLI beta, not that a person clicked Deny.</value>
+        [DataMember(Name="error_code", EmitDefaultValue=false)]
+        public string ErrorCode { get; set; }
 
         /// <summary>
         /// Gets or Sets ErrorDescription
@@ -116,6 +127,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The UltraCart merchant account that authorized this token.  Use it to map the token to the merchant within your own system.  Also returned by GET /oauth/me along with the account name.</value>
         [DataMember(Name="merchant_id", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
+
+        /// <summary>
+        /// With error_code sfvb.beta_access_required, the merchant id that was refused.
+        /// </summary>
+        /// <value>With error_code sfvb.beta_access_required, the merchant id that was refused.</value>
+        [DataMember(Name="object_id", EmitDefaultValue=false)]
+        public string ObjectId { get; set; }
 
         /// <summary>
         /// The refresh token that should be used to fetch a new access token when the expiration occurs
@@ -149,10 +167,12 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class OauthTokenResponse {\n");
             sb.Append("  AccessToken: ").Append(AccessToken).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
+            sb.Append("  ErrorCode: ").Append(ErrorCode).Append("\n");
             sb.Append("  ErrorDescription: ").Append(ErrorDescription).Append("\n");
             sb.Append("  ErrorUri: ").Append(ErrorUri).Append("\n");
             sb.Append("  ExpiresIn: ").Append(ExpiresIn).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  ObjectId: ").Append(ObjectId).Append("\n");
             sb.Append("  RefreshToken: ").Append(RefreshToken).Append("\n");
             sb.Append("  RefreshTokenExpiresIn: ").Append(RefreshTokenExpiresIn).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
@@ -202,6 +222,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Error.Equals(input.Error))
                 ) && 
                 (
+                    this.ErrorCode == input.ErrorCode ||
+                    (this.ErrorCode != null &&
+                    this.ErrorCode.Equals(input.ErrorCode))
+                ) && 
+                (
                     this.ErrorDescription == input.ErrorDescription ||
                     (this.ErrorDescription != null &&
                     this.ErrorDescription.Equals(input.ErrorDescription))
@@ -220,6 +245,11 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId == input.MerchantId ||
                     (this.MerchantId != null &&
                     this.MerchantId.Equals(input.MerchantId))
+                ) && 
+                (
+                    this.ObjectId == input.ObjectId ||
+                    (this.ObjectId != null &&
+                    this.ObjectId.Equals(input.ObjectId))
                 ) && 
                 (
                     this.RefreshToken == input.RefreshToken ||
@@ -256,6 +286,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AccessToken.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
+                if (this.ErrorCode != null)
+                    hashCode = hashCode * 59 + this.ErrorCode.GetHashCode();
                 if (this.ErrorDescription != null)
                     hashCode = hashCode * 59 + this.ErrorDescription.GetHashCode();
                 if (this.ErrorUri != null)
@@ -264,6 +296,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ExpiresIn.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.ObjectId != null)
+                    hashCode = hashCode * 59 + this.ObjectId.GetHashCode();
                 if (this.RefreshToken != null)
                     hashCode = hashCode * 59 + this.RefreshToken.GetHashCode();
                 if (this.RefreshTokenExpiresIn != null)

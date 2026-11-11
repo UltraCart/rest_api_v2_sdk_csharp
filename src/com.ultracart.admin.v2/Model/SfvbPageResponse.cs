@@ -34,24 +34,38 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="SfvbPageResponse" /> class.
         /// </summary>
         /// <param name="attributes">Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name..</param>
+        /// <param name="blogPostTemplate">Template that renders the blog posts under this page.  Omitted when not set..</param>
         /// <param name="description">The page description, the text a page template renders as the page&#39;s description.  Omitted when empty..</param>
         /// <param name="excludeFromSitemap">True when the page is left out of the sitemap and marked noindex..</param>
         /// <param name="groupTemplate">Template file that renders the page itself, a bare .vm name found anywhere in the active theme..</param>
         /// <param name="itemTemplate">Template file that renders the item pages under this page..</param>
+        /// <param name="itemsPerPage">Items per page on a template that paginates.  Omitted when the template&#39;s default applies..</param>
         /// <param name="multimedia">The page&#39;s images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first..</param>
+        /// <param name="pageType">S for a static page, D for a dynamic one..</param>
         /// <param name="path">The page path, normalized to begin and end with a slash..</param>
+        /// <param name="reviewTemplate">Template that renders the item review pages under this page.  Omitted when not set..</param>
+        /// <param name="sortOrder">Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set..</param>
+        /// <param name="sortOrderChildGroups">How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom..</param>
+        /// <param name="sortOrderChildItems">How the page&#39;s items are ordered.  IA or ID by item id, DA or DD by description, SA or SD by manufacturer SKU, PA or PD by price, RA or RD by review, NA or ND by inventory, C custom..</param>
         /// <param name="title">The page title..</param>
         /// <param name="visible">False when the page is hidden.  A hidden page answers 404 to shoppers..</param>
         /// <param name="visibleDts">When set, the page stays hidden until this time (ISO 8601, UTC)..</param>
-        public SfvbPageResponse(List<SfvbPageAttribute> attributes = default(List<SfvbPageAttribute>), string description = default(string), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), List<SfvbPageMultimedia> multimedia = default(List<SfvbPageMultimedia>), string path = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
+        public SfvbPageResponse(List<SfvbPageAttribute> attributes = default(List<SfvbPageAttribute>), string blogPostTemplate = default(string), string description = default(string), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), int itemsPerPage = default(int), List<SfvbPageMultimedia> multimedia = default(List<SfvbPageMultimedia>), string pageType = default(string), string path = default(string), string reviewTemplate = default(string), int sortOrder = default(int), string sortOrderChildGroups = default(string), string sortOrderChildItems = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
         {
             this.Attributes = attributes;
+            this.BlogPostTemplate = blogPostTemplate;
             this.Description = description;
             this.ExcludeFromSitemap = excludeFromSitemap;
             this.GroupTemplate = groupTemplate;
             this.ItemTemplate = itemTemplate;
+            this.ItemsPerPage = itemsPerPage;
             this.Multimedia = multimedia;
+            this.PageType = pageType;
             this.Path = path;
+            this.ReviewTemplate = reviewTemplate;
+            this.SortOrder = sortOrder;
+            this.SortOrderChildGroups = sortOrderChildGroups;
+            this.SortOrderChildItems = sortOrderChildItems;
             this.Title = title;
             this.Visible = visible;
             this.VisibleDts = visibleDts;
@@ -63,6 +77,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public List<SfvbPageAttribute> Attributes { get; set; }
+
+        /// <summary>
+        /// Template that renders the blog posts under this page.  Omitted when not set.
+        /// </summary>
+        /// <value>Template that renders the blog posts under this page.  Omitted when not set.</value>
+        [DataMember(Name="blog_post_template", EmitDefaultValue=false)]
+        public string BlogPostTemplate { get; set; }
 
         /// <summary>
         /// The page description, the text a page template renders as the page&#39;s description.  Omitted when empty.
@@ -93,6 +114,13 @@ namespace com.ultracart.admin.v2.Model
         public string ItemTemplate { get; set; }
 
         /// <summary>
+        /// Items per page on a template that paginates.  Omitted when the template&#39;s default applies.
+        /// </summary>
+        /// <value>Items per page on a template that paginates.  Omitted when the template&#39;s default applies.</value>
+        [DataMember(Name="items_per_page", EmitDefaultValue=false)]
+        public int ItemsPerPage { get; set; }
+
+        /// <summary>
         /// The page&#39;s images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.
         /// </summary>
         /// <value>The page&#39;s images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.</value>
@@ -100,11 +128,46 @@ namespace com.ultracart.admin.v2.Model
         public List<SfvbPageMultimedia> Multimedia { get; set; }
 
         /// <summary>
+        /// S for a static page, D for a dynamic one.
+        /// </summary>
+        /// <value>S for a static page, D for a dynamic one.</value>
+        [DataMember(Name="page_type", EmitDefaultValue=false)]
+        public string PageType { get; set; }
+
+        /// <summary>
         /// The page path, normalized to begin and end with a slash.
         /// </summary>
         /// <value>The page path, normalized to begin and end with a slash.</value>
         [DataMember(Name="path", EmitDefaultValue=false)]
         public string Path { get; set; }
+
+        /// <summary>
+        /// Template that renders the item review pages under this page.  Omitted when not set.
+        /// </summary>
+        /// <value>Template that renders the item review pages under this page.  Omitted when not set.</value>
+        [DataMember(Name="review_template", EmitDefaultValue=false)]
+        public string ReviewTemplate { get; set; }
+
+        /// <summary>
+        /// Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set.
+        /// </summary>
+        /// <value>Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set.</value>
+        [DataMember(Name="sort_order", EmitDefaultValue=false)]
+        public int SortOrder { get; set; }
+
+        /// <summary>
+        /// How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom.
+        /// </summary>
+        /// <value>How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom.</value>
+        [DataMember(Name="sort_order_child_groups", EmitDefaultValue=false)]
+        public string SortOrderChildGroups { get; set; }
+
+        /// <summary>
+        /// How the page&#39;s items are ordered.  IA or ID by item id, DA or DD by description, SA or SD by manufacturer SKU, PA or PD by price, RA or RD by review, NA or ND by inventory, C custom.
+        /// </summary>
+        /// <value>How the page&#39;s items are ordered.  IA or ID by item id, DA or DD by description, SA or SD by manufacturer SKU, PA or PD by price, RA or RD by review, NA or ND by inventory, C custom.</value>
+        [DataMember(Name="sort_order_child_items", EmitDefaultValue=false)]
+        public string SortOrderChildItems { get; set; }
 
         /// <summary>
         /// The page title.
@@ -136,12 +199,19 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class SfvbPageResponse {\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  BlogPostTemplate: ").Append(BlogPostTemplate).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ExcludeFromSitemap: ").Append(ExcludeFromSitemap).Append("\n");
             sb.Append("  GroupTemplate: ").Append(GroupTemplate).Append("\n");
             sb.Append("  ItemTemplate: ").Append(ItemTemplate).Append("\n");
+            sb.Append("  ItemsPerPage: ").Append(ItemsPerPage).Append("\n");
             sb.Append("  Multimedia: ").Append(Multimedia).Append("\n");
+            sb.Append("  PageType: ").Append(PageType).Append("\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("  ReviewTemplate: ").Append(ReviewTemplate).Append("\n");
+            sb.Append("  SortOrder: ").Append(SortOrder).Append("\n");
+            sb.Append("  SortOrderChildGroups: ").Append(SortOrderChildGroups).Append("\n");
+            sb.Append("  SortOrderChildItems: ").Append(SortOrderChildItems).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");
             sb.Append("  VisibleDts: ").Append(VisibleDts).Append("\n");
@@ -186,6 +256,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Attributes.SequenceEqual(input.Attributes)
                 ) && 
                 (
+                    this.BlogPostTemplate == input.BlogPostTemplate ||
+                    (this.BlogPostTemplate != null &&
+                    this.BlogPostTemplate.Equals(input.BlogPostTemplate))
+                ) && 
+                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
@@ -206,15 +281,45 @@ namespace com.ultracart.admin.v2.Model
                     this.ItemTemplate.Equals(input.ItemTemplate))
                 ) && 
                 (
+                    this.ItemsPerPage == input.ItemsPerPage ||
+                    (this.ItemsPerPage != null &&
+                    this.ItemsPerPage.Equals(input.ItemsPerPage))
+                ) && 
+                (
                     this.Multimedia == input.Multimedia ||
                     this.Multimedia != null &&
                     input.Multimedia != null &&
                     this.Multimedia.SequenceEqual(input.Multimedia)
                 ) && 
                 (
+                    this.PageType == input.PageType ||
+                    (this.PageType != null &&
+                    this.PageType.Equals(input.PageType))
+                ) && 
+                (
                     this.Path == input.Path ||
                     (this.Path != null &&
                     this.Path.Equals(input.Path))
+                ) && 
+                (
+                    this.ReviewTemplate == input.ReviewTemplate ||
+                    (this.ReviewTemplate != null &&
+                    this.ReviewTemplate.Equals(input.ReviewTemplate))
+                ) && 
+                (
+                    this.SortOrder == input.SortOrder ||
+                    (this.SortOrder != null &&
+                    this.SortOrder.Equals(input.SortOrder))
+                ) && 
+                (
+                    this.SortOrderChildGroups == input.SortOrderChildGroups ||
+                    (this.SortOrderChildGroups != null &&
+                    this.SortOrderChildGroups.Equals(input.SortOrderChildGroups))
+                ) && 
+                (
+                    this.SortOrderChildItems == input.SortOrderChildItems ||
+                    (this.SortOrderChildItems != null &&
+                    this.SortOrderChildItems.Equals(input.SortOrderChildItems))
                 ) && 
                 (
                     this.Title == input.Title ||
@@ -244,6 +349,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.BlogPostTemplate != null)
+                    hashCode = hashCode * 59 + this.BlogPostTemplate.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.ExcludeFromSitemap != null)
@@ -252,10 +359,22 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.GroupTemplate.GetHashCode();
                 if (this.ItemTemplate != null)
                     hashCode = hashCode * 59 + this.ItemTemplate.GetHashCode();
+                if (this.ItemsPerPage != null)
+                    hashCode = hashCode * 59 + this.ItemsPerPage.GetHashCode();
                 if (this.Multimedia != null)
                     hashCode = hashCode * 59 + this.Multimedia.GetHashCode();
+                if (this.PageType != null)
+                    hashCode = hashCode * 59 + this.PageType.GetHashCode();
                 if (this.Path != null)
                     hashCode = hashCode * 59 + this.Path.GetHashCode();
+                if (this.ReviewTemplate != null)
+                    hashCode = hashCode * 59 + this.ReviewTemplate.GetHashCode();
+                if (this.SortOrder != null)
+                    hashCode = hashCode * 59 + this.SortOrder.GetHashCode();
+                if (this.SortOrderChildGroups != null)
+                    hashCode = hashCode * 59 + this.SortOrderChildGroups.GetHashCode();
+                if (this.SortOrderChildItems != null)
+                    hashCode = hashCode * 59 + this.SortOrderChildItems.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Visible != null)

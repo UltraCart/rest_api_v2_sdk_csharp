@@ -109,20 +109,24 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="comment">Comment recorded with the write that replaced this version..</param>
         /// <param name="containerHistoryOid">History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to..</param>
         /// <param name="containerName">Container name, where the owner has more than one container..</param>
-        /// <param name="createdDts">When this snapshot was taken, ISO 8601 UTC..</param>
+        /// <param name="contentCreatedDts">When this version&#39;s content was written, ISO 8601 UTC.  Same source and limits as content_edited_by..</param>
+        /// <param name="contentEditedBy">Login of whoever wrote this version&#39;s content, taken from the write recorded on the next older entry.  Absent on a create entry and on the oldest entry kept, such as a template body that was in place before any history.  Saves made outside this API, in the admin visual builder, are not recorded, so after one this names the previous API write..</param>
+        /// <param name="createdDts">When the write that replaced this version happened, ISO 8601 UTC.  On the current entry, when it was written..</param>
         /// <param name="current">True for the value currently stored..</param>
-        /// <param name="editedBy">Login of whoever caused this snapshot..</param>
+        /// <param name="editedBy">Login of whoever made the write that replaced this version.  On the current entry, whoever wrote it.  See content_edited_by for who wrote a history entry&#39;s content..</param>
         /// <param name="hashSha256">SHA-256 of this version&#39;s CJSON..</param>
         /// <param name="operation">What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here..</param>
         /// <param name="ownerObjectId">Owner object identifier..</param>
         /// <param name="ownerType">Owner type..</param>
         /// <param name="size">Size of this version&#39;s CJSON in bytes..</param>
-        public SfvbContainerVersion(string cjson = default(string), string comment = default(string), int containerHistoryOid = default(int), string containerName = default(string), string createdDts = default(string), bool current = default(bool), string editedBy = default(string), string hashSha256 = default(string), OperationEnum? operation = default(OperationEnum?), string ownerObjectId = default(string), OwnerTypeEnum? ownerType = default(OwnerTypeEnum?), int size = default(int))
+        public SfvbContainerVersion(string cjson = default(string), string comment = default(string), int containerHistoryOid = default(int), string containerName = default(string), string contentCreatedDts = default(string), string contentEditedBy = default(string), string createdDts = default(string), bool current = default(bool), string editedBy = default(string), string hashSha256 = default(string), OperationEnum? operation = default(OperationEnum?), string ownerObjectId = default(string), OwnerTypeEnum? ownerType = default(OwnerTypeEnum?), int size = default(int))
         {
             this.Cjson = cjson;
             this.Comment = comment;
             this.ContainerHistoryOid = containerHistoryOid;
             this.ContainerName = containerName;
+            this.ContentCreatedDts = contentCreatedDts;
+            this.ContentEditedBy = contentEditedBy;
             this.CreatedDts = createdDts;
             this.Current = current;
             this.EditedBy = editedBy;
@@ -162,9 +166,23 @@ namespace com.ultracart.admin.v2.Model
         public string ContainerName { get; set; }
 
         /// <summary>
-        /// When this snapshot was taken, ISO 8601 UTC.
+        /// When this version&#39;s content was written, ISO 8601 UTC.  Same source and limits as content_edited_by.
         /// </summary>
-        /// <value>When this snapshot was taken, ISO 8601 UTC.</value>
+        /// <value>When this version&#39;s content was written, ISO 8601 UTC.  Same source and limits as content_edited_by.</value>
+        [DataMember(Name="content_created_dts", EmitDefaultValue=false)]
+        public string ContentCreatedDts { get; set; }
+
+        /// <summary>
+        /// Login of whoever wrote this version&#39;s content, taken from the write recorded on the next older entry.  Absent on a create entry and on the oldest entry kept, such as a template body that was in place before any history.  Saves made outside this API, in the admin visual builder, are not recorded, so after one this names the previous API write.
+        /// </summary>
+        /// <value>Login of whoever wrote this version&#39;s content, taken from the write recorded on the next older entry.  Absent on a create entry and on the oldest entry kept, such as a template body that was in place before any history.  Saves made outside this API, in the admin visual builder, are not recorded, so after one this names the previous API write.</value>
+        [DataMember(Name="content_edited_by", EmitDefaultValue=false)]
+        public string ContentEditedBy { get; set; }
+
+        /// <summary>
+        /// When the write that replaced this version happened, ISO 8601 UTC.  On the current entry, when it was written.
+        /// </summary>
+        /// <value>When the write that replaced this version happened, ISO 8601 UTC.  On the current entry, when it was written.</value>
         [DataMember(Name="created_dts", EmitDefaultValue=false)]
         public string CreatedDts { get; set; }
 
@@ -176,9 +194,9 @@ namespace com.ultracart.admin.v2.Model
         public bool Current { get; set; }
 
         /// <summary>
-        /// Login of whoever caused this snapshot.
+        /// Login of whoever made the write that replaced this version.  On the current entry, whoever wrote it.  See content_edited_by for who wrote a history entry&#39;s content.
         /// </summary>
-        /// <value>Login of whoever caused this snapshot.</value>
+        /// <value>Login of whoever made the write that replaced this version.  On the current entry, whoever wrote it.  See content_edited_by for who wrote a history entry&#39;s content.</value>
         [DataMember(Name="edited_by", EmitDefaultValue=false)]
         public string EditedBy { get; set; }
 
@@ -217,6 +235,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Comment: ").Append(Comment).Append("\n");
             sb.Append("  ContainerHistoryOid: ").Append(ContainerHistoryOid).Append("\n");
             sb.Append("  ContainerName: ").Append(ContainerName).Append("\n");
+            sb.Append("  ContentCreatedDts: ").Append(ContentCreatedDts).Append("\n");
+            sb.Append("  ContentEditedBy: ").Append(ContentEditedBy).Append("\n");
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
             sb.Append("  Current: ").Append(Current).Append("\n");
             sb.Append("  EditedBy: ").Append(EditedBy).Append("\n");
@@ -280,6 +300,16 @@ namespace com.ultracart.admin.v2.Model
                     this.ContainerName.Equals(input.ContainerName))
                 ) && 
                 (
+                    this.ContentCreatedDts == input.ContentCreatedDts ||
+                    (this.ContentCreatedDts != null &&
+                    this.ContentCreatedDts.Equals(input.ContentCreatedDts))
+                ) && 
+                (
+                    this.ContentEditedBy == input.ContentEditedBy ||
+                    (this.ContentEditedBy != null &&
+                    this.ContentEditedBy.Equals(input.ContentEditedBy))
+                ) && 
+                (
                     this.CreatedDts == input.CreatedDts ||
                     (this.CreatedDts != null &&
                     this.CreatedDts.Equals(input.CreatedDts))
@@ -338,6 +368,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ContainerHistoryOid.GetHashCode();
                 if (this.ContainerName != null)
                     hashCode = hashCode * 59 + this.ContainerName.GetHashCode();
+                if (this.ContentCreatedDts != null)
+                    hashCode = hashCode * 59 + this.ContentCreatedDts.GetHashCode();
+                if (this.ContentEditedBy != null)
+                    hashCode = hashCode * 59 + this.ContentEditedBy.GetHashCode();
                 if (this.CreatedDts != null)
                     hashCode = hashCode * 59 + this.CreatedDts.GetHashCode();
                 if (this.Current != null)

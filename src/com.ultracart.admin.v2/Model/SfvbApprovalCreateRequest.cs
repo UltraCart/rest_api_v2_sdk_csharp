@@ -56,172 +56,178 @@ namespace com.ultracart.admin.v2.Model
             FilePutscript = 3,
 
             /// <summary>
+            /// Enum FilePuttemplate for value: file.put_template
+            /// </summary>
+            [EnumMember(Value = "file.put_template")]
+            FilePuttemplate = 4,
+
+            /// <summary>
             /// Enum RedirectDeletebatch for value: redirect.delete_batch
             /// </summary>
             [EnumMember(Value = "redirect.delete_batch")]
-            RedirectDeletebatch = 4,
+            RedirectDeletebatch = 5,
 
             /// <summary>
             /// Enum ExperimentStart for value: experiment.start
             /// </summary>
             [EnumMember(Value = "experiment.start")]
-            ExperimentStart = 5,
+            ExperimentStart = 6,
 
             /// <summary>
             /// Enum ExperimentEnd for value: experiment.end
             /// </summary>
             [EnumMember(Value = "experiment.end")]
-            ExperimentEnd = 6,
+            ExperimentEnd = 7,
 
             /// <summary>
             /// Enum UpsellEnable for value: upsell.enable
             /// </summary>
             [EnumMember(Value = "upsell.enable")]
-            UpsellEnable = 7,
+            UpsellEnable = 8,
 
             /// <summary>
             /// Enum ItemAttributebatch for value: item.attribute_batch
             /// </summary>
             [EnumMember(Value = "item.attribute_batch")]
-            ItemAttributebatch = 8,
+            ItemAttributebatch = 9,
 
             /// <summary>
             /// Enum ItemPricing for value: item.pricing
             /// </summary>
             [EnumMember(Value = "item.pricing")]
-            ItemPricing = 9,
+            ItemPricing = 10,
 
             /// <summary>
             /// Enum ItemPreorder for value: item.preorder
             /// </summary>
             [EnumMember(Value = "item.preorder")]
-            ItemPreorder = 10,
+            ItemPreorder = 11,
 
             /// <summary>
             /// Enum ItemVariations for value: item.variations
             /// </summary>
             [EnumMember(Value = "item.variations")]
-            ItemVariations = 11,
+            ItemVariations = 12,
 
             /// <summary>
             /// Enum ItemDefaultpage for value: item.default_page
             /// </summary>
             [EnumMember(Value = "item.default_page")]
-            ItemDefaultpage = 12,
+            ItemDefaultpage = 13,
 
             /// <summary>
             /// Enum TwilioaccountDelete for value: twilio_account.delete
             /// </summary>
             [EnumMember(Value = "twilio_account.delete")]
-            TwilioaccountDelete = 13,
+            TwilioaccountDelete = 14,
 
             /// <summary>
             /// Enum SendingdomainDelete for value: sending_domain.delete
             /// </summary>
             [EnumMember(Value = "sending_domain.delete")]
-            SendingdomainDelete = 14,
+            SendingdomainDelete = 15,
 
             /// <summary>
             /// Enum SequencestepDelete for value: sequence_step.delete
             /// </summary>
             [EnumMember(Value = "sequence_step.delete")]
-            SequencestepDelete = 15,
+            SequencestepDelete = 16,
 
             /// <summary>
             /// Enum SequencestepMove for value: sequence_step.move
             /// </summary>
             [EnumMember(Value = "sequence_step.move")]
-            SequencestepMove = 16,
+            SequencestepMove = 17,
 
             /// <summary>
             /// Enum SequencestepEnablepostcard for value: sequence_step.enable_postcard
             /// </summary>
             [EnumMember(Value = "sequence_step.enable_postcard")]
-            SequencestepEnablepostcard = 17,
+            SequencestepEnablepostcard = 18,
 
             /// <summary>
             /// Enum SegmentUpdate for value: segment.update
             /// </summary>
             [EnumMember(Value = "segment.update")]
-            SegmentUpdate = 18,
+            SegmentUpdate = 19,
 
             /// <summary>
             /// Enum SmartattributionChange for value: smart_attribution.change
             /// </summary>
             [EnumMember(Value = "smart_attribution.change")]
-            SmartattributionChange = 19,
+            SmartattributionChange = 20,
 
             /// <summary>
             /// Enum SmartattributionDelete for value: smart_attribution.delete
             /// </summary>
             [EnumMember(Value = "smart_attribution.delete")]
-            SmartattributionDelete = 20,
+            SmartattributionDelete = 21,
 
             /// <summary>
             /// Enum TrackingproviderChange for value: tracking_provider.change
             /// </summary>
             [EnumMember(Value = "tracking_provider.change")]
-            TrackingproviderChange = 21,
+            TrackingproviderChange = 22,
 
             /// <summary>
             /// Enum TrackingproviderClear for value: tracking_provider.clear
             /// </summary>
             [EnumMember(Value = "tracking_provider.clear")]
-            TrackingproviderClear = 22,
+            TrackingproviderClear = 23,
 
             /// <summary>
             /// Enum TrackinghtmlPut for value: tracking_html.put
             /// </summary>
             [EnumMember(Value = "tracking_html.put")]
-            TrackinghtmlPut = 23,
+            TrackinghtmlPut = 24,
 
             /// <summary>
             /// Enum AffiliatenetworkChange for value: affiliate_network.change
             /// </summary>
             [EnumMember(Value = "affiliate_network.change")]
-            AffiliatenetworkChange = 24,
+            AffiliatenetworkChange = 25,
 
             /// <summary>
             /// Enum AffiliatenetworkDelete for value: affiliate_network.delete
             /// </summary>
             [EnumMember(Value = "affiliate_network.delete")]
-            AffiliatenetworkDelete = 25,
+            AffiliatenetworkDelete = 26,
 
             /// <summary>
             /// Enum SiteseoChange for value: site_seo.change
             /// </summary>
             [EnumMember(Value = "site_seo.change")]
-            SiteseoChange = 26,
+            SiteseoChange = 27,
 
             /// <summary>
             /// Enum TransactionalemailUpdate for value: transactional_email.update
             /// </summary>
             [EnumMember(Value = "transactional_email.update")]
-            TransactionalemailUpdate = 27,
+            TransactionalemailUpdate = 28,
 
             /// <summary>
             /// Enum CommssettingsUpdate for value: comms_settings.update
             /// </summary>
             [EnumMember(Value = "comms_settings.update")]
-            CommssettingsUpdate = 28,
+            CommssettingsUpdate = 29,
 
             /// <summary>
             /// Enum CommslistImport for value: comms_list.import
             /// </summary>
             [EnumMember(Value = "comms_list.import")]
-            CommslistImport = 29,
+            CommslistImport = 30,
 
             /// <summary>
             /// Enum PostcardTestmail for value: postcard.test_mail
             /// </summary>
             [EnumMember(Value = "postcard.test_mail")]
-            PostcardTestmail = 30,
+            PostcardTestmail = 31,
 
             /// <summary>
             /// Enum FlowBackfill for value: flow.backfill
             /// </summary>
             [EnumMember(Value = "flow.backfill")]
-            FlowBackfill = 31
+            FlowBackfill = 32
 
         }
 
@@ -238,7 +244,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="affiliateNetwork">affiliateNetwork.</param>
         /// <param name="commsListImport">commsListImport.</param>
         /// <param name="commsSettings">commsSettings.</param>
-        /// <param name="content">For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version..</param>
+        /// <param name="content">For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version..</param>
         /// <param name="experimentStart">experimentStart.</param>
         /// <param name="flowBackfill">flowBackfill.</param>
         /// <param name="itemAttributeRows">For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash..</param>
@@ -302,9 +308,9 @@ namespace com.ultracart.admin.v2.Model
         public SfvbCommsSettingsUpdateRequest CommsSettings { get; set; }
 
         /// <summary>
-        /// For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
+        /// For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
         /// </summary>
-        /// <value>For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.</value>
+        /// <value>For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.</value>
         [DataMember(Name="content", EmitDefaultValue=false)]
         public string Content { get; set; }
 

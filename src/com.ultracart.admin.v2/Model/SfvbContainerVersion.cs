@@ -31,9 +31,9 @@ namespace com.ultracart.admin.v2.Model
     public partial class SfvbContainerVersion :  IEquatable<SfvbContainerVersion>, IValidatableObject
     {
         /// <summary>
-        /// What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here.
+        /// What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here; delete means it held the cjson recorded here and the write after it removed the container, so reverting to this entry puts that cjson back.
         /// </summary>
-        /// <value>What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here.</value>
+        /// <value>What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here; delete means it held the cjson recorded here and the write after it removed the container, so reverting to this entry puts that cjson back.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OperationEnum
         {
@@ -47,14 +47,20 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Update for value: update
             /// </summary>
             [EnumMember(Value = "update")]
-            Update = 2
+            Update = 2,
+
+            /// <summary>
+            /// Enum Delete for value: delete
+            /// </summary>
+            [EnumMember(Value = "delete")]
+            Delete = 3
 
         }
 
         /// <summary>
-        /// What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here.
+        /// What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here; delete means it held the cjson recorded here and the write after it removed the container, so reverting to this entry puts that cjson back.
         /// </summary>
-        /// <value>What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here.</value>
+        /// <value>What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here; delete means it held the cjson recorded here and the write after it removed the container, so reverting to this entry puts that cjson back.</value>
         [DataMember(Name="operation", EmitDefaultValue=false)]
         public OperationEnum? Operation { get; set; }
         /// <summary>
@@ -115,7 +121,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="current">True for the value currently stored..</param>
         /// <param name="editedBy">Login of whoever made the write that replaced this version.  On the current entry, whoever wrote it.  See content_edited_by for who wrote a history entry&#39;s content..</param>
         /// <param name="hashSha256">SHA-256 of this version&#39;s CJSON..</param>
-        /// <param name="operation">What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here..</param>
+        /// <param name="operation">What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here; delete means it held the cjson recorded here and the write after it removed the container, so reverting to this entry puts that cjson back..</param>
         /// <param name="ownerObjectId">Owner object identifier..</param>
         /// <param name="ownerType">Owner type..</param>
         /// <param name="size">Size of this version&#39;s CJSON in bytes..</param>

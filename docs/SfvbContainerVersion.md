@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Current** | **bool** | True for the value currently stored. | [optional] 
 **EditedBy** | **string** | Login of whoever made the write that replaced this version.  On the current entry, whoever wrote it.  See content_edited_by for who wrote a history entry&#39;s content. | [optional] 
 **HashSha256** | **string** | SHA-256 of this version&#39;s CJSON. | [optional] 
-**Operation** | **string** | What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here. | [optional] 
+**Operation** | **string** | What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here; delete means it held the cjson recorded here and the write after it removed the container, so reverting to this entry puts that cjson back. | [optional] 
 **OwnerObjectId** | **string** | Owner object identifier. | [optional] 
 **OwnerType** | **string** | Owner type. | [optional] 
 **Size** | **int** | Size of this version&#39;s CJSON in bytes. | [optional] 

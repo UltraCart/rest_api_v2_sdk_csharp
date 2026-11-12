@@ -31,6 +31,33 @@ namespace com.ultracart.admin.v2.Model
     public partial class SfvbApproval :  IEquatable<SfvbApproval>, IValidatableObject
     {
         /// <summary>
+        /// Who decided the request, once decided.
+        /// </summary>
+        /// <value>Who decided the request, once decided.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum DecidedByEnum
+        {
+            /// <summary>
+            /// Enum Requester for value: requester
+            /// </summary>
+            [EnumMember(Value = "requester")]
+            Requester = 1,
+
+            /// <summary>
+            /// Enum Delegate for value: delegate
+            /// </summary>
+            [EnumMember(Value = "delegate")]
+            Delegate = 2
+
+        }
+
+        /// <summary>
+        /// Who decided the request, once decided.
+        /// </summary>
+        /// <value>Who decided the request, once decided.</value>
+        [DataMember(Name="decided_by", EmitDefaultValue=false)]
+        public DecidedByEnum? DecidedBy { get; set; }
+        /// <summary>
         /// Once used, succeeded or failed.  Used with no outcome means the result is unknown.  Check the target and never send the call again with this approval.
         /// </summary>
         /// <value>Once used, succeeded or failed.  Used with no outcome means the result is unknown.  Check the target and never send the call again with this approval.</value>
@@ -127,6 +154,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="approvalId">Send this as the Approval-Id header on the gated call once status is approved..</param>
         /// <param name="approvalUrl">The page where the person approves or denies.  Show it to them.  Never open or fill it in yourself..</param>
         /// <param name="createdAt">When the request was made, ISO 8601 UTC..</param>
+        /// <param name="decidedBy">Who decided the request, once decided..</param>
+        /// <param name="delegateName">The name of the colleague the request was handed to, while it is.  Tell the person who is now deciding..</param>
+        /// <param name="delegated">True when the request was handed to a colleague to decide..</param>
         /// <param name="description">The sentence the person reads before approving.  Written by the server, not the agent..</param>
         /// <param name="expiresAt">When this approval stops being usable, ISO 8601 UTC.  For a pending request, when it lapses undecided.  For an approved one, when it must have been used by..</param>
         /// <param name="expiresInSeconds">Seconds until expires_at.  Zero once passed..</param>
@@ -143,12 +173,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="storefrontOid">The storefront the action runs on.  Absent for account-wide actions..</param>
         /// <param name="usedAt">When the gated call used this approval, ISO 8601 UTC..</param>
         /// <param name="userCode">Short matching code.  Print it next to approval_url so the person can check the page shows the same code..</param>
-        public SfvbApproval(string action = default(string), string approvalId = default(string), string approvalUrl = default(string), string createdAt = default(string), string description = default(string), string expiresAt = default(string), int expiresInSeconds = default(int), bool freshCodeRequired = default(bool), int intervalSeconds = default(int), OutcomeEnum? outcome = default(OutcomeEnum?), string outcomeCode = default(string), int outcomeHttpStatus = default(int), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), SfvbApprovalReview review = default(SfvbApprovalReview), string scope = default(string), StatusEnum? status = default(StatusEnum?), int storefrontOid = default(int), string usedAt = default(string), string userCode = default(string))
+        public SfvbApproval(string action = default(string), string approvalId = default(string), string approvalUrl = default(string), string createdAt = default(string), DecidedByEnum? decidedBy = default(DecidedByEnum?), string delegateName = default(string), bool delegated = default(bool), string description = default(string), string expiresAt = default(string), int expiresInSeconds = default(int), bool freshCodeRequired = default(bool), int intervalSeconds = default(int), OutcomeEnum? outcome = default(OutcomeEnum?), string outcomeCode = default(string), int outcomeHttpStatus = default(int), SfvbApprovalParams _params = default(SfvbApprovalParams), string reason = default(string), SfvbApprovalReview review = default(SfvbApprovalReview), string scope = default(string), StatusEnum? status = default(StatusEnum?), int storefrontOid = default(int), string usedAt = default(string), string userCode = default(string))
         {
             this.Action = action;
             this.ApprovalId = approvalId;
             this.ApprovalUrl = approvalUrl;
             this.CreatedAt = createdAt;
+            this.DecidedBy = decidedBy;
+            this.DelegateName = delegateName;
+            this.Delegated = delegated;
             this.Description = description;
             this.ExpiresAt = expiresAt;
             this.ExpiresInSeconds = expiresInSeconds;
@@ -194,6 +227,21 @@ namespace com.ultracart.admin.v2.Model
         /// <value>When the request was made, ISO 8601 UTC.</value>
         [DataMember(Name="created_at", EmitDefaultValue=false)]
         public string CreatedAt { get; set; }
+
+
+        /// <summary>
+        /// The name of the colleague the request was handed to, while it is.  Tell the person who is now deciding.
+        /// </summary>
+        /// <value>The name of the colleague the request was handed to, while it is.  Tell the person who is now deciding.</value>
+        [DataMember(Name="delegate_name", EmitDefaultValue=false)]
+        public string DelegateName { get; set; }
+
+        /// <summary>
+        /// True when the request was handed to a colleague to decide.
+        /// </summary>
+        /// <value>True when the request was handed to a colleague to decide.</value>
+        [DataMember(Name="delegated", EmitDefaultValue=false)]
+        public bool Delegated { get; set; }
 
         /// <summary>
         /// The sentence the person reads before approving.  Written by the server, not the agent.
@@ -305,6 +353,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ApprovalId: ").Append(ApprovalId).Append("\n");
             sb.Append("  ApprovalUrl: ").Append(ApprovalUrl).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  DecidedBy: ").Append(DecidedBy).Append("\n");
+            sb.Append("  DelegateName: ").Append(DelegateName).Append("\n");
+            sb.Append("  Delegated: ").Append(Delegated).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
             sb.Append("  ExpiresInSeconds: ").Append(ExpiresInSeconds).Append("\n");
@@ -374,6 +425,21 @@ namespace com.ultracart.admin.v2.Model
                     this.CreatedAt == input.CreatedAt ||
                     (this.CreatedAt != null &&
                     this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.DecidedBy == input.DecidedBy ||
+                    (this.DecidedBy != null &&
+                    this.DecidedBy.Equals(input.DecidedBy))
+                ) && 
+                (
+                    this.DelegateName == input.DelegateName ||
+                    (this.DelegateName != null &&
+                    this.DelegateName.Equals(input.DelegateName))
+                ) && 
+                (
+                    this.Delegated == input.Delegated ||
+                    (this.Delegated != null &&
+                    this.Delegated.Equals(input.Delegated))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -474,6 +540,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ApprovalUrl.GetHashCode();
                 if (this.CreatedAt != null)
                     hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                if (this.DecidedBy != null)
+                    hashCode = hashCode * 59 + this.DecidedBy.GetHashCode();
+                if (this.DelegateName != null)
+                    hashCode = hashCode * 59 + this.DelegateName.GetHashCode();
+                if (this.Delegated != null)
+                    hashCode = hashCode * 59 + this.Delegated.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.ExpiresAt != null)

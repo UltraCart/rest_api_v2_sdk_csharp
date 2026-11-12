@@ -245,6 +245,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="commsListImport">commsListImport.</param>
         /// <param name="commsSettings">commsSettings.</param>
         /// <param name="content">For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version..</param>
+        /// <param name="delegateEmail">Optional.  The email of a colleague on this account who should decide the request instead of the person who signed in.  They must hold an admin permission that covers the action; they get an email with a link and decide with their own authenticator code.  Any colleague who can&#39;t be used is refused with sfvb.delegate_not_allowed, for every reason alike.  The approval stays yours to poll and use..</param>
         /// <param name="experimentStart">experimentStart.</param>
         /// <param name="flowBackfill">flowBackfill.</param>
         /// <param name="itemAttributeRows">For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash..</param>
@@ -262,13 +263,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="smartAttribution">smartAttribution.</param>
         /// <param name="trackingProvider">trackingProvider.</param>
         /// <param name="transactionalEmail">transactionalEmail.</param>
-        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), SfvbCommsProviderImportRequest commsListImport = default(SfvbCommsProviderImportRequest), SfvbCommsSettingsUpdateRequest commsSettings = default(SfvbCommsSettingsUpdateRequest), string content = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), SfvbFlowBackfillRequest flowBackfill = default(SfvbFlowBackfillRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), List<SfvbItemDefaultPageRow> itemDefaultPageRows = default(List<SfvbItemDefaultPageRow>), SfvbItemPreorderRequest itemPreorder = default(SfvbItemPreorderRequest), SfvbItemPreorderChildrenRequest itemPreorderChildren = default(SfvbItemPreorderChildrenRequest), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbItemVariationsRequest itemVariations = default(SfvbItemVariationsRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), SfvbCommsTestPostcardRequest postcardTestMail = default(SfvbCommsTestPostcardRequest), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSiteSeoRequest siteSeo = default(SfvbSiteSeoRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest), SfvbTransactionalEmailUpdateRequest transactionalEmail = default(SfvbTransactionalEmailUpdateRequest))
+        public SfvbApprovalCreateRequest(ActionEnum? action = default(ActionEnum?), SfvbAffiliateNetworkRequest affiliateNetwork = default(SfvbAffiliateNetworkRequest), SfvbCommsProviderImportRequest commsListImport = default(SfvbCommsProviderImportRequest), SfvbCommsSettingsUpdateRequest commsSettings = default(SfvbCommsSettingsUpdateRequest), string content = default(string), string delegateEmail = default(string), SfvbExperimentStartRequest experimentStart = default(SfvbExperimentStartRequest), SfvbFlowBackfillRequest flowBackfill = default(SfvbFlowBackfillRequest), List<SfvbItemAttributeBatchRow> itemAttributeRows = default(List<SfvbItemAttributeBatchRow>), List<SfvbItemDefaultPageRow> itemDefaultPageRows = default(List<SfvbItemDefaultPageRow>), SfvbItemPreorderRequest itemPreorder = default(SfvbItemPreorderRequest), SfvbItemPreorderChildrenRequest itemPreorderChildren = default(SfvbItemPreorderChildrenRequest), SfvbItemPricingRequest itemPricing = default(SfvbItemPricingRequest), SfvbItemVariationsRequest itemVariations = default(SfvbItemVariationsRequest), SfvbApprovalParams _params = default(SfvbApprovalParams), SfvbCommsTestPostcardRequest postcardTestMail = default(SfvbCommsTestPostcardRequest), string reason = default(string), List<SfvbRedirectDeleteRow> redirectRows = default(List<SfvbRedirectDeleteRow>), SfvbCommsSegmentWriteRequest segmentUpdate = default(SfvbCommsSegmentWriteRequest), SfvbSiteSeoRequest siteSeo = default(SfvbSiteSeoRequest), SfvbSmartAttributionRequest smartAttribution = default(SfvbSmartAttributionRequest), SfvbTrackingProviderRequest trackingProvider = default(SfvbTrackingProviderRequest), SfvbTransactionalEmailUpdateRequest transactionalEmail = default(SfvbTransactionalEmailUpdateRequest))
         {
             this.Action = action;
             this.AffiliateNetwork = affiliateNetwork;
             this.CommsListImport = commsListImport;
             this.CommsSettings = commsSettings;
             this.Content = content;
+            this.DelegateEmail = delegateEmail;
             this.ExperimentStart = experimentStart;
             this.FlowBackfill = flowBackfill;
             this.ItemAttributeRows = itemAttributeRows;
@@ -313,6 +315,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.</value>
         [DataMember(Name="content", EmitDefaultValue=false)]
         public string Content { get; set; }
+
+        /// <summary>
+        /// Optional.  The email of a colleague on this account who should decide the request instead of the person who signed in.  They must hold an admin permission that covers the action; they get an email with a link and decide with their own authenticator code.  Any colleague who can&#39;t be used is refused with sfvb.delegate_not_allowed, for every reason alike.  The approval stays yours to poll and use.
+        /// </summary>
+        /// <value>Optional.  The email of a colleague on this account who should decide the request instead of the person who signed in.  They must hold an admin permission that covers the action; they get an email with a link and decide with their own authenticator code.  Any colleague who can&#39;t be used is refused with sfvb.delegate_not_allowed, for every reason alike.  The approval stays yours to poll and use.</value>
+        [DataMember(Name="delegate_email", EmitDefaultValue=false)]
+        public string DelegateEmail { get; set; }
 
         /// <summary>
         /// Gets or Sets ExperimentStart
@@ -433,6 +442,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CommsListImport: ").Append(CommsListImport).Append("\n");
             sb.Append("  CommsSettings: ").Append(CommsSettings).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
+            sb.Append("  DelegateEmail: ").Append(DelegateEmail).Append("\n");
             sb.Append("  ExperimentStart: ").Append(ExperimentStart).Append("\n");
             sb.Append("  FlowBackfill: ").Append(FlowBackfill).Append("\n");
             sb.Append("  ItemAttributeRows: ").Append(ItemAttributeRows).Append("\n");
@@ -508,6 +518,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Content == input.Content ||
                     (this.Content != null &&
                     this.Content.Equals(input.Content))
+                ) && 
+                (
+                    this.DelegateEmail == input.DelegateEmail ||
+                    (this.DelegateEmail != null &&
+                    this.DelegateEmail.Equals(input.DelegateEmail))
                 ) && 
                 (
                     this.ExperimentStart == input.ExperimentStart ||
@@ -618,6 +633,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CommsSettings.GetHashCode();
                 if (this.Content != null)
                     hashCode = hashCode * 59 + this.Content.GetHashCode();
+                if (this.DelegateEmail != null)
+                    hashCode = hashCode * 59 + this.DelegateEmail.GetHashCode();
                 if (this.ExperimentStart != null)
                     hashCode = hashCode * 59 + this.ExperimentStart.GetHashCode();
                 if (this.FlowBackfill != null)

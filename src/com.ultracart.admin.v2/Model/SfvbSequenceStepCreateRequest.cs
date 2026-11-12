@@ -36,19 +36,21 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="acknowledgeExecutable">With library_item_oid, true once the caller has seen that the item carries executable content (script, html, embed, css or velocity elements) and still wants it.  An item with any is refused without it..</param>
         /// <param name="afterStepUuid">The step the new step follows, in the same list.  Not an end, continue or merge step..</param>
         /// <param name="branchStepUuid">A condition, split or inboxgeek step.  With side, the new step goes first on that side..</param>
-        /// <param name="configJson">A wait step&#39;s settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step..</param>
+        /// <param name="configJson">A wait step&#39;s settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  For a split, percentage_left (0.01 to 0.99, 0.5 by default) and merchant_notes.  For a condition, reverse, disabled and merchant_notes.  Not for an email step..</param>
+        /// <param name="filterProfileEquationJson">A condition step&#39;s rule, required for one, as an audience filter in the shape segments use.  Customers who match go to the yes side.  Only for a condition step..</param>
         /// <param name="libraryItemOid">An email item from the code library (#1589) to start the new email from, taking its body, with new element ids, and its subject and preview text unless subject or preview_text is given.  The item must be this account&#39;s own, shared with it, or published, approved by UltraCart and free.  Only for an email step.  The items are listed by the code library email read..</param>
         /// <param name="name">A post_card step&#39;s name, shown in the admin, 1 to 100 characters on one line.  Postcard by default.  Only for a post_card step..</param>
         /// <param name="previewText">The new email&#39;s preview text, 5 to 150 characters.  Optional with library_item_oid, whose preview text is used when this is left out..</param>
         /// <param name="side">With branch_step_uuid, the side&#39;s label from the sequence read.  yes or no for a condition, left or right for a split or inboxgeek step..</param>
         /// <param name="subject">The new email&#39;s subject line, 5 to 150 characters.  Optional with library_item_oid, whose subject is used when this is left out..</param>
-        /// <param name="type">The kind of step, one of email (the default), wait or post_card..</param>
-        public SfvbSequenceStepCreateRequest(bool acknowledgeExecutable = default(bool), string afterStepUuid = default(string), string branchStepUuid = default(string), string configJson = default(string), int libraryItemOid = default(int), string name = default(string), string previewText = default(string), string side = default(string), string subject = default(string), string type = default(string))
+        /// <param name="type">The kind of step, one of email (the default), wait, post_card, split or condition..</param>
+        public SfvbSequenceStepCreateRequest(bool acknowledgeExecutable = default(bool), string afterStepUuid = default(string), string branchStepUuid = default(string), string configJson = default(string), string filterProfileEquationJson = default(string), int libraryItemOid = default(int), string name = default(string), string previewText = default(string), string side = default(string), string subject = default(string), string type = default(string))
         {
             this.AcknowledgeExecutable = acknowledgeExecutable;
             this.AfterStepUuid = afterStepUuid;
             this.BranchStepUuid = branchStepUuid;
             this.ConfigJson = configJson;
+            this.FilterProfileEquationJson = filterProfileEquationJson;
             this.LibraryItemOid = libraryItemOid;
             this.Name = name;
             this.PreviewText = previewText;
@@ -79,11 +81,18 @@ namespace com.ultracart.admin.v2.Model
         public string BranchStepUuid { get; set; }
 
         /// <summary>
-        /// A wait step&#39;s settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step.
+        /// A wait step&#39;s settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  For a split, percentage_left (0.01 to 0.99, 0.5 by default) and merchant_notes.  For a condition, reverse, disabled and merchant_notes.  Not for an email step.
         /// </summary>
-        /// <value>A wait step&#39;s settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step.</value>
+        /// <value>A wait step&#39;s settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  For a split, percentage_left (0.01 to 0.99, 0.5 by default) and merchant_notes.  For a condition, reverse, disabled and merchant_notes.  Not for an email step.</value>
         [DataMember(Name="config_json", EmitDefaultValue=false)]
         public string ConfigJson { get; set; }
+
+        /// <summary>
+        /// A condition step&#39;s rule, required for one, as an audience filter in the shape segments use.  Customers who match go to the yes side.  Only for a condition step.
+        /// </summary>
+        /// <value>A condition step&#39;s rule, required for one, as an audience filter in the shape segments use.  Customers who match go to the yes side.  Only for a condition step.</value>
+        [DataMember(Name="filter_profile_equation_json", EmitDefaultValue=false)]
+        public string FilterProfileEquationJson { get; set; }
 
         /// <summary>
         /// An email item from the code library (#1589) to start the new email from, taking its body, with new element ids, and its subject and preview text unless subject or preview_text is given.  The item must be this account&#39;s own, shared with it, or published, approved by UltraCart and free.  Only for an email step.  The items are listed by the code library email read.
@@ -121,9 +130,9 @@ namespace com.ultracart.admin.v2.Model
         public string Subject { get; set; }
 
         /// <summary>
-        /// The kind of step, one of email (the default), wait or post_card.
+        /// The kind of step, one of email (the default), wait, post_card, split or condition.
         /// </summary>
-        /// <value>The kind of step, one of email (the default), wait or post_card.</value>
+        /// <value>The kind of step, one of email (the default), wait, post_card, split or condition.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -139,6 +148,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AfterStepUuid: ").Append(AfterStepUuid).Append("\n");
             sb.Append("  BranchStepUuid: ").Append(BranchStepUuid).Append("\n");
             sb.Append("  ConfigJson: ").Append(ConfigJson).Append("\n");
+            sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
             sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  PreviewText: ").Append(PreviewText).Append("\n");
@@ -200,6 +210,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ConfigJson.Equals(input.ConfigJson))
                 ) && 
                 (
+                    this.FilterProfileEquationJson == input.FilterProfileEquationJson ||
+                    (this.FilterProfileEquationJson != null &&
+                    this.FilterProfileEquationJson.Equals(input.FilterProfileEquationJson))
+                ) && 
+                (
                     this.LibraryItemOid == input.LibraryItemOid ||
                     (this.LibraryItemOid != null &&
                     this.LibraryItemOid.Equals(input.LibraryItemOid))
@@ -248,6 +263,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.BranchStepUuid.GetHashCode();
                 if (this.ConfigJson != null)
                     hashCode = hashCode * 59 + this.ConfigJson.GetHashCode();
+                if (this.FilterProfileEquationJson != null)
+                    hashCode = hashCode * 59 + this.FilterProfileEquationJson.GetHashCode();
                 if (this.LibraryItemOid != null)
                     hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
                 if (this.Name != null)

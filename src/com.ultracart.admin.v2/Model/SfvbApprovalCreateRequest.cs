@@ -227,7 +227,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum FlowBackfill for value: flow.backfill
             /// </summary>
             [EnumMember(Value = "flow.backfill")]
-            FlowBackfill = 32
+            FlowBackfill = 32,
+
+            /// <summary>
+            /// Enum PageMove for value: page.move
+            /// </summary>
+            [EnumMember(Value = "page.move")]
+            PageMove = 33
 
         }
 

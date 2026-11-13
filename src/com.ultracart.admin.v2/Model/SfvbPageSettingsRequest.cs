@@ -31,6 +31,27 @@ namespace com.ultracart.admin.v2.Model
     public partial class SfvbPageSettingsRequest :  IEquatable<SfvbPageSettingsRequest>, IValidatableObject
     {
         /// <summary>
+        /// 301 to redirect the page&#39;s address to redirect_target in the same call (#1102).  Only with visible false, on a page that is visible now.  The page is hidden and the rule added together, or neither.
+        /// </summary>
+        /// <value>301 to redirect the page&#39;s address to redirect_target in the same call (#1102).  Only with visible false, on a page that is visible now.  The page is hidden and the rule added together, or neither.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RedirectOldUrlEnum
+        {
+            /// <summary>
+            /// Enum _301 for value: 301
+            /// </summary>
+            [EnumMember(Value = "301")]
+            _301 = 1
+
+        }
+
+        /// <summary>
+        /// 301 to redirect the page&#39;s address to redirect_target in the same call (#1102).  Only with visible false, on a page that is visible now.  The page is hidden and the rule added together, or neither.
+        /// </summary>
+        /// <value>301 to redirect the page&#39;s address to redirect_target in the same call (#1102).  Only with visible false, on a page that is visible now.  The page is hidden and the rule added together, or neither.</value>
+        [DataMember(Name="redirect_old_url", EmitDefaultValue=false)]
+        public RedirectOldUrlEnum? RedirectOldUrl { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="SfvbPageSettingsRequest" /> class.
         /// </summary>
         /// <param name="blogPostTemplate">Template that renders the blog posts under this page..</param>
@@ -40,6 +61,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="itemTemplate">Template that renders the item pages under this page..</param>
         /// <param name="itemsPerPage">Items per page on a template that paginates.  Null returns to the template&#39;s default..</param>
         /// <param name="pageType">S for a static page, D for a dynamic one..</param>
+        /// <param name="redirectNote">The note on that redirect rule.  Up to 500 characters.  A note naming the page is used when left out..</param>
+        /// <param name="redirectOldUrl">301 to redirect the page&#39;s address to redirect_target in the same call (#1102).  Only with visible false, on a page that is visible now.  The page is hidden and the rule added together, or neither..</param>
+        /// <param name="redirectTarget">Where the hidden page&#39;s address redirects to, for example /lp/summer-sale/.  Required with redirect_old_url, and checked like any redirect rule..</param>
         /// <param name="reviewTemplate">Template that renders the item review pages under this page..</param>
         /// <param name="sortOrder">Position among its siblings when the parent sorts child pages by a custom order.  Null clears it..</param>
         /// <param name="sortOrderChildGroups">How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom..</param>
@@ -47,7 +71,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="title">The page title..</param>
         /// <param name="visible">False hides the page, so it answers 404 to shoppers.  The root page cannot be hidden..</param>
         /// <param name="visibleDts">Keep the page hidden until this time (ISO 8601).  Null or empty clears it..</param>
-        public SfvbPageSettingsRequest(string blogPostTemplate = default(string), string description = default(string), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), int itemsPerPage = default(int), string pageType = default(string), string reviewTemplate = default(string), int sortOrder = default(int), string sortOrderChildGroups = default(string), string sortOrderChildItems = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
+        public SfvbPageSettingsRequest(string blogPostTemplate = default(string), string description = default(string), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), int itemsPerPage = default(int), string pageType = default(string), string redirectNote = default(string), RedirectOldUrlEnum? redirectOldUrl = default(RedirectOldUrlEnum?), string redirectTarget = default(string), string reviewTemplate = default(string), int sortOrder = default(int), string sortOrderChildGroups = default(string), string sortOrderChildItems = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
         {
             this.BlogPostTemplate = blogPostTemplate;
             this.Description = description;
@@ -56,6 +80,9 @@ namespace com.ultracart.admin.v2.Model
             this.ItemTemplate = itemTemplate;
             this.ItemsPerPage = itemsPerPage;
             this.PageType = pageType;
+            this.RedirectNote = redirectNote;
+            this.RedirectOldUrl = redirectOldUrl;
+            this.RedirectTarget = redirectTarget;
             this.ReviewTemplate = reviewTemplate;
             this.SortOrder = sortOrder;
             this.SortOrderChildGroups = sortOrderChildGroups;
@@ -113,6 +140,21 @@ namespace com.ultracart.admin.v2.Model
         /// <value>S for a static page, D for a dynamic one.</value>
         [DataMember(Name="page_type", EmitDefaultValue=false)]
         public string PageType { get; set; }
+
+        /// <summary>
+        /// The note on that redirect rule.  Up to 500 characters.  A note naming the page is used when left out.
+        /// </summary>
+        /// <value>The note on that redirect rule.  Up to 500 characters.  A note naming the page is used when left out.</value>
+        [DataMember(Name="redirect_note", EmitDefaultValue=false)]
+        public string RedirectNote { get; set; }
+
+
+        /// <summary>
+        /// Where the hidden page&#39;s address redirects to, for example /lp/summer-sale/.  Required with redirect_old_url, and checked like any redirect rule.
+        /// </summary>
+        /// <value>Where the hidden page&#39;s address redirects to, for example /lp/summer-sale/.  Required with redirect_old_url, and checked like any redirect rule.</value>
+        [DataMember(Name="redirect_target", EmitDefaultValue=false)]
+        public string RedirectTarget { get; set; }
 
         /// <summary>
         /// Template that renders the item review pages under this page.
@@ -178,6 +220,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ItemTemplate: ").Append(ItemTemplate).Append("\n");
             sb.Append("  ItemsPerPage: ").Append(ItemsPerPage).Append("\n");
             sb.Append("  PageType: ").Append(PageType).Append("\n");
+            sb.Append("  RedirectNote: ").Append(RedirectNote).Append("\n");
+            sb.Append("  RedirectOldUrl: ").Append(RedirectOldUrl).Append("\n");
+            sb.Append("  RedirectTarget: ").Append(RedirectTarget).Append("\n");
             sb.Append("  ReviewTemplate: ").Append(ReviewTemplate).Append("\n");
             sb.Append("  SortOrder: ").Append(SortOrder).Append("\n");
             sb.Append("  SortOrderChildGroups: ").Append(SortOrderChildGroups).Append("\n");
@@ -255,6 +300,21 @@ namespace com.ultracart.admin.v2.Model
                     this.PageType.Equals(input.PageType))
                 ) && 
                 (
+                    this.RedirectNote == input.RedirectNote ||
+                    (this.RedirectNote != null &&
+                    this.RedirectNote.Equals(input.RedirectNote))
+                ) && 
+                (
+                    this.RedirectOldUrl == input.RedirectOldUrl ||
+                    (this.RedirectOldUrl != null &&
+                    this.RedirectOldUrl.Equals(input.RedirectOldUrl))
+                ) && 
+                (
+                    this.RedirectTarget == input.RedirectTarget ||
+                    (this.RedirectTarget != null &&
+                    this.RedirectTarget.Equals(input.RedirectTarget))
+                ) && 
+                (
                     this.ReviewTemplate == input.ReviewTemplate ||
                     (this.ReviewTemplate != null &&
                     this.ReviewTemplate.Equals(input.ReviewTemplate))
@@ -314,6 +374,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ItemsPerPage.GetHashCode();
                 if (this.PageType != null)
                     hashCode = hashCode * 59 + this.PageType.GetHashCode();
+                if (this.RedirectNote != null)
+                    hashCode = hashCode * 59 + this.RedirectNote.GetHashCode();
+                if (this.RedirectOldUrl != null)
+                    hashCode = hashCode * 59 + this.RedirectOldUrl.GetHashCode();
+                if (this.RedirectTarget != null)
+                    hashCode = hashCode * 59 + this.RedirectTarget.GetHashCode();
                 if (this.ReviewTemplate != null)
                     hashCode = hashCode * 59 + this.ReviewTemplate.GetHashCode();
                 if (this.SortOrder != null)

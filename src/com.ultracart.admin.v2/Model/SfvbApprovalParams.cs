@@ -71,7 +71,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="experimentOid">For experiment.end, the experiment to end..</param>
         /// <param name="itemCount">For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server..</param>
         /// <param name="merchantItemOid">For item.pricing, the item whose pricing changes..</param>
+        /// <param name="newPath">For page.move, where the page goes, exactly as the move will send it.  path is the page as it is now..</param>
+        /// <param name="pagesMoved">For page.move, how many pages move, the page itself included, when it was requested.  Set by the server..</param>
         /// <param name="path">The file path, for file.delete, file.put_script and file.put_template, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it..</param>
+        /// <param name="redirectOldUrl">For page.move, 301 when the move also redirects the old addresses, as the move will send it.  Left out or none for no redirect..</param>
         /// <param name="requestSha256">For experiment.start of a url experiment, the hash of the checked experiment approved, for item.pricing, tracking_provider.change and affiliate_network.change the hash of the change, and for smart_attribution.change the hash of the configuration the change would store.  Set by the server.  The gated call must send the same..</param>
         /// <param name="rowsSha256">For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash..</param>
         /// <param name="ruleCount">For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server..</param>
@@ -86,7 +89,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="version">For file.put_script and file.put_template, the history version a revert restores.  Leave it out, and send content instead, for a write..</param>
         /// <param name="widgetId">For experiment.start of a page experiment, the id of the experiment element..</param>
         /// <param name="winnerVariationNumber">For experiment.end, the winning variation.  Leave it out to end without a winner, and leave it out of the end call too..</param>
-        public SfvbApprovalParams(int affiliateNetworkOid = default(int), string afterStepUuid = default(string), List<string> attributeNames = default(List<string>), int blogPostOid = default(int), string branchStepUuid = default(string), string contentSha256 = default(string), string domain = default(string), string espTwilioUuid = default(string), int experimentOid = default(int), int itemCount = default(int), int merchantItemOid = default(int), string path = default(string), string requestSha256 = default(string), string rowsSha256 = default(string), int ruleCount = default(int), string segmentUuid = default(string), string sequenceUuid = default(string), string side = default(string), string slot = default(string), string stepUuid = default(string), string trackingProvider = default(string), UpsellKindEnum? upsellKind = default(UpsellKindEnum?), int upsellOid = default(int), int version = default(int), string widgetId = default(string), int winnerVariationNumber = default(int))
+        public SfvbApprovalParams(int affiliateNetworkOid = default(int), string afterStepUuid = default(string), List<string> attributeNames = default(List<string>), int blogPostOid = default(int), string branchStepUuid = default(string), string contentSha256 = default(string), string domain = default(string), string espTwilioUuid = default(string), int experimentOid = default(int), int itemCount = default(int), int merchantItemOid = default(int), string newPath = default(string), int pagesMoved = default(int), string path = default(string), string redirectOldUrl = default(string), string requestSha256 = default(string), string rowsSha256 = default(string), int ruleCount = default(int), string segmentUuid = default(string), string sequenceUuid = default(string), string side = default(string), string slot = default(string), string stepUuid = default(string), string trackingProvider = default(string), UpsellKindEnum? upsellKind = default(UpsellKindEnum?), int upsellOid = default(int), int version = default(int), string widgetId = default(string), int winnerVariationNumber = default(int))
         {
             this.AffiliateNetworkOid = affiliateNetworkOid;
             this.AfterStepUuid = afterStepUuid;
@@ -99,7 +102,10 @@ namespace com.ultracart.admin.v2.Model
             this.ExperimentOid = experimentOid;
             this.ItemCount = itemCount;
             this.MerchantItemOid = merchantItemOid;
+            this.NewPath = newPath;
+            this.PagesMoved = pagesMoved;
             this.Path = path;
+            this.RedirectOldUrl = redirectOldUrl;
             this.RequestSha256 = requestSha256;
             this.RowsSha256 = rowsSha256;
             this.RuleCount = ruleCount;
@@ -194,11 +200,32 @@ namespace com.ultracart.admin.v2.Model
         public int MerchantItemOid { get; set; }
 
         /// <summary>
+        /// For page.move, where the page goes, exactly as the move will send it.  path is the page as it is now.
+        /// </summary>
+        /// <value>For page.move, where the page goes, exactly as the move will send it.  path is the page as it is now.</value>
+        [DataMember(Name="new_path", EmitDefaultValue=false)]
+        public string NewPath { get; set; }
+
+        /// <summary>
+        /// For page.move, how many pages move, the page itself included, when it was requested.  Set by the server.
+        /// </summary>
+        /// <value>For page.move, how many pages move, the page itself included, when it was requested.  Set by the server.</value>
+        [DataMember(Name="pages_moved", EmitDefaultValue=false)]
+        public int PagesMoved { get; set; }
+
+        /// <summary>
         /// The file path, for file.delete, file.put_script and file.put_template, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.
         /// </summary>
         /// <value>The file path, for file.delete, file.put_script and file.put_template, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.</value>
         [DataMember(Name="path", EmitDefaultValue=false)]
         public string Path { get; set; }
+
+        /// <summary>
+        /// For page.move, 301 when the move also redirects the old addresses, as the move will send it.  Left out or none for no redirect.
+        /// </summary>
+        /// <value>For page.move, 301 when the move also redirects the old addresses, as the move will send it.  Left out or none for no redirect.</value>
+        [DataMember(Name="redirect_old_url", EmitDefaultValue=false)]
+        public string RedirectOldUrl { get; set; }
 
         /// <summary>
         /// For experiment.start of a url experiment, the hash of the checked experiment approved, for item.pricing, tracking_provider.change and affiliate_network.change the hash of the change, and for smart_attribution.change the hash of the configuration the change would store.  Set by the server.  The gated call must send the same.
@@ -311,7 +338,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ExperimentOid: ").Append(ExperimentOid).Append("\n");
             sb.Append("  ItemCount: ").Append(ItemCount).Append("\n");
             sb.Append("  MerchantItemOid: ").Append(MerchantItemOid).Append("\n");
+            sb.Append("  NewPath: ").Append(NewPath).Append("\n");
+            sb.Append("  PagesMoved: ").Append(PagesMoved).Append("\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("  RedirectOldUrl: ").Append(RedirectOldUrl).Append("\n");
             sb.Append("  RequestSha256: ").Append(RequestSha256).Append("\n");
             sb.Append("  RowsSha256: ").Append(RowsSha256).Append("\n");
             sb.Append("  RuleCount: ").Append(RuleCount).Append("\n");
@@ -417,9 +447,24 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantItemOid.Equals(input.MerchantItemOid))
                 ) && 
                 (
+                    this.NewPath == input.NewPath ||
+                    (this.NewPath != null &&
+                    this.NewPath.Equals(input.NewPath))
+                ) && 
+                (
+                    this.PagesMoved == input.PagesMoved ||
+                    (this.PagesMoved != null &&
+                    this.PagesMoved.Equals(input.PagesMoved))
+                ) && 
+                (
                     this.Path == input.Path ||
                     (this.Path != null &&
                     this.Path.Equals(input.Path))
+                ) && 
+                (
+                    this.RedirectOldUrl == input.RedirectOldUrl ||
+                    (this.RedirectOldUrl != null &&
+                    this.RedirectOldUrl.Equals(input.RedirectOldUrl))
                 ) && 
                 (
                     this.RequestSha256 == input.RequestSha256 ||
@@ -524,8 +569,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ItemCount.GetHashCode();
                 if (this.MerchantItemOid != null)
                     hashCode = hashCode * 59 + this.MerchantItemOid.GetHashCode();
+                if (this.NewPath != null)
+                    hashCode = hashCode * 59 + this.NewPath.GetHashCode();
+                if (this.PagesMoved != null)
+                    hashCode = hashCode * 59 + this.PagesMoved.GetHashCode();
                 if (this.Path != null)
                     hashCode = hashCode * 59 + this.Path.GetHashCode();
+                if (this.RedirectOldUrl != null)
+                    hashCode = hashCode * 59 + this.RedirectOldUrl.GetHashCode();
                 if (this.RequestSha256 != null)
                     hashCode = hashCode * 59 + this.RequestSha256.GetHashCode();
                 if (this.RowsSha256 != null)

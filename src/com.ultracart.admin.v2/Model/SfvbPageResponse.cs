@@ -43,6 +43,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="multimedia">The page&#39;s images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first..</param>
         /// <param name="pageType">S for a static page, D for a dynamic one..</param>
         /// <param name="path">The page path, normalized to begin and end with a slash..</param>
+        /// <param name="redirect">redirect.</param>
+        /// <param name="redirectWarnings">Findings on that redirect that did not block it, such as a chain.  Left out when there are none..</param>
         /// <param name="reviewTemplate">Template that renders the item review pages under this page.  Omitted when not set..</param>
         /// <param name="sortOrder">Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set..</param>
         /// <param name="sortOrderChildGroups">How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom..</param>
@@ -50,7 +52,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="title">The page title..</param>
         /// <param name="visible">False when the page is hidden.  A hidden page answers 404 to shoppers..</param>
         /// <param name="visibleDts">When set, the page stays hidden until this time (ISO 8601, UTC)..</param>
-        public SfvbPageResponse(List<SfvbPageAttribute> attributes = default(List<SfvbPageAttribute>), string blogPostTemplate = default(string), string description = default(string), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), int itemsPerPage = default(int), List<SfvbPageMultimedia> multimedia = default(List<SfvbPageMultimedia>), string pageType = default(string), string path = default(string), string reviewTemplate = default(string), int sortOrder = default(int), string sortOrderChildGroups = default(string), string sortOrderChildItems = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
+        public SfvbPageResponse(List<SfvbPageAttribute> attributes = default(List<SfvbPageAttribute>), string blogPostTemplate = default(string), string description = default(string), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), int itemsPerPage = default(int), List<SfvbPageMultimedia> multimedia = default(List<SfvbPageMultimedia>), string pageType = default(string), string path = default(string), SfvbRedirect redirect = default(SfvbRedirect), List<SfvbErrorDetail> redirectWarnings = default(List<SfvbErrorDetail>), string reviewTemplate = default(string), int sortOrder = default(int), string sortOrderChildGroups = default(string), string sortOrderChildItems = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
         {
             this.Attributes = attributes;
             this.BlogPostTemplate = blogPostTemplate;
@@ -62,6 +64,8 @@ namespace com.ultracart.admin.v2.Model
             this.Multimedia = multimedia;
             this.PageType = pageType;
             this.Path = path;
+            this.Redirect = redirect;
+            this.RedirectWarnings = redirectWarnings;
             this.ReviewTemplate = reviewTemplate;
             this.SortOrder = sortOrder;
             this.SortOrderChildGroups = sortOrderChildGroups;
@@ -142,6 +146,19 @@ namespace com.ultracart.admin.v2.Model
         public string Path { get; set; }
 
         /// <summary>
+        /// Gets or Sets Redirect
+        /// </summary>
+        [DataMember(Name="redirect", EmitDefaultValue=false)]
+        public SfvbRedirect Redirect { get; set; }
+
+        /// <summary>
+        /// Findings on that redirect that did not block it, such as a chain.  Left out when there are none.
+        /// </summary>
+        /// <value>Findings on that redirect that did not block it, such as a chain.  Left out when there are none.</value>
+        [DataMember(Name="redirect_warnings", EmitDefaultValue=false)]
+        public List<SfvbErrorDetail> RedirectWarnings { get; set; }
+
+        /// <summary>
         /// Template that renders the item review pages under this page.  Omitted when not set.
         /// </summary>
         /// <value>Template that renders the item review pages under this page.  Omitted when not set.</value>
@@ -208,6 +225,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Multimedia: ").Append(Multimedia).Append("\n");
             sb.Append("  PageType: ").Append(PageType).Append("\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("  Redirect: ").Append(Redirect).Append("\n");
+            sb.Append("  RedirectWarnings: ").Append(RedirectWarnings).Append("\n");
             sb.Append("  ReviewTemplate: ").Append(ReviewTemplate).Append("\n");
             sb.Append("  SortOrder: ").Append(SortOrder).Append("\n");
             sb.Append("  SortOrderChildGroups: ").Append(SortOrderChildGroups).Append("\n");
@@ -302,6 +321,17 @@ namespace com.ultracart.admin.v2.Model
                     this.Path.Equals(input.Path))
                 ) && 
                 (
+                    this.Redirect == input.Redirect ||
+                    (this.Redirect != null &&
+                    this.Redirect.Equals(input.Redirect))
+                ) && 
+                (
+                    this.RedirectWarnings == input.RedirectWarnings ||
+                    this.RedirectWarnings != null &&
+                    input.RedirectWarnings != null &&
+                    this.RedirectWarnings.SequenceEqual(input.RedirectWarnings)
+                ) && 
+                (
                     this.ReviewTemplate == input.ReviewTemplate ||
                     (this.ReviewTemplate != null &&
                     this.ReviewTemplate.Equals(input.ReviewTemplate))
@@ -367,6 +397,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PageType.GetHashCode();
                 if (this.Path != null)
                     hashCode = hashCode * 59 + this.Path.GetHashCode();
+                if (this.Redirect != null)
+                    hashCode = hashCode * 59 + this.Redirect.GetHashCode();
+                if (this.RedirectWarnings != null)
+                    hashCode = hashCode * 59 + this.RedirectWarnings.GetHashCode();
                 if (this.ReviewTemplate != null)
                     hashCode = hashCode * 59 + this.ReviewTemplate.GetHashCode();
                 if (this.SortOrder != null)

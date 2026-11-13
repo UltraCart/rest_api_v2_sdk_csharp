@@ -3312,6 +3312,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbRedirectsResponse</returns>
         ApiResponse<SfvbRedirectsResponse> GetSfvbRedirectsWithHttpInfo (int storefrontOid, string q = default(string), string type = default(string), string status = default(string));
         /// <summary>
+        /// Read the storefront's faceted search configuration
+        /// </summary>
+        /// <remarks>
+        /// Every facet the storefront can offer shoppers - the standard ones and one per item attribute on the storefront - with its heading and whether it is on, in the fixed order shoppers see them, and the Cost facet's price breaks.  The same settings as the store admin's Faceted Search Results.  Send hash_sha256 as If-Match to change them. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbSearchFacetsResponse</returns>
+        SfvbSearchFacetsResponse GetSfvbSearchFacets (int storefrontOid);
+
+        /// <summary>
+        /// Read the storefront's faceted search configuration
+        /// </summary>
+        /// <remarks>
+        /// Every facet the storefront can offer shoppers - the standard ones and one per item attribute on the storefront - with its heading and whether it is on, in the fixed order shoppers see them, and the Cost facet's price breaks.  The same settings as the store admin's Faceted Search Results.  Send hash_sha256 as If-Match to change them. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbSearchFacetsResponse</returns>
+        ApiResponse<SfvbSearchFacetsResponse> GetSfvbSearchFacetsWithHttpInfo (int storefrontOid);
+        /// <summary>
         /// List the secrets this server collects
         /// </summary>
         /// <remarks>
@@ -5065,6 +5086,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbUpsellPathsResponse</returns>
         ApiResponse<SfvbUpsellPathsResponse> ListSfvbUpsellPathsWithHttpInfo (int storefrontOid, string status = default(string), string location = default(string), string search = default(string), bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), int? maxResults = default(int?), int? offset = default(int?));
         /// <summary>
+        /// Move or rename a page
+        /// </summary>
+        /// <remarks>
+        /// Moves a page to a new path - a new parent, a new last part, or both, so a rename is a move under the same parent.  Its sub-pages, their items and the page folder with its body move with it.  Refused for the root page, a path inside the page itself, a path where a page or folder already exists, a parent that does not exist, and a page whose folder holds a started experiment.  With redirect_old_url 301 the same call adds one pattern redirect from the old path to the new one, so every old address, sub-pages and items included, keeps working; the redirect is checked before anything moves, and if it is refused after the move the move is undone, so the page moves with its redirect or not at all.  dry_run runs every check and reports what would move.  Needs sfvb_publish, plus the approval of the person who signed in the CLI, as an approved page.move request for exactly this path, new path and redirect in the Approval-Id header. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageMoveRequest">The page and where it goes</param>
+        /// <param name="approvalId">The approval_id of an approved page.move request for exactly this path, new path and redirect.  Required unless dry_run.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbPageMoveResponse</returns>
+        SfvbPageMoveResponse MoveSfvbPage (int storefrontOid, SfvbPageMoveRequest pageMoveRequest, string approvalId = default(string));
+
+        /// <summary>
+        /// Move or rename a page
+        /// </summary>
+        /// <remarks>
+        /// Moves a page to a new path - a new parent, a new last part, or both, so a rename is a move under the same parent.  Its sub-pages, their items and the page folder with its body move with it.  Refused for the root page, a path inside the page itself, a path where a page or folder already exists, a parent that does not exist, and a page whose folder holds a started experiment.  With redirect_old_url 301 the same call adds one pattern redirect from the old path to the new one, so every old address, sub-pages and items included, keeps working; the redirect is checked before anything moves, and if it is refused after the move the move is undone, so the page moves with its redirect or not at all.  dry_run runs every check and reports what would move.  Needs sfvb_publish, plus the approval of the person who signed in the CLI, as an approved page.move request for exactly this path, new path and redirect in the Approval-Id header. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageMoveRequest">The page and where it goes</param>
+        /// <param name="approvalId">The approval_id of an approved page.move request for exactly this path, new path and redirect.  Required unless dry_run.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbPageMoveResponse</returns>
+        ApiResponse<SfvbPageMoveResponse> MoveSfvbPageWithHttpInfo (int storefrontOid, SfvbPageMoveRequest pageMoveRequest, string approvalId = default(string));
+        /// <summary>
         /// Move one step
         /// </summary>
         /// <remarks>
@@ -5707,7 +5753,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change a page's settings
         /// </summary>
         /// <remarks>
-        /// A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.  Hiding a page with redirect_old_url 301 and redirect_target also adds a 301 redirect from its address, checked first like any redirect rule.  The page is hidden and the rule added together, or neither. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -5720,7 +5766,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change a page's settings
         /// </summary>
         /// <remarks>
-        /// A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.  Hiding a page with redirect_old_url 301 and redirect_target also adds a 301 redirect from its address, checked first like any redirect rule.  The page is hidden and the rule added together, or neither. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -6176,7 +6222,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ownerType"></param>
         /// <param name="ownerObjectId"></param>
-        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required while the container holds content; 428 when absent, 412 when stale.  Leave it out when the container has been removed, since there is nothing to match.</param>
         /// <param name="containerRevertRequest">Version to revert the container to</param>
         /// <param name="containerName"> (optional)</param>
         /// <returns>SfvbContainerResponse</returns>
@@ -6192,7 +6238,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ownerType"></param>
         /// <param name="ownerObjectId"></param>
-        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required while the container holds content; 428 when absent, 412 when stale.  Leave it out when the container has been removed, since there is nothing to match.</param>
         /// <param name="containerRevertRequest">Version to revert the container to</param>
         /// <param name="containerName"> (optional)</param>
         /// <returns>ApiResponse of SfvbContainerResponse</returns>
@@ -7075,6 +7121,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="redirectRequest">The request</param>
         /// <returns>ApiResponse of SfvbRedirectResponse</returns>
         ApiResponse<SfvbRedirectResponse> UpdateSfvbRedirectWithHttpInfo (int storefrontOid, int redirectId, string ifMatch, SfvbRedirectRequest redirectRequest);
+        /// <summary>
+        /// Change the storefront's faceted search configuration
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="searchFacetsRequest">The facets and price breaks to change</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. (optional)</param>
+        /// <returns>SfvbSearchFacetsResponse</returns>
+        SfvbSearchFacetsResponse UpdateSfvbSearchFacets (int storefrontOid, SfvbSearchFacetsRequest searchFacetsRequest, string ifMatch = default(string));
+
+        /// <summary>
+        /// Change the storefront's faceted search configuration
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="searchFacetsRequest">The facets and price breaks to change</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. (optional)</param>
+        /// <returns>ApiResponse of SfvbSearchFacetsResponse</returns>
+        ApiResponse<SfvbSearchFacetsResponse> UpdateSfvbSearchFacetsWithHttpInfo (int storefrontOid, SfvbSearchFacetsRequest searchFacetsRequest, string ifMatch = default(string));
         /// <summary>
         /// Change one step's settings or audience filter
         /// </summary>
@@ -11037,6 +11108,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbRedirectsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbRedirectsResponse>> GetSfvbRedirectsWithHttpInfoAsync (int storefrontOid, string q = default(string), string type = default(string), string status = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Read the storefront's faceted search configuration
+        /// </summary>
+        /// <remarks>
+        /// Every facet the storefront can offer shoppers - the standard ones and one per item attribute on the storefront - with its heading and whether it is on, in the fixed order shoppers see them, and the Cost facet's price breaks.  The same settings as the store admin's Faceted Search Results.  Send hash_sha256 as If-Match to change them. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSearchFacetsResponse</returns>
+        System.Threading.Tasks.Task<SfvbSearchFacetsResponse> GetSfvbSearchFacetsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read the storefront&#39;s faceted search configuration
+        /// </summary>
+        /// <remarks>
+        /// Every facet the storefront can offer shoppers - the standard ones and one per item attribute on the storefront - with its heading and whether it is on, in the fixed order shoppers see them, and the Cost facet's price breaks.  The same settings as the store admin's Faceted Search Results.  Send hash_sha256 as If-Match to change them. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSearchFacetsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbSearchFacetsResponse>> GetSfvbSearchFacetsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// List the secrets this server collects
         /// </summary>
         /// <remarks>
@@ -12936,6 +13030,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbUpsellPathsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbUpsellPathsResponse>> ListSfvbUpsellPathsWithHttpInfoAsync (int storefrontOid, string status = default(string), string location = default(string), string search = default(string), bool? stats = default(bool?), string statsStart = default(string), string statsEnd = default(string), string statsWeekdays = default(string), int? maxResults = default(int?), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Move or rename a page
+        /// </summary>
+        /// <remarks>
+        /// Moves a page to a new path - a new parent, a new last part, or both, so a rename is a move under the same parent.  Its sub-pages, their items and the page folder with its body move with it.  Refused for the root page, a path inside the page itself, a path where a page or folder already exists, a parent that does not exist, and a page whose folder holds a started experiment.  With redirect_old_url 301 the same call adds one pattern redirect from the old path to the new one, so every old address, sub-pages and items included, keeps working; the redirect is checked before anything moves, and if it is refused after the move the move is undone, so the page moves with its redirect or not at all.  dry_run runs every check and reports what would move.  Needs sfvb_publish, plus the approval of the person who signed in the CLI, as an approved page.move request for exactly this path, new path and redirect in the Approval-Id header. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageMoveRequest">The page and where it goes</param>
+        /// <param name="approvalId">The approval_id of an approved page.move request for exactly this path, new path and redirect.  Required unless dry_run.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageMoveResponse</returns>
+        System.Threading.Tasks.Task<SfvbPageMoveResponse> MoveSfvbPageAsync (int storefrontOid, SfvbPageMoveRequest pageMoveRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Move or rename a page
+        /// </summary>
+        /// <remarks>
+        /// Moves a page to a new path - a new parent, a new last part, or both, so a rename is a move under the same parent.  Its sub-pages, their items and the page folder with its body move with it.  Refused for the root page, a path inside the page itself, a path where a page or folder already exists, a parent that does not exist, and a page whose folder holds a started experiment.  With redirect_old_url 301 the same call adds one pattern redirect from the old path to the new one, so every old address, sub-pages and items included, keeps working; the redirect is checked before anything moves, and if it is refused after the move the move is undone, so the page moves with its redirect or not at all.  dry_run runs every check and reports what would move.  Needs sfvb_publish, plus the approval of the person who signed in the CLI, as an approved page.move request for exactly this path, new path and redirect in the Approval-Id header. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageMoveRequest">The page and where it goes</param>
+        /// <param name="approvalId">The approval_id of an approved page.move request for exactly this path, new path and redirect.  Required unless dry_run.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageMoveResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageMoveResponse>> MoveSfvbPageWithHttpInfoAsync (int storefrontOid, SfvbPageMoveRequest pageMoveRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Move one step
         /// </summary>
         /// <remarks>
@@ -13624,7 +13745,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change a page's settings
         /// </summary>
         /// <remarks>
-        /// A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.  Hiding a page with redirect_old_url 301 and redirect_target also adds a 301 redirect from its address, checked first like any redirect rule.  The page is hidden and the rule added together, or neither. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -13638,7 +13759,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change a page&#39;s settings
         /// </summary>
         /// <remarks>
-        /// A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.  Hiding a page with redirect_old_url 301 and redirect_target also adds a 301 redirect from its address, checked first like any redirect rule.  The page is hidden and the rule added together, or neither. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -14131,7 +14252,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ownerType"></param>
         /// <param name="ownerObjectId"></param>
-        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required while the container holds content; 428 when absent, 412 when stale.  Leave it out when the container has been removed, since there is nothing to match.</param>
         /// <param name="containerRevertRequest">Version to revert the container to</param>
         /// <param name="containerName"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -14148,7 +14269,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ownerType"></param>
         /// <param name="ownerObjectId"></param>
-        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required while the container holds content; 428 when absent, 412 when stale.  Leave it out when the container has been removed, since there is nothing to match.</param>
         /// <param name="containerRevertRequest">Version to revert the container to</param>
         /// <param name="containerName"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -15100,6 +15221,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbRedirectResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbRedirectResponse>> UpdateSfvbRedirectWithHttpInfoAsync (int storefrontOid, int redirectId, string ifMatch, SfvbRedirectRequest redirectRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Change the storefront's faceted search configuration
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="searchFacetsRequest">The facets and price breaks to change</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSearchFacetsResponse</returns>
+        System.Threading.Tasks.Task<SfvbSearchFacetsResponse> UpdateSfvbSearchFacetsAsync (int storefrontOid, SfvbSearchFacetsRequest searchFacetsRequest, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Change the storefront&#39;s faceted search configuration
+        /// </summary>
+        /// <remarks>
+        /// A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="searchFacetsRequest">The facets and price breaks to change</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSearchFacetsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbSearchFacetsResponse>> UpdateSfvbSearchFacetsWithHttpInfoAsync (int storefrontOid, SfvbSearchFacetsRequest searchFacetsRequest, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Change one step's settings or audience filter
         /// </summary>
@@ -39521,6 +39669,163 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Read the storefront's faceted search configuration Every facet the storefront can offer shoppers - the standard ones and one per item attribute on the storefront - with its heading and whether it is on, in the fixed order shoppers see them, and the Cost facet's price breaks.  The same settings as the store admin's Faceted Search Results.  Send hash_sha256 as If-Match to change them. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>SfvbSearchFacetsResponse</returns>
+        public SfvbSearchFacetsResponse GetSfvbSearchFacets (int storefrontOid)
+        {
+             ApiResponse<SfvbSearchFacetsResponse> localVarResponse = GetSfvbSearchFacetsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read the storefront's faceted search configuration Every facet the storefront can offer shoppers - the standard ones and one per item attribute on the storefront - with its heading and whether it is on, in the fixed order shoppers see them, and the Cost facet's price breaks.  The same settings as the store admin's Faceted Search Results.  Send hash_sha256 as If-Match to change them. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of SfvbSearchFacetsResponse</returns>
+        public ApiResponse<SfvbSearchFacetsResponse> GetSfvbSearchFacetsWithHttpInfo (int storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbSearchFacets");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/search/facets";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbSearchFacets", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSearchFacetsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSearchFacetsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSearchFacetsResponse)));
+        }
+
+        /// <summary>
+        /// Read the storefront's faceted search configuration Every facet the storefront can offer shoppers - the standard ones and one per item attribute on the storefront - with its heading and whether it is on, in the fixed order shoppers see them, and the Cost facet's price breaks.  The same settings as the store admin's Faceted Search Results.  Send hash_sha256 as If-Match to change them. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSearchFacetsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbSearchFacetsResponse> GetSfvbSearchFacetsAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbSearchFacetsResponse> localVarResponse = await GetSfvbSearchFacetsWithHttpInfoAsync(storefrontOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read the storefront's faceted search configuration Every facet the storefront can offer shoppers - the standard ones and one per item attribute on the storefront - with its heading and whether it is on, in the fixed order shoppers see them, and the Cost facet's price breaks.  The same settings as the store admin's Faceted Search Results.  Send hash_sha256 as If-Match to change them. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSearchFacetsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbSearchFacetsResponse>> GetSfvbSearchFacetsWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbSearchFacets");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/search/facets";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbSearchFacets", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSearchFacetsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSearchFacetsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSearchFacetsResponse)));
+        }
+
+        /// <summary>
         /// List the secrets this server collects The kinds of secret value, with what each looks like, and the secret fields (sinks) a handle can be written to.  Request a handle for a sink with POST secrets. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -52168,6 +52473,197 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Move or rename a page Moves a page to a new path - a new parent, a new last part, or both, so a rename is a move under the same parent.  Its sub-pages, their items and the page folder with its body move with it.  Refused for the root page, a path inside the page itself, a path where a page or folder already exists, a parent that does not exist, and a page whose folder holds a started experiment.  With redirect_old_url 301 the same call adds one pattern redirect from the old path to the new one, so every old address, sub-pages and items included, keeps working; the redirect is checked before anything moves, and if it is refused after the move the move is undone, so the page moves with its redirect or not at all.  dry_run runs every check and reports what would move.  Needs sfvb_publish, plus the approval of the person who signed in the CLI, as an approved page.move request for exactly this path, new path and redirect in the Approval-Id header. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageMoveRequest">The page and where it goes</param>
+        /// <param name="approvalId">The approval_id of an approved page.move request for exactly this path, new path and redirect.  Required unless dry_run.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>SfvbPageMoveResponse</returns>
+        public SfvbPageMoveResponse MoveSfvbPage (int storefrontOid, SfvbPageMoveRequest pageMoveRequest, string approvalId = default(string))
+        {
+             ApiResponse<SfvbPageMoveResponse> localVarResponse = MoveSfvbPageWithHttpInfo(storefrontOid, pageMoveRequest, approvalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Move or rename a page Moves a page to a new path - a new parent, a new last part, or both, so a rename is a move under the same parent.  Its sub-pages, their items and the page folder with its body move with it.  Refused for the root page, a path inside the page itself, a path where a page or folder already exists, a parent that does not exist, and a page whose folder holds a started experiment.  With redirect_old_url 301 the same call adds one pattern redirect from the old path to the new one, so every old address, sub-pages and items included, keeps working; the redirect is checked before anything moves, and if it is refused after the move the move is undone, so the page moves with its redirect or not at all.  dry_run runs every check and reports what would move.  Needs sfvb_publish, plus the approval of the person who signed in the CLI, as an approved page.move request for exactly this path, new path and redirect in the Approval-Id header. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageMoveRequest">The page and where it goes</param>
+        /// <param name="approvalId">The approval_id of an approved page.move request for exactly this path, new path and redirect.  Required unless dry_run.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of SfvbPageMoveResponse</returns>
+        public ApiResponse<SfvbPageMoveResponse> MoveSfvbPageWithHttpInfo (int storefrontOid, SfvbPageMoveRequest pageMoveRequest, string approvalId = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->MoveSfvbPage");
+            // verify the required parameter 'pageMoveRequest' is set
+            if (pageMoveRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageMoveRequest' when calling SfvbApi->MoveSfvbPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/move";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (pageMoveRequest != null && pageMoveRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageMoveRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageMoveRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MoveSfvbPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageMoveResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageMoveResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageMoveResponse)));
+        }
+
+        /// <summary>
+        /// Move or rename a page Moves a page to a new path - a new parent, a new last part, or both, so a rename is a move under the same parent.  Its sub-pages, their items and the page folder with its body move with it.  Refused for the root page, a path inside the page itself, a path where a page or folder already exists, a parent that does not exist, and a page whose folder holds a started experiment.  With redirect_old_url 301 the same call adds one pattern redirect from the old path to the new one, so every old address, sub-pages and items included, keeps working; the redirect is checked before anything moves, and if it is refused after the move the move is undone, so the page moves with its redirect or not at all.  dry_run runs every check and reports what would move.  Needs sfvb_publish, plus the approval of the person who signed in the CLI, as an approved page.move request for exactly this path, new path and redirect in the Approval-Id header. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageMoveRequest">The page and where it goes</param>
+        /// <param name="approvalId">The approval_id of an approved page.move request for exactly this path, new path and redirect.  Required unless dry_run.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbPageMoveResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbPageMoveResponse> MoveSfvbPageAsync (int storefrontOid, SfvbPageMoveRequest pageMoveRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbPageMoveResponse> localVarResponse = await MoveSfvbPageWithHttpInfoAsync(storefrontOid, pageMoveRequest, approvalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Move or rename a page Moves a page to a new path - a new parent, a new last part, or both, so a rename is a move under the same parent.  Its sub-pages, their items and the page folder with its body move with it.  Refused for the root page, a path inside the page itself, a path where a page or folder already exists, a parent that does not exist, and a page whose folder holds a started experiment.  With redirect_old_url 301 the same call adds one pattern redirect from the old path to the new one, so every old address, sub-pages and items included, keeps working; the redirect is checked before anything moves, and if it is refused after the move the move is undone, so the page moves with its redirect or not at all.  dry_run runs every check and reports what would move.  Needs sfvb_publish, plus the approval of the person who signed in the CLI, as an approved page.move request for exactly this path, new path and redirect in the Approval-Id header. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="pageMoveRequest">The page and where it goes</param>
+        /// <param name="approvalId">The approval_id of an approved page.move request for exactly this path, new path and redirect.  Required unless dry_run.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbPageMoveResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageMoveResponse>> MoveSfvbPageWithHttpInfoAsync (int storefrontOid, SfvbPageMoveRequest pageMoveRequest, string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->MoveSfvbPage");
+            // verify the required parameter 'pageMoveRequest' is set
+            if (pageMoveRequest == null)
+                throw new ApiException(400, "Missing required parameter 'pageMoveRequest' when calling SfvbApi->MoveSfvbPage");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages/move";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+            if (pageMoveRequest != null && pageMoveRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pageMoveRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pageMoveRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MoveSfvbPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbPageMoveResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbPageMoveResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbPageMoveResponse)));
+        }
+
+        /// <summary>
         /// Move one step Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step's hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -56897,7 +57393,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change a page's settings A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// Change a page's settings A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.  Hiding a page with redirect_old_url 301 and redirect_target also adds a 301 redirect from its address, checked first like any redirect rule.  The page is hidden and the rule added together, or neither. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -56911,7 +57407,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change a page's settings A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// Change a page's settings A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.  Hiding a page with redirect_old_url 301 and redirect_target also adds a 301 redirect from its address, checked first like any redirect rule.  The page is hidden and the rule added together, or neither. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -56994,7 +57490,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change a page's settings A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// Change a page's settings A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.  Hiding a page with redirect_old_url 301 and redirect_target also adds a 301 redirect from its address, checked first like any redirect rule.  The page is hidden and the rule added together, or neither. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -57010,7 +57506,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change a page's settings A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+        /// Change a page's settings A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.  Hiding a page with redirect_old_url 301 and redirect_target also adds a 301 redirect from its address, checked first like any redirect rule.  The page is hidden and the rule added together, or neither. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -60464,7 +60960,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ownerType"></param>
         /// <param name="ownerObjectId"></param>
-        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required while the container holds content; 428 when absent, 412 when stale.  Leave it out when the container has been removed, since there is nothing to match.</param>
         /// <param name="containerRevertRequest">Version to revert the container to</param>
         /// <param name="containerName"> (optional)</param>
         /// <returns>SfvbContainerResponse</returns>
@@ -60481,7 +60977,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ownerType"></param>
         /// <param name="ownerObjectId"></param>
-        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required while the container holds content; 428 when absent, 412 when stale.  Leave it out when the container has been removed, since there is nothing to match.</param>
         /// <param name="containerRevertRequest">Version to revert the container to</param>
         /// <param name="containerName"> (optional)</param>
         /// <returns>ApiResponse of SfvbContainerResponse</returns>
@@ -60576,7 +61072,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ownerType"></param>
         /// <param name="ownerObjectId"></param>
-        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required while the container holds content; 428 when absent, 412 when stale.  Leave it out when the container has been removed, since there is nothing to match.</param>
         /// <param name="containerRevertRequest">Version to revert the container to</param>
         /// <param name="containerName"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -60595,7 +61091,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="ownerType"></param>
         /// <param name="ownerObjectId"></param>
-        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required; 428 when absent, 412 when stale.</param>
+        /// <param name="ifMatch">CJSON hash of the container being reverted.  Required while the container holds content; 428 when absent, 412 when stale.  Leave it out when the container has been removed, since there is nothing to match.</param>
         /// <param name="containerRevertRequest">Version to revert the container to</param>
         /// <param name="containerName"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -67378,6 +67874,197 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbRedirectResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbRedirectResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbRedirectResponse)));
+        }
+
+        /// <summary>
+        /// Change the storefront's faceted search configuration A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="searchFacetsRequest">The facets and price breaks to change</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. (optional)</param>
+        /// <returns>SfvbSearchFacetsResponse</returns>
+        public SfvbSearchFacetsResponse UpdateSfvbSearchFacets (int storefrontOid, SfvbSearchFacetsRequest searchFacetsRequest, string ifMatch = default(string))
+        {
+             ApiResponse<SfvbSearchFacetsResponse> localVarResponse = UpdateSfvbSearchFacetsWithHttpInfo(storefrontOid, searchFacetsRequest, ifMatch);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change the storefront's faceted search configuration A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="searchFacetsRequest">The facets and price breaks to change</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. (optional)</param>
+        /// <returns>ApiResponse of SfvbSearchFacetsResponse</returns>
+        public ApiResponse<SfvbSearchFacetsResponse> UpdateSfvbSearchFacetsWithHttpInfo (int storefrontOid, SfvbSearchFacetsRequest searchFacetsRequest, string ifMatch = default(string))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbSearchFacets");
+            // verify the required parameter 'searchFacetsRequest' is set
+            if (searchFacetsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'searchFacetsRequest' when calling SfvbApi->UpdateSfvbSearchFacets");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/search/facets";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (searchFacetsRequest != null && searchFacetsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(searchFacetsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = searchFacetsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbSearchFacets", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSearchFacetsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSearchFacetsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSearchFacetsResponse)));
+        }
+
+        /// <summary>
+        /// Change the storefront's faceted search configuration A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="searchFacetsRequest">The facets and price breaks to change</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbSearchFacetsResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbSearchFacetsResponse> UpdateSfvbSearchFacetsAsync (int storefrontOid, SfvbSearchFacetsRequest searchFacetsRequest, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbSearchFacetsResponse> localVarResponse = await UpdateSfvbSearchFacetsWithHttpInfoAsync(storefrontOid, searchFacetsRequest, ifMatch, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Change the storefront's faceted search configuration A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="searchFacetsRequest">The facets and price breaks to change</param>
+        /// <param name="ifMatch">hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbSearchFacetsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbSearchFacetsResponse>> UpdateSfvbSearchFacetsWithHttpInfoAsync (int storefrontOid, SfvbSearchFacetsRequest searchFacetsRequest, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->UpdateSfvbSearchFacets");
+            // verify the required parameter 'searchFacetsRequest' is set
+            if (searchFacetsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'searchFacetsRequest' when calling SfvbApi->UpdateSfvbSearchFacets");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/search/facets";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (ifMatch != null) localVarHeaderParams.Add("If-Match", this.Configuration.ApiClient.ParameterToString(ifMatch)); // header parameter
+            if (searchFacetsRequest != null && searchFacetsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(searchFacetsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = searchFacetsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateSfvbSearchFacets", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbSearchFacetsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbSearchFacetsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbSearchFacetsResponse)));
         }
 
         /// <summary>

@@ -35,6 +35,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="attributes">Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name..</param>
         /// <param name="blogPostTemplate">Template that renders the blog posts under this page.  Omitted when not set..</param>
+        /// <param name="catalogGroupOid">The page&#39;s id.  It stays the same when the page is moved or renamed, where the path and the page folder&#39;s id do not.  The page read accepts it in place of path..</param>
         /// <param name="description">The page description, the text a page template renders as the page&#39;s description.  Omitted when empty..</param>
         /// <param name="excludeFromSitemap">True when the page is left out of the sitemap and marked noindex..</param>
         /// <param name="groupTemplate">Template file that renders the page itself, a bare .vm name found anywhere in the active theme..</param>
@@ -52,10 +53,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="title">The page title..</param>
         /// <param name="visible">False when the page is hidden.  A hidden page answers 404 to shoppers..</param>
         /// <param name="visibleDts">When set, the page stays hidden until this time (ISO 8601, UTC)..</param>
-        public SfvbPageResponse(List<SfvbPageAttribute> attributes = default(List<SfvbPageAttribute>), string blogPostTemplate = default(string), string description = default(string), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), int itemsPerPage = default(int), List<SfvbPageMultimedia> multimedia = default(List<SfvbPageMultimedia>), string pageType = default(string), string path = default(string), SfvbRedirect redirect = default(SfvbRedirect), List<SfvbErrorDetail> redirectWarnings = default(List<SfvbErrorDetail>), string reviewTemplate = default(string), int sortOrder = default(int), string sortOrderChildGroups = default(string), string sortOrderChildItems = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
+        public SfvbPageResponse(List<SfvbPageAttribute> attributes = default(List<SfvbPageAttribute>), string blogPostTemplate = default(string), int catalogGroupOid = default(int), string description = default(string), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), string itemTemplate = default(string), int itemsPerPage = default(int), List<SfvbPageMultimedia> multimedia = default(List<SfvbPageMultimedia>), string pageType = default(string), string path = default(string), SfvbRedirect redirect = default(SfvbRedirect), List<SfvbErrorDetail> redirectWarnings = default(List<SfvbErrorDetail>), string reviewTemplate = default(string), int sortOrder = default(int), string sortOrderChildGroups = default(string), string sortOrderChildItems = default(string), string title = default(string), bool visible = default(bool), string visibleDts = default(string))
         {
             this.Attributes = attributes;
             this.BlogPostTemplate = blogPostTemplate;
+            this.CatalogGroupOid = catalogGroupOid;
             this.Description = description;
             this.ExcludeFromSitemap = excludeFromSitemap;
             this.GroupTemplate = groupTemplate;
@@ -88,6 +90,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Template that renders the blog posts under this page.  Omitted when not set.</value>
         [DataMember(Name="blog_post_template", EmitDefaultValue=false)]
         public string BlogPostTemplate { get; set; }
+
+        /// <summary>
+        /// The page&#39;s id.  It stays the same when the page is moved or renamed, where the path and the page folder&#39;s id do not.  The page read accepts it in place of path.
+        /// </summary>
+        /// <value>The page&#39;s id.  It stays the same when the page is moved or renamed, where the path and the page folder&#39;s id do not.  The page read accepts it in place of path.</value>
+        [DataMember(Name="catalog_group_oid", EmitDefaultValue=false)]
+        public int CatalogGroupOid { get; set; }
 
         /// <summary>
         /// The page description, the text a page template renders as the page&#39;s description.  Omitted when empty.
@@ -217,6 +226,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class SfvbPageResponse {\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  BlogPostTemplate: ").Append(BlogPostTemplate).Append("\n");
+            sb.Append("  CatalogGroupOid: ").Append(CatalogGroupOid).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ExcludeFromSitemap: ").Append(ExcludeFromSitemap).Append("\n");
             sb.Append("  GroupTemplate: ").Append(GroupTemplate).Append("\n");
@@ -278,6 +288,11 @@ namespace com.ultracart.admin.v2.Model
                     this.BlogPostTemplate == input.BlogPostTemplate ||
                     (this.BlogPostTemplate != null &&
                     this.BlogPostTemplate.Equals(input.BlogPostTemplate))
+                ) && 
+                (
+                    this.CatalogGroupOid == input.CatalogGroupOid ||
+                    (this.CatalogGroupOid != null &&
+                    this.CatalogGroupOid.Equals(input.CatalogGroupOid))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -381,6 +396,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.BlogPostTemplate != null)
                     hashCode = hashCode * 59 + this.BlogPostTemplate.GetHashCode();
+                if (this.CatalogGroupOid != null)
+                    hashCode = hashCode * 59 + this.CatalogGroupOid.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.ExcludeFromSitemap != null)

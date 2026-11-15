@@ -1109,6 +1109,7 @@ docs/SfvbExperimentStartVariation.md
 docs/SfvbExperimentVariationUpdateRequest.md
 docs/SfvbExperimentsResponse.md
 docs/SfvbFileContentResponse.md
+docs/SfvbFileContentResult.md
 docs/SfvbFileEntry.md
 docs/SfvbFileRevertRequest.md
 docs/SfvbFileSearchRequest.md
@@ -1119,6 +1120,8 @@ docs/SfvbFileVersion.md
 docs/SfvbFileVersionsResponse.md
 docs/SfvbFileWriteRequest.md
 docs/SfvbFileWriteResponse.md
+docs/SfvbFilesContentRequest.md
+docs/SfvbFilesContentResponse.md
 docs/SfvbFilesResponse.md
 docs/SfvbFlow.md
 docs/SfvbFlowBackfillRequest.md
@@ -2624,6 +2627,7 @@ src/com.ultracart.admin.v2/Model/SfvbExperimentStartVariation.cs
 src/com.ultracart.admin.v2/Model/SfvbExperimentVariationUpdateRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbExperimentsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbFileContentResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbFileContentResult.cs
 src/com.ultracart.admin.v2/Model/SfvbFileEntry.cs
 src/com.ultracart.admin.v2/Model/SfvbFileRevertRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbFileSearchRequest.cs
@@ -2634,6 +2638,8 @@ src/com.ultracart.admin.v2/Model/SfvbFileVersion.cs
 src/com.ultracart.admin.v2/Model/SfvbFileVersionsResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbFileWriteRequest.cs
 src/com.ultracart.admin.v2/Model/SfvbFileWriteResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbFilesContentRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbFilesContentResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbFilesResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbFlow.cs
 src/com.ultracart.admin.v2/Model/SfvbFlowBackfillRequest.cs

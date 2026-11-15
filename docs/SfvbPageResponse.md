@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Attributes** | [**List&lt;SfvbPageAttribute&gt;**](SfvbPageAttribute.md) | Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name. | [optional] 
 **BlogPostTemplate** | **string** | Template that renders the blog posts under this page.  Omitted when not set. | [optional] 
+**CatalogGroupOid** | **int** | The page&#39;s id.  It stays the same when the page is moved or renamed, where the path and the page folder&#39;s id do not.  The page read accepts it in place of path. | [optional] 
 **Description** | **string** | The page description, the text a page template renders as the page&#39;s description.  Omitted when empty. | [optional] 
 **ExcludeFromSitemap** | **bool** | True when the page is left out of the sitemap and marked noindex. | [optional] 
 **GroupTemplate** | **string** | Template file that renders the page itself, a bare .vm name found anywhere in the active theme. | [optional] 

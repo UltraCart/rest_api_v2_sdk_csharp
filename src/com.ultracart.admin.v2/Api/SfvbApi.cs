@@ -2471,6 +2471,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbFileContentResponse</returns>
         ApiResponse<SfvbFileContentResponse> GetSfvbFileContentWithHttpInfo (int storefrontOid, string path = default(string), int? version = default(int?));
         /// <summary>
+        /// Read several storefront files
+        /// </summary>
+        /// <remarks>
+        /// The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can't be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="filesRequest">The files to read</param>
+        /// <returns>SfvbFilesContentResponse</returns>
+        SfvbFilesContentResponse GetSfvbFileContents (int storefrontOid, SfvbFilesContentRequest filesRequest);
+
+        /// <summary>
+        /// Read several storefront files
+        /// </summary>
+        /// <remarks>
+        /// The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can't be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="filesRequest">The files to read</param>
+        /// <returns>ApiResponse of SfvbFilesContentResponse</returns>
+        ApiResponse<SfvbFilesContentResponse> GetSfvbFileContentsWithHttpInfo (int storefrontOid, SfvbFilesContentRequest filesRequest);
+        /// <summary>
         /// Get a URL to upload a binary asset to
         /// </summary>
         /// <remarks>
@@ -2927,23 +2950,25 @@ namespace com.ultracart.admin.v2.Api
         /// List a storefront's store menus
         /// </summary>
         /// <remarks>
-        /// The menus a menu element's menuName can name, sorted by code and without their entries.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
+        /// The menus a menu element's menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries=true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="includeEntries">True to include each menu&#39;s entries (optional)</param>
         /// <returns>SfvbMenusResponse</returns>
-        SfvbMenusResponse GetSfvbMenus (int storefrontOid);
+        SfvbMenusResponse GetSfvbMenus (int storefrontOid, bool? includeEntries = default(bool?));
 
         /// <summary>
         /// List a storefront's store menus
         /// </summary>
         /// <remarks>
-        /// The menus a menu element's menuName can name, sorted by code and without their entries.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
+        /// The menus a menu element's menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries=true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="includeEntries">True to include each menu&#39;s entries (optional)</param>
         /// <returns>ApiResponse of SfvbMenusResponse</returns>
-        ApiResponse<SfvbMenusResponse> GetSfvbMenusWithHttpInfo (int storefrontOid);
+        ApiResponse<SfvbMenusResponse> GetSfvbMenusWithHttpInfo (int storefrontOid, bool? includeEntries = default(bool?));
         /// <summary>
         /// List the paths that answered 404
         /// </summary>
@@ -3050,25 +3075,27 @@ namespace com.ultracart.admin.v2.Api
         /// Read a page's attributes and images
         /// </summary>
         /// <remarks>
-        /// What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="path">Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)</param>
+        /// <param name="catalogGroupOid">The page&#39;s id, in place of path (optional)</param>
         /// <returns>SfvbPageResponse</returns>
-        SfvbPageResponse GetSfvbPage (int storefrontOid, string path);
+        SfvbPageResponse GetSfvbPage (int storefrontOid, string path = default(string), int? catalogGroupOid = default(int?));
 
         /// <summary>
         /// Read a page's attributes and images
         /// </summary>
         /// <remarks>
-        /// What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="path">Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)</param>
+        /// <param name="catalogGroupOid">The page&#39;s id, in place of path (optional)</param>
         /// <returns>ApiResponse of SfvbPageResponse</returns>
-        ApiResponse<SfvbPageResponse> GetSfvbPageWithHttpInfo (int storefrontOid, string path);
+        ApiResponse<SfvbPageResponse> GetSfvbPageWithHttpInfo (int storefrontOid, string path = default(string), int? catalogGroupOid = default(int?));
         /// <summary>
         /// Read the blog posts assigned to a page
         /// </summary>
@@ -4906,25 +4933,31 @@ namespace com.ultracart.admin.v2.Api
         /// List the storefront's pages
         /// </summary>
         /// <remarks>
-        /// Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail=true to get each page's single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <param name="detail">True to include each page&#39;s single-page read, a window at a time (optional)</param>
+        /// <param name="offset">Where the window starts, with detail&#x3D;true.  Default 0. (optional)</param>
+        /// <param name="limit">Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)</param>
         /// <returns>SfvbPageListResponse</returns>
-        SfvbPageListResponse ListSfvbPages (int storefrontOid, string under = default(string));
+        SfvbPageListResponse ListSfvbPages (int storefrontOid, string under = default(string), bool? detail = default(bool?), int? offset = default(int?), int? limit = default(int?));
 
         /// <summary>
         /// List the storefront's pages
         /// </summary>
         /// <remarks>
-        /// Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail=true to get each page's single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <param name="detail">True to include each page&#39;s single-page read, a window at a time (optional)</param>
+        /// <param name="offset">Where the window starts, with detail&#x3D;true.  Default 0. (optional)</param>
+        /// <param name="limit">Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)</param>
         /// <returns>ApiResponse of SfvbPageListResponse</returns>
-        ApiResponse<SfvbPageListResponse> ListSfvbPagesWithHttpInfo (int storefrontOid, string under = default(string));
+        ApiResponse<SfvbPageListResponse> ListSfvbPagesWithHttpInfo (int storefrontOid, string under = default(string), bool? detail = default(bool?), int? offset = default(int?), int? limit = default(int?));
         /// <summary>
         /// List recent storefront render logs
         /// </summary>
@@ -7125,7 +7158,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change the storefront's faceted search configuration
         /// </summary>
         /// <remarks>
-        /// A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -7138,7 +7171,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change the storefront's faceted search configuration
         /// </summary>
         /// <remarks>
-        /// A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -10197,6 +10230,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbFileContentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbFileContentResponse>> GetSfvbFileContentWithHttpInfoAsync (int storefrontOid, string path = default(string), int? version = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Read several storefront files
+        /// </summary>
+        /// <remarks>
+        /// The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can't be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="filesRequest">The files to read</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFilesContentResponse</returns>
+        System.Threading.Tasks.Task<SfvbFilesContentResponse> GetSfvbFileContentsAsync (int storefrontOid, SfvbFilesContentRequest filesRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Read several storefront files
+        /// </summary>
+        /// <remarks>
+        /// The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can't be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="filesRequest">The files to read</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFilesContentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbFilesContentResponse>> GetSfvbFileContentsWithHttpInfoAsync (int storefrontOid, SfvbFilesContentRequest filesRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Get a URL to upload a binary asset to
         /// </summary>
         /// <remarks>
@@ -10691,25 +10749,27 @@ namespace com.ultracart.admin.v2.Api
         /// List a storefront's store menus
         /// </summary>
         /// <remarks>
-        /// The menus a menu element's menuName can name, sorted by code and without their entries.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
+        /// The menus a menu element's menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries=true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="includeEntries">True to include each menu&#39;s entries (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbMenusResponse</returns>
-        System.Threading.Tasks.Task<SfvbMenusResponse> GetSfvbMenusAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<SfvbMenusResponse> GetSfvbMenusAsync (int storefrontOid, bool? includeEntries = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List a storefront&#39;s store menus
         /// </summary>
         /// <remarks>
-        /// The menus a menu element's menuName can name, sorted by code and without their entries.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
+        /// The menus a menu element's menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries=true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="includeEntries">True to include each menu&#39;s entries (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbMenusResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbMenusResponse>> GetSfvbMenusWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SfvbMenusResponse>> GetSfvbMenusWithHttpInfoAsync (int storefrontOid, bool? includeEntries = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// List the paths that answered 404
         /// </summary>
@@ -10824,27 +10884,29 @@ namespace com.ultracart.admin.v2.Api
         /// Read a page's attributes and images
         /// </summary>
         /// <remarks>
-        /// What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="path">Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)</param>
+        /// <param name="catalogGroupOid">The page&#39;s id, in place of path (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbPageResponse</returns>
-        System.Threading.Tasks.Task<SfvbPageResponse> GetSfvbPageAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<SfvbPageResponse> GetSfvbPageAsync (int storefrontOid, string path = default(string), int? catalogGroupOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Read a page&#39;s attributes and images
         /// </summary>
         /// <remarks>
-        /// What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="path">Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)</param>
+        /// <param name="catalogGroupOid">The page&#39;s id, in place of path (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> GetSfvbPageWithHttpInfoAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> GetSfvbPageWithHttpInfoAsync (int storefrontOid, string path = default(string), int? catalogGroupOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read the blog posts assigned to a page
         /// </summary>
@@ -12836,27 +12898,33 @@ namespace com.ultracart.admin.v2.Api
         /// List the storefront's pages
         /// </summary>
         /// <remarks>
-        /// Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail=true to get each page's single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <param name="detail">True to include each page&#39;s single-page read, a window at a time (optional)</param>
+        /// <param name="offset">Where the window starts, with detail&#x3D;true.  Default 0. (optional)</param>
+        /// <param name="limit">Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbPageListResponse</returns>
-        System.Threading.Tasks.Task<SfvbPageListResponse> ListSfvbPagesAsync (int storefrontOid, string under = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<SfvbPageListResponse> ListSfvbPagesAsync (int storefrontOid, string under = default(string), bool? detail = default(bool?), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List the storefront&#39;s pages
         /// </summary>
         /// <remarks>
-        /// Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail=true to get each page's single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <param name="detail">True to include each page&#39;s single-page read, a window at a time (optional)</param>
+        /// <param name="offset">Where the window starts, with detail&#x3D;true.  Default 0. (optional)</param>
+        /// <param name="limit">Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPageListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbPageListResponse>> ListSfvbPagesWithHttpInfoAsync (int storefrontOid, string under = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SfvbPageListResponse>> ListSfvbPagesWithHttpInfoAsync (int storefrontOid, string under = default(string), bool? detail = default(bool?), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// List recent storefront render logs
         /// </summary>
@@ -15225,7 +15293,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change the storefront's faceted search configuration
         /// </summary>
         /// <remarks>
-        /// A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -15239,7 +15307,7 @@ namespace com.ultracart.admin.v2.Api
         /// Change the storefront&#39;s faceted search configuration
         /// </summary>
         /// <remarks>
-        /// A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -33748,6 +33816,191 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Read several storefront files The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can't be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="filesRequest">The files to read</param>
+        /// <returns>SfvbFilesContentResponse</returns>
+        public SfvbFilesContentResponse GetSfvbFileContents (int storefrontOid, SfvbFilesContentRequest filesRequest)
+        {
+             ApiResponse<SfvbFilesContentResponse> localVarResponse = GetSfvbFileContentsWithHttpInfo(storefrontOid, filesRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read several storefront files The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can't be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="filesRequest">The files to read</param>
+        /// <returns>ApiResponse of SfvbFilesContentResponse</returns>
+        public ApiResponse<SfvbFilesContentResponse> GetSfvbFileContentsWithHttpInfo (int storefrontOid, SfvbFilesContentRequest filesRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbFileContents");
+            // verify the required parameter 'filesRequest' is set
+            if (filesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'filesRequest' when calling SfvbApi->GetSfvbFileContents");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/files/content";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (filesRequest != null && filesRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(filesRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = filesRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbFileContents", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFilesContentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFilesContentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFilesContentResponse)));
+        }
+
+        /// <summary>
+        /// Read several storefront files The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can't be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="filesRequest">The files to read</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbFilesContentResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbFilesContentResponse> GetSfvbFileContentsAsync (int storefrontOid, SfvbFilesContentRequest filesRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbFilesContentResponse> localVarResponse = await GetSfvbFileContentsWithHttpInfoAsync(storefrontOid, filesRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Read several storefront files The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can't be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="filesRequest">The files to read</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbFilesContentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbFilesContentResponse>> GetSfvbFileContentsWithHttpInfoAsync (int storefrontOid, SfvbFilesContentRequest filesRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbFileContents");
+            // verify the required parameter 'filesRequest' is set
+            if (filesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'filesRequest' when calling SfvbApi->GetSfvbFileContents");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/files/content";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (filesRequest != null && filesRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(filesRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = filesRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbFileContents", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbFilesContentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbFilesContentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbFilesContentResponse)));
+        }
+
+        /// <summary>
         /// Get a URL to upload a binary asset to Binary content does not travel through this API as JSON, so uploading an image, font, video or PDF is two steps.  Ask here for a URL, PUT the raw bytes straight to it, then call uploadSfvbFile quoting the key you were given.  The bytes never pass through the API server.  The extension is checked against the accepted type list before a URL is issued, so an unsupported type fails here rather than after you have sent the file.  The URL is short lived and the key is bound to your account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -36935,24 +37188,26 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// List a storefront's store menus The menus a menu element's menuName can name, sorted by code and without their entries.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
+        /// List a storefront's store menus The menus a menu element's menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries=true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="includeEntries">True to include each menu&#39;s entries (optional)</param>
         /// <returns>SfvbMenusResponse</returns>
-        public SfvbMenusResponse GetSfvbMenus (int storefrontOid)
+        public SfvbMenusResponse GetSfvbMenus (int storefrontOid, bool? includeEntries = default(bool?))
         {
-             ApiResponse<SfvbMenusResponse> localVarResponse = GetSfvbMenusWithHttpInfo(storefrontOid);
+             ApiResponse<SfvbMenusResponse> localVarResponse = GetSfvbMenusWithHttpInfo(storefrontOid, includeEntries);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List a storefront's store menus The menus a menu element's menuName can name, sorted by code and without their entries.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
+        /// List a storefront's store menus The menus a menu element's menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries=true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="includeEntries">True to include each menu&#39;s entries (optional)</param>
         /// <returns>ApiResponse of SfvbMenusResponse</returns>
-        public ApiResponse<SfvbMenusResponse> GetSfvbMenusWithHttpInfo (int storefrontOid)
+        public ApiResponse<SfvbMenusResponse> GetSfvbMenusWithHttpInfo (int storefrontOid, bool? includeEntries = default(bool?))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -36980,6 +37235,7 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (includeEntries != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "include_entries", includeEntries)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -37012,27 +37268,29 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// List a storefront's store menus The menus a menu element's menuName can name, sorted by code and without their entries.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
+        /// List a storefront's store menus The menus a menu element's menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries=true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="includeEntries">True to include each menu&#39;s entries (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbMenusResponse</returns>
-        public async System.Threading.Tasks.Task<SfvbMenusResponse> GetSfvbMenusAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<SfvbMenusResponse> GetSfvbMenusAsync (int storefrontOid, bool? includeEntries = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbMenusResponse> localVarResponse = await GetSfvbMenusWithHttpInfoAsync(storefrontOid, cancellationToken);
+             ApiResponse<SfvbMenusResponse> localVarResponse = await GetSfvbMenusWithHttpInfoAsync(storefrontOid, includeEntries, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List a storefront's store menus The menus a menu element's menuName can name, sorted by code and without their entries.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
+        /// List a storefront's store menus The menus a menu element's menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries=true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="includeEntries">True to include each menu&#39;s entries (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbMenusResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbMenusResponse>> GetSfvbMenusWithHttpInfoAsync (int storefrontOid, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbMenusResponse>> GetSfvbMenusWithHttpInfoAsync (int storefrontOid, bool? includeEntries = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -37060,6 +37318,7 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (includeEntries != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "include_entries", includeEntries)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -37780,33 +38039,32 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="path">Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)</param>
+        /// <param name="catalogGroupOid">The page&#39;s id, in place of path (optional)</param>
         /// <returns>SfvbPageResponse</returns>
-        public SfvbPageResponse GetSfvbPage (int storefrontOid, string path)
+        public SfvbPageResponse GetSfvbPage (int storefrontOid, string path = default(string), int? catalogGroupOid = default(int?))
         {
-             ApiResponse<SfvbPageResponse> localVarResponse = GetSfvbPageWithHttpInfo(storefrontOid, path);
+             ApiResponse<SfvbPageResponse> localVarResponse = GetSfvbPageWithHttpInfo(storefrontOid, path, catalogGroupOid);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="path">Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)</param>
+        /// <param name="catalogGroupOid">The page&#39;s id, in place of path (optional)</param>
         /// <returns>ApiResponse of SfvbPageResponse</returns>
-        public ApiResponse<SfvbPageResponse> GetSfvbPageWithHttpInfo (int storefrontOid, string path)
+        public ApiResponse<SfvbPageResponse> GetSfvbPageWithHttpInfo (int storefrontOid, string path = default(string), int? catalogGroupOid = default(int?))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
                 throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbPage");
-            // verify the required parameter 'path' is set
-            if (path == null)
-                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->GetSfvbPage");
 
             var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages";
             var localVarPathParams = new Dictionary<String, String>();
@@ -37831,6 +38089,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (catalogGroupOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "catalog_group_oid", catalogGroupOid)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -37863,36 +38122,35 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="path">Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)</param>
+        /// <param name="catalogGroupOid">The page&#39;s id, in place of path (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbPageResponse</returns>
-        public async System.Threading.Tasks.Task<SfvbPageResponse> GetSfvbPageAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<SfvbPageResponse> GetSfvbPageAsync (int storefrontOid, string path = default(string), int? catalogGroupOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbPageResponse> localVarResponse = await GetSfvbPageWithHttpInfoAsync(storefrontOid, path, cancellationToken);
+             ApiResponse<SfvbPageResponse> localVarResponse = await GetSfvbPageWithHttpInfoAsync(storefrontOid, path, catalogGroupOid, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+        /// Read a page's attributes and images What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
-        /// <param name="path">Page path, for example /catalog/dispensers/</param>
+        /// <param name="path">Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)</param>
+        /// <param name="catalogGroupOid">The page&#39;s id, in place of path (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPageResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> GetSfvbPageWithHttpInfoAsync (int storefrontOid, string path, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageResponse>> GetSfvbPageWithHttpInfoAsync (int storefrontOid, string path = default(string), int? catalogGroupOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
                 throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbPage");
-            // verify the required parameter 'path' is set
-            if (path == null)
-                throw new ApiException(400, "Missing required parameter 'path' when calling SfvbApi->GetSfvbPage");
 
             var localVarPath = "/sfvb/storefronts/{storefront_oid}/pages";
             var localVarPathParams = new Dictionary<String, String>();
@@ -37917,6 +38175,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (catalogGroupOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "catalog_group_oid", catalogGroupOid)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -51272,26 +51531,32 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// List the storefront's pages Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// List the storefront's pages Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail=true to get each page's single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <param name="detail">True to include each page&#39;s single-page read, a window at a time (optional)</param>
+        /// <param name="offset">Where the window starts, with detail&#x3D;true.  Default 0. (optional)</param>
+        /// <param name="limit">Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)</param>
         /// <returns>SfvbPageListResponse</returns>
-        public SfvbPageListResponse ListSfvbPages (int storefrontOid, string under = default(string))
+        public SfvbPageListResponse ListSfvbPages (int storefrontOid, string under = default(string), bool? detail = default(bool?), int? offset = default(int?), int? limit = default(int?))
         {
-             ApiResponse<SfvbPageListResponse> localVarResponse = ListSfvbPagesWithHttpInfo(storefrontOid, under);
+             ApiResponse<SfvbPageListResponse> localVarResponse = ListSfvbPagesWithHttpInfo(storefrontOid, under, detail, offset, limit);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List the storefront's pages Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// List the storefront's pages Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail=true to get each page's single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <param name="detail">True to include each page&#39;s single-page read, a window at a time (optional)</param>
+        /// <param name="offset">Where the window starts, with detail&#x3D;true.  Default 0. (optional)</param>
+        /// <param name="limit">Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)</param>
         /// <returns>ApiResponse of SfvbPageListResponse</returns>
-        public ApiResponse<SfvbPageListResponse> ListSfvbPagesWithHttpInfo (int storefrontOid, string under = default(string))
+        public ApiResponse<SfvbPageListResponse> ListSfvbPagesWithHttpInfo (int storefrontOid, string under = default(string), bool? detail = default(bool?), int? offset = default(int?), int? limit = default(int?))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -51320,6 +51585,9 @@ namespace com.ultracart.admin.v2.Api
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (under != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "under", under)); // query parameter
+            if (detail != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "detail", detail)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -51352,29 +51620,35 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// List the storefront's pages Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// List the storefront's pages Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail=true to get each page's single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <param name="detail">True to include each page&#39;s single-page read, a window at a time (optional)</param>
+        /// <param name="offset">Where the window starts, with detail&#x3D;true.  Default 0. (optional)</param>
+        /// <param name="limit">Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SfvbPageListResponse</returns>
-        public async System.Threading.Tasks.Task<SfvbPageListResponse> ListSfvbPagesAsync (int storefrontOid, string under = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<SfvbPageListResponse> ListSfvbPagesAsync (int storefrontOid, string under = default(string), bool? detail = default(bool?), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SfvbPageListResponse> localVarResponse = await ListSfvbPagesWithHttpInfoAsync(storefrontOid, under, cancellationToken);
+             ApiResponse<SfvbPageListResponse> localVarResponse = await ListSfvbPagesWithHttpInfoAsync(storefrontOid, under, detail, offset, limit, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List the storefront's pages Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+        /// List the storefront's pages Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail=true to get each page's single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="under">Only this page and the pages below it, for example /lp/ (optional)</param>
+        /// <param name="detail">True to include each page&#39;s single-page read, a window at a time (optional)</param>
+        /// <param name="offset">Where the window starts, with detail&#x3D;true.  Default 0. (optional)</param>
+        /// <param name="limit">Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbPageListResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageListResponse>> ListSfvbPagesWithHttpInfoAsync (int storefrontOid, string under = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbPageListResponse>> ListSfvbPagesWithHttpInfoAsync (int storefrontOid, string under = default(string), bool? detail = default(bool?), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -51403,6 +51677,9 @@ namespace com.ultracart.admin.v2.Api
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
             if (under != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "under", under)); // query parameter
+            if (detail != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "detail", detail)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -67877,7 +68154,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change the storefront's faceted search configuration A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// Change the storefront's faceted search configuration A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -67891,7 +68168,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change the storefront's faceted search configuration A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// Change the storefront's faceted search configuration A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -67971,7 +68248,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change the storefront's faceted search configuration A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// Change the storefront's faceted search configuration A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
@@ -67987,7 +68264,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Change the storefront's faceted search configuration A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+        /// Change the storefront's faceted search configuration A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>

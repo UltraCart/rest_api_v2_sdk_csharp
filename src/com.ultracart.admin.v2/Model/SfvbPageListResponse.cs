@@ -33,11 +33,22 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbPageListResponse" /> class.
         /// </summary>
+        /// <param name="nextOffset">The offset of the next window, omitted on the last one.  Only with detail&#x3D;true..</param>
         /// <param name="pages">Pages sorted by path, the root first.  Hidden pages are included..</param>
-        public SfvbPageListResponse(List<SfvbPageSummary> pages = default(List<SfvbPageSummary>))
+        /// <param name="total">How many pages the whole list has.  Only with detail&#x3D;true..</param>
+        public SfvbPageListResponse(int nextOffset = default(int), List<SfvbPageSummary> pages = default(List<SfvbPageSummary>), int total = default(int))
         {
+            this.NextOffset = nextOffset;
             this.Pages = pages;
+            this.Total = total;
         }
+
+        /// <summary>
+        /// The offset of the next window, omitted on the last one.  Only with detail&#x3D;true.
+        /// </summary>
+        /// <value>The offset of the next window, omitted on the last one.  Only with detail&#x3D;true.</value>
+        [DataMember(Name="next_offset", EmitDefaultValue=false)]
+        public int NextOffset { get; set; }
 
         /// <summary>
         /// Pages sorted by path, the root first.  Hidden pages are included.
@@ -47,6 +58,13 @@ namespace com.ultracart.admin.v2.Model
         public List<SfvbPageSummary> Pages { get; set; }
 
         /// <summary>
+        /// How many pages the whole list has.  Only with detail&#x3D;true.
+        /// </summary>
+        /// <value>How many pages the whole list has.  Only with detail&#x3D;true.</value>
+        [DataMember(Name="total", EmitDefaultValue=false)]
+        public int Total { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -54,7 +72,9 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbPageListResponse {\n");
+            sb.Append("  NextOffset: ").Append(NextOffset).Append("\n");
             sb.Append("  Pages: ").Append(Pages).Append("\n");
+            sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,10 +110,20 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.NextOffset == input.NextOffset ||
+                    (this.NextOffset != null &&
+                    this.NextOffset.Equals(input.NextOffset))
+                ) && 
+                (
                     this.Pages == input.Pages ||
                     this.Pages != null &&
                     input.Pages != null &&
                     this.Pages.SequenceEqual(input.Pages)
+                ) && 
+                (
+                    this.Total == input.Total ||
+                    (this.Total != null &&
+                    this.Total.Equals(input.Total))
                 );
         }
 
@@ -106,8 +136,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.NextOffset != null)
+                    hashCode = hashCode * 59 + this.NextOffset.GetHashCode();
                 if (this.Pages != null)
                     hashCode = hashCode * 59 + this.Pages.GetHashCode();
+                if (this.Total != null)
+                    hashCode = hashCode * 59 + this.Total.GetHashCode();
                 return hashCode;
             }
         }

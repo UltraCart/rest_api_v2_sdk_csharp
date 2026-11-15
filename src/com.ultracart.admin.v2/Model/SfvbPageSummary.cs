@@ -33,7 +33,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbPageSummary" /> class.
         /// </summary>
+        /// <param name="catalogGroupOid">The page&#39;s id.  It stays the same when the page is moved or renamed, where the path and the page folder&#39;s id do not, and it is what a menu entry&#39;s catalog_group_oid names..</param>
         /// <param name="childCount">Number of pages directly under this one..</param>
+        /// <param name="detail">detail.</param>
         /// <param name="excludeFromSitemap">True when the page is left out of the sitemap and marked noindex..</param>
         /// <param name="groupTemplate">Template file that renders the page itself, a bare .vm name found anywhere in the active theme..</param>
         /// <param name="itemCount">Number of items assigned to the page.  The catalog stops counting at its per-page item ceiling..</param>
@@ -47,9 +49,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="usesSelectors">True when the page&#39;s items or blog posts are chosen by selectors rather than assigned by hand..</param>
         /// <param name="visible">False when the page is hidden.  A hidden page answers 404 to shoppers..</param>
         /// <param name="visibleDts">When set, the page stays hidden until this time (ISO 8601, UTC)..</param>
-        public SfvbPageSummary(int childCount = default(int), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), int itemCount = default(int), string itemTemplate = default(string), string pageType = default(string), string parentPath = default(string), string path = default(string), bool root = default(bool), int sortOrder = default(int), string title = default(string), bool usesSelectors = default(bool), bool visible = default(bool), string visibleDts = default(string))
+        public SfvbPageSummary(int catalogGroupOid = default(int), int childCount = default(int), SfvbPageResponse detail = default(SfvbPageResponse), bool excludeFromSitemap = default(bool), string groupTemplate = default(string), int itemCount = default(int), string itemTemplate = default(string), string pageType = default(string), string parentPath = default(string), string path = default(string), bool root = default(bool), int sortOrder = default(int), string title = default(string), bool usesSelectors = default(bool), bool visible = default(bool), string visibleDts = default(string))
         {
+            this.CatalogGroupOid = catalogGroupOid;
             this.ChildCount = childCount;
+            this.Detail = detail;
             this.ExcludeFromSitemap = excludeFromSitemap;
             this.GroupTemplate = groupTemplate;
             this.ItemCount = itemCount;
@@ -66,11 +70,24 @@ namespace com.ultracart.admin.v2.Model
         }
 
         /// <summary>
+        /// The page&#39;s id.  It stays the same when the page is moved or renamed, where the path and the page folder&#39;s id do not, and it is what a menu entry&#39;s catalog_group_oid names.
+        /// </summary>
+        /// <value>The page&#39;s id.  It stays the same when the page is moved or renamed, where the path and the page folder&#39;s id do not, and it is what a menu entry&#39;s catalog_group_oid names.</value>
+        [DataMember(Name="catalog_group_oid", EmitDefaultValue=false)]
+        public int CatalogGroupOid { get; set; }
+
+        /// <summary>
         /// Number of pages directly under this one.
         /// </summary>
         /// <value>Number of pages directly under this one.</value>
         [DataMember(Name="child_count", EmitDefaultValue=false)]
         public int ChildCount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Detail
+        /// </summary>
+        [DataMember(Name="detail", EmitDefaultValue=false)]
+        public SfvbPageResponse Detail { get; set; }
 
         /// <summary>
         /// True when the page is left out of the sitemap and marked noindex.
@@ -171,7 +188,9 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SfvbPageSummary {\n");
+            sb.Append("  CatalogGroupOid: ").Append(CatalogGroupOid).Append("\n");
             sb.Append("  ChildCount: ").Append(ChildCount).Append("\n");
+            sb.Append("  Detail: ").Append(Detail).Append("\n");
             sb.Append("  ExcludeFromSitemap: ").Append(ExcludeFromSitemap).Append("\n");
             sb.Append("  GroupTemplate: ").Append(GroupTemplate).Append("\n");
             sb.Append("  ItemCount: ").Append(ItemCount).Append("\n");
@@ -220,9 +239,19 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.CatalogGroupOid == input.CatalogGroupOid ||
+                    (this.CatalogGroupOid != null &&
+                    this.CatalogGroupOid.Equals(input.CatalogGroupOid))
+                ) && 
+                (
                     this.ChildCount == input.ChildCount ||
                     (this.ChildCount != null &&
                     this.ChildCount.Equals(input.ChildCount))
+                ) && 
+                (
+                    this.Detail == input.Detail ||
+                    (this.Detail != null &&
+                    this.Detail.Equals(input.Detail))
                 ) && 
                 (
                     this.ExcludeFromSitemap == input.ExcludeFromSitemap ||
@@ -300,8 +329,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CatalogGroupOid != null)
+                    hashCode = hashCode * 59 + this.CatalogGroupOid.GetHashCode();
                 if (this.ChildCount != null)
                     hashCode = hashCode * 59 + this.ChildCount.GetHashCode();
+                if (this.Detail != null)
+                    hashCode = hashCode * 59 + this.Detail.GetHashCode();
                 if (this.ExcludeFromSitemap != null)
                     hashCode = hashCode * 59 + this.ExcludeFromSitemap.GetHashCode();
                 if (this.GroupTemplate != null)

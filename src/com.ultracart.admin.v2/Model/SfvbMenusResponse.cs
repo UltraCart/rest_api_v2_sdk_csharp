@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SfvbMenusResponse" /> class.
         /// </summary>
-        /// <param name="menus">The storefront&#39;s menus, sorted by code.  Entries are omitted here - read a single menu to get its tree..</param>
+        /// <param name="menus">The storefront&#39;s menus, sorted by code.  Entries are omitted unless include_entries&#x3D;true was passed, in which case each menu carries the same tree the single-menu read returns..</param>
         public SfvbMenusResponse(List<SfvbMenu> menus = default(List<SfvbMenu>))
         {
             this.Menus = menus;
         }
 
         /// <summary>
-        /// The storefront&#39;s menus, sorted by code.  Entries are omitted here - read a single menu to get its tree.
+        /// The storefront&#39;s menus, sorted by code.  Entries are omitted unless include_entries&#x3D;true was passed, in which case each menu carries the same tree the single-menu read returns.
         /// </summary>
-        /// <value>The storefront&#39;s menus, sorted by code.  Entries are omitted here - read a single menu to get its tree.</value>
+        /// <value>The storefront&#39;s menus, sorted by code.  Entries are omitted unless include_entries&#x3D;true was passed, in which case each menu carries the same tree the single-menu read returns.</value>
         [DataMember(Name="menus", EmitDefaultValue=false)]
         public List<SfvbMenu> Menus { get; set; }
 

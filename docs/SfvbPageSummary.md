@@ -5,7 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CatalogGroupOid** | **int** | The page&#39;s id.  It stays the same when the page is moved or renamed, where the path and the page folder&#39;s id do not, and it is what a menu entry&#39;s catalog_group_oid names. | [optional] 
 **ChildCount** | **int** | Number of pages directly under this one. | [optional] 
+**Detail** | [**SfvbPageResponse**](SfvbPageResponse.md) |  | [optional] 
 **ExcludeFromSitemap** | **bool** | True when the page is left out of the sitemap and marked noindex. | [optional] 
 **GroupTemplate** | **string** | Template file that renders the page itself, a bare .vm name found anywhere in the active theme. | [optional] 
 **ItemCount** | **int** | Number of items assigned to the page.  The catalog stops counting at its per-page item ceiling. | [optional] 

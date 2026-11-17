@@ -4382,6 +4382,46 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbItemChildCreateResponse</returns>
         ApiResponse<SfvbItemChildCreateResponse> InsertSfvbItemChildWithHttpInfo (int storefrontOid, SfvbItemChildCreateRequest itemChildRequest);
         /// <summary>
+        /// Add the caller's address to this StoreFront CLI sign-in
+        /// </summary>
+        /// <remarks>
+        /// Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. (optional)</param>
+        /// <returns></returns>
+        void InsertSfvbLocation (string approvalId = default(string));
+
+        /// <summary>
+        /// Add the caller's address to this StoreFront CLI sign-in
+        /// </summary>
+        /// <remarks>
+        /// Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> InsertSfvbLocationWithHttpInfo (string approvalId = default(string));
+        /// <summary>
+        /// Ask to use this StoreFront CLI sign-in from the caller's address
+        /// </summary>
+        /// <remarks>
+        /// For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn't expect warns them. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SfvbApproval</returns>
+        SfvbApproval InsertSfvbLocationApproval ();
+
+        /// <summary>
+        /// Ask to use this StoreFront CLI sign-in from the caller's address
+        /// </summary>
+        /// <remarks>
+        /// For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn't expect warns them. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SfvbApproval</returns>
+        ApiResponse<SfvbApproval> InsertSfvbLocationApprovalWithHttpInfo ();
+        /// <summary>
         /// Create a page
         /// </summary>
         /// <remarks>
@@ -12302,6 +12342,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbItemChildCreateResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbItemChildCreateResponse>> InsertSfvbItemChildWithHttpInfoAsync (int storefrontOid, SfvbItemChildCreateRequest itemChildRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Add the caller's address to this StoreFront CLI sign-in
+        /// </summary>
+        /// <remarks>
+        /// Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task InsertSfvbLocationAsync (string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Add the caller&#39;s address to this StoreFront CLI sign-in
+        /// </summary>
+        /// <remarks>
+        /// Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> InsertSfvbLocationWithHttpInfoAsync (string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Ask to use this StoreFront CLI sign-in from the caller's address
+        /// </summary>
+        /// <remarks>
+        /// For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn't expect warns them. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbApproval</returns>
+        System.Threading.Tasks.Task<SfvbApproval> InsertSfvbLocationApprovalAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Ask to use this StoreFront CLI sign-in from the caller&#39;s address
+        /// </summary>
+        /// <remarks>
+        /// For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn't expect warns them. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbApproval)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbApproval>> InsertSfvbLocationApprovalWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a page
         /// </summary>
@@ -47640,6 +47724,300 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbItemChildCreateResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbItemChildCreateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbItemChildCreateResponse)));
+        }
+
+        /// <summary>
+        /// Add the caller's address to this StoreFront CLI sign-in Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. (optional)</param>
+        /// <returns></returns>
+        public void InsertSfvbLocation (string approvalId = default(string))
+        {
+             InsertSfvbLocationWithHttpInfo(approvalId);
+        }
+
+        /// <summary>
+        /// Add the caller's address to this StoreFront CLI sign-in Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> InsertSfvbLocationWithHttpInfo (string approvalId = default(string))
+        {
+
+            var localVarPath = "/sfvb/location";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbLocation", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Add the caller's address to this StoreFront CLI sign-in Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task InsertSfvbLocationAsync (string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await InsertSfvbLocationWithHttpInfoAsync(approvalId, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Add the caller's address to this StoreFront CLI sign-in Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> InsertSfvbLocationWithHttpInfoAsync (string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/sfvb/location";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbLocation", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Ask to use this StoreFront CLI sign-in from the caller's address For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn't expect warns them. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SfvbApproval</returns>
+        public SfvbApproval InsertSfvbLocationApproval ()
+        {
+             ApiResponse<SfvbApproval> localVarResponse = InsertSfvbLocationApprovalWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Ask to use this StoreFront CLI sign-in from the caller's address For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn't expect warns them. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SfvbApproval</returns>
+        public ApiResponse<SfvbApproval> InsertSfvbLocationApprovalWithHttpInfo ()
+        {
+
+            var localVarPath = "/sfvb/location/approval";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbLocationApproval", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbApproval>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbApproval) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbApproval)));
+        }
+
+        /// <summary>
+        /// Ask to use this StoreFront CLI sign-in from the caller's address For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn't expect warns them. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbApproval</returns>
+        public async System.Threading.Tasks.Task<SfvbApproval> InsertSfvbLocationApprovalAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbApproval> localVarResponse = await InsertSfvbLocationApprovalWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Ask to use this StoreFront CLI sign-in from the caller's address For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn't expect warns them. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbApproval)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbApproval>> InsertSfvbLocationApprovalWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/sfvb/location/approval";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbLocationApproval", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbApproval>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbApproval) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbApproval)));
         }
 
         /// <summary>

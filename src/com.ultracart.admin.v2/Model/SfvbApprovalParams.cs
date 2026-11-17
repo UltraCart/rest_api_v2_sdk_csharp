@@ -69,6 +69,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="domain">For sending_domain.delete, the sending domain..</param>
         /// <param name="espTwilioUuid">For twilio_account.delete, the Twilio account&#39;s esp_twilio_uuid, as GET comms/twilio_account returns it..</param>
         /// <param name="experimentOid">For experiment.end, the experiment to end..</param>
+        /// <param name="ip">For cli.location, the IPv4 address the StoreFront CLI sign-in asks to be used from.  Set by the server from the caller&#39;s own address, never by the caller..</param>
         /// <param name="itemCount">For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server..</param>
         /// <param name="merchantItemOid">For item.pricing, the item whose pricing changes..</param>
         /// <param name="newPath">For page.move, where the page goes, exactly as the move will send it.  path is the page as it is now..</param>
@@ -89,7 +90,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="version">For file.put_script and file.put_template, the history version a revert restores.  Leave it out, and send content instead, for a write..</param>
         /// <param name="widgetId">For experiment.start of a page experiment, the id of the experiment element..</param>
         /// <param name="winnerVariationNumber">For experiment.end, the winning variation.  Leave it out to end without a winner, and leave it out of the end call too..</param>
-        public SfvbApprovalParams(int affiliateNetworkOid = default(int), string afterStepUuid = default(string), List<string> attributeNames = default(List<string>), int blogPostOid = default(int), string branchStepUuid = default(string), string contentSha256 = default(string), string domain = default(string), string espTwilioUuid = default(string), int experimentOid = default(int), int itemCount = default(int), int merchantItemOid = default(int), string newPath = default(string), int pagesMoved = default(int), string path = default(string), string redirectOldUrl = default(string), string requestSha256 = default(string), string rowsSha256 = default(string), int ruleCount = default(int), string segmentUuid = default(string), string sequenceUuid = default(string), string side = default(string), string slot = default(string), string stepUuid = default(string), string trackingProvider = default(string), UpsellKindEnum? upsellKind = default(UpsellKindEnum?), int upsellOid = default(int), int version = default(int), string widgetId = default(string), int winnerVariationNumber = default(int))
+        public SfvbApprovalParams(int affiliateNetworkOid = default(int), string afterStepUuid = default(string), List<string> attributeNames = default(List<string>), int blogPostOid = default(int), string branchStepUuid = default(string), string contentSha256 = default(string), string domain = default(string), string espTwilioUuid = default(string), int experimentOid = default(int), string ip = default(string), int itemCount = default(int), int merchantItemOid = default(int), string newPath = default(string), int pagesMoved = default(int), string path = default(string), string redirectOldUrl = default(string), string requestSha256 = default(string), string rowsSha256 = default(string), int ruleCount = default(int), string segmentUuid = default(string), string sequenceUuid = default(string), string side = default(string), string slot = default(string), string stepUuid = default(string), string trackingProvider = default(string), UpsellKindEnum? upsellKind = default(UpsellKindEnum?), int upsellOid = default(int), int version = default(int), string widgetId = default(string), int winnerVariationNumber = default(int))
         {
             this.AffiliateNetworkOid = affiliateNetworkOid;
             this.AfterStepUuid = afterStepUuid;
@@ -100,6 +101,7 @@ namespace com.ultracart.admin.v2.Model
             this.Domain = domain;
             this.EspTwilioUuid = espTwilioUuid;
             this.ExperimentOid = experimentOid;
+            this.Ip = ip;
             this.ItemCount = itemCount;
             this.MerchantItemOid = merchantItemOid;
             this.NewPath = newPath;
@@ -184,6 +186,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>For experiment.end, the experiment to end.</value>
         [DataMember(Name="experiment_oid", EmitDefaultValue=false)]
         public int ExperimentOid { get; set; }
+
+        /// <summary>
+        /// For cli.location, the IPv4 address the StoreFront CLI sign-in asks to be used from.  Set by the server from the caller&#39;s own address, never by the caller.
+        /// </summary>
+        /// <value>For cli.location, the IPv4 address the StoreFront CLI sign-in asks to be used from.  Set by the server from the caller&#39;s own address, never by the caller.</value>
+        [DataMember(Name="ip", EmitDefaultValue=false)]
+        public string Ip { get; set; }
 
         /// <summary>
         /// For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.
@@ -336,6 +345,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Domain: ").Append(Domain).Append("\n");
             sb.Append("  EspTwilioUuid: ").Append(EspTwilioUuid).Append("\n");
             sb.Append("  ExperimentOid: ").Append(ExperimentOid).Append("\n");
+            sb.Append("  Ip: ").Append(Ip).Append("\n");
             sb.Append("  ItemCount: ").Append(ItemCount).Append("\n");
             sb.Append("  MerchantItemOid: ").Append(MerchantItemOid).Append("\n");
             sb.Append("  NewPath: ").Append(NewPath).Append("\n");
@@ -435,6 +445,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ExperimentOid == input.ExperimentOid ||
                     (this.ExperimentOid != null &&
                     this.ExperimentOid.Equals(input.ExperimentOid))
+                ) && 
+                (
+                    this.Ip == input.Ip ||
+                    (this.Ip != null &&
+                    this.Ip.Equals(input.Ip))
                 ) && 
                 (
                     this.ItemCount == input.ItemCount ||
@@ -565,6 +580,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EspTwilioUuid.GetHashCode();
                 if (this.ExperimentOid != null)
                     hashCode = hashCode * 59 + this.ExperimentOid.GetHashCode();
+                if (this.Ip != null)
+                    hashCode = hashCode * 59 + this.Ip.GetHashCode();
                 if (this.ItemCount != null)
                     hashCode = hashCode * 59 + this.ItemCount.GetHashCode();
                 if (this.MerchantItemOid != null)

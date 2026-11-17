@@ -233,7 +233,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum PageMove for value: page.move
             /// </summary>
             [EnumMember(Value = "page.move")]
-            PageMove = 33
+            PageMove = 33,
+
+            /// <summary>
+            /// Enum CliLocation for value: cli.location
+            /// </summary>
+            [EnumMember(Value = "cli.location")]
+            CliLocation = 34
 
         }
 

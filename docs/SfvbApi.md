@@ -150,6 +150,7 @@ Method | HTTP request | Description
 [**GetSfvbSequence**](SfvbApi.md#getsfvbsequence) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid} | Get a campaign&#39;s or flow&#39;s steps as a tree
 [**GetSfvbSequenceStepDispatchLogs**](SfvbApi.md#getsfvbsequencestepdispatchlogs) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs | Read a flow or campaign step&#39;s dispatch log and counts
 [**GetSfvbServerLog**](SfvbApi.md#getsfvbserverlog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
+[**GetSfvbSession**](SfvbApi.md#getsfvbsession) | **GET** /sfvb/session | Who this token is
 [**GetSfvbSiteAttributes**](SfvbApi.md#getsfvbsiteattributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 [**GetSfvbSiteSeo**](SfvbApi.md#getsfvbsiteseo) | **GET** /sfvb/storefronts/{storefront_oid}/seo | Read a storefront&#39;s search engine settings
 [**GetSfvbSitemaps**](SfvbApi.md#getsfvbsitemaps) | **GET** /sfvb/storefronts/{storefront_oid}/sitemaps | Read a storefront&#39;s sitemaps and robots.txt
@@ -172,7 +173,6 @@ Method | HTTP request | Description
 [**GetSfvbUtmShortcode**](SfvbApi.md#getsfvbutmshortcode) | **GET** /sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid} | Read one UTM shortcode
 [**GetSfvbUtmShortcodes**](SfvbApi.md#getsfvbutmshortcodes) | **GET** /sfvb/storefronts/{storefront_oid}/utm_shortcodes | List a storefront&#39;s UTM shortcodes
 [**GetSfvbVersion**](SfvbApi.md#getsfvbversion) | **GET** /sfvb/version | Compiler version for this merchant
-[**GetSfvbWhoami**](SfvbApi.md#getsfvbwhoami) | **GET** /sfvb/whoami | Who this token is
 [**IgnoreSfvbNotFoundEntry**](SfvbApi.md#ignoresfvbnotfoundentry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Ignore a 404 path
 [**ImportSfvbCommsProviderLists**](SfvbApi.md#importsfvbcommsproviderlists) | **POST** /sfvb/storefronts/{storefront_oid}/comms/providers/import | Import lists from another email provider
 [**ImportSfvbRedirects**](SfvbApi.md#importsfvbredirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import | Apply a reviewed redirect import
@@ -8172,6 +8172,54 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetSfvbSession
+
+> SfvbWhoamiResponse GetSfvbSession ()
+
+Who this token is
+
+Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SfvbWhoamiResponse**](SfvbWhoamiResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetSfvbSiteAttributes
 
 > SfvbSiteAttributesResponse GetSfvbSiteAttributes (int storefrontOid)
@@ -9313,54 +9361,6 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
-| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetSfvbWhoami
-
-> SfvbWhoamiResponse GetSfvbWhoami ()
-
-Who this token is
-
-Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
-
-
-### Example
-
-
-(No example for this operation).
-
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**SfvbWhoamiResponse**](SfvbWhoamiResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
-| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
-| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#)

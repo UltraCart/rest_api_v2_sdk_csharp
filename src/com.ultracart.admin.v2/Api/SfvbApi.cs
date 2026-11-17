@@ -3500,6 +3500,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbServerLogDetail</returns>
         ApiResponse<SfvbServerLogDetail> GetSfvbServerLogWithHttpInfo (int storefrontOid, string logId, string minLevel = default(string));
         /// <summary>
+        /// Who this token is
+        /// </summary>
+        /// <remarks>
+        /// Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SfvbWhoamiResponse</returns>
+        SfvbWhoamiResponse GetSfvbSession ();
+
+        /// <summary>
+        /// Who this token is
+        /// </summary>
+        /// <remarks>
+        /// Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SfvbWhoamiResponse</returns>
+        ApiResponse<SfvbWhoamiResponse> GetSfvbSessionWithHttpInfo ();
+        /// <summary>
         /// Read a storefront's site attributes
         /// </summary>
         /// <remarks>
@@ -4017,25 +4036,6 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of SfvbVersionResponse</returns>
         ApiResponse<SfvbVersionResponse> GetSfvbVersionWithHttpInfo ();
-        /// <summary>
-        /// Who this token is
-        /// </summary>
-        /// <remarks>
-        /// Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>SfvbWhoamiResponse</returns>
-        SfvbWhoamiResponse GetSfvbWhoami ();
-
-        /// <summary>
-        /// Who this token is
-        /// </summary>
-        /// <remarks>
-        /// Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of SfvbWhoamiResponse</returns>
-        ApiResponse<SfvbWhoamiResponse> GetSfvbWhoamiWithHttpInfo ();
         /// <summary>
         /// Ignore a 404 path
         /// </summary>
@@ -11385,6 +11385,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbServerLogDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbServerLogDetail>> GetSfvbServerLogWithHttpInfoAsync (int storefrontOid, string logId, string minLevel = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Who this token is
+        /// </summary>
+        /// <remarks>
+        /// Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbWhoamiResponse</returns>
+        System.Threading.Tasks.Task<SfvbWhoamiResponse> GetSfvbSessionAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Who this token is
+        /// </summary>
+        /// <remarks>
+        /// Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbWhoamiResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbWhoamiResponse>> GetSfvbSessionWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Read a storefront's site attributes
         /// </summary>
         /// <remarks>
@@ -11946,27 +11967,6 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbVersionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbVersionResponse>> GetSfvbVersionWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Who this token is
-        /// </summary>
-        /// <remarks>
-        /// Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of SfvbWhoamiResponse</returns>
-        System.Threading.Tasks.Task<SfvbWhoamiResponse> GetSfvbWhoamiAsync (CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Who this token is
-        /// </summary>
-        /// <remarks>
-        /// Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (SfvbWhoamiResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SfvbWhoamiResponse>> GetSfvbWhoamiWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Ignore a 404 path
         /// </summary>
@@ -41165,6 +41165,151 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Who this token is Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SfvbWhoamiResponse</returns>
+        public SfvbWhoamiResponse GetSfvbSession ()
+        {
+             ApiResponse<SfvbWhoamiResponse> localVarResponse = GetSfvbSessionWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Who this token is Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SfvbWhoamiResponse</returns>
+        public ApiResponse<SfvbWhoamiResponse> GetSfvbSessionWithHttpInfo ()
+        {
+
+            var localVarPath = "/sfvb/session";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbSession", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbWhoamiResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbWhoamiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbWhoamiResponse)));
+        }
+
+        /// <summary>
+        /// Who this token is Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbWhoamiResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbWhoamiResponse> GetSfvbSessionAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbWhoamiResponse> localVarResponse = await GetSfvbSessionWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Who this token is Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbWhoamiResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbWhoamiResponse>> GetSfvbSessionWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/sfvb/session";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbSession", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbWhoamiResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbWhoamiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbWhoamiResponse)));
+        }
+
+        /// <summary>
         /// Read a storefront's site attributes The values the siteattribute element and $site.attr render.  These are not in any file or theme.  Attributes a template declares but nothing has set are included with the template's default, so the response describes what the templates can render rather than only what has been saved.  Credentials stored as site attributes are never included. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -44844,151 +44989,6 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbVersionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbVersionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbVersionResponse)));
-        }
-
-        /// <summary>
-        /// Who this token is Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>SfvbWhoamiResponse</returns>
-        public SfvbWhoamiResponse GetSfvbWhoami ()
-        {
-             ApiResponse<SfvbWhoamiResponse> localVarResponse = GetSfvbWhoamiWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Who this token is Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of SfvbWhoamiResponse</returns>
-        public ApiResponse<SfvbWhoamiResponse> GetSfvbWhoamiWithHttpInfo ()
-        {
-
-            var localVarPath = "/sfvb/whoami";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetSfvbWhoami", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<SfvbWhoamiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SfvbWhoamiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbWhoamiResponse)));
-        }
-
-        /// <summary>
-        /// Who this token is Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of SfvbWhoamiResponse</returns>
-        public async System.Threading.Tasks.Task<SfvbWhoamiResponse> GetSfvbWhoamiAsync (CancellationToken cancellationToken = default(CancellationToken))
-        {
-             ApiResponse<SfvbWhoamiResponse> localVarResponse = await GetSfvbWhoamiWithHttpInfoAsync(cancellationToken);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Who this token is Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (SfvbWhoamiResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SfvbWhoamiResponse>> GetSfvbWhoamiWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var localVarPath = "/sfvb/whoami";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetSfvbWhoami", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<SfvbWhoamiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SfvbWhoamiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbWhoamiResponse)));
         }
 
         /// <summary>

@@ -1013,7 +1013,12 @@ docs/SfvbCliAccess.md
 docs/SfvbCliLocation.md
 docs/SfvbCliVersion.md
 docs/SfvbCodeLibraryEmail.md
+docs/SfvbCodeLibraryEmailCreateRequest.md
+docs/SfvbCodeLibraryEmailDetail.md
+docs/SfvbCodeLibraryEmailResponse.md
 docs/SfvbCodeLibraryEmailsResponse.md
+docs/SfvbCodeLibraryFile.md
+docs/SfvbCodeLibraryFileSkipped.md
 docs/SfvbCommsBranchStat.md
 docs/SfvbCommsChange.md
 docs/SfvbCommsClick.md
@@ -2532,7 +2537,12 @@ src/com.ultracart.admin.v2/Model/SfvbCliAccess.cs
 src/com.ultracart.admin.v2/Model/SfvbCliLocation.cs
 src/com.ultracart.admin.v2/Model/SfvbCliVersion.cs
 src/com.ultracart.admin.v2/Model/SfvbCodeLibraryEmail.cs
+src/com.ultracart.admin.v2/Model/SfvbCodeLibraryEmailCreateRequest.cs
+src/com.ultracart.admin.v2/Model/SfvbCodeLibraryEmailDetail.cs
+src/com.ultracart.admin.v2/Model/SfvbCodeLibraryEmailResponse.cs
 src/com.ultracart.admin.v2/Model/SfvbCodeLibraryEmailsResponse.cs
+src/com.ultracart.admin.v2/Model/SfvbCodeLibraryFile.cs
+src/com.ultracart.admin.v2/Model/SfvbCodeLibraryFileSkipped.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsBranchStat.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsChange.cs
 src/com.ultracart.admin.v2/Model/SfvbCommsClick.cs

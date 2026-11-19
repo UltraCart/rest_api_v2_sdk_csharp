@@ -1714,6 +1714,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbElementsResponse</returns>
         ApiResponse<SfvbElementsResponse> GetSfvbCjsonUsedElementsWithHttpInfo (SfvbCompileRequest compileRequest);
         /// <summary>
+        /// One code library email item, with its body and file list
+        /// </summary>
+        /// <remarks>
+        /// Answers for an item this account owns, one shared with it, or one published for everyone, approved by UltraCart and free, the same items listSfvbCodeLibraryEmails lists; anything else is not found.  Returns the title, description, subject, preview text, the body as stored and the image files the item carries, without their contents (#2126). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>SfvbCodeLibraryEmailResponse</returns>
+        SfvbCodeLibraryEmailResponse GetSfvbCodeLibraryEmail (int storefrontOid, int libraryItemOid);
+
+        /// <summary>
+        /// One code library email item, with its body and file list
+        /// </summary>
+        /// <remarks>
+        /// Answers for an item this account owns, one shared with it, or one published for everyone, approved by UltraCart and free, the same items listSfvbCodeLibraryEmails lists; anything else is not found.  Returns the title, description, subject, preview text, the body as stored and the image files the item carries, without their contents (#2126). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>ApiResponse of SfvbCodeLibraryEmailResponse</returns>
+        ApiResponse<SfvbCodeLibraryEmailResponse> GetSfvbCodeLibraryEmailWithHttpInfo (int storefrontOid, int libraryItemOid);
+        /// <summary>
         /// Read one campaign folder
         /// </summary>
         /// <remarks>
@@ -4178,6 +4201,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="blogPostRequest">The blog post to create</param>
         /// <returns>ApiResponse of SfvbBlogPostDetail</returns>
         ApiResponse<SfvbBlogPostDetail> InsertSfvbBlogPostWithHttpInfo (int storefrontOid, SfvbBlogPostRequest blogPostRequest);
+        /// <summary>
+        /// Save a reusable email to this account's code library
+        /// </summary>
+        /// <remarks>
+        /// Saves a whole email (body, subject and preview text) as a code library email item that the admin's \"start from library\" picker and the step insert's library_item_oid can start a new email from (#2126).  No flow, campaign, sequence or step is made, and nothing sends.  The item is private to this account, never published or shared.  The body must pass the library content scanner and the email container rules.  Image files the body names by a path starting with / are carried with the item when they are PNG, JPEG or GIF and their contents are that image, up to 25 files, 5 MB each and 20 MB in all; any other file is listed in files_skipped with the reason.  Make a new uuid for each save.  Sending the same uuid again returns the item it saved, unchanged, with created false, so a retry after an uncertain response is safe.  Titles may repeat. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="codeLibraryEmailCreateRequest">The email to save, with the uuid that makes a retry safe</param>
+        /// <returns>SfvbCodeLibraryEmailResponse</returns>
+        SfvbCodeLibraryEmailResponse InsertSfvbCodeLibraryEmail (int storefrontOid, SfvbCodeLibraryEmailCreateRequest codeLibraryEmailCreateRequest);
+
+        /// <summary>
+        /// Save a reusable email to this account's code library
+        /// </summary>
+        /// <remarks>
+        /// Saves a whole email (body, subject and preview text) as a code library email item that the admin's \"start from library\" picker and the step insert's library_item_oid can start a new email from (#2126).  No flow, campaign, sequence or step is made, and nothing sends.  The item is private to this account, never published or shared.  The body must pass the library content scanner and the email container rules.  Image files the body names by a path starting with / are carried with the item when they are PNG, JPEG or GIF and their contents are that image, up to 25 files, 5 MB each and 20 MB in all; any other file is listed in files_skipped with the reason.  Make a new uuid for each save.  Sending the same uuid again returns the item it saved, unchanged, with created false, so a retry after an uncertain response is safe.  Titles may repeat. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="codeLibraryEmailCreateRequest">The email to save, with the uuid that makes a retry safe</param>
+        /// <returns>ApiResponse of SfvbCodeLibraryEmailResponse</returns>
+        ApiResponse<SfvbCodeLibraryEmailResponse> InsertSfvbCodeLibraryEmailWithHttpInfo (int storefrontOid, SfvbCodeLibraryEmailCreateRequest codeLibraryEmailCreateRequest);
         /// <summary>
         /// Create a campaign folder
         /// </summary>
@@ -9447,6 +9493,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (SfvbElementsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbElementsResponse>> GetSfvbCjsonUsedElementsWithHttpInfoAsync (SfvbCompileRequest compileRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// One code library email item, with its body and file list
+        /// </summary>
+        /// <remarks>
+        /// Answers for an item this account owns, one shared with it, or one published for everyone, approved by UltraCart and free, the same items listSfvbCodeLibraryEmails lists; anything else is not found.  Returns the title, description, subject, preview text, the body as stored and the image files the item carries, without their contents (#2126). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryItemOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCodeLibraryEmailResponse</returns>
+        System.Threading.Tasks.Task<SfvbCodeLibraryEmailResponse> GetSfvbCodeLibraryEmailAsync (int storefrontOid, int libraryItemOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// One code library email item, with its body and file list
+        /// </summary>
+        /// <remarks>
+        /// Answers for an item this account owns, one shared with it, or one published for everyone, approved by UltraCart and free, the same items listSfvbCodeLibraryEmails lists; anything else is not found.  Returns the title, description, subject, preview text, the body as stored and the image files the item carries, without their contents (#2126). 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryItemOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCodeLibraryEmailResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCodeLibraryEmailResponse>> GetSfvbCodeLibraryEmailWithHttpInfoAsync (int storefrontOid, int libraryItemOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Read one campaign folder
         /// </summary>
         /// <remarks>
@@ -12121,6 +12192,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbBlogPostDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbBlogPostDetail>> InsertSfvbBlogPostWithHttpInfoAsync (int storefrontOid, SfvbBlogPostRequest blogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Save a reusable email to this account's code library
+        /// </summary>
+        /// <remarks>
+        /// Saves a whole email (body, subject and preview text) as a code library email item that the admin's \"start from library\" picker and the step insert's library_item_oid can start a new email from (#2126).  No flow, campaign, sequence or step is made, and nothing sends.  The item is private to this account, never published or shared.  The body must pass the library content scanner and the email container rules.  Image files the body names by a path starting with / are carried with the item when they are PNG, JPEG or GIF and their contents are that image, up to 25 files, 5 MB each and 20 MB in all; any other file is listed in files_skipped with the reason.  Make a new uuid for each save.  Sending the same uuid again returns the item it saved, unchanged, with created false, so a retry after an uncertain response is safe.  Titles may repeat. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="codeLibraryEmailCreateRequest">The email to save, with the uuid that makes a retry safe</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCodeLibraryEmailResponse</returns>
+        System.Threading.Tasks.Task<SfvbCodeLibraryEmailResponse> InsertSfvbCodeLibraryEmailAsync (int storefrontOid, SfvbCodeLibraryEmailCreateRequest codeLibraryEmailCreateRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Save a reusable email to this account&#39;s code library
+        /// </summary>
+        /// <remarks>
+        /// Saves a whole email (body, subject and preview text) as a code library email item that the admin's \"start from library\" picker and the step insert's library_item_oid can start a new email from (#2126).  No flow, campaign, sequence or step is made, and nothing sends.  The item is private to this account, never published or shared.  The body must pass the library content scanner and the email container rules.  Image files the body names by a path starting with / are carried with the item when they are PNG, JPEG or GIF and their contents are that image, up to 25 files, 5 MB each and 20 MB in all; any other file is listed in files_skipped with the reason.  Make a new uuid for each save.  Sending the same uuid again returns the item it saved, unchanged, with created false, so a retry after an uncertain response is safe.  Titles may repeat. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="codeLibraryEmailCreateRequest">The email to save, with the uuid that makes a retry safe</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCodeLibraryEmailResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SfvbCodeLibraryEmailResponse>> InsertSfvbCodeLibraryEmailWithHttpInfoAsync (int storefrontOid, SfvbCodeLibraryEmailCreateRequest codeLibraryEmailCreateRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a campaign folder
         /// </summary>
@@ -28436,6 +28532,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbElementsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbElementsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbElementsResponse)));
+        }
+
+        /// <summary>
+        /// One code library email item, with its body and file list Answers for an item this account owns, one shared with it, or one published for everyone, approved by UltraCart and free, the same items listSfvbCodeLibraryEmails lists; anything else is not found.  Returns the title, description, subject, preview text, the body as stored and the image files the item carries, without their contents (#2126). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>SfvbCodeLibraryEmailResponse</returns>
+        public SfvbCodeLibraryEmailResponse GetSfvbCodeLibraryEmail (int storefrontOid, int libraryItemOid)
+        {
+             ApiResponse<SfvbCodeLibraryEmailResponse> localVarResponse = GetSfvbCodeLibraryEmailWithHttpInfo(storefrontOid, libraryItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// One code library email item, with its body and file list Answers for an item this account owns, one shared with it, or one published for everyone, approved by UltraCart and free, the same items listSfvbCodeLibraryEmails lists; anything else is not found.  Returns the title, description, subject, preview text, the body as stored and the image files the item carries, without their contents (#2126). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>ApiResponse of SfvbCodeLibraryEmailResponse</returns>
+        public ApiResponse<SfvbCodeLibraryEmailResponse> GetSfvbCodeLibraryEmailWithHttpInfo (int storefrontOid, int libraryItemOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCodeLibraryEmail");
+            // verify the required parameter 'libraryItemOid' is set
+            if (libraryItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling SfvbApi->GetSfvbCodeLibraryEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/code_library/emails/{library_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCodeLibraryEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCodeLibraryEmailResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCodeLibraryEmailResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCodeLibraryEmailResponse)));
+        }
+
+        /// <summary>
+        /// One code library email item, with its body and file list Answers for an item this account owns, one shared with it, or one published for everyone, approved by UltraCart and free, the same items listSfvbCodeLibraryEmails lists; anything else is not found.  Returns the title, description, subject, preview text, the body as stored and the image files the item carries, without their contents (#2126). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryItemOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCodeLibraryEmailResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCodeLibraryEmailResponse> GetSfvbCodeLibraryEmailAsync (int storefrontOid, int libraryItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCodeLibraryEmailResponse> localVarResponse = await GetSfvbCodeLibraryEmailWithHttpInfoAsync(storefrontOid, libraryItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// One code library email item, with its body and file list Answers for an item this account owns, one shared with it, or one published for everyone, approved by UltraCart and free, the same items listSfvbCodeLibraryEmails lists; anything else is not found.  Returns the title, description, subject, preview text, the body as stored and the image files the item carries, without their contents (#2126). 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="libraryItemOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCodeLibraryEmailResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCodeLibraryEmailResponse>> GetSfvbCodeLibraryEmailWithHttpInfoAsync (int storefrontOid, int libraryItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->GetSfvbCodeLibraryEmail");
+            // verify the required parameter 'libraryItemOid' is set
+            if (libraryItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling SfvbApi->GetSfvbCodeLibraryEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/code_library/emails/{library_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSfvbCodeLibraryEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCodeLibraryEmailResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCodeLibraryEmailResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCodeLibraryEmailResponse)));
         }
 
         /// <summary>
@@ -46089,6 +46354,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbBlogPostDetail>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbBlogPostDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbBlogPostDetail)));
+        }
+
+        /// <summary>
+        /// Save a reusable email to this account's code library Saves a whole email (body, subject and preview text) as a code library email item that the admin's \"start from library\" picker and the step insert's library_item_oid can start a new email from (#2126).  No flow, campaign, sequence or step is made, and nothing sends.  The item is private to this account, never published or shared.  The body must pass the library content scanner and the email container rules.  Image files the body names by a path starting with / are carried with the item when they are PNG, JPEG or GIF and their contents are that image, up to 25 files, 5 MB each and 20 MB in all; any other file is listed in files_skipped with the reason.  Make a new uuid for each save.  Sending the same uuid again returns the item it saved, unchanged, with created false, so a retry after an uncertain response is safe.  Titles may repeat. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="codeLibraryEmailCreateRequest">The email to save, with the uuid that makes a retry safe</param>
+        /// <returns>SfvbCodeLibraryEmailResponse</returns>
+        public SfvbCodeLibraryEmailResponse InsertSfvbCodeLibraryEmail (int storefrontOid, SfvbCodeLibraryEmailCreateRequest codeLibraryEmailCreateRequest)
+        {
+             ApiResponse<SfvbCodeLibraryEmailResponse> localVarResponse = InsertSfvbCodeLibraryEmailWithHttpInfo(storefrontOid, codeLibraryEmailCreateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Save a reusable email to this account's code library Saves a whole email (body, subject and preview text) as a code library email item that the admin's \"start from library\" picker and the step insert's library_item_oid can start a new email from (#2126).  No flow, campaign, sequence or step is made, and nothing sends.  The item is private to this account, never published or shared.  The body must pass the library content scanner and the email container rules.  Image files the body names by a path starting with / are carried with the item when they are PNG, JPEG or GIF and their contents are that image, up to 25 files, 5 MB each and 20 MB in all; any other file is listed in files_skipped with the reason.  Make a new uuid for each save.  Sending the same uuid again returns the item it saved, unchanged, with created false, so a retry after an uncertain response is safe.  Titles may repeat. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="codeLibraryEmailCreateRequest">The email to save, with the uuid that makes a retry safe</param>
+        /// <returns>ApiResponse of SfvbCodeLibraryEmailResponse</returns>
+        public ApiResponse<SfvbCodeLibraryEmailResponse> InsertSfvbCodeLibraryEmailWithHttpInfo (int storefrontOid, SfvbCodeLibraryEmailCreateRequest codeLibraryEmailCreateRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbCodeLibraryEmail");
+            // verify the required parameter 'codeLibraryEmailCreateRequest' is set
+            if (codeLibraryEmailCreateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'codeLibraryEmailCreateRequest' when calling SfvbApi->InsertSfvbCodeLibraryEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/code_library/emails";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (codeLibraryEmailCreateRequest != null && codeLibraryEmailCreateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(codeLibraryEmailCreateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = codeLibraryEmailCreateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbCodeLibraryEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCodeLibraryEmailResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCodeLibraryEmailResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCodeLibraryEmailResponse)));
+        }
+
+        /// <summary>
+        /// Save a reusable email to this account's code library Saves a whole email (body, subject and preview text) as a code library email item that the admin's \"start from library\" picker and the step insert's library_item_oid can start a new email from (#2126).  No flow, campaign, sequence or step is made, and nothing sends.  The item is private to this account, never published or shared.  The body must pass the library content scanner and the email container rules.  Image files the body names by a path starting with / are carried with the item when they are PNG, JPEG or GIF and their contents are that image, up to 25 files, 5 MB each and 20 MB in all; any other file is listed in files_skipped with the reason.  Make a new uuid for each save.  Sending the same uuid again returns the item it saved, unchanged, with created false, so a retry after an uncertain response is safe.  Titles may repeat. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="codeLibraryEmailCreateRequest">The email to save, with the uuid that makes a retry safe</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of SfvbCodeLibraryEmailResponse</returns>
+        public async System.Threading.Tasks.Task<SfvbCodeLibraryEmailResponse> InsertSfvbCodeLibraryEmailAsync (int storefrontOid, SfvbCodeLibraryEmailCreateRequest codeLibraryEmailCreateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<SfvbCodeLibraryEmailResponse> localVarResponse = await InsertSfvbCodeLibraryEmailWithHttpInfoAsync(storefrontOid, codeLibraryEmailCreateRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Save a reusable email to this account's code library Saves a whole email (body, subject and preview text) as a code library email item that the admin's \"start from library\" picker and the step insert's library_item_oid can start a new email from (#2126).  No flow, campaign, sequence or step is made, and nothing sends.  The item is private to this account, never published or shared.  The body must pass the library content scanner and the email container rules.  Image files the body names by a path starting with / are carried with the item when they are PNG, JPEG or GIF and their contents are that image, up to 25 files, 5 MB each and 20 MB in all; any other file is listed in files_skipped with the reason.  Make a new uuid for each save.  Sending the same uuid again returns the item it saved, unchanged, with created false, so a retry after an uncertain response is safe.  Titles may repeat. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="codeLibraryEmailCreateRequest">The email to save, with the uuid that makes a retry safe</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (SfvbCodeLibraryEmailResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SfvbCodeLibraryEmailResponse>> InsertSfvbCodeLibraryEmailWithHttpInfoAsync (int storefrontOid, SfvbCodeLibraryEmailCreateRequest codeLibraryEmailCreateRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling SfvbApi->InsertSfvbCodeLibraryEmail");
+            // verify the required parameter 'codeLibraryEmailCreateRequest' is set
+            if (codeLibraryEmailCreateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'codeLibraryEmailCreateRequest' when calling SfvbApi->InsertSfvbCodeLibraryEmail");
+
+            var localVarPath = "/sfvb/storefronts/{storefront_oid}/code_library/emails";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (codeLibraryEmailCreateRequest != null && codeLibraryEmailCreateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(codeLibraryEmailCreateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = codeLibraryEmailCreateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertSfvbCodeLibraryEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SfvbCodeLibraryEmailResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SfvbCodeLibraryEmailResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbCodeLibraryEmailResponse)));
         }
 
         /// <summary>
